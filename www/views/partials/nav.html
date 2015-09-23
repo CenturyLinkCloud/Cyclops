@@ -1,0 +1,23 @@
+<div class="nav left-tabs">
+  <h4 class="nav-header"><a href="/">Cyclops: <small>Pattern Library</small></a></h4>
+  <ul class="tabs">
+    <li id="grid" class="tab"><a href="/grid">Grid System</a></li>
+    <li id="typographycolor" class="tab"><a href="/typography">Typography &amp; Color</a></li>
+    <li id="buttons" class="tab"><a href="/buttons">Buttons</a></li>
+    <li id="forms" class="tab"><a href="/forms">Forms</a></li>
+    <li id="tables" class="tab"><a href="/tables">Tables</a></li>
+    <li id="listviews" class="tab"><a href="/listviews">List Views</a></li>
+    <li id="navigation" class="tab"><a href="/navigation">Navigation</a></li>
+    <li id="misc" class="tab"><a href="/misc">Misc</a></li>
+  </ul>
+</div>
+
+<script>
+  (function(tabName) {
+    if (tabName) {
+      var tab = document.getElementById(tabName);
+      if (tab)
+        tab.className = tab.className + ' selected';
+    }
+  })('{{block "tabName"}}');
+</script>

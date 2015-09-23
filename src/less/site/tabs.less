@@ -1,0 +1,37 @@
+.nav.left-tabs {
+  .nav-header {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+
+    .tab {
+      border-bottom: 1px solid rgba(0,0,0,.1);
+
+      &:first-child {
+        border-top: 1px solid rgba(0,0,0,.1);
+      }
+
+      a {
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+
+      &.active a {
+        background-color: @grayDark;
+        color: @white;
+      }
+    }
+  }
+}
