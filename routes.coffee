@@ -1,4 +1,8 @@
 fs = require 'fs'
+pkg = require './package.json'
+env = process.argv[2] || "development"
+ver = "v#{pkg.version}"
+
 
 module.exports = (app, __base) ->
   # favicon
@@ -19,6 +23,6 @@ module.exports = (app, __base) ->
             res.status 404
                .render '404'
           else
-            res.render withoutExtension + '/index.html'
+            res.render withoutExtension + '/index.html', { version: ver, enviroment: env }
       else
-        res.render page
+        res.render page, { version: ver, enviroment: env }
