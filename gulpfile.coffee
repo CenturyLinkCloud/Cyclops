@@ -3,6 +3,7 @@ concat = require 'gulp-concat'
 rename = require 'gulp-rename'
 less = require 'gulp-less'
 minifyCSS = require 'gulp-minify-css'
+minifyHTML = require 'gulp-minify-html'
 sourcemaps = require 'gulp-sourcemaps'
 uglify = require 'gulp-uglify'
 merge = require 'merge-stream'
@@ -42,8 +43,25 @@ gulp.task 'less-min', ->
 
 gulp.task 'less', ['less-concat', 'less-min']
 
+gulp.task 'template-concat', ->
+  gulp.src './src/templates/**/*.tmpl.html'
+    .pipe sourcemaps.init()
+    .pipe concat 'cyclops.tmpl.html'
+    .pipe sourcemaps.write './'
+    .pipe gulp.dest './www/assets/templates'
+
+gulp.task 'template-minify', ['template-concat'], ->
+  gulp.src ['./www/assets/templates/cyclops.tmpl.html']
+    .pipe sourcemaps.init()
+    .pipe minifyHTML { empty: true }
+    .pipe rename { suffix: '.min' }
+    .pipe sourcemaps.write './'
+    .pipe gulp.dest './www/assets/templates'
+
+
 gulp.task 'client-watch', ->
   gulp.watch './src/less/**/**', ['less-concat']
+  gulp.watch './src/templates/**/**', ['template-concat']
 
 gulp.task 'server-watch', ->
   return nodemon
