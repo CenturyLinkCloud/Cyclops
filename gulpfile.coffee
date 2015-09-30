@@ -113,4 +113,4 @@ gulp.task 'compile', ['cleanDist'], ->
   return merge copyCSS, renderHTML
 
 
-gulp.task 'dev', ['less-concat', 'client-watch', 'server-watch']
+gulp.task 'dev', ['less-concat', 'template-concat', 'client-watch', 'server-watch']
