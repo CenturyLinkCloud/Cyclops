@@ -1,0 +1,52 @@
+
+
+.nav-container {
+  padding: .75em 1.5em;
+  position: relative;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  width: 100%;
+  .clearfix();
+  a {
+    text-decoration: none;
+  }
+
+  .nav-brand {
+    float: right;
+    width: 127px;
+    height: 33px;
+  }
+
+  .nav-title {
+    float: left;
+    font-size: 18px;
+    letter-spacing: 5px;
+    line-height: 33px;
+    font-weight: 600;
+    margin-right: 2em;
+  }
+
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    li {
+      float: left;
+      font-weight: 400;
+
+      a {
+        padding: .5em 1em;
+        display: block;
+        border-bottom: 3px solid #ffffff;
+        letter-spacing: 1px;
+
+        &:hover {
+          border-bottom: 3px solid @primaryBrandGreen;
+        }
+      }
+    }
+  }
+
+
+}
