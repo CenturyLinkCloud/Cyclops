@@ -1,0 +1,251 @@
+html.cyclops {
+  .btn {
+    background-image: none;
+    border: none;
+    .border-radius(3px);
+    .box-shadow(none);
+    color: @white;
+    font-family: @fontFamily;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 4px 10px 6px;
+    text-shadow: none;
+    .transition(e('background-color .1s, color .1s, opacity .1s'));
+    
+    &:active {
+      .box-shadow(inset 0px 2px 1px 0px rgba(0,0,0,0.2));
+    }
+
+    &:focus {
+      outline-offset: -4px;
+      outline: 1px dotted lighten(@btn-default-bg, 20%);
+    }
+
+    &[disabled] {
+      opacity: 0.65;
+    }
+  }
+
+  .btn-default {
+    background-color: @btn-default-bg;
+    
+    &:hover {
+      background-color: @btn-default-bg-hover;
+    }
+
+    &:active {
+      background-color: @btn-default-bg-active;
+    }
+
+    &:focus {
+      outline: 1px dotted lighten(@btn-default-bg, 20%);
+    }
+
+    &[disabled] {
+      background-color: @btn-default-bg-disabled;
+      
+      &:hover {
+        background-color: @btn-default-bg-disabled;
+        color: @white;
+      }
+    }
+  }
+
+  .btn-primary {
+    background-color: @btn-primary-bg;
+    
+    &:hover {
+      background-color: @btn-primary-bg-hover;
+    }
+
+    &:active {
+      background-color: @btn-primary-bg-active;
+    }
+
+    &:focus {
+      outline: 1px dotted lighten(@btn-primary-bg-hover, 20%);
+    }
+
+    &[disabled] {
+      background-color: @btn-primary-bg-disabled;
+      color: @white;
+      
+      &:hover {
+        color: @white;
+      }
+    }
+  }
+
+  .btn-danger {
+    color: @white;
+    background-color: @btn-danger-bg;
+    
+    &:hover {
+      background-color: @btn-danger-bg-hover;
+    }
+
+    &:active {
+      background-color: @btn-danger-bg-active;
+    }
+
+    &:focus {
+      outline: 1px dotted lighten(@btn-danger-bg-hover, 20%);
+    }
+
+    &[disabled] {
+      background-color: @btn-danger-bg-disabled;
+      color: @white;
+      
+      &:hover {
+        color: @white;
+      }
+    }
+  }
+
+  .btn-inverse {
+    background-color: @btn-inverse-bg;
+    color: @textColor;
+    
+    &:hover {
+      background-color: @btn-inverse-bg-hover;
+    }
+
+    &:active {
+      background-color: @btn-inverse-bg-active;
+    }
+
+    &:focus {
+      outline: 1px dotted darken(@btn-inverse-bg-hover, 20%);
+    }
+
+    &[disabled] {
+      color: @btn-inverse-color-disabled;
+      
+      &:hover {
+        background-color: @btn-inverse-bg-disabled;
+        color: @btn-inverse-color-disabled;
+      }
+    }
+  }
+
+  .btn-outline {
+    border: 1px solid @btn-outline-border;
+    background-color: @btn-outline-bg;
+    color: @textColor;
+    
+    &:hover {
+      background-color: @btn-outline-bg-hover;
+      border: 1px solid @btn-outline-bg-hover;
+      color: @white;
+    }
+
+    &.active {
+      background-color: @btn-outline-bg-active;
+      border: 1px solid @btn-outline-bg-hover;
+      color: @white;
+    }
+
+    &:focus {
+      outline: 1px dotted lighten(@btn-outline-bg-hover, 20%);
+    }
+
+    &[disabled] {
+      &:hover {
+        border: 1px solid @btn-outline-border;
+        background-color: @btn-outline-bg-disabled;
+        color: @textColor;
+      }
+    }
+  }
+
+  .btn-link {
+    color: @textColor;
+    text-decoration: underline;
+    background-color: transparent;
+    
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &:active {
+      .box-shadow(none);
+    }
+
+    &:focus {
+      outline: 1px dotted lighten(@textColor, 40%);
+    }
+  }
+
+  .btn-lg,
+  .btn-large {
+    .border-radius(3px);
+    font-size: 15px;
+    line-height: 20px;
+    padding: 6px 10px 9px;
+  }
+
+  .btn-sm,
+  .btn-small {
+    .border-radius(3px);
+    font-size: 12px;
+    line-height: 18px;
+    padding: 3px 8px 4px;
+  }
+
+  .btn-mini {
+    .border-radius(2px);
+    font-size: 12px;
+    line-height: 12px;
+    text-decoration: none;
+    padding: 5px 7px 6px;
+  }
+
+  .btn-group > .btn {
+    .border-radius(3px);
+  }
+
+  .btn-row > .btn {
+    margin-bottom: 5px;
+  }
+
+  .btn-link-text {
+    font-family: @fontFamily;
+    font-size: @font-size-base;
+    .btn-link();
+    background: none;
+    border: none;
+    .box-shadow(none);
+    letter-spacing: 0;
+    margin-top: -3px;
+    padding: 0;
+    text-decoration: underline;
+    text-transform: none;
+  }
+
+  // Block button
+  // -------------------------
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    .box-sizing(border-box);
+  }
+
+  // Vertically space out multiple block buttons
+  .btn-block + .btn-block {
+    margin-top: 5px;
+  }
+
+  // Specificity overrides
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    &.btn-block {
+      width: 100%;
+    }
+  }
+}
