@@ -1,3 +1,39 @@
-{{#contentFor "title"}}Forms{{/contentFor}}
-{{#contentFor "tabName"}}forms{{/contentFor}}
-<h1>TODO: Forms<h1>
+{{#contentFor "title"}}Forms{{/contentFor}} {{#contentFor "tabName"}}forms{{/contentFor}}
+
+
+<form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+  <fieldset>
+    <legend>Advanced Controls</legend>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">slider</label>
+      <div class="col-sm-9">
+        <div>
+          <h3>common sizes</h3>
+          <p>
+            Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+          </p>
+          <p>
+            In general it would be best practice to also pass in
+            <strong>`maxBound`</strong> and
+            <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+          </p>
+          <slider params="value: 6, min: 1, max: 16"></slider>
+          <!-- CPU -->
+          <slider params="value: 4, min: 1, max: 128"></slider>
+          <!-- Memory -->
+          <slider params="value: 50, min: 1, max: 1024"></slider>
+          <!-- Disk -->
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    ko.applyBindings();
+  })
+</script>
+{{/contentFor}}

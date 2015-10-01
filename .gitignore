@@ -7,4 +7,5 @@ npm-debug.log
 /bower_components
 /www/assets/css
 /www/assets/templates
+/www/assets/scripts
 /dist

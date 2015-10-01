@@ -1,0 +1,198 @@
+//TODO color varibles?
+slider {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.slider-text-input {
+  width: 65px;
+  position: absolute;
+  top: 1px; // move for border
+}
+
+.slider-container {
+  position: relative;
+  margin-left: 75px;
+}
+
+.slider-track {
+  background: #e3e3e3;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #d7d7d7 0%, #e3e3e3 5%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d7d7d7), color-stop(5%,#e3e3e3));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #d7d7d7 0%,#e3e3e3 5%);
+  /* W3C */
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7d7d7', endColorstr='#e3e3e3',GradientType=0 );
+  /* IE6-9 */
+  border: solid 1px #bbb;
+  .border-radius(3px);
+  margin-right: 10px;
+  
+  .slider-min-bound-label,
+  .slider-max-bound-label {
+    line-height: 18px;
+    position: absolute;
+    z-index: 1;
+    color: @white;
+  }
+
+  .slider-min-bound-label {
+    left: 5px;
+  }
+
+  .slider-max-bound-label {
+    right: 15px;
+  }
+}
+
+.slider-valid-track {
+  
+  // allow the handle to be dragged over all the way to the right
+  margin-right: 10px;
+  background-color: #addbad;
+  height: 20px;
+  position: relative;
+}
+
+.slider-track-click {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-right: 10px;
+  
+  //background-color: red;
+  z-index: 2;
+}
+
+.slider-tick-container {
+  position: relative;
+  margin-right: 10px;
+  height: 5px;
+  margin-bottom: 3px;
+  
+  .slider-tick-mark {
+    position: absolute;
+    border-left: solid 1px #bbb;
+    height: 5px;
+    top: 0;
+  }
+}
+
+.slider-out-of-range {
+  position: relative;
+  margin-right: 10px;
+  width: 100%;
+  
+  .slider-out-of-range-value {
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    
+    .slider-out-of-range-marker {
+      height: 20px;
+      border-left: solid 1px #bbb;
+      border-color: rgba(0,0,0,.25);
+    }
+
+    .slider-out-of-range-number {
+      display: block;
+      margin-left: -50%;
+    }
+  }
+}
+
+.slider-out-of-range-message {
+  margin-top: 20px;
+}
+
+.slider-handle2 {
+  cursor: pointer;
+  width: 21px;
+  height: 30px;
+  margin-top: -5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  
+  .slider-tooltip {
+    opacity: 1;
+    width: 50px;
+    top: -33px;
+    left: -15px;
+    display: none;
+    
+    .tooltip-inner {
+      background-color: #fff;
+      color: #555;
+      border: solid 1px #bebebe;
+      .border-radius(3px);
+    }
+  }
+
+  .fill {
+    fill: #fff;
+  }
+
+  .border {
+    fill: #bbb;
+  }
+}
+
+.slider-value-fill {
+  
+  // Move it over the top of the track border
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 22px;
+  background-color: #59b955;
+  border: solid 1px #248e1b;
+  .border-radius(3px);
+}
+
+.has-min-bound {
+  .slider-min-bound-label {
+    color: #bebebe;
+  }
+
+  .slider-value-fill {
+    .border-radius(0);
+  }
+}
+
+.has-max-bound {
+  .slider-max-bound-label {
+    color: #bebebe;
+  }
+}
+
+.disabled {
+  .slider-value-fill {
+    background-color: #addbad;
+    border: none;
+    height: 20px;
+    top: 0;
+  }
+
+  .slider-handle2.ui-state-disabled {
+    cursor: not-allowed;
+    opacity: 1;
+    
+    .handle-fill {
+      fill: #eee;
+    }
+  }
+}

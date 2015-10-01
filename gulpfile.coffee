@@ -11,6 +11,8 @@ nodemon = require 'nodemon'
 hbs = require 'express-hbs'
 through = require 'through2'
 clean = require 'gulp-clean'
+coffee = require 'gulp-coffee'
+addSrc = require 'gulp-add-src'
 pkg = require './package.json'
 
 __base = './www/'
@@ -58,10 +60,29 @@ gulp.task 'template-minify', ['template-concat'], ->
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/templates'
 
+gulp.task 'script-concat', ->
+  gulp.src ['./src/scripts/helpers/**/*.*', './src/scripts/bindings/**/*.*','./src/scripts/models/**/*.*', './src/scripts/*.*']
+    .pipe coffee({bare: true})
+    .pipe addSrc.prepend './build/before.js'
+    .pipe addSrc.append './build/after.js'
+    .pipe sourcemaps.init()
+    .pipe concat('cyclops.js')
+    .pipe sourcemaps.write './'
+    .pipe gulp.dest './www/assets/scripts'
+
+gulp.task 'script-minify', ['script-concat'], ->
+  gulp.src ['./www/assets/scripts/cyclops.js']
+    .pipe sourcemaps.init()
+    .pipe uglify()
+    .pipe rename { suffix: '.min' }
+    .pipe sourcemaps.write './'
+    .pipe gulp.dest './www/assets/scripts'
+
 
 gulp.task 'client-watch', ->
   gulp.watch './src/less/**/**', ['less-concat']
   gulp.watch './src/templates/**/**', ['template-concat']
+  gulp.watch './src/scripts/**/**', ['script-concat']
 
 gulp.task 'server-watch', ->
   return nodemon
@@ -113,4 +134,4 @@ gulp.task 'compile', ['cleanDist'], ->
   return merge copyCSS, renderHTML
 
 
-gulp.task 'dev', ['less-concat', 'template-concat', 'client-watch', 'server-watch']
+gulp.task 'dev', ['less-concat', 'template-concat', 'script-concat', 'client-watch', 'server-watch']
