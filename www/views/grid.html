@@ -11,26 +11,36 @@
     <p>Containers are the most basic layout element in Bootstrap and are required when using our grid system. In most cases, you'll want to use a <code>.container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
 
     <h3 id="rows-columns">Rows &amp; Columns</h3>
-    <p>For proper alignment and padding, <code>.row</code> must be placed within a <code>.container-fluid</code>. Columns should be immediate children of rows, and only columns should contain content.</p>
+    <p>For proper alignment and padding, <code>.row</code> must be placed within either a <code>.container</code> or <code>.container-fluid</code>. Columns should be immediate children of rows, and only columns should contain content.</p>
 
     <p>Columns use an equal amount of space in the parent container. This automatic sizing allows you to achieve most desired outcomes. Our system is composed of 12 flexible columns with a 40px gutter (20px on the left and right of each column).
 
     <p>You can specify columns to span across the 1-12 columns.</p>
+
+    <pre>
+      <code class="html">
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;!-- combination of columns --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
 
     <h3 id="media-queries">Media Queries</h3>
 
     <p>We use the following media queries in our Less files to create the key breakpoints in our grid system.</p>
 
         <pre>
-          <code>
-      /* Small devices (tablets, 768px and up) */
-      @media (min-width: @screen-sm-min) { ... }
+          <code class="html">
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
 
-      /* Medium devices (desktops, 992px and up) */
-      @media (min-width: @screen-md-min) { ... }
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
 
-      /* Large devices (large desktops, 1200px and up) */
-      @media (min-width: @screen-lg-min) { ... }
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }
           </code>
         </pre>
 
@@ -56,21 +66,21 @@
 
     <pre>
       <code class="html">
-      &lt;div class=&quot;container-fluid&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-md-8&quot;&gt;.col-md-8&lt;/div&gt;
-          &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
-          &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
-          &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;row&quot;&gt;
-          &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
-          &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-8&quot;&gt;.col-md-8&lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
       </code>
     </pre>
 

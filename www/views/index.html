@@ -1,30 +1,33 @@
 {{#contentFor "title"}}Welcome{{/contentFor}}
 
-<h1>Cyclops</h1>
+<div class="row">
+  <div class="col-sm-8">
+    <h2>How to use it?</h2>
+    <h3>At the top</h3>
+    <pre>
+      <code class="html">
+&lt;head&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;https://assests.ctl.io/cyclops/0.1.0/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+  &lt;!-- anyother of your content --&gt;
+&lt;/head&gt;
+      </code>
+    </pre>
+    <h3>At the bottom</h3>
+    <pre>
+      <code class="html">
+&lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $.holdReady(true);
+  $.get(&quot;https://assests.ctl.io/cyclops/0.1.0/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
+      $(&quot;head&quot;).append(tmpl);
+      $.holdReady(false);
+  });
+&lt;/script&gt;
+&lt;!-- your scripts here --&gt;
+      </code>
+    </pre>
 
-<h2>How to use it?</h2>
-<h3>At the top</h3>
-<pre>
-  <code class="html">
-    &lt;head&gt;
-      &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-      &lt;link href=&quot;https://assests.ctl.io/cyclops/0.1.0/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
-      &lt;!-- anyother of your content --&gt;
-    &lt;/head&gt;
-  </code>
-</pre>
-<h3>At the bottom</h3>
-<pre>
-  <code class="html">
-    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-      $.holdReady(true);
-      $.get(&quot;https://assests.ctl.io/cyclops/0.1.0/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
-          $(&quot;head&quot;).append(tmpl);
-          $.holdReady(false);
-      });
-    &lt;/script&gt;
-    &lt;!-- your scripts here --&gt;
-  </code>
-</pre>
+  </div>
+</div>
