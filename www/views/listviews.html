@@ -1,4 +1,112 @@
 {{#contentFor "title"}}Listviews{{/contentFor}}
 {{#contentFor "tabName"}}listviews{{/contentFor}}
 {{!< layouts/leftnav.html}}
-<h1>TODO: listviews<h1>
+
+<h1>ListViews</h1>
+<section class="pl-section">
+  <h2><a href="#readOnly">Read Only</a></h2>
+  <div id="readOnly" class="pl-example">
+    <div class="pl-actions">
+      <!-- This content is just used for demo purposes you'll wire up your own -->
+      <button class="btn btn-default" data-bind="click: addAnItem">Add An Item</button>
+      <button class="btn btn-danger" data-bind="click: DeleteAllItems">Remove All Items</button>
+    </div>
+    <div class="new-list-view-responsive new-list-view-responsive-md">
+        <div class="new-list-view-header">
+            <h3 class="col col-25">Name</h3>
+            <h3 class="col col-25">Type</h3>
+            <h3 class="col col-50">Servers</h3>
+        </div>
+        <ul class="new-list-view"  data-bind="templateSwitcher: {
+          value: items,
+          loading: isLoading,
+          templates: {
+            display: 'listViewReadOnlyItemTemplate',
+            loading: 'listViewReadOnlyLoadingTemplate',
+            empty: 'listViewReadOnlyEmptyTemplate'}}"></ul>
+    </div>
+  </div>
+</section>
+
+
+{{#contentFor "scripts"}}
+<!-- Begin ListView Read Only -->
+<script>
+  $(function () {
+    var Item = function () {
+      var self = this;
+      self.name = ko.observable("My Name");
+      self.type = ko.observable("The Type");
+      self.servers = ko.observableArray([]);
+      self.loadingServers = ko.observable(true);
+      // this would be replaced with a shell.ajax call
+      setTimeout(function () {
+          self.servers.push("QA1DEVTEST1");
+          self.servers.push("QA1DEVTEST2");
+          self.servers.push("QA1DEVTEST3");
+          self.loadingServers(false);
+      }, 3000);
+    };
+    var ListViewReadOnlyModel = function () {
+        var self = this;
+        self.items = ko.observableArray([]);
+        self.isLoading = ko.observable(true);
+        self.addAnItem = function () {
+            var item = new Item();
+            self.items.push(item);
+        };
+        self.DeleteAllItems = function () {
+            self.items([]);
+        }
+    };
+    var model = new ListViewReadOnlyModel();
+    // This is to simulate a shall.ajax call to the server
+    setTimeout(function () {
+        model.isLoading(false);
+    }, 3000);
+
+    ko.applyBindings(model, $("#readOnly")[0]);
+  })
+</script>
+<script type="text/html" id="listViewReadOnlyEmptyTemplate">
+  <li class="empty-list-view-item">
+    There are no items &hellip; Always give the user a way to <button class="btn btn-link" data-bind="click: addAnItem">create something</button> if there is nothing
+  </li>
+</script>
+<script type="text/html" id="listViewReadOnlyLoadingTemplate">
+    <li class="loading-list-view-items">Fetching Items from server&hellip;</li>
+</script>
+<script type="text/html" id="listViewReadOnlyServersLoadingTemplate">
+    &hellip;
+</script>
+<script type="text/html" id="listViewReadOnlyServersEmptyTemplate">
+    &mdash;
+</script>
+<script type="text/html" id="listViewReadOnlyServersDisplayTemplate">
+    <ul data-bind="foreach: servers">
+        <li data-bind="text: $data"></li>
+    </ul>
+</script>
+<script type="text/html" id="listViewReadOnlyItemTemplate">
+  <!-- ko foreach: items -->
+  <li>
+    <div class="list-view-read-only-item">
+      <div class="col col-25"><label class="col-header">name</label><!--ko text: name--><!--/ko--></div>
+      <div class="col col-25"><label class="col-header">type</label><!--ko text: type--><!--/ko--></div>
+      <div class="col col-50">
+        <label class="col-header">servers</label>
+        <!-- ko templateSwitcher: { value: servers,
+                                    loading: loadingServers,
+                                    templates: { display: 'listViewReadOnlyServersDisplayTemplate',
+                                                 empty: 'listViewReadOnlyServersEmptyTemplate',
+                                                 loading: 'listViewReadOnlyServersLoadingTemplate'
+                                               }
+                                  }-->
+        <!--/ko-->
+      </div>
+    </div>
+  </li>
+  <!-- /ko -->
+</script>
+<!-- End ListView Read Only-->
+{{/contentFor}}

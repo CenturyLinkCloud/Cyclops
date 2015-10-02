@@ -1,0 +1,873 @@
+html.cyclops {
+  .new-list-view-header {
+    background-color: #e3e3e3;
+    box-sizing: border-box;
+    padding: 6px 0;
+    text-transform: uppercase;
+    .clearfix();
+    
+    h3 {
+      padding: 0 15px;
+      font-size: 12px;
+      display: block;
+      float: left;
+      line-height: 20px;
+      box-sizing: border-box;
+      margin: 0;
+      
+      &.bottom-align {
+        padding-top: 36px;
+      }
+    }
+
+    .heading {
+      letter-spacing: 1px;
+      font-weight: @baseFontWeight;
+      text-align: right;
+    }
+
+    .value {
+      font-size: 40px;
+      line-height: 30px;
+      text-align: right;
+    }
+
+    &.totals {
+      background: none;
+      border-bottom: 2px solid @borderColor;
+    }
+  }
+
+  .new-list-view {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    > li .list-view-item,
+    > li .list-view-editable-item,
+    > li .list-view-read-only-item {
+      border-bottom: 1px solid @borderColor;
+      padding: 10px 0;
+      .transition(e('background .05s ease-in'));
+      .clearfix();
+      
+      &.no-hover {
+        cursor: default;
+        background: none;
+        
+        &:hover {
+          background: none;
+        }
+      }
+
+      .new-list-view-actions {
+        text-align: right;
+        opacity: 0;
+        .transition(e('opacity .1s linear'));
+      }
+
+      &:hover .new-list-view-actions {
+        opacity: 1;
+      }
+    }
+
+    > li .list-view-editable-item {
+      cursor: pointer;
+      
+      &:hover {
+        background: #ebebeb;
+      }
+    }
+
+    > li .list-view-read-only-item {
+      background-color: #f9f9f9;
+    }
+
+    // handle nesting out to 12 levels after 6 levels the padding gets less
+    // at 12 they are all the same.
+    
+    li {
+      
+      // 0
+      li {
+        .col-indent {
+          padding-left: 30px; // 1
+        }
+
+        li {
+          .col-indent {
+            padding-left: 45px; // 2
+          }
+
+          li {
+            .col-indent {
+              padding-left: 60px; // 3
+            }
+
+            li {
+              .col-indent {
+                padding-left: 75px; // 4
+              }
+
+              li {
+                .col-indent {
+                  padding-left: 90px; // 5
+                }
+
+                li {
+                  .col-indent {
+                    padding-left: 105px; // 6
+                  }
+
+                  li {
+                    .col-indent {
+                      padding-left: 110px; // 7
+                    }
+
+                    li {
+                      .col-indent {
+                        padding-left: 115px; // 8
+                      }
+
+                      li {
+                        .col-indent {
+                          padding-left: 120px; // 9
+                        }
+
+                        li {
+                          .col-indent {
+                            padding-left: 125px; // 10
+                          }
+
+                          li {
+                            .col-indent {
+                              padding-left: 130px; // 11
+                            }
+
+                            li {
+                              .col-indent {
+                                padding-left: 135px; // 12
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .disabled-item {
+      color: #999;
+    }
+
+    .empty-list-view-item {
+      line-height: 30px;
+      border-bottom: 1px solid @grayLighter;
+      padding: 7px 15px 12px;
+      text-align: center;
+      
+      &:hover {
+        background: none;
+      }
+
+      .btn-link {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    &.condensed {
+      .col {
+        padding: 0 7px;
+      }
+    }
+
+    &.no-padding {
+      .col {
+        padding: 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      
+      &:hover {
+        background: none;
+      }
+
+      li {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    .validationMessage {
+      font-size: 13px;
+      display: inline-block;
+      
+      ul {
+        margin: 0 0 10px 25px;
+        
+        li {
+          border-bottom: none;
+          padding: initial;
+          line-height: normal;
+          cursor: default;
+          list-style-type: disc;
+          
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .loading-list-view-items {
+      line-height: 30px;
+      border-bottom: 1px solid @grayLighter;
+      padding: 7px 15px 12px;
+      text-align: center;
+      
+      &:hover {
+        background: none;
+      }
+    }
+
+    .new-list-view-item-details {
+      background: #f5f5f5;
+      box-sizing: border-box;
+      border: 1px solid @grayLighter;
+      .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
+      padding: 10px 14px;
+      
+      &:hover {
+        background: #f5f5f5;
+      }
+
+      #modifiedBy {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .well {
+        background-color: #fff;
+        border: 0;
+      }
+
+      .validation-summary {
+        color: #b94a48;
+        margin: 0 0 0 13px;
+        list-style-type: disc;
+        margin-bottom: 15px;
+        
+        li {
+          border: none;
+          padding: 0;
+          line-height: 25px;
+        }
+      }
+
+      [title],
+      [data-original-title] {
+        text-decoration: underline;
+      }
+
+      // Knockout Validation will put and empty title which would cause
+      // underlines when there was no hover text
+      
+      [title=""],
+      [data-original-title=""],
+      input[title],
+      select[title],
+      textarea[title] {
+        text-decoration: none;
+      }
+
+      [data-password-strength='0'],
+      [data-password-strength='1'],
+      [data-password-strength='2'] {
+        color: #b94a48;
+      }
+
+      [data-password-strength='3'] {
+        color: @textColor;
+      }
+
+      [data-password-strength='4'] {
+        color: green;
+      }
+
+      ol {
+        margin: 0;
+        list-style-type: none;
+        background-color: white;
+        
+        &.custom-input-control {
+          max-height: 200px;
+          overflow: auto;
+        }
+
+        li {
+          padding: 0;
+          border: none;
+          
+          &:hover {
+            background: #fff;
+          }
+
+          .item-content {
+            border-bottom: 1px solid @grayLighter;
+            padding-left: 20px;
+            cursor: pointer;
+          }
+
+          .item-hover {
+            &:hover {
+              background-color: #f2f2f2;
+            }
+          }
+
+          .item-hover.item-selected {
+            background: #3a3a3a;
+            color: #fff;
+          }
+
+          li {
+            .item-content {
+              padding-left: 40px;
+            }
+
+            li {
+              .item-content {
+                padding-left: 60px;
+              }
+
+              li {
+                .item-content {
+                  padding-left: 80px;
+                }
+
+                li {
+                  .item-content {
+                    padding-left: 100px;
+                  }
+
+                  li {
+                    .item-content {
+                      padding-left: 120px;
+                    }
+
+                    li {
+                      .item-content {
+                        padding-left: 140px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      label.error {
+        color: #b94a48;
+      }
+
+      select.error,
+      input.error {
+        color: @textColor;
+        
+        &:focus {
+          .box-shadow(none);
+        }
+      }
+    }
+  }
+
+  /* columns within a listview */
+  .col {
+    display: block;
+    float: left;
+    padding: 0 15px;
+    vertical-align: top;
+    box-sizing: border-box;
+    min-height: 1px;
+    /*hack so that empty divs won't collapse on itself*/
+    word-wrap: break-word;
+  }
+
+  .col-10 {
+    width: 10%;
+  }
+
+  .col-15 {
+    width: 15%;
+  }
+
+  .col-20 {
+    width: 20%;
+  }
+
+  .col-25 {
+    width: 25%;
+  }
+
+  .col-30 {
+    width: 30%;
+  }
+
+  .col-35 {
+    width: 35%;
+  }
+
+  .col-40 {
+    width: 40%;
+  }
+
+  .col-45 {
+    width: 45%;
+  }
+
+  .col-50 {
+    width: 50%;
+  }
+
+  .col-55 {
+    width: 55%;
+  }
+
+  .col-60 {
+    width: 60%;
+  }
+
+  .col-65 {
+    width: 65%;
+  }
+
+  .col-70 {
+    width: 70%;
+  }
+
+  .col-75 {
+    width: 75%;
+  }
+
+  .col-80 {
+    width: 80%;
+  }
+
+  .col-85 {
+    width: 85%;
+  }
+
+  .col-90 {
+    width: 90%;
+  }
+
+  .col-95 {
+    width: 95%;
+  }
+
+  .col-100 {
+    width: 100%;
+  }
+
+  .new-list-view-responsive {
+    .col-header {
+      display: none;
+    }
+
+    .new-list-view-responsive-expanded {
+      @media (max-width: 0px) {
+        .new-list-view-responsive-collapsed
+      }
+    }
+
+    &.new-list-view-responsive-sm {
+      .new-list-view-responsive-expanded {
+        @media (max-width: 768px) {
+          .new-list-view-responsive-collapsed
+        }
+      }
+    }
+
+    &.new-list-view-responsive-md {
+      .new-list-view-responsive-expanded {
+        @media (max-width: 992px) {
+          .new-list-view-responsive-collapsed
+        }
+      }
+    }
+
+    &.new-list-view-responsive-lg {
+      .new-list-view-responsive-expanded {
+        @media (max-width: 1200px) {
+          .new-list-view-responsive-collapsed
+        }
+      }
+    }
+  }
+
+  // The classes bellow are not meant to be used...
+  // they are meant to be included in other classes
+  // go go less!
+  
+  .new-list-view-responsive-collapsed {
+    ul {
+      border-top: solid 1px #d9d9d9;
+    }
+
+    > li {
+      padding: 15px 0;
+    }
+
+    li {
+      
+      // 0
+      li {
+        .list-view-editable-item {
+          
+          // 1
+          padding-left: 15px;
+        }
+
+        .col-indent {
+          padding-left: 15px;
+        }
+
+        li {
+          .list-view-editable-item {
+            
+            // 2
+            padding-left: 30px;
+          }
+
+          .col-indent {
+            padding-left: 15px;
+          }
+
+          li {
+            .list-view-editable-item {
+              
+              // 3
+              padding-left: 45px;
+            }
+
+            .col-indent {
+              padding-left: 15px;
+            }
+
+            li {
+              .list-view-editable-item {
+                
+                // 4
+                padding-left: 60px;
+              }
+
+              .col-indent {
+                padding-left: 15px;
+              }
+
+              li {
+                .list-view-editable-item {
+                  
+                  // 5
+                  padding-left: 90px;
+                }
+
+                .col-indent {
+                  padding-left: 15px;
+                }
+
+                li {
+                  .list-view-editable-item {
+                    
+                    // 6
+                    padding-left: 105px;
+                  }
+
+                  .col-indent {
+                    padding-left: 15px;
+                  }
+
+                  li {
+                    .list-view-editable-item {
+                      
+                      // 7
+                      padding-left: 110px;
+                    }
+
+                    .col-indent:before {
+                      padding-left: 15px;
+                    }
+
+                    li {
+                      .list-view-editable-item {
+                        
+                        // 8
+                        padding-left: 115px;
+                      }
+
+                      .col-indent:before {
+                        padding-left: 15px;
+                      }
+
+                      li {
+                        .list-view-editable-item {
+                          
+                          // 9
+                          padding-left: 120px;
+                        }
+
+                        .col-indent:before {
+                          padding-left: 15px;
+                        }
+
+                        li {
+                          .list-view-editable-item {
+                            
+                            // 10
+                            padding-left: 125px;
+                          }
+
+                          .col-indent:before {
+                            padding-left: 15px;
+                          }
+
+                          li {
+                            .list-view-editable-item {
+                              
+                              // 11
+                              padding-left: 130px;
+                            }
+
+                            .col-indent:before {
+                              padding-left: 15px;
+                            }
+
+                            li {
+                              .list-view-editable-item {
+                                
+                                // 12
+                                padding-left: 135px;
+                              }
+
+                              .col-indent:before {
+                                padding-left: 15px;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .col {
+      float: none;
+      margin-bottom: 15px;
+      text-align: initial !important;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .col-10 {
+      width: auto;
+    }
+
+    .col-15 {
+      width: auto;
+    }
+
+    .col-20 {
+      width: auto;
+    }
+
+    .col-25 {
+      width: auto;
+    }
+
+    .col-30 {
+      width: auto;
+    }
+
+    .col-35 {
+      width: auto;
+    }
+
+    .col-40 {
+      width: auto;
+    }
+
+    .col-45 {
+      width: auto;
+    }
+
+    .col-50 {
+      width: auto;
+    }
+
+    .col-55 {
+      width: auto;
+    }
+
+    .col-60 {
+      width: auto;
+    }
+
+    .col-65 {
+      width: auto;
+    }
+
+    .col-70 {
+      width: auto;
+    }
+
+    .col-75 {
+      width: auto;
+    }
+
+    .col-80 {
+      width: auto;
+    }
+
+    .col-85 {
+      width: auto;
+    }
+
+    .col-90 {
+      width: auto;
+    }
+
+    .col-95 {
+      width: auto;
+    }
+
+    .col-100 {
+      width: auto;
+    }
+
+    .col-header {
+      display: initial;
+    }
+
+    label.col-header {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      font-weight: 600;
+      cursor: default;
+    }
+
+    .new-list-view-header {
+      display: none;
+    }
+  }
+
+  .new-list-view-responsive-expanded {
+    .col {
+      display: block;
+      float: left;
+      padding: 0 15px;
+      vertical-align: top;
+      box-sizing: border-box;
+      min-height: 1px;
+      /*hack so that empty divs won't collapse on itself*/
+      word-wrap: break-word;
+    }
+
+    .col-10 {
+      width: 10%;
+    }
+
+    .col-15 {
+      width: 15%;
+    }
+
+    .col-20 {
+      width: 20%;
+    }
+
+    .col-25 {
+      width: 25%;
+    }
+
+    .col-30 {
+      width: 30%;
+    }
+
+    .col-35 {
+      width: 35%;
+    }
+
+    .col-40 {
+      width: 40%;
+    }
+
+    .col-45 {
+      width: 45%;
+    }
+
+    .col-50 {
+      width: 50%;
+    }
+
+    .col-55 {
+      width: 55%;
+    }
+
+    .col-60 {
+      width: 60%;
+    }
+
+    .col-65 {
+      width: 65%;
+    }
+
+    .col-70 {
+      width: 70%;
+    }
+
+    .col-75 {
+      width: 75%;
+    }
+
+    .col-80 {
+      width: 80%;
+    }
+
+    .col-85 {
+      width: 85%;
+    }
+
+    .col-90 {
+      width: 90%;
+    }
+
+    .col-95 {
+      width: 95%;
+    }
+
+    .col-100 {
+      width: 100%;
+    }
+  }
+}

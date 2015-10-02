@@ -1,6 +1,10 @@
+body {
+  margin: 0;
+}
+
 .pl-section {
   margin-bottom: 40px;
-
+  
   &#listViews {
     .row {
       margin-bottom: 40px;
@@ -9,7 +13,7 @@
 
   h1 a {
     text-decoration: none;
-
+    
     &:hover {
       text-decoration: underline;
     }
@@ -18,11 +22,12 @@
 
 .pl-example {
   border: 1px solid @borderColor;
+  background: @white;
   padding: 40px 20px 20px;
   border-radius: 5px;
   margin-bottom: 25px;
   position: relative;
-
+  
   &:after {
     position: absolute;
     top: 15px;
@@ -46,7 +51,7 @@
 
 .pl-show-grid {
   margin-bottom: 15px;
-
+  
   [class^=col-] {
     padding-top: 10px;
     padding-bottom: 10px;
