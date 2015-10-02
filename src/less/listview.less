@@ -5,7 +5,7 @@ html.cyclops {
     padding: 6px 0;
     text-transform: uppercase;
     .clearfix();
-    
+
     h3 {
       padding: 0 15px;
       font-size: 12px;
@@ -14,7 +14,7 @@ html.cyclops {
       line-height: 20px;
       box-sizing: border-box;
       margin: 0;
-      
+
       &.bottom-align {
         padding-top: 36px;
       }
@@ -42,7 +42,7 @@ html.cyclops {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    
+
     > li .list-view-item,
     > li .list-view-editable-item,
     > li .list-view-read-only-item {
@@ -50,11 +50,11 @@ html.cyclops {
       padding: 10px 0;
       .transition(e('background .05s ease-in'));
       .clearfix();
-      
+
       &.no-hover {
         cursor: default;
         background: none;
-        
+
         &:hover {
           background: none;
         }
@@ -73,7 +73,7 @@ html.cyclops {
 
     > li .list-view-editable-item {
       cursor: pointer;
-      
+
       &:hover {
         background: #ebebeb;
       }
@@ -85,9 +85,9 @@ html.cyclops {
 
     // handle nesting out to 12 levels after 6 levels the padding gets less
     // at 12 they are all the same.
-    
+
     li {
-      
+
       // 0
       li {
         .col-indent {
@@ -169,9 +169,9 @@ html.cyclops {
     .empty-list-view-item {
       line-height: 30px;
       border-bottom: 1px solid @grayLighter;
-      padding: 7px 15px 12px;
+      padding: @padding-base-vertical 15px (@padding-base-vertical + 5);
       text-align: center;
-      
+
       &:hover {
         background: none;
       }
@@ -197,7 +197,7 @@ html.cyclops {
     ul {
       list-style: none;
       margin: 0;
-      
+
       &:hover {
         background: none;
       }
@@ -211,17 +211,17 @@ html.cyclops {
     .validationMessage {
       font-size: 13px;
       display: inline-block;
-      
+
       ul {
         margin: 0 0 10px 25px;
-        
+
         li {
           border-bottom: none;
           padding: initial;
           line-height: normal;
           cursor: default;
           list-style-type: disc;
-          
+
           &:hover {
             background-color: transparent;
           }
@@ -232,9 +232,9 @@ html.cyclops {
     .loading-list-view-items {
       line-height: 30px;
       border-bottom: 1px solid @grayLighter;
-      padding: 7px 15px 12px;
+      padding: @padding-base-vertical 15px (@padding-base-vertical + 5);
       text-align: center;
-      
+
       &:hover {
         background: none;
       }
@@ -246,7 +246,7 @@ html.cyclops {
       border: 1px solid @grayLighter;
       .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
       padding: 10px 14px;
-      
+
       &:hover {
         background: #f5f5f5;
       }
@@ -266,7 +266,7 @@ html.cyclops {
         margin: 0 0 0 13px;
         list-style-type: disc;
         margin-bottom: 15px;
-        
+
         li {
           border: none;
           padding: 0;
@@ -281,7 +281,7 @@ html.cyclops {
 
       // Knockout Validation will put and empty title which would cause
       // underlines when there was no hover text
-      
+
       [title=""],
       [data-original-title=""],
       input[title],
@@ -308,7 +308,7 @@ html.cyclops {
         margin: 0;
         list-style-type: none;
         background-color: white;
-        
+
         &.custom-input-control {
           max-height: 200px;
           overflow: auto;
@@ -317,7 +317,7 @@ html.cyclops {
         li {
           padding: 0;
           border: none;
-          
+
           &:hover {
             background: #fff;
           }
@@ -384,7 +384,7 @@ html.cyclops {
       select.error,
       input.error {
         color: @textColor;
-        
+
         &:focus {
           .box-shadow(none);
         }
@@ -519,7 +519,7 @@ html.cyclops {
   // The classes bellow are not meant to be used...
   // they are meant to be included in other classes
   // go go less!
-  
+
   .new-list-view-responsive-collapsed {
     ul {
       border-top: solid 1px #d9d9d9;
@@ -530,11 +530,11 @@ html.cyclops {
     }
 
     li {
-      
+
       // 0
       li {
         .list-view-editable-item {
-          
+
           // 1
           padding-left: 15px;
         }
@@ -545,7 +545,7 @@ html.cyclops {
 
         li {
           .list-view-editable-item {
-            
+
             // 2
             padding-left: 30px;
           }
@@ -556,7 +556,7 @@ html.cyclops {
 
           li {
             .list-view-editable-item {
-              
+
               // 3
               padding-left: 45px;
             }
@@ -567,7 +567,7 @@ html.cyclops {
 
             li {
               .list-view-editable-item {
-                
+
                 // 4
                 padding-left: 60px;
               }
@@ -578,7 +578,7 @@ html.cyclops {
 
               li {
                 .list-view-editable-item {
-                  
+
                   // 5
                   padding-left: 90px;
                 }
@@ -589,7 +589,7 @@ html.cyclops {
 
                 li {
                   .list-view-editable-item {
-                    
+
                     // 6
                     padding-left: 105px;
                   }
@@ -600,7 +600,7 @@ html.cyclops {
 
                   li {
                     .list-view-editable-item {
-                      
+
                       // 7
                       padding-left: 110px;
                     }
@@ -611,7 +611,7 @@ html.cyclops {
 
                     li {
                       .list-view-editable-item {
-                        
+
                         // 8
                         padding-left: 115px;
                       }
@@ -622,7 +622,7 @@ html.cyclops {
 
                       li {
                         .list-view-editable-item {
-                          
+
                           // 9
                           padding-left: 120px;
                         }
@@ -633,7 +633,7 @@ html.cyclops {
 
                         li {
                           .list-view-editable-item {
-                            
+
                             // 10
                             padding-left: 125px;
                           }
@@ -644,7 +644,7 @@ html.cyclops {
 
                           li {
                             .list-view-editable-item {
-                              
+
                               // 11
                               padding-left: 130px;
                             }
@@ -655,7 +655,7 @@ html.cyclops {
 
                             li {
                               .list-view-editable-item {
-                                
+
                                 // 12
                                 padding-left: 135px;
                               }
@@ -681,7 +681,7 @@ html.cyclops {
       float: none;
       margin-bottom: 15px;
       text-align: initial !important;
-      
+
       &:last-child {
         margin-bottom: 0;
       }
