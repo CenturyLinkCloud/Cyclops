@@ -55,21 +55,82 @@
   </pre>
 
   <h2>Special Cases</h2>
+  <h3>Inline Confirm</h3>
+  <p>
+    Inline confirm is a jQuery widget that can be applied to any button that will require the user
+    to confirm that action they are performing. Typically this is used for Delete scenario's but
+    can be used other places. You can use it as a pure jQuery Widget or you can use the widget
+    binding in knockout.
+  </p>
+  <h4>options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>messageHtml</td>
+        <td>HTML String</td>
+        <td>Are you sure?</td>
+        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+      </tr>
+      <tr>
+        <td>yesHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "yes" button</td>
+      </tr>
+      <tr>
+        <td>noHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "no" button</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td>number</td>
+        <td>3000</td>
+        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pl-example">
+    <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
+  </div>
   <div class="row">
-    <div class="col-md-6" id="inlineConfirm">
-      <h4>Inline confirm delete button</h4>
-      <div class="pl-example">
-        <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
-      </div>
+    <div class="col-md-6">
+      <h4>Pure jQuery Widget</h4>
+      <pre>
+        <code class="javascript">
+$(function(){
+  $(&#39;btn-danger&#39;).inlineConfirm()
+})
+        </code>
+      </pre>
     </div>
 
     <div class="col-md-6">
-      <h4>Block Level Button</h4>
-      <div class="pl-example">
-        <button type="button" class="btn btn-default btn-block">btn-block</button>
-      </div>
+      <h4>knokcout binding</h4>
+      <pre>
+        <code class="html">
+&lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
+        </code>
+      </pre>
     </div>
   </div>
+
+
+  <h3>Block Level Button</h3>
+  <div class="pl-example">
+    <button type="button" class="btn btn-default btn-block">btn-block</button>
+  </div>
+
+
 
 </section>
 
