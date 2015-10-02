@@ -10,7 +10,7 @@ module.exports = (app, __base) ->
   app.engine 'html', hbs.express4
     partialsDir: __base + 'views/partials'
     layoutDir: __base + 'views/layouts'
-    defaultLayout: __base + 'views/layouts/layout.html'
+    defaultLayout: __base + 'views/layouts/default.html'
     extname: 'html'
 
   app.set 'view engine', 'html'

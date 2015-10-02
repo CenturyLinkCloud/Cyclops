@@ -110,7 +110,7 @@ gulp.task 'compile', ['cleanDist'], ->
         viewsDir: './www/views'
         partialsDir: './www/views/partials'
         layoutDir: './www/views/layouts'
-        defaultLayout: './www/views/layouts/layout.html'
+        defaultLayout: './www/views/layouts/default.html'
         extName: 'html'
 
       locals = {
