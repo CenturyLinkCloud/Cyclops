@@ -1,9 +1,7 @@
-
-
 .nav-container {
   padding: .75em 1.5em;
   position: relative;
-  background-color: #ffffff;
+  background-color: @cyclops-header-bg;
   margin-bottom: 40px;
   width: 100%;
   .clearfix();
@@ -24,6 +22,10 @@
     line-height: 33px;
     font-weight: 600;
     margin-right: 2em;
+
+    a {
+        color: @primaryBrandGreen;
+    }
   }
 
   .nav-links {
@@ -38,7 +40,7 @@
       a {
         padding: .5em 1em;
         display: block;
-        border-bottom: 3px solid #ffffff;
+        border-bottom: 3px solid @cyclops-header-bg;
         letter-spacing: 1px;
 
         &:hover {
@@ -47,6 +49,20 @@
       }
     }
   }
+}
 
+.nav-aux {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
 
+  li {
+    padding-left: 0;
+    a {
+      color: @primaryBrandGreen;
+      display: block;
+      padding: .5em 0;
+      text-decoration: none;
+    }
+  }
 }

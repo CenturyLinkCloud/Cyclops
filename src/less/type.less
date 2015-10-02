@@ -1,8 +1,8 @@
 html.cyclops {
-  
+
   // Headings
   // -------------------------
-  
+
   h1,
   h2,
   h3,
@@ -29,7 +29,7 @@ html.cyclops {
   .h3 {
     margin-top: @line-height-computed;
     margin-bottom: (@line-height-computed / 2);
-    
+
     small {
       font-weight: @baseFontWeight;
       font-size: 65%;
@@ -44,7 +44,7 @@ html.cyclops {
   .h6 {
     margin-top: (@line-height-computed / 2);
     margin-bottom: (@line-height-computed / 2);
-    
+
     small,
     .small {
       font-weight: @baseFontWeight;
@@ -55,7 +55,7 @@ html.cyclops {
   h1 {
     font-size: ceil((@font-size-h1 * .65));
     margin-bottom: 10px;
-    
+
     @media (min-width: @screen-sm-min) {
       font-size: @font-size-h1;
     }
@@ -96,7 +96,7 @@ html.cyclops {
     border-bottom: 2px solid @borderColor;
     margin-bottom: 15px;
     padding-bottom: (@line-height-computed / 2);
-    
+
     color {
       text-transform: uppercase;
     }
@@ -104,7 +104,7 @@ html.cyclops {
     .lead {
       color: @textColorLighter;
       margin-bottom: 0;
-      
+
       @media (min-width: @screen-sm-min) {
         margin-top: -7px;
       }
@@ -125,7 +125,7 @@ html.cyclops {
 
   // Body text
   // -------------------------
-  
+
   body {
     font-weight: @baseFontWeight;
     font-family: @fontFamily;
@@ -136,14 +136,14 @@ html.cyclops {
 
   a {
     color: @textColor;
-    
+
     &.underline {
       text-decoration: underline;
     }
   }
 
   p {
-    margin: 0;
+    margin: 0 0 (@line-height-computed / 2);
   }
 
   .text-center {
@@ -163,7 +163,7 @@ html.cyclops {
     font-size: floor((@font-size-base * 1.15));
     font-weight: 300;
     line-height: 1.4;
-    
+
     @media (min-width: @screen-sm-min) {
       font-size: (@font-size-base * 1.5);
     }

@@ -23,15 +23,21 @@
 @screen-md-max: (@screen-lg-min - 1);
 @screen-lg-max: 1200px;
 
+
 //== Type
+// -------------------------
+
 @textColor: #333;
 @headingTextColor: #222;
 @textColorLight: #666;
 @textColorLighter: #999;
 @borderColor: #d9d9d9;
+
 @baseFontWeight: 300;
+
 @fontFamily: "Open Sans", Helvetica, Arial, Sans-Serif;
 @monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
+
 @font-size-base: 14px;
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small: ceil((@font-size-base * 0.85)); // ~12px
@@ -41,11 +47,26 @@
 @font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
 @font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+@headings-line-height: 1.2;
+
+
+// Common Components
+// -------------------------
+
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base: 1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
-@headings-line-height: 1.2;
+
+@border-radius-base:        4px;
+@border-radius-large:       6px;
+@border-radius-small:       3px;
+
+
+// Colors
+// -------------------------
+
 @primaryBrandGreen: #00853f;
 
 // Grays
@@ -69,6 +90,7 @@
 @orange: #f89406;
 @pink: #c3325f;
 @purple: #7a43b6;
+
 
 // Buttons
 //-------------------------
@@ -100,3 +122,10 @@
 @btn-outline-bg-hover: #888;
 @btn-outline-bg-active: @btn-outline-bg-hover;
 @btn-outline-bg-disabled: @btn-outline-bg;
+
+
+// Code
+//-------------------------
+
+@code-color:                  #c7254e;
+@code-bg:                     #f9f2f4;
