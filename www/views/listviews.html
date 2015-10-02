@@ -26,6 +26,21 @@
             empty: 'listViewReadOnlyEmptyTemplate'}}"></ul>
     </div>
   </div>
+
+  <h2><a href="#crud">C.R.U.D.</a></h2>
+  <div id="crud" class="pl-example">
+    <div class="pl-actions">
+      <button class="btn btn-default" data-bind="click: addItem">Create An Item</button>
+    </div>
+    <div class="new-list-view-responsive new-list-view-responsive-sm">
+      <div class="new-list-view-header">
+        <h3 class="col col-25">Name</h3>
+        <h3 class="col col-25">IP Address</h3>
+        <h3 class="col col-50">Description</h3>
+      </div>
+      <ul class="new-list-view" data-bind="templateSwitcher: {value: items, loading: isLoading, foo: hasErrord, templates: {display: 'listViewEditableItemsTemplate', loading: 'listViewEditableLoadingTemplate', empty: 'listViewEditableEmptyTemplate'}}"></ul>
+    </div>
+  </div>
 </section>
 
 
@@ -109,4 +124,215 @@
   <!-- /ko -->
 </script>
 <!-- End ListView Read Only-->
+
+<!-- Begin ListView Editable -->
+<script>
+  $(function () {
+      var Item = function () {
+          var self = this;
+          self.name = "Name Cannot Change";
+          self.description = ko.trackableObservable("A Longer Description would go here...");
+          self.description.extend({ required: { params: true, message: "A description is required" } });
+          self.ipAddress = ko.trackableObservable("192.168.1.1");
+          self.inEditMode = ko.observable(false);
+          self.templateName = ko.computed(function () {
+              return self.inEditMode() ? "listViewEditableItemEditTemplate" : "listViewEditableItemTemplate";
+          });
+
+          self.saving = ko.observable(false);
+          self.saveButtonText = ko.computed(function () {
+              return self.saving() ? "Saving" : "Save";
+          });
+          self.isValid = ko.computed(function () {
+              // For more information on validation see the forms section of the pattern Library
+              return self.description.isValid();
+          });
+          self.save = function () {
+              if (!self.isValid()) {
+                  return false;
+              }
+              self.saving(true);
+              // This simulates a AJAX call. If the call failed you would want to
+              // display a error message and not commit the values and leave the user in edit mode.
+              window.setTimeout(function () {
+                  self.ipAddress.commit();
+                  self.description.commit();
+                  self.inEditMode(false);
+                  self.saving(false);
+              }, 3000);
+          };
+          self.cancel = function () {
+              self.ipAddress.reset();
+              self.description.reset();
+              self.inEditMode(false);
+          }
+          return self;
+      };
+      var CreateItemModel = function () {
+          var self = this;
+          self.open = ko.observable(false);
+          self.item = ko.observable(new Item());
+          self.creating = ko.observable(false);
+          self.createButtonText = ko.computed(function () {
+              return self.creating() ? "Creating..." : "Create";
+          });
+          self.reset = function () {
+              self.open(false);
+              self.item(new Item());
+          };
+          self.save = function () {
+              var newItem = self.item();
+              self.reset();
+              return newItem;
+          }
+          return self;
+      }
+      var ListViewCrudModel = function () {
+          var self = this;
+          self.items = ko.observableArray([
+              new Item(),
+              new Item(),
+              new Item(),
+              new Item()
+          ]);
+          self.create = new CreateItemModel();
+          self.isLoading = ko.observable(true);
+          self.hasErrord = ko.observable(true);
+          self.editItem = function (item) {
+              self._closeAllEdits();
+              item.inEditMode(true);
+          };
+          self._closeAllEdits = function () {
+              // Call each item and have it cancel its edit mode
+              // we do it this was so that partial edits do not looked committed
+              self.items().forEach(function (i) {
+                  i.cancel(false);
+              })
+              self.create.reset();
+          };
+          self.deleteItem = function (item) {
+              self.items.splice(self.items().indexOf(item), 1);
+          };
+          self.addItem = function () {
+              self.create.open(true);
+          };
+          self.createItem = function () {
+              if (self.create.item().isValid()) {
+                  var item = self.create.save();
+                  self.items.push(item);
+              }
+          };
+          return self;
+      };
+      var model = new ListViewCrudModel();
+      // This is to simulate a shall.ajax call to the server
+      setTimeout(function () {
+          model.isLoading(false);
+      }, 1000);
+      ko.applyBindings(model, $("#crud")[0]);
+  })
+</script>
+<script type="text/html" id="listViewEditableEmptyTemplate">
+  <li class="empty-list-view-item">
+      There are no items &hellip; Always give the user a way to <button class="btn btn-link" data-bind="click: addAnItem">create something</button> if there is nothing
+  </li>
+</script>
+<script type="text/html" id="listViewEditableLoadingTemplate">
+  <li class="loading-list-view-items">Fetching Items from server&hellip;</li>
+</script>
+<script type="text/html" id="listViewEditableItemsTemplate">
+  <!--
+      This is done with virtual elements to save DOM markup.
+      Also note that if you want to use s compute property in the item as the template
+      name you have to nest the template binding and not use the built in foreach in the
+      template binding as that uses the parent context when looking for the property
+  -->
+  <!-- ko template: { name: 'listViewEditableItemCreateTemplate', data: create }--><!-- /ko -->
+  <!-- ko foreach: { data: items, as: 'i' }  -->
+  <!-- ko template: i.templateName --><!-- /ko-->
+  <!-- /ko -->
+</script>
+<script type="text/html" id="listViewEditableItemTemplate">
+  <li>
+      <div class="list-view-editable-item" data-bind="click:$parent.editItem">
+          <div class="col col-25"><label class="col-header">name</label><!--ko text: name--><!--/ko--></div>
+          <div class="col col-25"><label class="col-header">IP Address</label><!--ko text: ipAddress--><!--/ko--></div>
+          <div class="col col-50"><label class="col-header">Description</label><!--ko text: description--><!--/ko--></div>
+      </div>
+      <!-- This is where you would put the nested see the listViewHierarchy for more details -->
+  </li>
+</script>
+<script type="text/html" id="listViewEditableItemEditTemplate">
+  <li>
+      <div class="new-list-view-item-details">
+          <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
+              <fieldset>
+                  <legend>Edit &ldquo;<!-- ko text: name--><!--/ko-->&rdquo; <button type="button" class="close" data-bind="click: cancel, disable: saving" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">name</label>
+                      <div class="col-sm-6">
+                          <p data-bind="text: name"></p>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">ip address</label>
+                      <div class="col-sm-6">
+                          <input type="text" class="form-control" data-bind="value: ipAddress, disable: saving" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">description</label>
+                      <div class="col-sm-6">
+                          <textarea class="form-control" data-bind="value: description, disable: saving, validationElement: description"></textarea>
+                          <span class="validationMessage" data-bind="validationMessage: description"></span>
+                      </div>
+                  </div>
+                  <div class="form-group actions">
+                      <div class="col-sm-offset-3 col-sm-9">
+                          <button class="btn btn-success" data-bind="click: save, disable: saving, text: saveButtonText">Save</button>
+                          <button class="btn btn-link" data-bind="click: cancel, disable: saving">Cancel</button>
+                          <button class="btn btn-danger pull-right" data-bind="click: $parent.deleteItem, disable: saving, widget:'inlineConfirm'">Delete</button>
+                      </div>
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+      <!-- Dont forget if you have hierarchy to render the children here, see the listViewHierarchy for more details  -->
+  </li>
+</script>
+<script type="text/html" id="listViewEditableItemCreateTemplate">
+  <li class="hide new-list-view-item-details" data-bind="fadeSlide: open">
+      <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
+          <fieldset>
+              <legend>Add an item <button type="button" class="close" data-bind="click: reset, disable: creating" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">name</label>
+                  <div class="col-sm-9">
+                      <input class="form-control" type="text" data-bind="value: item().name, disable: creating" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">IP Address</label>
+                  <div class="col-sm-9">
+                      <input class="form-control" type="text" data-bind="value: item().ipAddress, disable: creating" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">Description</label>
+                  <div class="col-sm-6">
+                      <textarea class="form-control" data-bind="value: item().description, disable: creating, validationElement: item().description"></textarea>
+                      <span class="validationMessage" data-bind="validationMessage: item().description"></span>
+                  </div>
+              </div>
+              <div class="form-group actions">
+                  <div class="col-sm-offset-3 col-sm-9">
+                      <button class="btn btn-success" data-bind="click: $parent.createItem, disable: creating, text: createButtonText">Save</button>
+                      <button class="btn btn-link" data-bind="click: reset, disable: creating">Cancel</button>
+                  </div>
+              </div>
+          </fieldset>
+      </form>
+  </li>
+</script>
+
 {{/contentFor}}
