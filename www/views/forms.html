@@ -2,40 +2,70 @@
 {{#contentFor "tabName"}}forms{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-
-<form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-  <fieldset>
-    <legend>Advanced Controls</legend>
-    <div class="form-group">
-      <label class="col-sm-3 control-label">slider</label>
-      <div class="col-sm-9">
-        <div>
-          <h3>common sizes</h3>
-          <p>
-            Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
-          </p>
-          <p>
-            In general it would be best practice to also pass in
-            <strong>`maxBound`</strong> and
-            <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
-          </p>
-          <slider params="value: 6, min: 1, max: 16"></slider>
-          <!-- CPU -->
-          <slider params="value: 4, min: 1, max: 128"></slider>
-          <!-- Memory -->
-          <slider params="value: 50, min: 1, max: 1024"></slider>
-          <!-- Disk -->
+<div class="pl-example">
+  <form class="form-horizontal">
+    <fieldset>
+      <legend>A Standard Form with Validation</legend>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">uneditable text</label>
+        <div class="col-sm-6">
+          <p>You cannot change this text</p>
+          <p>Another paragraph that cannot be changed</p>
         </div>
       </div>
-    </div>
-  </fieldset>
-</form>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">input text</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">input text</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">password text</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control">
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
 
-
+<h3>Input Sliders</h3>
+<p>
+  Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+</p>
+<p>
+  In general it would be best practice to also pass in
+  <strong>`maxBound`</strong> and
+  <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+</p>
+<div class="pl-example">
+  <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+    <fieldset>
+      <legend>Advanced Controls</legend>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">slider</label>
+        <div class="col-sm-9">
+            <slider params="value: 6, min: 1, max: 16"></slider>
+            <!-- CPU -->
+            <slider params="value: 4, min: 1, max: 128"></slider>
+            <!-- Memory -->
+            <slider params="value: 50, min: 1, max: 1024"></slider>
+            <!-- Disk -->
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
 {{#contentFor "scripts"}}
 <script>
-  $(function(){
-    ko.applyBindings();
-  })
+$(function(){
+  ko.applyBindings();
+})
 </script>
 {{/contentFor}}

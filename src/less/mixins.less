@@ -21,6 +21,13 @@
   }
 }
 
+// Creates a wrapper for a series of columns
+.make-row(@gutter: 40px) {
+  margin-left:  ceil((@gutter / -2));
+  margin-right: floor((@gutter / -2));
+  .clearfix();
+}
+
 // CSS3 PROPERTIES
 // --------------------------------------------------
 // Border Radius

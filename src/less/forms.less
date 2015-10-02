@@ -1,0 +1,105 @@
+html.cyclops {
+
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: initial;
+  }
+
+  legend {
+    padding-bottom: (@padding-base-vertical * 2);
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: @form-group-margin-bottom;
+    border-bottom-color: @borderColor;
+
+    .description {
+      font-size: 13px;
+      line-height: 20px;
+      display: block;
+    }
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: @input-height-base;
+    padding: 6px 12px;
+    font-size: @font-size-base;
+    line-height: 1.42857143;
+    color: @textColor;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  // Form groups
+  //
+  // Designed to help with the organization and spacing of vertical forms. For
+  // horizontal forms, use the predefined grid classes.
+
+  .form-group {
+    margin-bottom: @form-group-margin-bottom;
+  }
+
+  .control-label {
+    font-size: @font-size-base - 1;
+    margin-bottom: 5px;
+  }
+
+  // Horizontal forms
+  //
+  // Horizontal forms are built on grid classes and allow you to create forms with
+  // labels on the left and inputs on the right.
+  .form-horizontal {
+    // Consistent vertical alignment of radios and checkboxes
+    //
+    // Labels also get some reset styles, but that is scoped to a media query below.
+    .radio,
+    .checkbox,
+    .radio-inline,
+    .checkbox-inline {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 7px; // Default padding plus a border
+    }
+    // Account for padding we're adding to ensure the alignment and of help text
+    // and other content below items
+    .radio,
+    .checkbox {
+      min-height: (@line-height-computed + (@padding-base-vertical + 1));
+    }
+
+    // Make form groups behave like rows
+    .form-group {
+      .make-row();
+
+      @media (min-width: @screen-sm-min) {
+        p:first-of-type {
+            padding-top: @padding-base-vertical;
+        }
+      }
+    }
+
+    // Reset spacing and right align labels, but scope to media queries so that
+    // labels on narrow viewports stack the same as a default form example.
+    @media (min-width: @screen-sm-min) {
+      .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: @padding-base-vertical;
+      }
+    }
+
+  }
+}
