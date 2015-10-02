@@ -61,7 +61,11 @@ gulp.task 'template-minify', ['template-concat'], ->
     .pipe gulp.dest './www/assets/templates'
 
 gulp.task 'script-concat', ->
-  gulp.src ['./src/scripts/helpers/**/*.*', './src/scripts/bindings/**/*.*','./src/scripts/models/**/*.*', './src/scripts/*.*']
+  gulp.src ['./src/scripts/helpers/**/*.*', 
+            './src/scripts/bindings/**/*.*',
+            './src/scripts/widgets/**/*.*',
+            './src/scripts/models/**/*.*',
+            './src/scripts/*.*']
     .pipe coffee({bare: true})
     .pipe addSrc.prepend './build/before.js'
     .pipe addSrc.append './build/after.js'
