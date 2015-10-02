@@ -20,6 +20,23 @@ body {
   }
 }
 
+.pl-options {
+  bordeR: 1px solid @borderColor;
+  padding: 40px 20px 20px;
+  
+  &:after {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: @textColorLighter;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    content: "Options";
+  }
+}
+
 .pl-example {
   border: 1px solid @borderColor;
   background: @white;
