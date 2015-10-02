@@ -1,8 +1,28 @@
-<footer>
-  <p>
-    {{version}} &mdash; Designed and Developed with &hearts; by
-    <a href="mailto:matthew.osborn@ctl.io">Matthew Osborn</a>,
-    <a href="mailto:nathan.young@ctl.io">Nathan Young</a>, &amp;
-    <a href="mailto:Rathromony.Ros@ctl.io">Rathromony Ros</a>
-  </p>
-</footer>
+  <footer>
+    <p>
+      {{version}} &mdash; Designed and Developed with &hearts; by
+      <a href="mailto:matthew.osborn@ctl.io">Matthew Osborn</a>,
+      <a href="mailto:nathan.young@ctl.io">Nathan Young</a>, &amp;
+      <a href="mailto:Rathromony.Ros@ctl.io">Rathromony Ros</a>
+    </p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="./scripts/cyclops.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+    $.holdReady(true);
+    $.get("./templates/cyclops.tmpl.html", function(tmpl){
+        $("head").append(tmpl);
+        $.holdReady(false);
+    });
+  </script>
+  {{{block "scripts"}}}
+</body>
+
+</html>
