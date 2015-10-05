@@ -1,47 +1,238 @@
-{{#contentFor "title"}}Listviews{{/contentFor}}
+{{#contentFor "title"}}List Views{{/contentFor}}
 {{#contentFor "tabName"}}listviews{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-<h1>ListViews</h1>
-<section class="pl-section">
-  <h2><a href="#readOnly">Read Only</a></h2>
-  <div id="readOnly" class="pl-example">
-    <div class="pl-actions">
-      <!-- This content is just used for demo purposes you'll wire up your own -->
-      <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
-      <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
-    </div>
-    <div class="new-list-view-responsive new-list-view-responsive-md">
-        <div class="new-list-view-header">
-            <h3 class="col col-25">Name</h3>
-            <h3 class="col col-25">Type</h3>
-            <h3 class="col col-50">Servers</h3>
-        </div>
-        <ul class="new-list-view"  data-bind="templateSwitcher: {
-          value: items,
-          loading: isLoading,
-          templates: {
-            display: 'listViewReadOnlyItemTemplate',
-            loading: 'listViewReadOnlyLoadingTemplate',
-            empty: 'listViewReadOnlyEmptyTemplate'}}"></ul>
-    </div>
-  </div>
+<div class="row">
+  <div class="col-sm-9">
 
-  <h2><a href="#crud">C.R.U.D.</a></h2>
-  <div id="crud" class="pl-example">
-    <div class="pl-actions">
-      <button class="btn btn-default" data-bind="click: addItem">create an item</button>
-    </div>
-    <div class="new-list-view-responsive new-list-view-responsive-sm">
-      <div class="new-list-view-header">
-        <h3 class="col col-25">Name</h3>
-        <h3 class="col col-25">IP Address</h3>
-        <h3 class="col col-50">Description</h3>
+    <section class="pl-section">
+
+      <h1>List Views</h1>
+
+      <p>List views provide built-in views for create, read, update, and delete (CRUD) operations, making them ideal for displaying many different types of user managable entities in the Control Portal (e.g. alerts policies, scheduled tasks).</p>
+
+      <p>The basic markup for a list view looks like this:</p>
+
+      <pre>
+        <code class="html">
+&lt;!-- header of the list --&gt;
+&lt;div class=&quot;new-list-view-header&quot;&gt;
+    &lt;h3 class=&quot;col col-25&quot;&gt;Header Column 1&lt;/h3&gt;
+    &lt;h3 class=&quot;col col-25&quot;&gt;Header Column 2&lt;/h3&gt;
+    &lt;h3 class=&quot;col col-50&quot;&gt;Header Column 3&lt;/h3&gt;
+&lt;/div&gt;
+&lt;!-- body of the list --&gt;
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+          &lt;div class=&quot;col col-25&quot;&gt;Body Column 1&lt;/div&gt;
+          &lt;div class=&quot;col col-25&quot;&gt;Body Column 2&lt;/div&gt;
+          &lt;div class=&quot;col col-50&quot;&gt;Body Column 3&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+          &lt;div class=&quot;col col-25&quot;&gt;Body Column 1&lt;/div&gt;
+          &lt;div class=&quot;col col-25&quot;&gt;Body Column 2&lt;/div&gt;
+          &lt;div class=&quot;col col-50&quot;&gt;Body Column 3&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+        </code>
+      </pre>
+
+      <p>Which renders this:</p>
+
+      <div class="pl-example">
+        <div class="new-list-view-header">
+            <h3 class="col col-25">Header Column 1</h3>
+            <h3 class="col col-25">Header Column 2</h3>
+            <h3 class="col col-50">Header Column 3</h3>
+        </div>
+        <ul class="new-list-view">
+          <li>
+              <div class="list-view-item">
+                  <div class="col col-25">Body Column 1</div>
+                  <div class="col col-25">Body Column 2</div>
+                  <div class="col col-50">Body Column 3</div>
+              </div>
+          </li>
+          <li>
+              <div class="list-view-item">
+                  <div class="col col-25">Body Column 1</div>
+                  <div class="col col-25">Body Column 2</div>
+                  <div class="col col-50">Body Column 3</div>
+              </div>
+          </li>
+        </ul>
       </div>
-      <ul class="new-list-view" data-bind="templateSwitcher: {value: items, loading: isLoading, foo: hasErrord, templates: {display: 'listViewEditableItemsTemplate', loading: 'listViewEditableLoadingTemplate', empty: 'listViewEditableEmptyTemplate'}}"></ul>
-    </div>
+
+
+      <h3 id="columnWidths"><a href="#columnWidths">Column Widths</a></h3>
+      <p>List view columns are built using a <code>.col</code> and corresponding percentage width <code>.col-*</code>. Available widths include: <code>.col-10, .col-15, .col-20, .col-25 , .col-30, .col-35, .col-40, .col-45, .col-50, .col-55, .col-60, .col-65, .col-70, .col-75, .col-80, .col-85, .col-90, .col-95, .col-100</code></p>
+
+      <h3 id="rowTypes"><a href="#rowTypes">Row Types (Items)</a></h3>
+
+      <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are three distinct row types for list views.</p>
+
+      <table class="table">
+        <tr>
+          <td width="40%"><code>.list-view-item</code></td>
+          <td>No hover state on mouse over. Ideal for displaying lists of read-only data.</td>
+        </tr>
+        <tr>
+          <td><code>.list-view-editable-item</code></td>
+          <td>Entire row is highlighted on hover, and is clickable. Clicking the row will link to another page, or the edit form will replace the selected row. Ideal for items whose entire row should be clickable.</td>
+        </tr>
+        <tr>
+          <td><code>.list-view-read-only-item</code></td>
+          <td>The row is not selectable, and the background is slightly dimmed as to appear un-editable. Ideal for displaying lists where items are a mix of read-only and editable items.</td>
+        </tr>
+      </table>
+
+      <div class="pl-example">
+        <div class="new-list-view-header">
+            <h3 class="col col-100">Row Type</h3>
+        </div>
+        <ul class="new-list-view">
+          <li>
+              <div class="list-view-item">
+                  <div class="col col-100">Item</div>
+              </div>
+          </li>
+          <li>
+              <div class="list-view-editable-item">
+                  <div class="col col-100">Editable Item</div>
+              </div>
+          </li>
+
+          <li>
+              <div class="list-view-read-only-item">
+                  <div class="col col-100">Read Only Item</div>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <pre>
+        <code class="html">
+&lt;div class=&quot;new-list-view-header&quot;&gt;
+  &lt;h3 class=&quot;col col-100&quot;&gt;Row Type&lt;/h3&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;new-list-view&quot;&gt;
+&lt;li&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+        &lt;div class=&quot;col col-100&quot;&gt;Editable Item&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+    &lt;div class=&quot;list-view-read-only-item&quot;&gt;
+        &lt;div class=&quot;col col-100&quot;&gt;Read Only Item&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+        </code>
+      </pre>
+
+      <h3 id="listViewResponsive"><a href="#listViewResponsive">Responsive List Views</a></h3>
+      <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint.</p>
+
+      <table class="table">
+        <tr>
+          <td width="40%"><code>.new-list-view-responsive-sm</code></td>
+          <td>768px</td>
+        </tr>
+        <tr>
+          <td><code>.new-list-view-responsive-md</code></td>
+          <td>992px</td>
+        </tr>
+        <tr>
+          <td><code>.new-list-view-responsive-lg</code></td>
+          <td>1200px</td>
+        </tr>
+      </table>
+
+      <p>In each col, set an optional label to appear above each column value.</p>
+
+      <div class="pl-example">
+        <div class="new-list-view-responsive new-list-view-responsive-sm">
+          <div class="new-list-view-header">
+              <h3 class="col col-25">First Name</h3>
+              <h3 class="col col-25">Last Name</h3>
+              <h3 class="col col-50">Title</h3>
+          </div>
+          <ul class="new-list-view">
+            <li>
+                <div class="list-view-item">
+                    <div class="col col-25"><label class="col-header">First Name</label>Body Column 1</div>
+                    <div class="col col-25"><label class="col-header">Last Name</label>Body Column 2</div>
+                    <div class="col col-50"><label class="col-header">Title</label>Body Column 3</div>
+                </div>
+            </li>
+            <li>
+                <div class="list-view-item">
+                    <div class="col col-25"><label class="col-header">First Name</label>Body Column 1</div>
+                    <div class="col col-25"><label class="col-header">Last Name</label>Body Column 2</div>
+                    <div class="col col-50"><label class="col-header">Title</label>Body Column 3</div>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="pl-section">
+      <h2>Interactive Examples</h2>
+      <p>Below are examples of list views using javascript objects and knockout bindings.</p>
+      <h3><a href="#readOnly">Read Only</a></h3>
+      <div id="readOnly" class="pl-example">
+        <div class="pl-actions">
+          <!-- This content is just used for demo purposes you'll wire up your own -->
+          <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
+          <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
+        </div>
+        <div class="new-list-view-responsive new-list-view-responsive-md">
+            <div class="new-list-view-header">
+                <h3 class="col col-25">Name</h3>
+                <h3 class="col col-25">Type</h3>
+                <h3 class="col col-50">Servers</h3>
+            </div>
+            <ul class="new-list-view"  data-bind="templateSwitcher: {
+              value: items,
+              loading: isLoading,
+              templates: {
+                display: 'listViewReadOnlyItemTemplate',
+                loading: 'listViewReadOnlyLoadingTemplate',
+                empty: 'listViewReadOnlyEmptyTemplate'}}"></ul>
+        </div>
+      </div>
+
+      <h3><a href="#crud">C.R.U.D.</a></h3>
+      <div id="crud" class="pl-example">
+        <div class="pl-actions">
+          <button class="btn btn-default" data-bind="click: addItem">create an item</button>
+        </div>
+        <div class="new-list-view-responsive new-list-view-responsive-sm">
+          <div class="new-list-view-header">
+            <h3 class="col col-25">Name</h3>
+            <h3 class="col col-25">IP Address</h3>
+            <h3 class="col col-50">Description</h3>
+          </div>
+          <ul class="new-list-view" data-bind="templateSwitcher: {value: items, loading: isLoading, foo: hasErrord, templates: {display: 'listViewEditableItemsTemplate', loading: 'listViewEditableLoadingTemplate', empty: 'listViewEditableEmptyTemplate'}}"></ul>
+        </div>
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
 
 
 {{#contentFor "scripts"}}
