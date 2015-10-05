@@ -12,7 +12,7 @@ html.cyclops {
     padding: 4px 10px 6px;
     text-shadow: none;
     .transition(e('background-color .1s, color .1s, opacity .1s'));
-    
+
     &:active {
       .box-shadow(inset 0px 2px 1px 0px rgba(0,0,0,0.2));
     }
@@ -29,7 +29,7 @@ html.cyclops {
 
   .btn-default {
     background-color: @btn-default-bg;
-    
+
     &:hover {
       background-color: @btn-default-bg-hover;
     }
@@ -44,7 +44,7 @@ html.cyclops {
 
     &[disabled] {
       background-color: @btn-default-bg-disabled;
-      
+
       &:hover {
         background-color: @btn-default-bg-disabled;
         color: @white;
@@ -54,7 +54,7 @@ html.cyclops {
 
   .btn-primary {
     background-color: @btn-primary-bg;
-    
+
     &:hover {
       background-color: @btn-primary-bg-hover;
     }
@@ -70,7 +70,7 @@ html.cyclops {
     &[disabled] {
       background-color: @btn-primary-bg-disabled;
       color: @white;
-      
+
       &:hover {
         color: @white;
       }
@@ -80,7 +80,7 @@ html.cyclops {
   .btn-danger {
     color: @white;
     background-color: @btn-danger-bg;
-    
+
     &:hover {
       background-color: @btn-danger-bg-hover;
     }
@@ -96,7 +96,7 @@ html.cyclops {
     &[disabled] {
       background-color: @btn-danger-bg-disabled;
       color: @white;
-      
+
       &:hover {
         color: @white;
       }
@@ -106,7 +106,7 @@ html.cyclops {
   .btn-inverse {
     background-color: @btn-inverse-bg;
     color: @textColor;
-    
+
     &:hover {
       background-color: @btn-inverse-bg-hover;
     }
@@ -121,7 +121,7 @@ html.cyclops {
 
     &[disabled] {
       color: @btn-inverse-color-disabled;
-      
+
       &:hover {
         background-color: @btn-inverse-bg-disabled;
         color: @btn-inverse-color-disabled;
@@ -133,7 +133,7 @@ html.cyclops {
     border: 1px solid @btn-outline-border;
     background-color: @btn-outline-bg;
     color: @textColor;
-    
+
     &:hover {
       background-color: @btn-outline-bg-hover;
       border: 1px solid @btn-outline-bg-hover;
@@ -163,7 +163,7 @@ html.cyclops {
     color: @textColor;
     text-decoration: underline;
     background-color: transparent;
-    
+
     &:hover {
       color: #000;
       text-decoration: underline;
@@ -226,7 +226,7 @@ html.cyclops {
 
   // Block button
   // -------------------------
-  
+
   .btn-block {
     display: block;
     width: 100%;
@@ -247,5 +247,35 @@ html.cyclops {
     &.btn-block {
       width: 100%;
     }
+  }
+
+  // Close icons used inside list view forms
+  // --------------------------------------------------
+
+  .close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: @line-height-base;
+    color: @black;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+    .opacity(20);
+    &:hover {
+      color: @black;
+      text-decoration: none;
+      cursor: pointer;
+      .opacity(40);
+    }
+  }
+
+  // Additional properties for button version
+  // iOS requires the button element instead of an anchor tag.
+  // If you want the anchor version, it requires `href="#"`.
+  button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
   }
 }
