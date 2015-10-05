@@ -8,8 +8,8 @@
   <div id="readOnly" class="pl-example">
     <div class="pl-actions">
       <!-- This content is just used for demo purposes you'll wire up your own -->
-      <button class="btn btn-default" data-bind="click: addAnItem">Add An Item</button>
-      <button class="btn btn-danger" data-bind="click: DeleteAllItems">Remove All Items</button>
+      <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
+      <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-md">
         <div class="new-list-view-header">
@@ -30,7 +30,7 @@
   <h2><a href="#crud">C.R.U.D.</a></h2>
   <div id="crud" class="pl-example">
     <div class="pl-actions">
-      <button class="btn btn-default" data-bind="click: addItem">Create An Item</button>
+      <button class="btn btn-default" data-bind="click: addItem">create an item</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-sm">
       <div class="new-list-view-header">
@@ -85,7 +85,7 @@
 </script>
 <script type="text/html" id="listViewReadOnlyEmptyTemplate">
   <li class="empty-list-view-item">
-    There are no items &hellip; Always give the user a way to <button class="btn btn-link" data-bind="click: addAnItem">create something</button> if there is nothing
+    There are no items &hellip; Always give the user a way to <button class="btn btn-link-text" data-bind="click: addAnItem">create something</button> if there is nothing
   </li>
 </script>
 <script type="text/html" id="listViewReadOnlyLoadingTemplate">
@@ -174,7 +174,7 @@
           self.item = ko.observable(new Item());
           self.creating = ko.observable(false);
           self.createButtonText = ko.computed(function () {
-              return self.creating() ? "Creating..." : "Create";
+              return self.creating() ? "Creating..." : "create";
           });
           self.reset = function () {
               self.open(false);
@@ -289,8 +289,8 @@
                   </div>
                   <div class="form-group actions">
                       <div class="col-sm-offset-3 col-sm-9">
-                          <button class="btn btn-success" data-bind="click: save, disable: saving, text: saveButtonText">Save</button>
-                          <button class="btn btn-link" data-bind="click: cancel, disable: saving">Cancel</button>
+                          <button class="btn btn-primary" data-bind="click: save, disable: saving, text: saveButtonText">Save</button>
+                          <button class="btn btn-link" data-bind="click: cancel, disable: saving">cancel</button>
                           <button class="btn btn-danger pull-right" data-bind="click: $parent.deleteItem, disable: saving, widget:'inlineConfirm'">Delete</button>
                       </div>
                   </div>
@@ -326,8 +326,8 @@
               </div>
               <div class="form-group actions">
                   <div class="col-sm-offset-3 col-sm-9">
-                      <button class="btn btn-success" data-bind="click: $parent.createItem, disable: creating, text: createButtonText">Save</button>
-                      <button class="btn btn-link" data-bind="click: reset, disable: creating">Cancel</button>
+                      <button class="btn btn-primary" data-bind="click: $parent.createItem, disable: creating, text: createButtonText">Save</button>
+                      <button class="btn btn-link" data-bind="click: reset, disable: creating">cancel</button>
                   </div>
               </div>
           </fieldset>
