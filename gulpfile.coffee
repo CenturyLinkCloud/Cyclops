@@ -13,6 +13,7 @@ through = require 'through2'
 clean = require 'gulp-clean'
 coffee = require 'gulp-coffee'
 addSrc = require 'gulp-add-src'
+jasmine = require 'gulp-jasmine-phantom'
 pkg = require './package.json'
 
 __base = './www/'
@@ -61,7 +62,7 @@ gulp.task 'template-minify', ['template-concat'], ->
     .pipe gulp.dest './www/assets/templates'
 
 gulp.task 'script-concat', ->
-  gulp.src ['./src/scripts/helpers/**/*.*', 
+  gulp.src ['./src/scripts/helpers/**/*.*',
             './src/scripts/bindings/**/*.*',
             './src/scripts/widgets/**/*.*',
             './src/scripts/models/**/*.*',
@@ -82,6 +83,46 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/scripts'
 
+
+gulp.task 'test', ->
+  return gulp.src ['./src/scripts/**/*.coffee' , './specs/*.spec.coffee']
+    .pipe coffee({bare: true})
+    .pipe gulp.dest './temp'
+    .pipe jasmine {
+            integration: true
+            keepRunner: true
+            vendor: [
+              'https://code.jquery.com/jquery-2.1.4.min.js'
+              'https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'
+              'https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js'
+              'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'
+            ]
+          }
+    .pipe clean()
+
+
+
+gulp.task 'test-build', ->
+  return gulp.src ['./src/scripts/**/*.coffee' , './specs/*.spec.coffee']
+    .pipe coffee({bare: true})
+    .pipe gulp.dest './temp'
+
+gulp.task 'test-run', ['test-build'], ->
+  return gulp.src './temp/**/*.js'
+    .pipe jasmine {
+            integration: true
+            keepRunner: true
+            vendor: [
+              'https://code.jquery.com/jquery-2.1.4.min.js'
+              'https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'
+              'https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js'
+              'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'
+            ]
+          }
+
+gulp.task 'test', ['test-run'], ->
+  gulp.src './temp'
+    .pipe clean()
 
 gulp.task 'client-watch', ->
   gulp.watch './src/less/**/**', ['less-concat']
