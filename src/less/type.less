@@ -146,17 +146,15 @@ html.cyclops {
     margin: 0 0 (@line-height-computed / 2);
   }
 
-  .text-center {
-    text-align: center;
-  }
+  // Alignment
+  .text-center         {text-align: center; }
+  .text-left           { text-align: left; }
+  .text-right          { text-align: right; }
 
-  .text-left {
-    text-align: left;
-  }
-
-  .text-right {
-    text-align: right;
-  }
+  // Transformation
+  .text-lowercase      { text-transform: lowercase; }
+  .text-uppercase      { text-transform: uppercase; }
+  .text-capitalize     { text-transform: capitalize; }
 
   .lead {
     margin-bottom: @line-height-computed;
