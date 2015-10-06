@@ -18,16 +18,17 @@
   </div>
   <pre>
     <code class="html">
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;btn-default&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;btn-primary&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;btn-danger&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-inverse&quot;&gt;btn-inverse&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;btn-outline&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;link&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;btn-default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;btn-primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;btn-danger&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-inverse&quot;&gt;btn-inverse&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;btn-outline&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;link&lt;/button&gt;
     </code>
   </pre>
 
   <h4>Disabled Buttons</h4>
+  <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
   <div class="pl-example">
     <button type="button" disabled class="btn btn-default">btn-default</button>
     <button type="button" disabled class="btn btn-primary">btn-primary</button>
@@ -36,7 +37,29 @@
     <button type="button" disabled class="btn btn-outline">btn-outline</button>
     <button type="button" disabled class="btn btn-link">btn-link</button>
   </div>
+  <pre>
+    <code class="html">
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; disabled&gt;btn-default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; disabled&gt;btn-primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; disabled&gt;btn-danger&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-inverse&quot; disabled&gt;btn-inverse&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot; disabled&gt;btn-outline&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot; disabled&gt;link&lt;/button&gt;
+    </code>
+  </pre>
 
+  <h4>Inline Text Buttons</h4>
+  <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
+  <div class="pl-example">
+    <p>This is a paragraph of text with an <button class="btn btn-link-text">inline button link</button> within it.</p>
+  </div>
+  <pre>
+    <code class="html">
+
+    </code>
+  </pre>
+
+</pre>
   <h2>Sizes</h2>
   <div class="pl-example">
     <button type="button" class="btn btn-default btn-lg">btn-lg</button>
