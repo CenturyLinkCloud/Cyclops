@@ -2,169 +2,170 @@
 {{#contentFor "tabName"}}buttons{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-<section class="pl-section">
-  <h1><a href="#buttons">Buttons</a></h1>
-  <p>Use the button classes on <code>button</code>, <code>a</code>, and <code>input</code> elements.</p>
+<div class="row">
+  <div class="col-sm-9">
+    <section class="pl-section">
+      <h1><a href="#buttons">Buttons</a></h1>
+      <p>Use the button classes on <code>button</code>, <code>a</code>, and <code>input</code> elements.</p>
 
-  <h2>Types</h2>
-  <h4>Default Buttons</h4>
-  <div class="pl-example">
-    <button type="button" class="btn btn-default">btn-default</button>
-    <button type="button" class="btn btn-primary">btn-primary</button>
-    <button type="button" class="btn btn-danger">btn-danger</button>
-    <button type="button" class="btn btn-inverse">btn-inverse</button>
-    <button type="button" class="btn btn-outline">btn-outline</button>
-    <button type="button" class="btn btn-link">link</button>
-  </div>
-  <pre>
-    <code class="html">
+      <h2>Types</h2>
+      <h4>Default Buttons</h4>
+      <div class="pl-example">
+        <button type="button" class="btn btn-default">btn-default</button>
+        <button type="button" class="btn btn-primary">btn-primary</button>
+        <button type="button" class="btn btn-danger">btn-danger</button>
+        <button type="button" class="btn btn-inverse">btn-inverse</button>
+        <button type="button" class="btn btn-outline">btn-outline</button>
+        <button type="button" class="btn btn-link">link</button>
+      </div>
+      <pre>
+        <code class="html">
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;btn-default&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;btn-primary&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;btn-danger&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-inverse&quot;&gt;btn-inverse&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;btn-outline&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;link&lt;/button&gt;
-    </code>
-  </pre>
+        </code>
+      </pre>
 
-  <h4>Disabled Buttons</h4>
-  <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
-  <div class="pl-example">
-    <button type="button" disabled class="btn btn-default">btn-default</button>
-    <button type="button" disabled class="btn btn-primary">btn-primary</button>
-    <button type="button" disabled class="btn btn-danger">btn-danger</button>
-    <button type="button" disabled class="btn btn-inverse">btn-inverse</button>
-    <button type="button" disabled class="btn btn-outline">btn-outline</button>
-    <button type="button" disabled class="btn btn-link">btn-link</button>
-  </div>
-  <pre>
-    <code class="html">
+      <h4>Disabled Buttons</h4>
+      <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
+      <div class="pl-example">
+        <button type="button" disabled class="btn btn-default">btn-default</button>
+        <button type="button" disabled class="btn btn-primary">btn-primary</button>
+        <button type="button" disabled class="btn btn-danger">btn-danger</button>
+        <button type="button" disabled class="btn btn-inverse">btn-inverse</button>
+        <button type="button" disabled class="btn btn-outline">btn-outline</button>
+        <button type="button" disabled class="btn btn-link">btn-link</button>
+      </div>
+      <pre>
+        <code class="html">
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; disabled&gt;btn-default&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; disabled&gt;btn-primary&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; disabled&gt;btn-danger&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-inverse&quot; disabled&gt;btn-inverse&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot; disabled&gt;btn-outline&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot; disabled&gt;link&lt;/button&gt;
-    </code>
-  </pre>
+        </code>
+      </pre>
 
-  <h4>Inline Text Buttons</h4>
-  <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
-  <div class="pl-example">
-    <p>This is a paragraph of text with an <button class="btn btn-link-text">inline button link</button> within it.</p>
-  </div>
-  <pre>
-    <code class="html">
+      <h4>Inline Text Buttons</h4>
+      <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
+      <div class="pl-example">
+        <p>Paragraph of text with an <button class="btn btn-link-text">inline button link</button> within it.</p>
+      </div>
+      <pre>
+        <code class="html">
+&lt;p&gt;Paragraph of text with an &lt;button class=&quot;btn btn-link-text&quot;&gt;inline button link&lt;/button&gt; within it.&lt;/p&gt;
+        </code>
+      </pre>
 
-    </code>
-  </pre>
+    </pre>
+      <h2>Sizes</h2>
+      <div class="pl-example">
+        <button type="button" class="btn btn-default btn-lg">btn-lg</button>
+        <button type="button" class="btn btn-default">default</button>
+        <button type="button" class="btn btn-default btn-sm">btn-sm</button>
+        <button type="button" class="btn btn-default btn-mini">btn-mini</button>
+      </div>
 
-</pre>
-  <h2>Sizes</h2>
-  <div class="pl-example">
-    <button type="button" class="btn btn-default btn-lg">btn-lg</button>
-    <button type="button" class="btn btn-default">default</button>
-    <button type="button" class="btn btn-default btn-sm">btn-sm</button>
-    <button type="button" class="btn btn-default btn-mini">btn-mini</button>
-  </div>
-
-  <pre>
-    <code class="html">
+      <pre>
+        <code class="html">
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;btn-lg&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;default&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;btn-sm&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;btn-mini&lt;/button&gt;
-    </code>
-  </pre>
+        </code>
+      </pre>
 
-  <h2>Special Cases</h2>
-  <h3>Inline Confirm</h3>
-  <p>
-    Inline confirm is a jQuery widget that can be applied to any button that will require the user
-    to confirm that action they are performing. Typically this is used for Delete scenario's but
-    can be used other places. You can use it as a pure jQuery Widget or you can use the widget
-    binding in knockout.
-  </p>
-  <h4>options</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>messageHtml</td>
-        <td>HTML String</td>
-        <td>Are you sure?</td>
-        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
-      </tr>
-      <tr>
-        <td>yesHtml</td>
-        <td>HTML String</td>
-        <td>YES</td>
-        <td>Text (can be HTML) to be displayed on the "yes" button</td>
-      </tr>
-      <tr>
-        <td>noHtml</td>
-        <td>HTML String</td>
-        <td>NO</td>
-        <td>Text (can be HTML) to be displayed on the "no" button</td>
-      </tr>
-      <tr>
-        <td>timeout</td>
-        <td>number</td>
-        <td>3000</td>
-        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="pl-example">
-    <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <h4>Pure jQuery Widget</h4>
-      <pre>
-        <code class="javascript">
+      <h2>Special Cases</h2>
+      <h3>Inline Confirm</h3>
+      <p>
+        Inline confirm is a jQuery widget that can be applied to any button that will require the user
+        to confirm that action they are performing. Typically this is used for Delete scenario's but
+        can be used other places. You can use it as a pure jQuery Widget or you can use the widget
+        binding in knockout.
+      </p>
+      <h4>options</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>messageHtml</td>
+            <td>HTML String</td>
+            <td>Are you sure?</td>
+            <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+          </tr>
+          <tr>
+            <td>yesHtml</td>
+            <td>HTML String</td>
+            <td>YES</td>
+            <td>Text (can be HTML) to be displayed on the "yes" button</td>
+          </tr>
+          <tr>
+            <td>noHtml</td>
+            <td>HTML String</td>
+            <td>NO</td>
+            <td>Text (can be HTML) to be displayed on the "no" button</td>
+          </tr>
+          <tr>
+            <td>timeout</td>
+            <td>number</td>
+            <td>3000</td>
+            <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pl-example">
+        <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Pure jQuery Widget</h4>
+          <pre>
+            <code class="javascript">
 $(function(){
   $(&#39;btn-danger&#39;).inlineConfirm()
 })
-        </code>
-      </pre>
-    </div>
+            </code>
+          </pre>
+        </div>
 
-    <div class="col-md-6">
-      <h4>knockout binding</h4>
-      <pre>
-        <code class="html">
+        <div class="col-md-6">
+          <h4>knockout binding</h4>
+          <pre>
+            <code class="html">
 &lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
-        </code>
-      </pre>
-    </div>
+            </code>
+          </pre>
+        </div>
+      </div>
+
+
+      <h3>Block Level Button</h3>
+      <div class="pl-example">
+        <button type="button" class="btn btn-default btn-block">btn-block</button>
+      </div>
+    </section>
   </div>
+</div>
 
-
-  <h3>Block Level Button</h3>
-  <div class="pl-example">
-    <button type="button" class="btn btn-default btn-block">btn-block</button>
-  </div>
-
-
-
-</section>
-
-{{#contentFor "scripts"}}
-<script>
-  $(function(){
-    ko.applyBindings({
-      deleteHandler: function() {
-        alert("deleted");
-      }
-    });
-  })
-</script>
-{{/contentFor}}
+    {{#contentFor "scripts"}}
+    <script>
+      $(function(){
+        ko.applyBindings({
+          deleteHandler: function() {
+            alert("deleted");
+          }
+        });
+      })
+    </script>
+    {{/contentFor}}
