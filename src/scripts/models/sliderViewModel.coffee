@@ -48,7 +48,7 @@ class SliderViewModel
       "#{Math.abs(@max() - @maxBound()) * @boundedSingleStepPercentage()}%"
 
     @canShowTicks = ko.pureComputed =>
-      return if @numberofTotalSteps() > 128 then false else @shouldShowTicks()
+      return if @numberofTotalSteps() > 32 then false else @shouldShowTicks()
 
     @fillRightValue = ko.pureComputed =>
       "#{100 - @getValuePercentage(@value())}%"
