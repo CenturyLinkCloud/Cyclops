@@ -64,7 +64,6 @@ html.cyclops {
     height: auto;
   }
 
-
   .form-control {
     display: block;
     width: 100%;
@@ -78,6 +77,11 @@ html.cyclops {
     border: 1px solid #cccccc;
     border-radius: 4px;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  // Reset height for `textarea`s to use specified rows
+  textarea.form-control {
+    height: auto;
   }
 
   // Form groups
