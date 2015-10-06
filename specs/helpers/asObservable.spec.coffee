@@ -1,4 +1,4 @@
-describe 'AsObservable', ->
+describe 'Helpers: AsObservable', ->
   it 'it hangs off the global knockout object', ->
     expect(ko.asObservable).toBeDefined()
     return
@@ -12,7 +12,7 @@ describe 'AsObservable', ->
     expect(result).toEqual init
     return
   return
-describe 'AsObservableArray', ->
+describe 'Helpers: AsObservableArray', ->
   it 'it hangs off the global knockout object', ->
     expect(ko.asObservableArray).toBeDefined()
     return

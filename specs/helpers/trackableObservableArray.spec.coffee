@@ -1,4 +1,4 @@
-describe 'TrackableObservableArray', ->
+describe 'Helpers: TrackableObservableArray', ->
   it 'it hangs off the global knockout object', ->
     expect(ko.trackableObservableArray).toBeDefined()
     return

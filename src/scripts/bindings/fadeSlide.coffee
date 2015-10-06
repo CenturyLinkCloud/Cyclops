@@ -8,7 +8,7 @@ ko.bindingHandlers.fadeSlide = update: (element, valueAccessor) ->
   isCurrentlyVisible = $(element).css('display') != 'none'
   afterAnimation = valueAccessor().afterAnimation
   if typeof value == 'object'
-    if value.visible
+    if value.visible?
       shouldShow = ko.unwrap(value.visible)
     else
       throw new Error('You need to have a visible value... ')
