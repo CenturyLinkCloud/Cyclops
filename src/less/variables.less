@@ -26,8 +26,23 @@
 // Scaffolding
 // -------------------------
 
-
 @padding-base-vertical:			7px;
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+//@zindex-navbar:            1000;
+//@zindex-dropdown:          1000;
+//@zindex-popover:           1060;
+@zindex-tooltip:           1070;
+//@zindex-navbar-fixed:      1030;
+//@zindex-modal-background:  1040;
+//@zindex-modal:             1050;
+
 
 
 //== Type
@@ -171,3 +186,21 @@
 
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled:                not-allowed;
+
+
+//== Tooltips
+//
+//##
+
+//** Tooltip max width
+@tooltip-max-width:           200px;
+//** Tooltip text color
+@tooltip-color:               #fff;
+//** Tooltip background color
+@tooltip-bg:                  #000;
+@tooltip-opacity:             .9;
+
+//** Tooltip arrow width
+@tooltip-arrow-width:         5px;
+//** Tooltip arrow color
+@tooltip-arrow-color:         @tooltip-bg;
