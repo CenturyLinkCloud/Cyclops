@@ -1,7 +1,7 @@
 fs = require 'fs'
 pkg = require './package.json'
 env = process.argv[2] || "development"
-ver = "v#{pkg.version}"
+ver = "#{pkg.version}"
 
 
 module.exports = (app, __base) ->

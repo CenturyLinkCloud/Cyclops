@@ -27,7 +27,7 @@
       <code class="html">
 &lt;head&gt;
   &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-  &lt;link href=&quot;https://assests.ctl.io/cyclops/0.1.0/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+  &lt;link href=&quot;https://assests.ctl.io/cyclops/{{version}}/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
   &lt;!-- any other of your content --&gt;
 &lt;/head&gt;
       </code>
@@ -38,9 +38,10 @@
 &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js&quot; &gt;&lt;/script&gt;
+&lt;script src=&quot;https://assests.ctl.io/cyclops/{{version}}/scripts/cyclops.min.js&quot; &gt;&lt;/script&gt;
 &lt;script&gt;
   $.holdReady(true);
-  $.get(&quot;https://assests.ctl.io/cyclops/0.1.0/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
+  $.get(&quot;https://assests.ctl.io/cyclops/{{version}}/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
       $(&quot;head&quot;).append(tmpl);
       $.holdReady(false);
   });
