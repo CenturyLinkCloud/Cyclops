@@ -221,14 +221,15 @@ ko.trackableObservable().extend({
         </div>
         <pre>
           <code class="javascript">
+// Javascript
 self.password = ko.trackableObservable();
 self.password.extend({
     required: { params: true, message: "A password is required." },
     passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
 });
           </code>
-          <h4>HTML</h4>
           <code class="html">
+&lt;!-- HTML --&gt;
 &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
   &lt;div class=&quot;form-group&quot;&gt;
       &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
