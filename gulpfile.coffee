@@ -170,5 +170,4 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
 
   return merge copyCSS, renderHTML
 
-
 gulp.task 'dev', ['less-concat', 'template-concat', 'script-concat', 'client-watch', 'server-watch']
