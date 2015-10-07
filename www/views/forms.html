@@ -109,9 +109,21 @@
 
       <h4>Select Dropdowns</h4>
       <ul>
-        <li>If there is only one item in the select options, than that item should automatically be selected for the user.</li>
-        <li>If there are multiple items in the list but there is a context for how the user has arrived, select the logical choice. For example, a user selects the create server button on the WA1 - US West (Seattle) Data Center Overview page, the logical choice for the Data Center dropdown would be WA1 - US West (Seattle).</li>
-        <li>If there is no logical defaults then the user should be presented with a contextual message that tells them what to do as the first item in the list (e.g. &lsquo;Select a Data Center...&rsquo;)</li>
+        <li>
+          If there is only one item in the select options, than that item should automatically be
+          selected for the user.
+        </li>
+        <li>
+          If there are multiple items in the list but there is a context for how the user has
+          arrived, select the logical choice. For example, a user selects the create server button
+          on the WA1 - US West (Seattle) Data Center Overview page, the logical choice for the Data
+          Center dropdown would be WA1 - US West (Seattle).
+        </li>
+        <li>
+          If there is no logical defaults then the user should be presented with a contextual
+          message that tells them what to do as the first item in the list (e.g. &lsquo;Select a
+          Data Center...&rsquo;)
+        </li>
       </ul>
       <li>
       <div class="pl-example">
@@ -137,6 +149,106 @@
 
     </section>
 
+
+    <section class="pl-section" id="validation">
+        <h2><a href="#validation">Validation</a></h2>
+        <p>
+          We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
+          knockout-validation</a> and have created several bindings and validators that
+          will make creating an awesome user experience simple and painless. To use these you’ll
+          need to add a little bit of code to the form’s data binding.
+        </p>
+        <h4>Validation Options</h4>
+        <pre>
+          <code class="html">
+&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+          </code>
+        </pre>
+        <h4>Displaying a Message</h4>
+        <p>
+          To display a validation message use a <code>p</code> tag and the <code>validationMsg</code>
+          binding placed right under the input.
+        </p>
+        <pre>
+          <code class="html">
+&lt;p id=&quot;test&quot; data-bind=&quot;validationMsg: validatedField&quot;&gt;&lt;/p&gt;
+          </code>
+        </pre>
+        <h4>Knockout Validation Native Rules</h4>
+        <p>
+          See the list of built in validators and their options on knokcout validations
+          <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">
+            wiki page</a> Here is a a couple common examples.
+        </p>
+
+        <pre>
+          <code>
+ko.trackableObservable().extend({
+  pattern: '^[a-z0-9].$'
+});
+
+ko.trackableObservable().extend({
+  required: {
+    params: true,
+    onlyIf: function() { /* return true/false */ },
+    message: 'This example is required'
+  }
+});
+
+ko.trackableObservable().extend({
+  min: 1 ,
+  max: 10
+});
+          </code>
+        </pre>
+
+        <h4>Password Strength</h4>
+        <div class="pl-example" id="passwordStrengthExample">
+          <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">password</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
+                    <p data-bind="validationMsg: password"></p>
+                </div>
+            </div>
+            <div class="form-group actions">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        <pre>
+          <code class="javascript">
+self.password = ko.trackableObservable();
+self.password.extend({
+    required: { params: true, message: "A password is required." },
+    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
+});
+          </code>
+          <h4>HTML</h4>
+          <code class="html">
+&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;password&quot; data-bind=&quot;value: password, validationElement: password, widget: &#39;passwordStrength&#39;&quot; &gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group actions&quot;&gt;
+      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+          </code>
+        </pre>
+
+
+
+
+    </section>
 
     <section class="pl-section" id="forms">
         <h2><a href="#formsBasic">Basic Form</a></h2>
@@ -319,6 +431,8 @@
             </form>
         </div>
     </section>
+
+
     <h3>Input Sliders</h3>
     <p>
       Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
@@ -362,7 +476,19 @@
 {{#contentFor "scripts"}}
 <script>
 $(function(){
+  /* Start passwordStrength */
+  ko.applyBindings({
+    password: ko.observable().extend({
+        required: { params: true, message: "A password is required." },
+        passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
+    })
+  }, $("#passwordStrengthExample")[0]);
+  /* End passwordStrength */
+
+
+  /* Start Sliders */
   ko.applyBindings({}, $("#formSlider")[0]);
+  /* End Sliders */
 })
 </script>
 <script>
