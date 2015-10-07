@@ -8,26 +8,25 @@
     <section class="pl-section" id="headings">
       <h3>Headings</h3>
       <div class="pl-example">
-        <h1>H1 36pt Open Sans Light
-          <small>h1 small text</small>
-        </h1>
-        <h2>H2 30pt Open Sans Light
-          <small>h2 small text</small>
-        </h2>
-        <h3>H3 24pt Open Sans Light
-          <small>h3 small text</small>
-        </h3>
-        <h4>H4 18pt Open Sans Light
-          <small>h4 small text</small>
-        </h4>
-        <h5>H5 13pt Open Sans Light
-          <small>h5 small text</small>
-        </h5>
-        <h6>H6 12pt Open Sans Light
-          <small>h6 small text</small>
-        </h6>
+        <h1>H1 36pt Open Sans Light <small>h1 small text</small></h1>
+        <h2>H2 30pt Open Sans Light <small>h2 small text</small></h2>
+        <h3>H3 24pt Open Sans Light <small>h3 small text</small></h3>
+        <h4>H4 18pt Open Sans Light <small>h4 small text</small></h4>
+        <h5>H5 13pt Open Sans Light <small>h5 small text</small></h5>
+        <h6>H6 12pt Open Sans Light</h6>
       </div>
-      <h3>Content Headers</h3>
+      <pre>
+        <code class="html">
+&lt;h1&gt;H1 36pt Open Sans Light &lt;small&gt;h1 small text&lt;/small&gt;&lt;/h1&gt;
+&lt;h2&gt;H2 30pt Open Sans Light &lt;small&gt;h2 small text&lt;/small&gt;&lt;/h2&gt;
+&lt;h3&gt;H3 24pt Open Sans Light &lt;small&gt;h3 small text&lt;/small&gt;&lt;/h3&gt;
+&lt;h4&gt;H4 18pt Open Sans Light &lt;small&gt;h4 small text&lt;/small&gt;&lt;/h4&gt;
+&lt;h5&gt;H5 13pt Open Sans Light &lt;small&gt;h5 small text&lt;/small&gt;&lt;/h5&gt;
+&lt;h6&gt;H6 12pt Open Sans Light&lt;/h6&gt;
+        </code>
+      </pre>
+
+      <h3>Content Headings</h3>
       <p>Add the
         <code>.content-header</code> to any html header entity, and it will automatically add a border below the header text.</p>
       <div class="pl-example">
@@ -72,7 +71,7 @@
 &lt;/h6&gt;
         </code>
       </pre>
-      <p>Sometimes you'll want to treat multiple entities as the content header. Here's an example of that.</p>
+      <p>Sometimes you'll want to treat multiple entities, such as Server name and it's description, as the content header. Wrap your content in a div with the <code>.content-header</code> class.</p>
       <div class="pl-example">
         <div class="content-header">
           <h1>QA1DEVLBTEST01</h1>
@@ -89,17 +88,20 @@
       </pre>
     </section>
 
-    <section class="pl-section">
+    <section class="pl-section" id="bodyCopy">
       <h3>Body Copy</h3>
       <p>The default font-size is 14px, with a line-height of 1.428 (20px).</p>
       <div class="pl-example">
         <p>I could see why some of the boys took him for snobby. He had a quiet way about him, a walk and a talk that just wasn't normal around here. He strolled, like a man in a park without a care or a worry in the world, like he had on an invisible coat that would shield him from this place. Yeah, I think it would be fair to say...I liked Andy from the start.</p>
         <p>I could see why some of the boys took him for snobby. He had a quiet way about him, a walk and a talk that just wasn't normal around here. He strolled, like a man in a park without a care or a worry in the world, like he had on an invisible coat that would shield him from this place. Yeah, I think it would be fair to say...I liked Andy from the start.</p>
       </div>
-    </section>
+      <pre>
+        <code class="html">
+&lt;p&gt;...&lt;/p&gt;
+        </code>
+      </pre>
 
-    <section class="pl-section">
-      <h3>Alignment</h3>
+      <h4>Alignment</h4>
       <div class="pl-example">
         <p class="text-left">Left aligned text.</p>
         <p class="text-center">Center aligned text.</p>
@@ -112,10 +114,8 @@
 &lt;p class=&quot;text-right&quot;&gt;Right aligned text.&lt;/p&gt;
         </code>
       </pre>
-    </section>
 
-    <section class="pl-section">
-      <h3><a id="transformation">Transformation</a></h3>
+      <h4><a id="transformation">Transformation</a></h4>
       <div class="pl-example">
         <p class="text-lowercase">Lowercase text.</p>
         <p class="text-uppercase">Upperscase text.</p>
@@ -130,6 +130,121 @@
       </pre>
     </section>
 
+    <section class="pl-section" id="lists">
+      <h3>Lists</h3>
+      <h4>Unordered List</h4>
+      <p>A list of items in which the order does not explicitly matter.</p>
+      <div class="pl-example">
+        <ul>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+        </ul>
+      </div>
+      <pre>
+        <code class="html">
+&lt;ul&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+        </code>
+      </pre>
+
+      <h4>Ordered List</h4>
+      <p>A list of items in which the order does explicitly matter.</p>
+      <div class="pl-example">
+        <ol>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ol>
+      </div>
+      <pre>
+        <code class="html">
+&lt;ol&gt;
+  &lt;li&gt;item 1&lt;/li&gt;
+  &lt;li&gt;item 2&lt;/li&gt;
+  &lt;li&gt;item 3&lt;/li&gt;
+&lt;/ol&gt;
+        </code>
+      </pre>
+
+      <h4>Unstyled List</h4>
+      <p>Remove the default list-style and left margin on list items by applying <code>.list-unstyled</code> to the list. This only applies to immediate children list items, meaning you will need to add the class for any nested lists as well.</p>
+      <div class="pl-example">
+        <ul class="list-unstyled">
+          <li>unstyled item</li>
+          <li>unstyled item
+            <ul>
+              <li>nested list item</li>
+              <li>nested list item</li>
+              <li>nested list item</li>
+            </ul>
+          </li>
+          <li>unstyled item</li>
+        </ul>
+      </div>
+      <pre>
+        <code class="html">
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;unstyled item&lt;/li&gt;
+  &lt;li&gt;unstyled item
+    &lt;ul&gt;
+      &lt;li&gt;nested list item&lt;/li&gt;
+      &lt;li&gt;nested list item&lt;/li&gt;
+      &lt;li&gt;nested list item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;unstyled item&lt;/li&gt;
+&lt;/ul&gt;
+        </code>
+      </pre>
+
+      <h4>Inline List</h4>
+      <p>Place all list items on a single line by applying <code>.list-inline</code> to the list.</p>
+      <div class="pl-example">
+        <ul class="list-inline">
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+        </ul>
+      </div>
+      <pre>
+        <code class="html">
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+        </code>
+      </pre>
+
+      <h4>Description List</h4>
+      <p></p>
+      <div class="pl-example">
+        <dl>
+          <dt>Term</dt>
+          <dd>The definition</dd>
+          <dt>Term</dt>
+          <dd>The definition</dd>
+          <dt>Term</dt>
+          <dd>The definition</dd>
+        </dl>
+      </div>
+      <pre>
+        <code class="html">
+&lt;dl&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+&lt;/dl&gt;
+        </code>
+      </pre>
+    </section>
 
 
   </div>

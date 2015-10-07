@@ -27,51 +27,6 @@
 // -------------------------
 @padding-base-vertical: 7px;
 
-//-- Z-index master list
-//
-// Warning: Avoid customizing these values. They're used for a bird's eye view
-// of components dependent on the z-axis and are designed to all work together.
-//
-// Note: These variables are not generated into the Customizer.
-//@zindex-navbar:            1000;
-//@zindex-dropdown:          1000;
-//@zindex-popover:           1060;
-@zindex-tooltip: 1070;
-
-//@zindex-navbar-fixed:      1030;
-//@zindex-modal-background:  1040;
-//@zindex-modal:             1050;
-//== Type
-// -------------------------
-@textColor: #333;
-@headingTextColor: #222;
-@textColorLight: #666;
-@textColorLighter: #999;
-@borderColor: #d9d9d9;
-@errorText: #b94a48;
-@baseFontWeight: 300;
-@fontFamily: "Open Sans", Helvetica, Arial, Sans-Serif;
-@monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-size-base: 14px;
-@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
-@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
-@font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
-@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
-@headings-line-height: 1.2;
-
-// Common Components
-// -------------------------
-//** Unit-less `line-height` for use in components like buttons.
-@line-height-base: 1.428571429; // 20/14
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
-@border-radius-base: 4px;
-@border-radius-large: 6px;
-@border-radius-small: 3px;
 
 // Colors
 // -------------------------
@@ -88,6 +43,61 @@
 @grayLight: #999;
 @grayLighter: #eee;
 @white: #fff;
+
+
+
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+//@zindex-navbar:            1000;
+//@zindex-dropdown:          1000;
+//@zindex-popover:           1060;
+@zindex-tooltip: 1070;
+//@zindex-navbar-fixed:      1030;
+//@zindex-modal-background:  1040;
+//@zindex-modal:             1050;
+//== Type
+// -------------------------
+@textColor: @grayDark;
+@headingTextColor: @grayDarker;
+@headings-small-color: @grayLight;
+@textColorLight: @gray;
+@textColorLighter: @grayLight;
+@borderColor: #d9d9d9;
+@errorText: #b94a48;
+@baseFontWeight: 300;
+@boldFontWeight: 600;
+
+@fontFamily: "Open Sans", Helvetica, Arial, Sans-Serif;
+@monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+@font-size-base: 14px;
+@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
+@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+@headings-line-height: 1.2;
+
+// Common Components
+// -------------------------
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base: 1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
+@border-radius-base: 4px;
+@border-radius-large: 6px;
+@border-radius-small: 3px;
+
+
 
 // Accent colors
 // -------------------------
