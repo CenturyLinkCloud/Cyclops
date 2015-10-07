@@ -28,9 +28,31 @@
         }
       }
 
-      &.active a {
-        background-color: @grayDark;
-        color: @white;
+      ul.tabs-subnav {
+        display: none;
+      }
+
+      &.selected {
+
+        > a {
+          font-weight: 600;
+          color: @primaryBrandGreen;
+        }
+
+        ul.tabs-subnav {
+          display: block;
+          list-style: none;
+
+          > li {
+
+            > a {
+              display: block;
+              padding: 5px 10px 5px 20px;
+              font-size: @font-size-base - 2;
+            }
+          }
+        }
+
       }
     }
   }
