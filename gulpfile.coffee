@@ -83,9 +83,6 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/scripts'
 
-
-
-
 gulp.task 'test-build', ->
   return gulp.src ['./src/scripts/helpers/**/*.*',
             './src/scripts/bindings/**/*.*',
@@ -134,9 +131,15 @@ gulp.task 'cleanDist', ->
   return gulp.src "./dist/#{pkg.version}", { read: false }
     .pipe clean()
 
-gulp.task 'compile', ['cleanDist'], ->
+gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify'], ->
   copyCSS = gulp.src './www/assets/css/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/css/"
+
+  copyScripts = gulp.src './www/assets/scripts/**/*'
+    .pipe gulp.dest "./dist/#{pkg.version}/scripts/"
+
+  copyTemplates = gulp.src './www/assets/templates/**/*'
+    .pipe gulp.dest "./dist/#{pkg.version}/templates/"
 
   renderHTML = gulp.src './www/views/*.html'
     .pipe through.obj (file, enc, cb) ->

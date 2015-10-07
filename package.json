@@ -1,18 +1,16 @@
 {
   "name": "cyclops",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "cyclops: The Patern Library",
   "scripts": {
     "test": "gulp test",
     "start": "gulp"
   },
   "author": "CenturyLink Cloud",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }],
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
