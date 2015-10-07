@@ -4,12 +4,26 @@
 
 <div class="row">
   <div class="col-sm-9">
+    <h1><a>Buttons</a></h1>
     <section class="pl-section">
-      <h1><a href="#buttons">Buttons</a></h1>
+      <h3 id="tags">Tags</h3>
       <p>Use the button classes on <code>button</code>, <code>a</code>, and <code>input</code> elements.</p>
+      <div class="pl-example">
+        <a class="btn btn-default" href="#" role="button">Link</a>
+        <button class="btn btn-default" type="submit">Button</button>
+        <input class="btn btn-default" type="button" value="Input">
+        <input class="btn btn-default" type="submit" value="Submit">
+      </div>
+      <pre>
+        <code class="html">
+&lt;a class=&quot;btn btn-default&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;Link&lt;/a&gt;
+&lt;button class=&quot;btn btn-default&quot; type=&quot;submit&quot;&gt;Button&lt;/button&gt;
+&lt;input class=&quot;btn btn-default&quot; type=&quot;button&quot; value=&quot;Input&quot;&gt;
+&lt;input class=&quot;btn btn-default&quot; type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        </code>
+      </pre>
 
-      <h2>Types</h2>
-      <h4>Default Buttons</h4>
+      <h3 id="types">Types</h3>
       <div class="pl-example">
         <button type="button" class="btn btn-default">btn-default</button>
         <button type="button" class="btn btn-primary">btn-primary</button>
@@ -29,7 +43,24 @@
         </code>
       </pre>
 
-      <h4>Disabled Buttons</h4>
+      <h3 id="sizes">Sizes</h3>
+      <p>Add a <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-mini</code> class for additional sizing options.</p>
+      <div class="pl-example">
+        <button type="button" class="btn btn-default btn-lg">btn-lg</button>
+        <button type="button" class="btn btn-default">default</button>
+        <button type="button" class="btn btn-default btn-sm">btn-sm</button>
+        <button type="button" class="btn btn-default btn-mini">btn-mini</button>
+      </div>
+      <pre>
+        <code class="html">
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;btn-lg&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;btn-sm&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;btn-mini&lt;/button&gt;
+        </code>
+      </pre>
+
+      <h3 id="disabled">Disabled Buttons</h3>
       <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
       <div class="pl-example">
         <button type="button" disabled class="btn btn-default">btn-default</button>
@@ -50,7 +81,18 @@
         </code>
       </pre>
 
-      <h4>Inline Text Buttons</h4>
+      <h3 id="blockLevel">Block Level Button</h3>
+      <p>Adding <code>.btn-block</code> will span the width of the button to 100% of it's parent.</p>
+      <div class="pl-example">
+        <button type="button" class="btn btn-default btn-block">btn-block</button>
+      </div>
+      <pre>
+        <code class="html">
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-block&quot;&gt;btn-block&lt;/button&gt;
+        </code>
+      </pre>
+
+      <h3 id="inlineTextButton">Inline Text Button</h3>
       <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
       <div class="pl-example">
         <p>Paragraph of text with an <button class="btn btn-link-text">inline button link</button> within it.</p>
@@ -60,34 +102,30 @@
 &lt;p&gt;Paragraph of text with an &lt;button class=&quot;btn btn-link-text&quot;&gt;inline button link&lt;/button&gt; within it.&lt;/p&gt;
         </code>
       </pre>
+    </section>
 
-    </pre>
-      <h2>Sizes</h2>
+    <section class="pl-section">
+      <h3 id="inlineConfirm">Inline Confirm</h3>
+      <p>Inline confirm is a jQuery widget that can be applied to any button that will require the user to confirm the action they wish to perform. Typically this is used for Delete scenario's but can be used other places. Use it as a pure jQuery Widget or you can use the widget binding in knockout.</p>
+
+      <p>Inline confirm buttons can be created using jQuery or a Knockout binding.</p>
       <div class="pl-example">
-        <button type="button" class="btn btn-default btn-lg">btn-lg</button>
-        <button type="button" class="btn btn-default">default</button>
-        <button type="button" class="btn btn-default btn-sm">btn-sm</button>
-        <button type="button" class="btn btn-default btn-mini">btn-mini</button>
+        <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
       </div>
-
       <pre>
+        <code class="javascript">
+// jQuery Widget
+$(function(){
+  $(&#39;btn-danger&#39;).inlineConfirm()
+})
+        </code>
         <code class="html">
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;btn-lg&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;default&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;btn-sm&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;btn-mini&lt;/button&gt;
+&lt;!-- Knockout Binding --&gt;
+&lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
         </code>
       </pre>
 
-      <h2>Special Cases</h2>
-      <h3>Inline Confirm</h3>
-      <p>
-        Inline confirm is a jQuery widget that can be applied to any button that will require the user
-        to confirm that action they are performing. Typically this is used for Delete scenario's but
-        can be used other places. You can use it as a pure jQuery Widget or you can use the widget
-        binding in knockout.
-      </p>
-      <h4>options</h4>
+      <h4>Options</h4>
       <table class="table">
         <thead>
           <tr>
@@ -124,36 +162,6 @@
           </tr>
         </tbody>
       </table>
-      <div class="pl-example">
-        <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Pure jQuery Widget</h4>
-          <pre>
-            <code class="javascript">
-$(function(){
-  $(&#39;btn-danger&#39;).inlineConfirm()
-})
-            </code>
-          </pre>
-        </div>
-
-        <div class="col-md-6">
-          <h4>knockout binding</h4>
-          <pre>
-            <code class="html">
-&lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
-            </code>
-          </pre>
-        </div>
-      </div>
-
-
-      <h3>Block Level Button</h3>
-      <div class="pl-example">
-        <button type="button" class="btn btn-default btn-block">btn-block</button>
-      </div>
     </section>
   </div>
 </div>
