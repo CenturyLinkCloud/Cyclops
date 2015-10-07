@@ -1,78 +1,98 @@
 body {
   margin: 0;
 }
+html.cyclops {
 
-.pl-section {
-  margin-bottom: 70px;
+  .cyclops-hero {
+    padding: 60px 40px 40px 40px;
+    margin-top: -40px;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 1px solid @grayLight;
 
-  &#listViews {
-    .row {
-      margin-bottom: 40px;
+    .logo {
+      width: 100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      letter-spacing: 15px;
+      font-weight: 600;
     }
   }
 
-  h1 a {
-    text-decoration: none;
+  .pl-section {
+    margin-bottom: 70px;
 
-    &:hover {
-      text-decoration: underline;
+    &#listViews {
+      .row {
+        margin-bottom: 40px;
+      }
+    }
+
+    h1 a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
-}
 
-.pl-options {
-  bordeR: 1px solid @borderColor;
-  padding: 40px 20px 20px;
+  .pl-options {
+    bordeR: 1px solid @borderColor;
+    padding: 40px 20px 20px;
 
-  &:after {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    color: @textColorLighter;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    content: "Options";
+    &:after {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: @textColorLighter;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      content: "Options";
+    }
   }
-}
 
-.pl-example {
-  border: 1px solid @borderColor;
-  background: @white;
-  padding: 40px 20px 20px;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 25px;
-  position: relative;
+  .pl-example {
+    border: 1px solid @borderColor;
+    background: @white;
+    padding: 40px 20px 20px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 25px;
+    position: relative;
 
-  &:after {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    color: @textColorLighter;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    content: "Example";
+    &:after {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: @textColorLighter;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      content: "Example";
+    }
   }
-}
 
-.pl-actions {
-  margin: 10px 0;
-}
+  .pl-actions {
+    margin: 10px 0;
+  }
 
-.pl-show-grid-container {
-  padding: 0 20px;
-}
+  .pl-show-grid-container {
+    padding: 0 20px;
+  }
 
-.pl-show-grid {
-  margin-bottom: 15px;
+  .pl-show-grid {
+    margin-bottom: 15px;
 
-  [class^=col-] {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #eee;
-    border: 1px solid #ddd;
+    [class^=col-] {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #eee;
+      border: 1px solid #ddd;
+    }
   }
 }
