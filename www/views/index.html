@@ -1,4 +1,4 @@
-{{#contentFor "title"}}Welcome{{/contentFor}}
+{{#contentFor "title"}}Get Started{{/contentFor}}
 
 <div class="row">
   <div class="col-sm-12">
@@ -19,36 +19,91 @@
       </div>
       <h1>CYCLOPS</h1>
       <p class="lead">The UX/UI Pattern Guide for the CenturyLink Cloud Platform</p>
+      <p id="githubLink"><a href="//github.com/CenturyLinkCloud/Cyclops" class="btn btn-lg btn-outline">view github repo</a></p>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Get Started</h2>
+        <p>Cyclops is hosted on the <a href="http://assets.ctl.io/">CenturyLink Cloud Platform assets</a> server for anyone to use. To use it, add <code>.cyclops</code> to the <code>html</code> tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined.</p>
 
-    <h2>How to use it?</h2>
-    <h3>At the top</h3>
-    <pre>
-      <code class="html">
-&lt;head&gt;
-  &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-  &lt;link href=&quot;https://assets.ctl.io/cyclops/{{version}}/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
-  &lt;!-- any other of your content --&gt;
-&lt;/head&gt;
-      </code>
-    </pre>
-    <h3>At the bottom</h3>
-    <pre>
-      <code class="html">
+        <pre>
+          <code class="html">
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+          </code>
+        </pre>
+
+        <p>Then, include these links in your page layouts:</p>
+        <pre>
+          <code class="html">
+&lt;!-- In between the head tags --&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&lt;link href=&quot;https://assets.ctl.io/cyclops/{{version}}/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;!-- ...your page content... --&gt;
+
+&lt;!-- At the bottom of your page --&gt;
 &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://assets.ctl.io/cyclops/{{version}}/scripts/cyclops.min.js&quot; &gt;&lt;/script&gt;
 &lt;script&gt;
-  $.holdReady(true);
-  $.get(&quot;https://assets.ctl.io/cyclops/{{version}}/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
-      $(&quot;head&quot;).append(tmpl);
-      $.holdReady(false);
-  });
+$.holdReady(true);
+$.get(&quot;https://assets.ctl.io/cyclops/{{version}}/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
+  $(&quot;head&quot;).append(tmpl);
+  $.holdReady(false);
+});
 &lt;/script&gt;
 &lt;!-- your scripts here --&gt;
-      </code>
-    </pre>
+          </code>
+        </pre>
+
+        <h2>Basic HTML Template</h2>
+        <p>Start with this basic HTML template, or modify <a href="./pages.html">these examples</a> to suit your needs.</p>
+        <pre>
+          <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --&gt;
+    &lt;title&gt;Cyclops 101 Template&lt;/title&gt;
+
+    &lt;!-- Cyclops --&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;link href=&quot;https://assets.ctl.io/cyclops/0.1.0-alpha/css/cyclops.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!-- WARNING: Respond.js doesn&#39;t work if you view the page via file:// --&gt;
+    &lt;!--[if lt IE 9]&gt;
+      &lt;script src=&quot;https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot; &gt;&lt;/script&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot; &gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js&quot; &gt;&lt;/script&gt;
+    &lt;script src=&quot;https://assets.ctl.io/cyclops/0.1.0-alpha/scripts/cyclops.min.js&quot; &gt;&lt;/script&gt;
+    &lt;script&gt;
+    $.holdReady(true);
+    $.get(&quot;https://assets.ctl.io/cyclops/0.1.0-alpha/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
+      $(&quot;head&quot;).append(tmpl);
+      $.holdReady(false);
+    });
+    &lt;/script&gt;
+    &lt;!-- Include any additional scripts your service needs --&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+
 
   </div>
 </div>
