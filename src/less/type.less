@@ -145,7 +145,7 @@ html.cyclops {
   }
 
   p {
-    margin: 0 0 (@line-height-computed / 2);
+    margin: 0 0 (@line-height-computed); // 20px
   }
 
   // Alignment
@@ -180,7 +180,7 @@ html.cyclops {
   ul,
   ol {
     margin-top: 0;
-    margin-bottom: (@line-height-computed / 2);
+    margin-bottom: @line-height-computed;
     ul,
     ol {
       margin-bottom: 0;
