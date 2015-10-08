@@ -5,7 +5,7 @@
 
 <h1 class="content-header">Forms</h1>
 <section class="pl-section" id="inputs">
-  <h3 id="input">Inputs</h3>
+  <h3 id="inputs"><a href="#inputs">Inputs</a></h3>
   <p>Examples of standard form inputs used throughout the Control Portal. Add the <code>.form-control</code> class to each input type to get proper formatting and alignment.</p>
 
   <h4>Text</h4>
@@ -102,7 +102,7 @@
         </code>
       </pre>
 
-      <h3>Select Dropdowns</h3>
+      <h4>Select Dropdowns</h4>
       <ul>
         <li>
           If there is only one item in the select options, than that item should automatically be
@@ -145,7 +145,7 @@
     </section>
 
     <section class="pl-section" id="disabled">
-      <h3>Disabled Input</h3>
+      <h3>Disabled Inputs</h3>
       <p>Add the <code>disabled</code> attribute on an input to prevent user interactions. Disabled inputs appear lighter and add a <code>not-allowed</code> cursor.</p>
       <div class="pl-example">
         <input type="text" class="form-control" id="disabledInput" placeholder="Disabled Text Input" disabled>
@@ -269,7 +269,7 @@
   </pre>
 </section>
 
-<section class="pl-section" id="basicForm">
+<section class="pl-section" id="horizontalForm">
   <h3><a href="#horizontalForm">Horizontal Form</a></h3>
   <p>Horizontal forms rely on the <a href="./grid.html">Grid System</a> to align form labels and inputs horizontally. These forms used throughout the Control Portal to create new entities, such as servers, appfog apps, and policies.</p>
   <div class="pl-example">
@@ -561,7 +561,7 @@ ko.trackableObservable().extend({
       </form>
   </div>
 
-  <h4>Password Strength</h4>
+  <h4 id="passwordStrength"><a href="#passwordStrength">Password Strength</a></h4>
   <div class="pl-example" id="passwordStrengthExample">
     <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
       <div class="form-group">
@@ -608,7 +608,7 @@ self.password.extend({
 
 
 
-  <h3><a href="#sliders">Input Sliders</a></h3>
+  <h3 id="sliders"><a href="#sliders">Sliders</a></h3>
   <p>
     Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
   </p>
