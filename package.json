@@ -1,10 +1,10 @@
 {
   "name": "cyclops",
   "version": "0.1.0-alpha",
-  "description": "cyclops: The Patern Library",
+  "description": "cyclops: The UX/UI Pattern Guide",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp"
+    "start": "gulp dev"
   },
   "author": "CenturyLink Cloud",
   "licenses": [{
