@@ -5,11 +5,9 @@
 <h1 class="content-header">List Views</h1>
 
     <section class="pl-section">
-
-
-
       <p>List views provide built-in views for create, read, update, and delete (CRUD) operations, making them ideal for displaying many different types of user managable entities in the Control Portal (e.g. alerts policies, scheduled tasks).</p>
 
+      <h3 id="markup"><a href="#markup">Basic Markup</a></h3>
       <p>The basic markup for a list view looks like this:</p>
 
       <pre>
@@ -139,7 +137,7 @@
         </code>
       </pre>
 
-      <h3 id="listViewResponsive"><a href="#listViewResponsive">Responsive List Views</a></h3>
+      <h3 id="responsive"><a href="#responsive">Responsive List Views</a></h3>
       <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint.</p>
 
       <table class="table">
@@ -216,10 +214,10 @@
 
     </section>
 
-    <section class="pl-section">
-      <h2>Interactive Examples</h2>
+    <section id="interactiveExamples" class="pl-section">
+      <h3><a href="#interactiveExamples">Interactive Examples</a></h3>
       <p>Below are examples of list views using javascript objects and knockout bindings.</p>
-      <h3><a href="#readOnly">Read Only</a></h3>
+      <h4>Read Only</h4>
       <div id="readOnly" class="pl-example">
         <div class="pl-actions">
           <!-- This content is just used for demo purposes you'll wire up your own -->
@@ -242,7 +240,7 @@
         </div>
       </div>
 
-      <h3><a href="#crud">C.R.U.D.</a></h3>
+      <h4>Create, Read, Update, Delete (CRUD)</h4>
       <div id="crud" class="pl-example">
         <div class="pl-actions">
           <button class="btn btn-default" data-bind="click: addItem">create an item</button>
