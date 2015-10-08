@@ -2,78 +2,78 @@
 {{#contentFor "tabName"}}forms{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-    <section class="pl-section" id="inputs">
-      <h1><a href="#forms">Forms</a></h1>
 
-      <h3 id="input">Inputs</h3>
-      <p>Examples of standard form inputs used throughout the Control Portal. Add the <code>.form-control</code> class to each input type to get proper formatting and alignment.</p>
+<h1 class="content-header">Forms</h1>
+<section class="pl-section" id="inputs">
+  <h3 id="input">Inputs</h3>
+  <p>Examples of standard form inputs used throughout the Control Portal. Add the <code>.form-control</code> class to each input type to get proper formatting and alignment.</p>
 
-      <h4>Text</h4>
-      <div class="pl-example">
-          <input type="text" class="form-control" placeholder="Text Input">
-      </div>
-      <pre>
-        <code class="html">
+  <h4>Text</h4>
+  <div class="pl-example">
+      <input type="text" class="form-control" placeholder="Text Input">
+  </div>
+  <pre>
+    <code class="html">
 &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Text Input&quot;&gt;
-        </code>
-      </pre>
+    </code>
+  </pre>
 
-      <h4>Password</h4>
-      <p>Examples of standard form inputs used throughout the Control Portal.</p>
-      <div class="pl-example">
-          <input type="password" class="form-control" placeholder="Password">
-      </div>
-      <pre>
-        <code class="html">
+  <h4>Password</h4>
+  <p>Examples of standard form inputs used throughout the Control Portal.</p>
+  <div class="pl-example">
+      <input type="password" class="form-control" placeholder="Password">
+  </div>
+  <pre>
+    <code class="html">
 &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot;&gt;
-        </code>
-      </pre>
+    </code>
+  </pre>
 
-      <h4>Textarea</h4>
-      <div class="pl-example">
-          <textarea class="form-control" rows="3"></textarea>
-      </div>
-      <pre>
-        <code class="html">
+  <h4>Textarea</h4>
+  <div class="pl-example">
+      <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <pre>
+    <code class="html">
 &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
-        </code>
-      </pre>
+    </code>
+  </pre>
 
-      <h4>Checkbox and Radios</h4>
-      <div class="pl-example">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="" /> Option 1</a>
-            </label>
-        </div>
-        <div class="checkbox disabled">
-          <label>
-            <input type="checkbox" value="" disabled>
-            Option two is disabled
-          </label>
-        </div>
+  <h4>Checkbox and Radios</h4>
+  <div class="pl-example">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="" /> Option 1</a>
+        </label>
+    </div>
+    <div class="checkbox disabled">
+      <label>
+        <input type="checkbox" value="" disabled>
+        Option two is disabled
+      </label>
+    </div>
 
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-            Option one is this and that&mdash;be sure to include why it's great
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else and selecting it will deselect option one
-          </label>
-        </div>
-        <div class="radio disabled">
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-            Option three is disabled
-          </label>
-        </div>
-      </div>
-      <pre>
-        <code class="html">
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it's great
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
+      </label>
+    </div>
+    <div class="radio disabled">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
+      </label>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
 &lt;div class=&quot;checkbox disabled&quot;&gt;
   &lt;label&gt;
     &lt;input type=&quot;checkbox&quot; value=&quot;&quot; disabled&gt;
@@ -217,32 +217,32 @@
           <li>Items that are not editable are presented as paragraph tags not disabled inputs</li>
       </ul>
 
-      <div class="pl-example">
-        <form>
-          <div class="form-group">
-            <label for="basicFormEmail">Email address</label>
-            <input type="email" class="form-control" id="basicFormEmail" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="basicFormPassword">Password</label>
-            <input type="password" class="form-control" id="basicFormPassword" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="basicFormFileInput">File input</label>
-            <input type="file" id="basicFormFileInput">
-            <p class="help-block">Example block-level help text here.</p>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-          <button class="btn btn-link">cancel</button>
-        </form>
+  <div class="pl-example">
+    <form>
+      <div class="form-group">
+        <label for="basicFormEmail">Email address</label>
+        <input type="email" class="form-control" id="basicFormEmail" placeholder="Email">
       </div>
-      <pre>
-        <code class="html">
+      <div class="form-group">
+        <label for="basicFormPassword">Password</label>
+        <input type="password" class="form-control" id="basicFormPassword" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="basicFormFileInput">File input</label>
+        <input type="file" id="basicFormFileInput">
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+      <button class="btn btn-link">cancel</button>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
 &lt;form&gt;
    &lt;div class=&quot;form-group&quot;&gt;
      &lt;label for=&quot;basicFormEmail&quot;&gt;Email address&lt;/label&gt;
@@ -265,46 +265,46 @@
    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;
    &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
  &lt;/form&gt;
-        </code>
-      </pre>
-    </section>
+    </code>
+  </pre>
+</section>
 
-    <section class="pl-section" id="basicForm">
-      <h3><a href="#horizontalForm">Horizontal Form</a></h3>
-      <p>Horizontal forms rely on the <a href="./grid.html">Grid System</a> to align form labels and inputs horizontally. These forms used throughout the Control Portal to create new entities, such as servers, appfog apps, and policies.</p>
-      <div class="pl-example">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control" id="horizontalFormEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="horizontalFormPassword" class="col-sm-3 control-label">Password</label>
-            <div class="col-sm-9">
-              <input type="password" class="form-control" id="horizontalFormPassword" placeholder="Password">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button type="submit" class="btn btn-default">Sign in</button>
-              <button class="btn btn-link">cancel</button>
-            </div>
-          </div>
-        </form>
+<section class="pl-section" id="basicForm">
+  <h3><a href="#horizontalForm">Horizontal Form</a></h3>
+  <p>Horizontal forms rely on the <a href="./grid.html">Grid System</a> to align form labels and inputs horizontally. These forms used throughout the Control Portal to create new entities, such as servers, appfog apps, and policies.</p>
+  <div class="pl-example">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" id="horizontalFormEmail" placeholder="Email">
+        </div>
       </div>
-      <pre>
-        <code class="html">
+      <div class="form-group">
+        <label for="horizontalFormPassword" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" id="horizontalFormPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember me
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-default">Sign in</button>
+          <button class="btn btn-link">cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
 &lt;form class=&quot;form-horizontal&quot;&gt;
   &lt;div class=&quot;form-group&quot;&gt;
     &lt;label for=&quot;horizontalFormEmail&quot; class=&quot;col-sm-3 control-label&quot;&gt;Email&lt;/label&gt;
@@ -334,43 +334,43 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/form&gt;
-        </code>
-      </pre>
-    </section>
+    </code>
+  </pre>
+</section>
 
-    <section class="pl-section" id="validation">
-        <h3><a href="#validation">Validation</a></h3>
-        <p>
-          We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
-          knockout-validation</a> and have created several bindings and validators that
-          will make creating an awesome user experience simple and painless. To use these you’ll
-          need to add a little bit of code to the form’s data binding.
-        </p>
-        <h4>Validation Options</h4>
-        <pre>
-          <code class="html">
+<section class="pl-section" id="validation">
+    <h3><a href="#validation">Validation</a></h3>
+    <p>
+      We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
+      knockout-validation</a> and have created several bindings and validators that
+      will make creating an awesome user experience simple and painless. To use these you’ll
+      need to add a little bit of code to the form’s data binding.
+    </p>
+    <h4>Validation Options</h4>
+    <pre>
+      <code class="html">
 &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-          </code>
-        </pre>
-        <h4>Displaying a Message</h4>
-        <p>
-          To display a validation message use a <code>p</code> tag and the <code>validationMsg</code>
-          binding placed right under the input.
-        </p>
-        <pre>
-          <code class="html">
+      </code>
+    </pre>
+    <h4>Displaying a Message</h4>
+    <p>
+      To display a validation message use a <code>p</code> tag and the <code>validationMsg</code>
+      binding placed right under the input.
+    </p>
+    <pre>
+      <code class="html">
 &lt;p id=&quot;test&quot; data-bind=&quot;validationMsg: validatedField&quot;&gt;&lt;/p&gt;
-          </code>
-        </pre>
-        <h4>Knockout Validation Native Rules</h4>
-        <p>
-          See the list of built in validators and their options on knokcout validations
-          <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">
-            wiki page</a> Here is a a couple common examples.
-        </p>
+      </code>
+    </pre>
+    <h4>Knockout Validation Native Rules</h4>
+    <p>
+      See the list of built in validators and their options on knokcout validations
+      <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">
+        wiki page</a> Here is a a couple common examples.
+    </p>
 
-        <pre>
-          <code>
+    <pre>
+      <code>
 ko.trackableObservable().extend({
   pattern: '^[a-z0-9].$'
 });
@@ -387,199 +387,199 @@ ko.trackableObservable().extend({
   min: 1 ,
   max: 10
 });
-          </code>
-        </pre>
+    </code>
+  </pre>
 
-        <h4>Form Validation Example</h4>
-        <div id="formsBasic" class="pl-example">
+  <h4>Form Validation Example</h4>
+  <div id="formsBasic" class="pl-example">
 
-            <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-                <fieldset>
-                    <legend>A Standard Form with Validation</legend>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">uneditable text</label>
-                        <div class="col-sm-6">
-                            <p>You cannot change this text</p>
-                            <p>Another paragraph that cannot be changed</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Optional fields should be denoted with '(optional)' and required fields get nothing -->
-                        <!-- this is done because most of the fields we have are required it's more rare to have -->
-                        <!-- a field that is optional so the UI will look less cluttered. -->
-                        <label class="col-sm-3 control-label" for="optionalText">text (optional)</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" type="text" id="optionalText" data-bind="value: optionalText" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="requiredText">required text</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" type="text" id="requiredText" data-bind="value: requiredText, validationElement: requiredText" />
-                            <p id="test" data-bind="validationMsg: requiredText"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="validEmail">valid email</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" type="text" id="validEmail" data-bind="value:emailText, validationElement: emailText" />
-                            <p data-bind="validationMsg: emailText"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="password">password</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" />
-                            <p data-bind="validationMsg: password"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" type="password" id="confirmPassword" data-bind="value:confirmPassword, validationElement: confirmPassword" />
-                            <p data-bind="validationMsg: confirmPassword"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="textArea">Text Area (optional)</label>
-                        <div class="col-sm-9">
-                            <textarea class="form-control" rows="3" type="text" id="textArea"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="remoteText">Remotely Validated</label>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" type="text" id="remoteText" data-bind="value: remoteTextArea, validationElement: remoteTextArea"></textarea>
-                            <p data-bind="validationMsg: remoteTextArea"></p>
-                            <!--
-                                This binding is intended to extend the functionality of AsyncValidators by allowing the
-                                display of a validating message as well as a valid message. The error message will not be displayed here
-                                it will still continue to use the validationMessage binding. This is purely a UX concern and
-                                your validator will work without it. You may pass it just the observable `asyncMessage:
-                                remoteTextArea` and it will use default messages, or you can pass strings or observables/computeds
-                                for the messages see bellow. FYI: messages can contain HTML and must properly be HTML encoded if not HTML
-                            -->
-                            <div data-bind="asyncMessage: remoteTextArea"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" for="requireCheckbox">Checkbox</label>
-                        <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                        <div class="col-sm-6">
-                            <!--
-                                putting the checkbox in the label means of you click the text it will check the box. Also you can
-                                use a for attribute on the label to accomplish the same thing
-                            -->
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="requireCheckbox" data-bind="checked: requiredCheckbox, validationElement: requiredCheckbox" /> Agree to <a href="#requireCheckbox">Terms</a>
-                                </label>
-                                <p data-bind="validationMsg: requiredCheckbox"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">checkboxes</label>
-                        <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                        <div class="col-sm-6">
-                            <!--
-                                putting the checkbox in the label means of you click the text it will check the box. Also you can
-                                use a for attribute on the label to accomplish the same thing
-                            -->
+      <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+          <fieldset>
+              <legend>A Standard Form with Validation</legend>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">uneditable text</label>
+                  <div class="col-sm-6">
+                      <p>You cannot change this text</p>
+                      <p>Another paragraph that cannot be changed</p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <!-- Optional fields should be denoted with '(optional)' and required fields get nothing -->
+                  <!-- this is done because most of the fields we have are required it's more rare to have -->
+                  <!-- a field that is optional so the UI will look less cluttered. -->
+                  <label class="col-sm-3 control-label" for="optionalText">text (optional)</label>
+                  <div class="col-sm-6">
+                      <input class="form-control" type="text" id="optionalText" data-bind="value: optionalText" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="requiredText">required text</label>
+                  <div class="col-sm-6">
+                      <input class="form-control" type="text" id="requiredText" data-bind="value: requiredText, validationElement: requiredText" />
+                      <p id="test" data-bind="validationMsg: requiredText"></p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="validEmail">valid email</label>
+                  <div class="col-sm-6">
+                      <input class="form-control" type="text" id="validEmail" data-bind="value:emailText, validationElement: emailText" />
+                      <p data-bind="validationMsg: emailText"></p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="password">password</label>
+                  <div class="col-sm-6">
+                      <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" />
+                      <p data-bind="validationMsg: password"></p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
+                  <div class="col-sm-6">
+                      <input class="form-control" type="password" id="confirmPassword" data-bind="value:confirmPassword, validationElement: confirmPassword" />
+                      <p data-bind="validationMsg: confirmPassword"></p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="textArea">Text Area (optional)</label>
+                  <div class="col-sm-9">
+                      <textarea class="form-control" rows="3" type="text" id="textArea"></textarea>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="remoteText">Remotely Validated</label>
+                  <div class="col-sm-6">
+                      <textarea class="form-control" type="text" id="remoteText" data-bind="value: remoteTextArea, validationElement: remoteTextArea"></textarea>
+                      <p data-bind="validationMsg: remoteTextArea"></p>
+                      <!--
+                          This binding is intended to extend the functionality of AsyncValidators by allowing the
+                          display of a validating message as well as a valid message. The error message will not be displayed here
+                          it will still continue to use the validationMessage binding. This is purely a UX concern and
+                          your validator will work without it. You may pass it just the observable `asyncMessage:
+                          remoteTextArea` and it will use default messages, or you can pass strings or observables/computeds
+                          for the messages see bellow. FYI: messages can contain HTML and must properly be HTML encoded if not HTML
+                      -->
+                      <div data-bind="asyncMessage: remoteTextArea"></div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label" for="requireCheckbox">Checkbox</label>
+                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
+                  <div class="col-sm-6">
+                      <!--
+                          putting the checkbox in the label means of you click the text it will check the box. Also you can
+                          use a for attribute on the label to accomplish the same thing
+                      -->
+                      <div class="checkbox">
+                          <label>
+                              <input type="checkbox" id="requireCheckbox" data-bind="checked: requiredCheckbox, validationElement: requiredCheckbox" /> Agree to <a href="#requireCheckbox">Terms</a>
+                          </label>
+                          <p data-bind="validationMsg: requiredCheckbox"></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">checkboxes</label>
+                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
+                  <div class="col-sm-6">
+                      <!--
+                          putting the checkbox in the label means of you click the text it will check the box. Also you can
+                          use a for attribute on the label to accomplish the same thing
+                      -->
 
-                            <div class="checkbox">
-                                <label><input type="checkbox" disabled checked /> cannot change this one</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> Checkbox Two (optional)</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" /> Checkbox Three</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">checkbox lists</label>
-                        <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                        <div class="col-sm-6">
-                            <!--
-                                putting the checkbox in the label means of you click the text it will check the box. Also you can
-                                use a for attribute on the label to accomplish the same thing
-                            -->
-                            <!-- ko foreach: checkboxList -->
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" data-bind="value: $data, checked: $parent.selectedCheckboxListItems" />
-                                    <!-- ko text: $data --><!-- /ko -->
-                                </label>
-                            </div>
-                            <!-- /ko -->
-                            <p data-bind="validationMsg: selectedCheckboxListItems"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">radio buttons</label>
-                        <div class="col-sm-6 checkbox-list">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                    Option one is this and that&mdash;be sure to include why it's great
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    Option two can be something else and selecting it will deselect option one
-                                </label>
-                            </div>
-                            <div class="radio disabled">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                                    Option three is disabled
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Dropdown Lists</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" data-bind="options: dropdownListOptions,
-                                                                    optionsText: 'name',
-                                                                    value: dropdownListSelectedItem,
-                                                                    optionsCaption: 'Choose a Data Center...'"></select>
-                            <p data-bind="validationMsg: dropdownListSelectedItem"></p>
-                            <p class="alert alert-info"><a href="#dropDownMoreInfo">Important! Developers Read This</a></p>
-                        </div>
-                    </div>
-                    <div class="form-group actions">
-                        <div class="col-sm-offset-3 col-sm-9">
-                            <button class="btn btn-primary" data-bind="click: submit, enable: canSubmit">Submit</button>
-                            <button class="btn btn-link" data-bind="click: cancel">revert</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+                      <div class="checkbox">
+                          <label><input type="checkbox" disabled checked /> cannot change this one</label>
+                      </div>
+                      <div class="checkbox">
+                          <label><input type="checkbox" /> Checkbox Two (optional)</label>
+                      </div>
+                      <div class="checkbox">
+                          <label><input type="checkbox" /> Checkbox Three</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">checkbox lists</label>
+                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
+                  <div class="col-sm-6">
+                      <!--
+                          putting the checkbox in the label means of you click the text it will check the box. Also you can
+                          use a for attribute on the label to accomplish the same thing
+                      -->
+                      <!-- ko foreach: checkboxList -->
+                      <div class="checkbox">
+                          <label>
+                              <input type="checkbox" data-bind="value: $data, checked: $parent.selectedCheckboxListItems" />
+                              <!-- ko text: $data --><!-- /ko -->
+                          </label>
+                      </div>
+                      <!-- /ko -->
+                      <p data-bind="validationMsg: selectedCheckboxListItems"></p>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">radio buttons</label>
+                  <div class="col-sm-6 checkbox-list">
+                      <div class="radio">
+                          <label>
+                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                              Option one is this and that&mdash;be sure to include why it's great
+                          </label>
+                      </div>
+                      <div class="radio">
+                          <label>
+                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                              Option two can be something else and selecting it will deselect option one
+                          </label>
+                      </div>
+                      <div class="radio disabled">
+                          <label>
+                              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                              Option three is disabled
+                          </label>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">Dropdown Lists</label>
+                  <div class="col-sm-6">
+                      <select class="form-control" data-bind="options: dropdownListOptions,
+                                                              optionsText: 'name',
+                                                              value: dropdownListSelectedItem,
+                                                              optionsCaption: 'Choose a Data Center...'"></select>
+                      <p data-bind="validationMsg: dropdownListSelectedItem"></p>
+                      <p class="alert alert-info"><a href="#dropDownMoreInfo">Important! Developers Read This</a></p>
+                  </div>
+              </div>
+              <div class="form-group actions">
+                  <div class="col-sm-offset-3 col-sm-9">
+                      <button class="btn btn-primary" data-bind="click: submit, enable: canSubmit">Submit</button>
+                      <button class="btn btn-link" data-bind="click: cancel">revert</button>
+                  </div>
+              </div>
+          </fieldset>
+      </form>
+  </div>
 
-        <h4>Password Strength</h4>
-        <div class="pl-example" id="passwordStrengthExample">
-          <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="password">password</label>
-                <div class="col-sm-6">
-                    <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
-                    <p data-bind="validationMsg: password"></p>
-                </div>
-            </div>
-            <div class="form-group actions">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-          </form>
-        </div>
-        <pre>
-          <code class="javascript">
+  <h4>Password Strength</h4>
+  <div class="pl-example" id="passwordStrengthExample">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="password">password</label>
+          <div class="col-sm-6">
+              <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
+              <p data-bind="validationMsg: password"></p>
+          </div>
+      </div>
+      <div class="form-group actions">
+          <div class="col-sm-offset-3 col-sm-9">
+              <button class="btn btn-primary">Submit</button>
+          </div>
+      </div>
+    </form>
+  </div>
+  <pre>
+    <code class="javascript">
 // Javascript
 self.password = ko.trackableObservable();
 self.password.extend({
@@ -602,52 +602,48 @@ self.password.extend({
       &lt;/div&gt;
   &lt;/div&gt;
 &lt;/form&gt;
-          </code>
-        </pre>
+    </code>
+  </pre>
+</section>
 
 
 
-
-    </section>
-
-
-
-    <h3><a href="#sliders">Input Sliders</a></h3>
-    <p>
-      Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
-    </p>
-    <p>
-      In general it would be best practice to also pass in
-      <strong>`maxBound`</strong> and
-      <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
-    </p>
-    <div class="pl-example">
-      <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-        <fieldset>
-          <legend>Advanced Controls</legend>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">slider</label>
-            <div class="col-sm-9">
-                <slider params="value: 6, min: 1, max: 16"></slider>
-                <slider params="value: 4, min: 1, max: 128"></slider>
-                <slider params="value: 50, min: 1, max: 1024"></slider>
-            </div>
+  <h3><a href="#sliders">Input Sliders</a></h3>
+  <p>
+    Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+  </p>
+  <p>
+    In general it would be best practice to also pass in
+    <strong>`maxBound`</strong> and
+    <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+  </p>
+  <div class="pl-example">
+    <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <fieldset>
+        <legend>Advanced Controls</legend>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">slider</label>
+          <div class="col-sm-9">
+              <slider params="value: 6, min: 1, max: 16"></slider>
+              <slider params="value: 4, min: 1, max: 128"></slider>
+              <slider params="value: 50, min: 1, max: 1024"></slider>
           </div>
-        </fieldset>
-      </form>
-    </div>
-    <pre>
-      <code class="html">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
 &lt;div class=&quot;form-group&quot;&gt;
-  &lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
-  &lt;div class=&quot;col-sm-9&quot;&gt;
-      &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
-      &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
-      &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
-  &lt;/div&gt;
+&lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
+&lt;div class=&quot;col-sm-9&quot;&gt;
+    &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
+    &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
+    &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
 &lt;/div&gt;
-      </code>
-    </pre>
+&lt;/div&gt;
+    </code>
+  </pre>
 
 
 {{#contentFor "scripts"}}
