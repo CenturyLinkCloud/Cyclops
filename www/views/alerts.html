@@ -1,15 +1,25 @@
-{{#contentFor "title"}}Color{{/contentFor}}
+{{#contentFor "title"}}Alerts{{/contentFor}}
 {{#contentFor "tabName"}}alerts{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
 
 <h1 class="content-header">Alerts</h1>
 <section class="pl-section" id="alerts">
-  <p>Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
+  <p>Provide contextual feedback messages for user actions with alert messages. Wrap any text and an optional dismiss button in <code>.alert</code> and one of the four contextual classes (e.g., <code>.alert-success</code>) for basic alert messages.</p>
 
-  <div class="alert alert-success" role="alert">...</div>
-  <div class="alert alert-info" role="alert">...</div>
-  <div class="alert alert-warning" role="alert">...</div>
-  <div class="alert alert-danger" role="alert">...</div>
+  <div class="pl-example">
+    <div class="alert alert-success" role="alert"><strong>Success!</strong> This is a successful message.</div>
+    <div class="alert alert-info" role="alert"><strong>Helpful Information!</strong> This alert should be used to display information that isn't inherently obvious.</div>
+    <div class="alert alert-warning" role="alert"><strong>Warning!</strong> This is a warning message.</div>
+    <div class="alert alert-danger" role="alert"><strong>Danger!</strong> This message is important and may have a major impact.</div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;...&lt;/div&gt;
+    </code>
+  </pre>
 
 </section>
