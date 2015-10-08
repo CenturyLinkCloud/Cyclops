@@ -102,7 +102,7 @@
         </code>
       </pre>
 
-      <h4>Select Dropdowns</h4>
+      <h3>Select Dropdowns</h3>
       <ul>
         <li>
           If there is only one item in the select options, than that item should automatically be
@@ -144,9 +144,202 @@
 
     </section>
 
+    <section class="pl-section" id="disabled">
+      <h3>Disabled Input</h3>
+      <p>Add the <code>disabled</code> attribute on an input to prevent user interactions. Disabled inputs appear lighter and add a <code>not-allowed</code> cursor.</p>
+      <div class="pl-example">
+        <input type="text" class="form-control" id="disabledInput" placeholder="Disabled Text Input" disabled>
+      </div>
+      <pre>
+        <code class="html">
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;disabledInput&quot; placeholder=&quot;Disabled Text Input&quot; disabled&gt;
+        </code>
+      </pre>
+
+      <h4>Disabled Fieldset</h4>
+      <div class="pl-example">
+        <form>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput">Disabled input</label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+            </div>
+            <div class="form-group">
+              <label for="disabledSelect">Disabled select menu</label>
+              <select id="disabledSelect" class="form-control">
+                <option>Disabled select</option>
+              </select>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Can't check this
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+      <pre>
+        <code class="html">
+&lt;form&gt;
+  &lt;fieldset disabled&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label for=&quot;disabledTextInput&quot;&gt;Disabled input&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;disabledTextInput&quot; class=&quot;form-control&quot; placeholder=&quot;Disabled input&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label for=&quot;disabledSelect&quot;&gt;Disabled select menu&lt;/label&gt;
+      &lt;select id=&quot;disabledSelect&quot; class=&quot;form-control&quot;&gt;
+        &lt;option&gt;Disabled select&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;checkbox&quot;&gt;
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot;&gt; Can&#39;t check this
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section class="pl-section" id="basicForm">
+      <h3><a href="#basicForm">Basic Form</a></h3>
+      <p>Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt</code>, <code>&lt;textarea&gt</code>, and <code>&lt;select&gt</code> elements with <code>.form-control</code> are set to width: 100%; by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing.</p>
+
+      <ul>
+          <li>Labels should have a <code>for</code> attribute that points to the <code>id</code> of an input type. It is only allowed to point to input types not any element</li>
+          <li>The fieldset legend name should be useful not just <code>edit</code> or <code>create</code></li>
+          <li>Optional fields are denoted not required fields.</li>
+          <li>Tab order should be logical and visit ever valid field (e.g. do not tab to disabled items)</li>
+          <li>Items that are not editable are presented as paragraph tags not disabled inputs</li>
+      </ul>
+
+      <div class="pl-example">
+        <form>
+          <div class="form-group">
+            <label for="basicFormEmail">Email address</label>
+            <input type="email" class="form-control" id="basicFormEmail" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="basicFormPassword">Password</label>
+            <input type="password" class="form-control" id="basicFormPassword" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="basicFormFileInput">File input</label>
+            <input type="file" id="basicFormFileInput">
+            <p class="help-block">Example block-level help text here.</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+          <button class="btn btn-link">cancel</button>
+        </form>
+      </div>
+      <pre>
+        <code class="html">
+&lt;form&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+     &lt;label for=&quot;basicFormEmail&quot;&gt;Email address&lt;/label&gt;
+     &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;basicFormEmail&quot; placeholder=&quot;Email&quot;&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+     &lt;label for=&quot;basicFormPassword&quot;&gt;Password&lt;/label&gt;
+     &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;basicFormPassword&quot; placeholder=&quot;Password&quot;&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+     &lt;label for=&quot;basicFormFileInput&quot;&gt;File input&lt;/label&gt;
+     &lt;input type=&quot;file&quot; id=&quot;basicFormFileInput&quot;&gt;
+     &lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;checkbox&quot;&gt;
+     &lt;label&gt;
+       &lt;input type=&quot;checkbox&quot;&gt; Check me out
+     &lt;/label&gt;
+   &lt;/div&gt;
+   &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;
+   &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+ &lt;/form&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section class="pl-section" id="basicForm">
+      <h3><a href="#horizontalForm">Horizontal Form</a></h3>
+      <p>Horizontal forms rely on the <a href="./grid.html">Grid System</a> to align form labels and inputs horizontally. These forms used throughout the Control Portal to create new entities, such as servers, appfog apps, and policies.</p>
+      <div class="pl-example">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="horizontalFormEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="horizontalFormPassword" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="horizontalFormPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="submit" class="btn btn-default">Sign in</button>
+              <button class="btn btn-link">cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <pre>
+        <code class="html">
+&lt;form class=&quot;form-horizontal&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;horizontalFormEmail&quot; class=&quot;col-sm-3 control-label&quot;&gt;Email&lt;/label&gt;
+    &lt;div class=&quot;col-sm-9&quot;&gt;
+      &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;horizontalFormEmail&quot; placeholder=&quot;Email&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;horizontalFormPassword&quot; class=&quot;col-sm-3 control-label&quot;&gt;Password&lt;/label&gt;
+    &lt;div class=&quot;col-sm-9&quot;&gt;
+      &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;horizontalFormPassword&quot; placeholder=&quot;Password&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+      &lt;div class=&quot;checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot;&gt; Remember me
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Sign in&lt;/button&gt;
+      &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+        </code>
+      </pre>
+    </section>
 
     <section class="pl-section" id="validation">
-        <h2><a href="#validation">Validation</a></h2>
+        <h3><a href="#validation">Validation</a></h3>
         <p>
           We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
           knockout-validation</a> and have created several bindings and validators that
@@ -197,66 +390,7 @@ ko.trackableObservable().extend({
           </code>
         </pre>
 
-        <h4>Password Strength</h4>
-        <div class="pl-example" id="passwordStrengthExample">
-          <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="password">password</label>
-                <div class="col-sm-6">
-                    <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
-                    <p data-bind="validationMsg: password"></p>
-                </div>
-            </div>
-            <div class="form-group actions">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-          </form>
-        </div>
-        <pre>
-          <code class="javascript">
-// Javascript
-self.password = ko.trackableObservable();
-self.password.extend({
-    required: { params: true, message: "A password is required." },
-    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
-});
-          </code>
-          <code class="html">
-&lt;!-- HTML --&gt;
-&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
-      &lt;div class=&quot;col-sm-6&quot;&gt;
-          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;password&quot; data-bind=&quot;value: password, validationElement: password, widget: &#39;passwordStrength&#39;&quot; &gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group actions&quot;&gt;
-      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
-          &lt;button class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-          </code>
-        </pre>
-
-
-
-
-    </section>
-
-    <section class="pl-section" id="forms">
-        <h2><a href="#formsBasic">Basic Form</a></h2>
-        <h3>Additional considerations</h3>
-        <ul>
-            <li>Labels should have a <code>for</code> attribute that points to the <code>id</code> of an input type. It is only allowed to point to input types not any element</li>
-            <li>The fieldset legend name should be useful not just <code>edit</code> or <code>create</code></li>
-            <li>Optional fields are denoted not required fields.</li>
-            <li>Tab order should be logical and visit ever valid field (e.g. do not tab to disabled items)</li>
-            <li>Items that are not editable are presented as paragraph tags not disabled inputs</li>
-        </ul>
-
+        <h4>Form Validation Example</h4>
         <div id="formsBasic" class="pl-example">
 
             <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
@@ -412,7 +546,7 @@ self.password.extend({
                             <select class="form-control" data-bind="options: dropdownListOptions,
                                                                     optionsText: 'name',
                                                                     value: dropdownListSelectedItem,
-                                                                    optionsCaption: 'Choose a DataCenter...'"></select>
+                                                                    optionsCaption: 'Choose a Data Center...'"></select>
                             <p data-bind="validationMsg: dropdownListSelectedItem"></p>
                             <p class="alert alert-info"><a href="#dropDownMoreInfo">Important! Developers Read This</a></p>
                         </div>
@@ -426,10 +560,59 @@ self.password.extend({
                 </fieldset>
             </form>
         </div>
+
+        <h4>Password Strength</h4>
+        <div class="pl-example" id="passwordStrengthExample">
+          <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="password">password</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
+                    <p data-bind="validationMsg: password"></p>
+                </div>
+            </div>
+            <div class="form-group actions">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        <pre>
+          <code class="javascript">
+// Javascript
+self.password = ko.trackableObservable();
+self.password.extend({
+    required: { params: true, message: "A password is required." },
+    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
+});
+          </code>
+          <code class="html">
+&lt;!-- HTML --&gt;
+&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;password&quot; data-bind=&quot;value: password, validationElement: password, widget: &#39;passwordStrength&#39;&quot; &gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group actions&quot;&gt;
+      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+          </code>
+        </pre>
+
+
+
+
     </section>
 
 
-    <h3>Input Sliders</h3>
+
+    <h3><a href="#sliders">Input Sliders</a></h3>
     <p>
       Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
     </p>
