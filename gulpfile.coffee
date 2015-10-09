@@ -90,12 +90,18 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe gulp.dest './www/assets/scripts'
 
 gulp.task 'test-build', ->
-  return gulp.src ['./src/scripts/helpers/**/*.*',
-            './src/scripts/bindings/**/*.*',
-            './src/scripts/widgets/**/*.*',
-            './src/scripts/models/**/*.*',
-            './specs/testHelpers/*.coffee',
-            './specs/**/*.spec.coffee']
+  return gulp.src './src/scripts/helpers/init.coffee'
+    .pipe addSrc.append ['./src/scripts/helpers/**/*.*',
+      '!./src/scripts/helpers/init.coffee']
+    .pipe addSrc.append './src/scripts/extensions/**/*.*'
+    .pipe addSrc.append './src/scripts/bindings/**/*.*'
+    .pipe addSrc.append './src/scripts/widgets/**/*.*'
+    .pipe addSrc.append './src/scripts/models/**/*.*'
+    .pipe addSrc.append ['./src/scripts/validators/**/*.*',
+      '!./src/scripts/validators/register.coffee']
+    .pipe addSrc.append './src/scripts/validators/register.coffee'
+    .pipe addSrc.append './src/scripts/*.*'
+    .pipe addSrc.append ['./specs/testHelpers/*.coffee', './specs/**/*.spec.coffee']
     .pipe coffee({bare: true})
     .pipe gulp.dest './temp'
 
