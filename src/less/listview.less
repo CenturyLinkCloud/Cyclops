@@ -390,114 +390,55 @@ html.cyclops {
     word-wrap: break-word;
   }
 
-  .col-10 {
-    width: 10%;
-  }
-
-  .col-15 {
-    width: 15%;
-  }
-
-  .col-20 {
-    width: 20%;
-  }
-
-  .col-25 {
-    width: 25%;
-  }
-
-  .col-30 {
-    width: 30%;
-  }
-
-  .col-35 {
-    width: 35%;
-  }
-
-  .col-40 {
-    width: 40%;
-  }
-
-  .col-45 {
-    width: 45%;
-  }
-
-  .col-50 {
-    width: 50%;
-  }
-
-  .col-55 {
-    width: 55%;
-  }
-
-  .col-60 {
-    width: 60%;
-  }
-
-  .col-65 {
-    width: 65%;
-  }
-
-  .col-70 {
-    width: 70%;
-  }
-
-  .col-75 {
-    width: 75%;
-  }
-
-  .col-80 {
-    width: 80%;
-  }
-
-  .col-85 {
-    width: 85%;
-  }
-
-  .col-90 {
-    width: 90%;
-  }
-
-  .col-95 {
-    width: 95%;
-  }
-
-  .col-100 {
-    width: 100%;
-  }
+  .col-10 { width: 10%; }
+  .col-15 { width: 15%; }
+  .col-20 { width: 20%; }
+  .col-25 { width: 25%; }
+  .col-30 { width: 30%; }
+  .col-35 { width: 35%; }
+  .col-40 { width: 40%; }
+  .col-45 { width: 45%; }
+  .col-50 { width: 50%; }
+  .col-55 { width: 55%; }
+  .col-60 { width: 60%; }
+  .col-65 { width: 65%; }
+  .col-70 { width: 70%; }
+  .col-75 { width: 75%; }
+  .col-80 { width: 80%; }
+  .col-85 { width: 85%; }
+  .col-90 { width: 90%; }
+  .col-95 { width: 95%; }
+  .col-100 { width: 100%; }
 
   .new-list-view-responsive {
     .col-header {
       display: none;
     }
 
-    .new-list-view-responsive-expanded {
-      @media (max-width: 0px) {
-        .new-list-view-responsive-collapsed
-      }
+    .new-list-view-responsive-expanded();
+
+    @media (max-width: 0px) {
+      .new-list-view-responsive-collapsed();
     }
 
     &.new-list-view-responsive-sm {
-      .new-list-view-responsive-expanded {
-        @media (max-width: @screen-sm) {
-          .new-list-view-responsive-collapsed
-        }
+      .new-list-view-responsive-expanded();
+      @media (max-width: @screen-xs-max) {
+       .new-list-view-responsive-collapsed();
       }
     }
 
     &.new-list-view-responsive-md {
-      .new-list-view-responsive-expanded {
-        @media (max-width: @screen-md) {
-          .new-list-view-responsive-collapsed
-        }
+      .new-list-view-responsive-expanded();
+      @media (max-width: @screen-sm-max) {
+        .new-list-view-responsive-collapsed();
       }
     }
 
     &.new-list-view-responsive-lg {
-      .new-list-view-responsive-expanded {
-        @media (max-width: @screen-lg) {
-          .new-list-view-responsive-collapsed
-        }
+      .new-list-view-responsive-expanded();
+      @media (max-width: @screen-md-max) {
+        .new-list-view-responsive-collapsed();
       }
     }
   }
@@ -673,78 +614,24 @@ html.cyclops {
       }
     }
 
-    .col-10 {
-      width: auto;
-    }
-
-    .col-15 {
-      width: auto;
-    }
-
-    .col-20 {
-      width: auto;
-    }
-
-    .col-25 {
-      width: auto;
-    }
-
-    .col-30 {
-      width: auto;
-    }
-
-    .col-35 {
-      width: auto;
-    }
-
-    .col-40 {
-      width: auto;
-    }
-
-    .col-45 {
-      width: auto;
-    }
-
-    .col-50 {
-      width: auto;
-    }
-
-    .col-55 {
-      width: auto;
-    }
-
-    .col-60 {
-      width: auto;
-    }
-
-    .col-65 {
-      width: auto;
-    }
-
-    .col-70 {
-      width: auto;
-    }
-
-    .col-75 {
-      width: auto;
-    }
-
-    .col-80 {
-      width: auto;
-    }
-
-    .col-85 {
-      width: auto;
-    }
-
-    .col-90 {
-      width: auto;
-    }
-
-    .col-95 {
-      width: auto;
-    }
-
+    .col-10,
+    .col-15,
+    .col-20,
+    .col-25,
+    .col-30,
+    .col-35,
+    .col-40,
+    .col-45,
+    .col-50,
+    .col-55,
+    .col-60,
+    .col-65,
+    .col-70,
+    .col-75,
+    .col-80,
+    .col-85,
+    .col-90,
+    .col-95,
     .col-100 {
       width: auto;
     }
@@ -780,80 +667,24 @@ html.cyclops {
       word-wrap: break-word;
     }
 
-    .col-10 {
-      width: 10%;
-    }
-
-    .col-15 {
-      width: 15%;
-    }
-
-    .col-20 {
-      width: 20%;
-    }
-
-    .col-25 {
-      width: 25%;
-    }
-
-    .col-30 {
-      width: 30%;
-    }
-
-    .col-35 {
-      width: 35%;
-    }
-
-    .col-40 {
-      width: 40%;
-    }
-
-    .col-45 {
-      width: 45%;
-    }
-
-    .col-50 {
-      width: 50%;
-    }
-
-    .col-55 {
-      width: 55%;
-    }
-
-    .col-60 {
-      width: 60%;
-    }
-
-    .col-65 {
-      width: 65%;
-    }
-
-    .col-70 {
-      width: 70%;
-    }
-
-    .col-75 {
-      width: 75%;
-    }
-
-    .col-80 {
-      width: 80%;
-    }
-
-    .col-85 {
-      width: 85%;
-    }
-
-    .col-90 {
-      width: 90%;
-    }
-
-    .col-95 {
-      width: 95%;
-    }
-
-    .col-100 {
-      width: 100%;
-    }
+    .col-10 { width: 10%; }
+    .col-15 { width: 15%; }
+    .col-20 { width: 20%; }
+    .col-25 { width: 25%; }
+    .col-30 { width: 30%; }
+    .col-35 { width: 35%; }
+    .col-40 { width: 40%; }
+    .col-45 { width: 45%; }
+    .col-50 { width: 50%; }
+    .col-55 { width: 55%; }
+    .col-60 { width: 60%; }
+    .col-65 { width: 65%; }
+    .col-70 { width: 70%; }
+    .col-75 { width: 75%; }
+    .col-80 { width: 80%; }
+    .col-85 { width: 85%; }
+    .col-90 { width: 90%; }
+    .col-95 { width: 95%; }
+    .col-100 { width: 100%; }
   }
 }
