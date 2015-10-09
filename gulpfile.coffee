@@ -153,6 +153,12 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
   copyTemplates = gulp.src './www/assets/templates/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/templates/"
 
+  copyStarterPages = gulp.src './www/starterPages/**/*'
+    .pipe gulp.dest "./dist/#{pkg.version}/starterPages/"
+
+  copyImages = gulp.src './www/assets/img/**/*'
+    .pipe gulp.dest "./dist/#{pkg.version}/img/"
+
   renderHTML = gulp.src './www/views/*.html'
     .pipe through.obj (file, enc, cb) ->
       render = hbs.create().express3
@@ -180,6 +186,6 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
           console.log "failed to render #{file.path}"
     .pipe gulp.dest "./dist/#{pkg.version}/"
 
-  return merge copyCSS, renderHTML
+  return merge copyCSS, copyScripts, copyTemplates, copyStarterPages, copyImages, renderHTML
 
 gulp.task 'dev', ['less-concat', 'template-concat', 'script-concat', 'client-watch', 'server-watch']
