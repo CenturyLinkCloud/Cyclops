@@ -343,10 +343,21 @@
     <p>
       We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
       knockout-validation</a> and have created several bindings and validators that
-      will make creating an awesome user experience simple and painless. To use these you’ll
-      need to add a little bit of code to the form’s data binding.
+      will make creating an awesome user experience simple and painless.
+    </p>
+    <h4>Getting Started</h4>
+    <p>
+      Becuase we use <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
+      knockout-validation</a> we suggest heading over to there wiki and reading the
+      <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Getting-Started">
+      Getting Started Guide</a>. Bellow is the set of options, validators, and custom validators
+      that are mostly commonly used.
     </p>
     <h4>Validation Options</h4>
+    <p>
+      These should be set on the form or another parent DOM node but it is easiest to put them on
+      the form itself.
+    </p>
     <pre>
       <code class="html">
 &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
@@ -362,7 +373,8 @@
 &lt;p id=&quot;test&quot; data-bind=&quot;validationMsg: validatedField&quot;&gt;&lt;/p&gt;
       </code>
     </pre>
-    <h4>Knockout Validation Native Rules</h4>
+
+    <h4>Native Rules</h4>
     <p>
       See the list of built in validators and their options on knokcout validations
       <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">
@@ -389,6 +401,158 @@ ko.trackableObservable().extend({
 });
     </code>
   </pre>
+
+  <h4 id="passwordStrength"><a href="#passwordStrength">Password Strength</a></h4>
+  <div class="pl-example" id="passwordStrengthExample">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="password">password</label>
+          <div class="col-sm-6">
+              <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
+              <p data-bind="validationMsg: password"></p>
+          </div>
+      </div>
+      <div class="form-group actions">
+          <div class="col-sm-offset-3 col-sm-9">
+              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
+          </div>
+      </div>
+    </form>
+  </div>
+  <pre class="show-type">
+    <code class="javascript">
+self.password = ko.observable().extend({
+    required: { params: true, message: "A password is required." },
+    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
+});
+self.errors = ko.validation.group([self.password])
+self.submit = function() {
+  if (self.errors().length < 1) {
+    alert("The Password meets the requires strength!");
+  } else {
+    self.errors.showAllMessages();
+  }
+};
+          </code>
+          <code class="html">
+  &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;password&quot; data-bind=&quot;value: password, validationElement: password, widget: &#39;passwordStrength&#39;&quot; &gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group actions&quot;&gt;
+      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/form&gt;
+    </code>
+  </pre>
+
+  <h4 id="confirmPassword"><a href="#confirmPassword">Confirm Password</a></h4>
+  <div class="pl-example" id="confirmPasswordExample">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <div class="form-group">
+          <label class="col-sm-3 control-label">password</label>
+          <div class="col-sm-6">
+              <input class="form-control" type="password" data-bind="value:password, validationElement: password"/>
+              <p data-bind="validationMsg: password"></p>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
+          <div class="col-sm-6">
+              <input class="form-control" type="password" id="confirmPassword" data-bind="value:confirmPassword, validationElement: confirmPassword" />
+              <p data-bind="validationMsg: confirmPassword"></p>
+          </div>
+      </div>
+      <div class="form-group actions">
+          <div class="col-sm-offset-3 col-sm-9">
+              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
+          </div>
+      </div>
+    </form>
+  </div>
+  <pre class="show-type">
+    <code class="javascript">
+self.password = ko.observable().extend({
+    required: { params: true, message: &quot;A password is required.&quot; }
+});
+self.confirmPassword = ko.trackableObservable().extend({
+    required: { message: &quot;Retype the password to confirm.&quot;, onlyIf: self.password },
+    equal: { params: self.password, message: &quot;Passwords do not match.&quot; }
+});
+self.errors = ko.validation.group([self.password, self.confirmPassword])
+self.submit = function() {
+  if (self.errors().length &lt; 1) {
+    alert(&quot;Form is Valid!&quot;);
+  } else {
+    self.errors.showAllMessages();
+  }
+};
+    </code>
+    <code class="html">
+&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;password&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; data-bind=&quot;value:password, validationElement: password&quot;/&gt;
+          &lt;p data-bind=&quot;validationMsg: password&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;confirmPassword&quot;&gt;confirm password&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;confirmPassword&quot; data-bind=&quot;value:confirmPassword, validationElement: confirmPassword&quot; /&gt;
+          &lt;p data-bind=&quot;validationMsg: confirmPassword&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group actions&quot;&gt;
+      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; data-bind=&quot;click: submit&quot;&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+    </code>
+  </pre>
+
+
+  <h4 id="remote"><a href="#remote">Remote / Async</a></h4>
+  <p>
+    Remote validation is done using
+    <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Async-Rules">
+    inline async validators</a>. The bellow code example fakes out an AJAX call using
+    setTimeout. <code>asyncMessage</code> is a custom binding that was writen to display
+    notification to the end user that validation is occuring. This is to be used in conjuction
+    with <code>validationMsg</code>. For More information about either of these bindings please
+    consult the <a href="./bindings.html">bingings</a> documentation.
+  </p>
+  <p>
+    Additionally it is of note that your validator may be called again before the AJAX call has
+    returned so you will need to properly abort the previous call and issue a new one.
+  </p>
+  <div class="pl-example" id="remoteExample">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <div class="form-group">
+          <label class="col-sm-3 control-label" for="remoteText">Remotely Validated</label>
+          <div class="col-sm-6">
+              <textarea class="form-control" type="text" id="remoteText" data-bind="value: remote, validationElement: remote"></textarea>
+              <p data-bind="validationMsg: remote"></p>
+              <div data-bind="asyncMessage: remote"></div>
+          </div>
+      </div>
+      <div class="form-group actions">
+          <div class="col-sm-offset-3 col-sm-9">
+              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
+          </div>
+      </div>
+    </form>
+  </div>
+
+
+
 
   <h4>Form Validation Example</h4>
   <div id="formsBasic" class="pl-example">
@@ -561,47 +725,7 @@ ko.trackableObservable().extend({
       </form>
   </div>
 
-  <h4 id="passwordStrength"><a href="#passwordStrength">Password Strength</a></h4>
-  <div class="pl-example" id="passwordStrengthExample">
-    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-      <div class="form-group">
-          <label class="col-sm-3 control-label" for="password">password</label>
-          <div class="col-sm-6">
-              <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" >
-              <p data-bind="validationMsg: password"></p>
-          </div>
-      </div>
-      <div class="form-group actions">
-          <div class="col-sm-offset-3 col-sm-9">
-              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
-          </div>
-      </div>
-    </form>
-  </div>
-  <pre class="show-type">
-    <code class="javascript">
-self.password = ko.trackableObservable();
-self.password.extend({
-    required: { params: true, message: "A password is required." },
-    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
-});
-          </code>
-          <code class="html">
-&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
-      &lt;div class=&quot;col-sm-6&quot;&gt;
-          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;password&quot; data-bind=&quot;value: password, validationElement: password, widget: &#39;passwordStrength&#39;&quot; &gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group actions&quot;&gt;
-      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
-          &lt;button class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-    </code>
-  </pre>
+
 </section>
 
 
@@ -667,6 +791,77 @@ $(function(){
   ko.applyBindings(new passwordModel(), $("#passwordStrengthExample")[0]);
   /* End passwordStrength */
 
+
+  /* Start passwordConfirm */
+  var passwordConfirmModel = function(){
+    var self = this;
+    self.password = ko.observable().extend({
+        required: { params: true, message: "A password is required." }
+    });
+    self.confirmPassword = ko.trackableObservable().extend({
+        required: { message: "Retype the password to confirm.", onlyIf: self.password },
+        equal: { params: self.password, message: "Passwords do not match." }
+    });
+    self.errors = ko.validation.group([self.password, self.confirmPassword])
+    self.submit = function() {
+      if (self.errors().length < 1) {
+        alert("Form is Valid!");
+      } else {
+        self.errors.showAllMessages();
+      }
+    };
+    return self;
+  };
+  ko.applyBindings(new passwordConfirmModel(), $("#confirmPasswordExample")[0]);
+  /* End passwordConfirm */
+
+  /* Start remote */
+  var remoteModel = function(){
+    var self = this;
+    self.remote = ko.trackableObservable().extend({
+        required: true,
+        validation: {
+            async: true,
+            validator: function (val, params, callback) {
+                // If there is a value to test we are going to simulate a shall.ajax call using
+                // setTimeout. Just remember that the call must be called with either a truthie or falsie
+                // value. So make sure that all the promise events do something. aka shell.ajax().error()
+                // WARNING: the validator can be called again before the AJAX call returns your should be
+                // aborting the previous call. You can use the `failed` function to know that it failed not
+                // that it was aborted. You can use the `aborted` function to know that it was aborted instead
+                // of failing and generally in that case just say that it's valid and move on.
+                if (val) {
+                    setTimeout(function () {
+                        // you would do some processing on the JSON you get back from your API
+                        // to understand if its valid or not. In this case just be valid if its not
+                        // the string `error`
+                        var isValid = val !== "error";
+                        callback(isValid);
+                    }, 2000);
+                }
+                else {
+                    callback({ isValid: true });
+                }
+            },
+            message: "Text 'error' makes this field invalid"
+        }
+    });
+    self.errors = ko.validation.group([self.remote]);
+    self.submit = function() {
+      if(self.remote.isValidating()){
+        alert("you may want to wait for remote validation");
+        return;
+      }
+      if (self.errors().length < 1) {
+        alert("Form is Valid!");
+      } else {
+        self.errors.showAllMessages();
+      }
+    };
+    return self;
+  }
+  ko.applyBindings(new remoteModel(), $("#remoteExample")[0]);
+  /* End remote */
 
   /* Start Sliders */
   ko.applyBindings({}, $("#formSlider")[0]);
