@@ -1,0 +1,134 @@
+//
+// Navs
+// --------------------------------------------------
+
+
+// Base class
+// --------------------------------------------------
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: @nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: @nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: @cursor-disabled;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @nav-link-hover-bg;
+      border-color: @link-color;
+    }
+  }
+
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
+
+// Stacked (Left) Nav
+// --------------------------------------------------
+
+.nav-stacked {
+  .nav-header {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+
+    > li {
+      float: none;
+      + li {
+        margin-left: 0; // no need for this gap between nav items
+      }
+    }
+
+    .tab {
+      border-bottom: 1px solid @borderColor;
+
+      &:first-child {
+        border-top: 1px solid @borderColor;
+      }
+
+      a {
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+
+      &.selected {
+
+        > a {
+          font-weight: 600;
+        }
+
+        .tabs-subnav {
+          display: block;
+          list-style: none;
+
+          > li {
+
+            &.selected {
+              font-weight: 600;
+            }
+
+            > a {
+              display: block;
+              font-size: @font-size-base - 2;
+              padding: 5px 10px 5px 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// hide sub level nav items by default;
+.tabs-subnav {
+  display: none;
+  padding: 0;
+}
