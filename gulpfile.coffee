@@ -62,11 +62,17 @@ gulp.task 'template-minify', ['template-concat'], ->
     .pipe gulp.dest './www/assets/templates'
 
 gulp.task 'script-concat', ->
-  gulp.src ['./src/scripts/helpers/**/*.*',
-            './src/scripts/bindings/**/*.*',
-            './src/scripts/widgets/**/*.*',
-            './src/scripts/models/**/*.*',
-            './src/scripts/*.*']
+  gulp.src './src/scripts/helpers/init.coffee'
+    .pipe addSrc.append ['./src/scripts/helpers/**/*.*',
+      '!./src/scripts/helpers/init.coffee']
+    .pipe addSrc.append './src/scripts/extensions/**/*.*'
+    .pipe addSrc.append './src/scripts/bindings/**/*.*'
+    .pipe addSrc.append './src/scripts/widgets/**/*.*'
+    .pipe addSrc.append './src/scripts/models/**/*.*'
+    .pipe addSrc.append ['./src/scripts/validators/**/*.*',
+      '!./src/scripts/validators/register.coffee']
+    .pipe addSrc.append './src/scripts/validators/register.coffee'
+    .pipe addSrc.append './src/scripts/*.*'
     .pipe coffee({bare: true})
     .pipe addSrc.prepend './build/before.js'
     .pipe addSrc.append './build/after.js'

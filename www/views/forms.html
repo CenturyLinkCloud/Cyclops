@@ -573,14 +573,13 @@ ko.trackableObservable().extend({
       </div>
       <div class="form-group actions">
           <div class="col-sm-offset-3 col-sm-9">
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
           </div>
       </div>
     </form>
   </div>
-  <pre>
+  <pre class="show-type">
     <code class="javascript">
-// Javascript
 self.password = ko.trackableObservable();
 self.password.extend({
     required: { params: true, message: "A password is required." },
@@ -588,7 +587,6 @@ self.password.extend({
 });
           </code>
           <code class="html">
-&lt;!-- HTML --&gt;
 &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
   &lt;div class=&quot;form-group&quot;&gt;
       &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
@@ -650,12 +648,23 @@ self.password.extend({
 <script>
 $(function(){
   /* Start passwordStrength */
-  ko.applyBindings({
-    password: ko.observable().extend({
+  var passwordModel = function(){
+    var self = this;
+    self.password = ko.observable().extend({
         required: { params: true, message: "A password is required." },
         passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
-    })
-  }, $("#passwordStrengthExample")[0]);
+    });
+    self.errors = ko.validation.group([self.password])
+    self.submit = function() {
+      if (self.errors().length < 1) {
+        alert("The Password meets the requires strength!");
+      } else {
+        self.errors.showAllMessages();
+      }
+    };
+    return self;
+  };
+  ko.applyBindings(new passwordModel(), $("#passwordStrengthExample")[0]);
   /* End passwordStrength */
 
 
