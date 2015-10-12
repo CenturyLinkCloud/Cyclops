@@ -142,6 +142,44 @@
         </code>
       </pre>
 
+      <h4 id="sliders"><a href="#sliders">Sliders</a></h4>
+      <p>
+        Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+      </p>
+      <p>
+        In general it would be best practice to also pass in
+        <strong>`maxBound`</strong> and
+        <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+      </p>
+      <div class="pl-example">
+        <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+          <fieldset>
+            <legend>Advanced Controls</legend>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">slider</label>
+              <div class="col-sm-9">
+                  <slider params="value: 6, min: 1, max: 16"></slider>
+                  <slider params="value: 4, min: 1, max: 128"></slider>
+                  <slider params="value: 50, min: 1, max: 1024"></slider>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <pre>
+        <code class="html">
+    &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
+    &lt;div class=&quot;col-sm-9&quot;&gt;
+        &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
+        &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
+        &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+        </code>
+      </pre>
+
+
     </section>
 
     <section class="pl-section" id="disabled">
@@ -350,59 +388,144 @@
       Becuase we use <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
       knockout-validation</a> we suggest heading over to there wiki and reading the
       <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Getting-Started">
-      Getting Started Guide</a>. Bellow is the set of options, validators, and custom validators
-      that are mostly commonly used.
+      Getting Started Guide</a>. Bellow is the set of options, validators, and custom validators.
     </p>
-    <h4>Validation Options</h4>
+
+
+    <h4 id="simpleValidation"><a href="#simpleValidation">Demo</a></h4>
     <p>
-      These should be set on the form or another parent DOM node but it is easiest to put them on
-      the form itself.
+      A demo that includes all the options and configuration needed. See the list of native and
+      custom validators for more complex validation needs. As a rule of thumb only optional fields
+      are marked.
     </p>
-    <pre>
+    <p>
+      <code>ValidationOptions</code> is used to set some common configuration that is needed to
+      adhere to out ux guidelines. This can be set on a global level but is not in control due to
+      the need for backwards compatablity with &quot;old ui&quot; pages.
+    </p>
+    <p>
+      <code>validationMsg</code> is a custom binding that we created to show error messages that
+      follow our ux guidelines without requiring additional work from the developer. Use this
+      binding on a <code>p</code> tag to display error messages
+    </p>
+    <p>
+      <code>ko.validation.group</code> is used to select which properties on your
+      model will be validated. In general our models tend to have a lot of properties
+      (computeds, etc.) that don't need to be tracked for validation so we use validations groups.
+      more information about validation groups can be found on the
+      <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Validating-Only-Specific-Observables">
+        knockout-validation page</a>
+    </p>
+    <p>
+      <code>showAllMessages</code> is required when using validation groups to tigger the showing
+      of error messages for the tracked properties.
+    </p>
+    <div class="pl-example" id="simpleValidationExample">
+      <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="header">Header (optional)</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="header" data-bind="value: header" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="requiredText">Message</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="requiredText" data-bind="value: text, validationElement: text" >
+            <p data-bind="validationMsg: text"></p>
+          </div>
+        </div>
+        <div class="form-group actions">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button class="btn btn-primary" data-bind="click: submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <pre class="show-type">
+      <code class="javascript">
+self.header = ko.observable();
+self.text = ko.observable().extend({
+    required: { params: true, message: &quot;some text is required.&quot; },
+});
+self.errors = ko.validation.group([self.text])
+self.submit = function() {
+  if (self.errors().length &lt; 1) {
+    alert(&quot;The Form is Valid!&quot;);
+  } else {
+    self.errors.showAllMessages();
+  }
+};
+      </code>
       <code class="html">
 &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-      </code>
-    </pre>
-    <h4>Displaying a Message</h4>
-    <p>
-      To display a validation message use a <code>p</code> tag and the <code>validationMsg</code>
-      binding placed right under the input.
-    </p>
-    <pre>
-      <code class="html">
-&lt;p id=&quot;test&quot; data-bind=&quot;validationMsg: validatedField&quot;&gt;&lt;/p&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;header&quot;&gt;Header (optional)&lt;/label&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+      &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;header&quot; data-bind=&quot;value: header&quot; &gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;requiredText&quot;&gt;Message&lt;/label&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+      &lt;input class=&quot;form-control&quot; type=&quot;text&quot; id=&quot;requiredText&quot; data-bind=&quot;value: text, validationElement: text&quot; &gt;
+      &lt;p data-bind=&quot;validationMsg: text&quot;&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group actions&quot;&gt;
+    &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+      &lt;button class=&quot;btn btn-primary&quot; data-bind=&quot;click: submit&quot;&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
       </code>
     </pre>
 
-    <h4>Native Rules</h4>
+    <h4 id="nativeValidators"><a href="#nativeValidators">Native Validators</a></h4>
     <p>
-      See the list of built in validators and their options on knokcout validations
+      A full list of navtive validators and their documentation can be found on the knockout-validation
       <a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">
-        wiki page</a> Here is a a couple common examples.
+        wiki page</a>.
     </p>
+    <ul>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">required</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">min</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">max</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">minLength</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">maxLength</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">pattern</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">step</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">email</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">equal</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">notEqual</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">date</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">dateISO</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">number</a></li>
+      <li><a href="https://github.com/Knockout-Contrib/Knockout-Validation/wiki/Native-Rules">digit</a></li>
+    </ul>
 
-    <pre>
-      <code>
-ko.trackableObservable().extend({
-  pattern: '^[a-z0-9].$'
-});
 
-ko.trackableObservable().extend({
-  required: {
-    params: true,
-    onlyIf: function() { /* return true/false */ },
-    message: 'This example is required'
-  }
-});
-
-ko.trackableObservable().extend({
-  min: 1 ,
-  max: 10
-});
-    </code>
-  </pre>
+  <h4 id="customValidators"><a href="#customValidators">Custom Validators</a></h4>
+  <p>
+    A full list of custom validators and their documentation can be found on the <a href="#">
+    validators page</a>.
+  </p>
+  <ul>
+    <li><a href=./validators.html#checked>checked</a></li>
+    <li><a href=./validators.html#ipAddress>ipAddress</a></li>
+    <li><a href=./validators.html#ipAddressCidr>ipAddressCidr</a></li>
+    <li><a href=./validators.html#notEmpty>notEmpty</a></li>
+    <li><a href=./validators.html#passwordStrength>passwordStrength</a></li>
+    <li><a href=./validators.html#uri>uri</a></li>
+  </ul>
 
   <h4 id="passwordStrength"><a href="#passwordStrength">Password Strength</a></h4>
+  <p>
+    In addition to the <code>passwordStrength</code> validator we have created a widget (named
+    <code>passwordStrength</code>) that should be used in conjuction with the validator to provide
+    the end user with realtime information about the strength of their password. More information
+    about the options of this widget can be found on the <a href="#">widgets</a> page.
+  </p>
   <div class="pl-example" id="passwordStrengthExample">
     <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
       <div class="form-group">
@@ -451,74 +574,6 @@ self.submit = function() {
     </code>
   </pre>
 
-  <h4 id="confirmPassword"><a href="#confirmPassword">Confirm Password</a></h4>
-  <div class="pl-example" id="confirmPasswordExample">
-    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-      <div class="form-group">
-          <label class="col-sm-3 control-label">password</label>
-          <div class="col-sm-6">
-              <input class="form-control" type="password" data-bind="value:password, validationElement: password"/>
-              <p data-bind="validationMsg: password"></p>
-          </div>
-      </div>
-      <div class="form-group">
-          <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
-          <div class="col-sm-6">
-              <input class="form-control" type="password" id="confirmPassword" data-bind="value:confirmPassword, validationElement: confirmPassword" />
-              <p data-bind="validationMsg: confirmPassword"></p>
-          </div>
-      </div>
-      <div class="form-group actions">
-          <div class="col-sm-offset-3 col-sm-9">
-              <button class="btn btn-primary" data-bind="click: submit">Submit</button>
-          </div>
-      </div>
-    </form>
-  </div>
-  <pre class="show-type">
-    <code class="javascript">
-self.password = ko.observable().extend({
-    required: { params: true, message: &quot;A password is required.&quot; }
-});
-self.confirmPassword = ko.trackableObservable().extend({
-    required: { message: &quot;Retype the password to confirm.&quot;, onlyIf: self.password },
-    equal: { params: self.password, message: &quot;Passwords do not match.&quot; }
-});
-self.errors = ko.validation.group([self.password, self.confirmPassword])
-self.submit = function() {
-  if (self.errors().length &lt; 1) {
-    alert(&quot;Form is Valid!&quot;);
-  } else {
-    self.errors.showAllMessages();
-  }
-};
-    </code>
-    <code class="html">
-&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;password&lt;/label&gt;
-      &lt;div class=&quot;col-sm-6&quot;&gt;
-          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; data-bind=&quot;value:password, validationElement: password&quot;/&gt;
-          &lt;p data-bind=&quot;validationMsg: password&quot;&gt;&lt;/p&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;confirmPassword&quot;&gt;confirm password&lt;/label&gt;
-      &lt;div class=&quot;col-sm-6&quot;&gt;
-          &lt;input class=&quot;form-control&quot; type=&quot;password&quot; id=&quot;confirmPassword&quot; data-bind=&quot;value:confirmPassword, validationElement: confirmPassword&quot; /&gt;
-          &lt;p data-bind=&quot;validationMsg: confirmPassword&quot;&gt;&lt;/p&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;form-group actions&quot;&gt;
-      &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
-          &lt;button class=&quot;btn btn-primary&quot; data-bind=&quot;click: submit&quot;&gt;Submit&lt;/button&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-    </code>
-  </pre>
-
-
   <h4 id="remote"><a href="#remote">Remote / Async</a></h4>
   <p>
     Remote validation is done using
@@ -527,7 +582,7 @@ self.submit = function() {
     setTimeout. <code>asyncMessage</code> is a custom binding that was writen to display
     notification to the end user that validation is occuring. This is to be used in conjuction
     with <code>validationMsg</code>. For More information about either of these bindings please
-    consult the <a href="./bindings.html">bingings</a> documentation.
+    consult the <a href="./bindings.html">bindings</a> documentation.
   </p>
   <p>
     Additionally it is of note that your validator may be called again before the AJAX call has
@@ -551,226 +606,47 @@ self.submit = function() {
     </form>
   </div>
 
-
-
-
-  <h4>Form Validation Example</h4>
-  <div id="formsBasic" class="pl-example">
-
-      <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-          <fieldset>
-              <legend>A Standard Form with Validation</legend>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label">uneditable text</label>
-                  <div class="col-sm-6">
-                      <p>You cannot change this text</p>
-                      <p>Another paragraph that cannot be changed</p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <!-- Optional fields should be denoted with '(optional)' and required fields get nothing -->
-                  <!-- this is done because most of the fields we have are required it's more rare to have -->
-                  <!-- a field that is optional so the UI will look less cluttered. -->
-                  <label class="col-sm-3 control-label" for="optionalText">text (optional)</label>
-                  <div class="col-sm-6">
-                      <input class="form-control" type="text" id="optionalText" data-bind="value: optionalText" />
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="requiredText">required text</label>
-                  <div class="col-sm-6">
-                      <input class="form-control" type="text" id="requiredText" data-bind="value: requiredText, validationElement: requiredText" />
-                      <p id="test" data-bind="validationMsg: requiredText"></p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="validEmail">valid email</label>
-                  <div class="col-sm-6">
-                      <input class="form-control" type="text" id="validEmail" data-bind="value:emailText, validationElement: emailText" />
-                      <p data-bind="validationMsg: emailText"></p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="password">password</label>
-                  <div class="col-sm-6">
-                      <input class="form-control" type="password" id="password" data-bind="value: password, validationElement: password, widget: 'passwordStrength'" />
-                      <p data-bind="validationMsg: password"></p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
-                  <div class="col-sm-6">
-                      <input class="form-control" type="password" id="confirmPassword" data-bind="value:confirmPassword, validationElement: confirmPassword" />
-                      <p data-bind="validationMsg: confirmPassword"></p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="textArea">Text Area (optional)</label>
-                  <div class="col-sm-9">
-                      <textarea class="form-control" rows="3" type="text" id="textArea"></textarea>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="remoteText">Remotely Validated</label>
-                  <div class="col-sm-6">
-                      <textarea class="form-control" type="text" id="remoteText" data-bind="value: remoteTextArea, validationElement: remoteTextArea"></textarea>
-                      <p data-bind="validationMsg: remoteTextArea"></p>
-                      <!--
-                          This binding is intended to extend the functionality of AsyncValidators by allowing the
-                          display of a validating message as well as a valid message. The error message will not be displayed here
-                          it will still continue to use the validationMessage binding. This is purely a UX concern and
-                          your validator will work without it. You may pass it just the observable `asyncMessage:
-                          remoteTextArea` and it will use default messages, or you can pass strings or observables/computeds
-                          for the messages see bellow. FYI: messages can contain HTML and must properly be HTML encoded if not HTML
-                      -->
-                      <div data-bind="asyncMessage: remoteTextArea"></div>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label" for="requireCheckbox">Checkbox</label>
-                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                  <div class="col-sm-6">
-                      <!--
-                          putting the checkbox in the label means of you click the text it will check the box. Also you can
-                          use a for attribute on the label to accomplish the same thing
-                      -->
-                      <div class="checkbox">
-                          <label>
-                              <input type="checkbox" id="requireCheckbox" data-bind="checked: requiredCheckbox, validationElement: requiredCheckbox" /> Agree to <a href="#requireCheckbox">Terms</a>
-                          </label>
-                          <p data-bind="validationMsg: requiredCheckbox"></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label">checkboxes</label>
-                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                  <div class="col-sm-6">
-                      <!--
-                          putting the checkbox in the label means of you click the text it will check the box. Also you can
-                          use a for attribute on the label to accomplish the same thing
-                      -->
-
-                      <div class="checkbox">
-                          <label><input type="checkbox" disabled checked /> cannot change this one</label>
-                      </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" /> Checkbox Two (optional)</label>
-                      </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" /> Checkbox Three</label>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label">checkbox lists</label>
-                  <!-- Don't forget 'checkbox-list' class makes the list line up nicely -->
-                  <div class="col-sm-6">
-                      <!--
-                          putting the checkbox in the label means of you click the text it will check the box. Also you can
-                          use a for attribute on the label to accomplish the same thing
-                      -->
-                      <!-- ko foreach: checkboxList -->
-                      <div class="checkbox">
-                          <label>
-                              <input type="checkbox" data-bind="value: $data, checked: $parent.selectedCheckboxListItems" />
-                              <!-- ko text: $data --><!-- /ko -->
-                          </label>
-                      </div>
-                      <!-- /ko -->
-                      <p data-bind="validationMsg: selectedCheckboxListItems"></p>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label">radio buttons</label>
-                  <div class="col-sm-6 checkbox-list">
-                      <div class="radio">
-                          <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                              Option one is this and that&mdash;be sure to include why it's great
-                          </label>
-                      </div>
-                      <div class="radio">
-                          <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                              Option two can be something else and selecting it will deselect option one
-                          </label>
-                      </div>
-                      <div class="radio disabled">
-                          <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                              Option three is disabled
-                          </label>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label">Dropdown Lists</label>
-                  <div class="col-sm-6">
-                      <select class="form-control" data-bind="options: dropdownListOptions,
-                                                              optionsText: 'name',
-                                                              value: dropdownListSelectedItem,
-                                                              optionsCaption: 'Choose a Data Center...'"></select>
-                      <p data-bind="validationMsg: dropdownListSelectedItem"></p>
-                      <p class="alert alert-info"><a href="#dropDownMoreInfo">Important! Developers Read This</a></p>
-                  </div>
-              </div>
-              <div class="form-group actions">
-                  <div class="col-sm-offset-3 col-sm-9">
-                      <button class="btn btn-primary" data-bind="click: submit, enable: canSubmit">Submit</button>
-                      <button class="btn btn-link" data-bind="click: cancel">revert</button>
-                  </div>
-              </div>
-          </fieldset>
-      </form>
-  </div>
-
-
-</section>
-
-
-
-  <h3 id="sliders"><a href="#sliders">Sliders</a></h3>
+  <h4 id="compare"><a href="#compare">Compare (confirm password)</a></h4>
   <p>
-    Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+    When validating a confirm password field it should only show and error message if there is a
+    password typed. So you will want to use the <code>onlyIf</code> parameter.
   </p>
-  <p>
-    In general it would be best practice to also pass in
-    <strong>`maxBound`</strong> and
-    <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
-  </p>
-  <div class="pl-example">
-    <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-      <fieldset>
-        <legend>Advanced Controls</legend>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">slider</label>
-          <div class="col-sm-9">
-              <slider params="value: 6, min: 1, max: 16"></slider>
-              <slider params="value: 4, min: 1, max: 128"></slider>
-              <slider params="value: 50, min: 1, max: 1024"></slider>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
   <pre>
-    <code class="html">
-&lt;div class=&quot;form-group&quot;&gt;
-&lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
-&lt;div class=&quot;col-sm-9&quot;&gt;
-    &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
-    &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
-    &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    <code class="javascript">
+self.confirmPassword.extend({
+  required: { message: &quot;Retype the password to confirm.&quot;, onlyIf: self.password },
+  equal: { params: self.password, message: &quot;Passwords do not match.&quot; }
+});
     </code>
   </pre>
+</section>
+
 
 
 {{#contentFor "scripts"}}
 <script>
 $(function(){
+  /* Start simple validation demo */
+  var demoModel = function(){
+    var self = this;
+    self.header = ko.observable();
+    self.text = ko.observable().extend({
+        required: { params: true, message: "some text is required." },
+    });
+    self.errors = ko.validation.group([self.text])
+    self.submit = function() {
+      if (self.errors().length < 1) {
+        alert("The Form is Valid!");
+      } else {
+        self.errors.showAllMessages();
+      }
+    };
+    return self;
+  };
+  ko.applyBindings(new demoModel(), $("#simpleValidationExample")[0]);
+  /* End simple validation demo */
+
+
   /* Start passwordStrength */
   var passwordModel = function(){
     var self = this;
@@ -792,28 +668,6 @@ $(function(){
   /* End passwordStrength */
 
 
-  /* Start passwordConfirm */
-  var passwordConfirmModel = function(){
-    var self = this;
-    self.password = ko.observable().extend({
-        required: { params: true, message: "A password is required." }
-    });
-    self.confirmPassword = ko.trackableObservable().extend({
-        required: { message: "Retype the password to confirm.", onlyIf: self.password },
-        equal: { params: self.password, message: "Passwords do not match." }
-    });
-    self.errors = ko.validation.group([self.password, self.confirmPassword])
-    self.submit = function() {
-      if (self.errors().length < 1) {
-        alert("Form is Valid!");
-      } else {
-        self.errors.showAllMessages();
-      }
-    };
-    return self;
-  };
-  ko.applyBindings(new passwordConfirmModel(), $("#confirmPasswordExample")[0]);
-  /* End passwordConfirm */
 
   /* Start remote */
   var remoteModel = function(){
@@ -867,135 +721,6 @@ $(function(){
   ko.applyBindings({}, $("#formSlider")[0]);
   /* End Sliders */
 })
-</script>
-<script>
-    $(function () {
-        // Information on knockout-validation the validation framework we use
-        // There is a lot you can do with it but its just obscure to use.
-        // If you can't figure it out ask osbornm https://github.com/Knockout-Contrib/Knockout-Validation/wiki
-        var BasicFormModel = function () {
-            var self = this;
-            self.optionalText = ko.trackableObservable();
-            self.requiredText = ko.trackableObservable();
-            self.requiredText.extend({ required: true });
-            self.emailText = ko.trackableObservable();
-            self.emailText.extend({
-                required: { params: true, message: "A valid email address is required." },
-                email: { params: true, message: "Must be a valid email address." }
-            });
-            self.password = ko.trackableObservable();
-            // You'll also want to use the password strength widget to show the user the current
-            // password strength. `data-bind='widget: 'passwordStrength''`
-            self.password.extend({
-                required: { params: true, message: "A password is required." },
-                passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
-            });
-            self.confirmPassword = ko.trackableObservable();
-            self.confirmPassword.extend({
-                required: { message: "Retype the password to confirm.", onlyIf: self.password },
-                equal: { params: self.password, message: "Passwords do not match." }
-            });
-            self.optionalTextArea = ko.trackableObservable();
-            self.remoteTextArea = ko.trackableObservable();
-            self.remoteTextArea.extend({
-                required: true,
-                validation: {
-                    async: true,
-                    validator: function (val, params, callback) {
-                        // If there is a value to test we are going to simulate a shall.ajax call using
-                        // setTimeout. Just remember that the call must be called with either a truthie or falsie
-                        // value. So make sure that all the promise events do something. aka shell.ajax().error()
-                        // WARNING: the validator can be called again before the AJAX call returns your should be
-                        // aborting the previous call. You can use the `failed` function to know that it failed not
-                        // that it was aborted. You can use the `aborted` function to know that it was aborted instead
-                        // of failing and generally in that case just say that it's valid and move on.
-                        if (val) {
-                            setTimeout(function () {
-                                // you would do some processing on the JSON you get back from your API
-                                // to understand if its valid or not. In this case just be valid if its not
-                                // the string `error`
-                                var isValid = val !== "error";
-                                callback(isValid)
-                            }, 2000);
-                        }
-                        else {
-                            callback({ isValid: true });
-                        }
-                    },
-                    message: "Text 'error' makes this field invalid"
-                }
-            });
-
-            self.requiredCheckbox = ko.trackableObservable(false);
-            self.requiredCheckbox.extend({ checked: { params: true, message: "Agreement with terms is required." } });
-            self.checkboxList = ko.observableArray(["Admin", "Power User", " User"]);
-            self.selectedCheckboxListItems = ko.trackableObservableArray([]);
-            self.selectedCheckboxListItems.extend({
-                notEmpty: { params: true, message: "A user must have atleast one role." }
-            });
-            self.dropdownListOptions = [{ alias: "QA1", name: "QA1 - Washington" }, { alias: "QA3", name: "QA3 - Somewhere Else" }]
-            self.dropdownListSelectedItem = ko.trackableObservable();
-            self.dropdownListSelectedItem.extend({ required: { params: true, message: "A DataCenter is required." } });
-
-            self.errors = ko.validation.group([
-                self.requiredText,
-                self.emailText,
-                self.password,
-                self.confirmPassword,
-                self.remoteTextArea,
-                self.requiredCheckbox,
-                self.selectedCheckboxListItems,
-                self.dropdownListSelectedItem
-            ]);
-
-            self.cancel = function () {
-                self.optionalText.reset();
-                self.requiredText.reset();
-                self.emailText.reset();
-                self.optionalTextArea.reset();
-                self.remoteTextArea.reset();
-                self.password.reset();
-                self.confirmPassword.reset();
-                self.requiredCheckbox.reset();
-                self.selectedCheckboxListItems.reset();
-                self.dropdownListSelectedItem.reset();
-
-                // HACK: Depending on how you set your form up you made need this. Long story short is
-                // that when you programatically change the value of a textbox, input.value, the change
-                // events are not fired. In this case it will leave the password strength text which is
-                // not what we want so we manually fire the input event.
-                $("#formsBasic input[type=password]").trigger("input");
-            };
-
-            self.canSubmit = ko.computed(function () {
-                // Whenever we are fetching data that  needs to be set (a list of groups, if the username is valid, etc)
-                // we want to disable the save button because it is not possible for the user to create a valid form.
-                // You would not do this if it is possible for the user to create a valid form but they choose not to.
-                // (aka a user did not type a required description)
-                return !self.remoteTextArea.isValidating()
-            });
-
-            self.submit = function () {
-                if (self.errors().length < 1) {
-                    // This would normal be a call off to save or create the item.
-                    // See the form behavior section to see how to handle the
-                    // async nature of these calls.
-                    alert("Way to go the form is valid!");
-
-                    //TODO: Call Commit on all the things.
-
-
-                } else {
-                    self.errors.showAllMessages();
-                }
-            }
-
-            return this;
-        };
-        var model = new BasicFormModel();
-        ko.applyBindings(model, $("#formsBasic")[0]);
-
-    });
 </script>
 
 {{/contentFor}}

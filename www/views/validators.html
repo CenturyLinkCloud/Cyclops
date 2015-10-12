@@ -1,0 +1,95 @@
+{{#contentFor "title"}}Validators | Code{{/contentFor}}
+{{#contentFor "tabName"}}validators{{/contentFor}}
+{{!< layouts/code.html}}
+
+<h1 class="content-header">Validators</h1>
+<p>
+  All our custom validators...
+</p>
+
+
+<h3 id="passwordStrength"><a href="#passwordStrength">passwordStrength</a></h3>
+<p>
+  Test for lower, upper, number, special characters as well as password length.
+  The <code>passwordStrength</code> validator should be used in conjuction with the <code>
+  passwordStrength</code> widget.
+</p>
+<p>
+  Strength is caluculated on the following basis. If the length is less than 8 the strength is
+  0. If there are less than 3 characters then the strength is 1. If the character type count is 3
+  and the length is 8 then the strength is 2. If the character type count is 3 and the length is 9
+  then the strength is 3. If it makes it through all of those then the strength is 4.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.password = ko.observable().extend({
+    passwordStrength: { requiredStrength: 4, dissallowedCharacters: &quot;[}&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>requiredStrength</td>
+      <td>number (0-4)</td>
+      <td>3</td>
+      <td>calculated based on character types and length</td>
+    </tr>
+    <tr>
+      <td>dissallowedCharacters</td>
+      <td>String</td>
+      <td>none</td>
+      <td>a string containing disallowed characters</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>depends on the strength</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="notEmpty"><a href="#notEmpty">notEmpty</a></h3>
+<p>
+  Checks for a length property and makes sure it is greater than 0. This can be used with a checkbox
+  list to make sure atleast one or more items is selected.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.password = ko.observableArray().extend({
+    notEmpty: { params: true, message: &quot;select one or more&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>Must not be empty</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
