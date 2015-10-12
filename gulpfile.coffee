@@ -90,7 +90,7 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe gulp.dest './www/assets/scripts'
 
 gulp.task 'test-build', ->
-  return gulp.src './src/scripts/helpers/init.coffee'
+  buildCyclops = gulp.src './src/scripts/helpers/init.coffee'
     .pipe addSrc.append ['./src/scripts/helpers/**/*.*',
       '!./src/scripts/helpers/init.coffee']
     .pipe addSrc.append './src/scripts/extensions/**/*.*'
@@ -101,9 +101,18 @@ gulp.task 'test-build', ->
       '!./src/scripts/validators/register.coffee']
     .pipe addSrc.append './src/scripts/validators/register.coffee'
     .pipe addSrc.append './src/scripts/*.*'
-    .pipe addSrc.append ['./specs/testHelpers/*.coffee', './specs/**/*.spec.coffee']
     .pipe coffee({bare: true})
+    .pipe sourcemaps.init()
+    .pipe concat('cyclops.test.only.js')
+    .pipe sourcemaps.write './'
     .pipe gulp.dest './temp'
+
+  buildTests = gulp.src ['./specs/testHelpers/*.coffee', './specs/**/*.spec.coffee']
+    .pipe coffee({bare: true})
+    .pipe gulp.dest './temp/tests'
+
+  return merge buildCyclops, buildTests
+
 
 gulp.task 'test-run', ['test-build'], ->
   return gulp.src './temp/**/*.js'

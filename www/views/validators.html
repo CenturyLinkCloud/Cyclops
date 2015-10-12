@@ -7,6 +7,70 @@
   All our custom validators...
 </p>
 
+<h3 id="checked"><a href="#checked">checked</a></h3>
+<p>
+  The value must be a truthy value. To be used with checkboxes to requiore a user to check them.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.agreeToTerms = ko.observableArray().extend({
+    checked: { params: true, message: &quot;must agree to terms&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>You must agree.</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notEmpty"><a href="#notEmpty">notEmpty</a></h3>
+<p>
+  Checks for a length property and makes sure it is greater than 0. This can be used with a checkbox
+  list to make sure atleast one or more items is selected.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.password = ko.observableArray().extend({
+    notEmpty: { params: true, message: &quot;select one or more&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>Must not be empty</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="passwordStrength"><a href="#passwordStrength">passwordStrength</a></h3>
 <p>
@@ -55,40 +119,6 @@ self.password = ko.observable().extend({
       <td>message</td>
       <td>HTML String</td>
       <td>depends on the strength</td>
-      <td>HTML string to display for invalid values</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<h3 id="notEmpty"><a href="#notEmpty">notEmpty</a></h3>
-<p>
-  Checks for a length property and makes sure it is greater than 0. This can be used with a checkbox
-  list to make sure atleast one or more items is selected.
-</p>
-<h4>usage</h4>
-<pre>
-  <code class="javascript">
-self.password = ko.observableArray().extend({
-    notEmpty: { params: true, message: &quot;select one or more&quot; }
-});
-  </code>
-</pre>
-<h4>options</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>message</td>
-      <td>HTML String</td>
-      <td>Must not be empty</td>
       <td>HTML string to display for invalid values</td>
     </tr>
   </tbody>
