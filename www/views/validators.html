@@ -39,6 +39,73 @@ self.agreeToTerms = ko.observableArray().extend({
   </tbody>
 </table>
 
+<h3 id="ipAddress"><a href="#ipAddress">ipAddress</a></h3>
+<p>
+  The value must be a valid IPv4 Address. IPv6 is currently not supported by the control portal so
+  we don't have a validator for it.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.agreeToTerms = ko.observableArray().extend({
+    ipAddress: { params: true, message: &quot;must be a IPv4 Address&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>Please enter a valid IPv4 address (ex: 10.189.12.0).</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ipAddressCidr"><a href="#ipAddressCidr">ipAddressCidr</a></h3>
+<p>
+  The value must be a valid
+  <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks">
+  IPv4 CIDR</a>
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.agreeToTerms = ko.observableArray().extend({
+    ipAddressCidr: { params: true, message: &quot;must be a IPv4 Cidr&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>Please enter a valid IPv4 CIDR (ex: 10.189.12.0/24).</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="notEmpty"><a href="#notEmpty">notEmpty</a></h3>
 <p>
   Checks for a length property and makes sure it is greater than 0. This can be used with a checkbox
