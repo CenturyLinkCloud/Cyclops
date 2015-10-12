@@ -2,9 +2,56 @@
 
 html.cyclops {
 
-  .form-signin {
-    max-width: 330px;
-    margin: 0 auto;
+  body.signin {
+    background: #262626;
+
+    h1 {
+      color: @white;
+      text-align: center;
+      margin-bottom: (@line-height-computed * 2);
+      margin-top: 100px;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .nav-brand {
+      width: 200px;
+      margin: 0 auto 150px;
+    }
+
+    .truste {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .privacy {
+      color: @grayLight;
+      text-align: center;
+    }
+  }
+  
+  .signin-container {
+    max-width: 390px;
+    background-color: @white;
+    border-radius: @border-radius-base;
+    padding: 30px;
+    margin: 0 auto 50px;
+  }
+
+  .signin-support {
+    border-top: 2px solid @borderColor;
+    font-size: @font-size-small;
+    margin-top: 20px;
+    padding-top: 8px;
+
+
+
   }
 
 }
