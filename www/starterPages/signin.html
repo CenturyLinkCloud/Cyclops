@@ -22,11 +22,18 @@
     <div class="container">
       <h1>[Service Name] Sign In</h1>
       <div class="signin-container">
+
+<!--
+        <div class="alert alert-danger">
+          <h4>Account Locked</h4>
+          <p>This user account has been locked due to too many failed sign in attempts. Please contact noc@ctl.io for help.</p>
+        </div>
+//-->
         <form class="form-signin">
           <fieldset>
             <div class="form-group">
               <label for="signinUsername" class="sr-only">Username</label>
-              <input type="email" id="signinUsername" class="form-control" placeholder="Username" required="" autofocus="">
+              <input type="text" id="signinUsername" class="form-control" placeholder="Username" required="" autofocus="">
             </div>
             <div class="form-group">
               <label for="signinPassword" class="sr-only">Password</label>
