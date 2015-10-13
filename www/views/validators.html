@@ -190,3 +190,43 @@ self.password = ko.observable().extend({
     </tr>
   </tbody>
 </table>
+
+<h3 id="uri"><a href="#uri">uri</a></h3>
+<p>
+  Must be a valid uri, with an option to specify the scheme that it must adhere to.
+</p>
+<h4>usage</h4>
+<pre>
+  <code class="javascript">
+self.agreeToTerms = ko.observableArray().extend({
+    uri: { scheme: &quot;https&quot; }
+});
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>scheme</td>
+      <td>String</td>
+      <td>undefined</td>
+      <td>a scheme that the uri must adhere to to be valid</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td>HTML String</td>
+      <td>Please enter a valid uri</td>
+      <td>HTML string to display for invalid values</td>
+    </tr>
+  </tbody>
+</table>
