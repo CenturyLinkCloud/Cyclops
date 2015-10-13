@@ -14,6 +14,7 @@ clean = require 'gulp-clean'
 coffee = require 'gulp-coffee'
 addSrc = require 'gulp-add-src'
 jasmine = require 'gulp-jasmine-phantom'
+replace = require 'gulp-replace'
 pkg = require './package.json'
 
 __base = './www/'
@@ -157,12 +158,15 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
     .pipe gulp.dest "./dist/#{pkg.version}/css/"
 
   copyScripts = gulp.src './www/assets/scripts/**/*'
+    .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "https://assets.ctl.io/cyclops/#{pkg.version}/templates/cyclops.tmpl.min.html"
     .pipe gulp.dest "./dist/#{pkg.version}/scripts/"
 
   copyTemplates = gulp.src './www/assets/templates/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/templates/"
 
   copyStarterPages = gulp.src './www/starterPages/**/*'
+    .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe gulp.dest "./dist/#{pkg.version}/starterPages/"
 
   copyImages = gulp.src './www/assets/img/**/*'

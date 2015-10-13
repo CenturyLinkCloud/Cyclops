@@ -48,13 +48,6 @@
 &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js&quot; &gt;&lt;/script&gt;
 &lt;script src=&quot;https://assets.ctl.io/cyclops/{{version}}/scripts/cyclops.min.js&quot; &gt;&lt;/script&gt;
-&lt;script&gt;
-$.holdReady(true);
-$.get(&quot;https://assets.ctl.io/cyclops/{{version}}/templates/cyclops.tmpl.min.html&quot;, function(tmpl){
-  $(&quot;head&quot;).append(tmpl);
-  $.holdReady(false);
-});
-&lt;/script&gt;
 &lt;!-- your scripts here --&gt;
           </code>
         </pre>
