@@ -1,0 +1,62 @@
+<section class="pl-section" id="stackedNav">
+  <h3><a href="#stackedNav">Stacked Nav</a></h3>
+  <p><strong>Make navs used as navigation accessible.</strong> If you are using navs to provide a navigation bar, be sure to add a role="navigation" to the most logical parent container of the <code>&lt;ul&gt;</code>, or wrap a <code>&lt;nav&gt;</code> element around the whole navigation. Do not add the role to the <code>&lt;ul&gt;</code> itself, as this would prevent it from being announced as an actual list by assistive technologies.</p>
+  <p>The Stacked Nav is useful as a "left nav" and is designed to to be 100% of the width of its parent grid column.</p>
+  <div class="pl-example">
+    <div class="nav nav-stacked">
+      <ul class="tabs">
+        <li class="tab"><a href="#">Home</a></li>
+        <li class="tab selected"><a href="#">Products</a></li>
+        <li class="tab"><a href="#">Services</a></li>
+        <li class="tab"><a href="#">About</a></li>
+        <li class="tab"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;nav nav-stacked&quot;&gt;
+  &lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab selected&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+  <h4>Stacked Nav Second Level</h4>
+  <p>A second level maybe added to the Stacked Nav for additional navigation options.</p>
+  <div class="pl-example">
+    <div class="nav nav-stacked">
+      <ul class="tabs">
+        <li class="tab selected">
+          <a href="#">Products</a>
+          <ul class="tabs-subnav">
+            <li><a href="#">Widget</a></li>
+            <li class="selected"><a href="#">Gizmo</a></li>
+            <li><a href="#">Snarfblat</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;nav nav-stacked&quot;&gt;
+  &lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li class=&quot;tab selected&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;
+      &lt;ul class=&quot;tabs-subnav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Widget&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;selected&quot;&gt;&lt;a href=&quot;#&quot;&gt;Gizmo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Snarfblat&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
