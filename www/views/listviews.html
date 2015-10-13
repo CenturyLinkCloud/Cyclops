@@ -117,25 +117,118 @@
   &lt;h3 class=&quot;col col-100&quot;&gt;Row Type&lt;/h3&gt;
 &lt;/div&gt;
 &lt;ul class=&quot;new-list-view&quot;&gt;
-&lt;li&gt;
-    &lt;div class=&quot;list-view-item&quot;&gt;
-        &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-    &lt;div class=&quot;list-view-editable-item&quot;&gt;
-        &lt;div class=&quot;col col-100&quot;&gt;Editable Item&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+          &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-editable-item&quot;&gt;
+          &lt;div class=&quot;col col-100&quot;&gt;Editable Item&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
 
-&lt;li&gt;
-    &lt;div class=&quot;list-view-read-only-item&quot;&gt;
-        &lt;div class=&quot;col col-100&quot;&gt;Read Only Item&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-read-only-item&quot;&gt;
+          &lt;div class=&quot;col col-100&quot;&gt;Read Only Item&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
         </code>
       </pre>
+
+      <section class="pl-section" id="inlineForm">
+        <h3><a href="#inlineForm">Inline Form</a></h3>
+        <p>If an item in a list view may be edited, or a new item maybe added inline, the list view inline form is available for in context editing (as opposed to navigating to a different page). Wrap the create/edit form in an <code>.li</code> with <code>.list-view-item-form</code>.</p>
+        <p>If allowed, be sure to include a delete button, with <a href="./buttons.html#inlineConfirm">confirmation</a>, button in the edit form.</p>
+        <p><a href="listviews.html#interactiveExamples">View a fully interactive demo of the list view</a>.</p>
+        <div class="pl-example">
+          <ul class="new-list-view">
+            <li>
+                <div class="list-view-item">
+                    <div class="col col-100">Item</div>
+                </div>
+            </li>
+            <li>
+                <div class="list-view-item">
+                    <div class="col col-100">Item</div>
+                </div>
+            </li>
+            <li>
+              <div class="list-view-item-form">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <legend>Inline Edit Form</legend>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="listViewInlineFormName">name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="listViewInlineFormName">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="listViewInlineFormEmail">email</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="listViewInlineFormEmail">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-3 col-sm-9">
+                        <button class="btn btn-primary">Save</button>
+                        <button class="btn btn-link">cancel</button>
+                        <button class="btn btn-danger pull-right">Delete</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </li>
+            <li>
+                <div class="list-view-item">
+                    <div class="col col-100">Item</div>
+                </div>
+            </li>
+          </ul>
+        </div>
+        <pre>
+          <code class="html">
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+          &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item-form&quot;&gt;
+      &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;fieldset&gt;
+          &lt;legend&gt;Inline Edit Form&lt;/legend&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;listViewInlineFormName&quot;&gt;name&lt;/label&gt;
+            &lt;div class=&quot;col-sm-9&quot;&gt;
+              &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;listViewInlineFormName&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;listViewInlineFormEmail&quot;&gt;email&lt;/label&gt;
+            &lt;div class=&quot;col-sm-9&quot;&gt;
+              &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;listViewInlineFormEmail&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+              &lt;button class=&quot;btn btn-primary&quot;&gt;Save&lt;/button&gt;
+              &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+              &lt;button class=&quot;btn btn-danger pull-right&quot;&gt;Delete&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/fieldset&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </section>
 
       <h3 id="responsive"><a href="#responsive">Responsive List Views</a></h3>
       <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint.</p>
@@ -477,7 +570,7 @@
 </script>
 <script type="text/html" id="listViewEditableItemEditTemplate">
   <li>
-      <div class="new-list-view-item-details">
+      <div class="list-view-item-form">
           <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
               <fieldset>
                   <legend>Edit &ldquo;<!-- ko text: name--><!--/ko-->&rdquo; <button type="button" class="close" data-bind="click: cancel, disable: saving" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
@@ -514,7 +607,7 @@
   </li>
 </script>
 <script type="text/html" id="listViewEditableItemCreateTemplate">
-  <li class="hide new-list-view-item-details" data-bind="fadeSlide: open">
+  <li class="hide list-view-item-form" data-bind="fadeSlide: open">
       <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
           <fieldset>
               <legend>Add an item <button type="button" class="close" data-bind="click: reset, disable: creating" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
