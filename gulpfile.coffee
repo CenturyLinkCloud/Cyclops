@@ -223,3 +223,13 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
   return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML
 
 gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
+
+gulp.task 'dist', ['compile'], -> 
+  console.log 'To distribute a new version of cyclops'
+  console.log '     * Pull and get latests from https://github.com/CenturyLinkCloud/AssetsServer.git'
+  console.log '     * Copy the contents of the \'dist\' folder from Cyclops to the the \'cyclops\' folder'
+  console.log '     * Commit the changes to the AssetsServer Repository'
+  console.log '     * Create a tag for the release in this repository'
+  console.log "         * git tag -a v#{pkg.version} -m 'Add tag v#{pkg.version}'"
+  console.log '         * git push origin --tags'
+  console.log '     * Go bump the version in package.json to the next version and commit that as a \'version bump\''
