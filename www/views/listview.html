@@ -308,13 +308,102 @@
 
     <section class="pl-section" id="nested">
       <h3><a href="#nested">Nested List View</a></h3>
-      <p>Description</p>
+      <p>When it is necessary to display hierarchy (e.g. subaccounts, groups/servers), nest a <code>.new-list-view</code> immediately after the <code>.list-view-*-item</code> element. Then add <code>.col-indent</code> to the <code>.col</code> within the <code>&lt;li&gt;</code> in that should be indented.</p>
+      <p>Six levels of indentation is supported. </p>
       <div class="pl-example">
-
+        <!-- header of the list -->
+        <div class="new-list-view-header">
+          <h3 class="col col-10"></h3>
+          <h3 class="col col-90">Level</h3>
+        </div>
+        <!-- body of the list -->
+        <ul class="new-list-view">
+          <li>
+            <div class="list-view-editable-item">
+              <div class="col col-10"><input type="checkbox"></div>
+              <div class="col col-90">Level 1a</div>
+            </div>
+          </li>
+          <li>
+            <div class="list-view-editable-item">
+              <div class="col col-10"><input type="checkbox"></div>
+              <div class="col col-90">Level 1b</div>
+            </div>
+            <ul class="new-list-view">
+              <li>
+                <div class="list-view-editable-item">
+                  <div class="col col-10"><input type="checkbox"></div>
+                  <div class="col col-90 col-indent">Level 2a</div>
+                </div>
+                <ul class="new-list-view">
+                  <li>
+                    <div class="list-view-editable-item">
+                      <div class="col col-10"><input type="checkbox"></div>
+                      <div class="col col-90 col-indent">Level 3</div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="list-view-editable-item">
+                  <div class="col col-10"><input type="checkbox"></div>
+                  <div class="col col-90 col-indent">Level 2b</div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="list-view-editable-item">
+              <div class="col col-10"><input type="checkbox"></div>
+              <div class="col col-90 col-indent">Level 1c</div>
+            </div>
+          </li>
+        </ul>
       </div>
       <pre>
         <code class="html">
-    ...
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90&quot;&gt;Level 1a&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90&quot;&gt;Level 1b&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;new-list-view&quot;&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;list-view-editable-item&quot;&gt;
+          &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 2a&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;ul class=&quot;new-list-view&quot;&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;list-view-editable-item&quot;&gt;
+              &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 3&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;list-view-editable-item&quot;&gt;
+          &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 2b&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 1c&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
         </code>
       </pre>
     </section>
