@@ -1,28 +1,91 @@
+// Quick floats
+.pull-right {
+  float: right;
+}
 
-  // Quick floats
-  .pull-right {
-    float: right;
+.pull-left {
+  float: left;
+}
+
+// Toggling content
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+// Visibility
+.invisible {
+  visibility: hidden;
+}
+
+// For Affix plugin
+.affix {
+  position: fixed;
+}
+
+.cyclops-spin {
+  -webkit-animation: cyclops-spin 2s infinite linear;
+  animation: cyclops-spin 2s infinite linear;
+}
+
+@-webkit-keyframes cyclops-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
-  .pull-left {
-    float: left;
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes cyclops-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
-  // Toggling content
-  .hide {
-    display: none;
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
   }
+}
 
-  .show {
-    display: block;
-  }
+.cyclops-rotate-90 {
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 
-  // Visibility
-  .invisible {
-    visibility: hidden;
-  }
+.cyclops-rotate-180 {
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 
-  // For Affix plugin
-  .affix {
-    position: fixed;
-  }
+.cyclops-rotate-270 {
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.cyclops-flip-horizontal {
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.cyclops-flip-vertical {
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}

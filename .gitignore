@@ -8,5 +8,6 @@ npm-debug.log
 /www/assets/css
 /www/assets/templates
 /www/assets/scripts
+/www/assets/svg
 /dist
 /temp

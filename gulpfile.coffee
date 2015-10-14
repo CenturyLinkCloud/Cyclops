@@ -15,6 +15,8 @@ coffee = require 'gulp-coffee'
 addSrc = require 'gulp-add-src'
 jasmine = require 'gulp-jasmine-phantom'
 replace = require 'gulp-replace'
+svgstore = require 'gulp-svgstore'
+svgmin = require 'gulp-svgmin'
 pkg = require './package.json'
 
 __base = './www/'
@@ -90,6 +92,21 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/scripts'
 
+gulp.task 'svg-concat', ->
+  gulp.src './src/svg/**/*.svg'
+    .pipe rename { prefix: 'icon-' }
+    .pipe svgstore { inlineSvg: true }
+    .pipe rename 'cyclops.icons.svg'
+    .pipe gulp.dest './www/assets/svg/'
+
+gulp.task 'svg-minify', ['svg-concat'], ->
+  gulp.src './src/svg/**/*.svg'
+    .pipe rename { prefix: 'icon-' }
+    .pipe svgmin()
+    .pipe svgstore { inlineSvg: true }
+    .pipe rename 'cyclops.icons.min.svg'
+    .pipe gulp.dest './www/assets/svg/'
+
 gulp.task 'test-build', ->
   buildCyclops = gulp.src './src/scripts/helpers/init.coffee'
     .pipe addSrc.append ['./src/scripts/helpers/**/*.*',
@@ -114,7 +131,6 @@ gulp.task 'test-build', ->
 
   return merge buildCyclops, buildTests
 
-
 gulp.task 'test-run', ['test-build'], ->
   return gulp.src './temp/**/*.js'
     .pipe jasmine {
@@ -136,6 +152,7 @@ gulp.task 'client-watch', ->
   gulp.watch './src/less/**/**', ['less-concat']
   gulp.watch './src/templates/**/**', ['template-concat']
   gulp.watch './src/scripts/**/**', ['script-concat']
+  gulp.watch './src/svg/**/**', ['svg-concat']
 
 gulp.task 'server-watch', ->
   return nodemon
@@ -153,16 +170,20 @@ gulp.task 'cleanDist', ->
   return gulp.src "./dist/#{pkg.version}", { read: false }
     .pipe clean()
 
-gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify'], ->
+gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify', 'svg-minify'], ->
   copyCSS = gulp.src './www/assets/css/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/css/"
 
   copyScripts = gulp.src './www/assets/scripts/**/*'
     .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "https://assets.ctl.io/cyclops/#{pkg.version}/templates/cyclops.tmpl.min.html"
+    .pipe replace /\/svg\/cyclops\.icons\.svg/i, "https://assets.ctl.io/cyclops/#{pkg.version}/svg/cyclops.icons.min.svg"
     .pipe gulp.dest "./dist/#{pkg.version}/scripts/"
 
   copyTemplates = gulp.src './www/assets/templates/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/templates/"
+
+  copySvg = gulp.src './www/assets/svg/**/*'
+    .pipe gulp.dest "./dist/#{pkg.version}/svg/"
 
   copyStarterPages = gulp.src './www/starterPages/**/*'
     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
@@ -199,6 +220,6 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
           console.log "failed to render #{file.path}"
     .pipe gulp.dest "./dist/#{pkg.version}/"
 
-  return merge copyCSS, copyScripts, copyTemplates, copyStarterPages, copyImages, renderHTML
+  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML
 
-gulp.task 'dev', ['less-concat', 'template-concat', 'script-concat', 'client-watch', 'server-watch']
+gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
