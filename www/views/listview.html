@@ -1,11 +1,11 @@
-{{#contentFor "title"}}List Views{{/contentFor}}
-{{#contentFor "tabName"}}listviews{{/contentFor}}
+{{#contentFor "title"}}List View{{/contentFor}}
+{{#contentFor "tabName"}}listview{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-<h1 class="content-header">List Views</h1>
+<h1 class="content-header">List View</h1>
 
     <section class="pl-section">
-      <p>List views provide built-in views for create, read, update, and delete (CRUD) operations, making them ideal for displaying many different types of user managable entities in the Control Portal (e.g. alerts policies, scheduled tasks).</p>
+      <p>List view provides built-in views for create, read, update, and delete (CRUD) operations, making them ideal for displaying many different types of user managable entities in the Control Portal (e.g. alerts policies, scheduled tasks).</p>
 
       <h3 id="markup"><a href="#markup">Basic Markup</a></h3>
       <p>The basic markup for a list view looks like this:</p>
@@ -70,7 +70,7 @@
 
       <h3 id="rowTypes"><a href="#rowTypes">Row Types (Items)</a></h3>
 
-      <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are three distinct row types for list views.</p>
+      <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are three distinct row types for list view.</p>
 
       <table class="table">
         <tr>
@@ -303,13 +303,25 @@
 &lt;/div&gt;
         </code>
       </pre>
+    </section>
 
 
+    <section class="pl-section" id="nested">
+      <h3><a href="#nested">Nested List View</a></h3>
+      <p>Description</p>
+      <div class="pl-example">
+
+      </div>
+      <pre>
+        <code class="html">
+    ...
+        </code>
+      </pre>
     </section>
 
     <section id="interactiveExamples" class="pl-section">
       <h3><a href="#interactiveExamples">Interactive Examples</a></h3>
-      <p>Below are examples of list views using javascript objects and knockout bindings.</p>
+      <p>Below are examples of list view using javascript objects and knockout bindings.</p>
       <h4>Read Only</h4>
       <div id="readOnly" class="pl-example">
         <div class="pl-actions">
