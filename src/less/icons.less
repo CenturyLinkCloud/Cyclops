@@ -3,34 +3,32 @@
 .cyclops-icon {
   width: @baseIconSize;
   height: @baseIconSize;
-  
-  &.tiny {
-    width: @baseIconSize;
-    height: @baseIconSize;
-  }
+  fill: @textColor;
 
-  &.sm {
+  &.md {
     width: (@baseIconSize * 2);
     height: (@baseIconSize * 2);
   }
 
-  &.md {
+  &.lg {
     width: (@baseIconSize * 3);
     height: (@baseIconSize * 3);
   }
 
-  &.lg {
+  &.xl {
     width: (@baseIconSize * 4);
     height: (@baseIconSize * 4);
   }
 
-  &.xlg {
-    width: (@baseIconSize * 5);
-    height: (@baseIconSize * 5);
+  &.green {
+    fill: @primaryBrandGreen;
   }
 
-  &.huge {
-    width: (@baseIconSize * 6);
-    height: (@baseIconSize * 6);
+  &.danger {
+    fill: @btn-danger-bg;
+  }
+
+  &.info {
+    fill: #3a87ad;
   }
 }

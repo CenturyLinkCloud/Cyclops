@@ -2,72 +2,64 @@
 {{#contentFor "tabName"}}icons{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
-<h1 class="content-header">Icons</h1>
+<div class="cyclops-spin">
+<h1 class="cyclops-spin content-header">Icons</h1>
 <p>We've adopted subset of icons from the wonderful <a href="http://fontawesome.io/">Font Awesome</a> project, and have added our own custom icons to suit the needs of the CenturyLink Platform. </p>
-<p>We are using an SVG based implementation for ease of maintainablility and customization. To use an icon, include a <code>&lt;svg&gt;</code> object with class <code>.cyclops-icon</code>. Within the object, specify the id of the icon you wish to use like the following:</p>
-<div class="pl-example">
-  <svg class="cyclops-icon"><use xlink:href='#icon-centurylink'></svg>
-</div>
+<p>We are using an SVG based implementation for ease of maintainablility and customization. As such, in order to use our icon library [...]</p>
 <pre>
-  <code class="html">
+  <code class="cyclops-spin html">
 &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-centurylink&#39;&gt;&lt;/svg&gt;
   </code>
 </pre>
 
-<section id="sizes" class="pl-section">
-  <h2>Sizes</h2>
-  <p>Icons are available at four sizes. By default, icons are 14x14px. Add <code>.md</code>, <code>.lg</code>, or <code>.xl</code> to increase the size of the icon.</p>
-  <div class="pl-example">
-    <svg class="cyclops-icon"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md green"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon lg"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon xl"><use xlink:href='#icon-hyperscale'></svg>
-  </div>
-  <pre>
-    <code class="html">
+<h2>Sizes</h2>
+<p>Icons are available at four sizes. By default, icons are 14x14px. Add <code>.md</code>, <code>.lg</code>, or <code>.xl</code> to increase the size of the icon.</p>
+<div class="cyclops-spin pl-example">
+  <svg class="cyclops-spin cyclops-icon"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon md green"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon lg"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon xl"><use xlink:href='#icon-hyperscale'></svg>
+</div>
+<pre>
+  <code class="cyclops-spin html">
 &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon lg&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon xl&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-    </code>
-  </pre>
-</section>
+  </code>
+</pre>
 
-<section id="color" class="pl-section">
-  <h2>Color</h2>
-  <p>Four basic colors are provided. By default, icons are the same color as text.
-  <div class="pl-example">
-    <svg class="cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md green"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md danger"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md info"><use xlink:href='#icon-hyperscale'></svg>
-  </div>
-  <pre>
-    <code class="html">
+<h2>Color</h2>
+<p>Four basic colors are provided. By default, icons are the same color as text.
+<div class="cyclops-spin pl-example">
+  <svg class="cyclops-spin cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon md green"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon md danger"><use xlink:href='#icon-hyperscale'></svg>
+  <svg class="cyclops-spin cyclops-icon md info"><use xlink:href='#icon-hyperscale'></svg>
+</div>
+<pre>
+  <code class="cyclops-spin html">
 &lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon md green&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon md danger&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
 &lt;svg class=&quot;cyclops-icon md info&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
+  </code>
+</pre>
+
+<h2>Animation</h2>
+<p>Spin any icon using <code>.cylcops-spin</code>. Remeber, with great power comes great responsibility.</p>
+<div class="cyclops-spin pl-example">
+  <svg class="cyclops-spin cyclops-icon md cyclops-spin"><use xlink:href='#icon-refresh'></svg>
+</div>
+  <pre>
+    <code class="cyclops-spin html">
+  &lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-centurylink&#39;&gt;&lt;/svg&gt;
     </code>
   </pre>
-</section>
 
-<section id="animation" class="pl-section">
-  <h2>Animation</h2>
-  <p>Spin any icon using <code>.cylcops-spin</code>. Remeber, with great power comes great <a href="./responsibility.html">responsibility</a>.</p>
-  <div class="pl-example">
-    <svg class="cyclops-icon md cyclops-spin"><use xlink:href='#icon-refresh'></svg>
-  </div>
-    <pre>
-      <code class="html">
-&lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-centurylink&#39;&gt;&lt;/svg&gt;
-      </code>
-    </pre>
-</section>
-
-<section id="all" class="pl-section">
 <h2>Available Icons</h2>
-<div class="row">
+
+<div class="cyclops-spin row">
   {{>icon "icon-angle-down"}}
   {{>icon "icon-angle-left"}}
   {{>icon "icon-angle-right"}}
@@ -133,4 +125,4 @@
   {{>icon "icon-users"}}
   {{>icon "icon-vpn"}}
 </div>
-</section>
+</div>
