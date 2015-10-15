@@ -1,10 +1,12 @@
 // Extra small screen / phone
 //** Deprecated `@screen-xs` as of v3.0.1
-@screen-xs:                  480px;
+@screen-xs: 480px;
+
 //** Deprecated `@screen-xs-min` as of v3.2.0
-@screen-xs-min:              @screen-xs;
+@screen-xs-min: @screen-xs;
+
 //** Deprecated `@screen-phone` as of v3.0.1
-@screen-phone:               @screen-xs-min;
+@screen-phone: @screen-xs-min;
 
 //== Media queries breakpoints
 // Small screen / tablet
@@ -31,37 +33,39 @@
 @screen-md-max: (@screen-lg-min - 1);
 @screen-lg-max: 1200px;
 
-
-
 //== Grid system
 //
 //## Define your custom responsive grid.
-
 //** Number of columns in the grid.
-@grid-columns:              12;
+@grid-columns: 12;
+
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
+@grid-gutter-width: 30px;
+
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-sm-min;
+@grid-float-breakpoint: @screen-sm-min;
+
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
-
 
 // Scaffolding
 // -------------------------
 @padding-base-vertical: 7px;
 
 //** Global textual link color.
-@link-color:            @primaryBrandGreen;
+@link-color: @primaryBrandGreen;
+
 //** Link hover color set via `darken()` function.
-@link-hover-color:      darken(@link-color, 15%);
+@link-hover-color: darken(@link-color, 15%);
+
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
 // Colors
 // -------------------------
 @primaryBrandGreen: #00853f;
+@brightGreen: #8cc63f;
 @body-bg: #f2f2f2;
 
 // Grays
@@ -81,11 +85,13 @@
 // of components dependent on the z-axis and are designed to all work together.
 //
 // Note: These variables are not generated into the Customizer.
-@zindex-navbar:            1000;
+@zindex-navbar: 1000;
+
 //@zindex-dropdown:          1000;
 //@zindex-popover:           1060;
 @zindex-tooltip: 1070;
-@zindex-navbar-fixed:      1030;
+@zindex-navbar-fixed: 1030;
+
 //@zindex-modal-background:  1040;
 //@zindex-modal:             1050;
 //== Type
@@ -99,10 +105,8 @@
 @errorText: #b94a48;
 @baseFontWeight: 300;
 @boldFontWeight: 600;
-
 @fontFamily: "Open Sans", Helvetica, Arial, Sans-Serif;
 @monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
-
 @font-size-base: 14px;
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small: ceil((@font-size-base * 0.85)); // ~12px
@@ -112,7 +116,6 @@
 @font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
 @font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
-
 @headings-line-height: 1.2;
 
 // Common Components
@@ -124,7 +127,6 @@
 @border-radius-base: 4px;
 @border-radius-large: 6px;
 @border-radius-small: 3px;
-
 
 // Accent colors
 // -------------------------
@@ -200,7 +202,6 @@
 //-------------------------
 @input-height-base: 34px;
 @form-group-margin-bottom: 15px;
-
 @input-bg-disabled: @grayLighter;
 
 //** Disabled cursor for form controls and buttons.
@@ -225,123 +226,104 @@
 //** Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
 
-
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
-
-@state-success-text:             #468847;
-@state-success-bg:               #dff0d8;
-@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
-
-@state-info-text:                #3a87ad;
-@state-info-bg:                  #d9edf7;
-@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
-
-@state-warning-text:             #c09853;
-@state-warning-bg:               #fcf8e3;
-@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
-
-@state-danger-text:              #a94442;
-@state-danger-bg:                #f2dede;
-@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
-
+@state-success-text: #468847;
+@state-success-bg: #dff0d8;
+@state-success-border: darken(spin(@state-success-bg, -10), 5%);
+@state-info-text: #3a87ad;
+@state-info-bg: #d9edf7;
+@state-info-border: darken(spin(@state-info-bg, -10), 7%);
+@state-warning-text: #c09853;
+@state-warning-bg: #fcf8e3;
+@state-warning-border: darken(spin(@state-warning-bg, -10), 5%);
+@state-danger-text: #a94442;
+@state-danger-bg: #f2dede;
+@state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
 
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
-
-@alert-padding:               15px;
-@alert-border-radius:         @border-radius-base;
-@alert-link-font-weight:      bold;
-
-@alert-success-bg:            @state-success-bg;
-@alert-success-text:          @state-success-text;
-@alert-success-border:        @state-success-border;
-
-@alert-info-bg:               @state-info-bg;
-@alert-info-text:             @state-info-text;
-@alert-info-border:           @state-info-border;
-
-@alert-warning-bg:            @state-warning-bg;
-@alert-warning-text:          @state-warning-text;
-@alert-warning-border:        @state-warning-border;
-
-@alert-danger-bg:             @state-danger-bg;
-@alert-danger-text:           @state-danger-text;
-@alert-danger-border:         @state-danger-border;
-
-
+@alert-padding: 15px;
+@alert-border-radius: @border-radius-base;
+@alert-link-font-weight: bold;
+@alert-success-bg: @state-success-bg;
+@alert-success-text: @state-success-text;
+@alert-success-border: @state-success-border;
+@alert-info-bg: @state-info-bg;
+@alert-info-text: @state-info-text;
+@alert-info-border: @state-info-border;
+@alert-warning-bg: @state-warning-bg;
+@alert-warning-text: @state-warning-text;
+@alert-warning-border: @state-warning-border;
+@alert-danger-bg: @state-danger-bg;
+@alert-danger-text: @state-danger-text;
+@alert-danger-border: @state-danger-border;
 
 //== Navs
 //
 //##
-
 //=== Shared nav styles
-@nav-link-padding:                          15px;
-@nav-link-hover-bg:                         @grayLighter;
-
-@nav-disabled-link-color:                   @grayLight;
-@nav-disabled-link-hover-color:             @grayLight;
-
+@nav-link-padding: 15px;
+@nav-link-hover-bg: @grayLighter;
+@nav-disabled-link-color: @grayLight;
+@nav-disabled-link-hover-color: @grayLight;
 
 //== Navbar
 //
 //##
-
 // Basics of a navbar
-@navbar-height:                    50px;
-@navbar-margin-bottom:             0;
-@navbar-border-radius:             @border-radius-base;
-@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
-@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
-@navbar-collapse-max-height:       340px;
-
-@navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+@navbar-height: 50px;
+@navbar-margin-bottom: 0;
+@navbar-border-radius: @border-radius-base;
+@navbar-padding-horizontal: floor((@grid-gutter-width / 2));
+@navbar-padding-vertical: ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height: 340px;
+@navbar-default-color: #777;
+@navbar-default-bg: #f8f8f8;
+@navbar-default-border: darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
-@navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color:       #ccc;
-@navbar-default-link-disabled-bg:          transparent;
+@navbar-default-link-color: #777;
+@navbar-default-link-hover-color: #333;
+@navbar-default-link-hover-bg: transparent;
+@navbar-default-link-active-color: #555;
+@navbar-default-link-active-bg: darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-disabled-color: #ccc;
+@navbar-default-link-disabled-bg: transparent;
 
 // Navbar brand label
-@navbar-default-brand-color:               @navbar-default-link-color;
-@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg:            transparent;
+@navbar-default-brand-color: @navbar-default-link-color;
+@navbar-default-brand-hover-color: darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg: transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #888;
-@navbar-default-toggle-border-color:       #ddd;
-
+@navbar-default-toggle-hover-bg: #ddd;
+@navbar-default-toggle-icon-bar-bg: #888;
+@navbar-default-toggle-border-color: #ddd;
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      lighten(@grayLight, 15%);
-@navbar-inverse-bg:                         #262626;
-@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-color: lighten(@grayLight, 15%);
+@navbar-inverse-bg: #262626;
+@navbar-inverse-border: darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 lighten(@grayLight, 15%);
-@navbar-inverse-link-hover-color:           #fff;
-@navbar-inverse-link-hover-bg:              transparent;
-@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 10%);
-@navbar-inverse-link-disabled-color:        #444;
-@navbar-inverse-link-disabled-bg:           transparent;
+@navbar-inverse-link-color: lighten(@grayLight, 15%);
+@navbar-inverse-link-hover-color: #fff;
+@navbar-inverse-link-hover-bg: transparent;
+@navbar-inverse-link-active-color: @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg: darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-link-disabled-color: #444;
+@navbar-inverse-link-disabled-bg: transparent;
 
 // Inverted navbar brand label
-@navbar-inverse-brand-color:                @navbar-inverse-link-color;
-@navbar-inverse-brand-hover-color:          #fff;
-@navbar-inverse-brand-hover-bg:             transparent;
+@navbar-inverse-brand-color: @navbar-inverse-link-color;
+@navbar-inverse-brand-hover-color: #fff;
+@navbar-inverse-brand-hover-bg: transparent;
 
 // Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg:            #333;
-@navbar-inverse-toggle-icon-bar-bg:         #fff;
-@navbar-inverse-toggle-border-color:        #333;
+@navbar-inverse-toggle-hover-bg: #333;
+@navbar-inverse-toggle-icon-bar-bg: #fff;
+@navbar-inverse-toggle-border-color: #333;

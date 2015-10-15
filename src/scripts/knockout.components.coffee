@@ -4,3 +4,10 @@ ko.components.register 'slider', {
         element: "cyclops.slider"
     }
 }
+
+ko.components.register 'toggle', {
+    viewModel: ToggleViewModel,
+    template: {
+        element: "cyclops.toggle"
+    }
+}
