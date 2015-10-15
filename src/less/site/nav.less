@@ -3,7 +3,7 @@ html.cyclops {
   .nav-cyclops {
     background-color: @cyclops-header-bg;
     border-width: 0;
-    padding: 10px 20px 5px;
+    padding: 10px 15px 5px;
     .clearfix();
 
     .navbar-brand {
@@ -35,20 +35,11 @@ html.cyclops {
     }
 
     .navbar-cl-logo {
-
       display: none;
-
-      @media (min-width: @grid-float-breakpoint) {
-        display: block;
-        width: 127px;
-        height: 33px;
-        float: right;
-        margin-top: 10px;
-      }
-
     }
 
     .navbar-toggle {
+      margin-right: 0;
       border-color: @borderColor;
 
       .icon-bar {
@@ -57,6 +48,23 @@ html.cyclops {
     }
 
 
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+
+    .nav-cyclops {
+      .navbar-cl-logo {
+        display: block;
+        width: 127px;
+        height: 33px;
+        float: right;
+        margin-top: 10px;
+      }
+
+      .navbar-toggle {
+        margin-right: 15px;
+      }
+    }
   }
 
 }
