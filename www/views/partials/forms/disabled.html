@@ -1,0 +1,60 @@
+<section class="pl-section" id="disabled">
+  <h3>Disabled Inputs</h3>
+  <p>Add the <code>disabled</code> attribute on an input to prevent user interactions. Disabled inputs appear lighter and add a <code>not-allowed</code> cursor.</p>
+  <div class="pl-example">
+    <input type="text" class="form-control" id="disabledInput" placeholder="Disabled Text Input" disabled>
+  </div>
+  <pre>
+    <code class="html">
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;disabledInput&quot; placeholder=&quot;Disabled Text Input&quot; disabled&gt;
+    </code>
+  </pre>
+
+  <h4>Disabled Fieldset</h4>
+  <div class="pl-example">
+    <form>
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput">Disabled input</label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="disabledSelect">Disabled select menu</label>
+          <select id="disabledSelect" class="form-control">
+            <option>Disabled select</option>
+          </select>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Can't check this
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
+&lt;form&gt;
+&lt;fieldset disabled&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;disabledTextInput&quot;&gt;Disabled input&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;disabledTextInput&quot; class=&quot;form-control&quot; placeholder=&quot;Disabled input&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;disabledSelect&quot;&gt;Disabled select menu&lt;/label&gt;
+  &lt;select id=&quot;disabledSelect&quot; class=&quot;form-control&quot;&gt;
+    &lt;option&gt;Disabled select&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+&lt;div class=&quot;checkbox&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Can&#39;t check this
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;
+    </code>
+  </pre>
+</section>

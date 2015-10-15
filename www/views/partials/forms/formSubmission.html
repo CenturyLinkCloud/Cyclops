@@ -1,0 +1,57 @@
+<section class="pl-section" id="formSubmission">
+  <h3><a href="#formSubmission">Form Submission</a></h3>
+  <p>
+    When submitting a form we need to give the user some feedback that something is taking place.
+    In some cases it can take several seconds for the request to return from the server. During
+    that time we want to indicate something is happening and prevent the form from being changed
+    or submitted again.
+  </p>
+  <p>
+    Bellow is a simple example that uses one observable to disable the form and also change the
+    text of the button once the user has submitted the form.
+  </p>
+  <div class="pl-example">
+    <form>
+      <fieldset data-bind="disable: submitting">
+        <div class="form-group">
+          <label for="input">Input</label>
+          <input type="text" id="input" class="form-control" placeholder="some text">
+        </div>
+        <button type="submit" class="btn btn-primary" data-bind="text: submitButtonText, click: submit">submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <pre class="show-type">
+    <code class="javascript">
+var formModel = function(){
+  var self = this;
+  self.submitting = ko.observable(false);
+  self.submitButtonText = ko.pureComputed(function(){
+    return self.submitting() ? &quot;submitting&quot;: &quot;submit&quot;;
+  });
+  self.submit = function(){
+    self.submitting(true);
+    setTimeout(function(){
+      // This simulates a long running AJAX call. When using jQuery xhr requests you can use
+      // the deferred objects (https://api.jquery.com/category/deferred-object/) always handler
+      // to set sumitting back to false all the time.
+      self.submitting(false);
+    }, 5000);
+  };
+  return self;
+}
+    </code>
+    <code class="html">
+&lt;form&gt;
+  &lt;fieldset data-bind=&quot;disable: submitting&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label for=&quot;input&quot;&gt;Input&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;some text&quot;&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot; data-bind=&quot;text: submitButtonText, click: submit&quot;&gt;submit&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+    </code>
+
+  </pre>
+</section>

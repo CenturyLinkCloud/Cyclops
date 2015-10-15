@@ -1,0 +1,148 @@
+<section class="pl-section" id="knockoutComponents">
+<h3><a href="#KnockoutComponents">Knockout Components</a></h3>
+<p>
+  For more complex controls that require more than simple HTML markup we use
+  <a href="http://knockoutjs.com/documentation/component-overview.html">Knockout
+  Components</a>. This means that in order for these to work the element, or a parent
+  element, must have bindings applied. These self contained &quot;controls&quot; makes them
+  easy to consume but provides a rich user experience.
+</p>
+<h4 id="toggle">Toggle</h4>
+<div class="pl-example" id="formToggle">
+  <toggle></toggle>
+</div>
+<pre>
+  <code class="html">
+&lt;toggle params=&quot;value: value, disabled: disabled, affirmativeText: 'yes', negativeText: 'no'&quot;&gt;&lt;/toggle&gt;
+  </code>
+</pre>
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>Boolean | Observable Boolean</td>
+      <td>false</td>
+      <td>The value of the control true for affirmative and false for negative</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Boolean | Observable Boolean</td>
+      <td>false</td>
+      <td>Is the control disabled</td>
+    </tr>
+    <tr>
+      <td>affirmativeText</td>
+      <td>String | Observable String</td>
+      <td>yes</td>
+      <td>Text displayed when the value is true</td>
+    </tr>
+    <tr>
+      <td>negativeText</td>
+      <td>String | Observable String</td>
+      <td>no</td>
+      <td>Text displayed when the value is false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sliders">Sliders</h4>
+<p>
+  Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+</p>
+<p>
+  In general it would be best practice to also pass in
+  <strong>`maxBound`</strong> and
+  <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+</p>
+<div class="pl-example">
+  <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+    <fieldset>
+      <legend>Advanced Controls</legend>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">slider</label>
+        <div class="col-sm-9">
+            <slider params="value: 6, min: 1, max: 16"></slider>
+            <slider params="value: 4, min: 1, max: 128"></slider>
+            <slider params="value: 50, min: 1, max: 1024"></slider>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<pre>
+  <code class="html">
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
+&lt;div class=&quot;col-sm-9&quot;&gt;
+  &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
+  &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
+  &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+  </code>
+</pre>
+
+<h4>options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>number | Observable number</td>
+      <td>min value</td>
+      <td>value selected</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Boolean | Observable Boolean</td>
+      <td>false</td>
+      <td>Is the control disabled</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>number | Observable number</td>
+      <td>1</td>
+      <td>minimum allowed value</td>
+    </tr>
+    <tr>
+      <td>minBound</td>
+      <td>number | Observable number</td>
+      <td>min value</td>
+      <td>Used when globally allowable values are less then current allowed values.</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>number | Observable number</td>
+      <td>128</td>
+      <td>maximun allowed value</td>
+    </tr>
+    <tr>
+      <td>maxBound</td>
+      <td>number | Observable number</td>
+      <td>min value</td>
+      <td>Used when globally allowable values are more then current allowed values.</td>
+    </tr>
+    <tr>
+      <td>shouldShowTicks</td>
+      <td>Boolean | Observable Boolean</td>
+      <td>true</td>
+      <td>show ticks above the slider, Ignored if there is more than 32 steps</td>
+    </tr>
+  </tbody>
+</table>

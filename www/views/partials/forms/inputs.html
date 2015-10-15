@@ -1,0 +1,137 @@
+<section class="pl-section" id="inputs">
+  <h3 id="inputs"><a href="#inputs">Inputs</a></h3>
+  <p>Examples of standard form inputs used throughout the Control Portal. Add the <code>.form-control</code> class to each input type to get proper formatting and alignment.</p>
+
+  <h4>Text</h4>
+  <div class="pl-example">
+      <input type="text" class="form-control" placeholder="Text Input">
+  </div>
+  <pre>
+    <code class="html">
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Text Input&quot;&gt;
+    </code>
+  </pre>
+
+  <h4>Password</h4>
+  <p>Examples of standard form inputs used throughout the Control Portal.</p>
+  <div class="pl-example">
+      <input type="password" class="form-control" placeholder="Password">
+  </div>
+  <pre>
+    <code class="html">
+&lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot;&gt;
+    </code>
+  </pre>
+
+  <h4>Textarea</h4>
+  <div class="pl-example">
+      <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <pre>
+    <code class="html">
+&lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+    </code>
+  </pre>
+
+  <h4>Checkbox and Radios</h4>
+  <div class="pl-example">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="" /> Option 1</a>
+        </label>
+    </div>
+    <div class="checkbox disabled">
+      <label>
+        <input type="checkbox" value="" disabled>
+        Option two is disabled
+      </label>
+    </div>
+
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it's great
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
+      </label>
+    </div>
+    <div class="radio disabled">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
+      </label>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;checkbox disabled&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;&quot; disabled&gt;
+    Option two is disabled
+  &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; value=&quot;option1&quot; checked&gt;
+    Option one is this and that&amp;mdash;be sure to include why it&#39;s great
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios2&quot; value=&quot;option2&quot;&gt;
+    Option two can be something else and selecting it will deselect option one
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;radio disabled&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios3&quot; value=&quot;option3&quot; disabled&gt;
+    Option three is disabled
+  &lt;/label&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+  <h4>Select Dropdowns</h4>
+  <ul>
+    <li>
+      If there is only one item in the select options, than that item should automatically be
+      selected for the user.
+    </li>
+    <li>
+      If there are multiple items in the list but there is a context for how the user has
+      arrived, select the logical choice. For example, a user selects the create server button
+      on the WA1 - US West (Seattle) Data Center Overview page, the logical choice for the Data
+      Center dropdown would be WA1 - US West (Seattle).
+    </li>
+    <li>
+      If there is no logical defaults then the user should be presented with a contextual
+      message that tells them what to do as the first item in the list (e.g. &lsquo;Select a
+      Data Center...&rsquo;)
+    </li>
+  </ul>
+  <div class="pl-example">
+    <select class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <pre>
+    <code class="html">
+&lt;select class=&quot;form-control&quot;&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
+    </code>
+  </pre>
+</section>
