@@ -3,13 +3,14 @@ html.cyclops {
   .nav-cyclops {
     background-color: @cyclops-header-bg;
     border-width: 0;
-    padding: .5em 1em;
+    padding: 10px 20px 5px;
     .clearfix();
 
     .navbar-brand {
-      width: 48px;
+      width: 45px;
+      height: 40px;
       border: none;
-      padding: 9px 15px 10px 0;
+      padding: 9px 15px 0 0;
     }
 
     .navbar-nav {
@@ -19,16 +20,18 @@ html.cyclops {
         letter-spacing: 1px;
 
         a {
-
-          border-bottom: 3px solid @white;
-          padding: 14px 15px 3px;
+          border-radius: 5px;
+          padding: 13px 15px 13px;
 
           &:hover {
-            background-color: transparent;
-            border-bottom: 3px solid @primaryBrandGreen;
           }
         }
       }
+    }
+
+    .cyclops-icon {
+      width: 21px;
+      height: 21px;
     }
 
     .navbar-cl-logo {
