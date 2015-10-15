@@ -1,63 +1,59 @@
-.nav-container {
-  padding: .75em 1.5em;
-  position: relative;
-  background-color: @cyclops-header-bg;
-  margin-bottom: 40px;
-  width: 100%;
-  .clearfix();
-  a {
-    text-decoration: none;
-  }
+html.cyclops {
 
-  .nav-brand {
-    float: right;
-    width: 127px;
-    height: 33px;
-  }
+  .nav-cyclops {
+    background-color: @cyclops-header-bg;
+    border-width: 0;
+    padding: .5em 1em;
+    .clearfix();
 
-  .nav-logo {
-    float: left;
-    width: 30px;
-    height: 30px;
-    margin-right: 1em;
+    .navbar-brand {
+      width: 48px;
+      border: none;
+      padding: 9px 15px 10px 0;
+    }
 
-  }
-
-  .nav-links {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-
-    li {
-      float: left;
-      font-weight: 400;
-
-      a {
-        padding: .5em 1em;
-        display: block;
-        border-bottom: 3px solid @cyclops-header-bg;
+    .navbar-nav {
+      border-bottom: none;
+      li {
+        font-weight: 400;
         letter-spacing: 1px;
 
-        &:hover {
-          border-bottom: 3px solid @primaryBrandGreen;
+        a {
+
+          border-bottom: 3px solid @white;
+          padding: 14px 15px 3px;
+
+          &:hover {
+            background-color: transparent;
+            border-bottom: 3px solid @primaryBrandGreen;
+          }
         }
       }
     }
-  }
-}
 
-.nav-aux {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
+    .navbar-cl-logo {
 
-  li {
-    padding-left: 0;
-    a {
-      color: @primaryBrandGreen;
-      display: block;
-      padding: .5em 0;
-      text-decoration: none;
+      display: none;
+
+      @media (min-width: @grid-float-breakpoint) {
+        display: block;
+        width: 127px;
+        height: 33px;
+        float: right;
+        margin-top: 10px;
+      }
+
     }
+
+    .navbar-toggle {
+      border-color: @borderColor;
+
+      .icon-bar {
+        background-color: @grayLight;
+      }
+    }
+
+
   }
+
 }
