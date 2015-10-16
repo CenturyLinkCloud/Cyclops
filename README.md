@@ -1,8 +1,10 @@
+[![CenturyLink Cyclops](www/assets/img/centurylink-cyclops.png)](http://assets.ctl.io/)
+
 # CYCLOPS
-The UX/UI Pattern Guide for the CenturyLink Cloud Platform
+The UX/UI Pattern Guide for the CenturyLink Platform
 
 ## Get Started
-Cyclops is hosted on the [CenturyLink Cloud Platform assets server](http://assets.ctl.io/) for anyone to use. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup.
+Cyclops is hosted on the [CenturyLink Platform assets server](http://assets.ctl.io/) for anyone to use. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup.
 
 ```
 <html lang="en" class="cyclops">
