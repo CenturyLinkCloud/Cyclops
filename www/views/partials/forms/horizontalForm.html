@@ -1,6 +1,7 @@
 <section class="pl-section" id="horizontalForm">
   <h3><a href="#horizontalForm">Horizontal Form</a></h3>
   <p>Horizontal forms rely on the <a href="./grid.html">Grid System</a> to align form labels and inputs horizontally. These forms used throughout the Control Portal to create new entities, such as servers, appfog apps, and policies.</p>
+  <p>Add a visual separator to the form submission buttons by adding <code>.form-submit</code> to the <code>.form-group</code> container.</p>
   <div class="pl-example">
     <form class="form-horizontal">
       <div class="form-group">
@@ -24,9 +25,9 @@
           </div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group form-submit">
         <div class="col-sm-offset-3 col-sm-9">
-          <button type="submit" class="btn btn-default">Sign in</button>
+          <button type="submit" class="btn btn-default">sign in</button>
           <button class="btn btn-link">cancel</button>
         </div>
       </div>
@@ -56,7 +57,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;form-group&quot;&gt;
+  &lt;div class=&quot;form-group form-submit&quot;&gt;
     &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
       &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Sign in&lt;/button&gt;
       &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
