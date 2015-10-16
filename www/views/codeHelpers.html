@@ -3,3 +3,25 @@
 {{!< layouts/code.html}}
 
 <h1>Helpers</h1>
+<h2 id="asObservable">asObservable</h2>
+<p>
+  A helper function that given a value ensure that the value is returned as an observable. If the
+  value is already an observable it is simply returned if not a new observable is created
+  wrapping that value.  This is helpful when you want your code to use an observable but you want
+  the developer to be able to pass  a value or and observable value.
+</p>
+<pre>
+  <code class="javascript">
+self.value = ko.osObservable(possibleObservableValue);
+  </code>
+</pre>
+
+<h2 id="asObservableArray">asObservableArray</h2>
+<p>
+  Same as <a href="#asObservable"><code>asObservable</code></a> but for observableArray.
+</p>
+<pre>
+  <code class="javascript">
+self.array = ko.osObservableArray(possibleObservableArray);
+  </code>
+</pre>
