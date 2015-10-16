@@ -1,0 +1,58 @@
+//
+// Action Toolbar
+// --------------------------------------------------
+
+html.cyclops {
+
+  .action-area {
+    background-color: @grayLighter;
+    height: 40px;
+    line-height: 20px;
+  }
+
+  .action-toolbar {
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: @font-size-base - 1;
+
+    > li {
+      float: left;
+
+      a {
+        display: inline-block;
+        padding: 8px 10px 12px 10px;
+        .transition(e('color .1s ease-in'));
+        .transition(e('padding .1s ease-in'));
+        .transition(e('background-color .1s ease-in'));
+        text-decoration: none;
+
+        &:hover {
+          background-color: #3a3a3a;
+          color: @white;
+          .transition(e('none'));
+
+          svg.cyclops-icon {
+            fill: @white;
+          }
+        }
+
+        &.disabled {
+          color: #b9b9b9;
+          cursor: @cursor-disabled;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+
+  .action-toolbar-right {
+    .pull-right();
+  }
+
+}
