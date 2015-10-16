@@ -218,13 +218,16 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
           cb();
         else
           console.log "failed to render #{file.path}"
+    .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
+    .pipe replace /\/css\/site\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/site.min.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe gulp.dest "./dist/#{pkg.version}/"
 
   return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML
 
 gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
 
-gulp.task 'dist', ['compile'], -> 
+gulp.task 'dist', ['compile'], ->
   console.log 'To distribute a new version of cyclops'
   console.log '     * Pull and get latests from https://github.com/CenturyLinkCloud/AssetsServer.git'
   console.log '     * Copy the contents of the \'dist\' folder from Cyclops to the the \'cyclops\' folder'
