@@ -3,3 +3,179 @@
 {{!< layouts/code.html}}
 
 <h1>Classes</h1>
+
+<h2 id="trackableObservable">Trackable Observable</h2>
+<p>
+  Trackable Observable is an extension on the observable classes that tracks a committed value
+  that can be reverted to. This is useful when creating edit forms that the user can either
+  save or cancel out of.
+</p>
+<p>
+  When displaying <code>trackableObservables</code> you will want to bind to the
+  <code>committedValue</code> in displays and just the default value for edits.
+</p>
+<pre>
+  <code class="javascript">
+var form = function(){
+  var self = this;
+  self.value = ko.trackableObservable(&quot;initial commited value&quot;);
+  self.cancel = function(){
+    // reset the value back to the currently committed value
+    self.value.reset();
+  };
+  self.save = fucntion(){
+    // commits the current working value
+    self.value.commit();
+  };
+  return self;
+};
+  </code>
+</pre>
+<h4>Consturctor Parameters</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>paramter</td>
+      <td>any</td>
+      <td>undefined</td>
+      <td>The intial &quot;commited value&quot;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Members</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>committedValue</td>
+      <td>observable&lt;any&gt;</td>
+      <td>value passed to constructor</td>
+      <td>The value marked as comitted this is done by calling commit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Functions</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Return Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>commit</td>
+      <td>undefined</td>
+      <td>Mark the current value as safe and set commitedValue with the value.</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>undefined</td>
+      <td>Revert the value to the commited value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="trackableObservableArray">Trackable Observable Array</h2>
+<p>
+  Same thing as <code>trackableObservable</code> but instead of extending <code>observable</code>
+  it extends <code>observableArray</code>.
+</p>
+<pre>
+  <code class="javascript">
+var form = function(){
+  var self = this;
+  self.array = ko.trackableObservableArray([]);
+  self.cancel = function(){
+    // reset the value back to the currently commited value
+    self.array.reset();
+  };
+  self.save = fucntion(){
+    // commits the current working value
+    self.array.commit();
+  };
+  return self;
+};
+  </code>
+</pre>
+<h4>Consturctor Parameters</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>paramter</td>
+      <td>array</td>
+      <td>undefined</td>
+      <td>The intial &quot;commited value&quot;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Members</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>committedValue</td>
+      <td>observable&lt;array&gt;</td>
+      <td>value passed to constructor</td>
+      <td>The value marked as comitted this is done by calling commit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Functions</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Return Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>commit</td>
+      <td>undefined</td>
+      <td>Mark the current value as safe and set commitedValue with the value.</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>undefined</td>
+      <td>Revert the value to the commited value.</td>
+    </tr>
+  </tbody>
+</table>
