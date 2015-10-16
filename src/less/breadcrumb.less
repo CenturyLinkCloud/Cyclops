@@ -8,6 +8,7 @@ html.cyclops {
   .breadcrumb {
     padding: 8px 15px;
     margin-bottom: (@line-height-computed / 2);
+    margin-top: @line-height-computed;
     list-style: none;
 
     &:first-child {
@@ -18,7 +19,7 @@ html.cyclops {
       display: inline-block;
 
       + li:before {
-        content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+        content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
         padding: 0 5px;
         color: #ccc;
       }
