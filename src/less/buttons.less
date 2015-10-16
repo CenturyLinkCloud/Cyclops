@@ -23,8 +23,65 @@ html.cyclops {
       outline: 1px dotted lighten(@btn-default-bg, 20%);
     }
 
-    &[disabled] {
+    &[disabled],
+    &.disabled {
       opacity: 0.65;
+      cursor: @cursor-disabled;
+      .box-shadow(none);
+    }
+  }
+
+  fieldset[disabled] {
+    .btn {
+      cursor: @cursor-disabled;
+      .box-shadow(none);
+    }
+
+    .btn-default {
+      background-color: @btn-default-bg-disabled;
+      &:hover {
+        background-color: @btn-default-bg-disabled;
+      }
+    }
+
+    .btn-primary {
+      background-color: @btn-primary-bg-disabled;
+      color: @white;
+
+      &:hover {
+        background-color: @btn-primary-bg-disabled;
+        color: @white;
+      }
+    }
+
+    .btn-danger {
+      background-color: @btn-danger-bg-disabled;
+      color: @white;
+
+      &:hover {
+        color: @white;
+        background-color: @btn-danger-bg-disabled;
+      }
+    }
+
+    .btn-inverse {
+      color: @btn-inverse-color-disabled;
+
+      &:hover {
+        color: @btn-inverse-color-disabled;
+        background-color: @btn-inverse-bg-disabled;
+      }
+    }
+
+    .btn-outline {
+
+      color: @btn-outline-color-disabled;
+
+      &:hover {
+        border: 1px solid @btn-outline-border;
+        background-color: @btn-outline-bg-disabled;
+        color: @btn-outline-color-disabled;
+      }
     }
   }
 
