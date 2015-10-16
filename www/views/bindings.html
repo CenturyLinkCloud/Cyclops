@@ -4,6 +4,38 @@
 
 <h1>Bindings</h1>
 
+<h2 id="any">any</h2>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  This is short hand for an if binding that looks at length
+</p>
+<pre>
+  <code class="html">
+&lt;!-- ko any: value --&gt;
+show only if there are items
+&lt;!-- /ko --&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>array | observable array</td>
+      <td>undefined</td>
+      <td>If there are items in the value the contents are shown</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="asyncMessage">asyncMessage</h2>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
@@ -49,6 +81,37 @@
   </tbody>
 </table>
 
+<h2 id="empty">empty</h2>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  This is short hand for an if binding that looks at length
+</p>
+<pre>
+  <code class="html">
+&lt;!-- ko empty: value --&gt;
+There are no items
+&lt;!-- /ko --&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>array | observable array</td>
+      <td>undefined</td>
+      <td>If there are no items in the value the contents are shown</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="fadeSlide">fadeSlide</h2>
 <h4>Supports Virtual Elements: NO</h4>
