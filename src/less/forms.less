@@ -257,6 +257,15 @@ html.cyclops {
       }
     }
 
+    // space out inputs that are adjacent to each other
+    input[type="text"] + input[type="text"] {
+      margin-top: 10px;
+    }
+
+    input + .btn {
+      margin-top: 10px;
+    }
+
     // Reset spacing and right align labels, but scope to media queries so that
     // labels on narrow viewports stack the same as a default form example.
 
