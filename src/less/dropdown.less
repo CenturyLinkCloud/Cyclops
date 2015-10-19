@@ -1,6 +1,6 @@
 html.cyclops {
   
-  // make them behaive like buttons and line up 
+  // make them behaive like buttons and line up
   div.dropdown {
     display: inline-block;
   }
@@ -32,14 +32,23 @@ html.cyclops {
       border-radius: 3px;
       background-clip: padding-box;
       
-      &.pull-right {
+      &.dropdown-menu-right {
+        left: auto; // Reset the default from `.dropdown-menu`
         right: 0;
-        left: auto;
+      }
+
+      &.dropdown-menu-left {
+        left: 0;
+        right: auto;
       }
 
       // Dividers (basically an hr) within the dropdown
       .divider {
-        .nav-divider(#eee);
+        .nav-divider(@borderColor);
+      }
+
+      > li:hover {
+        background: #ebebeb;
       }
 
       // Links within the dropdown menu
@@ -49,6 +58,7 @@ html.cyclops {
         clear: both;
         font-weight: normal;
         white-space: nowrap; // prevent links from randomly breaking onto new lines
+        text-decoration: none;
       }
     }
   }

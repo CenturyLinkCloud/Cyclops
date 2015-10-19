@@ -91,30 +91,74 @@
       </pre>
 
 
-      <h3 id="dropdownButtons">Dropdown</h3>
-      <div class="dropdown">
-        <button id="dLabel" type="button" class="btn btn-default">
-          Dropdown
-          <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dLabel">
-          <li><a href="#">Action 1</a></li>
-          <li><a href="#">Action 2</a></li>
-          <li><a href="#">Action 3</a></li>
-        </ul>
-      </div>
+      <h3 id="dropdowns">Dropdown</h3>
+      <p>
+        To make a dropdown button wrap the tigger button in a container with the class
+        <code>dropdown</code> and add a <code>ul</code> with class <code>dropdow-menu</code>. By
+        default the menu is left aligned but can be changed by adding the class
+        <code>dropdown-menu-right</code> to the dropdown menu.
+      </p>
+      <p>
+        To use dropdowns in navbars please see the
+        <a href="./components.html#pageHeader">Page Header Navigation</a> section of the
+        components section.
+      </p>
+      <div class="pl-example">
+        <div class="dropdown">
+          <button type="button" class="btn btn-default">
+            Dropdown
+            <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+          </ul>
+        </div>
 
-      <div class="dropdown">
-        <button id="dLabel" type="button" class="btn btn-default">
-          Dropdown
-          <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dLabel">
-          <li><a href="#">Action 1</a></li>
-          <li><a href="#">Action 2</a></li>
-          <li><a href="#">Action 3</a></li>
-        </ul>
+        <div class="dropdown">
+          <button type="button" class="btn btn-default">
+            Right Aligned
+            <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">Action 1</a></li>
+            <li><a href="#">Action 2</a></li>
+            <li><a href="#">Action 3</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Action 4</a></li>
+          </ul>
+        </div>
       </div>
+      <pre>
+        <code class="html">
+&lt;div class=&quot;dropdown&quot;&gt;
+   &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;
+     Dropdown
+     &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-caret-down&#39;&gt;&lt;/svg&gt;
+   &lt;/button&gt;
+   &lt;ul class=&quot;dropdown-menu&quot;&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 1&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 2&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 3&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;dropdown&quot;&gt;
+   &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;
+     Right Aligned
+     &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-caret-down&#39;&gt;&lt;/svg&gt;
+   &lt;/button&gt;
+   &lt;ul class=&quot;dropdown-menu dropdown-menu-right&quot;&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 1&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 2&lt;/a&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 3&lt;/a&gt;&lt;/li&gt;
+     &lt;li role=&quot;separator&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action 4&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/div&gt;
+        </code>
+      </pre>
 
       <h3 id="inlineTextButton">Inline Text Button</h3>
       <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
