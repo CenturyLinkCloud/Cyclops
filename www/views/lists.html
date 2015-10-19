@@ -1,0 +1,128 @@
+{{#contentFor "title"}}Lists{{/contentFor}}
+{{#contentFor "tabName"}}lists{{/contentFor}}
+{{!< layouts/leftnav.html}}
+
+<h1 class="content-header">Lists</h1>
+
+<section class="pl-section" id="unordered">
+  <h4>Unordered List</h4>
+  <p>A list of items in which the order does not explicitly matter.</p>
+  <div class="pl-example">
+    <ul>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+  <section class="pl-section" id="ordered">
+  <h4>Ordered List</h4>
+  <p>A list of items in which the order does explicitly matter.</p>
+  <div class="pl-example">
+    <ol>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ol>
+  </div>
+  <pre>
+    <code class="html">
+&lt;ol&gt;
+  &lt;li&gt;item 1&lt;/li&gt;
+  &lt;li&gt;item 2&lt;/li&gt;
+  &lt;li&gt;item 3&lt;/li&gt;
+&lt;/ol&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="unstyled">
+  <h4>Unstyled List</h4>
+  <p>Remove the default list-style and left margin on list items by applying <code>.list-unstyled</code> to the list. This only applies to immediate children list items, meaning you will need to add the class for any nested lists as well.</p>
+  <div class="pl-example">
+    <ul class="list-unstyled">
+      <li>unstyled item</li>
+      <li>unstyled item
+        <ul>
+          <li>nested list item</li>
+          <li>nested list item</li>
+          <li>nested list item</li>
+        </ul>
+      </li>
+      <li>unstyled item</li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;unstyled item&lt;/li&gt;
+  &lt;li&gt;unstyled item
+  &lt;ul&gt;
+  &lt;li&gt;nested list item&lt;/li&gt;
+  &lt;li&gt;nested list item&lt;/li&gt;
+  &lt;li&gt;nested list item&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;unstyled item&lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="inline">
+  <h4>Inline List</h4>
+  <p>Place all list items on a single line by applying <code>.list-inline</code> to the list.</p>
+  <div class="pl-example">
+    <ul class="list-inline">
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+  &lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="description">
+  <h4>Description List</h4>
+  <p>A description list is a list of terms, with a description of each term.</p>
+  <div class="pl-example">
+    <dl>
+      <dt>Term</dt>
+      <dd>The definition</dd>
+      <dt>Term</dt>
+      <dd>The definition</dd>
+      <dt>Term</dt>
+      <dd>The definition</dd>
+    </dl>
+  </div>
+  <pre>
+    <code class="html">
+&lt;dl&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;The definition&lt;/dd&gt;
+&lt;/dl&gt;
+    </code>
+  </pre>
+</section>
