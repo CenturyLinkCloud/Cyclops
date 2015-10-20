@@ -14,4 +14,21 @@
 {{> components/alerts }}
 {{> components/billingSummary }}
 {{> components/breadcrumb }}
+{{> components/slideWell }}
 {{> components/upcomingEvents }}
+
+{{#contentFor "scripts"}}
+<script>
+$(function(){
+  var slideWell = function(){
+    var self = this;
+    self.open = ko.observable(false);
+    self.toggleOpen = function(){
+      self.open(!self.open())
+    };
+    return self;
+  };
+  ko.applyBindings(new slideWell(), $('#slideWell')[0]);
+});
+</script>
+{{/contentFor}}
