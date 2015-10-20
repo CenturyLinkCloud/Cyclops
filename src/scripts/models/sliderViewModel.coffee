@@ -7,7 +7,13 @@ class SliderViewModel
     @step = 1
 
     # Properties
+    @hasjQueryUi = libraries.jqueryUi
     @value = ko.asObservable if options.value? then options.value else minDefault
+    @min = ko.asObservable if options.min? then options.min else @getMinFromValidationRule()
+    @max = ko.asObservable if options.max? then options.max else @getMaxFromValidationRule()
+    @disabled = ko.asObservable if options.disabled? then options.disabled else false
+    # everything above here is needed if the simple textbox implementation aka jquery ui is not
+    # loaded everything below is only needed if we are going to actually make a slider
     @value.subscribe (newValue) =>
       newValue = Math.floor(@convertToNumber(newValue, @min()))
       if @value() != newValue
@@ -16,9 +22,6 @@ class SliderViewModel
       @possibleValue @value()
       return
     @possibleValue = ko.observable @value()
-    @min = ko.asObservable if options.min? then options.min else @getMinFromValidationRule()
-    @max = ko.asObservable if options.max? then options.max else @getMaxFromValidationRule()
-    @disabled = ko.asObservable if options.disabled? then options.disabled else false
     @shouldShowTicks = ko.asObservable if options.showTicks? then options.showTicks else true
 
     # Make sure the value is valid before going any further

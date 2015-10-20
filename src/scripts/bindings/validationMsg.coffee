@@ -4,7 +4,7 @@ ko.bindingHandlers.validationMsg =
     return
   update: (element, valueAccessor) ->
     obsv = valueAccessor()
-    config = ko.validation.utils.getConfigOptions(element)
+    config = if libraries.knockoutValidation then ko.validation.utils.getConfigOptions(element) else {}
     isModified = false
     isValid = false
     $element = $(element)
@@ -33,7 +33,7 @@ ko.bindingHandlers.validationMsg =
           height: 'hide'
           margin: 'hide'
           padding: 'hide'
-        }, 200, 'easeInOutQuad'
+        }, 200, (if libraries.jqueryUi then 'easeInOutQuad' else 'swing')
         return
       ), 30)
     else if !isCurrentlyVisible and isVisible
@@ -43,7 +43,7 @@ ko.bindingHandlers.validationMsg =
           height: 'show'
           margin: 'show'
           padding: 'show'
-        }, 200, 'easeInOutQuad'
+        }, 200, (if libraries.jqueryUi then 'easeInOutQuad' else 'swing')
         return
       ), 30)
     return

@@ -1,4 +1,5 @@
 <script type="text/html" id="cyclops.slider">
+  <!-- ko if: hasjQueryUi -->
    <div class="slider-container" data-bind="css: mainClasses">
         <div class="slider-tick-container" data-bind="if: canShowTicks">
             <!-- ko foreach: new Array(numberofTotalSteps()-1) -->
@@ -52,4 +53,8 @@
     <!-- ko if: outOfRangeMessage -->
     <div class="slider-out-of-range-message" data-bind="html: outOfRangeMessage"></div>
     <!-- /ko -->
+  <!-- /ko -->
+  <!-- ko ifnot: hasjQueryUi -->
+  <input class="form-control" type="number" data-bind="value: value, disable: disabled, attr: {min : min, max: max, step: step }" />
+  <!-- /ko -->
 </script>
