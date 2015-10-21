@@ -92,6 +92,18 @@ html.cyclops {
     &[disabled] {
       cursor: @cursor-disabled;
     }
+
+    // For when multiple inputs need to be adjacent together within a column
+    &.w10  { margin-top: 0; display: inline-block; width: 9% }
+    &.w20  { margin-top: 0; display: inline-block; width: 19% }
+    &.w30  { margin-top: 0; display: inline-block; width: 29% }
+    &.w40  { margin-top: 0; display: inline-block; width: 39% }
+    &.w50  { margin-top: 0; display: inline-block; width: 49% }
+    &.w60  { margin-top: 0; display: inline-block; width: 59% }
+    &.w70  { margin-top: 0; display: inline-block; width: 69% }
+    &.w80  { margin-top: 0; display: inline-block; width: 79% }
+    &.w90  { margin-top: 0; display: inline-block; width: 89% }
+    &.w100 { margin-top: 0; display: inline-block; width: 99% }
   }
 
   // Reset height for `textarea`s to use specified rows
@@ -282,9 +294,21 @@ html.cyclops {
       padding-top: 15px;
     }
 
-    // space out inputs that are adjacent to each other
-    input[type="text"] + input[type="text"] {
+    // space out inputs that are stacked, but remove the spacing if adjacent
+    .form-control + .form-control {
       margin-top: 10px;
+      &.w10,
+      &.w20,
+      &.w30,
+      &.w40,
+      &.w50,
+      &.w60,
+      &.w70,
+      &.w80,
+      &.w90,
+      &.w100 {
+        margin-top: 0;
+      }
     }
 
     input + .btn {
