@@ -1,16 +1,16 @@
 <section class="pl-section" id="slideWell">
   <h3><a href="#slideWell">Slide Well</a></h3>
-  <p>Slide wells are used</p>
+  <p>Slide wells are used to reveal additional content (i.e. forms) when toggled by a button or link.</p>
   <div class="pl-example">
-    <btn class="btn btn-default" data-bind="click: toggleOpen">toggle fadeslide</btn>
-    <div class="slide-well hide"  data-bind="fadeSlide: open">
+    <button class="btn btn-default" data-bind="click: toggleOpen">toggle slide well</button>
+    <div class="slide-well hide" data-bind="fadeSlide: open">
       <form class="form-horizontal">
         <fieldset>
           <legend>Edit Load Balancer Settings</legend>
           <div class="form-group">
-            <label for="inputName" class="col-sm-3 control-label">Name</label>
+            <label for="inputName" class="col-sm-3 control-label">input label</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputName" value="Public Web Application">
+              <input type="text" class="form-control" id="inputName" placeholder="slide well example form">
             </div>
           </div>
           <div class="form-group form-submit">
@@ -25,7 +25,16 @@
   </div>
   <pre>
     <code class="html">
-      test
+&lt;button class=&quot;btn btn-default&quot; data-bind=&quot;click: toggleOpen&quot;&gt;toggle slide well&lt;/button&gt;
+&lt;div class=&quot;slide-well&quot; data-bind=&quot;fadeSlide: open&quot;&gt;
+  ...
+&lt;/div&gt;
+    </code>
+    <code class="javascript">
+self.open = ko.observable(false);
+self.toggleOpen = function(){
+  self.open(!self.open())
+};
     </code>
   </pre>
 </section>
