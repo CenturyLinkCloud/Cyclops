@@ -1,0 +1,72 @@
+{{#contentFor "title"}}Widgets | Code{{/contentFor}}
+{{#contentFor "tabName"}}widgets{{/contentFor}}
+{{!< layouts/code.html}}
+
+<h1>Widgets</h1>
+
+<h2 id="overflowMenu">OverflowMenu</h2>
+<p>
+  The overflow widget takes a menu and with the menu because small enough that it would
+   wrap onto two lines it creates a more dropdown link and starts adding items to it,
+   in correct order.
+</p>
+<p>
+  This is meant to be used in conjunction with the
+  <a href="./components.html#actionToolbar">action toolbar</a>.
+</p>
+<pre>
+  <code class="javascript">
+$(function(){
+  $(&#39;.action-toolbar&#39;).overflowMenu()
+})
+  </code>
+</pre>
+<h4>Consturctor Parameters</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>threshold</td>
+      <td>number</td>
+      <td>2</td>
+      <td>requires this many items before kicking in</td>
+    </tr>
+    <tr>
+      <td>cutoff</td>
+      <td>number</td>
+      <td>0</td>
+      <td>how many items are left before putting everything in the dropdown</td>
+    </tr>
+    <tr>
+      <td>linkText</td>
+      <td>html string</td>
+      <td>more&amp;hellip;</td>
+      <td>text of the dropdown button</td>
+    </tr>
+    <tr>
+      <td>linkTitle</td>
+      <td>string</td>
+      <td>View More</td>
+      <td>title of the dropdown button</td>
+    </tr>
+    <tr>
+      <td>linkTextAll</td>
+      <td>html string</td>
+      <td>actions&amp;hellip;</td>
+      <td>text of the dropdown button when all items are in it</td>
+    </tr>
+    <tr>
+      <td>linkTitleAll</td>
+      <td>string</td>
+      <td>View More</td>
+      <td>Open/Close Menu</td>
+    </tr>
+  </tbody>
+</table>

@@ -130,7 +130,7 @@
           </ul>
         </div>
       </div>
-      <pre>
+      <pre class="show-type">
         <code class="html">
 &lt;div class=&quot;dropdown&quot;&gt;
    &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;
@@ -158,6 +158,14 @@
    &lt;/ul&gt;
  &lt;/div&gt;
         </code>
+        <code class="javascript">
+&lt;!-- If the html is not present on page load you will need to
+     either use the widget binding or call the widget directly
+     on the button --&gt;
+$(function(){
+  $(&#39;.dropdown button&#39;).dropdown()
+})
+        </code>
       </pre>
 
       <h3 id="inlineTextButton">Inline Text Button</h3>
@@ -183,7 +191,7 @@
       <pre class="show-type">
         <code class="javascript">
 $(function(){
-  $(&#39;btn-danger&#39;).inlineConfirm()
+  $(&#39;.btn-danger&#39;).inlineConfirm()
 })
         </code>
         <code class="html">

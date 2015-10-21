@@ -47,5 +47,9 @@ $(() ->
     closeAll()
 
 
+  $.fn.dropdown = () ->
+    @each ->
+      $(this).click toggle
+
   return
 )

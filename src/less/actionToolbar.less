@@ -3,37 +3,40 @@
 // --------------------------------------------------
 
 html.cyclops {
-
   .action-area {
     background-color: #e5e5e5;
     height: 40px;
     line-height: 20px;
+    padding: 0 10px;
+    overflow: hidden;
+    .clearfix();
   }
 
-  .action-toolbar {
+  .action-toolbar,
+  .action-toolbar-left,
+  .action-toolbar-right {
     list-style: none;
-    float: left;
     margin: 0;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-base - 1;
-
+    
     > li {
       float: left;
-
+      
       a {
         display: inline-block;
-        padding: 8px 10px 12px 10px;
+        padding: 8px 10px 12px;
         .transition(e('color .1s ease-in'));
         .transition(e('padding .1s ease-in'));
         .transition(e('background-color .1s ease-in'));
         text-decoration: none;
-
+        
         &:hover {
           background-color: #3a3a3a;
           color: @white;
           .transition(e('none'));
-
+          
           svg.cyclops-icon {
             fill: @white;
           }
@@ -42,10 +45,10 @@ html.cyclops {
         &.disabled {
           color: #b9b9b9;
           cursor: @cursor-disabled;
-
+          
           &:hover {
             background: none;
-
+            
             svg.cyclops-icon {
               fill: #b9b9b9;
             }
@@ -59,8 +62,54 @@ html.cyclops {
     }
   }
 
-  .action-toolbar-right {
-    .pull-right();
+  .action-toolbar-left {
+    float: left;
+    margin-right: 110px;
   }
 
+  .action-toolbar-right {
+    float: right;
+  }
+
+  .overflow-menu {
+    vertical-align: inherit;
+    height: 40px;
+    position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+    
+    &:hover,
+    &.open {
+      color: @white;
+      background: #3a3a3a;
+      
+      a {
+        color: @white;
+      }
+
+      svg {
+        fill: @white;
+      }
+    }
+
+    .dropdown-menu {
+      color: @white;
+      background: #3a3a3a;
+      border: 0;
+      margin-top: 0;
+      .border-radius(0);
+      
+      li a {
+        transition: none;
+        
+        &:hover {
+          background: #000;
+          
+          &.disabled {
+            background: #3a3a3a;
+          }
+        }
+      }
+    }
+  }
 }
