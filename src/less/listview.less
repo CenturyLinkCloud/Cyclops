@@ -60,6 +60,31 @@ html.cyclops {
         }
       }
 
+      // colored list view item backgrounds
+      &.list-view-item-success {
+        background-color: @state-success-bg;
+        color: @state-success-text;
+        border-bottom-color: @state-success-border;
+      }
+
+      &.list-view-item-info {
+        background-color: @state-info-bg;
+        color: @state-info-text;
+        border-bottom-color: @state-info-border;
+      }
+
+      &.list-view-item-warning {
+        background-color: @state-warning-bg;
+        color: @state-warning-text;
+        border-bottom-color: @state-warning-border;
+      }
+
+      &.list-view-item-danger {
+        background-color: @state-danger-bg;
+        color: @state-danger-text;
+        border-bottom-color: @state-danger-border;
+      }
+
       .new-list-view-actions {
         text-align: right;
         opacity: 0;
@@ -76,6 +101,22 @@ html.cyclops {
 
       &:hover {
         background: #ebebeb;
+
+        &.list-view-item-success {
+          background-color: lighten(@state-success-bg, 3%);
+        }
+
+        &.list-view-item-info {
+          background-color: lighten(@state-info-bg, 3%);
+        }
+
+        &.list-view-item-warning {
+          background-color: lighten(@state-warning-bg, 2%);
+        }
+
+        &.list-view-item-danger {
+          background-color: lighten(@state-danger-bg, 3%);
+        }
       }
     }
 
@@ -225,6 +266,8 @@ html.cyclops {
         background: none;
       }
     }
+
+
 
     .list-view-item-form {
       background: #f5f5f5;
