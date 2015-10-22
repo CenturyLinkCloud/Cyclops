@@ -3,21 +3,21 @@
 // --------------------------------------------------
 
 html.cyclops {
-  
+
   // Wrapper and base class
   //
   // Provide a static navbar from which we expand to create full-width, fixed, and
   // other navbar variations.
-  
+
   .navbar {
     position: relative;
     min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
     margin-bottom: @navbar-margin-bottom;
     border: 1px solid transparent;
-    
+
     // Prevent floats from breaking the navbar
     &:extend(.clearfix all);
-    
+
     @media (min-width: @grid-float-breakpoint) {
       border-radius: @navbar-border-radius;
     }
@@ -27,11 +27,11 @@ html.cyclops {
   //
   // Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
   // styling of responsive aspects.
-  
+
   .navbar-header {
     &:extend(.clearfix all);
     .clearfix();
-    
+
     @media (min-width: @grid-float-breakpoint) {
       float: left;
     }
@@ -46,7 +46,7 @@ html.cyclops {
   // To start (on mobile devices) the navbar links, forms, and buttons are stacked
   // vertically and include a `max-height` to overflow in case you have too much
   // content for the user's viewport.
-  
+
   .navbar-collapse {
     overflow-x: visible;
     padding-right: @navbar-padding-horizontal;
@@ -55,7 +55,7 @@ html.cyclops {
     box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
     &:extend(.clearfix all);
     -webkit-overflow-scrolling: touch;
-    
+
     &.in {
       overflow-y: auto;
     }
@@ -68,7 +68,7 @@ html.cyclops {
       width: auto;
       border-top: 0;
       box-shadow: none;
-      
+
       &.collapse {
         display: block !important;
         height: auto !important;
@@ -82,7 +82,7 @@ html.cyclops {
 
       // Undo the collapse side padding for navbars with containers to ensure
       // alignment of right-aligned contents.
-      
+
       .navbar-static-top & {
         padding-left: 0;
         padding-right: 0;
@@ -93,14 +93,14 @@ html.cyclops {
   // Both navbar header and collapse
   //
   // When a container is present, change the behavior of the header and collapse.
-  
+
   .container,
   .container-fluid {
     > .navbar-header,
     > .navbar-collapse {
       margin-right: -@navbar-padding-horizontal;
       margin-left: -@navbar-padding-horizontal;
-      
+
       @media (min-width: @grid-float-breakpoint) {
         margin-right: 0;
         margin-left: 0;
@@ -114,11 +114,11 @@ html.cyclops {
   // Display the navbar across the entirety of the page or fixed it to the top or
   // bottom of the page.
   // Static top (unfixed, but 100% wide) navbar
-  
+
   .navbar-static-top {
     z-index: @zindex-navbar;
     border-width: 0 0 1px;
-    
+
     @media (min-width: @grid-float-breakpoint) {
       border-radius: 0;
     }
@@ -128,18 +128,41 @@ html.cyclops {
   .navbar-brand {
     border-right: 1px solid darken(@navbar-default-bg, 5%);
     float: left;
-    padding: @navbar-padding-vertical @navbar-padding-horizontal @navbar-padding-vertical 0;
+    overflow: hidden;
+    padding: @navbar-padding-vertical 10px @navbar-padding-vertical 0;
     font-size: @font-size-large;
     line-height: @line-height-computed;
     height: @navbar-height;
     text-decoration: none;
-    width: 119px;
-    
+    height: 50px;
+    margin-left: 5px;
+
     > img {
       display: block;
     }
 
+    #logo {
+      width: 21px;
+      height: 21px;
+    }
+
+    #logoType {
+      display: none;
+    }
+
     @media (min-width: @grid-float-breakpoint) {
+
+      width: 119px;
+      margin-left: 0;
+
+      #logo {
+        width: 100px;
+      }
+
+      #logoType {
+        display: block;
+      }
+
       .navbar > .container &,
       .navbar > .container-fluid & {
         margin-left: -@navbar-padding-horizontal;
@@ -155,7 +178,7 @@ html.cyclops {
     font-size: @font-size-large;
     line-height: @line-height-computed;
     text-decoration: none;
-    
+
     &:hover {
       color: @navbar-default-brand-hover-color;
     }
@@ -165,7 +188,7 @@ html.cyclops {
   //
   // Custom button for toggling the `.navbar-collapse`, powered by the collapse
   // JavaScript plugin.
-  
+
   .navbar-toggle {
     position: relative;
     float: right;
@@ -176,10 +199,10 @@ html.cyclops {
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
     border: 1px solid transparent;
     border-radius: @border-radius-base;
-    
+
     // We remove the `outline` here, but later compensate by attaching `:hover`
     // styles to `:focus`.
-    
+
     &:focus {
       outline: 0;
     }
@@ -205,11 +228,11 @@ html.cyclops {
   //
   // Builds on top of the `.nav` components with its own modifier class to make
   // the nav the full height of the horizontal nav (above 768px).
-  
+
   .navbar-nav {
     border-bottom: 1px solid darken(@navbar-inverse-bg, 5%);
     margin: 0;
-    
+
     > li > a {
       padding-top: 10px;
       padding-bottom: 10px;
@@ -217,7 +240,7 @@ html.cyclops {
     }
 
     @media (max-width: @grid-float-breakpoint-max) {
-      
+
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
         position: static;
@@ -227,7 +250,7 @@ html.cyclops {
         background-color: transparent;
         border: 0;
         box-shadow: none;
-        
+
         > li > a,
         .dropdown-header {
           padding: 5px 15px 5px 25px;
@@ -235,7 +258,7 @@ html.cyclops {
 
         > li > a {
           line-height: @line-height-computed;
-          
+
           &:hover,
           &:focus {
             background-image: none;
@@ -248,10 +271,10 @@ html.cyclops {
     @media (min-width: @grid-float-breakpoint) {
       float: left;
       margin: 0;
-      
+
       > li {
         float: left;
-        
+
         > a {
           padding-top: @navbar-padding-vertical;
           padding-bottom: @navbar-padding-vertical;
@@ -263,10 +286,10 @@ html.cyclops {
   // Buttons in navbars
   //
   // Vertically center a button within a navbar (when *not* in a form).
-  
+
   .navbar-btn {
     .navbar-vertical-align(34);
-    
+
     &.btn-sm {
       .navbar-vertical-align(28);
     }
@@ -279,10 +302,10 @@ html.cyclops {
   // Text in navbars
   //
   // Add a class to make any element properly align itself vertically within the navbars.
-  
+
   .navbar-text {
     .navbar-vertical-align(@line-height-computed);
-    
+
     @media (min-width: @grid-float-breakpoint) {
       float: left;
       margin-left: @navbar-padding-horizontal;
@@ -297,7 +320,7 @@ html.cyclops {
   // though so that navbar contents properly stack and align in mobile.
   //
   // Declared after the navbar components to ensure more specificity on the margins.
-  
+
   @media (min-width: @grid-float-breakpoint) {
     .navbar-left {
       .pull-left();
@@ -306,7 +329,7 @@ html.cyclops {
     .navbar-right {
       .pull-right();
       margin-right: -@navbar-padding-horizontal;
-      
+
       ~ .navbar-right {
         margin-right: 0;
       }
@@ -316,11 +339,11 @@ html.cyclops {
   .navbar-inverse {
     background-color: @navbar-inverse-bg;
     border-color: @navbar-inverse-border;
-    
+
     .navbar-brand {
       border-right: 1px solid darken(@navbar-inverse-bg, 5%);
       color: @navbar-inverse-brand-color;
-      
+
       &:hover,
       &:focus {
         color: @navbar-inverse-brand-hover-color;
@@ -331,7 +354,7 @@ html.cyclops {
     .navbar-service {
       border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
       color: @navbar-inverse-brand-hover-color;
-      
+
       &:hover,
       &:focus {
         color: @navbar-inverse-brand-hover-color;
@@ -341,11 +364,11 @@ html.cyclops {
     .navbar-account {
       margin-top: 0;
       border-top: 1px solid lighten(@navbar-inverse-bg, 5%);
-      
+
       @media (min-width: @grid-float-breakpoint) {
         border-left: 1px solid darken(@navbar-inverse-bg, 5%);
         border-right: 1px solid lighten(@navbar-inverse-bg, 5%);
-        
+
         li {
           border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
           border-right: 1px solid darken(@navbar-inverse-bg, 5%);
@@ -364,12 +387,12 @@ html.cyclops {
     .navbar-nav {
       > li > a {
         color: @navbar-inverse-link-color;
-        
+
         &:hover,
         &:focus {
           color: @navbar-inverse-link-hover-color;
           background-color: @navbar-inverse-link-hover-bg;
-          
+
           svg {
             fill: @navbar-inverse-link-hover-color;
           }
@@ -398,7 +421,7 @@ html.cyclops {
     // Darken the responsive nav toggle
     .navbar-toggle {
       border-color: @navbar-inverse-toggle-border-color;
-      
+
       &:hover,
       &:focus {
         background-color: @navbar-inverse-toggle-hover-bg;
@@ -426,7 +449,7 @@ html.cyclops {
       }
 
       @media (max-width: @grid-float-breakpoint-max) {
-        
+
         // Dropdowns get custom display
         .open .dropdown-menu {
           > .dropdown-header {
@@ -439,7 +462,7 @@ html.cyclops {
 
           > li > a {
             color: @navbar-inverse-link-color;
-            
+
             &:hover,
             &:focus {
               color: @navbar-inverse-link-hover-color;
@@ -470,7 +493,7 @@ html.cyclops {
 
     .navbar-link {
       color: @navbar-inverse-link-color;
-      
+
       &:hover {
         color: @navbar-inverse-link-hover-color;
       }
@@ -478,7 +501,7 @@ html.cyclops {
 
     .btn-link {
       color: @navbar-inverse-link-color;
-      
+
       &:hover,
       &:focus {
         color: @navbar-inverse-link-hover-color;
