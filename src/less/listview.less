@@ -63,19 +63,16 @@ html.cyclops {
       // colored list view item backgrounds
       &.list-view-item-success {
         background-color: @state-success-bg;
-        color: @state-success-text;
         border-bottom-color: @state-success-border;
       }
 
       &.list-view-item-info {
         background-color: @state-info-bg;
-        color: @state-info-text;
         border-bottom-color: @state-info-border;
       }
 
       &.list-view-item-warning {
         background-color: @state-warning-bg;
-        color: @state-warning-text;
         border-bottom-color: @state-warning-border;
       }
 
@@ -103,19 +100,19 @@ html.cyclops {
         background: #ebebeb;
 
         &.list-view-item-success {
-          background-color: lighten(@state-success-bg, 3%);
+          background-color: darken(@state-success-bg, 10%);
         }
 
         &.list-view-item-info {
-          background-color: lighten(@state-info-bg, 3%);
+          background-color: darken(@state-info-bg, 5%);
         }
 
         &.list-view-item-warning {
-          background-color: lighten(@state-warning-bg, 2%);
+          background-color: darken(@state-warning-bg, 10%);
         }
 
         &.list-view-item-danger {
-          background-color: lighten(@state-danger-bg, 3%);
+          background-color: darken(@state-danger-bg, 5%);
         }
       }
     }
