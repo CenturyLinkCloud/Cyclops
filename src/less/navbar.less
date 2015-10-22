@@ -373,6 +373,10 @@ html.cyclops {
       }
     }
 
+    .dropdown-menu {
+      background-color: @navbar-inverse-bg;
+    }
+
     svg {
       fill: @navbar-inverse-link-color;
     }
@@ -381,6 +385,7 @@ html.cyclops {
       color: @navbar-inverse-color;
     }
 
+    .dropdown-menu,
     .navbar-nav {
       > li > a {
         color: @navbar-inverse-link-color;
@@ -413,6 +418,24 @@ html.cyclops {
           background-color: @navbar-inverse-link-disabled-bg;
         }
       }
+    }
+
+    .dropdown-menu {
+
+      border: 1px solid darken(@navbar-inverse-bg, 5%);
+
+      li {
+        &:hover {
+        background-color: @navbar-inverse-link-hover-bg;
+
+        }
+      }
+
+      // Dividers (basically an hr) within the dropdown
+      .divider {
+        .nav-divider(darken(@navbar-inverse-bg, 5%));
+      }
+
     }
 
     // Darken the responsive nav toggle
@@ -449,6 +472,9 @@ html.cyclops {
 
         // Dropdowns get custom display
         .open .dropdown-menu {
+
+          background-color: @navbar-inverse-bg;
+
           > .dropdown-header {
             border-color: @navbar-inverse-border;
           }
