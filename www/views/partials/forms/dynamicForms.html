@@ -1,0 +1,67 @@
+<section class="pl-section" id="asyncForms">
+  <h3><a href="#asyncForms">Async Forms</a></h3>
+  <p>
+    Async calls can be used to fet values for input on calls that can take a long time. Doing this
+    give the effect of faster render times since the user starts seeing UI faster than just watching
+    the browser spin.
+  </p>
+  <p>
+    In the bellow example server name is not dependent on the data center choice so it is always
+    enabled, but the avaliblity of hyperscale does change based on data center so it is disabled
+    until the data centers are loaded.
+  </p>
+  <div class="pl-example">
+    <button class="btn btn-default" data-bind="click: loadData">Load Data</button>
+    <hr/>
+    <form>
+      <div class="form-group">
+        <label for="datacenters">data centers</label>
+        <select id="datacenters" class="form-control" data-bind="disable: isLoadingDC, options: datacenters">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="serverName">server name</label>
+        <input type="text" id="serverName" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="serverName">hyperscale</label>
+        <toggle params="value: hyperscaleEnabled, disabled: isLoadingDC"></toggle>
+      </div>
+      <button type="submit" class="btn btn-primary" data-bind="disable: isLoadingDC" >Submit</button>
+      <button class="btn btn-link" data-bind="disable: isLoadingDC">cancel</button>
+    </form>
+  </div>
+</section>
+
+<section class="pl-section" id="dynamicForms">
+  <h3><a href="#dynamicForms">Dynamic Forms</a></h3>
+  <p>
+    Sometimes when you are creating a form a user selection may influence the form fields
+    themselves. For instance depending on what data center is chosen the user may have the
+    option to provision a server as bare metal.
+  </p>
+  <p>
+    In the example bellow GB1 supports bare metal and the other two do not.
+  </p>
+  <div class="pl-example">
+    <form>
+      <div class="form-group">
+        <label for="datacenters">data centers</label>
+        <select id="datacenters" class="form-control" data-bind="options: datacenters, optionsText: 'name', value: selectedDataCenter">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="serverName">server name</label>
+        <input type="text" id="serverName" class="form-control"/>
+      </div>
+      <div class="form-group" class="hide" data-bind="fadeSlide: selectedDataCenter().bareMetal">
+        <label for="bareMetal">bare metal</label>
+        <p id="bareMetal" class="form-control-static">
+          Some settings specific to bare metal stuff.
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+      <button class="btn btn-link" >cancel</button>
+    </form>
+  </div>
+</section>

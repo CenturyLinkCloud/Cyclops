@@ -8,6 +8,7 @@
 {{> forms/disabled }}
 {{> forms/basicForm }}
 {{> forms/horizontalForm }}
+{{> forms/dynamicForms }}
 {{> forms/staticText }}
 {{> forms/formSubmission }}
 {{> forms/validation }}
@@ -132,6 +133,43 @@ $(function(){
   /* Start Toggle */
   ko.applyBindings({}, $("#formToggle")[0]);
   /* End Toggle */
+
+  /* Start Async Forms */
+  var asyncForms = function(){
+    var self = this;
+    self.datacenters = ko.observableArray([]);
+    self.hyperscaleEnabled = ko.observable(false);
+    self.isLoadingDC = ko.observable(false);
+
+    self.loadData = function(){
+      self.isLoadingDC(true);
+      self.datacenters([])
+      setTimeout(function(){
+        self.datacenters.push("CA1 - Canada (Vancouver)");
+        self.datacenters.push("GB1 - Great Britain (Portsmouth)");
+        self.datacenters.push("IL1 - US Central (Chicago)");
+        self.isLoadingDC(false);
+      }, 4000)
+    };
+    self.loadData();
+    return self;
+  }
+  ko.applyBindings(new asyncForms(), $("#asyncForms")[0]);
+  /* End Async Forms */
+
+  /* Start Dynamic Forms */
+  var dynamicForms = function(){
+    var self = this;
+    self.datacenters = ko.observableArray([
+      {name: "CA1 - Canada (Vancouver)", bareMetal: false},
+      {name: "GB1 - Great Britain (Portsmouth)", bareMetal: true},
+      {name: "IL1 - US Central (Chicago)", bareMetal: false}
+    ]);
+    self.selectedDataCenter = ko.observable(self.datacenters()[0]);
+    return self;
+  }
+  ko.applyBindings(new dynamicForms(), $("#dynamicForms")[0]);
+  /* End Dynamic Forms */
 })
 </script>
 {{/contentFor}}
