@@ -65,6 +65,29 @@
   </div>
 </section>
 
+<section class="pl-section" id="empty">
+  <h3><a href="#empty">Empty List View</a></h3>
+  <p>When a list view is empty, provide a way within the empty list to create whatever entity the list contains by defining the contents of a <code>.empty-list-view-item</code> item within the <code>.new-list-view</code>.</p>
+  <div class="pl-example">
+    <div class="new-list-view-header">
+      <h3 class="col col-40">Alert Policy</h3>
+      <h3 class="col col-60">Description</h3>
+    </div>
+    <ul class="new-list-view">
+      <li class="empty-list-view-item">
+        There are no alert policies on this server. <button class="btn btn-link-text">Apply an alert policy.</button>.
+      </li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;empty-list-view-item&quot;&gt;
+  There are no alerts on this server. &lt;button class=&quot;btn btn-link-text&quot;&gt;Apply an alert policy.&lt;/button&gt;.
+&lt;/li&gt;
+    </code>
+  </pre>
+</section>
+
 <section class="pl-section" id="columnWidths">
   <h3><a href="#columnWidths">Column Widths</a></h3>
   <p>List view columns are built using a <code>.col</code> and corresponding percentage width <code>.col-*</code>. Available widths include: <code>.col-10, .col-15, .col-20, .col-25 , .col-30, .col-35, .col-40, .col-45, .col-50, .col-55, .col-60, .col-65, .col-70, .col-75, .col-80, .col-85, .col-90, .col-95, .col-100</code></p>
