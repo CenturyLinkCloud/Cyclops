@@ -246,13 +246,14 @@
 
 // Alerts
 
-.alert-variant(@background; @border; @text-color) {
+.alert-variant(@background; @border; @icon-color; @text-color) {
   background-color: @background;
   border-color: @border;
-  color: @text-color;
+  color: lighten(@textColor, 20%);
 
-  > .cyclops-icon {
-    fill: @text-color;
+  > .cyclops-icon,
+  .alert-icon .cyclops-icon {
+    fill: @icon-color;
   }
 
   hr {
