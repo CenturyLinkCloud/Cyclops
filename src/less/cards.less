@@ -1,0 +1,92 @@
+//
+// Base styles
+//
+html.cyclops {
+
+  .card {
+    position: relative;
+    margin-bottom: @line-height-computed;
+    background-color: @white;
+    border: 1px solid @borderColor;
+    border-radius: @border-radius-base;
+  }
+
+  .card-block {
+    padding: 15px 20px;
+  }
+
+  .card-title {
+    margin-top: 0;
+    margin-bottom: @line-height-computed;
+  }
+
+  .card-subtitle {
+    margin-top: -(@line-height-computed / 2);
+  }
+
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+
+  //
+  // Optional textual caps
+  //
+
+  .card-header {
+    padding: (@line-height-computed / 2) @line-height-computed;
+    background-color: @grayLighter;
+    border-bottom: 1px solid @borderColor;
+
+    &:first-child {
+      border-top-left-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+    }
+  }
+
+
+  //
+  // Background variations
+  //
+
+  .card-success {
+    background-color: @state-success-bg;
+    border-color: @state-success-border;
+  }
+  .card-info {
+    background-color: @state-info-bg;
+    border-color: @state-info-border;
+  }
+  .card-warning {
+    background-color: @state-warning-bg;
+    border-color: @state-warning-border;
+  }
+  .card-danger {
+    background-color: @state-danger-bg;
+    border-color: @state-danger-border;
+  }
+
+@media (min-width: @screen-sm-min) {
+  .card-deck {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 1.25rem 0;
+
+    .card {
+      display: table-cell;
+      width: 1%;
+      vertical-align: top;
+    }
+  }
+
+  .card-deck-wrapper {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+
+
+
+
+
+}
