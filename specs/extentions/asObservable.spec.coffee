@@ -1,4 +1,4 @@
-describe 'Helpers: AsObservable', ->
+describe 'Exentions: AsObservable', ->
   it 'it hangs off the global knockout object', ->
     expect(ko.asObservable).toBeDefined()
     return

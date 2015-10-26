@@ -496,11 +496,11 @@
   <p>Below are examples of list view using javascript objects and knockout bindings.</p>
   <h4>Read Only</h4>
   <div id="readOnly" class="pl-example">
-    <div class="pl-actions">
+    <p>
       <!-- This content is just used for demo purposes you'll wire up your own -->
       <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
       <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
-    </div>
+    </p>
     <div class="new-list-view-responsive new-list-view-responsive-md">
         <div class="new-list-view-header">
             <h3 class="col col-25">Name</h3>
@@ -519,9 +519,9 @@
 
   <h4>Create, Read, Update, Delete (CRUD)</h4>
   <div id="crud" class="pl-example">
-    <div class="pl-actions">
+    <p>
       <button class="btn btn-default" data-bind="click: addItem">create an item</button>
-    </div>
+    </p>
     <div class="new-list-view-responsive new-list-view-responsive-sm">
       <div class="new-list-view-header">
         <h3 class="col col-25">Name</h3>
@@ -531,10 +531,152 @@
       <ul class="new-list-view" data-bind="templateSwitcher: {value: items, loading: isLoading, foo: hasErrord, templates: {display: 'listViewEditableItemsTemplate', loading: 'listViewEditableLoadingTemplate', empty: 'listViewEditableEmptyTemplate'}}"></ul>
     </div>
   </div>
+
+  <h4>Filtering &amp; Sorting</h4>
+  <p>
+    Filtering and sorting and easily be added to a list view by using a
+    <code>filterableArray</code>. For detailed information about how to use a
+    <code>filterableArray</code> and the options that are available see the
+    <a href="./classes.html#filterableArray">documentation</a> under the code section.
+  </p>
+  <P>
+    It is best practice to allow filtering only on fields that are visible and so
+    the user can see why that row or item is being displayed. Additionally filtering
+    should not be exposed for small collections. If there are only ever going to be
+    5 to 10 items do not add filtering.  In addition to filtering sorting can be a
+    useful feature to expose but it is recommended to only allow sorting on a subset
+    of fields that make most sense.
+  </P>
+  <div id="filterSort" class="pl-example">
+    <p>
+      <button class="btn btn-default" data-bind="click: createServer">create server</button>
+      <span class="search-input pull-right">
+        <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
+        <svg class="cyclops-icon">
+          <!-- ko ifnot: servers.query -->
+          <use xlink:href='#icon-search'></use>
+          <!-- /ko -->
+          <!-- ko if: servers.query -->
+          <use class="clear" xlink:href='#icon-times' data-bind="click: clearFilter" ></use>
+          <!-- /ko -->
+        </svg>
+      </span>
+    </p>
+    <div class="new-list-view-header">
+        <h3 class="col col-15">status</h3>
+        <h3 class="col col-25">
+          <button class="btn btn-link-text" data-bind="click:toggleSortOrder">
+            name
+            <svg class="cyclops-icon"><use xlink:href='#icon-angle-up' data-bind="attr: {'xlink:href': sortingIcon}"></svg>
+          </button>
+        </h3>
+        <h3 class="col col-60">description</h3>
+    </div>
+    <ul class="new-list-view" data-bind="foreach: {data: servers, afterAdd: addItemAnimation, beforeRemove: removeItemAnimation}">
+      <li>
+          <div class="list-view-item">
+              <div class="col col-15">
+                <svg class="cyclops-icon"><use xlink:href="#icon-question" data-bind="attr: {'xlink:href': icon}"></svg>
+              </div>
+              <div class="col col-25" data-bind="text: name"></div>
+              <div class="col col-60" data-bind="text: description"></div>
+          </div>
+      </li>
+    </ul>
+  </div>
 </section>
 
-
 {{#contentFor "scripts"}}
+<!-- Begin ListView Filter and Sort -->
+<script>
+$(function(){
+  var fakeServerModel = function(data) {
+    var self = this;
+    self.id = data.id;
+    self.name = ko.observable(data.name);
+    self.description = ko.observable(data.description);
+    self.status = ko.observable(data.status);
+    self.icon = ko.pureComputed(function(){
+      status = self.status();
+      if(status === "running")
+        return "#icon-play";
+      else if (status === "queued")
+        return "#icon-queue";
+      else if (status === "stopped")
+        return "#icon-stop";
+      else
+        return "#icon-question";
+    })
+    return self;
+  }
+
+  var filterbaleListViewModel = function() {
+    var self = this;
+    // Notice that they are not in order. APIs do not garantee an order
+    // so if you are going to allow sorting on a field then make sure you
+    // order the array to begin with.
+    self.servers = ko.filterableArray([
+      new fakeServerModel({ name: 'QA1DEVTEST1',
+        description: "This is sever 1 in the Dev account for testing",
+        id: 1,
+        status: "running"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST3',
+        description: 'This is sever 3 in the Dev account for testing',
+        id: 3,
+        status: "stopped"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST2',
+        description: 'This is sever 2 in the Dev account for testing',
+        id: 2,
+        status: "stopped"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST4',
+        description: 'This is sever 4 in the Dev account for testing',
+        id: 4,
+        status: "running"
+      })
+    ]);
+    self.servers.sortByString('name');
+    self.isSortingAsc = ko.observable(true);
+    self.sortingIcon = ko.pureComputed(function(){
+      return self.isSortingAsc() ? "#icon-angle-up" : "#icon-angle-down";
+    });
+    self.toggleSortOrder = function(){
+      if(self.isSortingAsc())
+        self.servers.sortByStringDesc('name');
+      else
+        self.servers.sortByString('name');
+      self.isSortingAsc(!self.isSortingAsc());
+    }
+    self.createServer = function(){
+      length = self.servers.all().length + 1;
+      self.servers.push(new fakeServerModel({ name: 'QA1DEVTEST' + length,
+        description: 'This server is queued for creation',
+        id: length,
+        status: "queued"
+      }));
+    }
+    self.clearFilter = function() {
+      self.servers.query("");
+    }
+    self.addItemAnimation = function(element) {
+        $(element).filter("li")
+          .hide()
+          .animate({ height: "toggle", backgroundColor: '#d9edf7' }, 200)
+          .animate({ backgroundColor: 'transparent' }, 800);
+    }
+    self.removeItemAnimation = function(element) {
+        $(element).filter("li").slideUp();
+    }
+    return self;
+  }
+
+  ko.applyBindings(new filterbaleListViewModel(), $("#filterSort")[0]);
+});
+</script>
+<!-- End ListView Filter and Sort -->
+
 <!-- Begin ListView Read Only -->
 <script>
   $(function () {
