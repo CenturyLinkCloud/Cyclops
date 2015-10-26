@@ -44,7 +44,7 @@ html.cyclops {
   }
 
   .card-overlay {
-    color: #ffffff;
+    .card-inverse();
     position: absolute;
     top: 0;
     right: 0;
@@ -54,39 +54,56 @@ html.cyclops {
     background-color: rgba(0,0,0, .8);
     border-radius: @border-radius-base;
 
-    .card-header,
-    .card-title,
-    .card-text,
-    a {
-      color: #fff;
-    }
-
     .card-title {
       margin-bottom: @line-height-computed / 2;
     }
   }
 
-
-  //
-  // Background variations
-  //
+//
+// Background variations
+//
 
   .card-success {
-    background-color: @state-success-bg;
-    border-color: @state-success-border;
+    .card-inverse();
+    background-color: @brand-success;
+    border-color: @brand-success;
   }
   .card-info {
-    background-color: @state-info-bg;
-    border-color: @state-info-border;
+    .card-inverse();
+    background-color: @brand-info;
+    border-color: @brand-info;
   }
   .card-warning {
-    background-color: @state-warning-bg;
-    border-color: @state-warning-border;
+    .card-inverse();
+    background-color: @brand-warning;
+    border-color: @brand-warning;
   }
   .card-danger {
-    background-color: @state-danger-bg;
-    border-color: @state-danger-border;
+    .card-inverse();
+    background-color: @brand-danger;
+    border-color: @brand-danger;
   }
+
+
+//
+// Inverse text within a card for use with dark backgrounds
+//
+
+    .card-inverse {
+      .card-header {
+        border-bottom: .075rem solid rgba(255,255,255,.2);
+      }
+      .card-header,
+      .card-footer,
+      .card-title,
+      .card-subtitle {
+        color: #fff;
+      }
+      .card-link,
+      .card-text {
+        color: rgba(255,255,255,.75);
+      }
+    }
 
 @media (min-width: @screen-sm-min) {
   .card-deck {
