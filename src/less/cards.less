@@ -43,6 +43,29 @@ html.cyclops {
     }
   }
 
+  .card-overlay {
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 15px 20px;
+    background-color: rgba(0,0,0, .8);
+    border-radius: @border-radius-base;
+
+    .card-header,
+    .card-title,
+    .card-text,
+    a {
+      color: #fff;
+    }
+
+    .card-title {
+      margin-bottom: @line-height-computed / 2;
+    }
+  }
+
 
   //
   // Background variations
