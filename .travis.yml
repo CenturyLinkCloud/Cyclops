@@ -3,7 +3,7 @@ sudo: true
 before_install:
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
-  - npm install gulp --global
+  - npm install -g gulp
 before_script:
 - gulp build
 script:
