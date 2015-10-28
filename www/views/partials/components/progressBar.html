@@ -1,0 +1,51 @@
+<section class="pl-section" id="alerts">
+  <h3><a href="#progressBars">Progress Bars</a></h3>
+  <p>
+    Progress is displayed using the <code>progress</code>
+    <a href="https://www.w3.org/wiki/HTML/Elements/progress">HTML5 tag</a>. Set the
+    <code>max</code> to the amount of work to complete, basically the value which the value property
+    will be divided by. Set the <code>value</code> attribute to the amount of work complete.
+  </p>
+
+  <div class="pl-example">
+    <h4>0%</h4>
+    <progress value="0" max="100">0%</progress>
+    <h4>50%</h4>
+    <progress value="50" max="100">50%</progress>
+    <h4>100%</h4>
+    <progress value="100" max="100">100%</progress>
+    <h4>info</h4>
+    <progress class="info" value="75" max="100">75%</progress>
+    <h4>warning</h4>
+    <progress class="warning" value="75" max="100">75%</progress>
+    <h4>error</h4>
+    <progress class="danger" value="75" max="100">75%</progress>
+  </div>
+    <pre>
+      <code class="html">
+&lt;progress value=&quot;0&quot; max=&quot;100&quot;&gt;0%&lt;/progress&gt;
+&lt;progress value=&quot;50&quot; max=&quot;100&quot;&gt;50%&lt;/progress&gt;
+&lt;progress value=&quot;100&quot; max=&quot;100&quot;&gt;100%&lt;/progress&gt;
+&lt;progress class=&quot;info&quot; value=&quot;75&quot; max=&quot;100&quot;&gt;75%&lt;/progress&gt;
+&lt;progress class=&quot;warning&quot; value=&quot;75&quot; max=&quot;100&quot;&gt;75%&lt;/progress&gt;
+&lt;progress class=&quot;danger&quot; value=&quot;75&quot; max=&quot;100&quot;&gt;75%&lt;/progress&gt;
+      </code>
+    </pre>
+
+    <h4>Supporting IE9</h5>
+    <p>
+      Not all browsers support the progress element, in our support matrix it is only IE9 for this
+      case we need to offer a decent fall back to our users. This is where the text inside the
+      progress tag comes into play. On browsers that do not support the tag it will just be treated
+      like a div and the text will be displayed. So the text in the tag needs to be meaningful to
+      the current use case. For instance, something like &quot;70% complete&quot; or
+      &quot;100GB of 1000GB used&quot;
+    </p>
+    <pre>
+    <code class="html">
+&lt;progress value=&quot;0&quot; max=&quot;100&quot; data-bind=&quot;value: progress&quot;&gt;
+  &lt;!-- ko text: progressText--&gt;&lt;!-- /ko --&gt;
+&lt;/progress&gt;
+    </code>
+    </pre>
+  </section>
