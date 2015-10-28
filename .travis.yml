@@ -1,1 +1,6 @@
 language: node_js
+sudo: true
+before_install:
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+script:
+  - ./.travis/deploy.sh
