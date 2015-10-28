@@ -227,6 +227,8 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
 
 gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
 
+gulp.task 'build', ['less-concat', 'template-concat', 'svg-concat', 'script-concat']
+
 gulp.task 'dist', ['compile'], ->
   console.log 'To distribute a new version of cyclops'
   console.log '     * Pull and get latests from https://github.com/CenturyLinkCloud/AssetsServer.git'
