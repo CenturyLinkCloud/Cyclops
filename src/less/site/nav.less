@@ -1,11 +1,10 @@
 html.cyclops {
-
   .nav-cyclops {
     background-color: @cyclops-header-bg;
     border-width: 0;
     padding: 10px 15px 5px;
     .clearfix();
-
+    
     .navbar-brand {
       width: 45px;
       height: 40px;
@@ -15,15 +14,17 @@ html.cyclops {
 
     .navbar-nav {
       border-bottom: none;
+      
       li {
         font-weight: 400;
         letter-spacing: 1px;
-
+        
         a {
           border-radius: 5px;
-          padding: 13px 15px 13px;
-
+          padding: 13px;
+          
           &:hover {
+            
           }
         }
       }
@@ -41,17 +42,14 @@ html.cyclops {
     .navbar-toggle {
       margin-right: 0;
       border-color: @borderColor;
-
+      
       .icon-bar {
         background-color: @grayLight;
       }
     }
-
-
   }
 
   @media (min-width: @grid-float-breakpoint) {
-
     .nav-cyclops {
       .navbar-cl-logo {
         display: block;
@@ -66,5 +64,4 @@ html.cyclops {
       }
     }
   }
-
 }

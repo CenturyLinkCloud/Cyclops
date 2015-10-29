@@ -1,0 +1,87 @@
+{{#contentFor "title"}}FAQ{{/contentFor}}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="nav nav-stacked">
+        <ul class="tabs">
+          <li class="tab"><a href="#whatIsCyclops">What is Cyclops?</a></li>
+          <li class="tab"><a href="#WhereToGetCyclops">Where can I get it?</a></li>
+          <li class="tab"><a href="#dependencies">What are the dependencies?</a></li>
+          <li class="tab"><a href="#browserSupport">What browsers does it support?</a></li>
+          <li class="tab"><a href="#versions">How can I get notified about new versions / features?</a></li>
+          <li class="tab"><a href="#angular">Can I use it with Angular?</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 main-column">
+      <section id="whatIsCyclops" class="qa">
+        <h2>What is Cyclops?</h2>
+        <p>
+          Cyclops is our own collection of atomic pieces that make up the CenturyLink Platform
+          Control Portal interface. For more information please see the
+          <a href="./about.html">about</a> page for a full explanation.
+        </p>
+      </section>
+      <section id="WhereToGetCyclops" class="qa">
+        <h2>Where can I get it?</h2>
+        <p>
+          It is recommended that you use the CDN version of Cyclops that is hosted on
+          <a href="assets.ctl.io">assets.ctl.io</a>. This provides many caching and performance
+          benefits. If you would like to view of the source if can be found on
+          <a href="https://www.github.com/CenturyLinkCloud/Cyclops/">github</a>. For more
+          information about what is needed to get up and running with Cyclops see the
+          <a href="./">Getting Started</a> page.
+        </p>
+      </section>
+      <section id="dependencies" class="qa">
+        <h2>What are the dependencies?</h2>
+        <p>
+          A full list of dependencies both optional and required can be found
+          <a href="http://localhost:4000/dependencies.html">here</a>.
+        </p>
+      </section>
+      <section id="browserSupport" class="qa">
+        <h2>What browsers does it support?</h2>
+        <p>
+          The browser support matrix for Cyclops matches that of the CenturyLink Cloud Control
+          Portal. We support the current versions of Chrome, Safari, and Firefox. For Internet
+          Explorer we support IE9 and above with IE9 having some fall back behaviors.
+        </p>
+      </section>
+      <section id="versions" class="qa">
+        <h2>How can I get notified about new versions / features?</h2>
+        <p>
+        All publically available version of Cyclops can be found on the
+        <a href="assets.ctl.io">assets.ctl.io</a> website and as tags on the github repository.
+        This includes both stable and prerelease versions, which can be identified using the
+        <a href="symver.org">semantic versioning syntax</a>. As a general rule of thumb new stable
+        versions will be called out in our slack channel as well. If you have a feature request
+        please open and issue on the Cyclops github repository.
+        </p>
+      </section>
+      <section id="angular" class="qa">
+        <h2>Can I use it with Angular?</h2>
+        <p>
+          Cyclops is build on the standard set of CenturyLink Cloud Control Portal Frameworks,
+          which include jQuery, jQuery UI, Knockout, and Knockout Validation. Because of this
+          Cyclops provides many of its controls and helper as knockout related features or
+          extensions.
+        </p>
+        <p>
+          Cyclops can currently be used in conjunction with Angular in one of two ways. One,
+          you can just use the styles can markup provided and still use Angular for everything
+          else. Two, you can use Angular for the routing and controller bits and use knockout
+          for the markup binding and templating.
+        </p>
+        <p>
+          Our focus for v1.0.0 was to achieve feature parity with what exists in the CenturyLink
+          Cloud Control Portal and expose it as an easy to consume collection of styles, markup,
+          and documentation. Post v1.0.0 we, along with the platform team, will be looking into
+          providing better guidance and possible support for using Angular. 
+        </p>
+      </section>
+
+    </div>
+  </div>
+</main>
