@@ -3,10 +3,10 @@ sudo: true
 before_install:
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
-  - npm install 
+  - npm install
   - npm install -g gulp
 before_script:
-- gulp build
+- gulp travis-compile
 script:
 - gulp test
 - ./.travis/deploy.sh

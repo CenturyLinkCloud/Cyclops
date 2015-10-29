@@ -21,8 +21,6 @@ pkg = require './package.json'
 
 __base = './www/'
 
-
-
 gulp.task 'less-concat', ->
   cyclops = gulp.src './src/less/cyclops.less'
     .pipe sourcemaps.init()
@@ -238,3 +236,63 @@ gulp.task 'dist', ['compile'], ->
   console.log "         * git tag -a v#{pkg.version} -m 'Add tag v#{pkg.version}'"
   console.log '         * git push origin --tags'
   console.log '     * Go bump the version in package.json to the next version and commit that as a \'version bump\''
+
+
+# TRAVIS CRAP
+gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 'svg-concat'], ->
+  copyCSS = gulp.src './www/assets/css/**/*'
+    .pipe gulp.dest "./devDist/css/"
+
+  copyScripts = gulp.src './www/assets/scripts/**/*'
+    .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "https://cyclops-dev.uswest.appfog.ctl.io/templates/cyclops.tmpl.html"
+    .pipe replace /\/svg\/cyclops\.icons\.svg/i, "https://cyclops-dev.uswest.appfog.ctl.io/svg/cyclops.icons.svg"
+    .pipe gulp.dest "./devDist/scripts/"
+
+  copyTemplates = gulp.src './www/assets/templates/**/*'
+    .pipe gulp.dest "./devDist/templates/"
+
+  copySvg = gulp.src './www/assets/svg/**/*'
+    .pipe gulp.dest "./devDist/svg/"
+
+  copyStarterPages = gulp.src './www/starterPages/**/*'
+    .pipe replace /\/css\/cyclops\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/cyclops.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://cyclops-dev.uswest.appfog.ctl.io/scripts/cyclops.js"
+    .pipe gulp.dest "./devDist/starterPages/"
+
+  copyImages = gulp.src './www/assets/img/**/*'
+    .pipe gulp.dest "./devDist/img/"
+
+  renderHTML = gulp.src './www/views/*.html'
+    .pipe through.obj (file, enc, cb) ->
+      render = hbs.create().express3
+        viewsDir: './www/views'
+        partialsDir: './www/views/partials'
+        layoutDir: './www/views/layouts'
+        defaultLayout: './www/views/layouts/default.html'
+        extName: 'html'
+
+      locals = {
+        settings: {
+          views: './www/views'
+        },
+        version: "#{pkg.version}"
+        enviroment: "release"
+      }
+
+      self = this;
+      render file.path, locals, (err, html) ->
+        if(!err)
+          file.contents = new Buffer(html);
+          self.push(file);
+          cb();
+        else
+          console.log "failed to render #{file.path}"
+    .pipe replace /\/css\/cyclops\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/cyclops.css"
+    .pipe replace /\/css\/site\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/site.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://cyclops-dev.uswest.appfog.ctl.io/scripts/cyclops.js"
+    .pipe gulp.dest "./devDist/"
+
+  copyStaticBuildPackFiles = gulp.src ['./.travis/Staticfile','./.travis/nginx.conf']
+    .pipe gulp.dest './devDist/'
+
+  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML, copyStaticBuildPackFiles

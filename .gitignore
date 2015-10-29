@@ -10,4 +10,5 @@ npm-debug.log
 /www/assets/scripts
 /www/assets/svg
 /dist
+/devDist
 /temp
