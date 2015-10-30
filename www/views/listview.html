@@ -222,7 +222,7 @@
 
 <section class="pl-section" id="inlineForm">
   <h3><a href="#inlineForm">Inline Form</a></h3>
-  <p>If an item in a list view may be edited, or a new item maybe added inline, the list view inline form is available for in context editing (as opposed to navigating to a different page). Wrap the create/edit form in an <code>.li</code> with <code>.list-view-item-form</code>.</p>
+  <p>If an item in a list view may be edited, or a new item maybe added inline, the list view inline form is available for in context editing (as opposed to navigating to a different page). Wrap the create/edit form in an <code>.li</code> with <code>.list-view-item-form</code>. Consider the complexity and number of input parameters the form will contain when deciding whether to use an inline form, or having a separate create/edit page.</p>
   <p>If allowed, be sure to include a delete button, with <a href="./buttons.html#inlineConfirm">confirmation</a>, button in the edit form.</p>
   <p><a href="listviews.html#interactiveExamples">View a fully interactive demo of the list view</a>.</p>
   <div class="pl-example">
@@ -534,19 +534,16 @@
 
   <h4>Filtering &amp; Sorting</h4>
   <p>
-    Filtering and sorting and easily be added to a list view by using a
-    <code>filterableArray</code>. For detailed information about how to use a
-    <code>filterableArray</code> and the options that are available see the
-    <a href="./classes.html#filterableArray">documentation</a> under the code section.
+    Filtering and sorting can easily be added to a list view by using a
+    <code>filterableArray</code>. For information about how to use a
+    <code>filterableArray</code> and available options, see the
+    <a href="./classes.html#filterableArray">code documentation</a>.
   </p>
-  <P>
-    It is best practice to allow filtering only on fields that are visible and so
-    the user can see why that row or item is being displayed. Additionally filtering
-    should not be exposed for small collections. If there are only ever going to be
-    5 to 10 items do not add filtering.  In addition to filtering sorting can be a
-    useful feature to expose but it is recommended to only allow sorting on a subset
-    of fields that make most sense.
-  </P>
+  <p>Be judicious when deciding whether to implement filtering or sorting. Here are some guidelines to consider:</p>
+  <ul>
+    <li>Allow filtering only on fields that are visible, so users can see why that row or item is being displayed.</li>
+    <li>If 95% of the use cases involve having a list of 1-10 items, then it's probably not worth the cost of implementing filtering or sorting.</li>
+  </ul>
   <div id="filterSort" class="pl-example">
     <p>
       <button class="btn btn-default" data-bind="click: createServer">create server</button>

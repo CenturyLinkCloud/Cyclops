@@ -2,9 +2,13 @@
 {{#contentFor "tabName"}}bindings{{/contentFor}}
 {{!< layouts/code.html}}
 
-<h1>Bindings</h1>
 
-<h2 id="any">any</h2>
+<h1 class="content-header">Bindings</h1>
+
+<section id="any" class="pl-section">
+
+
+<h3><code>any</code></h3>
 <h4>Supports Virtual Elements: YES</h4>
 <p>
   This is short hand for an if binding that looks at length
@@ -36,7 +40,11 @@ show only if there are items
   </tbody>
 </table>
 
-<h2 id="asyncMessage">asyncMessage</h2>
+</section>
+
+<section id="asyncMessage" class="pl-section">
+
+<h3><code>asyncMessage</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   Used to display notification to the end user that an action is taking place. Mainly used
@@ -80,8 +88,10 @@ show only if there are items
     </tr>
   </tbody>
 </table>
+</section>
 
-<h2 id="console">console</h2>
+<section id="console" class="pl-section">
+<h3><code>console</code></h3>
 <h4>Supports Virtual Elements: YES</h4>
 <p>
   Prints the object out on the console. should only be used when debuging.
@@ -110,8 +120,10 @@ show only if there are items
     </tr>
   </tbody>
 </table>
+</section>
 
-<h2 id="empty">empty</h2>
+<section id="empty" class="pl-section">
+<h3><code>empty</code></h3>
 <h4>Supports Virtual Elements: YES</h4>
 <p>
   This is short hand for an if binding that looks at length
@@ -142,8 +154,10 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>
 
-<h2 id="fadeSlide">fadeSlide</h2>
+<section id="fadeSlide" class="pl-section">
+<h3><code>fadeSlide</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   When the value is true the element will be slide down at the same time it is faded in. When the
@@ -188,8 +202,10 @@ There are no items
   </tbody>
 </table>
 
+</section>
 
-<h2 id="fadeVisible">fadeVisible</h2>
+<section id="fadeVisible" class="pl-section">
+<h3><code>fadeVisible</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   When the value is true the element will be faded in. When the value is false the element
@@ -233,9 +249,11 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>
 
+<section id="href" class="pl-section">
 
-<h2 id="href">href</h2>
+<h3><code>href</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   This is short hand for an attr binding that sets the href attribut
@@ -264,9 +282,11 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>
 
+<section id="templateSwitcher" class="pl-section">
 
-<h2 id="templateSwitcher">templateSwitcher</h2>
+<h3><code>templateSwitcher</code></h3>
 <h4>Supports Virtual Elements: YES</h4>
 <p>
   Will switch out templates based on the value, loading, and error properties. This saves you from
@@ -333,9 +353,11 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>
 
+<section id="validationMsg" class="pl-section">
 
-<h2 id="validationMsg">validationMsg</h2>
+<h3><code>validationMsg</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   Same as the knockout-validation validationMessage binding but has a nice animation when displaying
@@ -365,9 +387,11 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>
 
+<section id="widget" class="pl-section">
 
-<h2 id="widget">widget</h2>
+<h3><code>widget</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
 <p>
   Creates jQuery widgets based on the name and options passed in.  This is relatively expensive
@@ -421,3 +445,4 @@ There are no items
     </tr>
   </tbody>
 </table>
+</section>

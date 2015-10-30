@@ -3,13 +3,11 @@
 {{!< layouts/code.html}}
 
 <h1 class="content-header">Validators</h1>
-<p>
-  All our custom validators...
-</p>
 
-<h3 id="checked"><a href="#checked">checked</a></h3>
+<section id="checked" class="pl-section">
+<h3><code>checked</code></h3>
 <p>
-  The value must be a truthy value. To be used with checkboxes to requiore a user to check them.
+  The value must be a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">truthy</a> value. To be used with checkboxes that require a user to check them (i.e. accept a service agreement).
 </p>
 <h4>usage</h4>
 <pre>
@@ -39,7 +37,10 @@ self.agreeToTerms = ko.observableArray().extend({
   </tbody>
 </table>
 
-<h3 id="ipAddress"><a href="#ipAddress">ipAddress</a></h3>
+</section>
+
+<section id="ipAddress" class="pl-section">
+<h3><code>ipAddress</code></h3>
 <p>
   The value must be a valid IPv4 Address. IPv6 is currently not supported by the control portal so
   we don't have a validator for it.
@@ -72,7 +73,10 @@ self.agreeToTerms = ko.observableArray().extend({
   </tbody>
 </table>
 
-<h3 id="ipAddressCidr"><a href="#ipAddressCidr">ipAddressCidr</a></h3>
+</section>
+
+<section id="ipAddressCidr" class="pl-section">
+<h3><code>ipAddressCidr</code></h3>
 <p>
   The value must be a valid
   <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks">
@@ -106,7 +110,10 @@ self.agreeToTerms = ko.observableArray().extend({
   </tbody>
 </table>
 
-<h3 id="notEmpty"><a href="#notEmpty">notEmpty</a></h3>
+</section>
+
+<section id="notEmpty" class="pl-section">
+<h3><code>notEmpty</code></h3>
 <p>
   Checks for a length property and makes sure it is greater than 0. This can be used with a checkbox
   list to make sure atleast one or more items is selected.
@@ -139,7 +146,10 @@ self.password = ko.observableArray().extend({
   </tbody>
 </table>
 
-<h3 id="passwordStrength"><a href="#passwordStrength">passwordStrength</a></h3>
+</section>
+
+<section id="passwordStrength" class="pl-section">
+<h3><code>passwordStrength</code></h3>
 <p>
   Test for lower, upper, number, special characters as well as password length.
   The <code>passwordStrength</code> validator should be used in conjuction with the <code>
@@ -191,7 +201,10 @@ self.password = ko.observable().extend({
   </tbody>
 </table>
 
-<h3 id="uri"><a href="#uri">uri</a></h3>
+</section>
+
+<section id="uri" class="pl-section">
+<h3><code>uri</code></h3>
 <p>
   Must be a valid uri, with an option to specify the scheme that it must adhere to.
 </p>
@@ -230,3 +243,4 @@ self.agreeToTerms = ko.observableArray().extend({
     </tr>
   </tbody>
 </table>
+</section>

@@ -2,20 +2,21 @@
 {{#contentFor "tabName"}}classes{{/contentFor}}
 {{!< layouts/code.html}}
 
-<h1>Classes</h1>
+<h1 class="content-header">Classes</h1>
 
-<h2 id="trackableObservable">Trackable Observable</h2>
-<p>
-  Trackable Observable is an extension on the observable classes that tracks a committed value
-  that can be reverted to. This is useful when creating edit forms that the user can either
-  save or cancel out of.
-</p>
-<p>
-  When displaying <code>trackableObservables</code> you will want to bind to the
-  <code>committedValue</code> in displays and just the default value for edits.
-</p>
-<pre>
-  <code class="javascript">
+<section id="trackableObservable" class="pl-section">
+  <h3><code>trackableObservable</code></h3>
+  <p>
+    Trackable Observable is an extension on the observable classes, that tracks a committed value
+    that may be reverted. This is useful when creating &ldquo;edit&rdquo; forms where a user can either
+    save or cancel out of.
+  </p>
+  <p>
+    When displaying <code>trackableObservables</code> you will want to bind to the
+    <code>committedValue</code> in displays, and the default value for edits.
+  </p>
+  <pre>
+    <code class="javascript">
 var form = function(){
   var self = this;
   self.value = ko.trackableObservable(&quot;initial commited value&quot;);
@@ -29,79 +30,83 @@ var form = function(){
   };
   return self;
 };
-  </code>
-</pre>
-<h4>Consturctor Parameters</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>paramter</td>
-      <td>any</td>
-      <td>undefined</td>
-      <td>The intial &quot;commited value&quot;</td>
-    </tr>
-  </tbody>
-</table>
+    </code>
+  </pre>
+  <h4>Consturctor Parameters</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>paramter</td>
+        <td>any</td>
+        <td>undefined</td>
+        <td>The intial &quot;commited value&quot;</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Members</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
+  <h4>Members</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <tr>
-      <td>committedValue</td>
-      <td>observable&lt;any&gt;</td>
-      <td>value passed to constructor</td>
-      <td>The value marked as comitted this is done by calling commit</td>
-    </tr>
-  </tbody>
-</table>
+      <tr>
+        <td>committedValue</td>
+        <td>observable&lt;any&gt;</td>
+        <td>value passed to constructor</td>
+        <td>The value marked as comitted this is done by calling commit</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Functions</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Return Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>commit</td>
-      <td>undefined</td>
-      <td>Mark the current value as safe and set commitedValue with the value.</td>
-    </tr>
-    <tr>
-      <td>reset</td>
-      <td>undefined</td>
-      <td>Revert the value to the commited value.</td>
-    </tr>
-  </tbody>
-</table>
+  <h4>Functions</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Return Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>commit</td>
+        <td>undefined</td>
+        <td>Mark the current value as safe and set commitedValue with the value.</td>
+      </tr>
+      <tr>
+        <td>reset</td>
+        <td>undefined</td>
+        <td>Revert the value to the commited value.</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h2 id="trackableObservableArray">Trackable Observable Array</h2>
-<p>
-  Same thing as <code>trackableObservable</code> but instead of extending <code>observable</code>
-  it extends <code>observableArray</code>.
-</p>
-<pre>
-  <code class="javascript">
+</section>
+
+
+<section id="trackableObservableArray" class="pl-section">
+  <h3><code>trackableObservableArray</code></h3>
+  <p>
+    Same as <code>trackableObservable</code>, but instead of extending <code>observable</code>
+    it extends <code>observableArray</code>.
+  </p>
+  <pre>
+    <code class="javascript">
 var form = function(){
   var self = this;
   self.array = ko.trackableObservableArray([]);
@@ -115,81 +120,84 @@ var form = function(){
   };
   return self;
 };
-  </code>
-</pre>
-<h4>Consturctor Parameters</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>paramter</td>
-      <td>array</td>
-      <td>undefined</td>
-      <td>The intial &quot;commited value&quot;</td>
-    </tr>
-  </tbody>
-</table>
+    </code>
+  </pre>
+  <h4>Consturctor Parameters</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>paramter</td>
+        <td>array</td>
+        <td>undefined</td>
+        <td>The intial &quot;commited value&quot;</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Members</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>committedValue</td>
-      <td>observable&lt;array&gt;</td>
-      <td>value passed to constructor</td>
-      <td>The value marked as comitted this is done by calling commit</td>
-    </tr>
-  </tbody>
-</table>
+  <h4>Members</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>committedValue</td>
+        <td>observable&lt;array&gt;</td>
+        <td>value passed to constructor</td>
+        <td>The value marked as comitted this is done by calling commit</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Functions</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Return Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>commit</td>
-      <td>undefined</td>
-      <td>Mark the current value as safe and set commitedValue with the value.</td>
-    </tr>
-    <tr>
-      <td>reset</td>
-      <td>undefined</td>
-      <td>Revert the value to the commited value.</td>
-    </tr>
-  </tbody>
-</table>
+  <h4>Functions</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Return Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>commit</td>
+        <td>undefined</td>
+        <td>Mark the current value as safe and set commitedValue with the value.</td>
+      </tr>
+      <tr>
+        <td>reset</td>
+        <td>undefined</td>
+        <td>Revert the value to the commited value.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-<h2 id="filterableArray">Filterable Array</h2>
-<p>
-  Filtering and Sorting are frequently needed UX features and using a <code>filterbaleArray</code>
-  can make implementing them very simple. <code>FilterableArrays</code> are somewhat expensive and
-  should not be a replace all solution for <code>observableArrays</code>. They should be used only
-  when you need to support filtering and sorting in the UI or even created on the fly when those
-  views needing it are displayed.
-</p>
-<pre >
-  <code class="javascript">
+<section id="filterableArray" class="pl-section">
+
+  <h3><code>filterableArray</code></h3>
+  <p>
+    Filtering and Sorting are frequently needed UX features and using a <code>filterbaleArray</code>
+    can make implementing them very simple. <code>filterableArray</code> are somewhat expensive and
+    should not be a replace all solution for <code>observableArray</code>. They should be used only
+    when you need to support filtering and sorting in the UI or even created on the fly when those
+    views needing it are displayed.
+  </p>
+  <pre >
+    <code class="javascript">
 var filterbaleListViewModel = function() {
   var self = this;
   // array or observableArray
@@ -214,157 +222,159 @@ var filterbaleListViewModel = function() {
   }
   return self;
 }
-  </code>
-</pre>
+    </code>
+  </pre>
 
-<h4>Options</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>fields</td>
-      <td>string array </td>
-      <td>['name', 'description', 'id']</td>
-      <td>The default fields the comparer will use when filtering objects</td>
-    </tr>
-    <tr>
-      <td>comparer</td>
-      <td>func (query, item)</td>
-      <td></td>
-      <td>The default comparer does a simple string contains on strings and for objects does a
-        recursive call on the properties listed in the fields array</td>
-    </tr>
-  </tbody>
-</table>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>fields</td>
+        <td>string array </td>
+        <td>['name', 'description', 'id']</td>
+        <td>The default fields the comparer will use when filtering objects</td>
+      </tr>
+      <tr>
+        <td>comparer</td>
+        <td>func (query, item)</td>
+        <td></td>
+        <td>The default comparer does a simple string contains on strings and for objects does a
+          recursive call on the properties listed in the fields array</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Members</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>all</td>
-      <td>observableArray</td>
-      <td>an array of all the items, excludes filtering and sorting</td>
-    </tr>
-    <tr>
-      <td>query</td>
-      <td>observable&lt;any&gt;</td>
-      <td>Value used to filter the array. By default query needs to be a string for the default comprarer but if you override the
-      comprarer it can be anything.</td>
-    </tr>
-    <tr>
-      <td>isSorting</td>
-      <td>observable&lt;boolean&gt;</td>
-      <td>is there a sort funcation beging applied</td>
-    </tr>
-    <tr>
-      <td>isFilterableArray</td>
-      <td>boolean</td>
-      <td>marks the object as a filterableArray</td>
-    </tr>
-    <tr>
-      <td>length</td>
-      <td>number</td>
-      <td>Alwasy zero, just used to mark the object as an array. To get the length evaluate the observable</td>
-    </tr>
-  </tbody>
-</table>
+  <h4>Members</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>all</td>
+        <td>observableArray</td>
+        <td>an array of all the items, excludes filtering and sorting</td>
+      </tr>
+      <tr>
+        <td>query</td>
+        <td>observable&lt;any&gt;</td>
+        <td>Value used to filter the array. By default query needs to be a string for the default comprarer but if you override the
+        comprarer it can be anything.</td>
+      </tr>
+      <tr>
+        <td>isSorting</td>
+        <td>observable&lt;boolean&gt;</td>
+        <td>is there a sort funcation beging applied</td>
+      </tr>
+      <tr>
+        <td>isFilterableArray</td>
+        <td>boolean</td>
+        <td>marks the object as a filterableArray</td>
+      </tr>
+      <tr>
+        <td>length</td>
+        <td>number</td>
+        <td>Alwasy zero, just used to mark the object as an array. To get the length evaluate the observable</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4>Functions</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>clearSort</td>
-      <td>clear the sort function being applied</td>
-    </tr>
-    <tr>
-      <td>sortByString(propName)</td>
-      <td>Sort the array using the specified property on the object. Sorted as a string.</td>
-    </tr>
-    <tr>
-      <td>sortByStringDesc(propName)</td>
-      <td>Sort the array descending using the specified property on the object. Sorted as a string.</td>
-    </tr>
-    <tr>
-      <td>sort(func)</td>
-      <td>Takes a sort function to be applied and stored. pass it a standard array sort function</td>
-    </tr>
-    <tr>
-      <th colspan="2">
-        base array functions exposed
-      </th>
+  <h4>Functions</h4>
+  <table class="table">
+    <thead>
       <tr>
-        <td>pop</td>
-        <td>remove last item from array</td>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>clearSort</td>
+        <td>clear the sort function being applied</td>
       </tr>
       <tr>
-        <td>push</td>
-        <td>add item to the end of the array</td>
+        <td>sortByString(propName)</td>
+        <td>Sort the array using the specified property on the object. Sorted as a string.</td>
       </tr>
       <tr>
-        <td>reverse</td>
-        <td>reverse the order of the array</td>
+        <td>sortByStringDesc(propName)</td>
+        <td>Sort the array descending using the specified property on the object. Sorted as a string.</td>
       </tr>
       <tr>
-        <td>splice</td>
-        <td>removes and returns a given number of elements starting from a given index</td>
+        <td>sort(func)</td>
+        <td>Takes a sort function to be applied and stored. pass it a standard array sort function</td>
       </tr>
       <tr>
-        <td>shift</td>
-        <td>remove the first item in the array</td>
-      </tr>
-      <tr>
-        <td>unshift</td>
-        <td>add item to the begining of the array</td>
-      </tr>
-      <tr>
-        <td>slice</td>
-        <td>returns the selected elements in an array, as a new array object</td>
-      </tr>
-      <tr>
-        <td>replace</td>
-        <td>replace and item</td>
-      </tr>
-      <tr>
-        <td>indexOf</td>
-        <td>get the index of an item</td>
-      </tr>
-      <tr>
-        <td>destory</td>
-        <td>destory and Item</td>
-      </tr>
-      <tr>
-        <td>destoryAll</td>
-        <td>destory all or many items</td>
-      </tr>
-      <tr>
-        <td>remove</td>
-        <td>remove and item</td>
-      </tr>
-      <tr>
-        <td>removeAll</td>
-        <td>remove all or many items</td>
-      </tr>
+        <th colspan="2">
+          base array functions exposed
+        </th>
+        <tr>
+          <td>pop</td>
+          <td>remove last item from array</td>
+        </tr>
+        <tr>
+          <td>push</td>
+          <td>add item to the end of the array</td>
+        </tr>
+        <tr>
+          <td>reverse</td>
+          <td>reverse the order of the array</td>
+        </tr>
+        <tr>
+          <td>splice</td>
+          <td>removes and returns a given number of elements starting from a given index</td>
+        </tr>
+        <tr>
+          <td>shift</td>
+          <td>remove the first item in the array</td>
+        </tr>
+        <tr>
+          <td>unshift</td>
+          <td>add item to the begining of the array</td>
+        </tr>
+        <tr>
+          <td>slice</td>
+          <td>returns the selected elements in an array, as a new array object</td>
+        </tr>
+        <tr>
+          <td>replace</td>
+          <td>replace and item</td>
+        </tr>
+        <tr>
+          <td>indexOf</td>
+          <td>get the index of an item</td>
+        </tr>
+        <tr>
+          <td>destory</td>
+          <td>destory and Item</td>
+        </tr>
+        <tr>
+          <td>destoryAll</td>
+          <td>destory all or many items</td>
+        </tr>
+        <tr>
+          <td>remove</td>
+          <td>remove and item</td>
+        </tr>
+        <tr>
+          <td>removeAll</td>
+          <td>remove all or many items</td>
+        </tr>
 
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
