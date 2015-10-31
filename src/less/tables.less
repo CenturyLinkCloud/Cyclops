@@ -53,4 +53,17 @@ html.cyclops {
       background-color: @body-bg;
     }
   }
+
+  // Responsive tables
+  //
+  // Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+  // by enabling horizontal scrolling. Only applies <768px. Everything above that
+  // will display normally.
+
+  .table-responsive {
+    display: block;
+    width: 100%;
+    min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+    overflow-x: auto;
+  }
 }
