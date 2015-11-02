@@ -343,16 +343,16 @@
       <ul class="new-list-view">
         <li>
             <div class="list-view-item">
-                <div class="col col-25"><label class="col-header">First Name</label>Alyssa</div>
-                <div class="col col-25"><label class="col-header">Last Name</label>Carizzalas</div>
-                <div class="col col-50"><label class="col-header">Username</label>alyssa.carizzalas</div>
+                <div class="col col-25"><span class="col-header">First Name</span>Alyssa</div>
+                <div class="col col-25"><span class="col-header">Last Name</span>Carizzalas</div>
+                <div class="col col-50"><span class="col-header">Username</span>alyssa.carizzalas</div>
             </div>
         </li>
         <li>
             <div class="list-view-item">
-                <div class="col col-25"><label class="col-header">First Name</label>Matthew</div>
-                <div class="col col-25"><label class="col-header">Last Name</label>Osborn</div>
-                <div class="col col-50"><label class="col-header">Username</label>mosborn</div>
+                <div class="col col-25"><span class="col-header">First Name</span>Matthew</div>
+                <div class="col col-25"><span class="col-header">Last Name</span>Osborn</div>
+                <div class="col col-50"><span class="col-header">Username</span>mosborn</div>
             </div>
         </li>
       </ul>
@@ -370,16 +370,16 @@
   &lt;ul class=&quot;new-list-view&quot;&gt;
     &lt;li&gt;
         &lt;div class=&quot;list-view-item&quot;&gt;
-            &lt;div class=&quot;col col-25&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;First Name&lt;/label&gt;Alyssa&lt;/div&gt;
-            &lt;div class=&quot;col col-25&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;Last Name&lt;/label&gt;Carizzalas&lt;/div&gt;
-            &lt;div class=&quot;col col-50&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;Username&lt;/label&gt;alyssa.carizzalas&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;First Name&lt;/span&gt;Alyssa&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Last Name&lt;/span&gt;Carizzalas&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Username&lt;/span&gt;alyssa.carizzalas&lt;/div&gt;
         &lt;/div&gt;
     &lt;/li&gt;
     &lt;li&gt;
         &lt;div class=&quot;list-view-item&quot;&gt;
-            &lt;div class=&quot;col col-25&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;First Name&lt;/label&gt;Matthew&lt;/div&gt;
-            &lt;div class=&quot;col col-25&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;Last Name&lt;/label&gt;Osborn&lt;/div&gt;
-            &lt;div class=&quot;col col-50&quot;&gt;&lt;label class=&quot;col-header&quot;&gt;Username&lt;/label&gt;mosborn&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;First Name&lt;/span&gt;Matthew&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Last Name&lt;/span&gt;Osborn&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Username&lt;/span&gt;mosborn&lt;/div&gt;
         &lt;/div&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
@@ -735,10 +735,10 @@ $(function(){
   <!-- ko foreach: items -->
   <li>
     <div class="list-view-read-only-item">
-      <div class="col col-25"><label class="col-header">name</label><!--ko text: name--><!--/ko--></div>
-      <div class="col col-25"><label class="col-header">type</label><!--ko text: type--><!--/ko--></div>
+      <div class="col col-25"><span class="col-header">name</span><!--ko text: name--><!--/ko--></div>
+      <div class="col col-25"><span class="col-header">type</span><!--ko text: type--><!--/ko--></div>
       <div class="col col-50">
-        <label class="col-header">servers</label>
+        <span class="col-header">servers</span>
         <!-- ko templateSwitcher: { value: servers,
                                     loading: loadingServers,
                                     templates: { display: 'listViewReadOnlyServersDisplayTemplate',
@@ -884,9 +884,9 @@ $(function(){
 <script type="text/html" id="listViewEditableItemTemplate">
   <li>
       <div class="list-view-editable-item" data-bind="click:$parent.editItem">
-          <div class="col col-25"><label class="col-header">name</label><!--ko text: name--><!--/ko--></div>
-          <div class="col col-25"><label class="col-header">IP Address</label><!--ko text: ipAddress--><!--/ko--></div>
-          <div class="col col-50"><label class="col-header">Description</label><!--ko text: description--><!--/ko--></div>
+          <div class="col col-25"><span class="col-header">name</span><!--ko text: name--><!--/ko--></div>
+          <div class="col col-25"><span class="col-header">IP Address</span><!--ko text: ipAddress--><!--/ko--></div>
+          <div class="col col-50"><span class="col-header">Description</span><!--ko text: description--><!--/ko--></div>
       </div>
       <!-- This is where you would put the nested see the listViewHierarchy for more details -->
   </li>

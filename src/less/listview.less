@@ -5,7 +5,7 @@ html.cyclops {
     padding: 6px 0;
     text-transform: uppercase;
     .clearfix();
-
+    
     h3 {
       padding: 0 15px;
       font-size: 12px;
@@ -14,7 +14,7 @@ html.cyclops {
       line-height: 20px;
       box-sizing: border-box;
       margin: 0;
-
+      
       &.bottom-align {
         padding-top: 36px;
       }
@@ -42,7 +42,7 @@ html.cyclops {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
+    
     > li .list-view-item,
     > li .list-view-editable-item,
     > li .list-view-read-only-item {
@@ -50,11 +50,11 @@ html.cyclops {
       padding: 10px 0;
       .transition(e('background .05s ease-in'));
       .clearfix();
-
+      
       &.no-hover {
         cursor: default;
         background: none;
-
+        
         &:hover {
           background: none;
         }
@@ -95,10 +95,10 @@ html.cyclops {
 
     > li .list-view-editable-item {
       cursor: pointer;
-
+      
       &:hover {
         background: #ebebeb;
-
+        
         &.list-view-item-success {
           background-color: darken(@state-success-bg, 10%);
         }
@@ -123,9 +123,9 @@ html.cyclops {
 
     // handle nesting out to 12 levels after 6 levels the padding gets less
     // at 12 they are all the same.
-
+    
     li {
-
+      
       // 0
       li {
         .col-indent {
@@ -207,9 +207,9 @@ html.cyclops {
     .empty-list-view-item {
       line-height: 30px;
       border-bottom: 1px solid @grayLighter;
-      padding: @padding-base-vertical 15px (@padding-base-vertical + 5);
+      padding: 0;
       text-align: center;
-
+      
       &:hover {
         background: none;
       }
@@ -235,17 +235,17 @@ html.cyclops {
     .validationMessage {
       font-size: 13px;
       display: inline-block;
-
+      
       ul {
         margin: 0 0 10px 25px;
-
+        
         li {
           border-bottom: none;
           padding: initial;
           line-height: normal;
           cursor: default;
           list-style-type: disc;
-
+          
           &:hover {
             background-color: transparent;
           }
@@ -256,15 +256,13 @@ html.cyclops {
     .loading-list-view-items {
       line-height: 30px;
       border-bottom: 1px solid @grayLighter;
-      padding: @padding-base-vertical 15px (@padding-base-vertical + 5);
+      padding: 0;
       text-align: center;
-
+      
       &:hover {
         background: none;
       }
     }
-
-
 
     .list-view-item-form {
       background: #f5f5f5;
@@ -272,7 +270,7 @@ html.cyclops {
       border: 1px solid @grayLighter;
       .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
       padding: 10px 20px;
-
+      
       &:hover {
         background: #f5f5f5;
       }
@@ -292,7 +290,7 @@ html.cyclops {
         margin: 0 0 0 13px;
         list-style-type: disc;
         margin-bottom: 15px;
-
+        
         li {
           border: none;
           padding: 0;
@@ -307,7 +305,7 @@ html.cyclops {
 
       // Knockout Validation will put and empty title which would cause
       // underlines when there was no hover text
-
+      
       [title=""],
       [data-original-title=""],
       input[title],
@@ -334,7 +332,7 @@ html.cyclops {
         margin: 0;
         list-style-type: none;
         background-color: white;
-
+        
         &.custom-input-control {
           max-height: 200px;
           overflow: auto;
@@ -343,7 +341,7 @@ html.cyclops {
         li {
           padding: 0;
           border: none;
-
+          
           &:hover {
             background: #fff;
           }
@@ -410,7 +408,7 @@ html.cyclops {
       select.error,
       input.error {
         color: @textColor;
-
+        
         &:focus {
           .box-shadow(none);
         }
@@ -430,46 +428,103 @@ html.cyclops {
     word-wrap: break-word;
   }
 
-  .col-10 { width: 10%; }
-  .col-15 { width: 15%; }
-  .col-20 { width: 20%; }
-  .col-25 { width: 25%; }
-  .col-30 { width: 30%; }
-  .col-35 { width: 35%; }
-  .col-40 { width: 40%; }
-  .col-45 { width: 45%; }
-  .col-50 { width: 50%; }
-  .col-55 { width: 55%; }
-  .col-60 { width: 60%; }
-  .col-65 { width: 65%; }
-  .col-70 { width: 70%; }
-  .col-75 { width: 75%; }
-  .col-80 { width: 80%; }
-  .col-85 { width: 85%; }
-  .col-90 { width: 90%; }
-  .col-95 { width: 95%; }
-  .col-100 { width: 100%; }
+  .col-10 {
+    width: 10%;
+  }
+
+  .col-15 {
+    width: 15%;
+  }
+
+  .col-20 {
+    width: 20%;
+  }
+
+  .col-25 {
+    width: 25%;
+  }
+
+  .col-30 {
+    width: 30%;
+  }
+
+  .col-35 {
+    width: 35%;
+  }
+
+  .col-40 {
+    width: 40%;
+  }
+
+  .col-45 {
+    width: 45%;
+  }
+
+  .col-50 {
+    width: 50%;
+  }
+
+  .col-55 {
+    width: 55%;
+  }
+
+  .col-60 {
+    width: 60%;
+  }
+
+  .col-65 {
+    width: 65%;
+  }
+
+  .col-70 {
+    width: 70%;
+  }
+
+  .col-75 {
+    width: 75%;
+  }
+
+  .col-80 {
+    width: 80%;
+  }
+
+  .col-85 {
+    width: 85%;
+  }
+
+  .col-90 {
+    width: 90%;
+  }
+
+  .col-95 {
+    width: 95%;
+  }
+
+  .col-100 {
+    width: 100%;
+  }
 
   .new-list-view-responsive {
     .col-header {
       display: none;
     }
-
     .new-list-view-responsive-expanded();
-
+    
     @media (max-width: 0px) {
       .new-list-view-responsive-collapsed();
     }
 
     &.new-list-view-responsive-sm {
       .new-list-view-responsive-expanded();
+      
       @media (max-width: @screen-xs-max) {
-       .new-list-view-responsive-collapsed();
+        .new-list-view-responsive-collapsed();
       }
     }
 
     &.new-list-view-responsive-md {
       .new-list-view-responsive-expanded();
+      
       @media (max-width: @screen-sm-max) {
         .new-list-view-responsive-collapsed();
       }
@@ -477,6 +532,7 @@ html.cyclops {
 
     &.new-list-view-responsive-lg {
       .new-list-view-responsive-expanded();
+      
       @media (max-width: @screen-md-max) {
         .new-list-view-responsive-collapsed();
       }
@@ -486,7 +542,7 @@ html.cyclops {
   // The classes bellow are not meant to be used...
   // they are meant to be included in other classes
   // go go less!
-
+  
   .new-list-view-responsive-collapsed {
     > ul {
       border-top: solid 1px #d9d9d9;
@@ -497,11 +553,11 @@ html.cyclops {
     }
 
     li {
-
+      
       // 0
       li {
         .list-view-editable-item {
-
+          
           // 1
           padding-left: 15px;
         }
@@ -512,7 +568,7 @@ html.cyclops {
 
         li {
           .list-view-editable-item {
-
+            
             // 2
             padding-left: 30px;
           }
@@ -523,7 +579,7 @@ html.cyclops {
 
           li {
             .list-view-editable-item {
-
+              
               // 3
               padding-left: 45px;
             }
@@ -534,7 +590,7 @@ html.cyclops {
 
             li {
               .list-view-editable-item {
-
+                
                 // 4
                 padding-left: 60px;
               }
@@ -545,7 +601,7 @@ html.cyclops {
 
               li {
                 .list-view-editable-item {
-
+                  
                   // 5
                   padding-left: 90px;
                 }
@@ -556,7 +612,7 @@ html.cyclops {
 
                 li {
                   .list-view-editable-item {
-
+                    
                     // 6
                     padding-left: 105px;
                   }
@@ -567,7 +623,7 @@ html.cyclops {
 
                   li {
                     .list-view-editable-item {
-
+                      
                       // 7
                       padding-left: 110px;
                     }
@@ -578,7 +634,7 @@ html.cyclops {
 
                     li {
                       .list-view-editable-item {
-
+                        
                         // 8
                         padding-left: 115px;
                       }
@@ -589,7 +645,7 @@ html.cyclops {
 
                       li {
                         .list-view-editable-item {
-
+                          
                           // 9
                           padding-left: 120px;
                         }
@@ -600,7 +656,7 @@ html.cyclops {
 
                         li {
                           .list-view-editable-item {
-
+                            
                             // 10
                             padding-left: 125px;
                           }
@@ -611,7 +667,7 @@ html.cyclops {
 
                           li {
                             .list-view-editable-item {
-
+                              
                               // 11
                               padding-left: 130px;
                             }
@@ -622,7 +678,7 @@ html.cyclops {
 
                             li {
                               .list-view-editable-item {
-
+                                
                                 // 12
                                 padding-left: 135px;
                               }
@@ -648,7 +704,7 @@ html.cyclops {
       float: none;
       margin-bottom: 15px;
       text-align: initial !important;
-
+      
       &:last-child {
         margin-bottom: 0;
       }
@@ -680,7 +736,7 @@ html.cyclops {
       display: initial;
     }
 
-    label.col-header {
+    span.col-header {
       display: block;
       font-size: 12px;
       letter-spacing: 1px;
@@ -707,24 +763,80 @@ html.cyclops {
       word-wrap: break-word;
     }
 
-    .col-10 { width: 10%; }
-    .col-15 { width: 15%; }
-    .col-20 { width: 20%; }
-    .col-25 { width: 25%; }
-    .col-30 { width: 30%; }
-    .col-35 { width: 35%; }
-    .col-40 { width: 40%; }
-    .col-45 { width: 45%; }
-    .col-50 { width: 50%; }
-    .col-55 { width: 55%; }
-    .col-60 { width: 60%; }
-    .col-65 { width: 65%; }
-    .col-70 { width: 70%; }
-    .col-75 { width: 75%; }
-    .col-80 { width: 80%; }
-    .col-85 { width: 85%; }
-    .col-90 { width: 90%; }
-    .col-95 { width: 95%; }
-    .col-100 { width: 100%; }
+    .col-10 {
+      width: 10%;
+    }
+
+    .col-15 {
+      width: 15%;
+    }
+
+    .col-20 {
+      width: 20%;
+    }
+
+    .col-25 {
+      width: 25%;
+    }
+
+    .col-30 {
+      width: 30%;
+    }
+
+    .col-35 {
+      width: 35%;
+    }
+
+    .col-40 {
+      width: 40%;
+    }
+
+    .col-45 {
+      width: 45%;
+    }
+
+    .col-50 {
+      width: 50%;
+    }
+
+    .col-55 {
+      width: 55%;
+    }
+
+    .col-60 {
+      width: 60%;
+    }
+
+    .col-65 {
+      width: 65%;
+    }
+
+    .col-70 {
+      width: 70%;
+    }
+
+    .col-75 {
+      width: 75%;
+    }
+
+    .col-80 {
+      width: 80%;
+    }
+
+    .col-85 {
+      width: 85%;
+    }
+
+    .col-90 {
+      width: 90%;
+    }
+
+    .col-95 {
+      width: 95%;
+    }
+
+    .col-100 {
+      width: 100%;
+    }
   }
 }
