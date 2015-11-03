@@ -1,6 +1,6 @@
 {
   "name": "cyclops",
-  "version": "1.0.0-rc",
+  "version": "1.0.0-beta.2",
   "description": "cyclops: The UX/UI Pattern Guide",
   "scripts": {
     "test": "gulp test",
