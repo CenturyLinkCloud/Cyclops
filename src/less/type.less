@@ -106,7 +106,8 @@ html.cyclops {
     margin-bottom: 15px;
     padding-bottom: (@line-height-computed / 2);
 
-    h1, h2, h3, h4, h5 {
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
       letter-spacing: 1px;
     }
 
@@ -124,9 +125,8 @@ html.cyclops {
     }
 
     &.condensed {
-      h3,
-      h4,
-      h5 {
+      h3, h4, h5, h6,
+      .h3, .h4, .h5, .h6 {
         padding: 0 7px;
       }
     }
@@ -136,7 +136,8 @@ html.cyclops {
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
     &.content-header {
       letter-spacing: 1px;
     }
