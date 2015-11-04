@@ -14,7 +14,7 @@ html.cyclops {
     padding: 4px 10px 6px;
     text-shadow: none;
     text-decoration: none;
-    .transition(e('background-color .1s, color .1s, opacity .1s'));
+    .transition(e('background-color .1s, color .1s, opacity .1s, border .1s'));
 
     &:active {
       .box-shadow(inset 0px 2px 1px 0px rgba(0,0,0,0.2));
@@ -199,9 +199,7 @@ html.cyclops {
     color: @textColor;
 
     &:hover {
-      background-color: @btn-outline-bg-hover;
-      border: 1px solid @btn-outline-bg-hover;
-      color: @white;
+      border: 1px solid darken(@btn-outline-border, 40%);
     }
 
     &.active {
