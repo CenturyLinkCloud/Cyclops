@@ -4,8 +4,8 @@
   width: @baseIconSize;
   height: @baseIconSize;
   fill: @textColor;
-  vertical-align: middle;
-
+  vertical-align: sub;
+  
   &.md {
     width: (@baseIconSize * 2);
     height: (@baseIconSize * 2);
@@ -40,5 +40,16 @@
 p svg.cyclops-icon,
 a svg.cyclops-icon {
   display: inline-block;
-  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .cyclops-icon {
+    height: @headings-line-height;
+    width: @headings-line-height;
+  }
 }
