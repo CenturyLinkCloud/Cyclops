@@ -209,7 +209,7 @@ html.cyclops {
     }
 
     .empty-list-view-item {
-      line-height: 30px;
+      line-height: 20px;
       border-bottom: 1px solid @grayLighter;
       padding: 10px 0;
       text-align: center;
@@ -222,6 +222,29 @@ html.cyclops {
         padding-right: 0;
         padding-left: 0;
       }
+
+      &.feature {
+
+        border-left: 1px solid @grayLighter;
+        border-right: 1px solid @grayLighter;
+        border-bottom: 1px solid @grayLighter;
+
+        > svg.cyclops-icon {
+          margin-top: 20px;
+        }
+
+        > svg.cyclops-icon + h3 {
+          margin-top: 10px;
+        }
+
+        > .lead {
+          margin-left: auto;
+          margin-right: auto;
+          font-size: @font-size-large;
+          max-width: 600px;
+        }
+      }
+
     }
 
     &.condensed {
