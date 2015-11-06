@@ -228,6 +228,7 @@ html.cyclops {
         border-left: 1px solid @grayLighter;
         border-right: 1px solid @grayLighter;
         border-bottom: 1px solid @grayLighter;
+        padding: 0 20px;
 
         > svg.cyclops-icon {
           margin-top: 20px;
@@ -240,8 +241,13 @@ html.cyclops {
         > .lead {
           margin-left: auto;
           margin-right: auto;
-          font-size: @font-size-large;
+          font-size: @font-size-base;
           max-width: 600px;
+
+          @media (min-width: @screen-sm-min) {
+            font-size: @font-size-large;
+
+          }
         }
       }
 
