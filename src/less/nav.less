@@ -65,7 +65,7 @@ html.cyclops {
   // --------------------------------------------------
 
   .nav-stacked {
-    margin: -20px -20px 0 -20px;
+    margin: 0px -20px 0 -20px;
     padding: 20px;
     background-color: darken(@grayLighter, 2%);
 
@@ -117,7 +117,11 @@ html.cyclops {
        }
      }
     }
+  }
 
+  // account for the padding in the white .primary container
+  .primary .nav-stacked {
+    margin-top: -20px;
   }
 
   @media (min-width: @screen-sm-min) {
