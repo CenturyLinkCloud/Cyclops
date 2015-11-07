@@ -93,13 +93,17 @@ html.cyclops {
       max-width: 300px;
     }
 
-    .nav.nav-stacked {
-      max-width: 300px;
-    }
-
     >.btn {
       margin-top: 5px;
       margin-bottom: 5px;
+    }
+
+    >.nav.nav-stacked {
+      @media (min-width: @screen-sm-min) {
+        max-width: 300px;
+      }
+
+      margin-top: 0;
     }
   }
 
