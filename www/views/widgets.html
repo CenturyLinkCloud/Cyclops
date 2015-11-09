@@ -4,10 +4,79 @@
 
 <h1>Widgets</h1>
 
+<section id="inlineConfirm" class="pl-section">
+  <h3><code>inlineConfirm</code></h3>
+  <p>
+    The <code>inlineConfirm</code> widget is used to request user confirmation for an action
+    without disrupting the workflow by presenting a modal dialog. Not every action or event
+    needs to be confirmed only ones that have potentially negative side effects.
+  </p>
+  <p>
+    To use this you simply wire up the button like there was no confirm. This means just
+    adding a handler to the buttons click event, many handlers are supported if you need
+    more than one, and adding the appropriate classes <code>btn-danger</code>,
+    <code>btn-primary</code>, etc. Once the button is all set up you just need to call the
+    widget on the button and it will take care of the rest. This can be done in javaScript
+    or as a knockout binding. Keep in mind that for knockout binding executes in order so
+    the widget binding will need to come after the click binding.
+
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.btn-danger&#39;).inlineConfirm()
+})
+    </code>
+    <code class="html">
+&lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>messageHtml</td>
+        <td>HTML String</td>
+        <td>Are you sure?</td>
+        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+      </tr>
+      <tr>
+        <td>yesHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "yes" button</td>
+      </tr>
+      <tr>
+        <td>noHtml</td>
+        <td>HTML String</td>
+        <td>NO</td>
+        <td>Text (can be HTML) to be displayed on the "no" button</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td>number</td>
+        <td>3000</td>
+        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
 <section id="overflowMenu" class="pl-section">
   <h3><code>overflowMenu</code></h3>
   <p>
-    The overflow widget takes a menu and automatically places items in the menu into a "actions" overflow dropdown, when there isn't enough horizontal screen resolution to view the entire menu.
+    The overflow widget takes a menu and automatically places items in the menu into a "actions"
+    overflow dropdown, when there isn't enough horizontal screen resolution to view the entire menu.
   </p>
   <p>
     This is meant to be used in conjunction with the
@@ -20,7 +89,7 @@ $(function(){
 })
     </code>
   </pre>
-  <h4>Consturctor Parameters</h4>
+  <h4>Options</h4>
   <table class="table">
     <thead>
       <tr>
@@ -70,3 +139,72 @@ $(function(){
     </tbody>
   </table>
 </section>
+
+<section id="actionToolbarConfirm" class="pl-section">
+  <h3><code>actionToolbarConfirm</code></h3>
+  <p>
+    The <code>actionToolbarConfirm</code> is wired up exactly like the <code>inlineConfirm</code>.
+    See above for more information on how to wire it up.
+  </p>
+  <p>
+    This is meant to be used in conjunction with the
+    <a href="./components.html#actionToolbar">action toolbar</a>.
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.action-toolbar-left a&#39;).actionToolbarConfirm()
+})
+    </code>
+    <code class="html">
+&lt;ol class=&quot;action-toolbar-left&quot; data-bind=&quot;widget: &#39;overflowMenu&#39;&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-play&#39;&gt;&lt;/svg&gt; start&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-refresh&#39;&gt;&lt;/svg&gt; restart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-archive&#39;&gt;&lt;/svg&gt; archive&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>messageHtml</td>
+        <td>HTML String</td>
+        <td>Are you sure?</td>
+        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+      </tr>
+      <tr>
+        <td>yesHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "yes" button</td>
+      </tr>
+      <tr>
+        <td>noHtml</td>
+        <td>HTML String</td>
+        <td>NO</td>
+        <td>Text (can be HTML) to be displayed on the "no" button</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td>number</td>
+        <td>3000</td>
+        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>string</td>
+        <td>action-toolbar-confirm-primary</td>
+        <td>Used to style the yes button, these match the default button pattern with primary, default, and danger.</td>
+      </tr>
+    </tbody>
+  </table>
+</section

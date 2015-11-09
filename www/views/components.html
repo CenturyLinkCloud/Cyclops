@@ -34,7 +34,11 @@ $(function(){
   };
   ko.applyBindings(new slideWell(), $('#slideWell')[0]);
 
-  ko.applyBindings({}, $('#actionToolbar')[0]);
+  ko.applyBindings({
+    handler: function(){
+      alert("done!")
+    }
+  }, $('#actionToolbar')[0]);
 });
 </script>
 {{/contentFor}}

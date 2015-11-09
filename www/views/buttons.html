@@ -183,9 +183,16 @@ $(function(){
 
     <section class="pl-section">
       <h3 id="inlineConfirm">Inline Confirm</h3>
-      <p>Inline confirm is a jQuery widget that can be applied to any button that will require the user to confirm the action they wish to perform. Typically this is used for Delete scenario's but can be used other places. Use it as a pure jQuery Widget or you can use the widget binding in knockout.</p>
+      <p>Inline confirm is a jQuery widget that can be applied to any button that will require the
+        user to confirm the action they wish to perform. Typically this is used for Delete
+        scenario's but can be used other places. Use it as a pure jQuery Widget or you can use
+        the widget binding in knockout.</p>
 
       <p>Inline confirm buttons can be created using jQuery or a Knockout binding.</p>
+      <p>
+        For more informations about the options and how to consume it see the
+        <a href="./widgets.html#inlineConfirm">inlineConfirm Code Page</a>.
+      </p>
       <div class="pl-example">
         <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
       </div>
@@ -200,43 +207,7 @@ $(function(){
         </code>
       </pre>
 
-      <h4>Options</h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>messageHtml</td>
-            <td>HTML String</td>
-            <td>Are you sure?</td>
-            <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
-          </tr>
-          <tr>
-            <td>yesHtml</td>
-            <td>HTML String</td>
-            <td>YES</td>
-            <td>Text (can be HTML) to be displayed on the "yes" button</td>
-          </tr>
-          <tr>
-            <td>noHtml</td>
-            <td>HTML String</td>
-            <td>NO</td>
-            <td>Text (can be HTML) to be displayed on the "no" button</td>
-          </tr>
-          <tr>
-            <td>timeout</td>
-            <td>number</td>
-            <td>3000</td>
-            <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
-          </tr>
-        </tbody>
-      </table>
+
     </section>
 
 

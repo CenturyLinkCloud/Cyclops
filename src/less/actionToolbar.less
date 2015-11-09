@@ -10,6 +10,12 @@ html.cyclops {
     padding: 0 10px;
     overflow: hidden;
     .clearfix();
+    
+    &.action-toolbar-confirm-shown {
+      .overflow-menu {
+        display: none;
+      }
+    }
   }
 
   .action-toolbar,
@@ -107,6 +113,112 @@ html.cyclops {
           
           &.disabled {
             background: #3a3a3a;
+          }
+        }
+      }
+    }
+  }
+
+  .action-toolbar-confirm {
+    clear: both;
+    background-color: #3a3a3a;
+    color: #fff;
+    height: 40px;
+    margin-right: -10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    padding-left: 10px;
+    
+    svg {
+      fill: #fff;
+    }
+
+    .message {
+      display: none;
+      padding-right: 10px;
+      line-height: 40px;
+      word-break: break-all;
+      word-wrap: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .buttons {
+      button {
+        height: 40px;
+        border: none;
+        padding-right: 20px;
+        padding-left: 20px;
+        background: none;
+        
+        &:active,
+        &:focus,
+        &:hover {
+          outline: none;
+        }
+
+        &.yes {
+          background-color: @btn-default-bg;
+          
+          &:hover {
+            background-color: @btn-default-bg-hover;
+          }
+        }
+
+        &.no {
+          color: @grayLighter;
+          
+          svg {
+            fill: @grayLighter;
+          }
+
+          &:hover {
+            color: @white;
+            background-color: darken(#3a3a3a, 10%);
+            
+            svg {
+              fill: @white;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: @screen-sm-min) {
+      .buttons {
+        float: right;
+      }
+
+      .message {
+        display: block;
+      }
+    }
+
+    &.action-toolbar-confirm-primary {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      
+      button {
+        &.yes {
+          background-color: @btn-primary-bg;
+          
+          &:hover {
+            background-color: @btn-primary-bg-hover;
+          }
+        }
+      }
+    }
+
+    &.action-toolbar-confirm-danger {
+      button {
+        &.yes {
+          background-color: @btn-danger-bg;
+          
+          &:hover {
+            background-color: @btn-danger-bg-hover;
           }
         }
       }
