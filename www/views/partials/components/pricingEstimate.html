@@ -1,0 +1,58 @@
+<section class="pl-section" id="pricingEstimate">
+  <h3><a href="#pricingEstimate">Pricing Estimate</a></h3>
+  <p>When possible, show the pricing estimate on the left side of the Create form page so that customers can get an estimate and breakdown of resource costs. Use <code>.container-fluid</code> to wrap <code>.pricingLeft</code> and <code>.createFormRight</code> containers.</p>
+
+  <div class="pl-example">
+    <div class="pricingContainer">
+      <div id="costEstimate">
+        <h5 class="content-header">ESTIMATED COST AS CONFIGURED</h5>
+        <div class="costMonthly">$75.29</div>
+        <div class="heading">PER MONTH</div>
+        <div class="costHourly">$0.10</div>
+        <div class="heading">PER HOUR</div>
+      </div>
+      <div id="costBreakdown">
+        <div class="lineItem">
+          <div class="title">2 CPUs</div>
+          <div class="costDisplay">(~$0.02/hr)</div>
+        </div>
+        <div class="lineItem">
+          <div class="title">4GB Memory</div>
+          <div class="costDisplay">(~$0.06/hr)</div>
+        </div>
+        <div class="lineItem">
+          <div class="title">100GB Storage</div>
+          <div class="costDisplay">(~$0.02/hr)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div id=&quot;pricingLeft&quot;&gt;
+  &lt;div id=&quot;costEstimate&quot;&gt;
+    &lt;h5 class=&quot;content-header&quot;&gt;ESTIMATED COST AS CONFIGURED&lt;/h5&gt;
+    &lt;div class=&quot;costMonthly&quot;&gt;$75.29&lt;/div&gt;
+    &lt;div class=&quot;heading&quot;&gt;PER MONTH&lt;/div&gt;
+    &lt;div class=&quot;costHourly&quot;&gt;$0.10&lt;/div&gt;
+    &lt;div class=&quot;heading&quot;&gt;PER HOUR&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;costBreakdown&quot;&gt;
+    &lt;div class=&quot;lineItem&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;2 CPUs&lt;/div&gt;
+      &lt;div class=&quot;costDisplay&quot;&gt;(~$0.02/hr)&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;lineItem&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;4GB Memory&lt;/div&gt;
+      &lt;div class=&quot;costDisplay&quot;&gt;(~$0.06/hr)&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;lineItem&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;100GB Storage&lt;/div&gt;
+      &lt;div class=&quot;costDisplay&quot;&gt;(~$0.02/hr)&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+</section>
