@@ -44,6 +44,8 @@ $.fn.actionToolbarConfirm = (options) ->
     show = (event) ->
       if event
         event.preventDefault()
+      if($action.is(':disabled'))
+        return
       $confirm.show()
       $area.addClass("action-toolbar-confirm-shown")
       $actions.animate { 'margin-top': -40 }, {

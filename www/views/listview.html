@@ -101,7 +101,7 @@
         <svg class="cyclops-icon lg green"><use xlink:href='#icon-database'></svg>
         <h3>Get Started with Relational DB</h3>
         <p class="lead">Relational DB makes it easy to set up and manage high performance, cost efficient, MySQL-compatible relational databases. </p>
-        <p><a href="#" class="btn btn-primary btn-lg">create a database</a>.</p>
+        <p><a href="#" class="btn btn-primary btn-lg">create a database</a></p>
       </li>
     </ul>
   </div>
@@ -589,8 +589,8 @@
       </span>
     </p>
     <div class="new-list-view-header">
-        <h3 class="col col-15">status</h3>
-        <h3 class="col col-25">
+        <h3 class="col col-10"></h3>
+        <h3 class="col col-30">
           <button class="btn btn-link-text" data-bind="click:toggleSortOrder">
             name
             <svg class="cyclops-icon"><use xlink:href='#icon-angle-up' data-bind="attr: {'xlink:href': sortingIcon}"></svg>
@@ -601,10 +601,10 @@
     <ul class="new-list-view" data-bind="foreach: {data: servers, afterAdd: addItemAnimation, beforeRemove: removeItemAnimation}">
       <li>
           <div class="list-view-item">
-              <div class="col col-15">
+              <div class="col col-10">
                 <svg class="cyclops-icon"><use xlink:href="#icon-question" data-bind="attr: {'xlink:href': icon}"></svg>
               </div>
-              <div class="col col-25" data-bind="text: name"></div>
+              <div class="col col-30" data-bind="text: name"></div>
               <div class="col col-60" data-bind="text: description"></div>
           </div>
       </li>
