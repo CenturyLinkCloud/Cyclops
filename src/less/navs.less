@@ -69,4 +69,55 @@ html.cyclops {
       max-width: none;
     }
   }
+
+  // Tabs
+  // -------------------------
+  .nav-tabs {
+
+    .clearfix();
+    margin-bottom: 20px;
+    border-bottom: 2px solid @nav-bottom-border;
+
+    > li {
+      float: left;
+
+      // Links rendered as pills
+      > a {
+        border-bottom: 2px solid @nav-bottom-border;
+        padding: 10px 15px;
+        margin-bottom: -2px;
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        &:hover,
+        &:focus {
+          border-bottom: 2px solid @grayDarker;
+          background-color: none;
+        }
+      }
+      + li {
+        margin-left: 4px;
+      }
+
+      // Active state
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          border-bottom: 2px solid @grayDarker;
+        }
+      }
+
+      // Disabled state
+      &.disabled > a {
+        &,
+        &:hover,
+        &:focus {
+          border-bottom: 2px solid @nav-bottom-border;
+        }
+      }
+    }
+  }
 }
