@@ -134,6 +134,301 @@
 &lt;/select&gt;
     </code>
   </pre>
+
+  <h4>Pickers</h4>
+  <p>
+    If you want to allow the user to only pick one item use radio buttons.
+  </p>
+  <div class="pl-example">
+    <form class="form-horizontal">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Parent Group</label>
+          <div class="col-sm-6">
+            <div class="picker">
+              <ol>
+                <li>
+                  <label class="item-hover">
+                    <input type="radio" name="group"/>
+                    <span class="content">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Default Group</span>
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-hover">
+                    <input type="radio" name="group"/>
+                    <span class="content">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Database Servers</span>
+                    </span>
+                  </label>
+                  <ol>
+                    <li>
+                      <label class="item-hover">
+                        <input type="radio" name="group"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Backups</span>
+                        </span>
+                      </label>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <label class="item-hover">
+                    <input type="radio" name="group"/>
+                    <span class="content">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Web Servers</span>
+                    </span>
+                  </label>
+                  <ol>
+                    <li>
+                      <label class="item-hover">
+                        <input type="radio" name="group"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Linux</span>
+                        </span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="item-hover">
+                        <input type="radio" name="group"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Windows</span>
+                        </span>
+                      </label>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
+      &lt;form class=&quot;form-horizontal&quot;&gt;
+      &lt;fieldset&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;label class=&quot;col-sm-3 control-label&quot;&gt;Parent Group&lt;/label&gt;
+          &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;div class=&quot;picker&quot;&gt;
+              &lt;ol&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Default Group&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Database Servers&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                  &lt;ol&gt;
+                    &lt;li&gt;
+                      &lt;label class=&quot;item-hover&quot;&gt;
+                        &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                        &lt;span class=&quot;content&quot;&gt;
+                          &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Backups&lt;/span&gt;
+                        &lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Web Servers&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                  &lt;ol&gt;
+                    &lt;li&gt;
+                      &lt;label class=&quot;item-hover&quot;&gt;
+                        &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                        &lt;span class=&quot;content&quot;&gt;
+                          &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Linux&lt;/span&gt;
+                        &lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                      &lt;label class=&quot;item-hover&quot;&gt;
+                        &lt;input type=&quot;radio&quot; name=&quot;group&quot;/&gt;
+                        &lt;span class=&quot;content&quot;&gt;
+                          &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Windows&lt;/span&gt;
+                        &lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/li&gt;
+                  &lt;/ol&gt;
+                &lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+    </code>
+  </pre>
+  <p>
+    If you want to allow the user pick many items use checkboxes.
+  </p>
+  <div class="pl-example">
+    <form class="form-horizontal">
+      <fieldset >
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Which server(s)</label>
+          <div class="col-sm-6">
+            <div class="picker">
+              <ol>
+                <li>
+                  <label class="item-hover">
+                    <span class="content">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Default Group</span>
+                    </span>
+                  </label>
+                  <ol>
+                    <li>
+                      <label class="item-hover">
+                        <input type="checkbox"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVTEST01</span>
+                        </span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="item-hover">
+                        <input type="checkbox"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVTEST02</span>
+                        </span>
+                      </label>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <label class="item-hover">
+                    <span class="content">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Web Servers</span>
+                    </span>
+                  </label>
+                  <ol>
+                    <li>
+                      <label class="item-hover">
+                        <input type="checkbox" disabled/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-stop'></svg> <span>QA1DEVSRVR01</span>
+                        </span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="item-hover">
+                        <input type="checkbox"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVSRVR02</span>
+                        </span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="item-hover">
+                        <input type="checkbox"/>
+                        <span class="content">
+                          <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVSRVR03</span>
+                        </span>
+                      </label>
+                    </li>
+
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
+&lt;form class=&quot;form-horizontal&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;Which server(s)&lt;/label&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;div class=&quot;picker&quot;&gt;
+          &lt;ol&gt;
+            &lt;li&gt;
+              &lt;label class=&quot;item-hover&quot;&gt;
+                &lt;span class=&quot;content&quot;&gt;
+                  &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Default Group&lt;/span&gt;
+                &lt;/span&gt;
+              &lt;/label&gt;
+              &lt;ol&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST01&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST02&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;label class=&quot;item-hover&quot;&gt;
+                &lt;span class=&quot;content&quot;&gt;
+                  &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Web Servers&lt;/span&gt;
+                &lt;/span&gt;
+              &lt;/label&gt;
+              &lt;ol&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; disabled/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR01&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR02&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;label class=&quot;item-hover&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;/&gt;
+                    &lt;span class=&quot;content&quot;&gt;
+                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR03&lt;/span&gt;
+                    &lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/li&gt;
+
+              &lt;/ol&gt;
+            &lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+    </code>
+  </pre>
+
 </section>
 
 

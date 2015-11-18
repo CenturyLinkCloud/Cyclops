@@ -17,7 +17,7 @@ html.cyclops {
     margin-bottom: @form-group-margin-bottom;
     border-bottom: 1px solid @borderColor;
     width: 100%;
-
+    
     .description {
       font-size: 13px;
       line-height: 20px;
@@ -38,7 +38,6 @@ html.cyclops {
   // is required to ensure optimum display with or without those classes to better
   // address browser inconsistencies.
   // Override content-box in Normalize (* isn't specific enough)
-
   input[type="search"] {
     .box-sizing(border-box);
   }
@@ -80,13 +79,12 @@ html.cyclops {
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-
+    
     // Disabled and read-only inputs
     //
     // HTML5 says that controls under a fieldset > legend:first-child won't be
     // disabled if the fieldset is disabled. Due to implementation difficulty, we
     // don't honor that edge case; we style them as disabled anyway.
-
     &[disabled],
     &[readonly] {
       background-color: @input-bg-disabled;
@@ -168,7 +166,6 @@ html.cyclops {
   //
   // Designed to help with the organization and spacing of vertical forms. For
   // horizontal forms, use the predefined grid classes.
-
   .form-group {
     margin-bottom: @form-group-margin-bottom;
   }
@@ -176,14 +173,13 @@ html.cyclops {
   // Checkboxes and radios
   //
   // Indent the labels to position radios/checkboxes as hanging controls.
-
   .radio,
   .checkbox {
     position: relative;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-
+    
     label {
       min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
       padding-left: 20px;
@@ -229,7 +225,6 @@ html.cyclops {
   // Some special care is needed because <label>s don't inherit their parent's `cursor`.
   //
   // Note: Neither radios nor checkboxes can be readonly.
-
   input[type="radio"],
   input[type="checkbox"] {
     &[disabled],
@@ -282,17 +277,16 @@ html.cyclops {
   //
   // Apply class to a `p` element to make any string of text align with labels in
   // a horizontal form layout.
-
   .form-control-static {
-
+    
     // Size it appropriately next to real form controls
     padding-top: (@padding-base-vertical + 1);
     padding-bottom: (@padding-base-vertical + 1);
-
+    
     // Remove default margin from `p`
     margin-bottom: 0;
     min-height: (@line-height-computed + @font-size-base);
-
+    
     &.input-lg,
     &.input-sm {
       padding-left: 0;
@@ -305,7 +299,6 @@ html.cyclops {
     margin: 0;
   }
 
-
   // Inline forms
   //
   // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
@@ -314,9 +307,7 @@ html.cyclops {
   //
   // Requires wrapping inputs and labels with `.form-group` for proper display of
   // default HTML form controls and our custom form controls (e.g., input groups).
-
   .form-inline {
-
     @media (min-width: @screen-sm-min) {
       .form-group {
         display: inline-block;
@@ -343,11 +334,12 @@ html.cyclops {
       margin-top: 0;
       margin-bottom: 0;
       vertical-align: middle;
-
+      
       label {
         padding-left: 0;
       }
     }
+
     .radio input[type="radio"],
     .checkbox input[type="checkbox"] {
       position: relative;
@@ -359,20 +351,17 @@ html.cyclops {
     .checkbox {
       margin-right: 10px;
     }
-
   }
 
   // Horizontal forms
   //
   // Horizontal forms are built on grid classes and allow you to create forms with
   // labels on the left and inputs on the right.
-
   .form-horizontal {
-
+    
     // Consistent vertical alignment of radios and checkboxes
     //
     // Labels also get some reset styles, but that is scoped to a media query below.
-
     .radio,
     .checkbox,
     .radio-inline,
@@ -384,7 +373,6 @@ html.cyclops {
 
     // Account for padding we're adding to ensure the alignment and of help text
     // and other content below items
-
     .radio,
     .checkbox {
       min-height: (@line-height-computed + (@padding-base-vertical + 1));
@@ -393,7 +381,7 @@ html.cyclops {
     // Make form groups behave like rows
     .form-group {
       .make-row();
-
+      
       @media (min-width: @screen-sm-min) {
         input + p {
           padding-top: @padding-base-vertical;
@@ -410,7 +398,7 @@ html.cyclops {
     // space out inputs that are stacked, but remove the spacing if adjacent
     .form-control + .form-control {
       margin-top: 10px;
-
+      
       &.w10,
       &.w20,
       &.w30,
@@ -431,7 +419,6 @@ html.cyclops {
 
     // Reset spacing and right align labels, but scope to media queries so that
     // labels on narrow viewports stack the same as a default form example.
-
     @media (min-width: @screen-sm-min) {
       .control-label {
         text-align: right;
@@ -445,7 +432,6 @@ html.cyclops {
   //
   // Apply to any element you wish to create light text for placement immediately
   // below a form control. Use for general help, formatting, or instructional text.
-
   .help-block {
     display: block; // account for any element using help-block
     margin-top: 5px;
@@ -460,10 +446,10 @@ html.cyclops {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
+    
     &.disabled {
       cursor: not-allowed;
-
+      
       label {
         cursor: not-allowed;
       }
@@ -503,7 +489,7 @@ html.cyclops {
       width: 200%;
       margin-left: -100%;
       transition: margin 0.3s ease-in 0s;
-
+      
       .affirmative,
       .negative {
         display: block;

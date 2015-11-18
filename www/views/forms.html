@@ -14,9 +14,203 @@
 {{> forms/formSubmission }}
 {{> forms/validation }}
 
+
+<section class="pl-section" id="groupSelection">
+  <h3><a href="#groupSelection">Selection</a></h3>
+
+  <div class="picker">
+    <ol>
+      <!-- ko foreach: groups -->
+      <li>
+        <label class="item-hover">
+          <input type="checkbox" data-bind="checked: checked, indeterminate: indeterminate, click: click"/>
+          <span class="content">
+            <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg> <span data-bind="text: name"></span>
+          </span>
+        </label>
+        <ol>
+          <!-- ko foreach: servers -->
+          <li>
+            <label class="item-hover">
+              <input type="checkbox" data-bind="checked: checked"/>
+              <span class="content">
+                <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg> <span data-bind="text: name"></span>
+              </span>
+            </label>
+          </li>
+          <!-- /ko -->
+        </ol>
+      </li>
+      <!-- /ko -->
+    </ol>
+  </div>
+  <p>
+
+  </p>
+  <div class="picker">
+    <ol>
+      <li>
+        <label class="item-hover">
+          <input type="radio" name="group"/>
+          <span class="content">
+            <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One</span>
+          </span>
+        </label>
+        <ol>
+          <li>
+            <label class="item-hover">
+              <input type="radio" name="group"/>
+              <span class="content">
+                <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One</span>
+              </span>
+            </label>
+            <ol>
+              <li>
+                <label class="item-hover">
+                  <input type="radio" name="group"/>
+                  <span class="content">
+                    <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One</span>
+                  </span>
+                </label>
+                <ol>
+                  <li>
+                    <label class="item-hover">
+                      <input type="radio" name="group"/>
+                      <span class="content">
+                        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One</span>
+                      </span>
+                    </label>
+                    <ol>
+                      <li>
+                        <label class="item-hover">
+                          <input type="radio" name="group"/>
+                          <span class="content">
+                            <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One</span>
+                          </span>
+                        </label>
+                        <ol>
+                          <li>
+                            <label class="item-hover">
+                              <input type="radio" name="group"/>
+                              <span class="content">
+                                <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One</span>
+                              </span>
+                            </label>
+                            <ol>
+                              <li>
+                                <label class="item-hover">
+                                  <input type="radio" name="group"/>
+                                  <span class="content">
+                                    <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One Dot One Dot One</span>
+                                  </span>
+                                </label>
+                              </li>
+                            </ol>
+                          </li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <label class="item-hover">
+          <input type="radio" name="group"/>
+          <span class="content">
+            <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One</span>
+          </span>
+        </label>
+      </li>
+      <li>
+        <label class="item-hover">
+          <input type="radio" name="group"/>
+          <span class="content">
+            <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Group One</span>
+          </span>
+        </label>
+      </li>
+    </ol>
+  </div>
+
+
+  <server-selection params="theGroup: group"></group-selection>
+
+
+</section>
+
+
+
+
 {{#contentFor "scripts"}}
 <script>
 $(function(){
+  /* Start Multi-Select*/
+  var MultiServerModel = function(){
+    var self = this;
+    self.name = "server"
+    self.icon = "#icon-hyperscale"
+    self.checked = ko.observable(false);
+  };
+  var MultiGroupModel = function(){
+    var self = this;
+    self.name = "Group"
+    self.icon = "#icon-folder"
+    self.checked = ko.observable(false);
+    self.indeterminate = ko.observable(false);
+    self.servers = ko.observableArray([
+      new MultiServerModel(),
+      new MultiServerModel(),
+      new MultiServerModel(),
+      new MultiServerModel(),
+      new MultiServerModel(),
+      new MultiServerModel()
+    ]);
+    self.click = function(item, event) {
+        var selected = !!$(event.target).prop("checked");
+        this.indeterminate(false);
+        self.servers().forEach(function(s){
+          s.checked(selected);
+        });
+        return true;
+    }
+
+    self._calcChecked = ko.computed(function(){
+      unchecked = self.servers().filter(function(s){
+        return !s.checked()
+      });
+      if(unchecked.length === self.servers().length){
+        self.checked(false);
+        self.indeterminate(false);
+      } else if(unchecked.length > 1){
+        self.checked(false);
+        self.indeterminate(true);
+      } else {
+        self.checked(true);
+        self.indeterminate(false);
+      }
+
+    });
+    return self;
+  };
+  var MultiSelect = function(){
+    var self = this;
+    self.groups = [
+          new MultiGroupModel(),
+          new MultiGroupModel(),
+          new MultiGroupModel(),
+          new MultiGroupModel(),
+          new MultiGroupModel(),
+          new MultiGroupModel()
+    ];
+    return self;
+  }
+  ko.applyBindings(new MultiSelect(), $("#groupSelection")[0]);
+  /* End Multi-Select*/
+
   /* Start From Submission */
   var formModel = function(){
     var self = this;
