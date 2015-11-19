@@ -31,6 +31,13 @@ describe 'Bindings: any', ->
     ko.applyBindings model, testNode
     expect(testNode.innerHTML.indexOf('model has items')).toBe -1
     return
+  it 'does not render content when the value is undefined', ->
+    model = {}
+    spyOn console, 'log'
+    testNode.innerHTML = '<div data-bind="any: $data.value">model has items</div>'
+    ko.applyBindings model, testNode
+    expect(testNode.innerHTML.indexOf('model has items')).toBe -1
+    return
   it 'can be applied to virtual elements', ->
     expect(ko.virtualElements.allowedBindings.any).toBeDefined()
     expect(ko.virtualElements.allowedBindings.any).toBeTruthy()

@@ -1,0 +1,31 @@
+<script id="cyclops.groupPicker" type="text/html">
+  <div class="picker">
+    <!-- ko if: isLoading -->
+    <p class="loading" data-bind="html: loadingHtmlMessage"></p>
+    <!-- /ko -->
+    <!-- ko ifnot: isLoading -->
+      <!-- ko empty: groups -->
+      <p class="empty" data-bind="html: emptyHtmlMessage"></p>
+      <!-- /ko -->
+      <!-- ko any: groups -->
+      <ol data-bind="template: {name: 'cyclops.groupPicker.group', foreach: groups}"></ol>
+      <!-- /ko -->
+    <!-- /ko -->
+  </div>
+</script>
+
+<script id="cyclops.groupPicker.group" type="text/html">
+  <!-- ko if: $component.shouldShow($data) -->
+  <li>
+    <label class="item-hover" data-bind="attr: { title: $data.description }">
+      <input type="radio" name="group" data-bind="checkedValue: $data, checked: $component.selected"/>
+      <span class="content">
+        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span data-bind="text: name"></span>
+      </span>
+    </label>
+    <!-- ko any: $data.groups -->
+    <ol data-bind="template: {name: 'cyclops.groupPicker.group', foreach: groups}"></ol>
+    <!-- /ko -->
+  </li>
+  <!-- /ko -->
+</script>

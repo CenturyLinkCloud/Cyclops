@@ -11,3 +11,10 @@ ko.components.register 'toggle', {
         element: "cyclops.toggle"
     }
 }
+
+ko.components.register 'group-picker', {
+    viewModel: GroupPickerViewModel,
+    template: {
+        element: "cyclops.groupPicker"
+    }
+}
