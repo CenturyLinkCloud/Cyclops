@@ -18,3 +18,10 @@ ko.components.register 'group-picker', {
         element: "cyclops.groupPicker"
     }
 }
+
+ko.components.register 'server-picker', {
+    viewModel: ServerPickerViewModel,
+    template: {
+        element: "cyclops.serverPicker"
+    }
+}

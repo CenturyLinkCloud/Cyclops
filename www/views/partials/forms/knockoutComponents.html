@@ -267,3 +267,22 @@
     </tr>
   </tbody>
 </table>
+
+
+<h4 id="serverPicker">Server Picker</h4>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur odio ut erat
+  consequat placerat. In dictum tellus arcu, eget sagittis lectus imperdiet eu.
+</p>
+<div class="pl-example">
+  <form id="formServerPicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+    <fieldset>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">server(s)</label>
+        <div class="col-sm-9">
+          <server-picker params="{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}"></group-picker>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

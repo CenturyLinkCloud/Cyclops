@@ -65,6 +65,24 @@ html.cyclops {
       }
     }
 
+    .unselectable {
+      cursor: not-allowed;
+      
+      .content {
+        color: @grayLight;
+        
+        svg {
+          fill: @grayLight;
+        }
+      }
+
+      &:hover {
+        .content {
+          background: none;
+        }
+      }
+    }
+
     .content {
       display: block;
       padding: 7px 10px 7px 30px;
