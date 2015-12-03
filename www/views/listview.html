@@ -134,6 +134,10 @@
       <td>No hover state on mouse over. Ideal for displaying lists of read-only data.</td>
     </tr>
     <tr>
+      <td width="40%"><code>.list-view-link-item</code></td>
+      <td>Hover state on mouse over. Ideal for use when clicking the row navigates.</td>
+    </tr>
+    <tr>
       <td><code>.list-view-editable-item</code></td>
       <td>Entire row is highlighted on hover, and is clickable. Clicking the row will link to another page, or the edit form will replace the selected row. Ideal for items whose entire row should be clickable.</td>
     </tr>
@@ -154,11 +158,15 @@
           </div>
       </li>
       <li>
+          <div class="list-view-link-item">
+              <div class="col col-100">Link Item</div>
+          </div>
+      </li>
+      <li>
           <div class="list-view-editable-item">
               <div class="col col-100">Editable Item</div>
           </div>
       </li>
-
       <li>
           <div class="list-view-read-only-item">
               <div class="col col-100">Read Only Item</div>

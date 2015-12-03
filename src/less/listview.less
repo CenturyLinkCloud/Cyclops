@@ -61,6 +61,7 @@ html.cyclops {
     }
 
     > li .list-view-item,
+    > li .list-view-link-item,
     > li .list-view-editable-item,
     > li .list-view-read-only-item {
       border-bottom: 1px solid @borderColor;
@@ -110,6 +111,10 @@ html.cyclops {
       }
     }
 
+    > li .list-view-link-item:hover {
+      background: #ebebeb;
+    }
+
     > li .list-view-editable-item {
       cursor: pointer;
       
@@ -140,7 +145,6 @@ html.cyclops {
 
     // handle nesting out to 12 levels after 6 levels the padding gets less
     // at 12 they are all the same.
-    
     li {
       
       // 0
@@ -348,7 +352,6 @@ html.cyclops {
 
       // Knockout Validation will put and empty title which would cause
       // underlines when there was no hover text
-      
       [title=""],
       [data-original-title=""],
       input[title],
@@ -585,7 +588,6 @@ html.cyclops {
   // The classes bellow are not meant to be used...
   // they are meant to be included in other classes
   // go go less!
-  
   .new-list-view-responsive-collapsed {
     > ul {
       border-top: solid 1px #d9d9d9;
