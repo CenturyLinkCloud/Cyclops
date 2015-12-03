@@ -150,8 +150,8 @@
 
 <h4 id="groupPicker">Group Picker</h4>
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur odio ut erat
-  consequat placerat. In dictum tellus arcu, eget sagittis lectus imperdiet eu.
+  The group picker assumes that the shape of the data passed to it matches closely what the
+  v2 APIs return, for more information you can see the assumed properties section below.
 </p>
 <div class="pl-example">
   <form id="formGroupPicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
@@ -271,8 +271,9 @@
 
 <h4 id="serverPicker">Server Picker</h4>
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur odio ut erat
-  consequat placerat. In dictum tellus arcu, eget sagittis lectus imperdiet eu.
+  The server picker assumes that the shape of the data passed to it matches closely what the
+  v2 APIs return, for more information you can see the assumed properties section below.
+  The component has both single and multi select functionality.
 </p>
 <div class="pl-example">
   <form id="formServerPicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
@@ -286,3 +287,181 @@
     </fieldset>
   </form>
 </div>
+<pre>
+  <code class="html">
+&lt;form id=&quot;formServerPicker&quot; class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;server(s)&lt;/label&gt;
+      &lt;div class=&quot;col-sm-9&quot;&gt;
+        &lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+  </code>
+</pre>
+
+<h4>params</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Groups</td>
+      <td>Array | ObservableArray</td>
+      <td>empty array</td>
+      <td>The list of groups, see bellow to see the require property names</td>
+    </tr>
+    <tr>
+      <td>selectedServers</td>
+      <td>Array | ObservableArray</td>
+      <td>Empty Array</td>
+      <td>Will be set to the selected servers. You can use this to set the starting selected servers as well</td>
+    </tr>
+    <tr>
+      <td>isLoading</td>
+      <td>boolean | Observable boolean</td>
+      <td>false</td>
+      <td>Used to decided if the loading message should be shown</td>
+    </tr>
+    <tr>
+      <td>loadingHtmlMessage</td>
+      <td>html | Observable html</td>
+      <td>Fetching Groups&amp;hellip;</td>
+      <td>Message displayed when isLoading is true</td>
+    </tr>
+    <tr>
+      <td>emptyHtmlMessage</td>
+      <td>html | Observable html</td>
+      <td>No Groups</td>
+      <td>Message displayed when isLoading is false, and groups is empty</td>
+    </tr>
+    <tr>
+      <td>multiSelect</td>
+      <td>boolean | Observable boolean</td>
+      <td>true</td>
+      <td>Allow more than one server to be selected</td>
+    </tr>
+    <tr>
+      <td>getServerIcon</td>
+      <td>function </td>
+      <td></td>
+      <td>the default implementation looks at server state and shows default icons</td>
+    </tr>
+    <tr>
+      <td>shouldShowGroup</td>
+      <td>function </td>
+      <td></td>
+      <td>the default implementation looks at group type and only displays groups that have type 'default' or not type at all.</td>
+    </tr>
+    <tr>
+      <td>getGroupTitle</td>
+      <td>function </td>
+      <td></td>
+      <td>the default implementation returns group description.</td>
+    </tr>
+    <tr>
+      <td>getServerTitle</td>
+      <td>function </td>
+      <td></td>
+      <td>the default implementation returns server description.</td>
+    </tr>
+    <tr>
+      <td>isServerSelectable</td>
+      <td>function </td>
+      <td></td>
+      <td>the default implementation returns true for all servers.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Assumed Group Properties</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string | Observable string</td>
+      <td>yes</td>
+      <td>name to be displayed</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>string | Observable string</td>
+      <td>no</td>
+      <td>if present it is used as the title for the row</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string | Observable string</td>
+      <td>maybe</td>
+      <td>if using the default <code>shouldShowGroup</code> function type is required</td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td>Array | observableArray</td>
+      <td>no</td>
+      <td>sub groups if not present it is assumed there are none</td>
+    </tr>
+    <tr>
+      <td>servers</td>
+      <td>Array | observableArray</td>
+      <td>no</td>
+      <td>servers in that group if not present it is assumed there are none</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Assumed Server Properties</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string | Observable string</td>
+      <td>Maybe</td>
+      <td>name to be displayed, required only if displayName is not present</td>
+    </tr>
+    <tr>
+      <td>displayName</td>
+      <td>string | Observable string</td>
+      <td>yes</td>
+      <td>friendly name to be displayed</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>string | Observable string</td>
+      <td>yes</td>
+      <td>used as the default title arrtibute</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>string | Observable string</td>
+      <td>maybe</td>
+      <td>used by the default <code>getServerIcon</code></td>
+    </tr>
+  </tbody>
+</table>

@@ -167,73 +167,47 @@ $(function(){
   /* Start Group Picker*/
   var ServerPickerViewModel = function(){
     var self = this;
-    self.temp = ko.observable("started");
-    setTimeout(function(){
-      self.temp("stopped");
-    }, 3000);
-    // setTimeout(function(){
-    //   self.multiSelect(false)
-    // }, 7000);
     self.isLoading = ko.observable(true);
     self.groups = ko.observableArray([
       {
         name: "Default Group",
-        description: "The default group, created when you create an account.",
         servers: [
           {
-            name: "Server1",
-            description: "My Server",
-            state: self.temp
-          }
-
-        ],
-        groups: [
-          {
-            name: "Sub Default Group",
-            description: "The default group, created when you create an account.",
-            servers: [
-              {
-                name: "Server2",
-                displayName: "My Web Server",
-                description: "My Server",
-                state: self.temp
-              },
-              {
-                name: "Server3",
-                description: "My Server",
-                state: "archived"
-              }
-            ],
-            groups: [
-
-            ]
+            name: "QA1DEVSERVER01",
+            displayName: "Matthew's Server",
+            state: "stopped"
           },
           {
-            name: "Empty Group",
-            description: "Empty Group",
-            servers: [],
-            groups: []
+            name: "QA1DEVSERVER02",
+            displayName: "Nathan's Server",
+            state: "started"
           }
         ]
       },
       {
-        name: "Group With Sub Groups",
-        groups : [
-          { name: "A Sub Group" },
-          { name: "Another Sub Group" }
+        name: "Database Servers",
+        servers: [
+          {
+            name: "QA1DEVDB01",
+            displayName: "Primary DB",
+            description: "The Primary Database Server",
+            state: "started"
+          },
+          {
+            name: "QA1DEVDB02",
+            displayName: "Failover DB",
+            description: "The Failouver Database Server",
+            state: "started"
+          }
         ]
       },
-      { name: "Trash", type: "trash" }
+      { name: "A Simple Group" },
+      { name: "trash", type: "trash" }
     ]);
-    self.selectedServers = ko.observableArray([
-      self.groups()[0].groups[0].servers[0],
-      self.groups()[0].groups[0].servers[1]]);
-    self.selectedServers.subscribe(function(newValue){
-      console.log(newValue)
-    });
     window.setTimeout(function(){
       self.isLoading(false);
-    }, 500)
+    }, 2000)
+    self.selectedServers = ko.observableArray([]);
     self.multiSelect = ko.observable(true);
 
     return self;
