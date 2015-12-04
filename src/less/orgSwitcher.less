@@ -1,0 +1,163 @@
+// Variables
+@ease: cubic-bezier(0.77, 0, 0.175, 1);
+@duration: 0.4s;
+@org-switcher-bg: #3a3a3a;
+@org-switcher-text-color: #bdbdbd;
+@org-switcher-border-color: lighten(@org-switcher-bg, 5%);
+
+html.cyclops {
+
+	.org-switcher.expanded {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 100%;
+	}
+
+	.org-switcher {
+		position: relative;
+		overflow: hidden;
+		background-color: @org-switcher-bg;
+		color: @org-switcher-text-color;
+		font-weight: 400;
+		height: 40px;
+		z-index: 1001;
+		.transition(all 0.5s cubic-bezier(0.670, 0.005, 0.610, 1));
+
+		#toggleOrgList {
+				color: gray;
+				font-size: @font-size-small;
+
+				&:hover {
+					color: white;
+				}
+		}
+
+		h1,h2,h3,h4,h5 {
+			color: @org-switcher-text-color;
+		}
+
+		input[type="text"] {
+			margin-bottom:15px;
+			background-color: darken(@org-switcher-bg, 10%);
+			border-color: darken(@org-switcher-bg, 10%);
+			color: @org-switcher-text-color;
+			.placeholder(lighten(@org-switcher-bg, 10%));
+
+			&.input-filter {
+				width: 100%;
+			}
+		}
+
+		.content-header {
+			color: @grayLight;
+			border-bottom-color: @org-switcher-border-color;
+		}
+
+		.org-header {
+				padding: 10px 20px;
+			.org-switcher-toggle {
+				float:right;
+			}
+
+			svg {
+				fill: @org-switcher-text-color;
+
+				&:hover {
+					fill: white;
+				}
+			}
+		}
+
+		.org-list-container {
+			padding: 20px 20px 25px;
+			position:absolute;
+			top: 40px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: darken(@org-switcher-bg, 5%);
+		}
+
+		.new-list-view-header {
+			background-color: transparent;
+			border-bottom: 2px solid @org-switcher-border-color;
+
+			h3 {
+				color: @grayLight;
+			}
+		}
+
+		.col-alias {
+			width: 100px;
+		}
+		.col-name {
+			width: 100%;
+		}
+
+		.org-list {
+
+			position:absolute;
+			top: 103px;
+			left:20px;
+			right:20px;
+			bottom:25px;
+			overflow-y: scroll;
+			border-bottom: 2px solid @org-switcher-border-color;
+
+
+
+			.new-list-view > li .list-view-item,
+			.new-list-view > li .list-view-editable-item,
+			.new-list-view > li .list-view-read-only-item {
+					border-bottom-color: @org-switcher-border-color;
+			}
+
+			.new-list-view > li .list-view-editable-item:hover {
+				background-color: darken(@org-switcher-bg, 10%);
+			}
+
+		}
+	}
+
+	// Menu Icon Animation
+	// -------------------------
+	// Menu Style
+	.menu-icon {
+	  width: 20px;
+	  height: 19px;
+	  cursor: pointer;
+	}
+
+	.menu-icon__bar {
+	  width: 20px;
+	  height: 3px;
+	  background: white;
+	  margin-bottom: 4px;
+
+	    // Menu Transition
+	  &.top, &.bottom {
+	    transition: all @duration @ease;
+	  }
+
+	  &.middle {
+	    transition: all (@duration/2) @ease (@duration/5);
+	  }
+
+	  &.animate-top {
+	    transition: all @duration @ease;
+	    transform: translate(0px, 7px) rotate(45deg);
+	  }
+
+	  &.animate-middle {
+	    transition: all (@duration/2) @ease (@duration/5);
+	    transform: scale(0);
+	  }
+
+	  &.animate-bottom {
+	    transition: all @duration @ease;
+	    transform: translate(0px, -7px) rotate(-45deg);
+	  }
+	}
+
+}

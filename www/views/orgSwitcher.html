@@ -12,17 +12,56 @@
   <li>Inheritance: account settings are inherited</li>
 </ul>
 
-If a user has access to multiple orgs, their org context needs to be maintained as they navigate across platform satelite apps.
+<p>If a user has access to multiple orgs, their org context needs to be maintained as they navigate to different platform satelite apps. This component is a means for platform customers to view their current org context, change org context, and maintain that context across different platform satelite apps.</p>
 
-<section class="pl-section" id="patternID">
-  <h3><a href="#patternID">Pattern Name</a></h3>
-  <p>Description</p>
-  <div class="pl-example">
-
-  </div>
-  <pre>
-    <code class="html">
+<div class="pl-example">
+  <nav id="orgSwitcher" class="org-switcher">
+    <div class="org-header">
+      WEBC
+    </div>
+    <div class="org-list">
+      <h4 class="content-header">Org Hierarchy</h4>
+      <ul class="new-list-view">
+        <li>
+          <div class="list-view-editable-item">
+            <div class="col col-100">Level 1a</div>
+          </div>
+        </li>
+        <li>
+          <div class="list-view-editable-item">
+            <div class="col col-100">Level 1b</div>
+          </div>
+          <ul class="new-list-view">
+            <li>
+              <div class="list-view-editable-item">
+                <div class="col col-100 col-indent">Level 2a</div>
+              </div>
+              <ul class="new-list-view">
+                <li>
+                  <div class="list-view-editable-item">
+                    <div class="col col-100 col-indent">Level 3</div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="list-view-editable-item">
+                <div class="col col-100 col-indent">Level 2b</div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list-view-editable-item">
+            <div class="col col-100 col-indent">Level 1c</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<pre>
+  <code class="html">
 ...
-    </code>
-  </pre>
-</section>
+  </code>
+</pre>

@@ -182,6 +182,19 @@
   box-sizing: @boxmodel;
 }
 
+// input text placeholder {
+.placeholder (@color) {
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+  &:-moz-placeholder {
+    color: @color;
+  };
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
 // User select
 // For selecting text on the page
 
