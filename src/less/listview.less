@@ -303,14 +303,18 @@ html.cyclops {
       }
     }
 
-    .loading-list-view-items {
-      line-height: 30px;
+    .loading-list-view-items, .error-list-view-items {
+      line-height: 20px;
       border-bottom: 1px solid @grayLighter;
-      padding: 0;
+      padding: 10px 0;
       text-align: center;
 
       &:hover {
         background: none;
+      }
+      .cyclops-icon {
+        height: 1.2em;
+        width: 1.2em;
       }
     }
 

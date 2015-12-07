@@ -66,10 +66,62 @@
   </div>
 </section>
 
-<section class="pl-section" id="emptyList">
-  <h3><a href="#emptyList">Empty List View</a></h3>
-  <h4>Simple Empty List</h4>
+<section class="pl-section" id="states">
+  <h3><a href="#states">States</a></h3>
+  <p>In addition to simply displaying data in a list view, there are additional states that should be considered:</p>
+  <ul>
+    <li><a href="#loadingList">Loading</a></li>
+    <li><a href="#loadingError">Failed to Load Data</a></li>
+    <li><a href="#emptyList">Empty</a></li>
+    <li><a href="#emptyFirstRun">Empty - First Run</a></li>
+  </ul>
+
+  <h4 id="loadingList">Loading Data</h4>
+  <p>Provide text and use a <code>&amp;hellip;</code> to indicate that data is loading in place by wrapping it inside a <code>.loading-list-view-items</code> item within the <code>.new-list-view</code>.</p>
+  <p>View the <a href="listview.html#interactiveExamples">interactive example of the list view</a> and refresh the page.</p>
+  <div class="pl-example">
+    <div class="new-list-view-header">
+      <h3 class="col col-40">Alert Policy</h3>
+      <h3 class="col col-60">Description</h3>
+    </div>
+    <ul class="new-list-view">
+      <li class="loading-list-view-items">
+        Fetching alert policies from server&hellip;
+      </li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;loading-list-view-items&quot;&gt;
+  Fetching alert policies from server&amp;hellip;
+&lt;/li&gt;
+    </code>
+  </pre>
+
+  <h4 id="loadingError">Failed to Load Data</h4>
+  <p>Provide text to indicate that the data has failed to load inside a <code>.error-list-view-items</code> item within the <code>.new-list-view</code>. If possible, provide a link to retry loading the data.</p>
+  <div class="pl-example">
+    <div class="new-list-view-header">
+      <h3 class="col col-40">Alert Policy</h3>
+      <h3 class="col col-60">Description</h3>
+    </div>
+    <ul class="new-list-view">
+      <li class="error-list-view-items">
+        <svg class="cyclops-icon danger"><use xlink:href='#icon-exclamation-circle'></svg> Alert policies failed to load.
+      </li>
+    </ul>
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;error-list-view-items&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon danger&quot;&gt;&lt;use xlink:href=&#39;#icon-exclamation-circle&#39;&gt;&lt;/svg&gt; Alert policies failed to load.
+&lt;/li&gt;
+    </code>
+  </pre>
+
+  <h4 id="emptyList">Empty List</h4>
   <p>When a list view is empty, provide a way within the empty list to create whatever entity the list contains by defining the contents of a <code>.empty-list-view-item</code> item within the <code>.new-list-view</code>.</p>
+  <strong>Simple Empty List</strong>
   <div class="pl-example">
     <div class="new-list-view-header">
       <h3 class="col col-40">Alert Policy</h3>
@@ -77,20 +129,20 @@
     </div>
     <ul class="new-list-view">
       <li class="empty-list-view-item">
-        There are no alert policies on this server. <button class="btn btn-link-text">Apply an alert policy.</button>.
+        There are no alert policies on this server. <button class="btn btn-link-text">Apply an alert policy</button>.
       </li>
     </ul>
   </div>
   <pre>
     <code class="html">
 &lt;li class=&quot;empty-list-view-item&quot;&gt;
-  There are no alerts on this server. &lt;button class=&quot;btn btn-link-text&quot;&gt;Apply an alert policy.&lt;/button&gt;.
+  There are no alert policies on this server. &lt;button class=&quot;btn btn-link-text&quot;&gt;Apply an alert policy&lt;/button&gt;.
 &lt;/li&gt;
     </code>
   </pre>
 
-  <h4>First-Run Empty List</h4>
-  <p>To provide a prominent message about the contents of an empty list, add <code>.feature</code> to <code>.empty-list-view-item</code> and use following as a template for featuring the benefits/info of the service with a call to action.</p>
+  <strong id="emptyFirstRun">First-Run Empty List</strong>
+  <p>To provide a prominent message about the contents of an empty list, add <code>.feature</code> to <code>.empty-list-view-item</code> and use the following as a template for featuring the benefits/info of the service with a call to action.</p>
   <div class="pl-example">
     <div class="new-list-view-header">
       <h3 class="col col-40">Database</h3>
@@ -111,7 +163,7 @@
   &lt;svg class=&quot;cyclops-icon lg green&quot;&gt;&lt;use xlink:href='#icon-database'&gt;&lt;/svg&gt;
   &lt;h3&gt;Get Started with Relational DB&lt;/h3&gt;
   &lt;p class=&quot;lead&quot;&gt;Relational DB makes it easy to set up and manage high performance, cost efficient, MySQL-compatible relational databases. &lt;/p&gt;
-  &lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;create a database&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;create a database&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
     </code>
   </pre>
@@ -126,7 +178,7 @@
 <section class="pl-section" id="rowTypes">
   <h3><a href="#rowTypes">Row Types (Items)</a></h3>
 
-  <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are three distinct row types for list view.</p>
+  <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are four distinct row types for list view.</p>
 
   <table class="table">
     <tr>
