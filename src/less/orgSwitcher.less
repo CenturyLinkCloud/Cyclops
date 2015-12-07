@@ -8,21 +8,42 @@
 html.cyclops {
 
 	.org-switcher.expanded {
-		position: absolute;
-		left: 0;
-		right: 0;
 		height: 100%;
+
+		.org-switcher-toggle {
+			.rotate(0deg);
+		}
+	}
+
+	// push page content down to accomdate Org Switcher
+	.org-switcher + .navbar-static-top {
+		margin-top:40px;
+	}
+
+	.org-switcher-toggle {
+		float:right;
+		margin-top: -5px;
+		transform: rotateX(180deg);
+		.transition(transform 0.4s ease-out);
+		.transition-delay(0.20s);
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	.org-switcher {
-		position: relative;
+		position: absolute;
+		top:0;
+		left: 0;
+		right: 0;
 		overflow: hidden;
 		background-color: @org-switcher-bg;
 		color: @org-switcher-text-color;
 		font-weight: 400;
 		height: 40px;
 		z-index: 1001;
-		.transition(all 0.5s cubic-bezier(0.670, 0.005, 0.610, 1));
+		.transition(all 0.3s ease-out);
 
 		#toggleOrgList {
 				color: gray;
@@ -43,10 +64,10 @@ html.cyclops {
 			border-color: darken(@org-switcher-bg, 10%);
 			color: @org-switcher-text-color;
 			.placeholder(lighten(@org-switcher-bg, 10%));
+		}
 
-			&.input-filter {
-				width: 100%;
-			}
+		input[type="text"].input-filter {
+			width: 100%;
 		}
 
 		.content-header {
@@ -55,17 +76,28 @@ html.cyclops {
 		}
 
 		.org-header {
-				padding: 10px 20px;
-			.org-switcher-toggle {
-				float:right;
-			}
+			padding: 10px 20px;
+
 
 			svg {
-				fill: @org-switcher-text-color;
+				fill: gray;
+				.transition(fill 0.3s linear);
 
 				&:hover {
 					fill: white;
 				}
+			}
+
+
+			.org-current {
+				display: inline-block;
+				width: 240px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			  overflow: hidden;
+			  text-overflow: ellipsis;
+				vertical-align: top;
 			}
 		}
 
@@ -96,15 +128,15 @@ html.cyclops {
 		}
 
 		.org-list {
-
+			background-color: darken(@org-switcher-bg, 6%);
 			position:absolute;
-			top: 103px;
+			top: 99px;
 			left:20px;
 			right:20px;
 			bottom:25px;
 			overflow-y: scroll;
 			border-bottom: 2px solid @org-switcher-border-color;
-
+			.box-shadow( inset 0px 2px 5px 0px rgba(0,0,0,0.15));
 
 
 			.new-list-view > li .list-view-item,
@@ -120,44 +152,13 @@ html.cyclops {
 		}
 	}
 
-	// Menu Icon Animation
-	// -------------------------
-	// Menu Style
-	.menu-icon {
-	  width: 20px;
-	  height: 19px;
-	  cursor: pointer;
-	}
+	@media (min-width: @screen-sm-min) {
 
-	.menu-icon__bar {
-	  width: 20px;
-	  height: 3px;
-	  background: white;
-	  margin-bottom: 4px;
-
-	    // Menu Transition
-	  &.top, &.bottom {
-	    transition: all @duration @ease;
-	  }
-
-	  &.middle {
-	    transition: all (@duration/2) @ease (@duration/5);
-	  }
-
-	  &.animate-top {
-	    transition: all @duration @ease;
-	    transform: translate(0px, 7px) rotate(45deg);
-	  }
-
-	  &.animate-middle {
-	    transition: all (@duration/2) @ease (@duration/5);
-	    transform: scale(0);
-	  }
-
-	  &.animate-bottom {
-	    transition: all @duration @ease;
-	    transform: translate(0px, -7px) rotate(-45deg);
-	  }
+		.org-switcher {
+			input[type="text"].input-filter {
+				width: 400px;
+			}
+		}
 	}
 
 }

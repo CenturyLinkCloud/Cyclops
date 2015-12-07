@@ -21,7 +21,10 @@
 <body>
   <nav id="orgSwitcher" class="org-switcher">
     <div class="org-header">
-      WEBC - CenturyLink Web Channel <a href="#" id="toggleOrgList">(change)</a>
+      <div class="org-current" title="WEBC - CenturyLink Web Channel Really Long Name">WEBC - CenturyLink Web Channel Really Long Name </div> <a href="#" class="toggleBtn" id="toggleOrgList">(change)</a>
+      <div class="org-switcher-toggle toggleBtn" role="button">
+        <svg class="cyclops-icon md"><use xlink:href='#icon-chevron-up'></svg>
+      </div>
       <!-- <a class="org-switcher-toggle">
         <span class="sr-only">Toggle navigation</span>
         <div class="menu-icon">
@@ -33,7 +36,12 @@
     </div>
     <div class="org-list-container">
       <form class="form-inline">
-        <input type="text" class="form-control input-filter" placeholder="Filter Orgs...">
+        <span class="search-input">
+          <input type="text" class="form-control input-filter" placeholder="Filter Orgs...">
+          <svg class="cyclops-icon">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+          </svg>
+        </span>
       </form>
       <div class="new-list-view-header">
         <h3 class="col col-alias">Alias</h3>
@@ -552,7 +560,7 @@
 
   <script>
   $(function(){
-    $("#toggleOrgList").click(function() {
+    $(".toggleBtn").click(function() {
         $("#orgSwitcher").toggleClass("expanded");
     });
   })
