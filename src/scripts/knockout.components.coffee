@@ -25,3 +25,10 @@ ko.components.register 'server-picker', {
         element: "cyclops.serverPicker"
     }
 }
+
+ko.components.register 'show-password', {
+    viewModel: ShowPasswordViewModel,
+    template: {
+        element: "cyclops.showPassword"
+    }
+}

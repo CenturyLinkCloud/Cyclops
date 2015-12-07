@@ -22,6 +22,7 @@
 {{> components/searchInput }}
 {{> components/slideWell }}
 {{> components/upcomingEvents }}
+{{> components/showPassword }}
 
 
 {{#contentFor "scripts"}}
@@ -42,6 +43,16 @@ $(function(){
       alert("done!")
     }
   }, $('#actionToolbar')[0]);
+
+  ko.applyBindings({
+    getPassword: function(){
+      var def = $.Deferred();
+      window.setTimeout(function(){
+        def.resolve({password: 'ThePass@word123'})
+      }, 2000);
+      return def;
+    }
+  }, $('#showPassword')[0]);
 });
 </script>
 {{/contentFor}}
