@@ -3,16 +3,15 @@ html.cyclops {
     height: 160px;
     border: solid 1px #ccc;
     background-color: @white;
-    .border-radius(3px);
+    .border-radius(4px);
     overflow: auto;
-    
+
     .empty,
     .loading {
-      font-size: 16px;
+      font-size: @font-size-large;
       text-align: center;
       margin-top: 70px;
       color: #ccc;
-      text-transform: uppercase;
     }
 
     ol {
@@ -33,7 +32,7 @@ html.cyclops {
       -ms-user-select: none;
       -o-user-select: none;
       user-select: none;
-      
+
       input {
         position: absolute;
         top: 7px;
@@ -43,7 +42,8 @@ html.cyclops {
       input:checked + .content {
         background-color: @grayDark;
         color: @white;
-        
+
+
         svg {
           fill: @white;
         }
@@ -52,15 +52,39 @@ html.cyclops {
       input:disabled + .content {
         cursor: not-allowed;
         background-color: @grayLighter;
+        color: @grayLight;
+
+        svg {
+          fill: @grayLight;
+        }
       }
 
       input[type=checkbox]:indeterminate + .content {
-        background-color: lighten(@grayDark, 60%);
+//        background-color: lighten(@grayDark, 60%);
       }
 
       &:hover {
         .content {
           background-color: @body-bg;
+        }
+      }
+
+    }
+
+    .unselectable {
+      cursor: not-allowed;
+
+      .content {
+        color: @grayLight;
+
+        svg {
+          fill: @grayLight;
+        }
+      }
+
+      &:hover {
+        .content {
+          background: none;
         }
       }
     }

@@ -4,7 +4,7 @@
 
 <h1 class="content-header">Forms</h1>
 {{> forms/inputs }}
-{{> forms/knockoutComponents }}
+{{> forms/customControls }}
 {{> forms/disabled }}
 {{> forms/basicForm }}
 {{> forms/inline }}
@@ -13,8 +13,6 @@
 {{> forms/staticText }}
 {{> forms/formSubmission }}
 {{> forms/validation }}
-
-
 
 {{#contentFor "scripts"}}
 <script>
@@ -142,7 +140,7 @@ $(function(){
     var self = this;
     self.isLoading = ko.observable(true);
     self.groups = ko.observableArray([
-      { name: "A Simeple Group" },
+      { name: "A Simple Group" },
       { name: "Database Servers" },
       {
         name: "Default Group",
@@ -164,7 +162,58 @@ $(function(){
     return self;
   }
   ko.applyBindings(new GroupPickerViewModel(), $("#formGroupPicker")[0]);
-  /* End roup Picker*/
+  /* End Group Picker*/
+
+  /* Start Group Picker*/
+  var ServerPickerViewModel = function(){
+    var self = this;
+    self.isLoading = ko.observable(true);
+    self.groups = ko.observableArray([
+      {
+        name: "Default Group",
+        servers: [
+          {
+            name: "QA1DEVSERVER01",
+            displayName: "Matthew's Server",
+            state: "stopped"
+          },
+          {
+            name: "QA1DEVSERVER02",
+            displayName: "Nathan's Server",
+            state: "started"
+          }
+        ]
+      },
+      {
+        name: "Database Servers",
+        servers: [
+          {
+            name: "QA1DEVDB01",
+            displayName: "Primary DB",
+            description: "The Primary Database Server",
+            state: "started"
+          },
+          {
+            name: "QA1DEVDB02",
+            displayName: "Failover DB",
+            description: "The Failouver Database Server",
+            state: "started"
+          }
+        ]
+      },
+      { name: "A Simple Group" },
+      { name: "trash", type: "trash" }
+    ]);
+    window.setTimeout(function(){
+      self.isLoading(false);
+    }, 2000)
+    self.selectedServers = ko.observableArray([]);
+    self.multiSelect = ko.observable(true);
+
+    return self;
+  }
+  ko.applyBindings(new ServerPickerViewModel(), $("#formServerPicker")[0]);
+  /* End Group Picker*/
 
   /* Start Async Forms */
   var asyncForms = function(){
