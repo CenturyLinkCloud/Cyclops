@@ -164,7 +164,7 @@ $(function(){
   ko.applyBindings(new GroupPickerViewModel(), $("#formGroupPicker")[0]);
   /* End Group Picker*/
 
-  /* Start Group Picker*/
+  /* Start Server Picker*/
   var ServerPickerViewModel = function(){
     var self = this;
     self.isLoading = ko.observable(true);
@@ -213,7 +213,7 @@ $(function(){
     return self;
   }
   ko.applyBindings(new ServerPickerViewModel(), $("#formServerPicker")[0]);
-  /* End Group Picker*/
+  /* End Server Picker*/
 
   /* Start Async Forms */
   var asyncForms = function(){
