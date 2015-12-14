@@ -51,8 +51,11 @@ html.cyclops {
 
       input:disabled + .content {
         cursor: not-allowed;
-        background-color: @grayLighter;
         color: @grayLight;
+
+        &:hover {
+          background-color: transparent;
+        }
 
         svg {
           fill: @grayLight;
