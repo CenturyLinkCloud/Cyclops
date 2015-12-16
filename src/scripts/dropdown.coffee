@@ -41,7 +41,7 @@ $(() ->
       open(dropdown)
 
   closeAll()
-  $('.dropdown button, .dropdown a').click toggle
+  $('.dropdown').children('a, button').click toggle
   $(document).on 'click.cyclops.dropdown', (event) ->
     dropdown = $('.dropdown.open')
     closeAll()
