@@ -2,9 +2,10 @@
 - Add Nav Tabs component
 - Multi and single server/group picker
 - Icons
-  - Bell
+	- Bell
 	- Exclamation Triangle
 	- Failover
+	- Messaging (Text)
 	- Queue Add
 	- Queue Archive
 	- Queue Delete
@@ -12,6 +13,8 @@
 - Pagination component
 - Show password
 - Fixed anchor links in button dropdown
+
+---
 
 [![CenturyLink Cyclops](www/assets/img/centurylink-cyclops.png)](http://assets.ctl.io/)
 
