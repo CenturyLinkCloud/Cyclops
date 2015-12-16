@@ -1,5 +1,5 @@
 ### Coming in version 1.1.0
-- Add Nav Tabs component
+- Nav Tabs component
 - Multi and single server/group picker
 - Icons
 	- Bell
@@ -13,6 +13,7 @@
 - Pagination component
 - Show password
 - Fixed anchor links in button dropdown
+- Back to Top button on Cyclops documentation pages (lower right of the page)
 
 ---
 
