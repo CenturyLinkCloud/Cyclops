@@ -12,14 +12,7 @@
   <h3><a href="#basic">Basic Markup</a></h3>
   <p>Wrap card content within a <code>.card</code>. The <code>.card-block</code> class adds additional padding between elements (i.e. an image and text).</p>
   <div class="pl-example">
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">Card Title</h4>
-        <h5 class="card-subtitle">Card subtitle</h5>
-        <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-        <a href="#" class="btn btn-primary">button</a>
-      </div>
-    </div>
+    {{> cards/card-basic }}
   </div>
   <pre>
     <code class="html">
@@ -39,18 +32,7 @@
   <h3><a href="#header">Card Header</a></h3>
   <p>Add an optional header within a card.</p>
   <div class="pl-example">
-    <div class="card">
-      <div class="card-header">
-        Header
-      </div>
-      <div class="card-block">
-        <h4 class="card-title">Card Title</h4>
-        <h5 class="card-subtitle">Card subtitle</h5>
-      </div>
-      <div class="card-block">
-        <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-      </div>
-    </div>
+    {{> cards/card-header }}
   </div>
   <pre>
     <code class="html">
@@ -74,22 +56,7 @@
   <h3><a href="#sizing">Sizing</a></h3>
   <p>Cards are block-level by default, so they’ll fill the available horizontal space. Constrain their widths via custom styles or <a href="./grid.html">predefined grid classes</a>.</p>
   <div class="pl-example">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card card-block" style="max-width: none;">
-          <h3 class="card-title">Card Title</h3>
-          <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-          <a href="#" class="btn btn-primary">button</a>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card card-block" style="max-width: none;">
-          <h3 class="card-title">Card Title</h3>
-          <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-          <a href="#" class="btn btn-primary">button</a>
-        </div>
-      </div>
-    </div>
+    {{> cards/card-sizing }}
   </div>
   <pre>
     <code class="html">
@@ -117,21 +84,7 @@
   <h3><a href="#overlay">Overlay</a></h3>
   <p>Overlay another layer over the contents of an existing card by using <code>.card-overlay</code></p>
   <div class="pl-example">
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">Card Title</h4>
-        <h5 class="card-subtitle">Card subtitle</h5>
-      </div>
-      <div class="card-block">
-        <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-        <a href="#" class="btn btn-primary">button</a>
-      </div>
-      <div class="card-overlay">
-        <h4 class="card-title">Overlay Title</h4>
-        <p class="card-text">Example paragraph text to show what overlayed text looks like within a card.</p>
-        <button class="btn btn-primary">button</button>
-      </div>
-    </div>
+    {{> cards/card-overlay }}
   </div>
   <pre>
     <code class="html">
@@ -160,46 +113,7 @@
   <h3><a href="#backgroundColors">Background Colors</a></h3>
   <p>Add variant class for changing the background-color and border-color of a card.</p>
   <div class="pl-example">
-    <div class="row">
-      <div class="col-sm-6">
-      <div class="card card-success" style="max-width: none;">
-        <div class="card-block">
-          <h4 class="card-title">Card Success</h4>
-          <h5 class="card-subtitle">Card subtitle</h5>
-          <p class="card-text">Example paragraph text to show how it's displayed within a card. <a href="#" class="card-link">Link Text</a></p>
-        </div>
-      </div>
-      </div>
-      <div class="col-sm-6">
-      <div class="card card-info" style="max-width: none;">
-        <div class="card-block">
-          <h4 class="card-title">Card Info</h4>
-          <h5 class="card-subtitle">Support card subtitle</h5>
-          <p class="card-text">Example paragraph text to show how it's displayed within a card. <a href="#" class="card-link">Link Text</a></p>
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-      <div class="card card-warning" style="max-width: none;">
-        <div class="card-block">
-          <h4 class="card-title">Card Warning</h4>
-          <h5 class="card-subtitle">Support card subtitle</h5>
-          <p class="card-text">Example paragraph text to show how it's displayed within a card. <a href="#" class="card-link">Link Text</a></p>
-        </div>
-      </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card card-danger" style="max-width: none;">
-          <div class="card-block">
-            <h4 class="card-title">Card Danger</h4>
-            <h5 class="card-subtitle">Support card subtitle</h5>
-            <p class="card-text">Example paragraph text to show how it's displayed within a card. <a href="#" class="card-link">Link Text</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{> cards/card-color }}
   </div>
   <pre>
     <code class="html">
@@ -216,37 +130,7 @@
   <h3><a href="#decks">Card Decks</a></h3>
   <p>To get equal width ad height cards, use <code>.card-deck</code> and <code>.card-deck-wrapper</code>.</p>
   <div class="pl-example">
-    <div class="card-deck-wrapper">
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">Card Title</h4>
-            <h5 class="card-subtitle">Card subtitle</h5>
-          </div>
-          <div class="card-block">
-            <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">Card Title</h4>
-            <h5 class="card-subtitle">Card subtitle</h5>
-          </div>
-          <div class="card-block">
-            <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">Card Title</h4>
-            <h5 class="card-subtitle">Card subtitle</h5>
-          </div>
-          <div class="card-block">
-            <p class="card-text">Example paragraph text to show how it's displayed within a card.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{> cards/card-decks }}
   </div>
   <pre>
     <code class="html">
