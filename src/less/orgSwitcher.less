@@ -6,159 +6,176 @@
 @org-switcher-border-color: lighten(@org-switcher-bg, 5%);
 
 html.cyclops {
+  .org-switcher-open {
+    overflow: hidden;
+    position: fixed;
+  }
 
-	.org-switcher.expanded {
-		height: 100%;
+  @media (min-width: @screen-xs-min) {
+    .org-switcher-open {
+      position: relative;
+    }
+  }
 
-		.org-switcher-toggle {
-			.rotate(0deg);
-		}
-	}
+  org-switcher {
+    button.btn-link {
+      color: gray;
+      font-size: @font-size-small;
+      text-decoration: none;
+      
+      &:hover {
+        color: white;
+        outline: none;
+        text-decoration: none;
+      }
 
-	// push page content down to accomdate Org Switcher
-	.org-switcher + .navbar-static-top {
-		margin-top:40px;
-	}
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
 
-	.org-switcher-toggle {
-		float:right;
-		margin-top: -5px;
-		transform: rotateX(180deg);
-		.transition(transform 0.4s ease-out);
-		.transition-delay(0.20s);
+    .header {
+      display: block;
+      background-color: @org-switcher-bg;
+      color: @org-switcher-text-color;
+      font-weight: 400;
+      height: 40px;
+      padding: 5px 10px;
+      
+      .toggle-btn {
+        padding: 0;
+        
+        svg {
+          fill: @org-switcher-text-color;
+        }
+      }
 
-		&:hover {
-			cursor: pointer;
-		}
-	}
+      .current {
+        color: @org-switcher-text-color;
+        font-weight: 400;
+        display: inline-block;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
 
-	.org-switcher {
-		position: absolute;
-		top:0;
-		left: 0;
-		right: 0;
-		overflow: hidden;
-		background-color: @org-switcher-bg;
-		color: @org-switcher-text-color;
-		font-weight: 400;
-		height: 40px;
-		z-index: 1001;
-		.transition(all 0.3s ease-out);
+    .take-over {
+      display: none;
+      background-color: #2d2d2d;
+      overflow: hidden;
+      position: fixed;
+      top: 40px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1050;
+      outline: 0;
+      color: @org-switcher-text-color;
+      padding: 20px;
+      
+      .org-message {
+        display: inline-block;
+        padding: 4px 0;
+      }
 
-		#toggleOrgList {
-				color: gray;
-				font-size: @font-size-small;
+      form.search {
+        .search-input {
+          width: 100%;
+          
+          input {
+            width: 100%;
+          }
+        }
+      }
 
-				&:hover {
-					color: white;
-				}
-		}
+      .new-list-view-header {
+        clear: both;
+        background-color: transparent;
+        border-bottom: 2px solid #474747;
+        
+        h3 {
+          color: #999;
+        }
+      }
 
-		h1,h2,h3,h4,h5 {
-			color: @org-switcher-text-color;
-		}
+      .col-alias {
+        width: 100px;
+      }
 
-		input[type="text"] {
-			margin-bottom:15px;
-			background-color: darken(@org-switcher-bg, 10%);
-			border-color: darken(@org-switcher-bg, 10%);
-			color: @org-switcher-text-color;
-			.placeholder(lighten(@org-switcher-bg, 10%));
-		}
+      .scroll-area {
+        .box-shadow(inset 0px 2px 5px 0px rgba(0, 0, 0, 0.15));
+        position: absolute;
+        top: 130px;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        .list-view-item {
+          border-bottom-color: #474747;
+          
+          &.current {
+            background-color: #333;
+          }
 
-		input[type="text"].input-filter {
-			width: 100%;
-		}
+          &.monkey {
+            background-color: red;
+          }
 
-		.content-header {
-			color: @grayLight;
-			border-bottom-color: @org-switcher-border-color;
-		}
+          .marker {
+            display: inline-block;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
 
-		.org-header {
-			padding: 10px 20px;
+  @media (min-width: @screen-md-min) {
+    org-switcher {
+      .take-over {
+        form.search {
+          float: right;
+          
+          .search-input {
+            width: auto;
+            
+            input {
+              width: auto;
+            }
+          }
+        }
 
+        .scroll-area {
+          top: 100px;
+        }
+      }
+    }
+  }
 
-			svg {
-				fill: gray;
-				.transition(fill 0.3s linear);
+  @media (min-width: @screen-xs-min) {
+    org-switcher .header .current {
+      max-width: none;
+    }
+  }
 
-				&:hover {
-					fill: white;
-				}
-			}
+  @media (min-width: @screen-sm-min) {
+    org-switcher {
+      .header .current {
+        max-width: 700px;
+      }
+    }
+  }
 
-
-			.org-current {
-				display: inline-block;
-				width: 240px;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			  overflow: hidden;
-			  text-overflow: ellipsis;
-				vertical-align: top;
-			}
-		}
-
-		.org-list-container {
-			padding: 20px 20px 25px;
-			position:absolute;
-			top: 40px;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: darken(@org-switcher-bg, 5%);
-		}
-
-		.new-list-view-header {
-			background-color: transparent;
-			border-bottom: 2px solid @org-switcher-border-color;
-
-			h3 {
-				color: @grayLight;
-			}
-		}
-
-		.col-alias {
-			width: 100px;
-		}
-		.col-name {
-			width: 100%;
-		}
-
-		.org-list {
-			background-color: darken(@org-switcher-bg, 6%);
-			position:absolute;
-			top: 99px;
-			left:20px;
-			right:20px;
-			bottom:25px;
-			overflow-y: scroll;
-			border-bottom: 2px solid @org-switcher-border-color;
-			.box-shadow( inset 0px 2px 5px 0px rgba(0,0,0,0.15));
-
-
-			.new-list-view > li .list-view-item,
-			.new-list-view > li .list-view-editable-item,
-			.new-list-view > li .list-view-read-only-item {
-					border-bottom-color: @org-switcher-border-color;
-			}
-
-			.new-list-view > li .list-view-editable-item:hover {
-				background-color: darken(@org-switcher-bg, 10%);
-			}
-
-		}
-	}
-
-	@media (min-width: @screen-sm-min) {
-
-		.org-switcher {
-			input[type="text"].input-filter {
-				width: 400px;
-			}
-		}
-	}
-
+  @media (min-width: @screen-md-min) {
+    org-switcher .header .current {
+      max-width: 924px;
+    }
+  }
 }

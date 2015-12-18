@@ -1,0 +1,62 @@
+<script id="cyclops.orgSwitcher" type="text/html">
+  <div class="header">
+    <button class="btn btn-link" data-bind="click: toggleHandler">
+      <span class="current" data-bind="text: getImpersonatedOrgDiaplayText(impersonatedOrg()), title: impersonatedOrg().pathDisplayText" ></span>
+    </button>
+    <button class="btn btn-link pull-right toggle-btn" data-bind="click: toggleHandler">
+      <svg class="cyclops-icon md">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="take-over" data-bind="slide: isOpen">
+    <form class="search">
+      <div class="form-group">
+        <span class="search-input">
+          <input type="text" palceholder="search" data-bind="value: flatOrgList.query, valueUpdate: 'afterkeydown'">
+          <svg class="cyclops-icon">
+            <!-- ko ifnot: flatOrgList.query -->
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+            <!-- /ko -->
+            <!-- ko if: flatOrgList.query -->
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" class="clear" xlink:href='#icon-times' data-bind="click: clearSearch"></use>
+            <!-- /ko -->
+          </svg>
+        </span>
+      </div>
+    </form>
+    <span class="org-message" data-bind="text: limitedOrgsDisplayedMessage"></span>
+    <!-- ko ifnot: forceShowAllOrgs() ||  showingAllOrgs() -->
+    <button class="btn btn-link" data-bind="click: showAllOrgsHandler" title="This can be a slow operation">show all orgs</button>
+    <!-- /ko -->
+    <div class="new-list-view-header">
+      <h3 class="col col-alias">Alias</h3>
+      <h3 class="col col-60">Business Name</h3>
+    </div>
+    <div class="scroll-area">
+    <ul class="new-list-view" data-bind="template: { name: displayTemplateName, foreach: displayOrgs }">
+    </ul>
+    </div>
+  </div>
+</script>
+
+<script id="cyclops.orgSwitcher.org" type="text/html">
+  <li>
+    <div class="list-view-item" data-bind="title: pathDisplayText, scrollTo: $component.isActiveItem($data), css: {'monkey': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
+      <div class="col col-alias" data-bind="text: alias"></div>
+      <div class="col col-60">
+        <span class="indent" data-bind=" html: depthHtml"></span>
+        <span data-bind="text: name"></span>
+      </div>
+    </div>
+  </li>
+</script>
+
+<script id="cyclops.orgSwitcher.filteredOrg" type="text/html">
+  <li>
+    <div class="list-view-item" data-bind="scrollTo: $component.isActiveItem($data), css: {'monkey': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
+      <div class="col col-alias" data-bind="text: alias"></div>
+      <div class="col col-60" data-bind="text: pathDisplayText"></div>
+    </div>
+  </li>
+</script>

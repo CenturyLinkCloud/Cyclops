@@ -15,7 +15,6 @@ _sortBy = (array, propName, isDesc) ->
 
 
 ko.filterableArray = (initValues, options) ->
-  #TODO: what defaults do we want to support for fields?
   options = $.extend({
     fields: ['name', 'description', 'id']
     comparer: (query, item) ->

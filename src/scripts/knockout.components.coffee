@@ -32,3 +32,10 @@ ko.components.register 'show-password', {
         element: "cyclops.showPassword"
     }
 }
+
+ko.components.register 'org-switcher', {
+    viewModel: OrgSwitcherViewModel,
+    template: {
+        element: "cyclops.orgSwitcher"
+    }
+}

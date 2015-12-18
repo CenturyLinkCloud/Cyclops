@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="cyclops">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Cyclops Basic Page Template</title>
+
+  <!-- Cyclops -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="/css/cyclops.css" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <org-switcher params="organizations: organizations, impersonatedAlias: impersonatedAlias"></org-switcher>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1" id="logo" x="0" y="0" viewBox="0 0 21 20.8" enable-background="new 0 0 100 20.8" xml:space="preserve" preserveAspectRatio="xMinYMin">
+            <g id="logoMark">
+              <path fill="#8DC63F" d="M1.9 16.4c0.7 1 1.5 1.8 2.5 2.5l3.5-6L1.9 16.4"/>
+              <path fill="#8DC63F" d="M4.4 1.9c-1 0.7-1.8 1.5-2.5 2.5l6 3.5L4.4 1.9"/>
+              <path fill="#8DC63F" d="M14.8 0.9c-1.1-0.5-2.2-0.8-3.5-0.9v6.9L14.8 0.9"/>
+              <path fill="#8DC63F" d="M6 19.9c1.1 0.5 2.2 0.8 3.5 0.9v-6.9L6 19.9"/>
+              <path fill="#8DC63F" d="M19 4.4c-0.7-1-1.5-1.8-2.5-2.5l-3.5 6L19 4.4"/>
+              <path fill="#8DC63F" d="M16.4 19c1-0.7 1.8-1.5 2.5-2.5L13 13 16.4 19"/>
+              <path fill="#007F3E" d="M20.8 9.5c-0.1-1.2-0.4-2.4-0.9-3.5l-6 3.5H20.8"/>
+              <path fill="#007F3E" d="M0 11.4c0.1 1.2 0.4 2.4 0.9 3.5l6-3.5H0"/>
+              <path fill="#007F3E" d="M0.9 6C0.4 7.1 0.1 8.3 0 9.5h6.9L0.9 6"/>
+              <path fill="#007F3E" d="M13.9 11.4l6 3.5c0.5-1.1 0.8-2.2 0.9-3.5H13.9"/>
+              <path fill="#007F3E" d="M9.5 0C8.3 0.1 7.1 0.4 6 0.9l3.5 6V0"/>
+              <path fill="#007F3E" d="M11.4 20.8c1.2-0.1 2.4-0.4 3.5-0.9l-3.5-6V20.8"/>
+            </g>
+            <g id="logoType">
+              <path fill="#FFFFFF" d="M32.8 8.1c-0.1-0.9-1.1-1.5-2-1.5 -2.4 0-2.8 2.2-2.8 3.9 0 2 0.6 3.9 2.7 3.9 1 0 2-0.5 2.1-1.5h1.4c-0.1 1.6-1.8 2.7-3.6 2.7 -2.8 0-4-2.3-4-5 0-2.4 1-5.1 4.3-5 1.8 0.1 3.2 1 3.4 2.7H32.8"/>
+              <path fill="#FFFFFF" d="M36.5 12.1c-0.1 1.2 0.4 2.4 1.7 2.4 1 0 1.5-0.4 1.6-1.4h1.3c-0.2 1.5-1.4 2.3-3 2.3 -2.1 0-3-1.5-3-3.5 0-2 1-3.6 3.1-3.6 2 0 2.9 1.3 2.9 3.1v0.6H36.5M39.9 11.2c0-1.1-0.5-2-1.7-2 -1.1 0-1.7 0.9-1.7 2H39.9z"/>
+              <path fill="#FFFFFF" d="M43.8 9.5L43.8 9.5c0.5-0.8 1.4-1.2 2-1.2 0.5 0 2.5 0.1 2.5 2.3v4.6h-1.3V11c0-1.1-0.5-1.7-1.5-1.7 0 0-0.7 0-1.2 0.5 -0.2 0.2-0.5 0.5-0.5 1.8v3.6h-1.3V8.5h1.2V9.5"/>
+              <path fill="#FFFFFF" d="M50.4 8.5V7.1l1.3-0.4v1.8h1.5v0.9h-1.5v4.3c0 0.5 0.4 0.7 0.8 0.7 0.2 0 0.5 0 0.7-0.1v1c-0.3 0-0.6 0.1-0.9 0.1 -0.3 0-0.5 0-0.9-0.1 -0.2 0-0.5-0.1-0.7-0.4 -0.2-0.3-0.3-0.3-0.3-1.2V9.5h-1.1V8.5H50.4"/>
+              <path fill="#FFFFFF" d="M58.7 8.5H60v6.7h-1.2v-1h0c-0.5 0.8-1.4 1.2-2.3 1.2 -1.4 0-2.2-1.1-2.2-2.4V8.5h1.3v3.9c0 1.2 0.3 2 1.5 2 0.5 0 1.2-0.3 1.5-1 0.2-0.6 0.3-1.4 0.3-1.6V8.5"/>
+              <path fill="#FFFFFF" d="M62.9 15.2h-1.3V8.5h1.3v1.3h0c0.2-0.9 1-1.4 2-1.4 0.2 0 0.3 0 0.4 0v1.2c-0.2-0.1-0.4-0.1-0.5-0.1 -1.6 0.1-1.9 0.9-1.9 2.3V15.2"/>
+              <polyline fill="#FFFFFF" points="69.1 17.8 67.8 17.8 68.8 15.2 66 8.5 67.4 8.5 69.5 13.8 71.6 8.5 73 8.5 69.1 17.8 "/>
+              <polyline fill="#FFFFFF" points="74 15.2 74 5.6 76 5.6 76 13.6 80.2 13.6 80.2 15.2 74 15.2 "/>
+              <path fill="#FFFFFF" d="M81.4 5.6h2.1v1.7h-2.1V5.6zM81.4 8.5h2v6.7h-2V8.5z"/>
+              <path fill="#FFFFFF" d="M87.3 9.3L87.3 9.3c0.4-0.6 1.1-1 2.1-1 0.7 0 2 0.5 2.2 1.5 0.1 0.4 0.1 0.8 0.1 1.1v4.3h-2v-4c0-0.7-0.2-1.5-1.2-1.5 -0.6 0-1.2 0.6-1.2 1.5v4h-2V8.5h2V9.3"/>
+              <polyline fill="#FFFFFF" points="95.6 11.2 95.7 11.3 97.6 8.5 99.9 8.5 97.6 11.4 100 15.2 97.7 15.2 95.7 11.6 95.6 11.6 95.6 15.2 93.6 15.2 93.6 5.6 95.6 5.6 95.6 11.2 "/>
+            </g>
+          </svg>        </a>
+        <a class="navbar-service" href="/">Service Name</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+        <!-- Link back to the Control Portal, and give a sign out link -->
+        <ul class="nav navbar-nav navbar-right navbar-account">
+          <li><a href="https://control.ctl.io">Control Portal</a></li>
+          <li><a href="#" class="navbar-link">Sign Out</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content-header">
+            <h1>Hello, world!</h1>
+            <p class="lead">This is a basic starter page for your service's user interface.</p>
+          </div>
+          <p><a href="#" class="btn btn-default">create new thing</a></p>
+          <div class="new-list-view-responsive new-list-view-responsive-sm">
+            <div class="new-list-view-header">
+              <h3 class="col col-25">First Name</h3>
+              <h3 class="col col-25">Last Name</h3>
+              <h3 class="col col-50">Username</h3>
+            </div>
+            <ul class="new-list-view">
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
+                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Brianna</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Johnson</div>
+                  <div class="col col-50"><label class="col-header">Username</label>brianna.johnson</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
+                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Beth</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Wilson</div>
+                  <div class="col col-50"><label class="col-header">Username</label>beth.wilson</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Lewis</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Richardson</div>
+                  <div class="col col-50"><label class="col-header">Username</label>lewis.richardson</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Juan</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Clark</div>
+                  <div class="col col-50"><label class="col-header">Username</label>juan.clark</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>vivian</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Hale</div>
+                  <div class="col col-50"><label class="col-header">Username</label>vivian.hale</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Arianna</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>West</div>
+                  <div class="col col-50"><label class="col-header">Username</label>arianna.west</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
+                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
+                </div>
+              </li>
+              <li>
+                <div class="list-view-item">
+                  <div class="col col-25"><label class="col-header">First Name</label>Luke</div>
+                  <div class="col col-25"><label class="col-header">Last Name</label>Burton</div>
+                  <div class="col col-50"><label class="col-header">Username</label>luke.burton</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-sm-push-7">
+        <div class="upcoming-events">
+          <h5 class="content-header">UPCOMING EVENTS</h5>
+          <div class="event">
+            <a class="task-datetime" href="#">
+              <span class=" date">10/17</span>
+              <span class="time">11:24 am</span>
+            </a>
+            <div class="details">
+              <div class="category">Delete Snapshot</div>
+              <div class="subject">CA3-DNS-01</div>
+            </div>
+          </div>
+          <div class="event">
+            <a class="task-datetime" href="#">
+              <span class=" date">10/21</span>
+              <span class="time">07:33 am</span>
+            </a>
+            <div class="details">
+              <div class="category">Delete Snapshot</div>
+              <div class="subject">WA1-DEMO-01</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-7 col-sm-pull-5">
+        <div class="activity-history">
+          <h5 class="content-header">
+            RECENT ACTIVITY
+          </h5>
+          <section class="day">
+            <h5 class="content-header">Tuesday Sep 29</h5>
+            <ol>
+              <li>
+                <div class="timestamp">2:50:05 PM</div>
+                <div class="details">
+                  <div class="subject">Password change for user trent.anderson</div>
+                  <div class="body">Password change for user trent.anderson by system</div>
+                  <div class="attribution">
+                    <span class="createdBy">system</span>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </section>
+          <section class="day">
+            <h5 class="content-header">Tuesday Sep 29</h5>
+            <ol>
+              <li>
+                <div class="timestamp">2:50:05 PM</div>
+                <div class="details">
+                  <div class="subject">Password change for user trent.anderson</div>
+                  <div class="body">Password change for user trent.anderson by system</div>
+                  <div class="attribution">
+                    <span class="createdBy">system</span>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js" ></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="/scripts/cyclops.js" ></script>
+  <!-- Include any additional scripts your service needs -->
+
+
+  <script>
+    $(function(){
+      var OrgSwitcherModel = function() {
+        var self = this;
+
+
+        self.organizations =[{"businessName":"007596 – SAC Mauritius-Reunion","accountAlias":"K018","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K018","parentAcccountAlias":"TCCC","subAccounts":[],
+},
+{"businessName":"008589-PK Coke Studio 2015","accountAlias":"K0CC","datacenter":"SG1 - APAC (Singapore)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0CC","parentAcccountAlias":"TCCC","subAccounts":[],
+},{"businessName":"Coca-Cola Consumer","accountAlias":"KOCO","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOCO","parentAcccountAlias":"TCCC","subAccounts":[{"businessName":"Corporate Consumer (621368)","accountAlias":"CPCO","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=CPCO","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007607 - US - CokeMap","accountAlias":"K016","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K016","parentAcccountAlias":"CPCO","subAccounts":[],
+},{"businessName":"007608 - Coca Cola Creative Source","accountAlias":"K017","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K017","parentAcccountAlias":"CPCO","subAccounts":[],
+},{"businessName":"007609 - US - World of Coca-Cola Online Ticketing","accountAlias":"K030","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K030","parentAcccountAlias":"CPCO","subAccounts":[],
+},{"businessName":"008191 - Coca-Cola Virtual Archive - Android Mobil","accountAlias":"K09F","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09F","parentAcccountAlias":"CPCO","subAccounts":[],
+},{"businessName":"008591 - US Credit Union","accountAlias":"K0CA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0CA","parentAcccountAlias":"CPCO","subAccounts":[],
+},{"businessName":"x","accountAlias":"K0CB","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0CB","parentAcccountAlias":"CPCO","subAccounts":[],
+}],
+},{"businessName":"Eurasia - Africa (621348)","accountAlias":"EAFR","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=EAFR","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007382 - RICH Kids game","accountAlias":"K003","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K003","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007470 - Coca-Cola Bobik KZ","accountAlias":"K006","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K006","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007565 - Coca-Cola.ru","accountAlias":"K004","datacenter":"UC1 - US West (Santa Clara)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K004","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007596 - SAC Mauritius-Reunion","accountAlias":"K00F","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K00F","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007622 - Sprite Cricket Stars Website","accountAlias":"K023","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K023","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007719 - EAG Sustainability Review","accountAlias":"K0C0","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C0","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007755 - Customer Promo Viewer","accountAlias":"K035","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K035","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007818 - 100 years of Contour ","accountAlias":"K03A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03A","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007819 - Сoke Studio SABU","accountAlias":"K036","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K036","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007843 - The EYE ","accountAlias":"K03D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03D","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007852 - Back to school","accountAlias":"K03C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03C","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007899 - As3ad Dikra","accountAlias":"K053","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K053","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"007905 - Sprite Label","accountAlias":"K04A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04A","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008104 - SAC NG Konga","accountAlias":"K081","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K081","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008115 - SAC CEWA Phase 2","accountAlias":"K08B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08B","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008117 - SAC CEWA Phase 2 (JAVA)","accountAlias":"K08C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08C","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008374 - AGL Coca-Cola Website UAE and Oman","accountAlias":"K0B5","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B5","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008375 - Fanta Play","accountAlias":"K0B8","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B8","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008376 - V-dvizhenii.com Redesign","accountAlias":"K0B4","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B4","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008379 - Fanta PS4 EG","accountAlias":"K0BB","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0BB","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008380 - Ask Coke TR","accountAlias":"K0BA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0BA","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008381 - Sanzaru v2","accountAlias":"K0B9","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B9","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008412 - Coke Studio Africa Season 3","accountAlias":"K0BD","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0BD","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008413 - Share a coke CAF","accountAlias":"K0BE","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0BE","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008414 - Dogadan","accountAlias":"K0BF","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0BF","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008415 - Share a Coke","accountAlias":"K0C1","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C1","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008416 - South Africa Coca-Cola 2007","accountAlias":"K0C2","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C2","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008419 - South Africa Chaywa","accountAlias":"K0C3","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C3","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008440 - X-mas Coca-Coca UA","accountAlias":"K0C6","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C6","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008467 - The Coca-Cola Africa Foundation","accountAlias":"K0C4","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C4","parentAcccountAlias":"EAFR","subAccounts":[],
+},{"businessName":"008559 - Xmas Video Streaming","accountAlias":"KOC9","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOC9","parentAcccountAlias":"EAFR","subAccounts":[],
+}],
+},{"businessName":"Europe - CSE (621353)","accountAlias":"ECSE","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ECSE","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007794 - Coca-Cola Teen Vodafone TopUp promo","accountAlias":"K039","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K039","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007941 - Romania Fanta Ninja","accountAlias":"K040","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K040","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007942 - Coca-Cola Cup","accountAlias":"K041","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K041","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007943 - Coke Zone Hungary","accountAlias":"K043","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K043","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007944 - coca - colaskolskypohar ","accountAlias":"K044","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K044","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007945 - Coke & Meals 2014","accountAlias":"K046","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K046","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007946 - Switzerland Coca-Cola Zero","accountAlias":"K047","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K047","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007947 - Coca-Cola Corporate Estonia","accountAlias":"K048","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K048","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007948 - Coca-Cola Light Austria","accountAlias":"K049","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K049","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007949 - Coca-Cola Light Switzerland","accountAlias":"K04B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04B","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007950 - Austria Nestea","accountAlias":"K04C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04C","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007951 - Switzerland Nestea","accountAlias":"K04D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04D","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007952 - Burn Residency 2014","accountAlias":"K04E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04E","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007953 - Bulgaria Bankia","accountAlias":"K04F","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K04F","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007954 - Coke Zero Austria","accountAlias":"K050","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K050","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007961 - Vara - coke","accountAlias":"K042","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K042","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007986 - Poland Corporate","accountAlias":"K05F","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05F","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007987 - MyCokeMusic Osterreich","accountAlias":"K060","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K060","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007989 - Fanta-castigatori","accountAlias":"K062","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K062","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007990 - Burn Spots","accountAlias":"K063","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K063","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"007993 - Coca-Cola Cup Poland","accountAlias":"K066","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K066","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008068 - Ideen Gegen Armut Austria","accountAlias":"K06A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06A","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008074 - Romania Coca-Cola Cup","accountAlias":"K070","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K070","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008075 - Romania Coke Futbol","accountAlias":"K071","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K071","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008087 - ReasonsToBelieveGR","accountAlias":"K07D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K07D","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008112 - MyCokemusic Schweiz","accountAlias":"K08A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08A","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008124 - Austria - Coke Corporate","accountAlias":"K088","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K088","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008125 - Switzerland - Coke Corporate","accountAlias":"K089","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K089","parentAcccountAlias":"ECSE","subAccounts":[],
+},{"businessName":"008534 - LIDL Promo app 2015","accountAlias":"K0C8","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0C8","parentAcccountAlias":"ECSE","subAccounts":[],
+}],
+},{"businessName":"Europe - Germany (621349)","accountAlias":"EGER","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=EGER","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007564 - Coke Light Fotostory","accountAlias":"K009","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K009","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"007848 - Powerade Sportsbottle Germany 2015","accountAlias":"K03B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03B","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"007886 - Powerade Sportsbottle Germany 2015 .NET","accountAlias":"K03E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03E","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"007975 - Coke Gewinnspiel","accountAlias":"K054","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K054","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"007978 - Share - a - Coke Germany eShop","accountAlias":"K057","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K057","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008053 - Freundeskreis 2015","accountAlias":"K068","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K068","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008070 - Coca-Cola Nachhaltigkeitsbericht","accountAlias":"K06C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06C","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008072 - Germany Vitaminwater","accountAlias":"K06E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06E","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008073 - Germany Hor auf dein Herz","accountAlias":"K06F","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06F","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008076 - Germany Mezzo Mix","accountAlias":"K072","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K072","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008079 - Fanta Spielplatz-Initiative FB App","accountAlias":"K075","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K075","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008082 - German Plantbottle","accountAlias":"K078","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K078","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008107 - Coke Light DE Video App","accountAlias":"K083","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K083","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008137 - Fanta Jingles","accountAlias":"K08F","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08F","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008141 - coke.de CRM","accountAlias":"K093","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K093","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008142 - coke.de 2014","accountAlias":"K094","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K094","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008145 - Coke DE Sweeps Engine","accountAlias":"K097","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K097","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008146 - POP Experience Center","accountAlias":"K099","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K099","parentAcccountAlias":"EGER","subAccounts":[],
+},{"businessName":"008147 - Fanta Create and Win","accountAlias":"K09A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09A","parentAcccountAlias":"EGER","subAccounts":[],
+}],
+},{"businessName":"Europe - Group (621350)","accountAlias":"EGRP","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=EGRP","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"008077 - SEP-ConsumerDB-Cloud-Test2","accountAlias":"K073","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K073","parentAcccountAlias":"EGRP","subAccounts":[],
+}],
+},{"businessName":"Europe - Iberia (621351)","accountAlias":"EIBR","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=EIBR","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007977 - Journey ES","accountAlias":"K056","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K056","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"007979 - Powerade","accountAlias":"K058","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K058","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"007991 - PoweradeBeat PT","accountAlias":"K064","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K064","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008078 - Coca-Cola Spain","accountAlias":"K074","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K074","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008080 - Aquabona","accountAlias":"K076","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K076","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008081 - Fundacion Coca Cola Spain","accountAlias":"K077","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K077","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008083 - ES Corporate website","accountAlias":"K079","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K079","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008084 - concursojovenestalentos cocacola es","accountAlias":"K07A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K07A","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008085 - auth cocacola es","accountAlias":"K07B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K07B","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008108 - Activity ID","accountAlias":"K084","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K084","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008111 - Coke ID Spain","accountAlias":"K087","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K087","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008136 - Fabrica da Felicidade - Migration","accountAlias":"K08E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08E","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008138 - Taça - Migration","accountAlias":"K090","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K090","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008139 - Coke ID Message Broker","accountAlias":"K091","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K091","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008140 - Journey Iberia","accountAlias":"K092","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K092","parentAcccountAlias":"EIBR","subAccounts":[],
+},{"businessName":"008144 - SMS Web App","accountAlias":"K096","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K096","parentAcccountAlias":"EIBR","subAccounts":[],
+}],
+},{"businessName":"Europe - NWEN (621352)","accountAlias":"ENWN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ENWN","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007976 - Burn F1 France","accountAlias":"K055","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K055","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007980 - Netherlands Coca Cola Brand","accountAlias":"K059","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K059","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007981 - Park Lives","accountAlias":"K05A","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05A","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007982 - Netherlands - Keeps You Going Aquarius","accountAlias":"K05B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05B","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007983 - Netherlands Coca Cola Corporate","accountAlias":"K05C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05C","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007984 - Belgium Burn","accountAlias":"K05D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05D","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007985 - Relentless Energy","accountAlias":"K05E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K05E","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"007992 - Netherlands Coca Cola Zero","accountAlias":"K065","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K065","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008069 - Netherlands Chaudfontaine","accountAlias":"K06B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06B","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008071 - Belgium Aquarius","accountAlias":"K06D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K06D","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008106 - Netherlands - Sprite","accountAlias":"K082","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K082","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008109 - SEP OAT - Agency Onboarding","accountAlias":"K085","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K085","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008110 - Netherlands Chaudfontaine","accountAlias":"K086","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K086","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008143 - Coca-Cola Zero ad solution","accountAlias":"K095","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K095","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008148 - Happiness under the cap - Sweden collect ","accountAlias":"K09B","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09B","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008149 - Norway Winter OL","accountAlias":"K09C","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09C","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008150 - Belgium Coca-Cola Brand","accountAlias":"K09D","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09D","parentAcccountAlias":"ENWN","subAccounts":[],
+},{"businessName":"008151 - NWEN-Fanta-Photobomb","accountAlias":"K09E","datacenter":"GB3 - Great Britain (Slough)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K09E","parentAcccountAlias":"ENWN","subAccounts":[],
+}],
+},{"businessName":"LAG - Region (621354)","accountAlias":"LAGR","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LAGR","parentAcccountAlias":"KOCO","subAccounts":[],
+},{"businessName":"Latin America  - Latin Amer Center (621355)","accountAlias":"LAMC","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LAMC","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007463 - LCD - Coca-Cola - Share a Coke 2","accountAlias":"K008","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K008","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007610 - LCBU - Promos - Columbia","accountAlias":"K013","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K013","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007611 - Al Vuelo_Ecuador","accountAlias":"K012","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K012","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007643 - UIDB Ecuador","accountAlias":"K020","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K020","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007668 - PAC-Fundacion Mexico","accountAlias":"K02C","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K02C","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007744 - Colombia - Coca-Cola - Tweet a Coke","accountAlias":"K032","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K032","parentAcccountAlias":"LAMC","subAccounts":[],
+},{"businessName":"007930 - LCD - Coca-Cola - Xmas 2015","accountAlias":"K069","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K069","parentAcccountAlias":"LAMC","subAccounts":[],
+}],
+},{"businessName":"Latin America - Brazil (621356)","accountAlias":"LBRA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LBRA","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007635 - Brazil - Instituto Coca-Cola","accountAlias":"K021","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K021","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"007636 - Brazil - PAC - Premio Pemberton","accountAlias":"K019","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K019","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"007637 - Brazil - Leao","accountAlias":"K01A","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K01A","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"007638 - Brazil - PAC - Coletivo","accountAlias":"K01B","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K01B","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"007639 - Brazil - Burn - Digital Magazine","accountAlias":"K01C","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K01C","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"007640 - Brazil Schweppes Separating Men from Boys","accountAlias":"K01D","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K01D","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008164 - Brazil - PAC - Embaixadores","accountAlias":"K0AC","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0AC","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008165 - Brazil - Coca-Cola - Game Time Promotion","accountAlias":"K0A5","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A5","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008168 - Brazil - Kuat - Holder","accountAlias":"K0AE","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0AE","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008169 - Brazil - Coca-Cola - Super Gadget","accountAlias":"K0A2","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A2","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008170 - Brazil Cultural Contest","accountAlias":"K0AF","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0AF","parentAcccountAlias":"LBRA","subAccounts":[],
+},{"businessName":"008171 - Brazil - DelValle - Reserva","accountAlias":"K0B0","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B0","parentAcccountAlias":"LBRA","subAccounts":[],
+}],
+},{"businessName":"Latin America - Mexico (621357)","accountAlias":"LMEX","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LMEX","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007512 - Mexico - Sprite - Blog La Verdad","accountAlias":"K002","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K002","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"007524 - Mexico - Blog Sta Clara","accountAlias":"K001","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K001","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"007892 - Mexico - Coca-Cola - Fall In Love 3","accountAlias":"K03F","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K03F","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"007964 - Mexico - Fanta - Halloween 2015","accountAlias":"K07E","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K07E","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"008090 - Mexico - Fanta - Video Halloween","accountAlias":"K07F","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K07F","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"008091 - Mexico - Fuze Tea - Sessions","accountAlias":"K080","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K080","parentAcccountAlias":"LMEX","subAccounts":[],
+},{"businessName":"008367 - Mexico - Coca-Cola - Xmas 2015","accountAlias":"K0B3","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B3","parentAcccountAlias":"LMEX","subAccounts":[],
+}],
+},{"businessName":"Latin America - South Latin (621358)","accountAlias":"LSLA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LSLA","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"007642 - pe-coca-cola-documento-feliz","accountAlias":"K01F","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K01F","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"007653 - AR-Coke-Static","accountAlias":"K029","datacenter":"UC1 - US West (Santa Clara)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K029","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"007694 - AR-Fanta-Parkour","accountAlias":"K02D","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K02D","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"007710 - SLBU-coca-movimiento","accountAlias":"K033","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K033","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"007711 - SL-Coke-Static","accountAlias":"K034","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K034","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"007723 - CL-FANTA-ComicBook","accountAlias":"K0A4","datacenter":"UC1 - US West (Santa Clara)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A4","parentAcccountAlias":"LSLA","subAccounts":[],
+},{"businessName":"008166 - AR-Cepita-Idioma-Madre","accountAlias":"K0A8","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A8","parentAcccountAlias":"LSLA","subAccounts":[],
+}],
+},{"businessName":"North America (621359)","accountAlias":"NAMA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=NAMA","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"008172 - Happy Moves File Server","accountAlias":"K0A3","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A3","parentAcccountAlias":"NAMA","subAccounts":[],
+},{"businessName":"008173 - Happy Moves Market","accountAlias":"K0A9","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0A9","parentAcccountAlias":"NAMA","subAccounts":[],
+},{"businessName":"008174 - Happy Moves Global Server","accountAlias":"K0AA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0AA","parentAcccountAlias":"NAMA","subAccounts":[],
+}],
+},{"businessName":"Pacific - ASEAN (621360)","accountAlias":"PASN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PASN","parentAcccountAlias":"KOCO","subAccounts":[],
+},{"businessName":"Pacific - Australia/New Zealand (621361)","accountAlias":"PAUN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PAUN","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"008153 - Come Alive AUSO","accountAlias":"K08D","datacenter":"SG1 - APAC (Singapore)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K08D","parentAcccountAlias":"PAUN","subAccounts":[],
+}],
+},{"businessName":"Pacific - Hong Kong (621362)","accountAlias":"PHKG","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PHKG","parentAcccountAlias":"KOCO","subAccounts":[],
+},{"businessName":"Pacific - India (621363)","accountAlias":"PIND","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PIND","parentAcccountAlias":"KOCO","subAccounts":[],
+},{"businessName":"Pacific - Japan (621367)","accountAlias":"PJAP","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PJAP","parentAcccountAlias":"KOCO","subAccounts":[{"businessName":"Coke Park","accountAlias":"KOPK","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOPK","parentAcccountAlias":"PJAP","subAccounts":[],
+},{"businessName":"Coke Park - Japan","accountAlias":"KPKJ","datacenter":"UC1 - US West (Santa Clara)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KPKJ","parentAcccountAlias":"PJAP","subAccounts":[],
+}],
+},{"businessName":"Pacific - South Korea (621365)","accountAlias":"PSKO","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PSKO","parentAcccountAlias":"KOCO","subAccounts":[],
+},{"businessName":"Pacific - Taiwan (621366)","accountAlias":"PTWN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=PTWN","parentAcccountAlias":"KOCO","subAccounts":[],
+}],
+},{"businessName":"KO Enterprise Apps","accountAlias":"KOEA","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOEA","parentAcccountAlias":"TCCC","subAccounts":[{"businessName":"Coca-Cola Shared Svcs ()","accountAlias":"KOSS","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOSS","parentAcccountAlias":"KOEA","subAccounts":[{"businessName":"007290 - vRA","accountAlias":"KVRA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KVRA","parentAcccountAlias":"KOSS","subAccounts":[],
+},{"businessName":"007455 - AMP - Security Self-Scan Tool","accountAlias":"AMP","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=AMP","parentAcccountAlias":"KOSS","subAccounts":[],
+},{"businessName":"007456 - LoadRunner - Performance Testing Tool","accountAlias":"LDRN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=LDRN","parentAcccountAlias":"KOSS","subAccounts":[],
+}],
+},{"businessName":"Confluence","accountAlias":"CONF","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=CONF","parentAcccountAlias":"KOEA","subAccounts":[{"businessName":"AlertLogic","accountAlias":"ALZ","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ALZ","parentAcccountAlias":"CONF","subAccounts":[{"businessName":"AL-Site1","accountAlias":"ALS3","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ALS3","parentAcccountAlias":"ALZ","subAccounts":[],
+},{"businessName":"AL-Site1","accountAlias":"ALS1","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ALS1","parentAcccountAlias":"ALZ","subAccounts":[{"businessName":"AL-Site4","accountAlias":"SITE","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=SITE","parentAcccountAlias":"ALS1","subAccounts":[],
+}],
+},{"businessName":"alsite2","accountAlias":"ALS2","datacenter":"NY1 - US East (New York)",
+"url":"/Organization/subAccounts/Settings?accountAlias=ALS2","parentAcccountAlias":"ALZ","subAccounts":[],
+}],
+},{"businessName":"SAML Auth PoC","accountAlias":"SAML","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=SAML","parentAcccountAlias":"CONF","subAccounts":[],
+}],
+},{"businessName":"KO Training Class","accountAlias":"KODM","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KODM","parentAcccountAlias":"KOEA","subAccounts":[],
+},{"businessName":"LoadRunner (621371)","accountAlias":"KOLR","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOLR","parentAcccountAlias":"KOEA","subAccounts":[],
+},{"businessName":"Middleware","accountAlias":"MDWR","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=MDWR","parentAcccountAlias":"KOEA","subAccounts":[],
+},{"businessName":"Migrated Enterprise Apps (621369)","accountAlias":"KMEA","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KMEA","parentAcccountAlias":"KOEA","subAccounts":[{"businessName":"007484 - CEPG Cooler","accountAlias":"KO11","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KO11","parentAcccountAlias":"KMEA","subAccounts":[],
+},{"businessName":"008364 - Day Sales Inventory","accountAlias":"K0B2","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B2","parentAcccountAlias":"KMEA","subAccounts":[],
+}],
+},{"businessName":"MSBI","accountAlias":"MSBI","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=MSBI","parentAcccountAlias":"KOEA","subAccounts":[],
+},{"businessName":"Net New Enterprise Apps (621370)","accountAlias":"KNNE","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KNNE","parentAcccountAlias":"KOEA","subAccounts":[{"businessName":"007406 - Ambassador App","accountAlias":"K005","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K005","parentAcccountAlias":"KNNE","subAccounts":[],
+}],
+},{"businessName":"Shared Services (621372)","accountAlias":"KSHS","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KSHS","parentAcccountAlias":"KOEA","subAccounts":[{"businessName":"008314 - Cloud Arch Team Sandbox","accountAlias":"KOSB","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KOSB","parentAcccountAlias":"KSHS","subAccounts":[],
+},{"businessName":"008425 - Global Redirect page","accountAlias":"K0B1","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=K0B1","parentAcccountAlias":"KSHS","subAccounts":[],
+}],
+},{"businessName":"VDN-Dassault","accountAlias":"VDN","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=VDN","parentAcccountAlias":"KOEA","subAccounts":[],
+}],
+},{"businessName":"KO/CTL Development Environment","accountAlias":"KODV","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KODV","parentAcccountAlias":"TCCC","subAccounts":[{"businessName":"999998 - Redirect","accountAlias":"KO20","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=KO20","parentAcccountAlias":"KODV","subAccounts":[],
+}],
+},{"businessName":"POC Consumer","accountAlias":"POCC","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=POCC","parentAcccountAlias":"TCCC","subAccounts":[{"businessName":"POC Ban","accountAlias":"POCB","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=POCB","parentAcccountAlias":"POCC","subAccounts":[{"businessName":"POC Site","accountAlias":"POCS","datacenter":"VA1 - US East (Sterling)",
+"url":"/Organization/subAccounts/Settings?accountAlias=POCS","parentAcccountAlias":"POCB","subAccounts":[],
+}],
+}],
+}]
+        //
+        // self.organizations = [
+        //   {
+        //     accountAlias: "T3N",
+        //     businessName: "CenturyLink Cloud ROOT",
+        //     accountStatus: "active",
+        //     primaryDataCenter : "QA1",
+        //     subAccounts:[
+        //       {
+        //        accountAlias: "DEV",
+        //        businessName: "Development Account",
+        //        accountStatus: "active",
+        //        primaryDataCenter : "qa1",
+        //        subAccounts:[
+        //          {
+        //           accountAlias: "MATT",
+        //           businessName: "Matthew's Company",
+        //           accountStatus: "active",
+        //           primaryDataCenter : "qa1",
+        //           subAccounts:[]
+        //          },
+        //          {
+        //           accountAlias: "MAT2",
+        //           businessName: "Two Matthew's Company",
+        //           accountStatus: "active",
+        //           primaryDataCenter : "qa1",
+        //           subAccounts:[]
+        //          },
+        //          {
+        //           accountAlias: "MAT3",
+        //           businessName: "Three Matthew's Company",
+        //           accountStatus: "active",
+        //           primaryDataCenter : "qa1",
+        //           subAccounts:[]
+        //          }
+        //        ]
+        //      },
+        //      {
+        //       accountAlias: "DEVR",
+        //       businessName: "Development Reseller Account",
+        //       accountStatus: "active",
+        //       primaryDataCenter : "qa1",
+        //       subAccounts:[]
+        //      },
+        //      {
+        //       accountAlias: "FUB",
+        //       businessName: "Fucked Up Beyond",
+        //       accountStatus: "active",
+        //       primaryDataCenter : "qa1",
+        //       subAccounts:[]
+        //      }
+        //     ]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   },
+        //   {
+        //    accountAlias: "RJP",
+        //    businessName: "Rick James Productions",
+        //    accountStatus: "active",
+        //    primaryDataCenter : "qa2",
+        //    subAccounts:[]
+        //   }
+        // ]
+        //
+        // for (var i = 0; i < 5000; i++) {
+        //   self.organizations.push({
+        //     accountAlias: "Perf " + i,
+        //     businessName: "" + i + " Business For Perf",
+        //     accountStatus: "active",
+        //     primaryDataCenter : "qa2",
+        //     subAccounts:[]
+        //   });
+        // }
+
+        self.impersonatedAlias = ko.observable('K018')
+        self.impersonatedAlias.subscribe(function(newValue) {
+          console.log(newValue)
+        });
+
+        return self;
+      }
+      ko.applyBindings(new OrgSwitcherModel());
+    })
+  </script>
+</body>
+</html>
