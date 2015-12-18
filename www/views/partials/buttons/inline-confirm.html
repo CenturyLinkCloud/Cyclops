@@ -1,0 +1,14 @@
+<button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
+
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    ko.applyBindings({
+      deleteHandler: function() {
+        alert("deleted");
+      }
+    });
+  })
+</script>
+{{/contentFor}}

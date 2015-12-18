@@ -7,10 +7,7 @@
       <h3 id="tags">Tags</h3>
       <p>Use the button classes on <code>button</code>, <code>a</code>, and <code>input</code> elements.</p>
       <div class="pl-example">
-        <a class="btn btn-default" href="#" role="button">Link</a>
-        <button class="btn btn-default" type="submit">Button</button>
-        <input class="btn btn-default" type="button" value="Input">
-        <input class="btn btn-default" type="submit" value="Submit">
+        {{> buttons/tags }}
       </div>
       <pre>
         <code class="html">
@@ -24,12 +21,7 @@
       <h3 id="types">Types</h3>
       <p>Six different button types are available for most situations.</p>
       <div class="pl-example">
-        <button type="button" class="btn btn-default">btn-default</button>
-        <button type="button" class="btn btn-primary">btn-primary</button>
-        <button type="button" class="btn btn-danger">btn-danger</button>
-        <button type="button" class="btn btn-inverse">btn-inverse</button>
-        <button type="button" class="btn btn-outline">btn-outline</button>
-        <button type="button" class="btn btn-link">link</button>
+        {{> buttons/types }}
       </div>
       <pre>
         <code class="html">
@@ -45,10 +37,7 @@
       <h3 id="sizes">Sizes</h3>
       <p>Add a <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-mini</code> class for additional sizing options.</p>
       <div class="pl-example">
-        <button type="button" class="btn btn-default btn-lg">btn-lg</button>
-        <button type="button" class="btn btn-default">default</button>
-        <button type="button" class="btn btn-default btn-sm">btn-sm</button>
-        <button type="button" class="btn btn-default btn-mini">btn-mini</button>
+        {{> buttons/sizes }}
       </div>
       <pre>
         <code class="html">
@@ -62,12 +51,7 @@
       <h3 id="disabled">Disabled Buttons</h3>
       <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
       <div class="pl-example">
-        <button type="button" disabled class="btn btn-default">btn-default</button>
-        <button type="button" disabled class="btn btn-primary">btn-primary</button>
-        <button type="button" disabled class="btn btn-danger">btn-danger</button>
-        <button type="button" disabled class="btn btn-inverse">btn-inverse</button>
-        <button type="button" disabled class="btn btn-outline">btn-outline</button>
-        <button type="button" disabled class="btn btn-link">btn-link</button>
+        {{> buttons/disabled }}
       </div>
       <pre>
         <code class="html">
@@ -83,7 +67,7 @@
       <h3 id="blockLevel">Block Level Button</h3>
       <p>Adding <code>.btn-block</code> will span the width of the button to 100% of it's parent.</p>
       <div class="pl-example">
-        <button type="button" class="btn btn-default btn-block">btn-block</button>
+        {{> buttons/block-level }}
       </div>
       <pre>
         <code class="html">
@@ -105,31 +89,7 @@
         components section.
       </p>
       <div class="pl-example">
-        <div class="dropdown">
-          <button type="button" class="btn btn-default">
-            Dropdown
-            <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="https://www.ctl.io">CenturyLink Cloud</a></li>
-            <li><a href="https://www.ctl.io/developers/">CenturyLink Developer Center</a></li>
-            <li><a href="https://www.ctl.io/careers/">CenturyLink Cloud Careers</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button type="button" class="btn btn-default">
-            Right Aligned
-            <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li><a href="#">Action 1</a></li>
-            <li><a href="#">Action 2</a></li>
-            <li><a href="#">Action 3</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Action 4</a></li>
-          </ul>
-        </div>
+        {{> buttons/dropdown }}
       </div>
       <pre class="show-type">
         <code class="html">
@@ -172,7 +132,7 @@ $(function(){
       <h3 id="inlineTextButton">Inline Text Button</h3>
       <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
       <div class="pl-example">
-        <p>Paragraph of text with an <button class="btn btn-link-text">inline button link</button> within it.</p>
+        {{> buttons/inline-text }}
       </div>
       <pre>
         <code class="html">
@@ -194,7 +154,7 @@ $(function(){
         <a href="./widgets.html#inlineConfirm">inlineConfirm Code Page</a>.
       </p>
       <div class="pl-example">
-        <button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
+        {{> buttons/inline-confirm }}
       </div>
       <pre class="show-type">
         <code class="javascript">
@@ -209,16 +169,3 @@ $(function(){
 
 
     </section>
-
-
-    {{#contentFor "scripts"}}
-    <script>
-      $(function(){
-        ko.applyBindings({
-          deleteHandler: function() {
-            alert("deleted");
-          }
-        });
-      })
-    </script>
-    {{/contentFor}}
