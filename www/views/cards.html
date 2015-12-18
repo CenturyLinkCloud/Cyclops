@@ -125,6 +125,24 @@
   </pre>
 </section>
 
+<section class="pl-section" id="backgroundColors">
+  <h3><a href="#backgroundColors">Add Card</a></h3>
+  <p>If you're using cards to display a list of objects, use <code>.card-add</code> and <code>.v-center</code> at the end of the list to give users an option to add a another object to the list. A <code>height</code> on the <code>.card-add</code> must be set for content to center vertically.</p>
+  <div class="pl-example">
+    {{> cards/card-add }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;card card-add&quot;&gt;
+  &lt;div class=&quot;card-block v-center&quot;&gt;
+    &lt;svg class=&quot;cyclops-icon lg&quot;&gt;&lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;#icon-plus-circle&quot;&gt;&lt;/use&gt;&lt;/svg&gt;
+    &lt;p&gt;add object&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
+
 
 <section class="pl-section" id="decks">
   <h3><a href="#decks">Card Decks</a></h3>
