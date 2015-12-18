@@ -12,6 +12,7 @@
 	- Queue Restore
 - Pagination component
 - Show password
+- Add Card example
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
 
