@@ -8,11 +8,7 @@
   <h4>Unordered List</h4>
   <p>A list of items in which the order does not explicitly matter.</p>
   <div class="pl-example">
-    <ul>
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
-    </ul>
+    {{> lists/unordered }}
   </div>
   <pre>
     <code class="html">
@@ -29,11 +25,7 @@
   <h4>Ordered List</h4>
   <p>A list of items in which the order does explicitly matter.</p>
   <div class="pl-example">
-    <ol>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ol>
+    {{> lists/ordered }}
   </div>
   <pre>
     <code class="html">
@@ -50,17 +42,7 @@
   <h4>Unstyled List</h4>
   <p>Remove the default list-style and left margin on list items by applying <code>.list-unstyled</code> to the list. This only applies to immediate children list items, meaning you will need to add the class for any nested lists as well.</p>
   <div class="pl-example">
-    <ul class="list-unstyled">
-      <li>unstyled item</li>
-      <li>unstyled item
-        <ul>
-          <li>nested list item</li>
-          <li>nested list item</li>
-          <li>nested list item</li>
-        </ul>
-      </li>
-      <li>unstyled item</li>
-    </ul>
+    {{> lists/unstyled }}
   </div>
   <pre>
     <code class="html">
@@ -83,11 +65,7 @@
   <h4>Inline List</h4>
   <p>Place all list items on a single line by applying <code>.list-inline</code> to the list.</p>
   <div class="pl-example">
-    <ul class="list-inline">
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
-    </ul>
+    {{> lists/inline }}
   </div>
   <pre>
     <code class="html">
@@ -104,14 +82,7 @@
   <h4>Description List</h4>
   <p>A description list is a list of terms, with a description of each term.</p>
   <div class="pl-example">
-    <dl>
-      <dt>Term</dt>
-      <dd>The definition</dd>
-      <dt>Term</dt>
-      <dd>The definition</dd>
-      <dt>Term</dt>
-      <dd>The definition</dd>
-    </dl>
+    {{> lists/description }}
   </div>
   <pre>
     <code class="html">
@@ -131,24 +102,7 @@
   <h3><a href="#listInfo">List Info</a></h3>
   <p>This pattern is useful for displaying name&mdash;value pairs. Use <code>.list-info</code> on an <code>&lt;ul&gt;</code>, and wrap the label in <code>.info-label</code> and value in <code>.info-value</code>.</p>
   <div class="pl-example">
-    <ul class="list-info">
-      <li>
-        <div class="info-label">policy name</div>
-        <div class="info-value">Web App Backup Policy</div>
-      </li>
-      <li>
-        <div class="info-label">total storage</div>
-        <div class="info-value">7.7GB</div>
-      </li>
-      <li>
-        <div class="info-label">frequency</div>
-        <div class="info-value">24 hours</div>
-      </li>
-      <li>
-        <div class="info-label">retention</div>
-        <div class="info-value">5 days</div>
-      </li>
-    </ul>
+    {{> lists/list-info }}
   </div>
   <pre>
     <code class="html">
