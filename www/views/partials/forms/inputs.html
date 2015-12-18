@@ -4,7 +4,7 @@
 
   <h4>Text</h4>
   <div class="pl-example">
-      <input type="text" class="form-control" placeholder="Text Input">
+      {{> forms/examples/input-text }}
   </div>
   <pre>
     <code class="html">
@@ -15,7 +15,7 @@
   <h4>Password</h4>
   <p>Examples of standard form inputs used throughout the Control Portal.</p>
   <div class="pl-example">
-      <input type="password" class="form-control" placeholder="Password">
+      {{> forms/examples/input-password }}
   </div>
   <pre>
     <code class="html">
@@ -25,7 +25,7 @@
 
   <h4>Textarea</h4>
   <div class="pl-example">
-      <textarea class="form-control" rows="3"></textarea>
+      {{> forms/examples/input-textarea }}
   </div>
   <pre>
     <code class="html">
@@ -35,36 +35,7 @@
 
   <h4>Checkbox and Radios</h4>
   <div class="pl-example">
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="" /> Option 1</a>
-        </label>
-    </div>
-    <div class="checkbox disabled">
-      <label>
-        <input type="checkbox" value="" disabled>
-        Option two is disabled
-      </label>
-    </div>
-
-    <div class="radio">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it's great
-      </label>
-    </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        Option two can be something else and selecting it will deselect option one
-      </label>
-    </div>
-    <div class="radio disabled">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-        Option three is disabled
-      </label>
-    </div>
+    {{> forms/examples/input-checkbox-radio }}
   </div>
   <pre>
     <code class="html">
@@ -115,13 +86,7 @@
     </li>
   </ul>
   <div class="pl-example">
-    <select class="form-control">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    {{> forms/examples/input-select }}
   </div>
   <pre>
     <code class="html">
