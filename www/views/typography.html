@@ -6,12 +6,7 @@
     <section class="pl-section" id="headings">
       <h3>Headings</h3>
       <div class="pl-example">
-        <h1>H1 36pt Open Sans Light <small>h1 small text</small></h1>
-        <h2>H2 30pt Open Sans Light <small>h2 small text</small></h2>
-        <h3>H3 24pt Open Sans Light <small>h3 small text</small></h3>
-        <h4>H4 18pt Open Sans Light <small>h4 small text</small></h4>
-        <h5>H5 13pt Open Sans Light <small>h5 small text</small></h5>
-        <h6>H6 12pt Open Sans Light</h6>
+        {{> typography/headings }}
       </div>
       <pre>
         <code class="html">
@@ -28,24 +23,7 @@
       <p>Add the
         <code>.content-header</code> to any html header entity, and it will automatically add a border below the header text.</p>
       <div class="pl-example">
-        <h1 class="content-header">H1 36pt Open Sans Light
-          <small>h1 small text</small>
-        </h1>
-        <h2 class="content-header">H2 30pt Open Sans Light
-          <small>h2 small text</small>
-        </h2>
-        <h3 class="content-header">H3 24pt Open Sans Light
-          <small>h3 small text</small>
-        </h3>
-        <h4 class="content-header">H4 18pt Open Sans Light
-          <small>h4 small text</small>
-        </h4>
-        <h5 class="content-header">H5 13pt Open Sans Light
-          <small>h5 small text</small>
-        </h5>
-        <h6 class="content-header">H6 12pt Open Sans Light
-          <small>h6 small text</small>
-        </h6>
+        {{> typography/content-headings }}
       </div>
       <pre>
         <code class="html">
@@ -71,10 +49,7 @@
       </pre>
       <p>Sometimes you'll want to treat multiple entities, such as Server name and it's description, as the content header. Wrap your content in a div with the <code>.content-header</code> class.</p>
       <div class="pl-example">
-        <div class="content-header">
-          <h1>QA1DEVLBTEST01</h1>
-          <p class="lead">Load Balancer Test VM</p>
-        </div>
+        {{> typography/content-headings-block }}
       </div>
       <pre>
         <code class="html">
@@ -90,8 +65,7 @@
       <h3>Body Copy</h3>
       <p>The default font-size is 14px, with a line-height of 1.428 (20px).</p>
       <div class="pl-example">
-        <p>I could see why some of the boys took him for snobby. He had a quiet way about him, a walk and a talk that just wasn't normal around here. He strolled, like a man in a park without a care or a worry in the world, like he had on an invisible coat that would shield him from this place. Yeah, I think it would be fair to say...I liked Andy from the start.</p>
-        <p>I could see why some of the boys took him for snobby. He had a quiet way about him, a walk and a talk that just wasn't normal around here. He strolled, like a man in a park without a care or a worry in the world, like he had on an invisible coat that would shield him from this place. Yeah, I think it would be fair to say...I liked Andy from the start.</p>
+        {{> typography/body-copy }}
       </div>
       <pre>
         <code class="html">
@@ -101,9 +75,7 @@
 
       <h4 id="alignment">Alignment</h4>
       <div class="pl-example">
-        <p class="text-left">Left aligned text.</p>
-        <p class="text-center">Center aligned text.</p>
-        <p class="text-right">Right aligned text.</p>
+        {{> typography/alignment }}
       </div>
       <pre>
         <code class="html">
@@ -115,21 +87,19 @@
 
       <h4 id="color">Color</h4>
       <div class="pl-example">
-        <p class="text-success">Success Text Color</p>
-        <p class="text-warning">Warning Text Color</p>
-        <p class="text-danger">Danger Text Color</p>
+        {{> typography/color }}
       </div>
       <pre>
         <code class="html">
-
+&lt;p class=&quot;text-success&quot;&gt;Success Text Color&lt;/p&gt;
+&lt;p class=&quot;text-warning&quot;&gt;Warning Text Color&lt;/p&gt;
+&lt;p class=&quot;text-danger&quot;&gt;Danger Text Color&lt;/p&gt;
         </code>
       </pre>
 
       <h4 id="transformation"><a id="transformation">Transformation</a></h4>
       <div class="pl-example">
-        <p class="text-lowercase">Lowercase text.</p>
-        <p class="text-uppercase">Upperscase text.</p>
-        <p class="text-capitalize">Capitalized text.</p>
+        {{> typography/transformation }}
       </div>
       <pre>
         <code class="html">
