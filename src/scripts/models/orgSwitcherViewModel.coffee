@@ -1,6 +1,16 @@
 # TODO:
-
+# - animation and the scroll-area are off
+# - iphone layout
 # - will disabled accounts be passed to us?
+
+# - arrow keys with search
+
+# DONE:
+# - keydown events on mobile
+# - textbox on mobile causes a zoom font-sizes greater that 16 dont cause this :)
+# - remove monkey class
+# - textbox style
+# - logic in scrollTo for detecting if it is offScreen is wrong
 
 class Organization
   constructor: (options) ->
@@ -36,8 +46,8 @@ class OrgSwitcherViewModel
               $(this).css('-webkit-transform','rotate('+now+'deg)');
               $(this).css('-moz-transform','rotate('+now+'deg)');
               $(this).css('transform','rotate('+now+'deg)');
-            , duration:'slow'
-        },400);
+            , duration: 250
+        }, 250);
       else
         $('org-switcher .toggle-btn svg').animate(
           {  deg: 0 },
@@ -46,8 +56,8 @@ class OrgSwitcherViewModel
               $(this).css('-webkit-transform','rotate('+now+'deg)');
               $(this).css('-moz-transform','rotate('+now+'deg)');
               $(this).css('transform','rotate('+now+'deg)');
-            , duration:'slow'
-        },400);
+            , duration: 250
+        },250);
         @clearSearch()
         @forceShowAllOrgs false
         _activeItemIndex -1
@@ -61,6 +71,7 @@ class OrgSwitcherViewModel
 
     @clearSearch = () =>
       @flatOrgList.query ''
+      _activeItemIndex = -1
 
     @impersonatedAlias = ko.asObservable(options.impersonatedAlias)
     @rawOrganizations = ko.asObservableArray(options.organizations || [])
@@ -81,8 +92,8 @@ class OrgSwitcherViewModel
       @forceShowAllOrgs(false)
     , null, 'beforeChange'
 
-    @displayTemplateName = ko.pureComputed () =>
-      return if @flatOrgList().length == @flatOrgList.all().length then 'cyclops.orgSwitcher.org' else 'cyclops.orgSwitcher.filteredOrg'
+    @isSearching = ko.computed () =>
+      return !!@flatOrgList.query()
 
     _doStuff = (options) =>
       path = "#{options.path} / #{options.rawOrg.accountAlias}"
@@ -140,13 +151,13 @@ class OrgSwitcherViewModel
       visible = @displayOrgs().length
 
       if @forceShowAllOrgs() or visible == total
-        if @flatOrgList.query()
+        if @isSearching()
           return "#{total} organizations with '#{@flatOrgList.query()}'"
         return "#{total} organizations"
       else
-          if @flatOrgList.query()
-            return "Showing #{visible} of #{total} organizations with '#{@flatOrgList.query()}'"
-        return "Showing #{visible} of #{total} organizations"
+        if @isSearching()
+          return "Showing #{visible} of #{total} organizations with '#{@flatOrgList.query()}'"
+      return "Showing #{visible} of #{total} organizations"
 
     @displayOrgs = ko.pureComputed () =>
       if @forceShowAllOrgs()
@@ -162,20 +173,27 @@ class OrgSwitcherViewModel
       if value > -1
         return @displayOrgs()[value]
 
+    @hoverHandler = (data, event) =>
+      _activeItemIndex @displayOrgs().indexOf(data)
+
     @isActiveItem = (data) =>
       return data == @activeItem()
 
     @isCurrentItem = (data) =>
       return data == @impersonatedOrg()
 
-    @flatOrgList.query.subscribe (value) =>
-      if(value != '')
-        _activeItemIndex 0
-      else
-        _activeItemIndex -1
-
     @forceShowAllOrgs.subscribe () ->
       _activeItemIndex 0
+
+    @userScrolling = ko.observable(false);
+    _timer = null
+    $(".scroll-area").on 'scroll', () =>
+      @userScrolling  true
+      window.clearTimeout(_timer)
+      _timer = window.setTimeout () =>
+        @userScrolling  false
+      , 500
+
 
     $(document).on 'keydown', (e) =>
       if e.ctrlKey && e.keyCode ==73
@@ -186,12 +204,16 @@ class OrgSwitcherViewModel
         if e.keyCode == 38
           if _activeItemIndex() > 0
             _activeItemIndex _activeItemIndex() - 1
+          else
+            _activeItemIndex(@displayOrgs().length - 1)
 
         # down arrow
         else if e.keyCode == 40
           if _activeItemIndex() < @displayOrgs().length - 1
             _activeItemIndex _activeItemIndex() + 1
             return false
+          else
+            _activeItemIndex(0)
 
         # esc arrow
         else if e.keyCode == 27

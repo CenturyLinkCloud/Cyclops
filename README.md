@@ -1,22 +1,27 @@
-### Coming in version 1.1.0
+# Coming in version 1.1.0
 - Nav Tabs component
 - Multi and single server/group picker
 - Icons
-	- Bell
-	- Exclamation Triangle
-	- Failover
-	- Messaging (Text)
-	- Queue Add
-	- Queue Archive
-	- Queue Delete
-	- Queue Restore
+  - Bell
+  - Exclamation Triangle
+  - Failover
+  - Messaging (Text)
+  - Queue Add
+  - Queue Archive
+  - Queue Delete
+  - Queue Restore
+
+- More knockout bindings
+  - title
+  - scrollTo
+
 - Pagination component
 - Show password
 - Add Card example
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
 
----
+--------------------------------------------------------------------------------
 
 [![CenturyLink Cyclops](www/assets/img/centurylink-cyclops.png)](http://assets.ctl.io/)
 

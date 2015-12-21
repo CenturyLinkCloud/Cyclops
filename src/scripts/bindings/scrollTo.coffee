@@ -1,19 +1,18 @@
-_offScreenWithParent = (element) ->
-  $element = $(element)
-  parentViewTop = $element.parents('.scroll-area').scrollTop()
-  parentViewBottom = parentViewTop + $element.parent().height()
-  elemTop = $element.offset().top
-  elemBottom = elemTop + $element.height()
-  elemBottom > parentViewBottom or elemTop < parentViewTop
-
 _scrollIntoView = (element) ->
   $element = $(element)
-  if $element.length > 0 and _offScreenWithParent(element)
+  $parent = $element.parents('.scroll-area')
+  parentTop = $parent.offset().top
+  elementTop = $element.offset().top
+  parentBottom = parentTop + $parent.height();
+  elementBottom = elementTop + $element.outerHeight();
+  if elementBottom > parentBottom
     $element[0].scrollIntoView(false)
+  else if elementTop < parentTop
+    $element[0].scrollIntoView()
   return
 
 
 ko.bindingHandlers.scrollTo = update: (element, valueAccessor) ->
   value = ko.unwrap(valueAccessor()) or false
   if value
-    _scrollIntoView($(element))
+    _scrollIntoView(element)

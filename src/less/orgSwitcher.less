@@ -89,6 +89,10 @@ html.cyclops {
           
           input {
             width: 100%;
+            font-size: 16px;
+            background: #3A3A3A;
+            border-color: #616161;
+            color: #ccc;
           }
         }
       }
@@ -107,6 +111,17 @@ html.cyclops {
         width: 100px;
       }
 
+      .col-active-item {
+        width: 14px;
+        padding: 0 5px 0 10px;
+        
+        svg {
+          opacity: 0;
+          .transition(e('opacity .05s ease-in'));
+          fill: @white;
+        }
+      }
+
       .scroll-area {
         .box-shadow(inset 0px 2px 5px 0px rgba(0, 0, 0, 0.15));
         position: absolute;
@@ -119,25 +134,34 @@ html.cyclops {
         
         .list-view-item {
           border-bottom-color: #474747;
+          .transition(e('color .05s ease-in'));
+          cursor: pointer;
           
           &.current {
-            background-color: #333;
+            background-color: #000;
+            color: @white;
           }
 
-          &.monkey {
-            background-color: red;
+          &.active-item {
+            background-color: #000;
+            color: @white;
+            
+            .col-active-item svg {
+              opacity: 1;
+            }
           }
 
           .marker {
             display: inline-block;
             margin-right: 5px;
+            color: darken(@org-switcher-text-color, 15%);
           }
         }
       }
     }
   }
 
-  @media (min-width: @screen-md-min) {
+  @media (min-width: @screen-sm-min) {
     org-switcher {
       .take-over {
         form.search {
