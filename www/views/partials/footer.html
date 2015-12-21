@@ -7,7 +7,7 @@
     </p>
   </footer>
 
-  <a href="#" class="top" role="button"><svg class="cyclops-icon md"><use xlink:href='#icon-chevron-up'></svg></a>
+  <a href="#" class="top-anchor" role="button"><svg class="cyclops-icon md"><use xlink:href='#icon-chevron-up'></svg></a>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
@@ -24,14 +24,14 @@
 
       $(window).scroll(function() {
         if ($(this).scrollTop() > offset) {
-          $('.top').fadeIn(500); // Time(in Milliseconds) of appearing of the Button when scrolling down.
+          $('.top-anchor').fadeIn(500); // Time(in Milliseconds) of appearing of the Button when scrolling down.
         } else {
-          $('.top').fadeOut(500); // Time(in Milliseconds) of disappearing of Button when scrolling up.
+          $('.top-anchor').fadeOut(500); // Time(in Milliseconds) of disappearing of Button when scrolling up.
         }
       });
 
       // Smooth animation when scrolling
-      $('.top').click(function(event) {
+      $('.top-anchor').click(function(event) {
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, scrollDuration);
       })
