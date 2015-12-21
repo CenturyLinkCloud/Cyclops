@@ -34,10 +34,7 @@
   <h2>Sizes</h2>
   <p>Icons are available at four sizes. By default, icons are 14x14px. Add <code>.md</code>, <code>.lg</code>, or <code>.xl</code> to increase the size of the icon.</p>
   <div class="pl-example">
-    <svg class="cyclops-icon"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon lg"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon xl"><use xlink:href='#icon-hyperscale'></svg>
+    {{> icons/sizes }}
   </div>
   <pre>
     <code class="html">
@@ -53,10 +50,7 @@
   <h2>Color</h2>
   <p>Four basic colors are provided. By default, icons are the same color as text.
   <div class="pl-example">
-    <svg class="cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md green"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md danger"><use xlink:href='#icon-hyperscale'></svg>
-    <svg class="cyclops-icon md info"><use xlink:href='#icon-hyperscale'></svg>
+    {{> icons/colors }}
   </div>
   <pre>
     <code class="html">
@@ -72,8 +66,7 @@
   <h2>Animation</h2>
   <p>Spin any icon using <code>.cylcops-spin</code>. Remember, with great power comes great responsibility.</p>
   <div class="pl-example">
-    <svg class="cyclops-icon md cyclops-spin"><use xlink:href='#icon-refresh'></svg>
-    <svg class="cyclops-icon md cyclops-spin"><use xlink:href='#icon-spinner'></svg>
+    {{> icons/animation }}
   </div>
     <pre>
       <code class="html">
@@ -93,12 +86,7 @@
   </p>
 
   <div class="pl-example">
-    <h1><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading One</h1>
-    <h2><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading Two</h2>
-    <h3><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading Three</h3>
-    <h4><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading Four</h4>
-    <h5><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading Five</h5>
-    <h6><svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg> Heading Six</h6>
+{{> icons/headings }}
   </div>
     <pre>
       <code class="html">
@@ -114,110 +102,5 @@
 
 <section id="all" class="pl-section">
 <h2>Available Icons</h2>
-<div class="row">
-  {{>icon "icon-angle-down"}}
-  {{>icon "icon-angle-left"}}
-  {{>icon "icon-angle-right"}}
-  {{>icon "icon-angle-up"}}
-  {{>icon "icon-api"}}
-  {{>icon "icon-appfog"}}
-  {{>icon "icon-archive"}}
-  {{>icon "icon-automation"}}
-  {{>icon "icon-autoscale"}}
-  {{>icon "icon-backup"}}
-  {{>icon "icon-ban"}}
-  {{>icon "icon-bare-metal"}}
-  {{>icon "icon-bell"}}
-  {{>icon "icon-book"}}
-  {{>icon "icon-calendar"}}
-  {{>icon "icon-caret-down"}}
-  {{>icon "icon-caret-left"}}
-  {{>icon "icon-caret-right"}}
-  {{>icon "icon-caret-up"}}
-  {{>icon "icon-centurylink"}}
-  {{>icon "icon-check"}}
-  {{>icon "icon-check-circle"}}
-  {{>icon "icon-chevron-down"}}
-  {{>icon "icon-chevron-left"}}
-  {{>icon "icon-chevron-right"}}
-  {{>icon "icon-chevron-up"}}
-  {{>icon "icon-circle-o"}}
-  {{>icon "icon-clock"}}
-  {{>icon "icon-clone"}}
-  {{>icon "icon-close"}}
-  {{>icon "icon-cloud-upload"}}
-  {{>icon "icon-code-fork"}}
-  {{>icon "icon-compliance"}}
-  {{>icon "icon-control-portal"}}
-  {{>icon "icon-database"}}
-  {{>icon "icon-disaster-recovery"}}
-  {{>icon "icon-dot-circle-o"}}
-  {{>icon "icon-download"}}
-  {{>icon "icon-ellipsis"}}
-  {{>icon "icon-exclamation-circle"}}
-  {{>icon "icon-exclamation-triangle"}}
-  {{>icon "icon-failover"}}
-  {{>icon "icon-file"}}
-  {{>icon "icon-firewall"}}
-  {{>icon "icon-flexibility"}}
-  {{>icon "icon-folder-open"}}
-  {{>icon "icon-folder"}}
-  {{>icon "icon-git"}}
-  {{>icon "icon-globe"}}
-  {{>icon "icon-global-network"}}
-  {{>icon "icon-heart"}}
-  {{>icon "icon-hyperscale"}}
-  {{>icon "icon-info"}}
-  {{>icon "icon-info-circle"}}
-  {{>icon "icon-infrastructure"}}
-  {{>icon "icon-list"}}
-  {{>icon "icon-load-balancer-dedicated"}}
-  {{>icon "icon-load-balancer-shared"}}
-  {{>icon "icon-lock"}}
-  {{>icon "icon-maintenance"}}
-  {{>icon "icon-messaging"}}
-  {{>icon "icon-monitor"}}
-  {{>icon "icon-network"}}
-  {{>icon "icon-netx"}}
-  {{>icon "icon-object-storage"}}
-  {{>icon "icon-package"}}
-  {{>icon "icon-pause"}}
-  {{>icon "icon-permissions"}}
-  {{>icon "icon-phone"}}
-  {{>icon "icon-phone-square"}}
-  {{>icon "icon-pie-chart"}}
-  {{>icon "icon-play"}}
-  {{>icon "icon-plus-circle"}}
-  {{>icon "icon-policies"}}
-  {{>icon "icon-power"}}
-  {{>icon "icon-question"}}
-  {{>icon "icon-queue"}}
-  {{>icon "icon-queue-add"}}
-  {{>icon "icon-queue-archive"}}
-  {{>icon "icon-queue-delete"}}
-  {{>icon "icon-queue-restore"}}
-  {{>icon "icon-refresh"}}
-  {{>icon "icon-restore"}}
-  {{>icon "icon-runner"}}
-  {{>icon "icon-scheduled-tasks"}}
-  {{>icon "icon-script"}}
-  {{>icon "icon-search"}}
-  {{>icon "icon-settings"}}
-  {{>icon "icon-shield"}}
-  {{>icon "icon-snapshot"}}
-  {{>icon "icon-spinner"}}
-  {{>icon "icon-square-o"}}
-  {{>icon "icon-star"}}
-  {{>icon "icon-stop"}}
-  {{>icon "icon-storage"}}
-  {{>icon "icon-support"}}
-  {{>icon "icon-switch"}}
-  {{>icon "icon-template"}}
-  {{>icon "icon-times"}}
-  {{>icon "icon-toolbox"}}
-  {{>icon "icon-trash"}}
-  {{>icon "icon-user"}}
-  {{>icon "icon-users"}}
-  {{>icon "icon-vpn"}}
-</div>
+{{> icons/all }}
 </section>
