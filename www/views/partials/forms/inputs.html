@@ -110,71 +110,7 @@
     If you want to allow the user to only pick one item use radio buttons.
   </p>
   <div class="pl-example">
-    <form class="form-horizontal">
-      <fieldset>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">pick one</label>
-          <div class="col-sm-6">
-            <div class="picker">
-              <ol>
-                <li>
-                  <label class="item-hover">
-                    <input type="radio" name="group"/>
-                    <span class="content">
-                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 1a</span>
-                    </span>
-                  </label>
-                </li>
-                <li>
-                  <label class="item-hover">
-                    <input type="radio" name="group"/>
-                    <span class="content">
-                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 1b</span>
-                    </span>
-                  </label>
-                  <ol>
-                    <li>
-                      <label class="item-hover">
-                        <input type="radio" name="group"/>
-                        <span class="content">
-                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 2a</span>
-                        </span>
-                      </label>
-                    </li>
-                  </ol>
-                </li>
-                <li>
-                  <label class="item-hover">
-                    <input type="radio" name="group"/>
-                    <span class="content">
-                      <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 1c</span>
-                    </span>
-                  </label>
-                  <ol>
-                    <li>
-                      <label class="item-hover">
-                        <input type="radio" name="group"/>
-                        <span class="content">
-                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 2a</span>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="item-hover">
-                        <input type="radio" name="group"/>
-                        <span class="content">
-                          <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Level 2b</span>
-                        </span>
-                      </label>
-                    </li>
-                  </ol>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+    {{> forms/examples/input-picker-single }}
   </div>
   <pre>
     <code class="html">
@@ -218,153 +154,73 @@
       If you want to allow the user pick many items use checkboxes.
     </p>
     <div class="pl-example">
-      <form class="form-horizontal">
-        <fieldset >
-          <div class="form-group">
-            <label class="col-sm-3 control-label">select servers(s)</label>
-            <div class="col-sm-6">
-              <div class="picker">
-                <ol>
-                  <li>
-                    <label class="item-hover">
-                      <span class="content">
-                        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Default Group</span>
-                      </span>
-                    </label>
-                    <ol>
-                      <li>
-                        <label class="item-hover">
-                          <input type="checkbox"/>
-                          <span class="content">
-                            <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVTEST01</span>
-                          </span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="item-hover">
-                          <input type="checkbox"/>
-                          <span class="content">
-                            <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVTEST02</span>
-                          </span>
-                        </label>
-                      </li>
-                    </ol>
-                  </li>
-                  <li>
-                    <label class="item-hover">
-                      <span class="content">
-                        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span>Web Servers</span>
-                      </span>
-                    </label>
-                    <ol>
-                      <li>
-                        <label class="item-hover">
-                          <input type="checkbox" disabled/>
-                          <span class="content">
-                            <svg class="cyclops-icon"><use xlink:href='#icon-stop'></svg> <span>QA1DEVSRVR01</span>
-                          </span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="item-hover">
-                          <input type="checkbox"/>
-                          <span class="content">
-                            <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVSRVR02</span>
-                          </span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="item-hover">
-                          <input type="checkbox"/>
-                          <span class="content">
-                            <svg class="cyclops-icon"><use xlink:href='#icon-play'></svg> <span>QA1DEVSRVR03</span>
-                          </span>
-                        </label>
-                      </li>
-
-                    </ol>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </form>
+      {{> forms/examples/input-picker-multi }}
     </div>
     <pre>
       <code class="html">
-&lt;form class=&quot;form-horizontal&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;Which server(s)&lt;/label&gt;
-      &lt;div class=&quot;col-sm-6&quot;&gt;
-        &lt;div class=&quot;picker&quot;&gt;
-          &lt;ol&gt;
-            &lt;li&gt;
-              &lt;label class=&quot;item-hover&quot;&gt;
-                &lt;span class=&quot;content&quot;&gt;
-                  &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Default Group&lt;/span&gt;
-                &lt;/span&gt;
-              &lt;/label&gt;
-              &lt;ol&gt;
-                &lt;li&gt;
-                  &lt;label class=&quot;item-hover&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot;/&gt;
-                    &lt;span class=&quot;content&quot;&gt;
-                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST01&lt;/span&gt;
-                    &lt;/span&gt;
-                  &lt;/label&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                  &lt;label class=&quot;item-hover&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot;/&gt;
-                    &lt;span class=&quot;content&quot;&gt;
-                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST02&lt;/span&gt;
-                    &lt;/span&gt;
-                  &lt;/label&gt;
-                &lt;/li&gt;
-              &lt;/ol&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;label class=&quot;item-hover&quot;&gt;
-                &lt;span class=&quot;content&quot;&gt;
-                  &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Web Servers&lt;/span&gt;
-                &lt;/span&gt;
-              &lt;/label&gt;
-              &lt;ol&gt;
-                &lt;li&gt;
-                  &lt;label class=&quot;item-hover&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot; disabled/&gt;
-                    &lt;span class=&quot;content&quot;&gt;
-                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR01&lt;/span&gt;
-                    &lt;/span&gt;
-                  &lt;/label&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                  &lt;label class=&quot;item-hover&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot;/&gt;
-                    &lt;span class=&quot;content&quot;&gt;
-                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR02&lt;/span&gt;
-                    &lt;/span&gt;
-                  &lt;/label&gt;
-                &lt;/li&gt;
-                &lt;li&gt;
-                  &lt;label class=&quot;item-hover&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot;/&gt;
-                    &lt;span class=&quot;content&quot;&gt;
-                      &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR03&lt;/span&gt;
-                    &lt;/span&gt;
-                  &lt;/label&gt;
-                &lt;/li&gt;
+&lt;div class=&quot;picker&quot;&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;label class=&quot;item-hover&quot;&gt;
+        &lt;span class=&quot;content&quot;&gt;
+          &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Default Group&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/label&gt;
+      &lt;ol&gt;
+        &lt;li&gt;
+          &lt;label class=&quot;item-hover&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;/&gt;
+            &lt;span class=&quot;content&quot;&gt;
+              &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST01&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;label class=&quot;item-hover&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;/&gt;
+            &lt;span class=&quot;content&quot;&gt;
+              &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVTEST02&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label class=&quot;item-hover&quot;&gt;
+        &lt;span class=&quot;content&quot;&gt;
+          &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-folder'&gt;&lt;/svg&gt; &lt;span&gt;Web Servers&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/label&gt;
+      &lt;ol&gt;
+        &lt;li&gt;
+          &lt;label class=&quot;item-hover&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; disabled/&gt;
+            &lt;span class=&quot;content&quot;&gt;
+              &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR01&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;label class=&quot;item-hover&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;/&gt;
+            &lt;span class=&quot;content&quot;&gt;
+              &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR02&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;label class=&quot;item-hover&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;/&gt;
+            &lt;span class=&quot;content&quot;&gt;
+              &lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; &lt;span&gt;QA1DEVSRVR03&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/li&gt;
 
-              &lt;/ol&gt;
-            &lt;/li&gt;
-          &lt;/ol&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
       </code>
     </pre>
 
@@ -377,19 +233,7 @@
   <h3 id="stackedInputs"><a href="#stackedInputs">One Label with Stacked Inputs</a></h3>
   <p>By default, inputs will automatically stack when placed in a single column.</p>
   <div class="pl-example">
-    <form class="form-horizontal">
-      <fieldset>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">nodes</label>
-          <div class="col-sm-6">
-            <input type="text" id="node1" class="form-control" placeholder="ip address">
-            <input type="text" id="node2" class="form-control" placeholder="ip address">
-            <input type="text" id="node3" class="form-control" placeholder="ip address">
-            <input type="text" id="node4" class="form-control" placeholder="ip address">
-          </div>
-        </div>
-      </fieldset>
-    </form>
+    {{> forms/examples/input-stacked-inputs }}
   </div>
   <pre>
     <code class="html">
@@ -412,17 +256,7 @@
   <h3 id="adjacentInputs"><a href="#adjacentInputs">One Label with Adjacent Inputs</a></h3>
   <p>When it is more appropriate to adjacently align inputs within a <code>.col-*</code>, add a <code>.w*</code> to the <code>.form-control</code> set the width based on a percentage of the parent. Widths are avaialbe in increments of 10, starting at 10%.</p>
   <div class="pl-example">
-    <form class="form-horizontal">
-      <fieldset>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">nodes</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control w70" placeholder="ip address">
-            <input type="text" class="form-control w30" placeholder="port">
-          </div>
-        </div>
-      </fieldset>
-    </form>
+    {{> forms/examples/input-adjacent-inputs }}
   </div>
   <pre>
     <code class="html">

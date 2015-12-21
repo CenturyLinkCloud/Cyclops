@@ -12,17 +12,7 @@
   <a href="./knockoutComponents.html#toggle"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a>
 </h4>
 <div class="pl-example" id="formToggle">
-  <form class="form-horizontal">
-    <fieldset>
-      <legend>Advanced Controls</legend>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Enabled Awesomeness</label>
-        <div class="col-sm-9">
-          <toggle></toggle>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+  {{> forms/examples/custom-controls-toggle }}
 </div>
 <pre>
   <code class="html">
@@ -36,30 +26,13 @@
   <a href="./knockoutComponents.html#slider"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a>
 </h4>
 <div class="pl-example">
-  <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-    <fieldset>
-      <legend>Advanced Controls</legend>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">slider</label>
-        <div class="col-sm-9">
-            <slider params="value: 6, min: 1, max: 16"></slider>
-            <slider params="value: 4, min: 1, max: 128"></slider>
-            <slider params="value: 50, min: 1, max: 1024"></slider>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+  {{> forms/examples/custom-controls-slider }}
 </div>
 <pre>
   <code class="html">
-&lt;div class=&quot;form-group&quot;&gt;
-  &lt;label class=&quot;col-sm-3 control-label&quot;&gt;slider&lt;/label&gt;
-  &lt;div class=&quot;col-sm-9&quot;&gt;
-    &lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
-    &lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
-    &lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
+&lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
+&lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
   </code>
 </pre>
 
@@ -70,29 +43,12 @@
   <a href="./knockoutComponents.html#groupPicker"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a>
 </h4>
 <div class="pl-example">
-  <form id="formGroupPicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
-    <fieldset>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Select a Group</label>
-        <div class="col-sm-9">
-          <group-picker params="{ selectedGroup: selectedGroup, isLoading: isLoading, groups: groups}"></group-picker>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+  {{> forms/examples/custom-controls-group-picker }}
 </div>
 <pre>
   <code class="html">
-&lt;form id=&quot;formGroupPicker&quot; class=&quot;form-horizontal&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;Select a Group&lt;/label&gt;
-      &lt;div class=&quot;col-sm-9&quot;&gt;
-        &lt;group-picker params=&quot;{ selectedGroup: selectedGroup, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;
+&lt;group-picker params=&quot;{ selectedGroup: selectedGroup, isLoading: isLoading, groups:groups}&quot;&gt;&lt;/group-picker&gt;
+
   </code>
 </pre>
 
@@ -116,15 +72,6 @@
 </div>
 <pre>
   <code class="html">
-&lt;form id=&quot;formServerPicker&quot; class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;server(s)&lt;/label&gt;
-      &lt;div class=&quot;col-sm-9&quot;&gt;
-        &lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;
+&lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
   </code>
 </pre>

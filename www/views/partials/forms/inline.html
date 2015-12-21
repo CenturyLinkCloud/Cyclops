@@ -3,23 +3,7 @@
   <p>Use <code>.inline-form</code> to display labels and form inputs on a single row. This is useful for confirmation dialogs that offer additional options (e.g. delete a database, but create a backup before it's deleted).</p>
 
   <div class="pl-example">
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="inputEmail">email</label>
-          <input type="text" class="form-control" id="inputEmail" placeholder="email">
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> remember me
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio"> radio me
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary">sign in</button>
-    </form>
+    {{> forms/examples/inline }}
   </div>
   <pre>
     <code class="html">
