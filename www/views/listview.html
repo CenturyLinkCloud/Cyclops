@@ -9,8 +9,12 @@
 <section class="pl-section">
 
   <h3 id="markup"><a href="#markup">Basic Markup</a></h3>
-  <p>The basic markup for a list view looks like this:</p>
+  <p>For the header, use the container class <code>.new-list-view-header</code>, and for each column, use an <code>&lt;h3&gt;</code> with <code>.col</code> and <code>.col-*</code> where <code>*</code> is the percentage width of the column in increments of 5%.</p>
 
+  <p>The body of the list view is a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with <code>.new-list-view</code> applied to it. Within each <code>&lt;li&gt;</code>, their should be a corresponding <code>&lt;div class=&quot;col col-*&quot;&gt;</code> for each column definied in <code>.new-list-view-header</code>.</p>
+  <div class="pl-example">
+    {{> list-view/basic }}
+  </div>
   <pre>
     <code class="html">
 &lt;!-- header of the list --&gt;
@@ -38,32 +42,6 @@
 &lt;/ul&gt;
     </code>
   </pre>
-
-  <p>Which renders this:</p>
-
-  <div class="pl-example">
-    <div class="new-list-view-header">
-        <h3 class="col col-25">Header Column 1</h3>
-        <h3 class="col col-25">Header Column 2</h3>
-        <h3 class="col col-50">Header Column 3</h3>
-    </div>
-    <ul class="new-list-view">
-      <li>
-          <div class="list-view-item">
-              <div class="col col-25">Body Column 1</div>
-              <div class="col col-25">Body Column 2</div>
-              <div class="col col-50">Body Column 3</div>
-          </div>
-      </li>
-      <li>
-          <div class="list-view-item">
-              <div class="col col-25">Body Column 1</div>
-              <div class="col col-25">Body Column 2</div>
-              <div class="col col-50">Body Column 3</div>
-          </div>
-      </li>
-    </ul>
-  </div>
 </section>
 
 <section class="pl-section" id="states">
@@ -80,15 +58,7 @@
   <p>Provide text and use a <code>&amp;hellip;</code> to indicate that data is loading in place by wrapping it inside a <code>.loading-list-view-items</code> item within the <code>.new-list-view</code>.</p>
   <p>View the <a href="listview.html#interactiveExamples">interactive example of the list view</a> and refresh the page.</p>
   <div class="pl-example">
-    <div class="new-list-view-header">
-      <h3 class="col col-40">Alert Policy</h3>
-      <h3 class="col col-60">Description</h3>
-    </div>
-    <ul class="new-list-view">
-      <li class="loading-list-view-items">
-        Fetching alert policies from server&hellip;
-      </li>
-    </ul>
+    {{> list-view/loading }}
   </div>
   <pre>
     <code class="html">
@@ -101,15 +71,7 @@
   <h4 id="loadingError">Failed to Load Data</h4>
   <p>Provide text to indicate that the data has failed to load inside a <code>.error-list-view-items</code> item within the <code>.new-list-view</code>. If possible, provide a link to retry loading the data.</p>
   <div class="pl-example">
-    <div class="new-list-view-header">
-      <h3 class="col col-40">Alert Policy</h3>
-      <h3 class="col col-60">Description</h3>
-    </div>
-    <ul class="new-list-view">
-      <li class="error-list-view-items">
-        <svg class="cyclops-icon danger"><use xlink:href='#icon-exclamation-circle'></svg> Alert policies failed to load.
-      </li>
-    </ul>
+    {{> list-view/loading-failed }}
   </div>
   <pre>
     <code class="html">
@@ -121,17 +83,8 @@
 
   <h4 id="emptyList">Empty List</h4>
   <p>When a list view is empty, provide a way within the empty list to create whatever entity the list contains by defining the contents of a <code>.empty-list-view-item</code> item within the <code>.new-list-view</code>.</p>
-  <strong>Simple Empty List</strong>
   <div class="pl-example">
-    <div class="new-list-view-header">
-      <h3 class="col col-40">Alert Policy</h3>
-      <h3 class="col col-60">Description</h3>
-    </div>
-    <ul class="new-list-view">
-      <li class="empty-list-view-item">
-        There are no alert policies on this server. <button class="btn btn-link-text">Apply an alert policy</button>.
-      </li>
-    </ul>
+    {{> list-view/empty }}
   </div>
   <pre>
     <code class="html">
@@ -141,21 +94,10 @@
     </code>
   </pre>
 
-  <strong id="emptyFirstRun">First-Run Empty List</strong>
+  <h4 id="emptyFirstRun">First-Run Empty List</h4>
   <p>To provide a prominent message about the contents of an empty list, add <code>.feature</code> to <code>.empty-list-view-item</code> and use the following as a template for featuring the benefits/info of the service with a call to action.</p>
   <div class="pl-example">
-    <div class="new-list-view-header">
-      <h3 class="col col-40">Database</h3>
-      <h3 class="col col-60">Location</h3>
-    </div>
-    <ul class="new-list-view">
-      <li class="empty-list-view-item feature">
-        <svg class="cyclops-icon lg green"><use xlink:href='#icon-database'></svg>
-        <h3>Get Started with Relational DB</h3>
-        <p class="lead">Relational DB makes it easy to set up and manage high performance, cost efficient, MySQL-compatible relational databases. </p>
-        <p><a href="#" class="btn btn-primary btn-lg">create a database</a></p>
-      </li>
-    </ul>
+    {{> list-view/empty-first-run }}
   </div>
   <pre>
     <code class="html">
@@ -200,38 +142,11 @@
   </table>
 
   <div class="pl-example">
-    <div class="new-list-view-header">
-        <h3 class="col col-100">Row Type</h3>
-    </div>
-    <ul class="new-list-view">
-      <li>
-          <div class="list-view-item">
-              <div class="col col-100">Item</div>
-          </div>
-      </li>
-      <li>
-          <div class="list-view-link-item">
-              <div class="col col-100">Link Item</div>
-          </div>
-      </li>
-      <li>
-          <div class="list-view-editable-item">
-              <div class="col col-100">Editable Item</div>
-          </div>
-      </li>
-      <li>
-          <div class="list-view-read-only-item">
-              <div class="col col-100">Read Only Item</div>
-          </div>
-      </li>
-    </ul>
+    {{> list-view/types }}
   </div>
 
   <pre>
     <code class="html">
-&lt;div class=&quot;new-list-view-header&quot;&gt;
-  &lt;h3 class=&quot;col col-100&quot;&gt;Row Type&lt;/h3&gt;
-&lt;/div&gt;
 &lt;ul class=&quot;new-list-view&quot;&gt;
   &lt;li&gt;
     &lt;div class=&quot;list-view-item&quot;&gt;
@@ -262,28 +177,7 @@
   <h3><a href="#rowColors">Item Colors</a></h3>
   <p>To highlight rows within a list view, add <code>.list-view-item-*</code> &mdash; where * is success, info, warning or danger &mdash; to a <code>.list-view-item</code> or <code>.list-view-editable-item</code>. </p>
   <div class="pl-example">
-    <ul class="new-list-view">
-      <li>
-        <div class="list-view-editable-item list-view-item-success">
-          <div class="col col-100">.list-view-item-success</div>
-        </div>
-      </li>
-      <li>
-        <div class="list-view-editable-item list-view-item-info">
-          <div class="col col-100">.list-view-item-info</div>
-        </div>
-      </li>
-      <li>
-        <div class="list-view-editable-item list-view-item-warning">
-          <div class="col col-100">.list-view-item-warning</div>
-        </div>
-      </li>
-      <li>
-        <div class="list-view-editable-item list-view-item-danger">
-          <div class="col col-100">.list-view-item-danger</div>
-        </div>
-      </li>
-    </ul>
+    {{> list-view/colors }}
   </div>
   <pre>
     <code class="html">
@@ -319,51 +213,7 @@
   <p>If allowed, be sure to include a delete button, with <a href="./buttons.html#inlineConfirm">confirmation</a>, button in the edit form.</p>
   <p><a href="listview.html#interactiveExamples">View a fully interactive demo of the list view</a>.</p>
   <div class="pl-example">
-    <ul class="new-list-view">
-      <li>
-          <div class="list-view-item">
-              <div class="col col-100">Item</div>
-          </div>
-      </li>
-      <li>
-          <div class="list-view-item">
-              <div class="col col-100">Item</div>
-          </div>
-      </li>
-      <li>
-        <div class="list-view-item-form">
-          <form class="form-horizontal">
-            <fieldset>
-              <legend>Inline Edit Form</legend>
-              <div class="form-group">
-                <label class="col-sm-3 control-label" for="listViewInlineFormName">name</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="listViewInlineFormName">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label" for="listViewInlineFormEmail">email</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="listViewInlineFormEmail">
-                </div>
-              </div>
-              <div class="form-group form-submit">
-                <div class="col-sm-offset-3 col-sm-9">
-                  <button class="btn btn-primary">Save</button>
-                  <button class="btn btn-link">cancel</button>
-                  <button class="btn btn-danger pull-right">Delete</button>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </li>
-      <li>
-          <div class="list-view-item">
-              <div class="col col-100">Item</div>
-          </div>
-      </li>
-    </ul>
+    {{> list-view/inline-form }}
   </div>
   <pre>
     <code class="html">
@@ -427,29 +277,7 @@
   <p>In each <code>col</code>, set an optional <code>label</code> to appear above each column value.</p>
 
   <div class="pl-example">
-    <div class="new-list-view-responsive new-list-view-responsive-sm">
-      <div class="new-list-view-header">
-          <h3 class="col col-25">First Name</h3>
-          <h3 class="col col-25">Last Name</h3>
-          <h3 class="col col-50">Username</h3>
-      </div>
-      <ul class="new-list-view">
-        <li>
-            <div class="list-view-item">
-                <div class="col col-25"><span class="col-header">First Name</span>Alyssa</div>
-                <div class="col col-25"><span class="col-header">Last Name</span>Carizzalas</div>
-                <div class="col col-50"><span class="col-header">Username</span>alyssa.carizzalas</div>
-            </div>
-        </li>
-        <li>
-            <div class="list-view-item">
-                <div class="col col-25"><span class="col-header">First Name</span>Matthew</div>
-                <div class="col col-25"><span class="col-header">Last Name</span>Osborn</div>
-                <div class="col col-50"><span class="col-header">Username</span>mosborn</div>
-            </div>
-        </li>
-      </ul>
-    </div>
+    {{> list-view/responsive }}
   </div>
 
   <pre>
@@ -487,54 +315,7 @@
   <p>When it is necessary to display hierarchy (e.g. subaccounts, groups/servers), nest a <code>.new-list-view</code> immediately after the <code>.list-view-*-item</code> element. Then add <code>.col-indent</code> to the <code>.col</code> within the <code>&lt;li&gt;</code> in that should be indented.</p>
   <p>Six levels of indentation is supported. </p>
   <div class="pl-example">
-    <!-- header of the list -->
-    <div class="new-list-view-header">
-      <h3 class="col col-10"></h3>
-      <h3 class="col col-90">Level</h3>
-    </div>
-    <!-- body of the list -->
-    <ul class="new-list-view">
-      <li>
-        <div class="list-view-editable-item">
-          <div class="col col-10"><input type="checkbox"></div>
-          <div class="col col-90">Level 1a</div>
-        </div>
-      </li>
-      <li>
-        <div class="list-view-editable-item">
-          <div class="col col-10"><input type="checkbox"></div>
-          <div class="col col-90">Level 1b</div>
-        </div>
-        <ul class="new-list-view">
-          <li>
-            <div class="list-view-editable-item">
-              <div class="col col-10"><input type="checkbox"></div>
-              <div class="col col-90 col-indent">Level 2a</div>
-            </div>
-            <ul class="new-list-view">
-              <li>
-                <div class="list-view-editable-item">
-                  <div class="col col-10"><input type="checkbox"></div>
-                  <div class="col col-90 col-indent">Level 3</div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="list-view-editable-item">
-              <div class="col col-10"><input type="checkbox"></div>
-              <div class="col col-90 col-indent">Level 2b</div>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <div class="list-view-editable-item">
-          <div class="col col-10"><input type="checkbox"></div>
-          <div class="col col-90 col-indent">Level 1c</div>
-        </div>
-      </li>
-    </ul>
+    {{> list-view/nested }}
   </div>
   <pre>
     <code class="html">
