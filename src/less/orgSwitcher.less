@@ -4,6 +4,7 @@
 @org-switcher-bg: #3a3a3a;
 @org-switcher-text-color: #bdbdbd;
 @org-switcher-border-color: lighten(@org-switcher-bg, 5%);
+@org-switcher-active-bg: darken(@org-switcher-bg, 10%);
 
 html.cyclops {
   .org-switcher-open {
@@ -22,7 +23,7 @@ html.cyclops {
       color: gray;
       font-size: @font-size-small;
       text-decoration: none;
-      
+
       &:hover {
         color: white;
         outline: none;
@@ -42,12 +43,18 @@ html.cyclops {
       font-weight: 400;
       height: 40px;
       padding: 5px 10px;
-      
+
       .toggle-btn {
         padding: 0;
-        
+
         svg {
+
+          .transition(e('fill .05s ease-in'));
           fill: @org-switcher-text-color;
+
+          &:hover {
+            fill: @white;
+          }
         }
       }
 
@@ -61,6 +68,11 @@ html.cyclops {
         white-space: nowrap;
         vertical-align: middle;
         margin-right: 5px;
+        .transition(e('color .05s ease-in'));
+
+        &:hover {
+          color: @white;
+        }
       }
     }
 
@@ -77,7 +89,7 @@ html.cyclops {
       outline: 0;
       color: @org-switcher-text-color;
       padding: 20px;
-      
+
       .org-message {
         display: inline-block;
         padding: 4px 0;
@@ -86,12 +98,12 @@ html.cyclops {
       form.search {
         .search-input {
           width: 100%;
-          
+
           input {
             width: 100%;
             font-size: 16px;
-            background: #3A3A3A;
-            border-color: #616161;
+            background: @org-switcher-bg;
+            border-color: @org-switcher-border-color;
             color: #ccc;
           }
         }
@@ -100,8 +112,8 @@ html.cyclops {
       .new-list-view-header {
         clear: both;
         background-color: transparent;
-        border-bottom: 2px solid #474747;
-        
+        border-bottom: 2px solid @org-switcher-border-color;
+
         h3 {
           color: #999;
         }
@@ -114,7 +126,7 @@ html.cyclops {
       .col-active-item {
         width: 14px;
         padding: 0 5px 0 10px;
-        
+
         svg {
           opacity: 0;
           .transition(e('opacity .05s ease-in'));
@@ -131,21 +143,21 @@ html.cyclops {
         left: 20px;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        
+
         .list-view-item {
-          border-bottom-color: #474747;
+          border-bottom-color: @org-switcher-border-color;
           .transition(e('color .05s ease-in'));
           cursor: pointer;
-          
+
           &.current {
-            background-color: #000;
+            background-color: @org-switcher-active-bg;
             color: @white;
           }
 
           &.active-item {
-            background-color: #000;
+            background-color: @org-switcher-active-bg;
             color: @white;
-            
+
             .col-active-item svg {
               opacity: 1;
             }
@@ -166,10 +178,10 @@ html.cyclops {
       .take-over {
         form.search {
           float: right;
-          
+
           .search-input {
             width: auto;
-            
+
             input {
               width: auto;
             }
