@@ -20,6 +20,7 @@
 - Add Card example
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
+- The "Kitchen Sink": A single page that displays all styles and components for quick testing purposes.
 
 --------------------------------------------------------------------------------
 
