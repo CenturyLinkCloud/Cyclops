@@ -1,11 +1,10 @@
 # TODO:
 # - animation and the scroll-area are off
-# - iphone layout
 # - will disabled accounts be passed to us?
-
 # - arrow keys with search
 
 # DONE:
+# - iphone layout
 # - keydown events on mobile
 # - textbox on mobile causes a zoom font-sizes greater that 16 dont cause this :)
 # - remove monkey class
@@ -151,13 +150,9 @@ class OrgSwitcherViewModel
       visible = @displayOrgs().length
 
       if @forceShowAllOrgs() or visible == total
-        if @isSearching()
-          return "#{total} organizations with '#{@flatOrgList.query()}'"
         return "#{total} organizations"
       else
-        if @isSearching()
-          return "Showing #{visible} of #{total} organizations with '#{@flatOrgList.query()}'"
-      return "Showing #{visible} of #{total} organizations"
+        return "Showing #{visible} of #{total} organizations"
 
     @displayOrgs = ko.pureComputed () =>
       if @forceShowAllOrgs()

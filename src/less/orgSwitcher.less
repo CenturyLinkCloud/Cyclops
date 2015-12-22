@@ -23,7 +23,7 @@ html.cyclops {
       color: gray;
       font-size: @font-size-small;
       text-decoration: none;
-
+      
       &:hover {
         color: white;
         outline: none;
@@ -43,15 +43,14 @@ html.cyclops {
       font-weight: 400;
       height: 40px;
       padding: 5px 10px;
-
+      
       .toggle-btn {
         padding: 0;
-
+        
         svg {
-
           .transition(e('fill .05s ease-in'));
           fill: @org-switcher-text-color;
-
+          
           &:hover {
             fill: @white;
           }
@@ -69,7 +68,7 @@ html.cyclops {
         vertical-align: middle;
         margin-right: 5px;
         .transition(e('color .05s ease-in'));
-
+        
         &:hover {
           color: @white;
         }
@@ -89,16 +88,16 @@ html.cyclops {
       outline: 0;
       color: @org-switcher-text-color;
       padding: 20px;
-
+      
       .org-message {
         display: inline-block;
-        padding: 4px 0;
+        padding: 4px 0 6px;
       }
 
       form.search {
         .search-input {
           width: 100%;
-
+          
           input {
             width: 100%;
             font-size: 16px;
@@ -113,7 +112,7 @@ html.cyclops {
         clear: both;
         background-color: transparent;
         border-bottom: 2px solid @org-switcher-border-color;
-
+        
         h3 {
           color: #999;
         }
@@ -126,7 +125,7 @@ html.cyclops {
       .col-active-item {
         width: 14px;
         padding: 0 5px 0 10px;
-
+        
         svg {
           opacity: 0;
           .transition(e('opacity .05s ease-in'));
@@ -143,12 +142,12 @@ html.cyclops {
         left: 20px;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-
+        
         .list-view-item {
           border-bottom-color: @org-switcher-border-color;
           .transition(e('color .05s ease-in'));
           cursor: pointer;
-
+          
           &.current {
             background-color: @org-switcher-active-bg;
             color: @white;
@@ -157,7 +156,7 @@ html.cyclops {
           &.active-item {
             background-color: @org-switcher-active-bg;
             color: @white;
-
+            
             .col-active-item svg {
               opacity: 1;
             }
@@ -178,10 +177,10 @@ html.cyclops {
       .take-over {
         form.search {
           float: right;
-
+          
           .search-input {
             width: auto;
-
+            
             input {
               width: auto;
             }
