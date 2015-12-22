@@ -3,20 +3,7 @@
   <p>When possible, expose a billing estimate for your service so that customers can see how their usage of individual services will impact their total bill. Add <code>.billing-summary</code> to a <code>.row</code>, and within each grid column, wrap the unit in <code>.heading</code> and the value in <code>.currency</code>.</p>
 
   <div class="pl-example">
-    <div class="row billing-summary">
-      <div class="col-sm-4 col-xs-6">
-        <div class="heading">MONTH ESTIMATE</div>
-        <div class="currency">$15.74</div>
-      </div>
-      <div class="col-sm-4 col-xs-6">
-        <div class="heading">CURRENT HOUR</div>
-        <div class="currency">$0.02</div>
-      </div>
-      <div class="col-sm-4 col-xs-6">
-        <div class="heading">MONTH TO DATE</div>
-        <div class="currency">$7.08</div>
-      </div>
-    </div>
+    {{> components/examples/billing-summary-3 }}
   </div>
   <pre>
     <code class="html">
@@ -39,24 +26,7 @@
 
   <p>Billing estimate with a one time charge (setup fees)</p>
   <div class="pl-example">
-    <div class="row billing-summary">
-      <div class="col-sm-3 col-xs-6">
-        <div class="heading">MONTH ESTIMATE</div>
-        <div class="currency">$1,136.34</div>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="heading">CURRENT HOUR</div>
-        <div class="currency">$1.51</div>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="heading">ONE TIME CHARGES</div>
-        <div class="currency">$0.00</div>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="heading">MONTH TO DATE</div>
-        <div class="currency">$480.40</div>
-      </div>
-    </div>
+    {{> components/examples/billing-summary-4 }}
   </div>
   <pre>
     <code class="html">
@@ -83,28 +53,8 @@
 
   <p>Billing estimate with one time charge and promo balance.</p>
   <div class="pl-example">
-    <div class="row billing-summary">
-      <div class="col-sm-1-5">
-        <div class="heading">MONTH ESTIMATE</div>
-        <div class="currency">$1,136.34</div>
-      </div>
-      <div class="col-sm-1-5">
-        <div class="heading">CURRENT HOUR</div>
-        <div class="currency">$1.51</div>
-      </div>
-      <div class="col-sm-1-5">
-        <div class="heading">ONE TIME CHARGES</div>
-        <div class="currency">$0.00</div>
-      </div>
-      <div class="col-sm-1-5">
-        <div class="heading">MONTH TO DATE</div>
-        <div class="currency">$480.40</div>
-      </div>
-      <div class="col-sm-1-5">
-        <div class="heading">PROMO BALANCE</div>
-        <div class="currency">($623.40)</div>
-      </div>
-    </div>
+    {{> components/examples/billing-summary-5 }}
+
   </div>
 
   <pre>
@@ -138,7 +88,7 @@
     <h4>Loading Behavior</h4>
     <p>When loading data, use a <code>&amp;hellip;</code> to indicate that data is loading in place, and a <code>&amp;mdash;</code> when the data fails to load.</p>
   </div>
-  
+
   <strong>Loading Data</strong>
   <div class="pl-example">
     <div class="row billing-summary">

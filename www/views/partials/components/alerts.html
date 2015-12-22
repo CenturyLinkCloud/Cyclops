@@ -3,38 +3,7 @@
   <p>Provide contextual feedback messages for user actions with alert messages. Wrap any text and an optional dismiss button in <code>.alert</code> and one of the four contextual classes (e.g., <code>.alert-success</code>) for basic alert messages. Responsive behavior is built in.</p>
 
   <div class="pl-example">
-    <div class="alert alert-success" role="alert">
-      <div class="alert-icon ">
-        <svg class="cyclops-icon"><use xlink:href='#icon-plus-circle'></svg>
-      </div>
-      <h4>Success!</h4>
-      <p>This is a successful message.</p>
-    </div>
-    <div class="alert alert-info" role="alert">
-      <div class="alert-icon ">
-        <svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg>
-      </div>
-      <h4>Helpful Information!</h4>
-      <p>This alert should be used to display information that isn't inherently obvious.</p>
-    </div>
-    <div class="alert alert-warning" role="alert">
-      <div class="alert-icon">
-        <svg class="cyclops-icon"><use xlink:href='#icon-exclamation-circle'></svg>
-      </div>
-      <h4>Warning!</h4>
-      <p>This is a warning message.</p>
-    </div>
-    <div class="alert alert-danger" role="alert">
-      <div class="alert-icon ">
-        <svg class="cyclops-icon"><use xlink:href='#icon-ban'></svg>
-      </div>
-      <h4>Danger!</h4>
-      <p>This message is important and may have a major impact.</p>
-    </div>
-    <div class="alert alert-info" role="alert">
-      <p>A message with a button.</p>
-      <p><button class="btn btn-default"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle'></svg> button</button></p>
-    </div>
+    {{> components/examples/alerts }}
   </div>
     <pre>
       <code class="html">

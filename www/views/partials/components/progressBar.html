@@ -1,25 +1,15 @@
 <section class="pl-section" id="progressBars">
   <h3><a href="#progressBars">Progress Bars</a></h3>
   <p>
-    Progress is displayed using the <code>progress</code>
+    Progress bars are block elements that can be displayed using the <code>progress</code>
     <a href="https://www.w3.org/wiki/HTML/Elements/progress">HTML5 tag</a>. Set the
-    <code>max</code> to the amount of work to complete, basically the value which the value property
+    <code>max</code> to the amount of work to complete &mdash; the value which the value property
     will be divided by. Set the <code>value</code> attribute to the amount of work complete.
   </p>
+  <p>To indicate a state, the color of the bar can be changed using <code>.info</code>, <code>.warning</code> or <code>.danger</code>. The default color is green.</p>
 
   <div class="pl-example">
-    <h4>0%</h4>
-    <progress value="0" max="100">0%</progress>
-    <h4>50%</h4>
-    <progress value="50" max="100">50%</progress>
-    <h4>100%</h4>
-    <progress value="100" max="100">100%</progress>
-    <h4>info</h4>
-    <progress class="info" value="75" max="100">75%</progress>
-    <h4>warning</h4>
-    <progress class="warning" value="75" max="100">75%</progress>
-    <h4>error</h4>
-    <progress class="danger" value="75" max="100">75%</progress>
+    {{> components/examples/progress-bar }}
   </div>
     <pre>
       <code class="html">
