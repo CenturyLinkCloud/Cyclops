@@ -1,9 +1,9 @@
 # TODO:
-# - animation and the scroll-area are off
 # - will disabled accounts be passed to us?
-# - arrow keys with search
 
 # DONE:
+# - animation and the scroll-area are off
+# - arrow keys with search
 # - iphone layout
 # - keydown events on mobile
 # - textbox on mobile causes a zoom font-sizes greater that 16 dont cause this :)
@@ -33,6 +33,13 @@ class OrgSwitcherViewModel
     options = options || {}
 
     @isOpen = ko.observable false
+
+    @isOpen.subscribe (newValue) =>
+      if newValue
+        $("org-switcher .take-over").animate({ top: 40, bottom: 0 })
+      else
+        $("org-switcher .take-over").animate({ top: '-100%', bottom: '100%' })
+
     @toggleHandler = (data, event) =>
       $('body').toggleClass 'org-switcher-open'
       @isOpen !@isOpen()

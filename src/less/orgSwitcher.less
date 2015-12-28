@@ -43,6 +43,9 @@ html.cyclops {
       font-weight: 400;
       height: 40px;
       padding: 5px 10px;
+      z-index: 1051;
+      position: relative;
+      .box-shadow(0 -2px 3px 1px #000);
       
       .toggle-btn {
         padding: 0;
@@ -76,13 +79,12 @@ html.cyclops {
     }
 
     .take-over {
-      display: none;
       background-color: #2d2d2d;
       overflow: hidden;
       position: fixed;
-      top: 40px;
+      top: -100%;
       right: 0;
-      bottom: 0;
+      bottom: 100%;
       left: 0;
       z-index: 1050;
       outline: 0;
