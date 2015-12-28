@@ -89,6 +89,7 @@ class OrgSwitcherViewModel
     # if they change the query turn off force all
     @flatOrgList.query.subscribe () =>
       @forceShowAllOrgs(false)
+      _activeItemIndex -1
     , null, 'beforeChange'
 
     @isSearching = ko.computed () =>
@@ -199,16 +200,13 @@ class OrgSwitcherViewModel
         if e.keyCode == 38
           if _activeItemIndex() > 0
             _activeItemIndex _activeItemIndex() - 1
-          else
-            _activeItemIndex(@displayOrgs().length - 1)
+          return false
 
         # down arrow
         else if e.keyCode == 40
           if _activeItemIndex() < @displayOrgs().length - 1
             _activeItemIndex _activeItemIndex() + 1
-            return false
-          else
-            _activeItemIndex(0)
+          return false
 
         # esc arrow
         else if e.keyCode == 27
