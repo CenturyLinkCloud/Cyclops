@@ -10,6 +10,98 @@
   things much easier. For more information on how components work please see the
   <a href="http://knockoutjs.com/documentation/component-overview.html">Knockout Documentation</a>.
 </p>
+<section id="accountSwitcher" class="pl-section">
+  <h3><code>account-switcher</code></h3>
+  <p>
+    The account assumes that the shape of the data passed to it matches closely what the v2 APIs
+    return, for more information you can see the assumed account properties section below.
+  </p>
+  <p>
+    The <code>currentAccountAlias</code> property is used to notify your app that the user requested
+    an account impersaonation. Listen to changes to this property and refresh the page data approperiately.
+  </p>
+  <pre>
+    <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    &lt;account-switcher params=&quot;{accounts: accounts, currentAccountAlias: currentAccountAlias}&quot;&gt;&lt;/account-switcher&gt;
+    &lt;nav class=&quot;navbar navbar-inverse navbar-static-top&quot;&gt;...&lt;/nav&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>accounts</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The account hierarchy returned from the v2 API</td>
+      </tr>
+      <tr>
+        <td>currentAccountAlias</td>
+        <td>string | Observable string</td>
+        <td>None (Required)</td>
+        <td>Will be set to the selected account. You can use this to set the starting account as well</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Account Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>accountAlias</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The account alias (4 characters)</td>
+      </tr>
+      <tr>
+        <td>businessName</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The display name for the account</td>
+      </tr>
+      <tr>
+        <td>primaryDataCenter</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The primary Data Center of the account</td>
+      </tr>
+      <tr>
+        <td>subAccounts</td>
+        <td>Array | observableArray</td>
+        <td>yes</td>
+        <td>A list of sub accounts for that account</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./components.html#accountSwitcher">On a page</a>
+    </li>
+  </ul>
+</section>
+
 <section id="groupPicker" class="pl-section">
   <h3><code>group-picker</code></h3>
   <p>

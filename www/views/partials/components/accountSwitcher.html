@@ -3,21 +3,37 @@
     <a href="#accountSwitcher">Account Switcher</a>
     <a href="./knockoutComponents.html#AccountSwitcher"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a></h3>
   </h3>
+
+  <p>The CenturyLink Platform supports the ability to create sub-accounts, which fall under a parent account. Sub accounts have of the advantage of:</p>
+
+  <ul>
+    <li>Hierarchy: user permissions flow down, but not up or sideways</li>
+    <li>Billing: sub accounts may be billed separately or to the parent account</li>
+    <li>Share Parent Networks: sub accounts may access their parent account's networks, in addition to their own network</li>
+    <li>Inheritance: account settings are inherited</li>
+  </ul>
+
   <p>
-    The <code>account-switcher</code> allows a user to select an account in there available hierarchy to impersonate.
-    All use should respect this impersonated account and present the user with a view as if they were logged in
-    with a user that belonged to the account. This component should be included as part of the standard layout of
-    your application.
+    If a user has access to multiple accounts, their account context needs to be maintained as they navigate to different platform satelite apps.
+    This component is a means for platform customers to view their current account context, change account context, and maintain that context
+    across different platform satelite apps.
   </p>
+  <h4>Keyboard shortcuts</h4>
+  <ul>
+    <li><code>ctl + i</code>: toogle account switcher open or closed</li>
+    <li><code>esc</code>: close account switcher when open</li>
+    <li><code>up, down</code>: navigate the list of accounts</li>
+    <li><code>enter</code>: select account to impersonate</li>
+  </ul>
   <div class="pl-example">
-    <iframe src="/examplePages/accountSwitcher.html"></iframe>
+    <iframe src="./examplePages/accountSwitcher.html"></iframe>
     <p>
-      <a href="/examplePages/accountSwitcher.html">Open Example Page</a>
+      <a href="./examplePages/accountSwitcher.html">Open Example Page</a>
     </p>
   </div>
   <pre>
     <code class="html">
-&lt;account-switcher params=&quot;accounts: accounts, currentAccountAlias: currentAccountAlias&quot;&gt;&lt;/account-switcher&gt;
+&lt;account-switcher params=&quot;{accounts: accounts, currentAccountAlias: currentAccountAlias}&quot;&gt;&lt;/account-switcher&gt;
     </code>
     <code class="javascript">
 $(function(){
