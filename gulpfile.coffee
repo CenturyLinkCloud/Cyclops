@@ -188,6 +188,11 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe gulp.dest "./dist/#{pkg.version}/starterPages/"
 
+  copyExamplePages = gulp.src './www/examplePages/**/*'
+    .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
+    .pipe gulp.dest "./dist/#{pkg.version}/examplePages/"
+
   copyImages = gulp.src './www/assets/img/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/img/"
 
@@ -221,7 +226,7 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe gulp.dest "./dist/#{pkg.version}/"
 
-  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML
+  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML
 
 gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
 
@@ -259,6 +264,11 @@ gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 
     .pipe replace /\/scripts\/cyclops\.js/i, "https://cyclops-dev.uswest.appfog.ctl.io/scripts/cyclops.js"
     .pipe gulp.dest "./devDist/starterPages/"
 
+  copyExamplePages = gulp.src './www/examplePages/**/*'
+    .pipe replace /\/css\/cyclops\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/cyclops.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "https://cyclops-dev.uswest.appfog.ctl.io/scripts/cyclops.js"
+    .pipe gulp.dest "./devDist/examplePages/"
+
   copyImages = gulp.src './www/assets/img/**/*'
     .pipe gulp.dest "./devDist/img/"
 
@@ -295,4 +305,4 @@ gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 
   copyStaticBuildPackFiles = gulp.src ['./.travis/Staticfile','./.travis/nginx.conf']
     .pipe gulp.dest './devDist/'
 
-  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyImages, renderHTML, copyStaticBuildPackFiles
+  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML, copyStaticBuildPackFiles
