@@ -1,10 +1,10 @@
 # TODO:
 # - match API shape
 # - will disabled accounts be passed to us?
-# - rename to account switcher :(
-
+# - when searching select the first one so you can type alias and press enter
 
 # DONE:
+# - rename to account switcher :(
 # - animation and the scroll-area are off
 # - arrow keys with search
 # - iphone layout
@@ -19,7 +19,7 @@ class Account
     @rawAcct = options.rawAcct
     @alias = @rawAcct.accountAlias
     @name = ko.asObservable(@rawAcct.businessName)
-    @status = ko.asObservable(@rawAcct.accountStatus)
+
     @primaryDatacenter = ko.asObservable(@rawAcct.primaryDataCenter)
 
     @path = options.path
@@ -68,23 +68,22 @@ class AccountSwitcherViewModel
             , duration: 250
         },250);
         @clearSearch()
-        @forceShowAllOrgs false
+        @forceShowAllAccts false
         _activeItemIndex -1
 
     _close = () =>
       $('body').removeClass 'account-switcher-open'
       @isOpen false
       @clearSearch()
-      @forceShowAllOrgs false
+      @forceShowAllAccts false
       _activeItemIndex -1
 
     @clearSearch = () =>
       @flatOrgList.query ''
       _activeItemIndex = -1
 
-    @impersonatedAlias = ko.asObservable(options.impersonatedAlias)
+    @currentAccountAlias = ko.asObservable(options.currentAccountAlias)
     @rawAccounts = ko.asObservableArray(options.accounts || [])
-
 
     @flatOrgList = ko.filterableArray([], {
       fields: ['alias', 'name'],
@@ -98,27 +97,25 @@ class AccountSwitcherViewModel
 
     # if they change the query turn off force all
     @flatOrgList.query.subscribe () =>
-      @forceShowAllOrgs(false)
-      _activeItemIndex -1
+      @forceShowAllAccts(false)
+      _activeItemIndex 0
     , null, 'beforeChange'
 
     @isSearching = ko.computed () =>
       return !!@flatOrgList.query()
 
-    _doStuff = (options) =>
+    _createAccountModel = (options) =>
       path = "#{options.path} / #{options.rawAcct.accountAlias}"
       depth = options.depth++
-      options.array.push new Account { rawAcct: options.rawAcct, path: path, depth: depth }
+      options.accounts.push new Account { rawAcct: options.rawAcct, path: path, depth: depth }
       options.rawAcct.subAccounts.forEach (acct) =>
-        _doStuff { rawAcct: acct, path: path, depth: depth + 1, array: options.array }
+        _createAccountModel { rawAcct: acct, path: path, depth: depth + 1, accounts: options.accounts }
 
-    _doesntMatter = ko.computed () =>
-
-      _tempArray = []
+    ko.computed () =>
+      accounts = []
       @rawAccounts().forEach (acct) =>
-        _doStuff { rawAcct: acct, path: '', depth: 0, array: _tempArray }
-      @flatOrgList(_tempArray)
-
+        _createAccountModel { rawAcct: acct, path: '', depth: 0, accounts: accounts }
+      @flatOrgList(accounts)
       return
 
     @getImpersonatedOrgDiaplayText = (acct) ->
@@ -127,29 +124,31 @@ class AccountSwitcherViewModel
     @impersonatedOrg = ko.observable()
 
     @impersonatedOrg.subscribe (newValue) =>
-      @impersonatedAlias(newValue.alias)
+      @currentAccountAlias(newValue.alias)
 
-    foo = @flatOrgList().filter (acct) =>
-      acct.alias.toLowerCase() == @impersonatedAlias().toLowerCase()
+    possibleAccounts = @flatOrgList().filter (acct) =>
+      acct.alias.toLowerCase() == @currentAccountAlias().toLowerCase()
 
-    if foo.length == 1
-      @impersonatedOrg foo[0]
+    if possibleAccounts.length == 1
+      @impersonatedOrg possibleAccounts[0]
     else
-      throw 'alias is not right'
+      throw 'There is more than one account with the same alias, this should not be possible check the data please.'
 
     @impersonateOrg = (acct)  =>
       @impersonatedOrg(acct)
       @toggleHandler()
 
 
-    # Everything to do with showing limited results for perf
+    ###############################
+    # Limit the num of accts shown
+    ###############################
 
     pageSize = 50;
 
-    @forceShowAllOrgs = ko.observable(false);
+    @forceShowAllAccts = ko.observable(false);
 
     @showAllOrgsHandler = () =>
-      @forceShowAllOrgs true
+      @forceShowAllAccts true
 
     @showingAllOrgs = ko.pureComputed () =>
       total = @flatOrgList().length
@@ -160,18 +159,22 @@ class AccountSwitcherViewModel
       total = @flatOrgList().length
       visible = @displayOrgs().length
 
-      if @forceShowAllOrgs() or visible == total
+      if @forceShowAllAccts() or visible == total
         return "#{total} accounts"
       else
         return "Showing #{visible} of #{total} accounts"
 
     @displayOrgs = ko.pureComputed () =>
-      if @forceShowAllOrgs()
+      if @forceShowAllAccts()
         return @flatOrgList()
       end = 1 * pageSize # 1 is the starting page, could be changed in the future
       start = end - pageSize
       return @flatOrgList().slice(start, end);
 
+
+    ###############################
+    # Selection of account logic
+    ###############################
 
     _activeItemIndex = ko.observable(-1)
     @activeItem = ko.pureComputed () =>
@@ -188,19 +191,13 @@ class AccountSwitcherViewModel
     @isCurrentItem = (data) =>
       return data == @impersonatedOrg()
 
-    @forceShowAllOrgs.subscribe () ->
+    @forceShowAllAccts.subscribe () ->
       _activeItemIndex 0
 
-    @userScrolling = ko.observable(false);
-    _timer = null
-    $(".scroll-area").on 'scroll', () =>
-      @userScrolling  true
-      window.clearTimeout(_timer)
-      _timer = window.setTimeout () =>
-        @userScrolling  false
-      , 500
 
-
+    ###############################
+    # Keyboard shortcut wireup
+    ###############################
     $(document).on 'keydown', (e) =>
       if e.ctrlKey && e.keyCode ==73
         @toggleHandler()
@@ -226,5 +223,7 @@ class AccountSwitcherViewModel
         # enter
         else if e.keyCode == 13
           e.preventDefault()
-          @impersonateOrg(@activeItem())
+          activeAccount = @activeItem()
+          if activeAccount
+            @impersonateOrg(activeAccount)
           return false;

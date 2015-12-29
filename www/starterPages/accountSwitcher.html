@@ -19,7 +19,7 @@
   <![endif]-->
 </head>
 <body>
-  <account-switcher params="accounts: accounts, impersonatedAlias: impersonatedAlias"></account-switcher>
+  <account-switcher params="accounts: accounts, currentAccountAlias: currentAccountAlias"></account-switcher>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -331,8 +331,8 @@
           });
         }
 
-        self.impersonatedAlias = ko.observable('ROOT')
-        self.impersonatedAlias.subscribe(function(newValue) {
+        self.currentAccountAlias = ko.observable('ROOT')
+        self.currentAccountAlias.subscribe(function(newValue) {
           console.log(newValue)
         });
 
