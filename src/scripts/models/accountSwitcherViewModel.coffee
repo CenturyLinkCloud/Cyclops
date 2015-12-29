@@ -1,19 +1,3 @@
-# TODO:
-# - match API shape
-# - will disabled accounts be passed to us?
-# - when searching select the first one so you can type alias and press enter
-
-# DONE:
-# - rename to account switcher :(
-# - animation and the scroll-area are off
-# - arrow keys with search
-# - iphone layout
-# - keydown events on mobile
-# - textbox on mobile causes a zoom font-sizes greater that 16 dont cause this :)
-# - remove monkey class
-# - textbox style
-# - logic in scrollTo for detecting if it is offScreen is wrong
-
 class Account
   constructor: (options) ->
     @rawAcct = options.rawAcct
