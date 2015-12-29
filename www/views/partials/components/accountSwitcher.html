@@ -1,0 +1,31 @@
+<section class="pl-section" id="accountSwitcher">
+  <h3>
+    <a href="#accountSwitcher">Account Switcher</a>
+    <a href="./knockoutComponents.html#AccountSwitcher"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a></h3>
+  </h3>
+  <p>
+    The <code>account-switcher</code> allows a user to select an account in there available hierarchy to impersonate.
+    All use should respect this impersonated account and present the user with a view as if they were logged in
+    with a user that belonged to the account. This component should be included as part of the standard layout of
+    your application.
+  </p>
+  <div class="pl-example">
+    <iframe src="/examplePages/accountSwitcher.html"></iframe>
+    <p>
+      <a href="/examplePages/accountSwitcher.html">Open Example Page</a>
+    </p>
+  </div>
+  <pre>
+    <code class="html">
+&lt;account-switcher params=&quot;accounts: accounts, currentAccountAlias: currentAccountAlias&quot;&gt;&lt;/account-switcher&gt;
+    </code>
+    <code class="javascript">
+$(function(){
+  ko.applyBindings({
+    accounts: [...],
+    currentAccountAlias: '...'
+  });
+});
+    </code>
+  </pre>
+</section>

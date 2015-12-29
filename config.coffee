@@ -8,6 +8,7 @@ module.exports = (app, __base) ->
   app.use express.static(__base + 'assets')
 
   app.use '/starterPages', express.static(__base + 'starterPages')
+  app.use '/examplePages', express.static(__base + 'examplePages')
 
   app.engine 'html', hbs.express4
     partialsDir: __base + 'views/partials'
