@@ -1,4 +1,4 @@
-<script id="cyclops.orgSwitcher" type="text/html">
+<script id="cyclops.accountSwitcher" type="text/html">
   <div class="header">
     <button class="btn btn-link" data-bind="click: toggleHandler">
       <span class="current" data-bind="text: getImpersonatedOrgDiaplayText(impersonatedOrg()), title: impersonatedOrg().pathDisplayText" ></span>
@@ -26,7 +26,7 @@
       </div>
     </form>
     <span class="org-message" data-bind="text: limitedOrgsDisplayedMessage"></span>
-    <button class="btn btn-link" data-bind="visible: !showingAllOrgs(), click: showAllOrgsHandler" title="This can be a slow operation">show all orgs</button>
+    <button class="btn btn-link" data-bind="visible: !showingAllOrgs(), click: showAllOrgsHandler" title="This may take some time">show all accounts</button>
     <div class="new-list-view-header">
       <div class="col col-active-item"></svg></div>
       <h3 class="col col-alias">Alias</h3>

@@ -19,7 +19,7 @@
   <![endif]-->
 </head>
 <body>
-  <org-switcher params="organizations: organizations, impersonatedAlias: impersonatedAlias"></org-switcher>
+  <account-switcher params="accounts: accounts, impersonatedAlias: impersonatedAlias"></account-switcher>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -251,10 +251,10 @@
       var OrgSwitcherModel = function() {
         var self = this;
 
-        self.organizations = [
+        self.accounts = [
           {
             accountAlias: "ROOT",
-            businessName: "My Awesome Organization",
+            businessName: "My Awesome Business",
             accountStatus: "active",
             primaryDataCenter : "QA1",
             subAccounts:[
@@ -322,7 +322,7 @@
         ]
 
         for (var i = 0; i < 100; i++) {
-          self.organizations[0].subAccounts.push({
+          self.accounts[0].subAccounts.push({
             accountAlias: "G0" + i,
             businessName: "" + i + " Generated Account for Perf Testing",
             accountStatus: "active",

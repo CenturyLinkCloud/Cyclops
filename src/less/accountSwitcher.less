@@ -1,24 +1,24 @@
 // Variables
 @ease: cubic-bezier(0.77, 0, 0.175, 1);
 @duration: 0.4s;
-@org-switcher-bg: #3a3a3a;
-@org-switcher-text-color: #bdbdbd;
-@org-switcher-border-color: lighten(@org-switcher-bg, 5%);
-@org-switcher-active-bg: darken(@org-switcher-bg, 10%);
+@account-switcher-bg: #3a3a3a;
+@account-switcher-text-color: #bdbdbd;
+@account-switcher-border-color: lighten(@account-switcher-bg, 5%);
+@account-switcher-active-bg: darken(@account-switcher-bg, 10%);
 
 html.cyclops {
-  .org-switcher-open {
+  .account-switcher-open {
     overflow: hidden;
     position: fixed;
   }
 
   @media (min-width: @screen-xs-min) {
-    .org-switcher-open {
+    .account-switcher-open {
       position: relative;
     }
   }
 
-  org-switcher {
+  account-switcher {
     button.btn-link {
       color: gray;
       font-size: @font-size-small;
@@ -38,8 +38,8 @@ html.cyclops {
 
     .header {
       display: block;
-      background-color: @org-switcher-bg;
-      color: @org-switcher-text-color;
+      background-color: @account-switcher-bg;
+      color: @account-switcher-text-color;
       font-weight: 400;
       height: 40px;
       padding: 5px 10px;
@@ -52,7 +52,7 @@ html.cyclops {
         
         svg {
           .transition(e('fill .05s ease-in'));
-          fill: @org-switcher-text-color;
+          fill: @account-switcher-text-color;
           
           &:hover {
             fill: @white;
@@ -61,7 +61,7 @@ html.cyclops {
       }
 
       .current {
-        color: @org-switcher-text-color;
+        color: @account-switcher-text-color;
         font-weight: 400;
         display: inline-block;
         max-width: 200px;
@@ -88,7 +88,7 @@ html.cyclops {
       left: 0;
       z-index: 1050;
       outline: 0;
-      color: @org-switcher-text-color;
+      color: @account-switcher-text-color;
       padding: 20px;
       
       .org-message {
@@ -103,8 +103,8 @@ html.cyclops {
           input {
             width: 100%;
             font-size: 16px;
-            background: @org-switcher-bg;
-            border-color: @org-switcher-border-color;
+            background: @account-switcher-bg;
+            border-color: @account-switcher-border-color;
             color: #ccc;
           }
         }
@@ -113,7 +113,7 @@ html.cyclops {
       .new-list-view-header {
         clear: both;
         background-color: transparent;
-        border-bottom: 2px solid @org-switcher-border-color;
+        border-bottom: 2px solid @account-switcher-border-color;
         
         h3 {
           color: #999;
@@ -146,17 +146,17 @@ html.cyclops {
         -webkit-overflow-scrolling: touch;
         
         .list-view-item {
-          border-bottom-color: @org-switcher-border-color;
+          border-bottom-color: @account-switcher-border-color;
           .transition(e('color .05s ease-in'));
           cursor: pointer;
           
           &.current {
-            background-color: @org-switcher-active-bg;
+            background-color: @account-switcher-active-bg;
             color: @white;
           }
 
           &.active-item {
-            background-color: @org-switcher-active-bg;
+            background-color: @account-switcher-active-bg;
             color: @white;
             
             .col-active-item svg {
@@ -167,7 +167,7 @@ html.cyclops {
           .marker {
             display: inline-block;
             margin-right: 5px;
-            color: darken(@org-switcher-text-color, 15%);
+            color: darken(@account-switcher-text-color, 15%);
           }
         }
       }
@@ -175,7 +175,7 @@ html.cyclops {
   }
 
   @media (min-width: @screen-sm-min) {
-    org-switcher {
+    account-switcher {
       .take-over {
         form.search {
           float: right;
@@ -197,13 +197,13 @@ html.cyclops {
   }
 
   @media (min-width: @screen-xs-min) {
-    org-switcher .header .current {
+    account-switcher .header .current {
       max-width: none;
     }
   }
 
   @media (min-width: @screen-sm-min) {
-    org-switcher {
+    account-switcher {
       .header .current {
         max-width: 700px;
       }
@@ -211,7 +211,7 @@ html.cyclops {
   }
 
   @media (min-width: @screen-md-min) {
-    org-switcher .header .current {
+    account-switcher .header .current {
       max-width: 924px;
     }
   }

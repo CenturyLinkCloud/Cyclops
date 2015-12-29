@@ -1,4 +1,4 @@
-{{#contentFor "title"}}Organization Switcher{{/contentFor}}
+{{#contentFor "title"}}Account Switcher{{/contentFor}}
 {{#contentFor "tabName"}}orgSwitcher{{/contentFor}}
 {{!< layouts/leftnav.html}}
 
@@ -13,7 +13,7 @@ $(function(){
 {{/contentFor}}
 
 
-<h1>Organization Switcher</h1>
+<h1>Account Switcher</h1>
 <p>The CenturyLink Platform supports the ability to create sub-orgs, which fall under a parent org. Sub orgs have of the advantage of:</p>
 
 <ul>
@@ -26,13 +26,13 @@ $(function(){
 <p>If a user has access to multiple orgs, their org context needs to be maintained as they navigate to different platform satelite apps. This component is a means for platform customers to view their current org context, change org context, and maintain that context across different platform satelite apps.</p>
 
 <div class="pl-example">
-  <nav id="orgSwitcher" class="org-switcher">
+  <nav id="orgSwitcher" class="account-switcher">
     <div class="org-header">
       <div class="org-current" title="WEBC - CenturyLink Web Channel Really Long Name">WEBC - CenturyLink Web Channel Really Long Name </div> <a href="#" class="toggleBtn" id="toggleOrgList">(change)</a>
-      <div class="org-switcher-toggle toggleBtn" role="button">
+      <div class="account-switcher-toggle toggleBtn" role="button">
         <svg class="cyclops-icon md"><use xlink:href='#icon-chevron-up'></svg>
       </div>
-      <!-- <a class="org-switcher-toggle">
+      <!-- <a class="account-switcher-toggle">
         <span class="sr-only">Toggle navigation</span>
         <div class="menu-icon">
             <div class="menu-icon__bar top animate-top"></div>
