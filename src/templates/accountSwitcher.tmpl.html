@@ -30,6 +30,7 @@
     <div class="new-list-view-header">
       <div class="col col-active-item"></svg></div>
       <h3 class="col col-alias">Alias</h3>
+      <h3 class="col col-dc">Data Center</h3>
       <h3 class="col col-60">Business Name</h3>
     </div>
     <div class="scroll-area">
@@ -38,6 +39,7 @@
         <div class="list-view-item" data-bind="event: {mouseover: $component.hoverHandler}, title: pathDisplayText, scrollTo: $component.isActiveItem($data), css: {'active-item': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
           <div class="col col-active-item"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-right'></svg></div>
           <div class="col col-alias" data-bind="text: alias"></div>
+          <div class="col col-dc" data-bind="text: primaryDatacenter"></div>
           <div class="col col-60">
             <!-- ko if: $component.isSearching -->
               <!-- ko text: pathDisplayText --><!-- /ko -->
