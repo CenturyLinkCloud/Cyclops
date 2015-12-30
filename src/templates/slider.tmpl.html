@@ -1,12 +1,6 @@
 <script type="text/html" id="cyclops.slider">
   <!-- ko if: hasjQueryUi -->
    <div class="slider-container" data-bind="css: mainClasses">
-        <div class="slider-tick-container" data-bind="if: canShowTicks">
-            <!-- ko foreach: new Array(numberofTotalSteps()-1) -->
-            <span class="slider-tick-mark" data-bind="style: { left: $parent.getTickMarginPercentage($index) }"></span>
-            <!-- /ko -->
-        </div>
-
         <div class="slider-track">
             <!-- ko if: value.committedValue -->
             <div class="slider-out-of-range">
@@ -47,7 +41,11 @@
             </div>
             <div class="slider-track-click" data-bind="style: { marginLeft: validTrackLeftMargin, marginRight: validTrackRightMargin }, click: trackClick"></div>
         </div>
-
+        <div class="slider-tick-container" data-bind="if: canShowTicks">
+            <!-- ko foreach: new Array(numberofTotalSteps()-1) -->
+            <span class="slider-tick-mark" data-bind="style: { left: $parent.getTickMarginPercentage($index) }"></span>
+            <!-- /ko -->
+        </div>
     </div>
     <input class="form-control slider-text-input" type="number" data-bind="value: value, disable: disabled, attr: {min : min, max: max, step: step }" />
     <!-- ko if: outOfRangeMessage -->
