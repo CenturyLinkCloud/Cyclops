@@ -1,4 +1,5 @@
 # Coming in version 1.1.0
+- Account Context Switcher
 - Nav Tabs component
 - Multi and single server/group picker
 - Icons
