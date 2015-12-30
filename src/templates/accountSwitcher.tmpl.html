@@ -37,7 +37,7 @@
     <ul class="new-list-view" data-bind="foreach: displayOrgs">
       <li>
         <div class="list-view-item" data-bind="event: {mouseover: $component.hoverHandler}, title: pathDisplayText, scrollTo: $component.isActiveItem($data), css: {'active-item': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
-          <div class="col col-active-item"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-right'></svg></div>
+          <div class="col col-active-item"><svg class="cyclops-icon"><use xlink:href='#icon-arrow-right'></svg></div>
           <div class="col col-alias" data-bind="text: alias"></div>
           <div class="col col-dc" data-bind="text: primaryDatacenter"></div>
           <div class="col col-60">
