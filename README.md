@@ -22,6 +22,8 @@
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
 - The "Kitchen Sink": A single page that displays all styles and components for quick testing purposes.
+- Fixed a bug where the tick marks were on the wrong side of the slider
+- Allow button tags to be used in action-toolbar in addition to a tags.
 
 --------------------------------------------------------------------------------
 

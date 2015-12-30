@@ -10,7 +10,7 @@ html.cyclops {
     padding: 0 10px;
     overflow: hidden;
     .clearfix();
-    
+
     &.action-toolbar-confirm-shown {
       .overflow-menu {
         display: none;
@@ -26,23 +26,26 @@ html.cyclops {
     padding: 0;
     overflow: hidden;
     font-size: @font-size-base - 1;
-    
+
     > li {
       float: left;
-      
-      a {
+
+      a,
+      button {
+        background-color: #e5e5e5;
         display: inline-block;
         padding: 8px 10px 12px;
         .transition(e('color .1s ease-in'));
         .transition(e('padding .1s ease-in'));
         .transition(e('background-color .1s ease-in'));
         text-decoration: none;
-        
+        border:none;
+
         &:hover {
           background-color: #3a3a3a;
           color: @white;
           .transition(e('none'));
-          
+
           svg.cyclops-icon {
             fill: @white;
           }
@@ -51,10 +54,10 @@ html.cyclops {
         &.disabled {
           color: #b9b9b9;
           cursor: @cursor-disabled;
-          
+
           &:hover {
             background: none;
-            
+
             svg.cyclops-icon {
               fill: #b9b9b9;
             }
@@ -83,15 +86,27 @@ html.cyclops {
     position: absolute;
     display: inline-block;
     white-space: nowrap;
-    
+
     &:hover,
     &.open {
       color: @white;
       background: #3a3a3a;
-      
-      a {
+
+      a,
+      button {
         color: @white;
+        background-color: #3a3a3a;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
       }
+
+     .dropdown-menu {
+       li > a,
+       li > button {
+         padding: 5px 10px;
+       }
+     }
 
       svg {
         fill: @white;
@@ -104,13 +119,14 @@ html.cyclops {
       border: 0;
       margin-top: 0;
       .border-radius(0);
-      
-      li a {
+
+      li a,
+      li button {
         transition: none;
-        
+
         &:hover {
           background: #000;
-          
+
           &.disabled {
             background: #3a3a3a;
           }
@@ -128,7 +144,7 @@ html.cyclops {
     padding-right: 10px;
     margin-left: -10px;
     padding-left: 10px;
-    
+
     svg {
       fill: #fff;
     }
@@ -151,7 +167,7 @@ html.cyclops {
         padding-right: 20px;
         padding-left: 20px;
         background: none;
-        
+
         &:active,
         &:focus,
         &:hover {
@@ -160,7 +176,7 @@ html.cyclops {
 
         &.yes {
           background-color: @btn-default-bg;
-          
+
           &:hover {
             background-color: @btn-default-bg-hover;
           }
@@ -168,7 +184,7 @@ html.cyclops {
 
         &.no {
           color: @grayLighter;
-          
+
           svg {
             fill: @grayLighter;
           }
@@ -176,7 +192,7 @@ html.cyclops {
           &:hover {
             color: @white;
             background-color: darken(#3a3a3a, 10%);
-            
+
             svg {
               fill: @white;
             }
@@ -200,11 +216,11 @@ html.cyclops {
       margin-bottom: 0;
       padding-top: 0;
       padding-bottom: 0;
-      
+
       button {
         &.yes {
           background-color: @btn-primary-bg;
-          
+
           &:hover {
             background-color: @btn-primary-bg-hover;
           }
@@ -216,7 +232,7 @@ html.cyclops {
       button {
         &.yes {
           background-color: @btn-danger-bg;
-          
+
           &:hover {
             background-color: @btn-danger-bg-hover;
           }
