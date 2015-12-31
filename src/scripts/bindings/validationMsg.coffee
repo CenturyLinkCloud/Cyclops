@@ -1,6 +1,9 @@
 ko.bindingHandlers.validationMsg =
   init: (element) ->
-    $(element).addClass 'validationMessage'
+    $element = $(element)
+    $element.css { display: 'none' }
+    $element.removeClass 'hide'
+    $element.addClass 'validationMessage'
     return
   update: (element, valueAccessor) ->
     obsv = valueAccessor()
@@ -21,6 +24,7 @@ ko.bindingHandlers.validationMsg =
       error = if isValid then null else obsv.error
     isVisible = if !config.messagesOnModified or isModified then !isValid else false
     isCurrentlyVisible = element.style.display != 'none'
+
     if config.allowHtmlMessages
       ko.utils.setHtml element, error
     else
