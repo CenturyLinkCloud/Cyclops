@@ -4,61 +4,94 @@
 
 html.cyclops {
 
-  #pricingLeft {
-    background: #e5e5e5;
-    width: 320px;
-    position: fixed;
-    top: 50px;
-    bottom: 0;
+  #priceEstimateContainer {
+
+    .make-sm-column(4);
+    .make-md-column(3);
+
+    font-weight: 400;
     overflow: auto;
-    margin-left:-20px;
-    .costMonthly, .costHourly {
-      font-size: 30px;
-      margin-top: 30px;
-      margin-bottom: 10px;
+    padding-top: 15px;
+
+    #priceEstimate {
+      background-color: #ffffff;
+      padding: 5px 15px 15px;
+      .border-radius(@border-radius-base);
+    }
+
+    .cost-value {
+      font-size: 20px;
+      margin-bottom: 3px;
       letter-spacing: 1;
     }
-    .heading {
-      margin: 10px 0;
+    .cost-interval {
+      color: @grayLight;
+      font-size: @font-size-base - 1;
     }
-    .lineItem {
+    .cost-interval + .cost-value {
+      margin-top: @padding-base-vertical;
+
+      @media (min-width: @screen-sm) {
+        margin-top: @padding-base-vertical * 2;
+      }
+    }
+
+    #priceBreakdown {
+
+      margin-top: 20px;
+      padding-left: 15px;
+
+    }
+
+    .line-item {
       margin-bottom: 20px;
+
+      .line-item-cost {
+        color: @grayLight;
+      }
     }
   }
 
-  .pricingContainer {
-    background: #e5e5e5;
-    width: 320px;
-    .costMonthly, .costHourly {
-      font-size: 30px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      letter-spacing: 1;
-    }
-    .heading {
-      margin: 10px 0;
-    }
-    .lineItem {
-      margin-bottom: 20px;
+  #createFormContainer {
+
+    .make-sm-column(8);
+    .make-md-column(9);
+
+    padding-top: 15px;
+
+    // align rules and buttons with grid col
+    .form-group.form-submit {
+
+      margin-left: 0;
+      margin-right: 0;
+
+      button[type="submit"] {
+        margin-left: -10px;
+      }
     }
   }
 
-  #createFormRight {
-    position: fixed;
-    top: 50px;
-    bottom: 0;
-    right: 0;
-    left: 320px;
-    overflow: scroll;
-    padding: 0 20px;
+  @media (min-width: @screen-sm) {
+
+    #priceEstimateContainer {
+      .box-shadow(7px 0 7px -7px rgba(0, 0, 0, 0.2));
+
+
+      .cost-value {
+        font-size: 30px;
+        margin-bottom: 7px;
+      }
+
+    }
+
   }
 
-  #costEstimate {
-    padding: 20px;
+  // hide cost break down on small screens
+  @media (max-width: @screen-xs-max) {
+    #priceBreakdown {
+      display: none !important;
+    }
+
   }
 
-  #costBreakdown {
-    padding: 20px;
-    border-top: 1px solid #d9d9d9;
-  }
 }
