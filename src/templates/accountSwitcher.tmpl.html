@@ -1,7 +1,12 @@
 <script id="cyclops.accountSwitcher" type="text/html">
   <div class="header">
     <button class="btn btn-link" data-bind="click: toggleHandler">
+      <!-- ko ifnot: loading -->
       <span class="current" data-bind="text: getImpersonatedOrgDiaplayText(impersonatedOrg()), title: impersonatedOrg().pathDisplayText" ></span>
+      <!-- /ko -->
+      <!-- ko if: loading -->
+      <span class="current">fetching current account&hellip;</span>
+      <!-- /ko -->
     </button>
     <button class="btn btn-link pull-right toggle-btn" data-bind="click: toggleHandler">
       <svg class="cyclops-icon md">
@@ -13,7 +18,7 @@
     <form class="search">
       <div class="form-group">
         <span class="search-input">
-          <input type="text" palceholder="search" data-bind="textInput: flatOrgList.query">
+          <input type="text" palceholder="search" data-bind="disable: loading, textInput: flatOrgList.query">
           <svg class="cyclops-icon">
             <!-- ko ifnot: flatOrgList.query -->
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
@@ -34,7 +39,13 @@
       <h3 class="col col-60">Business Name</h3>
     </div>
     <div class="scroll-area">
-    <ul class="new-list-view" data-bind="foreach: displayOrgs">
+    <ul class="new-list-view" data-bind="">
+      <!-- ko if: loading -->
+      <li class="loading-list-view-items">
+        fetching account list&hellip;
+      </li>
+      <!-- /ko -->
+      <!-- ko foreach: displayOrgs -->
       <li>
         <div class="list-view-item" data-bind="event: {mouseover: $component.hoverHandler}, title: pathDisplayText, scrollTo: $component.isActiveItem($data), css: {'active-item': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
           <div class="col col-active-item"><svg class="cyclops-icon"><use xlink:href='#icon-arrow-right'></svg></div>
@@ -51,6 +62,7 @@
           </div>
         </div>
       </li>
+      <!-- /ko -->
     </ul>
     </div>
   </div>

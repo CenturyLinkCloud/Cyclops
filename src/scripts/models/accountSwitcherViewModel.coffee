@@ -31,7 +31,8 @@ class AccountSwitcherViewModel
       $('body').toggleClass 'account-switcher-open'
       @isOpen !@isOpen()
       if @isOpen()
-        $('account-switcher .take-over .search-input input').focus()
+        if !@loading()
+          $('account-switcher .take-over .search-input input').focus()
         $('account-switcher .toggle-btn svg').animate(
           {  deg: 180 },
           {
@@ -67,6 +68,9 @@ class AccountSwitcherViewModel
       _activeItemIndex = -1
 
     @currentAccountAlias = ko.asObservable(options.currentAccountAlias)
+
+    @loading = ko.asObservable(options.loading)
+
     @rawAccounts = ko.asObservableArray(options.accounts || [])
 
     @flatOrgList = ko.filterableArray([], {
@@ -102,7 +106,7 @@ class AccountSwitcherViewModel
       @flatOrgList(accounts)
       return
 
-    @getImpersonatedOrgDiaplayText = (acct) ->
+    @getImpersonatedOrgDiaplayText = (acct) =>
       return "#{acct.alias.toUpperCase()} - #{ko.unwrap(acct.name)}"
 
     @impersonatedOrg = ko.observable()
@@ -110,13 +114,23 @@ class AccountSwitcherViewModel
     @impersonatedOrg.subscribe (newValue) =>
       @currentAccountAlias(newValue.alias)
 
-    possibleAccounts = @flatOrgList().filter (acct) =>
-      acct.alias.toLowerCase() == @currentAccountAlias().toLowerCase()
+    _setCurrentAccount = () =>
+      possibleAccounts = @flatOrgList().filter (acct) =>
+        acct.alias.toLowerCase() == @currentAccountAlias().toLowerCase()
 
-    if possibleAccounts.length == 1
-      @impersonatedOrg possibleAccounts[0]
+      if possibleAccounts.length == 1
+        @impersonatedOrg possibleAccounts[0]
+      else
+        throw 'There is more than one account with the same alias, this should not be possible check the data please.'
+
+
+    if !@loading()
+      _setCurrentAccount()
     else
-      throw 'There is more than one account with the same alias, this should not be possible check the data please.'
+      @loading.subscribe (newValue) =>
+        if !newValue
+          _setCurrentAccount()
+
 
     @impersonateOrg = (acct)  =>
       @impersonatedOrg(acct)
@@ -143,7 +157,9 @@ class AccountSwitcherViewModel
       total = @flatOrgList().length
       visible = @displayOrgs().length
 
-      if @forceShowAllAccts() or visible == total
+      if @loading()
+        return ''
+      else if @forceShowAllAccts() or visible == total
         return "#{total} accounts"
       else
         return "Showing #{visible} of #{total} accounts"
