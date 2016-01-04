@@ -1,4 +1,4 @@
-# Coming in version 1.1.0
+# What's New in Version 1.1.0
 - Account Context Switcher
 - Nav Tabs component
 - Multi and single server/group picker
@@ -17,13 +17,16 @@
   - scrollTo
 
 - Pagination component
+- Price Estimate component on Create Page
 - Show password
-- Add Card example
+- "Add" Card example
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
 - The "Kitchen Sink": A single page that displays all styles and components for quick testing purposes.
 - Fixed a bug where the tick marks were on the wrong side of the slider
 - Allow button tags to be used in action-toolbar in addition to a tags.
+- Fixed bug where the slider didn't allow you to drag all the way to the maximum value
+- Fixed bug where the tick marks were on the wrong side of the slider
 
 --------------------------------------------------------------------------------
 
