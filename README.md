@@ -1,7 +1,8 @@
 # What's New in Version 1.1.0
 - Account Context Switcher
 - Nav Tabs component
-- Multi and single server/group picker
+- Multi and single server selector
+- Group selector
 - Icons
   - Bell
   - Exclamation Triangle
@@ -15,6 +16,7 @@
 - More knockout bindings
   - title
   - scrollTo
+  - indeterminate
 
 - Pagination component
 - Price Estimate component on Create Page
@@ -26,7 +28,7 @@
 - Fixed a bug where the tick marks were on the wrong side of the slider
 - Allow button tags to be used in action-toolbar in addition to a tags.
 - Fixed bug where the slider didn't allow you to drag all the way to the maximum value
-- Fixed bug where the tick marks were on the wrong side of the slider
+- Fixed bug where validation messages would BUFOC
 
 --------------------------------------------------------------------------------
 
