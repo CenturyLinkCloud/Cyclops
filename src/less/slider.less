@@ -1,7 +1,6 @@
-  //TODO color varibles?
+//TODO color varibles?
 
 html.cyclops {
-
   slider {
     display: block;
     position: relative;
@@ -40,7 +39,7 @@ html.cyclops {
     border: solid 1px #bbb;
     .border-radius(3px);
     margin-right: 10px;
-
+    
     .slider-min-bound-label,
     .slider-max-bound-label {
       line-height: 18px;
@@ -59,7 +58,6 @@ html.cyclops {
   }
 
   .slider-valid-track {
-
     // allow the handle to be dragged over all the way to the right
     margin-right: 10px;
     background-color: #addbad;
@@ -74,7 +72,6 @@ html.cyclops {
     right: 0;
     left: 0;
     margin-right: 10px;
-
     //background-color: red;
     z-index: 2;
   }
@@ -84,7 +81,7 @@ html.cyclops {
     margin-right: 10px;
     height: 5px;
     margin-top: 3px;
-
+    
     .slider-tick-mark {
       position: absolute;
       border-left: solid 1px #bbb;
@@ -97,12 +94,12 @@ html.cyclops {
     position: relative;
     margin-right: 10px;
     width: 100%;
-
+    
     .slider-out-of-range-value {
       height: 20px;
       position: absolute;
       z-index: 1;
-
+      
       .slider-out-of-range-marker {
         height: 20px;
         border-left: solid 1px #bbb;
@@ -126,18 +123,18 @@ html.cyclops {
     height: 30px;
     margin-top: -5px;
     margin-left: -10px;
-    margin-right: -10px;
+    margin-right: -11px;
     position: absolute;
     left: 0;
     z-index: 3;
-
+    
     .slider-tooltip {
       opacity: 1;
       width: 50px;
       top: -33px;
       left: -15px;
       display: none;
-
+      
       .tooltip-inner {
         background-color: #fff;
         color: #555;
@@ -156,7 +153,6 @@ html.cyclops {
   }
 
   .slider-value-fill {
-
     // Move it over the top of the track border
     position: absolute;
     top: -1px;
@@ -194,11 +190,10 @@ html.cyclops {
     .slider-handle2.ui-state-disabled {
       cursor: not-allowed;
       opacity: 1;
-
+      
       .handle-fill {
         fill: #eee;
       }
     }
   }
-
 }
