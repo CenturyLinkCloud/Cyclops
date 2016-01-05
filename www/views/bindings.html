@@ -296,6 +296,41 @@ There are no items
 </div>
 </section>
 
+<section id="indeterminate" class="pl-section">
+  <h3><code>indeterminate</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Allows you to set an indeterminate state to a checkbox or radio button, which can only be done
+    programmatically.
+  </p>
+  <pre>
+    <code class="html">
+&lt;input type=&#39;cehckbox&#39; data-binding=&#39;indeterminate: model.isIndeterminate&#39;&gt;&lt;/input&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>boolean | observable boolean</td>
+        <td>false</td>
+        <td>should the element be marked as indeterminate</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
 <section id="templateSwitcher" class="pl-section">
 
 <h3><code>templateSwitcher</code></h3>
@@ -367,6 +402,74 @@ There are no items
   </tbody>
 </table>
 </div>
+</section>
+
+<section id="title" class="pl-section">
+  <h3><code>Title</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Set the title attribute of the element. This is just shorthand for the <code>attr</code> binding.
+  </p>
+  <pre>
+    <code class="html">
+&lt;span data-binding=&#39;title: model.helpfulTitle&#39;&gt;&lt;/sapn&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>string | observable string</td>
+        <td>false</td>
+        <td>The text to use as the title</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="scrollTo" class="pl-section">
+  <h3><code>scrollTo</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Should the element be scrolled into view.
+  </p>
+  <pre>
+    <code class="html">
+&lt;span data-binding=&#39;scrollTo: model.isCurrentItem&#39;&gt;&lt;/sapn&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>boolean | observable boolean</td>
+        <td>false</td>
+        <td>if true the item will be scrolled to in the browser</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </section>
 
 <section id="validationMsg" class="pl-section">
