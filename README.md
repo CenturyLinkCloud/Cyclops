@@ -15,9 +15,9 @@
   - Queue Restore
 
 - New Knockout bindings
-  - title
-  - scrollTo
-  - indeterminate
+  - [title](http://assets.ctl.io/cyclops/1.1.0/bindings.html#title)
+  - [scrollTo](http://assets.ctl.io/cyclops/1.1.0/bindings.html#scrollTo)
+  - [indeterminate](http://assets.ctl.io/cyclops/1.1.0/bindings.html#indeterminate)
 
 - [Pagination component](http://assets.ctl.io/cyclops/1.1.0/components.html#pagination)
 - [Price Estimate component on Create Page](http://assets.ctl.io/cyclops/1.1.0/components.html#priceEstimate)
