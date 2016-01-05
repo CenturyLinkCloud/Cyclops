@@ -22,10 +22,10 @@
 - [Pagination component](http://assets.ctl.io/cyclops/1.1.0/components.html#pagination)
 - [Price Estimate component on Create Page](http://assets.ctl.io/cyclops/1.1.0/components.html#priceEstimate)
 - [Show password](http://assets.ctl.io/cyclops/1.1.0/components.html#showPassword)
-- []"Add" Card example](http://assets.ctl.io/cyclops/1.1.0/cards.html#addCard)
+- ["Add" Card example](http://assets.ctl.io/cyclops/1.1.0/cards.html#addCard)
 - Fixed anchor links in button dropdown
 - Back to Top button on Cyclops documentation pages (lower right of the page)
-- The []"Kitchen Sink"](http://assets.ctl.io/cyclops/1.1.0/all.html): A single page that displays all styles and components for quick testing purposes.
+- The ["Kitchen Sink"](http://assets.ctl.io/cyclops/1.1.0/all.html): A single page that displays all styles and components for quick testing purposes.
 - Fixed a bug where the tick marks were on the wrong side of the [slider](http://assets.ctl.io/cyclops/1.1.0/forms.html#slider)
 - Allow button tags to be used in action-toolbar in addition to a tags.
 - Fixed bug where the slider didn't allow you to drag all the way to the maximum value
