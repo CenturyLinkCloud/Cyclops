@@ -1,35 +1,4 @@
-# What's New in Version 1.1.0
-- [Account Context Switcher](http://assets.ctl.io/cyclops/1.1.0/components.html#accountSwitcher)
-- [Nav Tabs component](http://assets.ctl.io/cyclops/1.1.0/components.html#navTabs)
-- [Multi and single server selector](http://assets.ctl.io/cyclops/1.1.0/forms.html#hierarchyPicker)
-- [Group picker](http://assets.ctl.io/cyclops/1.1.0/forms.html#groupPicker)
-- [Server picker](http://assets.ctl.io/cyclops/1.1.0/forms.html#serverPicker)
-- [Icons](http://assets.ctl.io/cyclops/1.1.0/icons.html)
-  - Bell
-  - Exclamation Triangle
-  - Failover
-  - Messaging (Text)
-  - Queue Add
-  - Queue Archive
-  - Queue Delete
-  - Queue Restore
-
-- New Knockout bindings
-  - [title](http://assets.ctl.io/cyclops/1.1.0/bindings.html#title)
-  - [scrollTo](http://assets.ctl.io/cyclops/1.1.0/bindings.html#scrollTo)
-  - [indeterminate](http://assets.ctl.io/cyclops/1.1.0/bindings.html#indeterminate)
-
-- [Pagination component](http://assets.ctl.io/cyclops/1.1.0/components.html#pagination)
-- [Price Estimate component on Create Page](http://assets.ctl.io/cyclops/1.1.0/components.html#priceEstimate)
-- [Show password](http://assets.ctl.io/cyclops/1.1.0/components.html#showPassword)
-- ["Add" Card example](http://assets.ctl.io/cyclops/1.1.0/cards.html#addCard)
-- Fixed anchor links in button dropdown
-- Back to Top button on Cyclops documentation pages (lower right of the page)
-- The ["Kitchen Sink"](http://assets.ctl.io/cyclops/1.1.0/all.html): A single page that displays all styles and components for quick testing purposes.
-- Fixed a bug where the tick marks were on the wrong side of the [slider](http://assets.ctl.io/cyclops/1.1.0/forms.html#slider)
-- Allow button tags to be used in action-toolbar in addition to a tags.
-- Fixed bug where the slider didn't allow you to drag all the way to the maximum value
-- Fixed bug where validation messages would BUFOC
+For the latest release info, see the [Release section](https://github.com/CenturyLinkCloud/Cyclops/releases).
 
 --------------------------------------------------------------------------------
 
