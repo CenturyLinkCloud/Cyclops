@@ -29,7 +29,7 @@ html.cyclops {
     display: inline-block;
     max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
     margin-bottom: 5px;
-    font-weight: 600;
+    font-weight: @boldFontWeight;
   }
   // Normalize form controls
   //
@@ -175,7 +175,7 @@ html.cyclops {
       min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
       padding-left: 20px;
       margin-bottom: 0;
-      font-weight: 300;
+      font-weight: @baseFontWeight;
       cursor: pointer;
     }
   }
@@ -474,7 +474,7 @@ html.cyclops {
         line-height: 30px;
         font-size: 14px;
         color: white;
-        font-weight: 300;
+        font-weight: @baseFontWeight;
         box-sizing: border-box;
         text-align: center;
       }

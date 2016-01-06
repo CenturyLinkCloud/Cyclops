@@ -26,7 +26,7 @@ html.cyclops {
 	      text-decoration: none;
 	      background-color: @pagination-bg;
 	      border: @pagination-border-width solid @pagination-border-color;
-				font-weight: 400;
+				font-weight: @baseFontWeight;
 	    }
 	    &:first-child {
 	      > a,
@@ -59,7 +59,7 @@ html.cyclops {
 			cursor: default;
 			background-color: @pagination-active-bg;
 			border-color: @pagination-active-border;
-			font-weight: 600;
+			font-weight: @boldFontWeight;
 
 	    &:hover {
 	      color: @pagination-active-color;
