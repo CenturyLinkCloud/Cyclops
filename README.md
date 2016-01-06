@@ -8,14 +8,33 @@ For the latest release info, see the [Release section](https://github.com/Centur
 The UX/UI Pattern Guide for the CenturyLink Platform
 
 ## Get Started
-Cyclops is hosted on the [CenturyLink Platform assets server](http://assets.ctl.io/) for anyone to use. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup. See the [version documentation](http://assets.ctl.io/) for what includes are required.
+Include the built cyclops javaScript and CSS files as well as the dependencies listed below. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup. Documentation for cyclops can be viewed by running the development server `gulp dev`
+
 
 ## Developing Cyclops
 
 ```
+npm install coffee -g
 npm install
 gulp dev
 ```
+
+## Creating a Release/Build
+Releases are placed in the `dist` folder at the root of the project inside of a version number folder. The version number is pulled from `package.json`
+```
+gulp dist
+```
+
+## Dependencies
+For more information view the [dependencies page](https://github.com/CenturyLinkCloud/Cyclops/blob/master/www/views/dependencies.html) in the documentation.
+
+## Required
+* [jQuery](https://jquery.com/) >= 2.1.4
+* [Knockout](http://knockoutjs.com/) >= 3.3.0 
+
+### Optional
+* [jQuery UI](https://jqueryui.com/) >= 1.11.4
+* [Knockout Validation](https://github.com/Knockout-Contrib/Knockout-Validation) >= 2.0.3
 
 ## Credit
 
@@ -40,3 +59,6 @@ Many of the icons in the SVG icon library are based off of the work done by [Fon
 ## License
 
 Code and documentation is released under the [MIT license](https://github.com/CenturyLinkCloud/Cyclops/blob/master/LICENSE).
+
+### NOTE
+Cyclops uses several 3rd party libraries, a list of which can be viewed in the [package.json](https://github.com/CenturyLinkCloud/Cyclops/blob/master/package.json) file, please review each of their license and user agreements as well.
