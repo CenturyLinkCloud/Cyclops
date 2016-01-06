@@ -22,6 +22,9 @@ gulp dev
 #### [Bootstrap](http://getbootstrap.com/)
 Much of this pattern library is based on [Bootstrap](http://getbootstrap.com/). We've taken many foundational patterns from this project, and extended it to suit the needs of CenturyLink's Platform.
 
+#### [FontAwesome](http://fontawesome.io/)
+Many of the icons in the SVG icon library are based off of the work done by [FontAwesome](https://github.com/FortAwesome/Font-Awesome).
+
 #### Matthew Osborn
 * https://twitter.com/osbornm
 * https://github.com/osbornm
