@@ -47,3 +47,24 @@ Cyclops is hosted on the [CenturyLink Platform assets server](http://assets.ctl.
 npm install
 gulp dev
 ```
+
+## Credit
+
+#### [Bootstrap](http://getbootstrap.com/)
+Much of this pattern library is based on [Bootstrap](http://getbootstrap.com/). We've taken many foundational patterns from this project, and extended it to suit the needs of CenturyLink's Platform.
+
+#### Matthew Osborn
+* https://twitter.com/osbornm
+* https://github.com/osbornm
+
+#### Rathromony Ros
+* https://twitter.com/hellorathy
+* https://github.com/rathromony
+
+#### Nathan Young
+* https://twitter.com/nathanyoung
+* https://github.com/nathanyoung
+
+## License
+
+Code and documentation is released under the [MIT license](https://github.com/CenturyLinkCloud/Cyclops/blob/master/LICENSE).
