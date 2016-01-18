@@ -5,7 +5,7 @@ if !$?
 
 if !ko?
   libraries.knokcout = false
-  console.error 'knokcout is required, please make sure it is included before the cyclops script.'
+  console.error 'knockout is required, please make sure it is included before the cyclops script.'
 
 #test for optional libraries
 if !$.ui?
@@ -15,3 +15,7 @@ if !$.ui?
 if !ko.validation?
   libraries.knockoutValidation = false;
   console.log 'knockout validation is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
+
+if !moment?
+  libraries.moment = false;
+  console.log 'momentjs is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'

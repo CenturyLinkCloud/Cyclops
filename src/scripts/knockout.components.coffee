@@ -39,3 +39,11 @@ ko.components.register 'account-switcher', {
         element: "cyclops.accountSwitcher"
     }
 }
+
+
+ko.components.register 'date-time-picker', {
+    viewModel: DateTimePickerViewModel,
+    template: {
+        element: "cyclops.dateTimePicker"
+    }
+}

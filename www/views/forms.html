@@ -215,6 +215,10 @@ $(function(){
   ko.applyBindings(new ServerPickerViewModel(), $("#formServerPicker")[0]);
   /* End Server Picker*/
 
+  /* Start dateTimePicker */
+  ko.applyBindings({}, $("#formDateTimePicker")[0]);
+  /* End dateTimePicker */
+
   /* Start Async Forms */
   var asyncForms = function(){
     var self = this;

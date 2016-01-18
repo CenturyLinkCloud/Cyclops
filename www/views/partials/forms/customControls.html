@@ -57,7 +57,6 @@
     <a href="#serverPicker">Server Picker</a>
     <a href="./knockoutComponents.html#serverPicker"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a>
   </h4>
-
   <div class="pl-example">
     <form id="formServerPicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
       <fieldset>
@@ -72,7 +71,29 @@
   </div>
   <pre>
     <code class="html">
-  &lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
+  &lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups }&quot;&gt;&lt;/server-picker&gt;
+    </code>
+  </pre>
+
+  <h4 id="dateTimePicker">
+    <a href="#dateTimePicker">Date Time Picker</a>
+    <a href="./knockoutComponents.html#dateTimePicker"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a>
+  </h4>
+  <div class="pl-example">
+    <form id="formDateTimePicker" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">server TTL</label>
+          <div class="col-sm-9">
+            <date-time-picker params="{}"></date-time-picker>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <pre>
+    <code class="html">
+      TODO
     </code>
   </pre>
 </section>
