@@ -50,9 +50,11 @@ class DateTimePickerViewModel
       else
         return value
 
-    #TODO: throw is the type of data is not a momenmt type
-
     @sourceDateTime = ko.asObservable options.dateTime
+
+    if not @sourceDateTime()._isAMomentObject
+      throw 'The date-time-picker expects the dateTime value to be a momentjs object.'
+
     @dateValue = ko.observable @sourceDateTime().format("MM/DD/YYYY")
     @zoneValue = ko.observable @sourceDateTime().utcOffset()
     @hourValue = ko.observable @sourceDateTime().hour()
