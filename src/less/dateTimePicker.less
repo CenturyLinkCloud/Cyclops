@@ -1,22 +1,68 @@
 html.cyclops {
+
+  .date-time-picker {
+    .date-value {
+      width: 99%;
+      display: block;
+    }
+    .time-value {
+      width: 29%;
+      display: inline-block;
+    }
+    .zone-option {
+      width: 39%;
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: @screen-md-min) {
+    .date-time-picker {
+      .date-value {
+        width: 49%;
+        display: inline-block;
+      }
+      .time-value {
+        width: 12%;
+        display: inline-block;
+      }
+      .zone-option {
+        width: 23%;
+        display: inline-block;
+      }
+    }
+  }
+
+  // Date Picker styles
   .ui-datepicker {
-    width: 17em;
-    padding: 0.2em 0.2em 0;
+    width: 290px;
+    padding: 8px 10px;
+    margin-top:4px;
     display: none;
-    background: #fff;
-    
+    background: #3a3a3a;
+
+    &.ui-corner-all {
+      border-radius: 4px;
+    }
+
     .ui-datepicker-header {
       position: relative;
-      padding: 0.2em 0;
-      
+      padding: 6px 0;
+      color: #dcdcdc;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 1px;
+
       .ui-datepicker-prev,
       .ui-datepicker-next {
         cursor: pointer;
         position: absolute;
-        top: 2px;
+        top: 4px;
         width: 1.8em;
         height: 1.8em;
-        
+        font-size: 14px;
+        font-weight: bold;
+
         span {
           display: block;
           position: absolute;
@@ -28,8 +74,9 @@ html.cyclops {
       }
 
       .ui-datepicker-prev {
-        left: 2px;
-        
+        left: 10px;
+        color: #dcdcdc;
+
         .ui-icon:before {
           content: '<';
         }
@@ -37,7 +84,8 @@ html.cyclops {
 
       .ui-datepicker-next {
         right: 2px;
-        
+        color: #dcdcdc;
+
         .ui-icon:before {
           content: '>';
         }
@@ -47,7 +95,7 @@ html.cyclops {
         margin: 0 2.3em;
         line-height: 1.8em;
         text-align: center;
-        
+
         select {
           font-size: 1em;
           margin: 1px 0;
@@ -65,26 +113,53 @@ html.cyclops {
       font-size: 0.9em;
       border-collapse: collapse;
       margin: 0 0 0.4em;
-      
+
       th {
         padding: 0.7em 0.3em;
         text-align: center;
         font-weight: bold;
         border: 0;
+        color: #888888;
       }
 
       td {
         border: 0;
         padding: 1px;
-        
+
         span,
         a {
           display: block;
-          padding: 0.2em;
-          text-align: right;
+          padding:8px 8px;
+          text-align: center;
           text-decoration: none;
+          color: #dcdcdc;
+          .transition(e('background .1s ease-in, color .1s'));
+          &:hover {
+            background-color: #ffffff;
+            color: #3a3a3a;
+            font-weight: bold;
+
+          }
         }
       }
+    }
+
+    .ui-datepicker-current-day {
+      a, a:hover {
+        color: #3a3a3a;
+        font-weight: bold;
+        background-color: #ffffff;
+      }
+
+    }
+
+    .ui-datepicker-today {
+      a, a:hover {
+        color: #dcdcdc;
+        font-weight: bold;
+        background-color: #212121;
+      }
+
     }
 
     .ui-datepicker-buttonpane {
@@ -94,7 +169,7 @@ html.cyclops {
       border-left: 0;
       border-right: 0;
       border-bottom: 0;
-      
+
       button {
         float: right;
         margin: 0.5em 0.2em 0.4em;
@@ -102,7 +177,7 @@ html.cyclops {
         padding: 0.2em 0.6em 0.3em;
         width: auto;
         overflow: visible;
-        
+
         .ui-datepicker-current {
           float: left;
         }
