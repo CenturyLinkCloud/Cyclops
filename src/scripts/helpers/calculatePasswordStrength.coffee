@@ -19,8 +19,10 @@ helpers.calculatePasswordStrength = (password) ->
     strength = 1
   else if password.length == 8 and charTypes == 3
     strength = 2
-  else if password.length <= 9 or charTypes == 3
+  else if password.length <= 9 and charTypes == 3
     strength = 3
-  else
+  else if password.length >= 9 and charTypes == 4
     strength = 4
+  else
+    strength = 0
   strength
