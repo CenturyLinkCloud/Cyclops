@@ -14,10 +14,15 @@ describe 'helpers: calculatePasswordStrength', ->
   it 'returns 3 for 9 character passwords with 3 char types', ->
     expect(helpers.calculatePasswordStrength('aA!AaAaAa')).toEqual(3)
     return
+
+  it 'returns 2 for 8 character passwords with 3 char types', ->
+    expect(helpers.calculatePasswordStrength('Admin123')).toEqual(2)
+    return
+
   it 'returns 4 for 10 character passwords with 4 char types', ->
     expect(helpers.calculatePasswordStrength('1!Ab1!Ab#$')).toEqual(4)
     return
-  it 'returns 3 for 9 character passwords with 4 char types', ->
-    expect(helpers.calculatePasswordStrength('1!Ab1!Ab#')).toEqual(3)
+  it 'returns 4 for 9 character passwords with 4 char types', ->
+    expect(helpers.calculatePasswordStrength('1!Ab1!Ab#')).toEqual(4)
     return
   return
