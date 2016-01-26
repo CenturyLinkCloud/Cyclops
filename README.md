@@ -5,7 +5,7 @@ For the latest release info, see the [Release section](https://github.com/Centur
 [![CenturyLink Cyclops](www/assets/img/centurylink-cyclops.png)](http://assets.ctl.io/)
 
 # CYCLOPS
-The UX/UI Pattern Guide for the CenturyLink Platform
+The UX/UI Pattern Guide for the CenturyLink Platform. View the latest version of Cyclops here: http://assets.ctl.io/
 
 ## Get Started
 Include the built cyclops javaScript and CSS files as well as the dependencies listed below. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup. Documentation for cyclops can be viewed by running the development server `gulp dev`
