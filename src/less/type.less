@@ -262,4 +262,25 @@ html.cyclops {
   .monospace {
     font-family: @monoFontFamily;
   }
+
+  // Large Type Feature
+  // -------------------------
+  .large-type-feature {
+      margin-top: 100px;
+      h1 {
+        font-size: 100px;
+        font-weight: 600;
+        color: #cccccc;
+        margin-bottom: 0;
+      }
+      .lead {
+        color: @textColorLighter;
+        font-weight: 300;
+        padding-bottom: 20px;
+
+        @media (min-width: @screen-sm-min) {
+          margin-top: -7px;
+        }
+      }
+    }
 }
