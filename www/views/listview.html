@@ -219,9 +219,9 @@
     <code class="html">
 &lt;ul class=&quot;new-list-view&quot;&gt;
   &lt;li&gt;
-      &lt;div class=&quot;list-view-item&quot;&gt;
-          &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;div class=&quot;list-view-item-form&quot;&gt;
@@ -256,8 +256,31 @@
   </pre>
 </section>
 
-  <h3 id="responsive"><a href="#responsive">Responsive List Views</a></h3>
-  <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint.</p>
+<section class="pl-section" id="toolbar">
+  <h3><a href="#toolbar">Toolbar</a></h3>
+  <p>The <code>.new-list-view-toolbar</code> is a container for block elements used for modifying or augmenting the view of items in a list view (e.g. create and filter).</p>
+
+  <div class="pl-example">
+    {{> list-view/toolbar }}
+    <div class="new-list-view-header">
+      <h3 class="col col-100">list view header&hellip;</h3>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-toolbar&quot;&gt;
+  &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+  &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="responsive">
+  <h3><a href="#responsive">Responsive List Views</a></h3>
+  <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint. The <code>.new-list-view-toolbar-right</code> will also adhere to the breakpoint set by the classes below.</p>
 
   <table class="table">
     <tr>
@@ -283,6 +306,12 @@
   <pre>
     <code class="html">
 &lt;div class=&quot;new-list-view-responsive new-list-view-responsive-sm&quot;&gt;
+  &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
+    &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+    &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
   &lt;div class=&quot;new-list-view-header&quot;&gt;
       &lt;h3 class=&quot;col col-25&quot;&gt;First Name&lt;/h3&gt;
       &lt;h3 class=&quot;col col-25&quot;&gt;Last Name&lt;/h3&gt;
@@ -370,11 +399,11 @@
   <p>Below are examples of list view using javascript objects and knockout bindings.</p>
   <h4>Read Only</h4>
   <div id="readOnly" class="pl-example">
-    <p>
+    <div class="new-list-view-toolbar">
       <!-- This content is just used for demo purposes you'll wire up your own -->
       <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
       <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
-    </p>
+    </div>
     <div class="new-list-view-responsive new-list-view-responsive-md">
         <div class="new-list-view-header">
             <h3 class="col col-25">Name</h3>
@@ -393,9 +422,9 @@
 
   <h4>Create, Read, Update, Delete (CRUD)</h4>
   <div id="crud" class="pl-example">
-    <p>
+    <div class="new-list-view-toolbar">
       <button class="btn btn-default" data-bind="click: addItem">create an item</button>
-    </p>
+    </div>
     <div class="new-list-view-responsive new-list-view-responsive-sm">
       <div class="new-list-view-header">
         <h3 class="col col-25">Name</h3>
@@ -419,20 +448,23 @@
     <li>If 95% of the use cases involve having a list of 1-10 items, then it's probably not worth the cost of implementing filtering or sorting.</li>
   </ul>
   <div id="filterSort" class="pl-example">
-    <p>
+    <div class="new-list-view-toolbar">
       <button class="btn btn-default" data-bind="click: createServer">create server</button>
-      <span class="search-input pull-right">
-        <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
-        <svg class="cyclops-icon">
-          <!-- ko ifnot: servers.query -->
-          <use xlink:href='#icon-search'></use>
-          <!-- /ko -->
-          <!-- ko if: servers.query -->
-          <use class="clear" xlink:href='#icon-times' data-bind="click: clearFilter" ></use>
-          <!-- /ko -->
-        </svg>
-      </span>
-    </p>
+      <div class="pull-right">
+        <button class="btn btn-default" data-bind="click: createServer">create server</button>
+        <span class="search-input">
+          <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
+          <svg class="cyclops-icon">
+            <!-- ko ifnot: servers.query -->
+            <use xlink:href='#icon-search'></use>
+            <!-- /ko -->
+            <!-- ko if: servers.query -->
+            <use class="clear" xlink:href='#icon-times' data-bind="click: clearFilter" ></use>
+            <!-- /ko -->
+          </svg>
+        </span>
+      </div>
+    </div>
     <div class="new-list-view-header">
         <h3 class="col col-10"></h3>
         <h3 class="col col-30">
