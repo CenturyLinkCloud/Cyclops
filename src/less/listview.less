@@ -557,6 +557,26 @@ html.cyclops {
     width: 100%;
   }
 
+  .new-list-view-toolbar {
+    margin-bottom: floor(@line-height-computed / 2);
+
+    .new-list-view-toolbar-right-collapsed();
+
+    @media (min-width: @screen-sm-min) {
+      .new-list-view-toolbar-right-expanded();
+    }
+
+    .btn,
+    .dropdown {
+      vertical-align: top;
+    }
+
+    .btn + .btn,
+    .btn + .dropdown {
+      margin-bottom: 5px;
+    }
+  }
+
   .new-list-view-responsive {
     .col-header {
       display: none;
@@ -565,29 +585,36 @@ html.cyclops {
 
     @media (max-width: 0px) {
       .new-list-view-responsive-collapsed();
+      .new-list-view-toolbar-right-collapsed();
     }
 
     &.new-list-view-responsive-sm {
       .new-list-view-responsive-expanded();
+      .new-list-view-toolbar-right-expanded();
 
       @media (max-width: @screen-xs-max) {
         .new-list-view-responsive-collapsed();
+        .new-list-view-toolbar-right-collapsed();
       }
     }
 
     &.new-list-view-responsive-md {
       .new-list-view-responsive-expanded();
+      .new-list-view-toolbar-right-expanded();
 
       @media (max-width: @screen-sm-max) {
         .new-list-view-responsive-collapsed();
+        .new-list-view-toolbar-right-collapsed();
       }
     }
 
     &.new-list-view-responsive-lg {
       .new-list-view-responsive-expanded();
+      .new-list-view-toolbar-right-expanded();
 
       @media (max-width: @screen-md-max) {
         .new-list-view-responsive-collapsed();
+        .new-list-view-toolbar-right-collapsed();
       }
     }
   }
@@ -596,6 +623,9 @@ html.cyclops {
   // they are meant to be included in other classes
   // go go less!
   .new-list-view-responsive-collapsed {
+
+    .new-list-view-toolbar-right-collapsed();
+
     > ul {
       border-top: solid 1px #d9d9d9;
     }
@@ -891,4 +921,22 @@ html.cyclops {
       width: 100%;
     }
   }
+
+
+  .new-list-view-toolbar-right-expanded {
+    .new-list-view-toolbar-right {
+      float:right;
+      margin-left: 20px;
+      margin-top: 0px;
+    }
+  }
+
+  .new-list-view-toolbar-right-collapsed {
+    .new-list-view-toolbar-right {
+      float: none;
+      margin-top: 5px;
+      margin-left: 0;
+    }
+  }
+
 }
