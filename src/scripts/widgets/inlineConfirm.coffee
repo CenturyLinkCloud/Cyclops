@@ -78,9 +78,11 @@ $.fn.inlineConfirm = (options) ->
         timeoutTracker = window.setTimeout reset, options.timeout
 
     # register all the click handlers from the original button
-    $._data($btn[0], "events").click.forEach (c) ->
-      $yesBtn.on("click", c.handler)
-      return
+    _data = $._data($btn[0], "events")
+    if _data 
+      _data.click.forEach (c) ->
+        $yesBtn.on("click", c.handler)
+        return
 
     # clean up the buttons when we are done...
     $yesBtn.on "click", reset

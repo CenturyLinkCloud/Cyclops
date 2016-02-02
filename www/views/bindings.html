@@ -212,6 +212,27 @@ There are no items
 </div>
 </section>
 
+<section id="fadeSlideTemplate" class="pl-section">
+  <h3><code>fadeSlideTemplate</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Works just like the <a href="http://knockoutjs.com/documentation/template-binding.html">knockout template binding</a>
+    but will fade and slide in changes in templates. Note that this only happens on changes to the template name and does
+    not happen on the first render.
+  </p>
+  <pre>
+    <code class="html">
+  &lt;li data-bind=&quot;fadeSlideTemplate: templateName&quot;&gt;&lt;li/&gt;
+  &lt;!-- with options --&gt;
+  &lt;li data-bind=&quot;fadeSlideTemplate: { name: templateName, data: model.user }&quot;&gt;&lt;li/&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <p>
+    Supports all the options of the <a href="http://knockoutjs.com/documentation/template-binding.html">knockout template binding</a>
+  </p>
+</section>
+
 <section id="fadeVisible" class="pl-section">
 <h3><code>fadeVisible</code></h3>
 <h4>Supports Virtual Elements: NO</h4>
