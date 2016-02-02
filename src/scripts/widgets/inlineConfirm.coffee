@@ -45,9 +45,20 @@ $.fn.inlineConfirm = (options) ->
 
     # get the calculated height of the original and
     # figure out the amount to move it up to hide it
-    buttonHeight = $btn.innerHeight()
+
+    # because the button maybe currently hidden lets
+    # clone it and move it to the side (off the screen)
+    # and show it to get the correct height to use.
+    clone = $btn.clone()
+                .css({'position': 'absolute', 'left': '-999999px'})
+                .show()
+                .attr({'aria-hidden': 'true'})
+    clone.appendTo($("body"))
+    buttonHeight = clone.innerHeight()
+    clone.remove()
     topAmount = (buttonHeight * -1) + -5
     $container.height buttonHeight
+
 
     # insert the HTML and move the button inside
     $container.insertBefore $btn
@@ -79,7 +90,7 @@ $.fn.inlineConfirm = (options) ->
 
     # register all the click handlers from the original button
     _data = $._data($btn[0], "events")
-    if _data 
+    if _data
       _data.click.forEach (c) ->
         $yesBtn.on("click", c.handler)
         return
