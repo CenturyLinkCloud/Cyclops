@@ -43,7 +43,7 @@ html.cyclops {
   .alert-icon {
 
     text-align: center;
-    margin-bottom: @line-height-computed * 2;
+    margin-bottom: @line-height-computed / 2;
 
     > svg {
     width: 28px;
@@ -65,7 +65,11 @@ html.cyclops {
   .alert-icon {
     float: left;
     line-height: (@line-height-computed * 2) - 6 ; // 34px
-    margin-right: @alert-padding;
+  }
+
+  .alert-icon ~ h4,
+  .alert-icon ~ p {
+    margin-left: @alert-padding * 2.5;
   }
 }
 
