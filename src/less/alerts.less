@@ -89,6 +89,10 @@ html.cyclops {
 //
 // Generate contextual modifier classes for colorizing the alert.
 
+.alert-instruction {
+  .alert-variant(@alert-instruction-bg; @alert-instruction-border; @textColor; @textColor);
+}
+
 .alert-success {
   .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text; @textColor);
 }
