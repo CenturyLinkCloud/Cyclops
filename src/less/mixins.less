@@ -402,7 +402,7 @@
 .alert-variant(@background; @border; @icon-color; @text-color) {
   background-color: @background;
   border-color: @border;
-  color: lighten(@textColor, 20%);
+  color: @textColor;
 
   > .cyclops-icon,
   .alert-icon .cyclops-icon {
