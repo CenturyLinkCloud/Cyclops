@@ -17,12 +17,26 @@ html.cyclops {
   // Headings for larger alerts
   h4 {
     font-size: @font-size-base;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0;
-    margin-top: 0;
     margin-bottom: 0;
-    // Specified for the h4 to prevent conflicts of changing @headings-color
+  }
+
+  h1, h2, h3, h4 {
     color: inherit;
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: @font-size-h1 - 4;
+  }
+
+  h2 {
+    font-size: @font-size-h2 - 4;
+  }
+
+  h3 {
+    font-size: @font-size-h3 - 4;
   }
 
   // Provide class for links that match alerts
@@ -67,6 +81,9 @@ html.cyclops {
     line-height: (@line-height-computed * 2) - 6 ; // 34px
   }
 
+  .alert-icon ~ h1,
+  .alert-icon ~ h2,
+  .alert-icon ~ h3,
   .alert-icon ~ h4,
   .alert-icon ~ p {
     margin-left: @alert-padding * 2.5;
