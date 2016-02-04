@@ -66,6 +66,7 @@ class AccountSwitcherViewModel
     @clearSearch = () =>
       @flatOrgList.query ''
       _activeItemIndex = -1
+      @flatOrgList.clearSort()
 
     @currentAccountAlias = ko.asObservable(options.currentAccountAlias)
 
@@ -76,7 +77,7 @@ class AccountSwitcherViewModel
     @flatOrgList = ko.filterableArray([], {
       fields: ['alias', 'name'],
       comperer: (query, acct) ->
-        if acct.alias.indexOf(querytoLowerCase()) == 0
+        if acct.alias.indexOf(query.toLowerCase()) == 0
           return true
         if acct.businessName.toLowerCase().indexOf(query.toLowerCase()) > -1
           return true
@@ -88,6 +89,7 @@ class AccountSwitcherViewModel
       @forceShowAllAccts(false)
       _activeItemIndex 0
     , null, 'beforeChange'
+
 
     @isSearching = ko.computed () =>
       return !!@flatOrgList.query()
@@ -164,13 +166,53 @@ class AccountSwitcherViewModel
       else
         return "Showing #{visible} of #{total} accounts"
 
-    @displayOrgs = ko.pureComputed () =>
-      if @forceShowAllAccts()
-        return @flatOrgList()
-      end = 1 * pageSize # 1 is the starting page, could be changed in the future
-      start = end - pageSize
-      return @flatOrgList().slice(start, end);
 
+    _sortByWeight = (a,b) =>
+      query = @flatOrgList.query()
+      aVal = _calcWeight(a, query)
+      bVal = _calcWeight(b, query)
+
+      if (aVal > bVal)
+        return -1;
+      else if (aVal < bVal)
+        return 1;
+      else
+        if @flatOrgList.all().indexOf(a) < @flatOrgList.all().indexOf(b)
+          return -1
+        else
+          return 1
+
+
+    _calcWeight = (acct, query) ->
+      result = 0
+      if(!!query)
+        query = query.toLowerCase()
+        # exact alias matches should always be first
+        alias = acct.alias.toLowerCase()
+        if alias == query
+          result += 100
+        # if alais starts with query
+        else if alias.indexOf(query) == 0
+          result += 30
+
+        idx = acct.rawAcct.businessName.toLowerCase().indexOf(query)
+        # if the business name starts with the query
+        if idx == 0
+          result += 20
+        # if the business name contains with the query
+        else if idx > -1
+          result += 10
+
+      return result
+
+
+    @displayOrgs = ko.pureComputed () =>
+      result = @flatOrgList()
+      if not @forceShowAllAccts()
+        end = 1 * pageSize # 1 is the starting page, could be changed in the future
+        start = end - pageSize
+        result = @flatOrgList().slice(start, end)
+      return helpers.stableMergeSort(result, _sortByWeight)
 
     ###############################
     # Selection of account logic
