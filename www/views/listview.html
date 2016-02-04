@@ -258,7 +258,7 @@
 
 <section class="pl-section" id="toolbar">
   <h3><a href="#toolbar">Toolbar</a></h3>
-  <p>The <code>.new-list-view-toolbar</code> is a container for block elements used for modifying or augmenting the view of items in a list view (e.g. create and filter).</p>
+  <p>The <code>.new-list-view-toolbar</code> is a container for block elements used for modifying or augmenting the view of items in a list view (e.g. create and filter). Wrap any text that follows a button with a <code>p</code> or <code>span</code> tag to provide padding on the left.</p>
 
   <div class="pl-example">
     {{> list-view/toolbar }}
@@ -270,6 +270,7 @@
     <code class="html">
 &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
   &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+  &lt;span&gt;1 - 10 of 23 items&lt;/span&gt;
   &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
     ...
   &lt;/div&gt;
