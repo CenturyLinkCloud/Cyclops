@@ -5,10 +5,10 @@
     <h1 class="content-header">Grid System</h1>
     <p>Our frontend system is based on <a href="http://www.getbootstrap.com">Bootstrap 3</a>, which includes several components and options for laying out your pages. You can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices.</p>
 
-    <h3 id="Container">Container</h3>
+    <h3 id="Container"><a href="#Container">Container</a></h3>
     <p>Containers are the most basic layout element in Bootstrap and are required when using our grid system. In most cases, you'll want to use a <code>.container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
 
-    <h3 id="rowsColumns">Rows &amp; Columns</h3>
+    <h3 id="rowsColumns"><a href="#rowsColumns">Rows &amp; Columns</a></h3>
     <p>For proper alignment and padding, <code>.row</code> must be placed within either a <code>.container</code> or <code>.container-fluid</code>. Columns should be immediate children of rows, and only columns should contain content.</p>
 
     <p>Columns use an equal amount of space in the parent container. This automatic sizing allows you to achieve most desired outcomes. Our system is composed of 12 flexible columns with a 40px gutter (20px on the left and right of each column).
@@ -25,7 +25,7 @@
       </code>
     </pre>
 
-    <h3 id="mediaQueries">Media Queries</h3>
+    <h3 id="mediaQueries"><a href="#mediaQueries">Media Queries</a></h3>
 
     <p>We use the following media queries in our Less files to create the key breakpoints in our grid system.</p>
 
@@ -42,14 +42,14 @@
           </code>
         </pre>
 
-    <h3 id="example">Example</h3>
+    <h3 id="example"><a href="#example">Example</a></h3>
     <p>Using a single set of <code>.col-md-*</code> grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any <code>.row</code>.</p>
 
     <div class="pl-show-grid-container">
 
       <div class="row pl-show-grid">
-        <div class="col-md-3">.col-md-4</div>
-        <div class="col-md-9">.col-md-8</div>
+        <div class="col-md-3">.col-md-3</div>
+        <div class="col-md-9">.col-md-9</div>
       </div>
       <div class="row pl-show-grid">
         <div class="col-md-4">.col-md-4</div>
@@ -77,6 +77,60 @@
   &lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
     &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+
+    <h3 id="offsettingColumns"><a href="#offsettingColumns">Offsetting Columns</a></h3>
+    <p>Move columns to the right using <code>.col-md-offset-*</code> classes. The left margin of a column will be increased by <code>*</code> columns.</p>
+
+    <div class="pl-show-grid-container">
+
+      <div class="row pl-show-grid">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+      </div>
+      <div class="row pl-show-grid">
+        <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+        <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+      </div>
+
+    </div>
+
+    <pre>
+      <code class="html">
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+    &lt;div class=&quot;col-md-4 col-md-offset-4&quot;&gt;.col-md-4 .col-md-offset-4&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-3 col-md-offset-3&quot;&gt;.col-md-3 .col-md-offset-3&lt;/div&gt;
+    &lt;div class=&quot;col-md-3 col-md-offset-3&quot;&gt;.col-md-3 .col-md-offset-3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+
+    <h3 id="columnOrdering"><a href="#columnOrdering">Column Ordering</a></h3>
+    <p>Change the order of grid columns with <code>.col-md-push-*</code> and <code>.col-md-pull-*</code> modifier classes. For example, stacked content on mobile can be reordered horizontally on desktop (medium) devices.</p>
+
+    <div class="pl-show-grid-container">
+
+      <div class="row pl-show-grid">
+        <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+        <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+      </div>
+
+    </div>
+
+    <pre>
+      <code class="html">
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-9 col-md-push-3&quot;&gt;.col-md-9 .col-md-push-3&lt;/div&gt;
+    &lt;div class=&quot;col-md-3 col-md-pull-9&quot;&gt;.col-md-3 .col-md-pull-9&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
       </code>
