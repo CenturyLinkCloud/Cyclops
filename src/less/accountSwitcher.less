@@ -23,12 +23,12 @@ account-switcher {
   display: block;
   height: 40px;
   background-color: @account-switcher-bg;
-
+  
   button.btn-link {
     color: gray;
     font-size: @font-size-small;
     text-decoration: none;
-
+    
     &:hover {
       color: white;
       outline: none;
@@ -43,6 +43,8 @@ account-switcher {
 
   .header {
     display: block;
+    z-index: 1051;
+    height: 40px;
     background-color: @account-switcher-bg;
     color: @account-switcher-text-color;
     font-weight: @base-font-weight;
@@ -51,14 +53,14 @@ account-switcher {
     z-index: 1051;
     position: relative;
     .box-shadow(0 -2px 3px 1px #000);
-
+    
     .toggle-btn {
       padding: 0;
-
+      
       svg {
         .transition(e('fill .05s ease-in'));
         fill: @account-switcher-text-color;
-
+        
         &:hover {
           fill: @white;
         }
@@ -76,7 +78,7 @@ account-switcher {
       vertical-align: middle;
       margin-right: 5px;
       .transition(e('color .05s ease-in'));
-
+      
       &:hover {
         color: @white;
       }
@@ -95,7 +97,7 @@ account-switcher {
     outline: 0;
     color: @account-switcher-text-color;
     padding: 20px;
-
+    
     .org-message {
       display: inline-block;
       padding: 4px 0 6px;
@@ -104,7 +106,7 @@ account-switcher {
     form.search {
       .search-input {
         width: 100%;
-
+        
         input {
           width: 100%;
           font-size: 16px;
@@ -119,7 +121,7 @@ account-switcher {
       clear: both;
       background-color: transparent;
       border-bottom: 2px solid @account-switcher-border-color;
-
+      
       h3 {
         color: #999;
       }
@@ -137,7 +139,7 @@ account-switcher {
     .col-active-item {
       width: 29px;
       padding: 0 0 0 15px;
-
+      
       svg {
         margin-bottom: 2px;
         opacity: 0;
@@ -155,7 +157,7 @@ account-switcher {
       left: 20px;
       overflow: auto;
       -webkit-overflow-scrolling: touch;
-
+      
       .loading-list-view-items {
         border-bottom-color: @account-switcher-border-color;
         color: #999;
@@ -165,7 +167,7 @@ account-switcher {
         border-bottom-color: @account-switcher-border-color;
         .transition(e('color .05s ease-in'));
         cursor: pointer;
-
+        
         &.current {
           background-color: @account-switcher-active-bg;
           color: @white;
@@ -174,7 +176,7 @@ account-switcher {
         &.active-item {
           background-color: @account-switcher-active-bg;
           color: @white;
-
+          
           .col-active-item svg {
             opacity: 1;
           }
@@ -195,10 +197,10 @@ account-switcher {
     .take-over {
       form.search {
         float: right;
-
+        
         .search-input {
           width: auto;
-
+          
           input {
             width: auto;
           }

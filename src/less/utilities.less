@@ -1,4 +1,5 @@
 // Quick floats
+
 .pull-right {
   float: right;
 }
@@ -6,7 +7,23 @@
 .pull-left {
   float: left;
 }
+// Clearfix
+.clear-fix {
+  *zoom: 1;
+  
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
 
+  &:after {
+    clear: both;
+  }
+}
 // Toggling content
 .hide {
   display: none;
@@ -15,30 +32,26 @@
 .show {
   display: block;
 }
-
 // Visibility
 .invisible {
   visibility: hidden;
 }
-
 // For Affix plugin
 .affix {
   position: fixed;
 }
-
-// single line 
+// single line
 .truncate {
-	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 // Vertically center inside a div with a specified height
 .v-center {
-  position:relative;
-  top:50%;
-  .translate(0, -50%)
+  position: relative;
+  top: 50%;
+  .translate(0, -50%);
 }
 
 .cyclops-spin {

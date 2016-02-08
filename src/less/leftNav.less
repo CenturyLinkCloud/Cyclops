@@ -1,0 +1,177 @@
+@leftNavWidth: 280px;
+@textColor: #757575;
+@textColorActive: #fff;
+@textColorHover: #ddd;
+
+left-nav ~ .primary,
+left-nav ~ .container,
+left-nav ~ .container-fluid {
+  margin-left: 50px;
+  transition: margin-left 0.5s;
+}
+
+left-nav {
+  position: fixed;
+  top: 91px;
+  bottom: 0;
+  overflow: auto;
+  width: 50px;
+  overflow: visible;
+  z-index: 1;
+  background: #2d302d;
+  transition: width 0.5s;
+  color: @textColor;
+  // Prevent a BUFOC
+  &:before {
+    content: ' ';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: #2d302d;
+    transition: width 0.5s;
+    z-index: -1;
+  }
+
+  .cyclops-icon {
+    height: 24px;
+    width: 24px;
+    fill: @textColor;
+    margin-right: 10px;
+    transition: fill 0.1s;
+  }
+
+  .menu {
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 7px black;
+    position: relative;
+    z-index: 2;
+    
+    .scroll-up,
+    .scroll-down {
+      display: none;
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      
+      &:focus,
+      &:hover {
+        color: @textColorHover;
+        outline: none;
+        
+        svg {
+          fill: @textColorHover;
+        }
+      }
+
+      &:active {
+        box-shadow: none;
+        outline: none;
+        color: @textColorActive;
+        
+        svg {
+          fill: @textColorActive;
+        }
+      }
+    }
+
+    .scroll-up {
+      top: 0;
+    }
+
+    .scroll-down {
+      bottom: 0;
+    }
+
+    .items {
+      list-style: none;
+      padding: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+      margin-right: -15px;
+      position: relative;
+      z-index: 2;
+      background: #2d302d;
+      
+      li {
+        line-height: 24px;
+        font-size: 24px;
+        width: 265px;
+        margin: 10px 0 10px 14px;
+        
+        .btn {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          text-align: left;
+          background-color: transparent;
+          color: @textColor;
+          font-size: 24px;
+          
+          &:focus,
+          &:hover {
+            color: @textColorHover;
+            outline: none;
+            
+            svg {
+              fill: @textColorHover;
+            }
+          }
+
+          &:active {
+            box-shadow: none;
+            outline: none;
+            color: @textColorActive;
+            
+            svg {
+              fill: @textColorActive;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .flyout-menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: red;
+    width: 280px;
+    background: #272827;
+    border-right: 1px solid #202220;
+    margin-left: -280px;
+    transition: margin-left 0.5s;
+    box-shadow: 0 0 7px black;
+    
+    &.open {
+      margin-left: 50px;
+    }
+  }
+}
+// TODO: consider changing this to something like XL
+@media (min-width: @screen-lg-min) {
+  left-nav ~ .primary,
+  left-nav ~ .container,
+  left-nav ~ .container-fluid {
+    margin-left: 280px;
+  }
+
+  left-nav {
+    width: 280px;
+    
+    &:before {
+      width: 280px;
+    }
+
+    .flyout-menu {
+      margin-left: -280px;
+      
+      &.open {
+        margin-left: 280px;
+      }
+    }
+  }
+}

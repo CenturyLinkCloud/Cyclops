@@ -40,10 +40,19 @@ ko.components.register 'account-switcher', {
     }
 }
 
-
 ko.components.register 'date-time-picker', {
     viewModel: DateTimePickerViewModel,
     template: {
         element: "cyclops.dateTimePicker"
+    }
+}
+
+ko.components.register 'left-nav', {
+    viewModel: {
+      createViewModel: (params, componentInfo) ->
+        return new LeftNavViewModel(params, componentInfo.element)
+    },
+    template: {
+        element: "cyclops.leftNav"
     }
 }
