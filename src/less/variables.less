@@ -71,17 +71,28 @@
 @brand-info: #43c1e6;
 @brand-warning: #f0ad4e;
 @brand-danger: #e43b34;
+@border-color: #d9d9d9;
+@white: #fff;
+
+// Accent colors
+// -------------------------
+@blue: #049cdb;
+@blueDark: #0064cd;
+@green: #46a546;
+@red: #9d261d;
+@yellow: #ffc40d;
+@orange: #f89406;
+@pink: #c3325f;
+@purple: #7a43b6;
 
 // Grays
 // -------------------------
 @black: #000;
-@grayDarker: #222;
-@grayDark: #444;
+@gray-darker: #222;
+@gray-dark: #444;
 @gray: #555;
-@grayish: #cfcfcf;
-@grayLight: #999;
-@grayLighter: #eee;
-@white: #fff;
+@gray-light: #999;
+@gray-lighter: #eee;
 
 //-- Z-index master list
 //
@@ -98,28 +109,34 @@
 
 //@zindex-modal-background:  1040;
 //@zindex-modal:             1050;
-//== Type
+
+//== Typography
 // -------------------------
-@textColor: #666666;
-@headingTextColor: @grayDarker;
-@headings-small-color: @grayLight;
-@textColorLight: @gray;
-@textColorLighter: @grayLight;
-@borderColor: #d9d9d9;
-@errorText: #b94a48;
-@baseFontWeight: 400;
-@boldFontWeight: 600;
-@fontFamily: "Open Sans", Helvetica, Arial, Sans-Serif;
-@monoFontFamily: Menlo, Monaco, Consolas, "Courier New", monospace;
+@text-color: #666666;
+@text-color-light: @gray;
+@text-color-lighter: @gray-light;
+
+@error-text: #a94442;
+
+@base-font-weight: 400;
+@bold-font-weight: 600;
+
+@font-family: "Open Sans", Helvetica, Arial, Sans-Serif;
+@mono-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
 @font-size-base: 14px;
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small: ceil((@font-size-base * 0.85)); // ~12px
+
 @font-size-h1: floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2: floor((@font-size-base * 2.15)); // ~30px
 @font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
 @font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
 @font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+@heading-text-color: @gray-darker;
+@headings-small-color: @gray-light;
 @headings-line-height: 1.2em;
 
 // Common Components
@@ -131,17 +148,6 @@
 @border-radius-base: 4px;
 @border-radius-large: 6px;
 @border-radius-small: 3px;
-
-// Accent colors
-// -------------------------
-@blue: #049cdb;
-@blueDark: #0064cd;
-@green: #46a546;
-@red: #9d261d;
-@yellow: #ffc40d;
-@orange: #f89406;
-@pink: #c3325f;
-@purple: #7a43b6;
 
 // Buttons
 //-------------------------
@@ -160,7 +166,7 @@
 @btn-danger-bg-hover: #cd352f;
 @btn-danger-bg-active: #b62f2a;
 @btn-danger-bg-disabled: #f19996;
-@btn-inverse-color: @textColor;
+@btn-inverse-color: @text-color;
 @btn-inverse-color-disabled: #acacac;
 @btn-inverse-bg: #e5e5e5;
 @btn-inverse-bg-hover: #cecece;
@@ -206,7 +212,7 @@
 //-------------------------
 @input-height-base: 34px;
 @form-group-margin-bottom: 15px;
-@input-bg-disabled: @grayLighter;
+@input-bg-disabled: @gray-lighter;
 
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled: not-allowed;
@@ -242,7 +248,7 @@
 @state-warning-text: #8b6b34;
 @state-warning-bg: #fcf8e3;
 @state-warning-border: darken(spin(@state-warning-bg, -10), 10%);
-@state-danger-text: #a94442;
+@state-danger-text: @error-text;
 @state-danger-bg: #f2dede;
 @state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
 
@@ -265,16 +271,16 @@
 @alert-danger-text: @state-danger-text;
 @alert-danger-border: @state-danger-border;
 @alert-instruction-bg: @white;
-@alert-instruction-text: @textColorLight;
-@alert-instruction-border: @borderColor;
+@alert-instruction-text: @text-color-light;
+@alert-instruction-border: @border-color;
 
 //== Navs
 //
 //=== Shared nav styles
 @nav-link-padding: 15px;
-@nav-link-hover-bg: @grayLighter;
-@nav-disabled-link-color: @grayLight;
-@nav-disabled-link-hover-color: @grayLight;
+@nav-link-hover-bg: @gray-lighter;
+@nav-disabled-link-color: @gray-light;
+@nav-disabled-link-hover-color: @gray-light;
 @nav-bottom-border: #ccc;
 
 //== Navbar
@@ -311,12 +317,12 @@
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color: lighten(@grayLight, 15%);
+@navbar-inverse-color: lighten(@gray-light, 15%);
 @navbar-inverse-bg: #262626;
 @navbar-inverse-border: darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
-@navbar-inverse-link-color: lighten(@grayLight, 15%);
+@navbar-inverse-link-color: lighten(@gray-light, 15%);
 @navbar-inverse-link-hover-color: #fff;
 @navbar-inverse-link-hover-bg: transparent;
 @navbar-inverse-link-active-color: @navbar-inverse-link-hover-color;
@@ -341,19 +347,19 @@
 @pagination-padding-x:                12px;
 @pagination-padding-y:                9px;
 
-@pagination-color:                     @textColor;
+@pagination-color:                     @text-color;
 @pagination-bg:                        #fff;
 @pagination-border-width:              1px;
 @pagination-border-color:              #ddd;
 
-@pagination-hover-color:               @textColor;
-@pagination-hover-bg:                  @grayLighter;
+@pagination-hover-color:               @text-color;
+@pagination-hover-bg:                  @gray-lighter;
 @pagination-hover-border:              #ddd;
 
-@pagination-active-color:              @textColor;
+@pagination-active-color:              @text-color;
 @pagination-active-bg:                 #ccc;
 @pagination-active-border:             #ccc;
 
-@pagination-disabled-color:            @grayLight;
+@pagination-disabled-color:            @gray-light;
 @pagination-disabled-bg:               #fff;
 @pagination-disabled-border:           #ddd;

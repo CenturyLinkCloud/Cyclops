@@ -239,7 +239,7 @@
 }
 
 .reset-text() {
-  font-family: @fontFamily;
+  font-family: @font-family;
   // We deliberately do NOT reset font-size.
   font-style: normal;
   font-weight: normal;
@@ -402,7 +402,7 @@
 .alert-variant(@background; @border; @icon-color; @text-color) {
   background-color: @background;
   border-color: @border;
-  color: @textColor;
+  color: @text-color;
 
   > .cyclops-icon,
   .alert-icon .cyclops-icon {

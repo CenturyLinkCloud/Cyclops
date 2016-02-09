@@ -25,7 +25,7 @@
     display: block;
     border-bottom: 1px solid #d6d6d6;
     margin: 0;
-    font-weight: @baseFontWeight;
+    font-weight: @base-font-weight;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -40,7 +40,7 @@
     }
 
     input:checked + .content {
-      background-color: @grayDark;
+      background-color: @gray-dark;
       color: @white;
 
 
@@ -51,19 +51,19 @@
 
     input:disabled + .content {
       cursor: not-allowed;
-      color: @grayLight;
+      color: @gray-light;
 
       &:hover {
         background-color: transparent;
       }
 
       svg {
-        fill: @grayLight;
+        fill: @gray-light;
       }
     }
 
     input[type=checkbox]:indeterminate + .content {
-//        background-color: lighten(@grayDark, 60%);
+//        background-color: lighten(@gray-dark, 60%);
     }
 
     &:hover {
@@ -78,10 +78,10 @@
     cursor: not-allowed;
 
     .content {
-      color: @grayLight;
+      color: @gray-light;
 
       svg {
-        fill: @grayLight;
+        fill: @gray-light;
       }
     }
 

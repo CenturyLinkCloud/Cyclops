@@ -5,9 +5,9 @@
   .box-shadow(none);
   color: @white;
   display: inline-block;
-  font-family: @fontFamily;
+  font-family: @font-family;
   font-size: 13px;
-  font-weight: @baseFontWeight;
+  font-weight: @base-font-weight;
   letter-spacing: 1px;
   line-height: @line-height-computed;
   padding: 4px 10px 6px;
@@ -168,7 +168,7 @@ fieldset[disabled] {
 
 .btn-inverse {
   background-color: @btn-inverse-bg;
-  color: @textColor;
+  color: @text-color;
 
   &:hover {
     background-color: @btn-inverse-bg-hover;
@@ -195,7 +195,7 @@ fieldset[disabled] {
 .btn-outline {
   border: 1px solid @btn-outline-border;
   background-color: @btn-outline-bg;
-  color: @textColor;
+  color: @text-color;
   padding: 3px 10px 5px;
 
   &:hover {
@@ -216,20 +216,20 @@ fieldset[disabled] {
     &:hover {
       border: 1px solid @btn-outline-border;
       background-color: @btn-outline-bg-disabled;
-      color: @textColor;
+      color: @text-color;
     }
   }
 
   svg {
-    fill: @textColor;
+    fill: @text-color;
   }
 }
 
 .btn-no-style {
-  color: @textColor;
+  color: @text-color;
   text-decoration: none;
   background-color: transparent;
-  font-family: @fontFamily;
+  font-family: @font-family;
   font-size: @font-size-base;
   background: none;
   border: none;
@@ -253,12 +253,12 @@ fieldset[disabled] {
   }
 
   svg {
-    fill: @textColor;
+    fill: @text-color;
   }
 }
 
 .btn-link {
-  color: @textColor;
+  color: @text-color;
   text-decoration: underline;
   background-color: transparent;
 
@@ -272,11 +272,11 @@ fieldset[disabled] {
   }
 
   &:focus {
-    outline: 1px dotted lighten(@textColor, 40%);
+    outline: 1px dotted lighten(@text-color, 40%);
   }
 
   svg {
-    fill: @textColor;
+    fill: @text-color;
   }
 }
 
@@ -325,7 +325,7 @@ fieldset[disabled] {
 }
 
 .btn-link-text {
-  font-family: @fontFamily;
+  font-family: @font-family;
   font-size: @font-size-base;
   .btn-link();
   background: none;
@@ -371,10 +371,10 @@ input[type="button"] {
   line-height: @line-height-base;
   color: @black;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
-  color: @textColorLighter;
+  color: @text-color-lighter;
 
   &:hover {
-    color: @textColor;
+    color: @text-color;
     text-decoration: none;
     cursor: pointer;
   }

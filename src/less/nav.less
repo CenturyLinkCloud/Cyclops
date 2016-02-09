@@ -65,7 +65,7 @@
 .nav-stacked {
   margin: 0px -20px 0 -20px;
   padding: 20px;
-  background-color: darken(@grayLighter, 2%);
+  background-color: darken(@gray-lighter, 2%);
 
   // generate a more specific selector to override default .nav style
   &.nav {
@@ -110,7 +110,7 @@
 
      &.selected {
        > a {
-         font-weight: @boldFontWeight;
+         font-weight: @bold-font-weight;
        }
      }
    }
@@ -147,10 +147,10 @@
     }
 
     .tab {
-      border-bottom: 1px solid @borderColor;
+      border-bottom: 1px solid @border-color;
 
       &:first-child {
-        border-top: 1px solid @borderColor;
+        border-top: 1px solid @border-color;
       }
 
       a {
@@ -173,14 +173,14 @@
           > li {
 
             &.divider {
-              background-color: @borderColor;
+              background-color: @border-color;
               height: 1px;
               overflow: hidden;
               margin: ((@line-height-computed / 2) - 1) 0;
             }
 
             &.selected {
-              font-weight: @boldFontWeight;
+              font-weight: @bold-font-weight;
             }
 
             > a {

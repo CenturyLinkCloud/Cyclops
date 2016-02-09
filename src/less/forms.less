@@ -15,7 +15,7 @@ legend {
   line-height: 30px;
   font-size: 18px;
   margin-bottom: @form-group-margin-bottom;
-  border-bottom: 1px solid @borderColor;
+  border-bottom: 1px solid @border-color;
   width: 100%;
 
   .description {
@@ -29,7 +29,7 @@ label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
-  font-weight: @boldFontWeight;
+  font-weight: @bold-font-weight;
 }
 // Normalize form controls
 //
@@ -69,7 +69,7 @@ select[size] {
   padding: 6px 12px;
   font-size: @font-size-base;
   line-height: 1.42857143;
-  color: @textColor;
+  color: @text-color;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -175,7 +175,7 @@ textarea.form-control {
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
     padding-left: 20px;
     margin-bottom: 0;
-    font-weight: @baseFontWeight;
+    font-weight: @base-font-weight;
     cursor: pointer;
   }
 }
@@ -279,7 +279,7 @@ fieldset[disabled] {
 }
 
 .validationMessage {
-  color: @errorText;
+  color: @error-text;
   margin: 0;
 }
 // Inline forms
@@ -368,7 +368,7 @@ fieldset[disabled] {
   }
 
   .form-submit {
-    border-top: 1px solid @borderColor;
+    border-top: 1px solid @border-color;
     margin-top: 30px;
     padding-top: 15px;
   }
@@ -411,7 +411,7 @@ fieldset[disabled] {
   display: block; // account for any element using help-block
   margin-top: 5px;
   margin-bottom: 10px;
-  color: lighten(@textColor, 25%); // lighten the text some for contrast
+  color: lighten(@text-color, 25%); // lighten the text some for contrast
 }
 // checkbox toggle
 .toggle {
@@ -454,7 +454,7 @@ fieldset[disabled] {
     display: block;
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid @borderColor;
+    border: 1px solid @border-color;
     border-radius: 3px;
   }
 
@@ -474,7 +474,7 @@ fieldset[disabled] {
       line-height: 30px;
       font-size: 14px;
       color: white;
-      font-weight: @baseFontWeight;
+      font-weight: @base-font-weight;
       box-sizing: border-box;
       text-align: center;
     }
@@ -503,7 +503,7 @@ fieldset[disabled] {
     bottom: 0;
     right: 42px;
     border-radius: 3px;
-    border: 1px solid @borderColor;
+    border: 1px solid @border-color;
     transition: all 0.3s ease-in 0s;
   }
 }

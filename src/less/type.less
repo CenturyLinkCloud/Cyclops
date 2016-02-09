@@ -13,12 +13,12 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-weight: @baseFontWeight;
-  color: @headingTextColor;
+  font-weight: @base-font-weight;
+  color: @heading-text-color;
   line-height: @headings-line-height;
 
   a {
-    color: @headingTextColor;
+    color: @heading-text-color;
   }
 }
 
@@ -33,7 +33,7 @@ h3,
   letter-spacing: 1px;
 
   small {
-    font-weight: @baseFontWeight;
+    font-weight: @base-font-weight;
     font-size: 65%;
     color: @headings-small-color;
 
@@ -54,7 +54,7 @@ h6,
 
   small,
   .small {
-    font-weight: @baseFontWeight;
+    font-weight: @base-font-weight;
     font-size: 75%;
 
     a {
@@ -114,7 +114,7 @@ h6,
 }
 
 .content-header {
-  border-bottom: 2px solid @borderColor;
+  border-bottom: 2px solid @border-color;
   margin-bottom: 15px;
   padding-bottom: (@line-height-computed / 2);
 
@@ -138,7 +138,7 @@ h6,
   }
 
   .lead {
-    color: @textColorLighter;
+    color: @text-color-lighter;
     margin-bottom: 0;
 
     @media (min-width: @screen-sm-min) {
@@ -185,16 +185,16 @@ h6,
 // -------------------------
 
 body {
-  font-weight: @baseFontWeight;
-  font-family: @fontFamily;
+  font-weight: @base-font-weight;
+  font-family: @font-family;
   font-size: @font-size-base;
-  color: @textColor;
+  color: @text-color;
   line-height: @line-height-computed;
   text-rendering: optimizeLegibility;
 }
 
 a {
-  color: @textColor;
+  color: @text-color;
 
   &.underline {
     text-decoration: underline;
@@ -234,7 +234,7 @@ p {
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: @baseFontWeight;
+  font-weight: @base-font-weight;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -258,7 +258,7 @@ p {
 }
 
 .monospace {
-  font-family: @monoFontFamily;
+  font-family: @mono-font-family;
 }
 
 // Large Type Feature
@@ -272,7 +272,7 @@ p {
       margin-bottom: 0;
     }
     .lead {
-      color: @textColorLighter;
+      color: @text-color-lighter;
       font-weight: 300;
       padding-bottom: 20px;
 
