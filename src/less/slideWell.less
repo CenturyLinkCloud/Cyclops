@@ -1,22 +1,17 @@
 //
-// Tooltips
+// Slide Well
 // --------------------------------------------------
 
+.slide-well {
+  width: 100%;
+  background: #f5f5f5;
+  border-top: 1px solid @borderColor;
+  border-bottom: 1px solid @borderColor;
+  .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
+    padding: 10px 20px;
+}
 
-html.cyclops {
-
+@media (min-width: @screen-sm-min) {
   .slide-well {
-    width: 100%;
-    background: #f5f5f5;
-    border-top: 1px solid @borderColor;
-    border-bottom: 1px solid @borderColor;
-    .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
-      padding: 10px 20px;
   }
-
-  @media (min-width: @screen-sm-min) {
-    .slide-well {
-    }
-  }
-
 }

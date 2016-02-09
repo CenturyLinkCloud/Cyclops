@@ -1,30 +1,28 @@
-html.cyclops {
-  .search-input {
-    display: inline-block;
-    position: relative;
+.search-input {
+  display: inline-block;
+  position: relative;
 
-    input {
-      height: 30px; //match button height
-      padding: 6px 26px 6px 12px;
-      font-size: @font-size-base;
-      line-height: 1.42857143;
-      color: @textColor;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    }
+  input {
+    height: 30px; //match button height
+    padding: 6px 26px 6px 12px;
+    font-size: @font-size-base;
+    line-height: 1.42857143;
+    color: @textColor;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
 
-    svg {
-      position: absolute;
-      top: 7px;
-      right: 10px;
-      fill: #ccc;
+  svg {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    fill: #ccc;
 
-      use.clear {
-        cursor: pointer;
-      }
+    use.clear {
+      cursor: pointer;
     }
   }
 }

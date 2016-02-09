@@ -2,103 +2,98 @@
 // Pricing Estimate
 // --------------------------------------------------
 
-html.cyclops {
+#priceEstimateContainer {
+
+  .make-sm-column(4);
+  .make-md-column(3);
+
+  font-weight: @baseFontWeight;
+  overflow: auto;
+  padding-top: 15px;
+
+  #priceEstimate {
+    background-color: #ffffff;
+    padding: 5px 15px 15px;
+    .border-radius(@border-radius-base);
+  }
+
+  .cost-value {
+    font-size: 20px;
+    margin-bottom: 3px;
+    letter-spacing: 1;
+  }
+  .cost-interval {
+    color: @grayLight;
+    font-size: @font-size-base - 1;
+  }
+  .cost-interval + .cost-value {
+    margin-top: @padding-base-vertical;
+
+    @media (min-width: @screen-sm) {
+      margin-top: @padding-base-vertical * 2;
+    }
+  }
+
+  .disclaimer {
+    font-size: @font-size-small;
+    line-height: @line-height-computed - 2;
+    margin-top: @padding-base-vertical * 2;
+    color: @grayLight;
+  }
+
+  #priceBreakdown {
+
+    margin-top: 20px;
+    padding-left: 15px;
+
+  }
+
+  .line-item {
+    margin-bottom: 20px;
+
+    .line-item-cost {
+      color: @grayLight;
+    }
+  }
+}
+
+#createFormContainer {
+
+  .make-sm-column(8);
+  .make-md-column(9);
+
+  padding-top: 15px;
+
+  // align rules and buttons with grid col
+  .form-group.form-submit {
+
+    margin-left: 0;
+    margin-right: 0;
+
+    button[type="submit"] {
+      margin-left: -10px;
+    }
+  }
+}
+
+@media (min-width: @screen-sm) {
 
   #priceEstimateContainer {
+    .box-shadow(7px 0 7px -7px rgba(0, 0, 0, 0.2));
 
-    .make-sm-column(4);
-    .make-md-column(3);
-
-    font-weight: @baseFontWeight;
-    overflow: auto;
-    padding-top: 15px;
-
-    #priceEstimate {
-      background-color: #ffffff;
-      padding: 5px 15px 15px;
-      .border-radius(@border-radius-base);
-    }
 
     .cost-value {
-      font-size: 20px;
-      margin-bottom: 3px;
-      letter-spacing: 1;
-    }
-    .cost-interval {
-      color: @grayLight;
-      font-size: @font-size-base - 1;
-    }
-    .cost-interval + .cost-value {
-      margin-top: @padding-base-vertical;
-
-      @media (min-width: @screen-sm) {
-        margin-top: @padding-base-vertical * 2;
-      }
-    }
-
-    .disclaimer {
-      font-size: @font-size-small;
-      line-height: @line-height-computed - 2;
-      margin-top: @padding-base-vertical * 2;
-      color: @grayLight;
-    }
-
-    #priceBreakdown {
-
-      margin-top: 20px;
-      padding-left: 15px;
-
-    }
-
-    .line-item {
-      margin-bottom: 20px;
-
-      .line-item-cost {
-        color: @grayLight;
-      }
-    }
-  }
-
-  #createFormContainer {
-
-    .make-sm-column(8);
-    .make-md-column(9);
-
-    padding-top: 15px;
-
-    // align rules and buttons with grid col
-    .form-group.form-submit {
-
-      margin-left: 0;
-      margin-right: 0;
-
-      button[type="submit"] {
-        margin-left: -10px;
-      }
-    }
-  }
-
-  @media (min-width: @screen-sm) {
-
-    #priceEstimateContainer {
-      .box-shadow(7px 0 7px -7px rgba(0, 0, 0, 0.2));
-
-
-      .cost-value {
-        font-size: 30px;
-        margin-bottom: 7px;
-      }
-
+      font-size: 30px;
+      margin-bottom: 7px;
     }
 
   }
 
-  // hide cost break down on small screens
-  @media (max-width: @screen-xs-max) {
-    #priceBreakdown {
-      display: none !important;
-    }
+}
 
+// hide cost break down on small screens
+@media (max-width: @screen-xs-max) {
+  #priceBreakdown {
+    display: none !important;
   }
-
 }

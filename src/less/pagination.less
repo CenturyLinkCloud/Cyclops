@@ -2,90 +2,85 @@
 // Pagination
 // --------------------------------------------------
 
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin-top: @line-height-computed;
+  margin-bottom: 0;
+  .border-radius(@border-radius-base);
 
-html.cyclops {
+  > li {
+    display: inline; // Remove list-style and block-level defaults
 
-	.pagination {
-	  display: inline-block;
-	  padding-left: 0;
-	  margin-top: @line-height-computed;
-	  margin-bottom: 0;
-	  .border-radius(@border-radius-base);
+    > a,
+    > span {
+      position: relative;
+      float: left; // Collapse white-space
+      padding: @pagination-padding-y @pagination-padding-x;
+      margin-left: -1px;
+      line-height: @line-height-base;
+      color: @pagination-color;
+      text-decoration: none;
+      background-color: @pagination-bg;
+      border: @pagination-border-width solid @pagination-border-color;
+			font-weight: @baseFontWeight;
+    }
+    &:first-child {
+      > a,
+      > span {
+        margin-left: 0;
+        .border-left-radius(@border-radius-base);
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        .border-right-radius(@border-radius-base);
+      }
+    }
+  }
 
-	  > li {
-	    display: inline; // Remove list-style and block-level defaults
+  > li > a,
+  > li > span {
+    &:hover {
+      color: @pagination-hover-color;
+      background-color: @pagination-hover-bg;
+      border-color: @pagination-hover-border;
+    }
+  }
 
-	    > a,
-	    > span {
-	      position: relative;
-	      float: left; // Collapse white-space
-	      padding: @pagination-padding-y @pagination-padding-x;
-	      margin-left: -1px;
-	      line-height: @line-height-base;
-	      color: @pagination-color;
-	      text-decoration: none;
-	      background-color: @pagination-bg;
-	      border: @pagination-border-width solid @pagination-border-color;
-				font-weight: @baseFontWeight;
-	    }
-	    &:first-child {
-	      > a,
-	      > span {
-	        margin-left: 0;
-	        .border-left-radius(@border-radius-base);
-	      }
-	    }
-	    &:last-child {
-	      > a,
-	      > span {
-	        .border-right-radius(@border-radius-base);
-	      }
-	    }
-	  }
+  > .active > a,
+  > .active > span {
 
-	  > li > a,
-	  > li > span {
-	    &:hover {
-	      color: @pagination-hover-color;
-	      background-color: @pagination-hover-bg;
-	      border-color: @pagination-hover-border;
-	    }
-	  }
+		color: @pagination-active-color;
+		cursor: default;
+		background-color: @pagination-active-bg;
+		border-color: @pagination-active-border;
+		font-weight: @boldFontWeight;
 
-	  > .active > a,
-	  > .active > span {
+    &:hover {
+      color: @pagination-active-color;
+      cursor: default;
+      background-color: @pagination-active-bg;
+      border-color: @pagination-active-border;
+    }
+  }
 
-			color: @pagination-active-color;
-			cursor: default;
-			background-color: @pagination-active-bg;
-			border-color: @pagination-active-border;
-			font-weight: @boldFontWeight;
+  > .disabled {
+    > span,
+    > a {
 
-	    &:hover {
-	      color: @pagination-active-color;
-	      cursor: default;
-	      background-color: @pagination-active-bg;
-	      border-color: @pagination-active-border;
-	    }
-	  }
+			color: @pagination-disabled-color;
+			cursor: @cursor-disabled;
+			background-color: @pagination-disabled-bg;
+			border-color: @pagination-disabled-border;
 
-	  > .disabled {
-	    > span,
-	    > a {
-
-				color: @pagination-disabled-color;
-				cursor: @cursor-disabled;
-				background-color: @pagination-disabled-bg;
-				border-color: @pagination-disabled-border;
-
-	      &:hover {
-	        color: @pagination-disabled-color;
-	        cursor: @cursor-disabled;
-	        background-color: @pagination-disabled-bg;
-	        border-color: @pagination-disabled-border;
-	      }
-	    }
-	  }
-	}
-
+      &:hover {
+        color: @pagination-disabled-color;
+        cursor: @cursor-disabled;
+        background-color: @pagination-disabled-bg;
+        border-color: @pagination-disabled-border;
+      }
+    }
+  }
 }

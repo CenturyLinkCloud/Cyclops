@@ -3,32 +3,28 @@
 // Breadcrumbs
 // --------------------------------------------------
 
-html.cyclops {
+.breadcrumb {
+  padding: 8px 15px 8px 0;
+  margin-bottom: (@line-height-computed / 2);
+  margin-top: @line-height-computed;
+  list-style: none;
 
-  .breadcrumb {
-    padding: 8px 15px 8px 0;
-    margin-bottom: (@line-height-computed / 2);
-    margin-top: @line-height-computed;
-    list-style: none;
+  > li {
+    display: inline-block;
 
-    > li {
-      display: inline-block;
-
-      + li:before {
-        content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
-        padding: 0 5px;
-        color: #ccc;
-      }
-    }
-
-    > .active {
-      color: @grayLight;
+    + li:before {
+      content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 5px;
+      color: #ccc;
     }
   }
 
-  .breadcrumb + h1,
-  .breadcrumb + .content-header h1  {
-    margin-top: 0;
+  > .active {
+    color: @grayLight;
   }
+}
 
+.breadcrumb + h1,
+.breadcrumb + .content-header h1  {
+  margin-top: 0;
 }

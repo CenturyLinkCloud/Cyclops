@@ -2,75 +2,69 @@
 // Upcoming Events
 // --------------------------------------------------
 
+.upcoming-events {
 
-html.cyclops {
+  .empty-upcoming-events {
+    margin-top: 20px;
+    font-size: @font-size-small;
+  }
 
-  .upcoming-events {
+  .event {
+    margin-top: 10px;
+    .clearfix();
 
-    .empty-upcoming-events {
+    &:first-of-type {
       margin-top: 20px;
-      font-size: @font-size-small;
     }
+  }
 
-    .event {
-      margin-top: 10px;
-      .clearfix();
+  .task-datetime {
+    font-size: @font-size-small;
+    margin: 0;
+    .transition(e('background-color .2s, color .2s'));
 
-      &:first-of-type {
-        margin-top: 20px;
-      }
+    &:hover {
+      color: #000;
     }
+  }
+
+
+  @media (min-width: @screen-sm-min) {
 
     .task-datetime {
-      font-size: @font-size-small;
-      margin: 0;
-      .transition(e('background-color .2s, color .2s'));
 
       &:hover {
-        color: #000;
+        background-color: #3a3a3a;
+        color: #fff;
       }
+
+      background-color: #e5e5e5;
+      .border-radius(5px);
+      float: left;
+      margin-right: 10px;
+      padding: 5px 0 7px 0;
+      text-align: center;
+      text-decoration: none;
+      width: 70px;
     }
 
+    .date {
+      display: block;
+      font-size: @font-size-large;
+    }
 
-    @media (min-width: @screen-sm-min) {
+    .time {
+      line-height: 17px;
+      font-size: @font-size-small;
+    }
 
-      .task-datetime {
+    .details {
+      margin-top: 4px;
 
-        &:hover {
-          background-color: #3a3a3a;
-          color: #fff;
-        }
-
-        background-color: #e5e5e5;
-        .border-radius(5px);
-        float: left;
-        margin-right: 10px;
-        padding: 5px 0 7px 0;
-        text-align: center;
-        text-decoration: none;
-        width: 70px;
-      }
-
-      .date {
+      span {
         display: block;
-        font-size: @font-size-large;
       }
-
-      .time {
-        line-height: 17px;
-        font-size: @font-size-small;
-      }
-
-      .details {
-        margin-top: 4px;
-
-        span {
-          display: block;
-        }
-      }
-
     }
 
   }
-
 }

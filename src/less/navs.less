@@ -6,117 +6,114 @@
 // Base class
 // --------------------------------------------------
 
-html.cyclops {
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
 
-  .nav {
-    margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
-    list-style: none;
-    &:extend(.clearfix all);
+  > li {
+    position: relative;
+    display: block;
 
-    > li {
+    > a {
       position: relative;
       display: block;
-
-      > a {
-        position: relative;
-        display: block;
-        padding: @nav-link-padding;
-        text-decoration: none;
-        &:hover,
-        &:focus {
-          background-color: @nav-link-hover-bg;
-        }
-      }
-
-      // Disabled state sets text to gray and nukes hover/tab effects
-      &.disabled > a {
-        color: @nav-disabled-link-color;
-
-        &:hover,
-        &:focus {
-          color: @nav-disabled-link-hover-color;
-          text-decoration: none;
-          background-color: transparent;
-          cursor: @cursor-disabled;
-        }
-      }
-    }
-
-    // Open dropdowns
-    .open > a {
-      &,
+      padding: @nav-link-padding;
+      text-decoration: none;
       &:hover,
       &:focus {
         background-color: @nav-link-hover-bg;
-        border-color: @link-color;
       }
     }
 
-    // Nav dividers (deprecated with v3.0.1)
-    //
-    // This should have been removed in v3 with the dropping of `.nav-list`, but
-    // we missed it. We don't currently support this anywhere, but in the interest
-    // of maintaining backward compatibility in case you use it, it's deprecated.
-    .nav-divider {
-      .nav-divider();
-    }
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
 
-    // Prevent IE8 from misplacing imgs
-    //
-    // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-    > li > a > img {
-      max-width: none;
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: @cursor-disabled;
+      }
     }
   }
 
-  // Tabs
-  // -------------------------
-  .nav-tabs {
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @nav-link-hover-bg;
+      border-color: @link-color;
+    }
+  }
 
-    .clearfix();
-    margin-bottom: 20px;
-    border-bottom: 2px solid @nav-bottom-border;
+  // Nav dividers (deprecated with v3.0.1)
+  //
+  // This should have been removed in v3 with the dropping of `.nav-list`, but
+  // we missed it. We don't currently support this anywhere, but in the interest
+  // of maintaining backward compatibility in case you use it, it's deprecated.
+  .nav-divider {
+    .nav-divider();
+  }
 
-    > li {
-      float: left;
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
 
-      // Links rendered as pills
-      > a {
+// Tabs
+// -------------------------
+.nav-tabs {
+
+  .clearfix();
+  margin-bottom: 20px;
+  border-bottom: 2px solid @nav-bottom-border;
+
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-bottom: 2px solid @nav-bottom-border;
+      padding: 10px 15px;
+      margin-bottom: -2px;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid @grayDarker;
+        background-color: none;
+      }
+    }
+    + li {
+      margin-left: 4px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid @grayDarker;
+      }
+    }
+
+    // Disabled state
+    &.disabled > a {
+      &,
+      &:hover,
+      &:focus {
         border-bottom: 2px solid @nav-bottom-border;
-        padding: 10px 15px;
-        margin-bottom: -2px;
-
-        &:hover {
-          background-color: transparent;
-        }
-
-        &:hover,
-        &:focus {
-          border-bottom: 2px solid @grayDarker;
-          background-color: none;
-        }
-      }
-      + li {
-        margin-left: 4px;
-      }
-
-      // Active state
-      &.active > a {
-        &,
-        &:hover,
-        &:focus {
-          border-bottom: 2px solid @grayDarker;
-        }
-      }
-
-      // Disabled state
-      &.disabled > a {
-        &,
-        &:hover,
-        &:focus {
-          border-bottom: 2px solid @nav-bottom-border;
-        }
       }
     }
   }

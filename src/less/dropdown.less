@@ -1,74 +1,71 @@
-html.cyclops {
-  
-  // make them behaive like buttons and line up
-  div.dropdown {
-    display: inline-block;
-  }
+// make them behaive like buttons and line up
+div.dropdown {
+  display: inline-block;
+}
 
-  .dropdown {
-    position: relative;
-    
-    &.open {
-      .dropdown-menu {
-        display: block;
-      }
-    }
+.dropdown {
+  position: relative;
 
+  &.open {
     .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1000;
-      display: none; // none by default, but block on "open" of the menu
-      float: left;
-      min-width: 160px;
-      padding: 5px 0;
-      margin: 2px 0 0; // override default ul
-      list-style: none;
-      font-size: @font-size-base;
-      text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-      background-color: #fff;
-      border: 1px solid @borderColor;
-      border-radius: 3px;
-      background-clip: padding-box;
-      
-      &.dropdown-menu-right {
-        left: auto; // Reset the default from `.dropdown-menu`
-        right: 0;
-      }
-
-      &.dropdown-menu-left {
-        left: 0;
-        right: auto;
-      }
-
-      // Dividers (basically an hr) within the dropdown
-      .divider {
-        .nav-divider(@borderColor);
-      }
-
-      > li:hover {
-        background: #ebebeb;
-      }
-
-      // Links within the dropdown menu
-      > li > a {
-        display: block;
-        padding: 3px 20px;
-        clear: both;
-        font-weight: normal;
-        white-space: nowrap; // prevent links from randomly breaking onto new lines
-        text-decoration: none;
-      }
+      display: block;
     }
   }
 
-  .dropdown-dismiss {
-    position: fixed;
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: 990;
+    z-index: 1000;
+    display: none; // none by default, but block on "open" of the menu
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0; // override default ul
+    list-style: none;
+    font-size: @font-size-base;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    background-color: #fff;
+    border: 1px solid @borderColor;
+    border-radius: 3px;
+    background-clip: padding-box;
+
+    &.dropdown-menu-right {
+      left: auto; // Reset the default from `.dropdown-menu`
+      right: 0;
+    }
+
+    &.dropdown-menu-left {
+      left: 0;
+      right: auto;
+    }
+
+    // Dividers (basically an hr) within the dropdown
+    .divider {
+      .nav-divider(@borderColor);
+    }
+
+    > li:hover {
+      background: #ebebeb;
+    }
+
+    // Links within the dropdown menu
+    > li > a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+      text-decoration: none;
+    }
   }
+}
+
+.dropdown-dismiss {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
 }

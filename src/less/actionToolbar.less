@@ -2,240 +2,238 @@
 // Action Toolbar
 // --------------------------------------------------
 
-html.cyclops {
-  .action-area {
-    background-color: #e5e5e5;
-    height: 40px;
-    line-height: 20px;
-    padding: 0 10px;
-    overflow: hidden;
-    .clearfix();
+.action-area {
+  background-color: #e5e5e5;
+  height: 40px;
+  line-height: 20px;
+  padding: 0 10px;
+  overflow: hidden;
+  .clearfix();
 
-    &.action-toolbar-confirm-shown {
-      .overflow-menu {
-        display: none;
-      }
+  &.action-toolbar-confirm-shown {
+    .overflow-menu {
+      display: none;
     }
   }
+}
 
-  .action-toolbar,
-  .action-toolbar-left,
-  .action-toolbar-right {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-size: @font-size-base - 1;
+.action-toolbar,
+.action-toolbar-left,
+.action-toolbar-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: @font-size-base - 1;
 
-    > li {
-      float: left;
+  > li {
+    float: left;
 
-      a,
-      button {
-        background-color: #e5e5e5;
-        display: inline-block;
-        padding: 8px 10px 12px;
-        .transition(e('color .1s ease-in'));
-        .transition(e('padding .1s ease-in'));
-        .transition(e('background-color .1s ease-in'));
-        text-decoration: none;
-        border:none;
+    a,
+    button {
+      background-color: #e5e5e5;
+      display: inline-block;
+      padding: 8px 10px 12px;
+      .transition(e('color .1s ease-in'));
+      .transition(e('padding .1s ease-in'));
+      .transition(e('background-color .1s ease-in'));
+      text-decoration: none;
+      border:none;
+
+      &:hover {
+        background-color: #3a3a3a;
+        color: @white;
+        .transition(e('none'));
+
+        svg.cyclops-icon {
+          fill: @white;
+        }
+      }
+
+      &.disabled {
+        color: #b9b9b9;
+        cursor: @cursor-disabled;
 
         &:hover {
-          background-color: #3a3a3a;
-          color: @white;
-          .transition(e('none'));
-
-          svg.cyclops-icon {
-            fill: @white;
-          }
-        }
-
-        &.disabled {
-          color: #b9b9b9;
-          cursor: @cursor-disabled;
-
-          &:hover {
-            background: none;
-
-            svg.cyclops-icon {
-              fill: #b9b9b9;
-            }
-          }
+          background: none;
 
           svg.cyclops-icon {
             fill: #b9b9b9;
           }
         }
+
+        svg.cyclops-icon {
+          fill: #b9b9b9;
+        }
       }
     }
   }
+}
 
-  .action-toolbar-left {
-    float: left;
-    margin-right: 110px;
-  }
+.action-toolbar-left {
+  float: left;
+  margin-right: 110px;
+}
 
-  .action-toolbar-right {
-    float: right;
-  }
+.action-toolbar-right {
+  float: right;
+}
 
-  .overflow-menu {
-    vertical-align: inherit;
-    height: 40px;
-    position: absolute;
-    display: inline-block;
-    white-space: nowrap;
+.overflow-menu {
+  vertical-align: inherit;
+  height: 40px;
+  position: absolute;
+  display: inline-block;
+  white-space: nowrap;
 
-    &:hover,
-    &.open {
+  &:hover,
+  &.open {
+    color: @white;
+    background: #3a3a3a;
+
+    a,
+    button {
       color: @white;
-      background: #3a3a3a;
+      background-color: #3a3a3a;
+      width: 100%;
+      text-align: left;
+      font-size: 13px;
+    }
 
-      a,
-      button {
-        color: @white;
-        background-color: #3a3a3a;
-        width: 100%;
-        text-align: left;
-        font-size: 13px;
-      }
-
-     .dropdown-menu {
-       li > a,
-       li > button {
-         padding: 5px 10px;
-       }
+   .dropdown-menu {
+     li > a,
+     li > button {
+       padding: 5px 10px;
      }
+   }
 
-      svg {
-        fill: @white;
+    svg {
+      fill: @white;
+    }
+  }
+
+  .dropdown-menu {
+    color: @white;
+    background: #3a3a3a;
+    border: 0;
+    margin-top: 0;
+    .border-radius(0);
+
+    li a,
+    li button {
+      transition: none;
+
+      &:hover {
+        background: #000;
+
+        &.disabled {
+          background: #3a3a3a;
+        }
       }
     }
+  }
+}
 
-    .dropdown-menu {
-      color: @white;
-      background: #3a3a3a;
-      border: 0;
-      margin-top: 0;
-      .border-radius(0);
+.action-toolbar-confirm {
+  clear: both;
+  background-color: #3a3a3a;
+  color: #fff;
+  height: 40px;
+  margin-right: -10px;
+  padding-right: 10px;
+  margin-left: -10px;
+  padding-left: 10px;
 
-      li a,
-      li button {
-        transition: none;
+  svg {
+    fill: #fff;
+  }
+
+  .message {
+    display: none;
+    padding-right: 10px;
+    line-height: 40px;
+    word-break: break-all;
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .buttons {
+    button {
+      height: 40px;
+      border: none;
+      padding-right: 20px;
+      padding-left: 20px;
+      background: none;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+
+      &.yes {
+        background-color: @btn-default-bg;
 
         &:hover {
-          background: #000;
+          background-color: @btn-default-bg-hover;
+        }
+      }
 
-          &.disabled {
-            background: #3a3a3a;
+      &.no {
+        color: @grayLighter;
+
+        svg {
+          fill: @grayLighter;
+        }
+
+        &:hover {
+          color: @white;
+          background-color: darken(#3a3a3a, 10%);
+
+          svg {
+            fill: @white;
           }
         }
       }
     }
   }
 
-  .action-toolbar-confirm {
-    clear: both;
-    background-color: #3a3a3a;
-    color: #fff;
-    height: 40px;
-    margin-right: -10px;
-    padding-right: 10px;
-    margin-left: -10px;
-    padding-left: 10px;
-
-    svg {
-      fill: #fff;
+  @media (min-width: @screen-sm-min) {
+    .buttons {
+      float: right;
     }
 
     .message {
-      display: none;
-      padding-right: 10px;
-      line-height: 40px;
-      word-break: break-all;
-      word-wrap: normal;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      display: block;
     }
+  }
 
-    .buttons {
-      button {
-        height: 40px;
-        border: none;
-        padding-right: 20px;
-        padding-left: 20px;
-        background: none;
+  &.action-toolbar-confirm-primary {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 
-        &:active,
-        &:focus,
+    button {
+      &.yes {
+        background-color: @btn-primary-bg;
+
         &:hover {
-          outline: none;
-        }
-
-        &.yes {
-          background-color: @btn-default-bg;
-
-          &:hover {
-            background-color: @btn-default-bg-hover;
-          }
-        }
-
-        &.no {
-          color: @grayLighter;
-
-          svg {
-            fill: @grayLighter;
-          }
-
-          &:hover {
-            color: @white;
-            background-color: darken(#3a3a3a, 10%);
-
-            svg {
-              fill: @white;
-            }
-          }
+          background-color: @btn-primary-bg-hover;
         }
       }
     }
+  }
 
-    @media (min-width: @screen-sm-min) {
-      .buttons {
-        float: right;
-      }
+  &.action-toolbar-confirm-danger {
+    button {
+      &.yes {
+        background-color: @btn-danger-bg;
 
-      .message {
-        display: block;
-      }
-    }
-
-    &.action-toolbar-confirm-primary {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-
-      button {
-        &.yes {
-          background-color: @btn-primary-bg;
-
-          &:hover {
-            background-color: @btn-primary-bg-hover;
-          }
-        }
-      }
-    }
-
-    &.action-toolbar-confirm-danger {
-      button {
-        &.yes {
-          background-color: @btn-danger-bg;
-
-          &:hover {
-            background-color: @btn-danger-bg-hover;
-          }
+        &:hover {
+          background-color: @btn-danger-bg-hover;
         }
       }
     }

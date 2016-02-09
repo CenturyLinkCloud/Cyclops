@@ -1,136 +1,135 @@
-html.cyclops {
-  .picker {
-    height: 160px;
-    border: solid 1px #ccc;
-    background-color: @white;
-    .border-radius(4px);
-    overflow: auto;
 
-    .empty,
-    .loading {
-      font-size: @font-size-large;
-      text-align: center;
-      margin-top: 70px;
-      color: #ccc;
+.picker {
+  height: 160px;
+  border: solid 1px #ccc;
+  background-color: @white;
+  .border-radius(4px);
+  overflow: auto;
+
+  .empty,
+  .loading {
+    font-size: @font-size-large;
+    text-align: center;
+    margin-top: 70px;
+    color: #ccc;
+  }
+
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .item-hover {
+    cursor: pointer;
+    display: block;
+    border-bottom: 1px solid #d6d6d6;
+    margin: 0;
+    font-weight: @baseFontWeight;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    input {
+      position: absolute;
+      top: 7px;
+      left: 10px;
     }
 
-    ol {
-      padding: 0;
-      margin: 0;
-      list-style: none;
+    input:checked + .content {
+      background-color: @grayDark;
+      color: @white;
+
+
+      svg {
+        fill: @white;
+      }
     }
 
-    .item-hover {
-      cursor: pointer;
-      display: block;
-      border-bottom: 1px solid #d6d6d6;
-      margin: 0;
-      font-weight: @baseFontWeight;
-      position: relative;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-
-      input {
-        position: absolute;
-        top: 7px;
-        left: 10px;
-      }
-
-      input:checked + .content {
-        background-color: @grayDark;
-        color: @white;
-
-
-        svg {
-          fill: @white;
-        }
-      }
-
-      input:disabled + .content {
-        cursor: not-allowed;
-        color: @grayLight;
-
-        &:hover {
-          background-color: transparent;
-        }
-
-        svg {
-          fill: @grayLight;
-        }
-      }
-
-      input[type=checkbox]:indeterminate + .content {
-//        background-color: lighten(@grayDark, 60%);
-      }
-
-      &:hover {
-        .content {
-          background-color: @body-bg;
-        }
-      }
-
-    }
-
-    .unselectable {
+    input:disabled + .content {
       cursor: not-allowed;
-
-      .content {
-        color: @grayLight;
-
-        svg {
-          fill: @grayLight;
-        }
-      }
+      color: @grayLight;
 
       &:hover {
-        .content {
-          background: none;
-        }
+        background-color: transparent;
+      }
+
+      svg {
+        fill: @grayLight;
       }
     }
+
+    input[type=checkbox]:indeterminate + .content {
+//        background-color: lighten(@grayDark, 60%);
+    }
+
+    &:hover {
+      .content {
+        background-color: @body-bg;
+      }
+    }
+
+  }
+
+  .unselectable {
+    cursor: not-allowed;
 
     .content {
-      display: block;
-      padding: 7px 10px 7px 30px;
+      color: @grayLight;
+
+      svg {
+        fill: @grayLight;
+      }
+    }
+
+    &:hover {
+      .content {
+        background: none;
+      }
+    }
+  }
+
+  .content {
+    display: block;
+    padding: 7px 10px 7px 30px;
+  }
+
+  li {
+    .contnet {
+      padding-left: 30px;
     }
 
     li {
-      .contnet {
-        padding-left: 30px;
+      .content {
+        padding-left: 50px;
       }
 
       li {
         .content {
-          padding-left: 50px;
+          padding-left: 70px;
         }
 
         li {
           .content {
-            padding-left: 70px;
+            padding-left: 90px;
           }
 
           li {
             .content {
-              padding-left: 90px;
+              padding-left: 110px;
             }
 
             li {
               .content {
-                padding-left: 110px;
+                padding-left: 130px;
               }
 
               li {
                 .content {
-                  padding-left: 130px;
-                }
-
-                li {
-                  .content {
-                    padding-left: 150px;
-                  }
+                  padding-left: 150px;
                 }
               }
             }

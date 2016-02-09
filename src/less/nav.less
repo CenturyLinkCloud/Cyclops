@@ -6,203 +6,199 @@
 // Base class
 // --------------------------------------------------
 
-html.cyclops {
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
 
-  .nav {
-    margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
-    list-style: none;
-    &:extend(.clearfix all);
+  > li {
+    position: relative;
+    display: block;
 
-    > li {
+    > a {
       position: relative;
       display: block;
-
-      > a {
-        position: relative;
-        display: block;
-        padding: @nav-link-padding;
-        &:hover,
-        &:focus {
-          text-decoration: none;
-          background-color: @nav-link-hover-bg;
-        }
-      }
-
-      // Disabled state sets text to gray and nukes hover/tab effects
-      &.disabled > a {
-        color: @nav-disabled-link-color;
-
-        &:hover,
-        &:focus {
-          color: @nav-disabled-link-hover-color;
-          text-decoration: none;
-          background-color: transparent;
-          cursor: @cursor-disabled;
-        }
-      }
-    }
-
-    // Open dropdowns
-    .open > a {
-      &,
+      padding: @nav-link-padding;
       &:hover,
       &:focus {
+        text-decoration: none;
         background-color: @nav-link-hover-bg;
-        border-color: @link-color;
       }
     }
 
-    // Prevent IE8 from misplacing imgs
-    //
-    // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-    > li > a > img {
-      max-width: none;
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: @cursor-disabled;
+      }
     }
   }
 
-  // Stacked (Left) Nav
-  // --------------------------------------------------
-
-  .nav-stacked {
-    margin: 0px -20px 0 -20px;
-    padding: 20px;
-    background-color: darken(@grayLighter, 2%);
-
-    // generate a more specific selector to override default .nav style
-    &.nav {
-      padding-left: 20px;
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @nav-link-hover-bg;
+      border-color: @link-color;
     }
+  }
 
-    .nav-header {
-      a {
-        text-decoration: none;
-      }
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
+
+// Stacked (Left) Nav
+// --------------------------------------------------
+
+.nav-stacked {
+  margin: 0px -20px 0 -20px;
+  padding: 20px;
+  background-color: darken(@grayLighter, 2%);
+
+  // generate a more specific selector to override default .nav style
+  &.nav {
+    padding-left: 20px;
+  }
+
+  .nav-header {
+    a {
+      text-decoration: none;
     }
+  }
 
-    .tabs {
+  .tabs {
 
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      margin-left: -5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: -5px;
 
-     > li {
-       float: none;
-       display: inline-block;
-       font-size: @font-size-base;
-       margin-bottom: 7px;
+   > li {
+     float: none;
+     display: inline-block;
+     font-size: @font-size-base;
+     margin-bottom: 7px;
 
-       &.nav-title {
-         display: block;
-         font-size: @font-size-small;
-         letter-spacing: 1px;
-         text-transform: uppercase;
-       }
+     &.nav-title {
+       display: block;
+       font-size: @font-size-small;
+       letter-spacing: 1px;
+       text-transform: uppercase;
+     }
 
-       a {
-         text-decoration: none;
-         padding: 5px 5px;
-         border-radius: 5px;
+     a {
+       text-decoration: none;
+       padding: 5px 5px;
+       border-radius: 5px;
 
-         &:hover {
-           text-decoration: underline;
-         }
-       }
-
-       &.selected {
-         > a {
-           font-weight: @boldFontWeight;
-         }
+       &:hover {
+         text-decoration: underline;
        }
      }
+
+     &.selected {
+       > a {
+         font-weight: @boldFontWeight;
+       }
+     }
+   }
+  }
+}
+
+// account for the padding in the white .primary container
+.primary .nav-stacked {
+  margin-top: -20px;
+}
+
+@media (min-width: @screen-sm-min) {
+
+  .nav-stacked {
+
+    background-color: transparent;
+
+  .tabs {
+    padding-top: 5px;
+
+    > li {
+      display: block;
+      font-size: @font-size-base;
+      margin-left: 0;
+      margin-bottom: 0px;
+
+      &.nav-title {
+        display: none;
+      }
+
+      + li {
+        margin-left: 0; // no need for this gap between nav items
+      }
     }
-  }
 
-  // account for the padding in the white .primary container
-  .primary .nav-stacked {
-    margin-top: -20px;
-  }
+    .tab {
+      border-bottom: 1px solid @borderColor;
 
-  @media (min-width: @screen-sm-min) {
+      &:first-child {
+        border-top: 1px solid @borderColor;
+      }
 
-    .nav-stacked {
-
-      background-color: transparent;
-
-    .tabs {
-      padding-top: 5px;
-
-      > li {
+      a {
+        text-decoration: none;
+        padding: 10px;
         display: block;
-        font-size: @font-size-base;
-        margin-left: 0;
-        margin-bottom: 0px;
 
-        &.nav-title {
-          display: none;
-        }
-
-        + li {
-          margin-left: 0; // no need for this gap between nav items
+        &:hover {
+          background-color: #eee;
+          text-decoration: none;
         }
       }
 
-      .tab {
-        border-bottom: 1px solid @borderColor;
+      &.selected {
 
-        &:first-child {
-          border-top: 1px solid @borderColor;
-        }
-
-        a {
-          text-decoration: none;
-          padding: 10px;
+        .tabs-subnav {
           display: block;
+          list-style: none;
 
-          &:hover {
-            background-color: #eee;
-            text-decoration: none;
-          }
-        }
+          > li {
 
-        &.selected {
+            &.divider {
+              background-color: @borderColor;
+              height: 1px;
+              overflow: hidden;
+              margin: ((@line-height-computed / 2) - 1) 0;
+            }
 
-          .tabs-subnav {
-            display: block;
-            list-style: none;
+            &.selected {
+              font-weight: @boldFontWeight;
+            }
 
-            > li {
-
-              &.divider {
-                background-color: @borderColor;
-                height: 1px;
-                overflow: hidden;
-                margin: ((@line-height-computed / 2) - 1) 0;
-              }
-
-              &.selected {
-                font-weight: @boldFontWeight;
-              }
-
-              > a {
-                display: block;
-                font-size: @font-size-base - 2;
-                padding: 5px 10px 5px 20px;
-              }
+            > a {
+              display: block;
+              font-size: @font-size-base - 2;
+              padding: 5px 10px 5px 20px;
             }
           }
         }
       }
     }
   }
+}
 
-  }
+}
 
-  // hide sub level nav items by default;
-  .tabs-subnav {
-    display: none;
-    padding: 0;
-  }
-
+// hide sub level nav items by default;
+.tabs-subnav {
+  display: none;
+  padding: 0;
 }

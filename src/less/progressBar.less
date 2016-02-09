@@ -1,84 +1,82 @@
-html.cyclops {
-  progress {
-    width: 100%;
-    display: block;
-    /* Important Thing */
-    -webkit-appearance: none;
-    border: none;
-    position: relative;
+progress {
+  width: 100%;
+  display: block;
+  /* Important Thing */
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  .border-radius(3px);
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  &::-webkit-progress-bar {
+    background: #e3e3e3;
+    background: -moz-linear-gradient(top, #d7d7d7 0%, #e3e3e3 5%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d7d7d7), color-stop(5%,#e3e3e3));
+    background: -webkit-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+    background: -o-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+    background: -ms-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
+    background: linear-gradient(to bottom, #d7d7d7 0%,#e3e3e3 5%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7d7d7', endColorstr='#e3e3e3',GradientType=0 );
+    border: solid 1px #bbb;
     .border-radius(3px);
-    overflow: hidden;
-    margin-bottom: 10px;
-    
-    &::-webkit-progress-bar {
-      background: #e3e3e3;
-      background: -moz-linear-gradient(top, #d7d7d7 0%, #e3e3e3 5%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d7d7d7), color-stop(5%,#e3e3e3));
-      background: -webkit-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
-      background: -o-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
-      background: -ms-linear-gradient(top, #d7d7d7 0%,#e3e3e3 5%);
-      background: linear-gradient(to bottom, #d7d7d7 0%,#e3e3e3 5%);
-      filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7d7d7', endColorstr='#e3e3e3',GradientType=0 );
-      border: solid 1px #bbb;
-      .border-radius(3px);
+  }
+
+  &::-webkit-progress-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #59b955;
+    border: solid 1px #248e1b;
+    .border-radius(3px);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &::-moz-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #59b955;
+    border: solid 1px #248e1b;
+    .border-radius(3px);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.info {
+    &::-moz-progress-bar {
+      background-color: @brand-info;
+      border-color: darken(@brand-info, 15%);
     }
 
     &::-webkit-progress-value {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #59b955;
-      border: solid 1px #248e1b;
-      .border-radius(3px);
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      background-color: @brand-info;
+      border-color: darken(@brand-info, 15%);
     }
+  }
 
+  &.warning {
     &::-moz-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #59b955;
-      border: solid 1px #248e1b;
-      .border-radius(3px);
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      background-color: @brand-warning;
+      border-color: darken(@brand-warning, 10%);
     }
 
-    &.info {
-      &::-moz-progress-bar {
-        background-color: @brand-info;
-        border-color: darken(@brand-info, 15%);
-      }
+    &::-webkit-progress-value {
+      background-color: @brand-warning;
+      border-color: darken(@brand-warning, 10%);
+    }
+  }
 
-      &::-webkit-progress-value {
-        background-color: @brand-info;
-        border-color: darken(@brand-info, 15%);
-      }
+  &.danger {
+    &::-moz-progress-bar {
+      background-color: @brand-danger;
+      border-color: darken(@brand-danger, 10%);
     }
 
-    &.warning {
-      &::-moz-progress-bar {
-        background-color: @brand-warning;
-        border-color: darken(@brand-warning, 10%);
-      }
-
-      &::-webkit-progress-value {
-        background-color: @brand-warning;
-        border-color: darken(@brand-warning, 10%);
-      }
-    }
-
-    &.danger {
-      &::-moz-progress-bar {
-        background-color: @brand-danger;
-        border-color: darken(@brand-danger, 10%);
-      }
-
-      &::-webkit-progress-value {
-        background-color: @brand-danger;
-        border-color: darken(@brand-danger, 10%);
-      }
+    &::-webkit-progress-value {
+      background-color: @brand-danger;
+      border-color: darken(@brand-danger, 10%);
     }
   }
 }
