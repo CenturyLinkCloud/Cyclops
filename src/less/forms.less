@@ -44,7 +44,6 @@ input[type="search"] {
 input[type="radio"],
 input[type="checkbox"] {
   margin: 4px 0 0;
-  margin: 1px \9 0 0; // IE8-9
   line-height: normal;
 }
 
@@ -89,66 +88,7 @@ select[size] {
   &[disabled] {
     cursor: @cursor-disabled;
   }
-  // For when multiple inputs need to be adjacent together within a column
-  &.w10 {
-    margin-top: 0;
-    display: inline-block;
-    width: 9%;
-  }
 
-  &.w20 {
-    margin-top: 0;
-    display: inline-block;
-    width: 19%;
-  }
-
-  &.w30 {
-    margin-top: 0;
-    display: inline-block;
-    width: 29%;
-  }
-
-  &.w40 {
-    margin-top: 0;
-    display: inline-block;
-    width: 39%;
-  }
-
-  &.w50 {
-    margin-top: 0;
-    display: inline-block;
-    width: 49%;
-  }
-
-  &.w60 {
-    margin-top: 0;
-    display: inline-block;
-    width: 59%;
-  }
-
-  &.w70 {
-    margin-top: 0;
-    display: inline-block;
-    width: 69%;
-  }
-
-  &.w80 {
-    margin-top: 0;
-    display: inline-block;
-    width: 79%;
-  }
-
-  &.w90 {
-    margin-top: 0;
-    display: inline-block;
-    width: 89%;
-  }
-
-  &.w100 {
-    margin-top: 0;
-    display: inline-block;
-    width: 99%;
-  }
 }
 // Reset height for `textarea`s to use specified rows
 textarea.form-control {
@@ -506,4 +446,65 @@ fieldset[disabled] {
     border: 1px solid @border-color;
     transition: all 0.3s ease-in 0s;
   }
+}
+
+// For when multiple inputs need to be adjacent together within a column
+.w10 {
+  margin-top: 0;
+  display: inline-block;
+  width: 9%;
+}
+
+.w20 {
+  margin-top: 0;
+  display: inline-block;
+  width: 19%;
+}
+
+.w30 {
+  margin-top: 0;
+  display: inline-block;
+  width: 29%;
+}
+
+.w40 {
+  margin-top: 0;
+  display: inline-block;
+  width: 39%;
+}
+
+.w50 {
+  margin-top: 0;
+  display: inline-block;
+  width: 49%;
+}
+
+.w60 {
+  margin-top: 0;
+  display: inline-block;
+  width: 59%;
+}
+
+.w70 {
+  margin-top: 0;
+  display: inline-block;
+  width: 69%;
+}
+
+.w80 {
+  margin-top: 0;
+  display: inline-block;
+  width: 79%;
+}
+
+.w90 {
+  margin-top: 0;
+  display: inline-block;
+  width: 89%;
+}
+
+.w100 {
+  margin-top: 0;
+  display: inline-block;
+  width: 99%;
 }
