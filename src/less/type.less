@@ -258,20 +258,14 @@ p {
 // Large Type Feature
 // -------------------------
 .large-type-feature {
-    margin-top: 100px;
+    margin-top: 50px;
     h1 {
       font-size: 100px;
-      font-weight: 600;
-      color: #cccccc;
+      color: @gray-light;
+      font-weight: @bold-font-weight;
       margin-bottom: 0;
     }
     .lead {
-      color: @text-color-lighter;
-      font-weight: 300;
-      padding-bottom: 20px;
-
-      @media (min-width: @screen-sm-min) {
-        margin-top: -7px;
-      }
+      margin-bottom: @line-height-computed;
     }
   }
