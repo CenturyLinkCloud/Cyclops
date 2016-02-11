@@ -4,23 +4,29 @@
   <div class="pl-example">
     <button class="btn btn-default" data-bind="click: toggleOpen">toggle slide well</button>
     <div class="slide-well hide" data-bind="fadeSlide: open">
-      <form class="form-horizontal">
-        <fieldset>
-          <legend>Edit Load Balancer Settings</legend>
-          <div class="form-group">
-            <label for="inputName" class="col-sm-3 control-label">input label</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputName" placeholder="slide well example form">
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form-horizontal">
+              <fieldset>
+                <legend>Edit Load Balancer Settings</legend>
+                <div class="form-group">
+                  <label for="inputName" class="col-sm-3 control-label">input label</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputName" placeholder="slide well example form">
+                  </div>
+                </div>
+                <div class="form-group form-submit">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary">save</button>
+                    <button class="btn btn-link">cancel</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
           </div>
-          <div class="form-group form-submit">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button type="submit" class="btn btn-primary">save</button>
-              <button class="btn btn-link">cancel</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
+        </div>
+      </div>
     </div>
   </div>
   <pre>
