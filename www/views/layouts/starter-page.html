@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Cyclops Basic Page Template</title>
+  <title>Cyclops Starter Page</title>
 
   <!-- Cyclops -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
@@ -19,6 +19,8 @@
   <![endif]-->
 </head>
 <body>
+
+  <account-switcher params="accounts: accounts, loading: loadingAccounts, currentAccountAlias: currentAccountAlias"></account-switcher>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -61,34 +63,21 @@
           </svg>        </a>
         <a class="navbar-service" href="/">Service Name</a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
         </ul>
-        <!-- Link back to the Control Portal, and give a sign out link -->
         <ul class="nav navbar-nav navbar-right navbar-account">
           <li><a href="https://control.ctl.io">Control Portal</a></li>
           <li><a href="#" class="navbar-link">Sign Out</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <div class="large-type-feature">
-          <h1>404</h1>
-          <p class="lead">We're sorry, the page you are looking for could not be found or no longer exists.</p>
-          <p><a href="./" class="btn btn-primary">take me to the homepage</a></p>
-        </div>
       </div>
     </div>
-  </div>
+  </nav>
+
+	{{{ body }}}
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
   <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" ></script>
@@ -97,13 +86,114 @@
   <script src="/scripts/cyclops.js" ></script>
   <!-- Include any additional scripts your service needs -->
 
-
   <script>
-  $(function(){
-    $(".toggleBtn").click(function() {
-        $("#orgSwitcher").toggleClass("expanded");
-    });
-  })
-    </script>
+    $(function(){
+      var AccountSwitcherModel = function() {
+        var self = this;
+
+
+        self.accounts = ko.observableArray([]);
+
+        window.setTimeout(function(){
+          accounts = [
+            {
+              accountAlias: "ROOT",
+              businessName: "My Awesome Business",
+              accountStatus: "active",
+              primaryDataCenter : "QA1",
+              subAccounts:[
+                { accountAlias: "APPL", businessName: "Apple Designed in California", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[
+                  { accountAlias: "APLP", businessName: "iPhone division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                  { accountAlias: "APLC", businessName: "iCar division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                  { accountAlias: "APLO", businessName: "OSX division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                  { accountAlias: "APP", businessName: "Not what you're looking for", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                  { accountAlias: "AP", businessName: "Nothing to See", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                  { accountAlias: "APLI", businessName: "iPad division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] }
+                ] },
+                { accountAlias: "SUB1", businessName: "Sub Account One", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                { accountAlias: "SUB2", businessName: "Sub Account Two", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+                { accountAlias: "SUB3", businessName: "Sub Account Three", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[
+                  { accountAlias: "SSUB", businessName: "Nested Sub Account", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] }
+                ] },
+                {
+                  accountAlias: "SUB4",
+                  businessName: "Sub Account Four",
+                  accountStatus: "active",
+                  primaryDataCenter : "QA1",
+                  subAccounts:[{
+                    accountAlias: "SSB4",
+                    businessName: "Nested Sub Account",
+                    accountStatus: "active",
+                    primaryDataCenter : "QA1",
+                    subAccounts:[{
+                      accountAlias: "NOOB",
+                      businessName: "Really Nested Sub Account",
+                      accountStatus: "active",
+                      primaryDataCenter : "QA1",
+                      subAccounts:[]
+                    }]
+                  }]
+                },
+                {
+                  accountAlias: "SUB5",
+                  businessName: "Sub Account Five",
+                  accountStatus: "active",
+                  primaryDataCenter : "QA1",
+                  subAccounts:[]
+                },
+                {
+                  accountAlias: "SUB6",
+                  businessName: "Sub Account Six",
+                  accountStatus: "active",
+                  primaryDataCenter : "QA1",
+                  subAccounts:[{
+                    accountAlias: "FOO",
+                    businessName: "Nested Sub Account",
+                    accountStatus: "active",
+                    primaryDataCenter : "QA1",
+                    subAccounts:[]
+                  }]
+                },
+                {
+                  accountAlias: "SUB7",
+                  businessName: "Sub Account Seven",
+                  accountStatus: "active",
+                  primaryDataCenter : "QA1",
+                  subAccounts:[]
+                },
+                { accountAlias: "RJP", businessName: "Rick James Productions", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+
+              ]
+            }
+          ];
+
+          for (var i = 0; i < 100; i++) {
+            accounts[0].subAccounts.push({
+              accountAlias: "G0" + i,
+              businessName: "" + i + " Generated Account for Perf Testing",
+              accountStatus: "active",
+              primaryDataCenter : "QA2",
+              subAccounts:[]
+            });
+          }
+
+          self.accounts(accounts);
+          self.loadingAccounts(false);
+        }, 3000);
+
+        self.loadingAccounts = ko.observable(true);
+        self.currentAccountAlias = ko.observable('ROOT');
+        self.currentAccountAlias.subscribe(function(newValue) {
+          console.log(newValue)
+        });
+
+        return self;
+      }
+      ko.applyBindings(new AccountSwitcherModel());
+    })
+  </script>
+
+  {{{block "scripts"}}}
+
 </body>
 </html>

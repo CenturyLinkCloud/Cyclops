@@ -1,0 +1,37 @@
+{{!< ../layouts/no-jquery-ui.html}}
+
+
+  <div class="primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content-header">
+            <h1>Missing jQuery UI</h1>
+            <p class="lead">Test when jQuery UI is not included</p>
+          </div>
+          <form>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">toggle</label>
+              <div class="col-sm-9">
+                <toggle params="value: true, affirmativeText: 'yes', negativeText: 'no'"></toggle>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">slider</label>
+              <div class="col-sm-9">
+                <slider params="value: 6, min: 1, max: 16"></slider>    <!-- CPU -->
+                <slider params="value: 4, min: 1, max: 128"></slider>   <!-- Memory -->
+                <slider params="value: 50, min: 1, max: 1024"></slider> <!-- Disk -->
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">toggle</label>
+              <div class="col-sm-9">
+                <toggle params="value: foo, affirmativeText: 'yes', negativeText: 'no'"></toggle>
+                <p data-bind="validationMsg: foo"></p>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>

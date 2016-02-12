@@ -1,0 +1,35 @@
+{{!< ../layouts/starter-page.html}}
+
+<div class="primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="nav nav-stacked">
+          <ul class="tabs">
+            <li class="tab"><a href="#">Home</a></li>
+            <li class="tab selected">
+              <a href="#">Products</a>
+              <ul class="tabs-subnav">
+                <li><a href="#">Widget</a></li>
+                <li class="selected"><a href="#">Gizmo</a></li>
+                <li><a href="#">Snarfblat</a></li>
+              </ul>
+            </li>
+            <li class="tab"><a href="#">Services</a></li>
+            <li class="tab"><a href="#">About</a></li>
+            <li class="tab"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="content-header">
+          <h1>Hello, world!</h1>
+          <p class="lead">This is a basic starter page for your service's user interface.</p>
+        </div>
+        {{> starter-pages/list-view }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> starter-pages/activity-history }}
