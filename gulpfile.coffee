@@ -132,13 +132,15 @@ gulp.task 'test-build', ->
 gulp.task 'test-run', ['test-build'], ->
   return gulp.src './temp/**/*.js'
     .pipe jasmine {
+            abortOnFail: true
             integration: true
-            keepRunner: false
+            keepRunner: true
             vendor: [
               'https://code.jquery.com/jquery-2.1.4.min.js'
               'https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'
               'https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js'
               'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'
+              'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js'
             ]
           }
 
