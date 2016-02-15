@@ -196,7 +196,7 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
   copyImages = gulp.src './www/assets/img/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/img/"
 
-  renderHTML = gulp.src './www/views/*.html'
+  renderHTML = gulp.src './www/views/**/*.html'
     .pipe through.obj (file, enc, cb) ->
       render = hbs.create().express3
         viewsDir: './www/views'
@@ -273,7 +273,7 @@ gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 
   copyImages = gulp.src './www/assets/img/**/*'
     .pipe gulp.dest "./devDist/img/"
 
-  renderHTML = gulp.src './www/views/*.html'
+  renderHTML = gulp.src './www/views/**/*.html'
     .pipe through.obj (file, enc, cb) ->
       render = hbs.create().express3
         viewsDir: './www/views'
