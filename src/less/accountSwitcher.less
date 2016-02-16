@@ -28,6 +28,7 @@ account-switcher {
     color: gray;
     font-size: @font-size-small;
     text-decoration: none;
+    padding-left: 0;
 
     &:hover {
       color: white;
@@ -38,6 +39,10 @@ account-switcher {
     &:active,
     &:focus {
       outline: none;
+    }
+
+    @media(min-width: @grid-float-breakpoint) {
+      padding-left: 10px;
     }
   }
 

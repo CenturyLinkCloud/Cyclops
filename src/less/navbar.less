@@ -125,47 +125,24 @@
   border-right: 1px solid darken(@navbar-default-bg, 5%);
   float: left;
   overflow: hidden;
-  padding: @navbar-padding-vertical 10px @navbar-padding-vertical 0;
+  padding: @navbar-padding-vertical 10px @navbar-padding-vertical 10px;
   font-size: @font-size-large;
   line-height: @line-height-computed;
   height: @navbar-height;
   text-decoration: none;
   height: 50px;
-  margin-left: 10px;
-  transition: width .5s;
-  width: 32px;
 
   > img {
     display: block;
   }
 
-  #logo {
-    width: 21px;
-    height: 21px;
+  @media(min-width: @grid-float-breakpoint) {
+    padding-left: 0;
+    padding-right: 20px;
   }
 
-  #logoType {
-    display: none;
-  }
+  width: auto;
 
-  @media (min-width: @grid-float-breakpoint) {
-
-    width: 119px;
-    margin-left: 0;
-
-    #logo {
-      width: 100px;
-    }
-
-    #logoType {
-      display: block;
-    }
-
-    .navbar > .container &,
-    .navbar > .container-fluid & {
-      margin-left: -@navbar-padding-horizontal;
-    }
-  }
 }
 
 // Product/Service Name after CenturyLink logo
