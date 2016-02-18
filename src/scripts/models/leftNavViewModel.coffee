@@ -13,6 +13,11 @@
 # - may need to look at window resize and recalc scroll buttons
 # - scrolling on iphone is fucked up
 # - size for the expanded leftnav view
+# - icons not aligned in menu
+# - container widths need to be adjusted at each media viewport
+
+
+# - Title needs to wrap
 
 class LeftNavViewModel
   constructor: (options, element) ->

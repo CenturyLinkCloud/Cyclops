@@ -41,6 +41,28 @@ left-nav {
     transition: fill 0.1s;
   }
 
+  button.btn {
+    &:focus,
+    &:hover {
+      color: @textColorHover;
+      outline: none;
+      
+      svg {
+        fill: @textColorHover;
+      }
+
+      &:active {
+        box-shadow: none;
+        outline: none;
+        color: @textColorActive;
+        
+        svg {
+          fill: @textColorActive;
+        }
+      }
+    }
+  }
+
   .menu {
     height: 100%;
     overflow: hidden;
@@ -54,26 +76,6 @@ left-nav {
       position: absolute;
       z-index: 3;
       width: 100%;
-      
-      &:focus,
-      &:hover {
-        color: @textColorHover;
-        outline: none;
-        
-        svg {
-          fill: @textColorHover;
-        }
-      }
-
-      &:active {
-        box-shadow: none;
-        outline: none;
-        color: @textColorActive;
-        
-        svg {
-          fill: @textColorActive;
-        }
-      }
     }
 
     .scroll-up {
@@ -148,6 +150,81 @@ left-nav {
     
     &.open {
       margin-left: 50px;
+    }
+
+    .header {
+      background-color: #222222;
+      text-align: right;
+      color: #757575;
+      
+      .cyclops-icon {
+        margin-right: 0;
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    .items {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        border-bottom: solid 1px #343534;
+        border-top: none;
+        color: #aaa;
+        height: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: background 0.15s;
+        
+        &:hover {
+          background-color: #1b1d1b;
+        }
+
+        a {
+          text-decoration: none;
+          padding: 10px 15px 14px;
+          display: block;
+          position: relative;
+          
+          h3 {
+            color: #ccc;
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+          }
+
+          p {
+            margin-bottom: 5px;
+          }
+
+          .badge {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            
+            span {
+              display: block;
+              text-align: center;
+              transform: rotate(45deg);
+              position: relative;
+              right: 2px;
+              top: -18px;
+              width: 92px;
+              background-color: #00853f;
+              color: #FFFFFF;
+              padding-top: 30px;
+              padding-bottom: 2px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+          }
+        }
+      }
     }
   }
 }
