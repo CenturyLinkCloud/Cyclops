@@ -1,0 +1,171 @@
+{{!< ../layouts/starter-page.html}}
+
+<left-nav params=""></left-nav>
+
+<div class="pane-left">
+  <div class="pane-header">
+    <div class="content">
+      <a class="filter active" href="#" role="button">All</a>
+      <a href="#" role="button" class="filter">Active (3)</a>
+      <a href="#" role="button" class="filter">Errored (1)</a>
+      <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
+      <a href="#" role="button" class="pull-right" title="Collapse Pane"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-left'></svg></a>
+    </div>
+    <div class="filter-window hide">
+      <i class="pull-right fa fa-times" data-bind="click: toggleFilter"></i>
+      <input type="text" data-bind="value: filterText, valueUpdate: 'keyup'">
+    </div>
+  </div>
+  <ol class="queue">
+    <li class="running">
+      <div class="status-bar"><svg class="cyclops-icon" title="queued"><use xlink:href='#icon-ellipsis'></svg></div>
+      <a href="./job.html">
+        <div class="details">
+          <div class="col col-100">
+            <div class="title">Inline Playbook Test</div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> &mdash;</div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> &mdash;</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="running">
+      <div class="status-bar"><svg class="cyclops-icon" title="queued"><use xlink:href='#icon-ellipsis'></svg></div>
+      <a href="./job.html">
+        <div class="details">
+          <div class="col col-100">
+            <div class="title">Redhat Linux Hyperscale Server</div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Shan Sundaram </div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> &mdash;</div>
+            <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> &mdash;</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="error">
+      <div class="status-bar"><svg class="cyclops-icon success" title="running"><use xlink:href='#icon-play'></svg></div>
+      <a href="./job.html">
+        <div class="details">
+          <div class="col col-100">
+          <div class="title">Nodejs Server</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 2 hours ago </div>
+        </div>
+      </div>
+      </a>
+    </li>
+    <li class="success">
+      <div class="status-bar"><svg class="cyclops-icon success" title="success"><use xlink:href='#icon-check-circle'></svg></div>
+      <a href="./job.html">
+        <div class="details">
+          <div class="col col-100">
+          <div class="title">Nodejs Server</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 3 hours ago </div>
+        </div>
+      </div>
+      </a>
+    </li>
+    <li class="success">
+      <div class="status-bar"></div>
+      <a href="./job.html">
+        <div class="status-bar"><svg class="cyclops-icon success" title="stopped"><use xlink:href='#icon-stop'></svg></div>
+        <div class="details clearfix">
+          <div class="col col-100">
+          <div class="title">Redhat Linux Hyperscale Server</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Shan Sundaram</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+          <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 5 hours ago</div>
+        </div>
+      </div>
+      </a>
+    </li>
+  </ol>
+</div>
+
+<div class="pane-main">
+  <div class="primary">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content-header">
+            <h1>Panes</h1>
+            <p class="lead">Panes starter page</p>
+          </div>
+          <ol class="queue">
+            <li class="running">
+              <div class="status-bar"><svg class="cyclops-icon" title="queued"><use xlink:href='#icon-ellipsis'></svg></div>
+              <a href="./job.html">
+                <div class="details">
+                  <div class="col col-100">
+                    <div class="title">Inline Playbook Test</div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> &mdash;</div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> &mdash;</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="running">
+              <div class="status-bar"><svg class="cyclops-icon" title="queued"><use xlink:href='#icon-ellipsis'></svg></div>
+              <a href="./job.html">
+                <div class="details">
+                  <div class="col col-100">
+                    <div class="title">Redhat Linux Hyperscale Server</div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Shan Sundaram </div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> &mdash;</div>
+                    <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> &mdash;</div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="error">
+              <div class="status-bar"><svg class="cyclops-icon success" title="running"><use xlink:href='#icon-play'></svg></div>
+              <a href="./job.html">
+                <div class="details">
+                  <div class="col col-100">
+                  <div class="title">Nodejs Server</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 2 hours ago </div>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="success">
+              <div class="status-bar"><svg class="cyclops-icon success" title="success"><use xlink:href='#icon-check-circle'></svg></div>
+              <a href="./job.html">
+                <div class="details">
+                  <div class="col col-100">
+                  <div class="title">Nodejs Server</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Chris Kent</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 3 hours ago </div>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="success">
+              <div class="status-bar"></div>
+              <a href="./job.html">
+                <div class="status-bar"><svg class="cyclops-icon success" title="stopped"><use xlink:href='#icon-stop'></svg></div>
+                <div class="details clearfix">
+                  <div class="col col-100">
+                  <div class="title">Redhat Linux Hyperscale Server</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-user'></svg> Shan Sundaram</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-clock'></svg> 23 min 30 sec</div>
+                  <div><svg class="cyclops-icon"><use xlink:href='#icon-calendar'></svg> 5 hours ago</div>
+                </div>
+              </div>
+              </a>
+            </li>
+          </ol>
+          {{> starter-pages/list-view }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

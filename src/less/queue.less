@@ -1,0 +1,87 @@
+
+.queue {
+	display: block;
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+
+	> li {
+		background-color: #ffffff;
+		background: linear-gradient(to right, rgba(255,255,255,.6) 97%, rgba(0,0,0,.05) 100%);
+		margin-bottom: 2px;
+		position: relative;
+
+		&:hover {
+			background: linear-gradient(to right, rgba(255,255,255,1) 97%, rgba(0,0,0,.05) 100%);
+		}
+
+		&.success {
+			.status-bar {
+				background-color: @primary-brand-green;
+			}
+		}
+
+		&.running {
+			.status-bar {
+				background-color: #E09D00;
+			}
+		}
+
+		&.error {
+			.status-bar {
+				background-color: @brand-danger;
+			}
+		}
+	}
+
+	a {
+		padding: 10px 16px;
+		display: block;
+		text-decoration: none;
+	}
+
+	a:hover .details .title {
+		text-decoration: underline;
+	}
+
+	.status {
+		float: left;
+		margin-right: 10px;
+	}
+
+	.status-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 32px;
+		padding: 9px;
+		background-color: #c1c1c1;
+
+		svg {
+			fill: #ffffff;
+		}
+	}
+
+	.details {
+		display:block;
+		color: @gray-light;
+		margin-left: 12px;
+		font-size: @font-size-small;
+		.clearfix();
+
+		svg {
+			fill: @gray-light;
+		}
+	}
+
+	.title {
+		color: @text-color;
+		font-size: @font-size-base;
+		margin-bottom: 5px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

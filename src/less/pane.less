@@ -1,0 +1,50 @@
+.pane-header {
+	height: 40px;
+	background: linear-gradient(to right, #d5d5d5 97%, #c3c3c3 100%);
+	letter-spacing: 1px;
+	font-size: @font-size-small;
+	line-height: 23px;
+
+	.content {
+		padding: 7px 10px;
+	}
+
+	.filter {
+		text-decoration: none;
+		display: inline-block;
+		padding: 3px 5px;
+		border-radius: 3px;
+		line-height: 20px;
+
+		&:hover,
+		&.active {
+			background-color: rgba(255,255,255,.70);
+			color: @gray-dark;
+		}
+
+		&.active {
+			font-weight: 600;
+		}
+	}
+}
+
+.pane-left {
+  width: 280px;
+  position: fixed;
+  top: 90px;
+  bottom: 0;
+  left: 50px;
+  background-color: #f2f2f2;
+  background: linear-gradient(to right, rgba(0,0,0,0) 97%, rgba(0,0,0,.05) 100%);
+	overflow: auto;
+}
+
+
+
+.pane-main {
+  position: fixed;
+  top: 90px;
+  bottom: 0;
+  right: 0;
+  left: 330px;
+}
