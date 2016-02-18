@@ -7,12 +7,10 @@
     "start": "gulp dev"
   },
   "author": "CenturyLink Cloud",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }],
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
