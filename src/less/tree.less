@@ -90,6 +90,8 @@
 .tree-item {
 	.transition(e('background-color .07s ease-in'));
 
+	background-color: #f9f9f9;
+
 	&:hover {
 		background-color: #ffffff;
 	}
@@ -126,14 +128,23 @@
 }
 
 .tree-item-content {
-	margin-left: 10px;
 	padding-left: 10px;
 	white-space: nowrap;
 	overflow: hidden;
 	line-height: 36px;
 	height: 36px;
+}
 
-	p {
-		display: inline;
+.tree-in-pane {
+	.tree-item {
+		background: linear-gradient(to right, #f9f9f9 97%, rgba(0,0,0,.05) 100%);
+		&:hover {
+			background: linear-gradient(to right, #ffffff 97%, rgba(0,0,0,.05) 100%);
+		}
+
+		&.selected {
+			background: #3a3a3a;
+			color: #fff;
+		}
 	}
 }
