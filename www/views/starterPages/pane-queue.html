@@ -13,10 +13,12 @@
     </div>
     <div class="filter-window hide">
       <i class="pull-right fa fa-times" data-bind="click: toggleFilter"></i>
-      <input type="text" data-bind="value: filterText, valueUpdate: 'keyup'">
+      <input type="text">
     </div>
   </div>
-  {{> components/examples/queue }}
+  <ol class="queue queue-in-pane">
+  {{> components/examples/queue-data }}
+  </ol>
 </div>
 
 <div class="pane-main">
@@ -27,7 +29,9 @@
           <h1>Pane with Queue</h1>
           <p class="lead">Panes starter page</p>
         </div>
-        {{> components/examples/queue }}
+        <ol class="queue queue-responsive">
+        {{> components/examples/queue-data }}
+        </ol>
       </div>
     </div>
   </div>
