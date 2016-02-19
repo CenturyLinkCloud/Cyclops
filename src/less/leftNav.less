@@ -103,6 +103,16 @@ left-nav {
         width: 265px;
         margin: 10px 0 10px 14px;
         
+        &.selected {
+          .btn {
+            color: @textColorActive;
+            
+            svg {
+              fill: @textColorActive;
+            }
+          }
+        }
+
         .btn {
           width: 100%;
           margin: 0;
@@ -147,9 +157,11 @@ left-nav {
     margin-left: -280px;
     transition: margin-left 0.5s;
     box-shadow: 0 0 7px black;
+    overflow-y: auto;
     
     &.open {
       margin-left: 50px;
+      z-index: 1;
     }
 
     .header {
@@ -173,7 +185,6 @@ left-nav {
         border-top: none;
         color: #aaa;
         height: auto;
-        white-space: nowrap;
         overflow: hidden;
         transition: background 0.15s;
         

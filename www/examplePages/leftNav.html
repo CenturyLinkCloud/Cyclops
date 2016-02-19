@@ -73,166 +73,93 @@
     </div>
   </nav>
 
-  <left-nav params=""></left-nav>
+  <div id="foo">
+    <left-nav params="menus: menus"></left-nav>
 
-  <div class="primary">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="content-header">
-            <h1>Account Switcher</h1>
-            <p class="lead">Click above to see it!</p>
-          </div>
-          <div class="new-list-view-toolbar"><a href="#" class="btn btn-default">create new thing</a></div>
-          <div class="new-list-view-responsive new-list-view-responsive-sm">
-            <div class="new-list-view-header">
-              <h3 class="col col-25">First Name</h3>
-              <h3 class="col col-25">Last Name</h3>
-              <h3 class="col col-50">Username</h3>
+    <div class="primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="content-header">
+              <h1>Left Nav</h1>
+              <p class="lead">Try it out!</p>
             </div>
-            <ul class="new-list-view">
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
-                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Brianna</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Johnson</div>
-                  <div class="col col-50"><label class="col-header">Username</label>brianna.johnson</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
-                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Beth</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Wilson</div>
-                  <div class="col col-50"><label class="col-header">Username</label>beth.wilson</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Lewis</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Richardson</div>
-                  <div class="col col-50"><label class="col-header">Username</label>lewis.richardson</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Juan</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Clark</div>
-                  <div class="col col-50"><label class="col-header">Username</label>juan.clark</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>vivian</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Hale</div>
-                  <div class="col col-50"><label class="col-header">Username</label>vivian.hale</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Arianna</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>West</div>
-                  <div class="col col-50"><label class="col-header">Username</label>arianna.west</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Dennis</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Henry</div>
-                  <div class="col col-50"><label class="col-header">Username</label>dennis.henry</div>
-                </div>
-              </li>
-              <li>
-                <div class="list-view-item">
-                  <div class="col col-25"><label class="col-header">First Name</label>Luke</div>
-                  <div class="col col-25"><label class="col-header">Last Name</label>Burton</div>
-                  <div class="col col-50"><label class="col-header">Username</label>luke.burton</div>
-                </div>
-              </li>
-            </ul>
-          </div>
+            <p>
+              <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
+              <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
+            </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-5 col-sm-push-7">
-        <div class="upcoming-events">
-          <h5 class="content-header">UPCOMING EVENTS</h5>
-          <div class="event">
-            <a class="task-datetime" href="#">
-              <span class=" date">10/17</span>
-              <span class="time">11:24 am</span>
-            </a>
-            <div class="details">
-              <div class="category">Delete Snapshot</div>
-              <div class="subject">CA3-DNS-01</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 col-sm-push-7">
+          <div class="upcoming-events">
+            <h5 class="content-header">UPCOMING EVENTS</h5>
+            <div class="event">
+              <a class="task-datetime" href="#">
+                <span class=" date">10/17</span>
+                <span class="time">11:24 am</span>
+              </a>
+              <div class="details">
+                <div class="category">Delete Snapshot</div>
+                <div class="subject">CA3-DNS-01</div>
+              </div>
             </div>
-          </div>
-          <div class="event">
-            <a class="task-datetime" href="#">
-              <span class=" date">10/21</span>
-              <span class="time">07:33 am</span>
-            </a>
-            <div class="details">
-              <div class="category">Delete Snapshot</div>
-              <div class="subject">WA1-DEMO-01</div>
+            <div class="event">
+              <a class="task-datetime" href="#">
+                <span class=" date">10/21</span>
+                <span class="time">07:33 am</span>
+              </a>
+              <div class="details">
+                <div class="category">Delete Snapshot</div>
+                <div class="subject">WA1-DEMO-01</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-7 col-sm-pull-5">
-        <div class="activity-history">
-          <h5 class="content-header">
-            RECENT ACTIVITY
-          </h5>
-          <section class="day">
-            <h5 class="content-header">Tuesday Sep 29</h5>
-            <ol>
-              <li>
-                <div class="timestamp">2:50:05 PM</div>
-                <div class="details">
-                  <div class="subject">Password change for user trent.anderson</div>
-                  <div class="body">Password change for user trent.anderson by system</div>
-                  <div class="attribution">
-                    <span class="createdBy">system</span>
+        <div class="col-sm-7 col-sm-pull-5">
+          <div class="activity-history">
+            <h5 class="content-header">
+              RECENT ACTIVITY
+            </h5>
+            <section class="day">
+              <h5 class="content-header">Tuesday Sep 29</h5>
+              <ol>
+                <li>
+                  <div class="timestamp">2:50:05 PM</div>
+                  <div class="details">
+                    <div class="subject">Password change for user trent.anderson</div>
+                    <div class="body">Password change for user trent.anderson by system</div>
+                    <div class="attribution">
+                      <span class="createdBy">system</span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ol>
-          </section>
-          <section class="day">
-            <h5 class="content-header">Tuesday Sep 29</h5>
-            <ol>
-              <li>
-                <div class="timestamp">2:50:05 PM</div>
-                <div class="details">
-                  <div class="subject">Password change for user trent.anderson</div>
-                  <div class="body">Password change for user trent.anderson by system</div>
-                  <div class="attribution">
-                    <span class="createdBy">system</span>
+                </li>
+              </ol>
+            </section>
+            <section class="day">
+              <h5 class="content-header">Tuesday Sep 29</h5>
+              <ol>
+                <li>
+                  <div class="timestamp">2:50:05 PM</div>
+                  <div class="details">
+                    <div class="subject">Password change for user trent.anderson</div>
+                    <div class="body">Password change for user trent.anderson by system</div>
+                    <div class="attribution">
+                      <span class="createdBy">system</span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ol>
-          </section>
+                </li>
+              </ol>
+            </section>
+          </div>
         </div>
       </div>
-    </div>
+
+  </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
@@ -346,8 +273,67 @@
       }
       ko.applyBindings(new AccountSwitcherModel(), $("account-switcher")[0]);
 
-      var LeftNaveModel = function(){}
-      ko.applyBindings(new LeftNaveModel(), $("left-nav")[0]);
+      var LeftNaveModel = function(){
+        var self = this;
+        self.menus = ko.observableArray([
+          {
+            name: 'create',
+            iconId: '#icon-book',
+            items: ko.observableArray([
+              {
+                name: 'server',
+                description: 'Customize and create a virtual or hyperscale server'
+              },
+              {
+                name: 'A Really Really Really Really Long Name',
+                description: 'Customize and create a virtual or hyperscale server',
+                isBeta: true
+              },
+              {
+                name: 'group',
+                description: 'Logically organize servers together in groups',
+                isNew: true
+              }
+            ])
+          },
+          {
+            name: 'database',
+            iconId: '#icon-database',
+            items: [
+              {
+                name: 'foo'
+              }
+            ]
+          },
+          {
+            name: 'Link',
+            iconId: '#icon-globe',
+            href: '#'
+          }
+        ]);
+
+
+        self.addMenuItem = function() {
+          self.menus.push({
+            name: 'Added Item',
+            iconId: '#icon-centurylink',
+            items: [{
+              name: 'an item',
+              description: 'some description'
+            }]
+          })
+        };
+
+        self.addItemToCreate = function() {
+          console.log(self.menus()[0]);
+          self.menus()[0].items.push({
+            name: 'added item',
+            description: 'some description'
+          })
+        }
+      }
+
+      ko.applyBindings(new LeftNaveModel(), $("#foo")[0]);
     })
   </script>
 </body>

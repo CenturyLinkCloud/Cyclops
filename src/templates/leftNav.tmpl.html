@@ -1,184 +1,50 @@
 <script type="text/html" id="cyclops.leftNav">
   <div class="menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
-    <ol class="items">
-      <li>
-        <button class="btn" data-bind="click: open">
-          <svg class="cyclops-icon md"><use xlink:href='#icon-circle-o'></svg>
-          Create
-        </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-appfog'></svg>
-        AppFog  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-infrastructure'></svg>
-        Infrastructure  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-firewall'></svg>
-        One  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-folder'></svg>
-        Two  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-netx'></svg>
-        Three  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-git'></svg>
-        Four  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
-        Five  </button>
-      </li>
-      <li>  <button class="btn" data-bind="click: open">
-        <svg class="cyclops-icon md"><use xlink:href='#icon-heart'></svg>
-        Six  </button>
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-global-network'></svg>
-        Seven
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-bell'></svg>
-        Eight
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-book'></svg>
-        Nine
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-calendar'></svg>
-        Ten
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-archive'></svg>
-        Eleven
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-automation'></svg>
-        Tweleve
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-api'></svg>
-        Thirteen
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-ban'></svg>
-        Fourteen
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-backup'></svg>
-        Fifteen
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-firewall'></svg>
-        One
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-folder'></svg>
-        Two
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-netx'></svg>
-        Three
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-git'></svg>
-        Four
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-hyperscale'></svg>
-        Five
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-heart'></svg>
-        Six
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-global-network'></svg>
-        Seven
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-bell'></svg>
-        Eight
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-book'></svg>
-        Nine
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-calendar'></svg>
-        Ten
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-archive'></svg>
-        Eleven
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-automation'></svg>
-        Tweleve
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-api'></svg>
-        Thirteen
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-ban'></svg>
-        Fourteen
-      </li>
-      <li>
-        <svg class="cyclops-icon md"><use xlink:href='#icon-backup'></svg>
-        Fifteen
-      </li>
+    <ol class="items" data-bind="foreach: menus">
+      <li data-bind="css: {'selected': isSelected}, template: templateName"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
-  <div class="flyout-menu">
+  <!-- ko template:{name: 'cyclops.leftNav.menuItem.flyout', foreach: menusWithFlyouts} -->
+  <!-- /ko -->
+</script>
+
+
+<script type="text/html" id="cyclops.leftNav.menuItem.button">
+  <button class="btn" data-bind="click: $component.selectFlyout">
+    <svg class="cyclops-icon md"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <!-- ko text: name --> <!--/ko -->
+  </button>
+</script>
+
+<script type="text/html" id="cyclops.leftNav.menuItem.href">
+  <a data-bind="href: href">
+    <svg class="cyclops-icon md"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <!-- ko text: name --> <!--/ko -->
+  </a>
+</script>
+
+<script type="text/html" id="cyclops.leftNav.menuItem.flyout">
+  <div class="flyout-menu" data-bind="css: {'open': isSelected}">
     <div class="header clear-fix">
-      <button class="pull-right btn btn-link" data-bind="click: close">
+      <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="items">
+    <ol class="items" data-bind="foreach: flayoutItems">
       <li>
-        <a href="#">
-          <h3>Relational DB</h3>
-          <p>Managed Reltional Database Service</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h3>Relational DB</h3>
-          <p>Managed Reltional Database Service</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h3>Relational DB</h3>
-          <p>Managed Reltional Database Service</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h3>Relational DB</h3>
-          <p>Managed Reltional Database Service</p>
+        <a data-bind="href: href">
+          <h3 data-bind="text: name">&hellip;</h3>
+          <p data-bind="text: description">&hellip;</p>
+          <!-- ko if: hasBadge -->
           <div class="badge">
-            <span>new</span>
+            <span data-bind="text: badgeText"></span>
           </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h3>Relational DB</h3>
-          <p>Managed Reltional Database Service</p>
+          <!-- /ko -->
         </a>
       </li>
     </ol>
   </div>
+</script>
 </script>
