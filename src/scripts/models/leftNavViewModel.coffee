@@ -8,17 +8,16 @@
 #
 
 # TODO
-# - fix fade in out animations
-# - style buttons (active/focus states etc)
+
+
 # - may need to look at window resize and recalc scroll buttons
 # - scrolling on iphone is fucked up
-# - size for the expanded leftnav view
-# - icons not aligned in menu
-# - container widths need to be adjusted at each media viewport
-# - observable for selectedItem
 
+# - container margin removes centering
+
+# - observable for selectedItem
 # - menus with empty items and no href (filter them out)
-# - overflow on flyout
+# - system admin flyout items
 
 class LeftNavFlyoutItem
   constructor: (options) ->
@@ -54,6 +53,8 @@ class LeftNavMenuItem
         name: 'unknown'
         items: []
     }, options
+
+    @id = options.id
 
     @name = ko.asObservable(options.name)
     @icon = ko.asObservable(options.iconId)
@@ -133,15 +134,15 @@ class LeftNavViewModel
     #   console.log 'closing flyouts becuase the user clicked'
     #   @menusWithFlyouts().forEach (m) -> m.isSelected false
 
-    timer = undefined
-    $leftNav.hover () =>
-      if(timer)
-        window.clearTimeout timer
-    , () =>
-      timer = window.setTimeout () =>
-        console.log 'closing flyouts becuase the user move out for some time'
-        @menusWithFlyouts().forEach (m) -> m.isSelected false
-      , 1000
+    # timer = undefined
+    # $leftNav.hover () =>
+    #   if(timer)
+    #     window.clearTimeout timer
+    # , () =>
+    #   timer = window.setTimeout () =>
+    #     console.log 'closing flyouts becuase the user move out for some time'
+    #     @menusWithFlyouts().forEach (m) -> m.isSelected false
+    #   , 1000
 
 
     #temp crap

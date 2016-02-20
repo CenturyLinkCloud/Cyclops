@@ -76,6 +76,21 @@
   <div id="foo">
     <left-nav params="menus: menus"></left-nav>
 
+    <!-- <div class="pane-left">
+      <div class="pane-header">
+        <div class="content">
+          <a class="filter active" href="#" role="button">all</a>
+          <a href="#" role="button" class="filter">active</a>
+          <a href="#" role="button" class="filter">errored</a>
+          <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
+          <a href="#" role="button" class="pull-right" title="Collapse Pane"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-left'></svg></a>
+        </div>
+      </div>
+      <ol class="queue queue-in-pane">
+
+      </ol>
+    </div> -->
+
     <div class="primary">
       <div class="container">
         <div class="row">
@@ -277,17 +292,20 @@
         var self = this;
         self.menus = ko.observableArray([
           {
+            id: "home",
+            name: 'Dashboard',
+            iconId: '#icon-pie-chart',
+            href: '#'
+          },
+          {
+            id: "create",
             name: 'create',
             iconId: '#icon-book',
             items: ko.observableArray([
               {
+                id: 'create.server',
                 name: 'server',
                 description: 'Customize and create a virtual or hyperscale server'
-              },
-              {
-                name: 'A Really Really Really Really Long Name',
-                description: 'Customize and create a virtual or hyperscale server',
-                isBeta: true
               },
               {
                 name: 'group',
@@ -297,17 +315,153 @@
             ])
           },
           {
-            name: 'database',
-            iconId: '#icon-database',
+            name: 'infrastructure',
+            iconId: '#icon-infrastructure',
             items: [
               {
-                name: 'foo'
+                id: 'infrastructure.manage',
+                name: 'Manage',
+                description: 'Manage and create virtual and physical servers'
+              },
+              {
+                id: 'infrastructure.backup',
+                name: 'Simple Backup',
+                description: 'Secure, file-level backup'
+              },
+              {
+                id: 'infrastructure.dns',
+                name: 'DNS',
+                description: 'Host and manage DNS zones'
+              },
+              {
+                id: 'infrastructure.intrusionPrevention',
+                name: 'Intrusion Prevention',
+                description: 'Monitor traffic to detect and block known vulnerabilities.'
+              },
+              {
+                id: 'infrastructure.monitoring',
+                name: 'Monitoring and Alerting',
+                description: 'intra and cross data center connectivity'
+              },
+              {
+                id: 'infrastructure.patching',
+                name: 'Patching',
+                description: 'intra and cross data center connectivity'
               }
             ]
           },
           {
-            name: 'Link',
-            iconId: '#icon-globe',
+            name: 'network',
+            iconId: '#icon-global-network',
+            items: [
+              {
+                id: 'network.networks',
+                name: 'networks',
+                description: 'Manage and create networks'
+              },
+              {
+                id: 'network.firewall',
+                name: 'firewall',
+                description: 'intra and cross data center connectivity'
+              },
+              {
+                id: 'network.ipAddresses',
+                name: 'IP Addresses',
+                description: 'Manage IP Addresses'
+              },
+              {
+                id: 'network.vpn',
+                name: 'vpn',
+                description: 'Connect to cloud networks via VPN'
+              },
+              {
+                id: 'network.siteToSite',
+                name: 'Site-To-Site VPN',
+                description: 'self service IPSec (Point-to-Point) VPN Tunnel'
+              },
+              {
+                id: 'network.netx',
+                name: 'netx',
+                description: 'Connect to CenturyLink Data Centers'
+              }
+            ]
+          },
+          {
+            name: 'orchestration',
+            iconId: '#icon-script',
+            items: [
+              {
+                id: 'orchestration.runner',
+                name: 'Runner',
+                description: 'run shit',
+                isBeta: true
+              },
+              {
+                id: 'orchestration.library',
+                name: 'Blueprints Library',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.design',
+                name: 'Design a Blueprint',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.scripts',
+                name: 'Scripts',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.software',
+                name: 'Software',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.ftp',
+                name: 'FTP User',
+                description: 'ASDF'
+              }
+            ]
+          },
+          {
+            name: 'App Services',
+            iconId: '#icon-package',
+            items: [
+              {
+                id: 'applicationServices.appfog',
+                name: 'AppFog',
+                description: 'host your apps'
+              },
+              {
+                id: 'applicationServices.loadBalancer',
+                name: 'Load Balancers',
+                description: 'balance load'
+              },
+              {
+                id: 'applicationServices.objectStorage',
+                name: 'Object Storage',
+                description: 'store objects '
+              },
+              {
+                id: 'applicationServices.relationalDb',
+                name: 'Relational DB',
+                description: 'relate data'
+              },
+              {
+                id: 'applicationServices.siteRedirect',
+                name: 'Site Redirect',
+                description: 'relate data'
+              },
+              {
+                id: 'applicationServices.relationalDb',
+                name: 'SMTP Relay',
+                description: 'relate data'
+              }
+            ]
+          },
+          {
+            name: 'Queue',
+            iconId: '#icon-queue',
             href: '#'
           }
         ]);

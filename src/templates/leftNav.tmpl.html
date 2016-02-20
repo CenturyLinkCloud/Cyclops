@@ -2,7 +2,7 @@
   <div class="menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
     <ol class="items" data-bind="foreach: menus">
-      <li data-bind="css: {'selected': isSelected}, template: templateName"></li>
+      <li data-bind="css: {'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
@@ -13,14 +13,14 @@
 
 <script type="text/html" id="cyclops.leftNav.menuItem.button">
   <button class="btn" data-bind="click: $component.selectFlyout">
-    <svg class="cyclops-icon md"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
     <!-- ko text: name --> <!--/ko -->
   </button>
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.href">
   <a data-bind="href: href">
-    <svg class="cyclops-icon md"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
     <!-- ko text: name --> <!--/ko -->
   </a>
 </script>
@@ -46,5 +46,4 @@
       </li>
     </ol>
   </div>
-</script>
 </script>

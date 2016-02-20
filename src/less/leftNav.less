@@ -1,13 +1,26 @@
 @leftNavWidth: 280px;
-@textColor: #757575;
+@textColor: #aaa;
+@iconColor: #757575;
 @textColorActive: #fff;
 @textColorHover: #ddd;
+@selectedBackground: #202220;
+@flyoutBackground: #272827;
+@collapsedWidth: 46px;
+@expandedWidth: 200px;
+@flyoutWidth: 280px;
 
 left-nav ~ .primary,
 left-nav ~ .container,
+left-nav ~ .pane-left,
 left-nav ~ .container-fluid {
-  margin-left: 50px;
+  margin-left: @collapsedWidth;
   transition: margin-left 0.5s;
+}
+
+.pane-left ~ .primary,
+.pane-left ~ .container,
+.pane-left ~ .container-fluid {
+  margin-left: @collapsedWidth + 280px;
 }
 
 left-nav {
@@ -15,7 +28,7 @@ left-nav {
   top: 91px;
   bottom: 0;
   overflow: auto;
-  width: 50px;
+  width: @collapsedWidth;
   overflow: visible;
   z-index: 1;
   background: #2d302d;
@@ -27,27 +40,35 @@ left-nav {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 50px;
+    width: @collapsedWidth;
     background: #2d302d;
     transition: width 0.5s;
     z-index: -1;
   }
 
   .cyclops-icon {
-    height: 24px;
-    width: 24px;
-    fill: @textColor;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    fill: @iconColor;
+    margin-right: 7px;
     transition: fill 0.1s;
   }
 
+  a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: @textColor;
+  }
+
+  a,
   button.btn {
     &:focus,
     &:hover {
       color: @textColorHover;
       outline: none;
       
-      svg {
+      .cyclops-icon {
         fill: @textColorHover;
       }
 
@@ -56,7 +77,7 @@ left-nav {
         outline: none;
         color: @textColorActive;
         
-        svg {
+        .cyclops-icon {
           fill: @textColorActive;
         }
       }
@@ -98,16 +119,19 @@ left-nav {
       background: #2d302d;
       
       li {
-        line-height: 24px;
-        font-size: 24px;
-        width: 265px;
-        margin: 10px 0 10px 14px;
+        line-height: 16px;
+        font-size: 16px;
+        width: @expandedWidth;
+        padding: 10px 0 10px 14px;
+        text-transform: capitalize;
         
         &.selected {
+          background-color: @selectedBackground;
+          
           .btn {
             color: @textColorActive;
             
-            svg {
+            .cyclops-icon {
               fill: @textColorActive;
             }
           }
@@ -120,14 +144,15 @@ left-nav {
           text-align: left;
           background-color: transparent;
           color: @textColor;
-          font-size: 24px;
+          font-size: 16px;
+          text-transform: capitalize;
           
           &:focus,
           &:hover {
             color: @textColorHover;
             outline: none;
             
-            svg {
+            .cyclops-icon {
               fill: @textColorHover;
             }
           }
@@ -137,7 +162,7 @@ left-nav {
             outline: none;
             color: @textColorActive;
             
-            svg {
+            .cyclops-icon {
               fill: @textColorActive;
             }
           }
@@ -150,22 +175,21 @@ left-nav {
     position: absolute;
     top: 0;
     bottom: 0;
-    background-color: red;
-    width: 280px;
-    background: #272827;
+    width: @flyoutWidth;
+    background: @flyoutBackground;
     border-right: 1px solid #202220;
-    margin-left: -280px;
+    margin-left: -1 * @flyoutWidth;
     transition: margin-left 0.5s;
     box-shadow: 0 0 7px black;
     overflow-y: auto;
     
     &.open {
-      margin-left: 50px;
+      margin-left: @collapsedWidth;
       z-index: 1;
     }
 
     .header {
-      background-color: #222222;
+      background-color: #0c0c0c;
       text-align: right;
       color: #757575;
       
@@ -193,7 +217,6 @@ left-nav {
         }
 
         a {
-          text-decoration: none;
           padding: 10px 15px 14px;
           display: block;
           position: relative;
@@ -204,6 +227,7 @@ left-nav {
             line-height: 20px;
             margin-bottom: 5px;
             margin-top: 5px;
+            text-transform: capitalize;
           }
 
           p {
@@ -240,26 +264,54 @@ left-nav {
   }
 }
 // TODO: consider changing this to something like XL
-@media (min-width: @screen-lg-min) {
+@media (min-width: @screen-xl-min) {
   left-nav ~ .primary,
   left-nav ~ .container,
+  left-nav ~ .pane-left,
   left-nav ~ .container-fluid {
-    margin-left: 280px;
+    margin-left: @expandedWidth;
+  }
+
+  .pane-left ~ .primary,
+  .pane-left ~ .container,
+  .pane-left ~ .container-fluid {
+    margin-left: @expandedWidth + 280px;
   }
 
   left-nav {
-    width: 280px;
+    width: @expandedWidth;
     
     &:before {
-      width: 280px;
+      width: @expandedWidth;
     }
 
     .flyout-menu {
-      margin-left: -280px;
+      margin-left: -1 * @expandedWidth;
       
       &.open {
-        margin-left: 280px;
+        margin-left: @expandedWidth;
       }
     }
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  left-nav ~ .primary .container,
+  left-nav ~ .container {
+    width: 710px;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  left-nav ~ .primary .container,
+  left-nav ~ .container {
+    width: 930px;
+  }
+}
+
+@media (min-width: @screen-lg-min) {
+  left-nav ~ .primary .container,
+  left-nav ~ .container {
+    width: 1130px;
   }
 }
