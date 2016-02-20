@@ -1,26 +1,15 @@
-@leftNavWidth: 280px;
-@textColor: #aaa;
-@iconColor: #757575;
-@textColorActive: #fff;
-@textColorHover: #ddd;
-@selectedBackground: #202220;
-@flyoutBackground: #272827;
-@collapsedWidth: 46px;
-@expandedWidth: 200px;
-@flyoutWidth: 280px;
-
 left-nav ~ .primary,
 left-nav ~ .container,
 left-nav ~ .pane-left,
 left-nav ~ .container-fluid {
-  margin-left: @collapsedWidth;
+  margin-left: @left-nav-width-collapsed;
   transition: margin-left 0.5s;
 }
 
 .pane-left ~ .primary,
 .pane-left ~ .container,
 .pane-left ~ .container-fluid {
-  margin-left: @collapsedWidth + 280px;
+  margin-left: @left-nav-width-collapsed + 280px;
 }
 
 left-nav {
@@ -28,20 +17,20 @@ left-nav {
   top: 91px;
   bottom: 0;
   overflow: auto;
-  width: @collapsedWidth;
+  width: @left-nav-width-collapsed;
   overflow: visible;
   z-index: 1;
-  background: #2d302d;
+  background: @left-nav-bg;
   transition: width 0.5s;
-  color: @textColor;
+  color: @gray-light;
   // Prevent a BUFOC
   &:before {
     content: ' ';
     position: fixed;
     top: 0;
     bottom: 0;
-    width: @collapsedWidth;
-    background: #2d302d;
+    width: @left-nav-width-collapsed;
+    background: @left-nav-bg;
     transition: width 0.5s;
     z-index: -1;
   }
@@ -49,7 +38,7 @@ left-nav {
   .cyclops-icon {
     width: 20px;
     height: 20px;
-    fill: @iconColor;
+    fill: @left-nav-icon-color;
     margin-right: 7px;
     transition: fill 0.1s;
   }
@@ -58,27 +47,27 @@ left-nav {
     display: inline-block;
     width: 100%;
     text-decoration: none;
-    color: @textColor;
+    color: @gray-light;
   }
 
   a,
   button.btn {
     &:focus,
     &:hover {
-      color: @textColorHover;
+      color: @gray-lighter;
       outline: none;
-      
+
       .cyclops-icon {
-        fill: @textColorHover;
+        fill: @gray-lighter;
       }
 
       &:active {
         box-shadow: none;
         outline: none;
-        color: @textColorActive;
-        
+        color: #fff;
+
         .cyclops-icon {
-          fill: @textColorActive;
+          fill: #fff;
         }
       }
     }
@@ -90,7 +79,7 @@ left-nav {
     box-shadow: 0 0 7px black;
     position: relative;
     z-index: 2;
-    
+
     .scroll-up,
     .scroll-down {
       display: none;
@@ -116,23 +105,23 @@ left-nav {
       margin-right: -15px;
       position: relative;
       z-index: 2;
-      background: #2d302d;
-      
+      background: @left-nav-bg;
+
       li {
         line-height: 16px;
         font-size: 16px;
-        width: @expandedWidth;
+        width: @left-nav-width-expanded;
         padding: 10px 0 10px 14px;
         text-transform: capitalize;
-        
+
         &.selected {
-          background-color: @selectedBackground;
-          
+          background-color: @left-nav-bg-selected;
+
           .btn {
-            color: @textColorActive;
-            
+            color: #fff;
+
             .cyclops-icon {
-              fill: @textColorActive;
+              fill: #fff;
             }
           }
         }
@@ -143,27 +132,27 @@ left-nav {
           padding: 0;
           text-align: left;
           background-color: transparent;
-          color: @textColor;
+          color: @gray-light;
           font-size: 16px;
           text-transform: capitalize;
-          
+
           &:focus,
           &:hover {
-            color: @textColorHover;
+            color: @gray-lighter;
             outline: none;
-            
+
             .cyclops-icon {
-              fill: @textColorHover;
+              fill: @gray-lighter;
             }
           }
 
           &:active {
             box-shadow: none;
             outline: none;
-            color: @textColorActive;
-            
+            color: #fff;
+
             .cyclops-icon {
-              fill: @textColorActive;
+              fill: #fff;
             }
           }
         }
@@ -175,16 +164,16 @@ left-nav {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: @flyoutWidth;
-    background: @flyoutBackground;
+    width: @left-nav-flyout-width;
+    background: @left-nav-flyout-bg;
     border-right: 1px solid #202220;
-    margin-left: -1 * @flyoutWidth;
+    margin-left: -1 * @left-nav-flyout-width;
     transition: margin-left 0.5s;
     box-shadow: 0 0 7px black;
     overflow-y: auto;
-    
+
     &.open {
-      margin-left: @collapsedWidth;
+      margin-left: @left-nav-width-collapsed;
       z-index: 1;
     }
 
@@ -192,7 +181,12 @@ left-nav {
       background-color: #0c0c0c;
       text-align: right;
       color: #757575;
-      
+      height: 40px;
+
+      .btn-link {
+        line-height: 30px;
+      }
+
       .cyclops-icon {
         margin-right: 0;
         height: 18px;
@@ -203,60 +197,65 @@ left-nav {
     .items {
       list-style: none;
       padding: 0;
-      
+
       li {
         border-bottom: solid 1px #343534;
         border-top: none;
-        color: #aaa;
         height: auto;
         overflow: hidden;
         transition: background 0.15s;
-        
+
         &:hover {
           background-color: #1b1d1b;
+
+          h3 {
+            color: #fff;
+          }
         }
 
         a {
           padding: 10px 15px 14px;
           display: block;
           position: relative;
-          
-          h3 {
-            color: #ccc;
-            font-size: 15px;
-            line-height: 20px;
-            margin-bottom: 5px;
-            margin-top: 5px;
-            text-transform: capitalize;
-          }
+        }
 
-          p {
-            margin-bottom: 5px;
-          }
+        h3 {
+          color: #ddd;
+          font-size: 15px;
+          line-height: 20px;
+          margin-bottom: 5px;
+          margin-top: 5px;
+          text-transform: capitalize;
+        }
 
-          .badge {
-            width: 50px;
-            height: 50px;
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            right: 0;
-            
-            span {
-              display: block;
-              text-align: center;
-              transform: rotate(45deg);
-              position: relative;
-              right: 2px;
-              top: -18px;
-              width: 92px;
-              background-color: #00853f;
-              color: #FFFFFF;
-              padding-top: 30px;
-              padding-bottom: 2px;
-              text-transform: uppercase;
-              letter-spacing: 1px;
-            }
+        p {
+          font-size: @font-size-small;
+          line-height: @line-height-computed - 2;
+          margin-bottom: 5px;
+        }
+
+        .badge {
+          width: 50px;
+          height: 50px;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          span {
+            display: block;
+            text-align: center;
+            transform: rotate(45deg);
+            position: relative;
+            right: 2px;
+            top: -18px;
+            width: 92px;
+            background-color: #00853f;
+            color: #FFFFFF;
+            padding-top: 30px;
+            padding-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
           }
         }
       }
@@ -269,27 +268,27 @@ left-nav {
   left-nav ~ .container,
   left-nav ~ .pane-left,
   left-nav ~ .container-fluid {
-    margin-left: @expandedWidth;
+    margin-left: @left-nav-width-expanded;
   }
 
   .pane-left ~ .primary,
   .pane-left ~ .container,
   .pane-left ~ .container-fluid {
-    margin-left: @expandedWidth + 280px;
+    margin-left: @left-nav-width-expanded + 280px;
   }
 
   left-nav {
-    width: @expandedWidth;
-    
+    width: @left-nav-width-expanded;
+
     &:before {
-      width: @expandedWidth;
+      width: @left-nav-width-expanded;
     }
 
     .flyout-menu {
-      margin-left: -1 * @expandedWidth;
-      
+      margin-left: -1 * @left-nav-width-expanded;
+
       &.open {
-        margin-left: @expandedWidth;
+        margin-left: @left-nav-width-expanded;
       }
     }
   }
