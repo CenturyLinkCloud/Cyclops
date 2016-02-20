@@ -57,30 +57,6 @@
 	}
 }
 
-.tree-with-dividers {
-	.tree-item-status {
-		border-top: 1px solid lighten(@tree-list-status-default-bg, 5%);
-		border-bottom: 1px solid darken(@tree-list-status-default-bg, 5%);
-
-		&.warning {
-			border-top: 1px solid lighten(@tree-list-status-warning-bg, 10%);
-			border-bottom: 1px solid darken(@tree-list-status-warning-bg, 10%);
-		}
-
-		&.danger {
-			border-top: 1px solid lighten(@tree-list-status-danger-bg, 10%);
-			border-bottom: 1px solid darken(@tree-list-status-danger-bg, 10%);
-		}
-	}
-
-	.tree-item-content {
-		border-top: 1px solid rgba(255,255,255,.5);
-		border-bottom: 1px solid rgba(0,0,0,.1);
-	}
-
-
-}
-
 .tree-item-icon-spacer {
 	display: inline-block;
 	height: 2px;
@@ -113,6 +89,8 @@
 .tree-item-status {
 	.transition(e('background-color .07s ease-in'));
 	background-color: @tree-list-status-default-bg;
+	border-top: 1px solid lighten(@tree-list-status-default-bg, 5%);
+	border-bottom: 1px solid darken(@tree-list-status-default-bg, 5%);
 	width: 10px;
 	float: left;
 	line-height: 36px;
@@ -120,14 +98,20 @@
 
 	&.warning {
 		background-color: @tree-list-status-warning-bg;
+		border-top: 1px solid lighten(@tree-list-status-warning-bg, 10%);
+		border-bottom: 1px solid darken(@tree-list-status-warning-bg, 10%);
 	}
 
 	&.danger {
 		background-color: @tree-list-status-danger-bg;
+		border-top: 1px solid lighten(@tree-list-status-danger-bg, 10%);
+		border-bottom: 1px solid darken(@tree-list-status-danger-bg, 10%);
 	}
 }
 
 .tree-item-content {
+	border-top: 1px solid rgba(255,255,255,.5);
+	border-bottom: 1px solid rgba(0,0,0,.1);
 	padding-left: 10px;
 	white-space: nowrap;
 	overflow: hidden;
