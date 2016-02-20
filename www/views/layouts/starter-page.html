@@ -72,6 +72,9 @@
     </div>
   </nav>
 
+
+  <left-nav params="menus: menus"></left-nav>
+
 	{{{ body }}}
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
@@ -85,7 +88,6 @@
     $(function(){
       var AccountSwitcherModel = function() {
         var self = this;
-
 
         self.accounts = ko.observableArray([]);
 
@@ -184,7 +186,208 @@
 
         return self;
       }
-      ko.applyBindings(new AccountSwitcherModel());
+      ko.applyBindings(new AccountSwitcherModel(), $("account-switcher")[0]);
+
+      var LeftNavModel = function(){
+        var self = this;
+        self.menus = ko.observableArray([
+          {
+            id: "home",
+            name: 'Dashboard',
+            iconId: '#icon-pie-chart',
+            href: '#'
+          },
+          {
+            id: "create",
+            name: 'create',
+            iconId: '#icon-book',
+            items: ko.observableArray([
+              {
+                id: 'create.server',
+                name: 'server',
+                description: 'Customize and create a virtual or hyperscale server'
+              },
+              {
+                name: 'group',
+                description: 'Logically organize servers together in groups',
+                isNew: true
+              }
+            ])
+          },
+          {
+            name: 'infrastructure',
+            iconId: '#icon-infrastructure',
+            items: [
+              {
+                id: 'infrastructure.manage',
+                name: 'Manage',
+                description: 'Manage and create virtual and physical servers'
+              },
+              {
+                id: 'infrastructure.backup',
+                name: 'Simple Backup',
+                description: 'Secure, file-level backup'
+              },
+              {
+                id: 'infrastructure.dns',
+                name: 'DNS',
+                description: 'Host and manage DNS zones'
+              },
+              {
+                id: 'infrastructure.intrusionPrevention',
+                name: 'Intrusion Prevention',
+                description: 'Monitor traffic to detect and block known vulnerabilities.'
+              },
+              {
+                id: 'infrastructure.monitoring',
+                name: 'Monitoring and Alerting',
+                description: 'intra and cross data center connectivity'
+              },
+              {
+                id: 'infrastructure.patching',
+                name: 'Patching',
+                description: 'intra and cross data center connectivity'
+              }
+            ]
+          },
+          {
+            name: 'network',
+            iconId: '#icon-global-network',
+            items: [
+              {
+                id: 'network.networks',
+                name: 'networks',
+                description: 'Manage and create networks'
+              },
+              {
+                id: 'network.firewall',
+                name: 'firewall',
+                description: 'intra and cross data center connectivity'
+              },
+              {
+                id: 'network.ipAddresses',
+                name: 'IP Addresses',
+                description: 'Manage IP Addresses'
+              },
+              {
+                id: 'network.vpn',
+                name: 'vpn',
+                description: 'Connect to cloud networks via VPN'
+              },
+              {
+                id: 'network.siteToSite',
+                name: 'Site-To-Site VPN',
+                description: 'self service IPSec (Point-to-Point) VPN Tunnel'
+              },
+              {
+                id: 'network.netx',
+                name: 'netx',
+                description: 'Connect to CenturyLink Data Centers'
+              }
+            ]
+          },
+          {
+            name: 'orchestration',
+            iconId: '#icon-script',
+            items: [
+              {
+                id: 'orchestration.runner',
+                name: 'Runner',
+                description: 'run shit',
+                isBeta: true
+              },
+              {
+                id: 'orchestration.library',
+                name: 'Blueprints Library',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.design',
+                name: 'Design a Blueprint',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.scripts',
+                name: 'Scripts',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.software',
+                name: 'Software',
+                description: 'ASDF'
+              },
+              {
+                id: 'orchestration.ftp',
+                name: 'FTP User',
+                description: 'ASDF'
+              }
+            ]
+          },
+          {
+            name: 'App Services',
+            iconId: '#icon-package',
+            items: [
+              {
+                id: 'applicationServices.appfog',
+                name: 'AppFog',
+                description: 'host your apps'
+              },
+              {
+                id: 'applicationServices.loadBalancer',
+                name: 'Load Balancers',
+                description: 'balance load'
+              },
+              {
+                id: 'applicationServices.objectStorage',
+                name: 'Object Storage',
+                description: 'store objects '
+              },
+              {
+                id: 'applicationServices.relationalDb',
+                name: 'Relational DB',
+                description: 'relate data'
+              },
+              {
+                id: 'applicationServices.siteRedirect',
+                name: 'Site Redirect',
+                description: 'relate data'
+              },
+              {
+                id: 'applicationServices.relationalDb',
+                name: 'SMTP Relay',
+                description: 'relate data'
+              }
+            ]
+          },
+          {
+            name: 'Queue',
+            iconId: '#icon-queue',
+            href: '#'
+          }
+        ]);
+
+
+        self.addMenuItem = function() {
+          self.menus.push({
+            name: 'Added Item',
+            iconId: '#icon-centurylink',
+            items: [{
+              name: 'an item',
+              description: 'some description'
+            }]
+          })
+        };
+
+        self.addItemToCreate = function() {
+          console.log(self.menus()[0]);
+          self.menus()[0].items.push({
+            name: 'added item',
+            description: 'some description'
+          })
+        }
+      }
+
+      ko.applyBindings(new LeftNavModel(), $("left-nav")[0]);
     })
   </script>
 
