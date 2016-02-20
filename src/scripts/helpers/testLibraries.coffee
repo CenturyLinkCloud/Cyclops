@@ -8,7 +8,7 @@ if !ko?
   console.error 'knockout is required, please make sure it is included before the cyclops script.'
 
 #test for optional libraries
-if !$.ui?
+if !$? or !$.ui?
   libraries.jqueryUi = false;
   console.log 'jQuery UI is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
 
