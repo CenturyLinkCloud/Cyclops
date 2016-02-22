@@ -18,13 +18,11 @@
 # - observable for selectedItem
 # - menus with empty items and no href (filter them out)
 # - system admin flyout items
+# - no items state
 
 class LeftNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
-        name: 'unknown'
-        description: 'unknown item'
-        href: '#'
         isNew: false
         isBeta: false
     }, options
@@ -38,9 +36,17 @@ class LeftNavFlyoutItem
         return 'beta'
       if @isNew()
         return 'new'
+
+    @id = ko.asObservable(options.id)
+    if !@id()?
+      throw 'A Flyout Menu Item must have an id.'
     @name = ko.asObservable(options.name)
-    @description = ko.asObservable(options.description)
+    if !@name()?
+      throw 'A Flyout Menu Item must have a name.'
     @href = ko.asObservable(options.href)
+    if !@href()?
+      throw 'A Flyout Menu Item must have a href.'
+    @description = ko.asObservable(options.description)
 
 
 class LeftNavMenuItem
@@ -55,14 +61,30 @@ class LeftNavMenuItem
     }, options
 
     @id = options.id
+    if !@id?
+      throw "A Menu Item must provide an ID."
 
     @name = ko.asObservable(options.name)
+    if !@name()?
+      throw "A Menu Item must provide a name."
+
+
     @icon = ko.asObservable(options.iconId)
-    @href = ko.asObservable(options.href)
     @isSelected = ko.observable(false);
+
+    @href = ko.asObservable(options.href)
+
     @rawFlayoutItems = ko.asObservableArray(options.items)
     @flayoutItems = ko.pureComputed () =>
-      return @rawFlayoutItems().map (f) -> return new LeftNavFlyoutItem(f)
+      return @rawFlayoutItems().map (f) ->
+        return new LeftNavFlyoutItem(f)
+
+
+    # Items can either have and location to navigate to or items but not both
+    if @href()? and @rawFlayoutItems().length > 0
+      throw "The Menu Item with name '#{@name()}' has defined both a href and
+      has Flyout Menu Items. This is not allowed please choose one or the other."
+
     @templateName = ko.pureComputed () =>
       if !@href()?
         return 'cyclops.leftNav.menuItem.button'
