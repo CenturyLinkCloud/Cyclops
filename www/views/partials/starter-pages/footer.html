@@ -127,96 +127,118 @@
 						{
 							id: 'create.server',
 							name: 'Server',
-							description: 'Configure and provision a virtual or physical server to your location of choice'
+							description: 'Configure and provision a virtual or physical server to your location of choice',
+							href: '#'
 						},
 						{
+							id: 'create.network',
 							name: 'Network',
-							description: 'Add and new network to your location of choice'
+							description: 'Add and new network to your location of choice',
+							href: '#'
 						},
 						{
+							id: 'create.bucket',
 							name: 'Object Storage Bucket',
-							description: 'Create a highly available repository for your app data'
+							description: 'Create a highly available repository for your app data',
+							href: '#'
 						},
 						{
+							id: 'create.relationalDb',
 							name: 'Relational DB',
 							description: 'Easily provision a MySQL-compatible database instance',
-							isNew: true
+							isNew: true,
+							href: '#'
 						}
 					])
 				},
 				{
+					id: 'infrastructure',
 					name: 'infrastructure',
 					iconId: '#icon-infrastructure',
 					items: [
 						{
 							id: 'infrastructure.manage',
 							name: 'Manage',
-							description: 'Manage and provision your servers'
+							description: 'Manage and provision your servers',
+							href: '#'
 						},
 						{
 							id: 'infrastructure.backup',
 							name: 'Backup',
-							description: 'Secure, file-level backup'
+							description: 'Secure, file-level backup',
+							href: '#'
 						},
 						{
 							id: 'infrastructure.dns',
 							name: 'DNS',
-							description: 'Host and manage DNS zones'
+							description: 'Host and manage DNS zones',
+							href: '#'
 						},
 						{
 							id: 'infrastructure.intrusionPrevention',
 							name: 'Intrusion Prevention',
-							description: 'Monitor traffic to detect and block known vulnerabilities.'
+							description: 'Monitor traffic to detect and block known vulnerabilities.',
+							href: '#'
 						},
 						{
 							id: 'infrastructure.monitoring',
 							name: 'Monitoring & Alerting',
-							description: 'Define monitor and alert policies to measure application performance'
+							description: 'Define monitor and alert policies to measure application performance',
+							href: '#'
 						},
 						{
 							id: 'infrastructure.patching',
 							name: 'Patching',
-							description: 'Define patching policies to update OSs'
+							description: 'Define patching policies to update OSs',
+							href: '#'
 						}
 					]
 				},
 				{
+					id: 'network',
 					name: 'network',
 					iconId: '#icon-global-network',
 					items: [
 						{
 							id: 'network.networks',
 							name: 'Networks',
-							description: 'Manage and create networks'
+							description: 'Manage and create networks',
+							href: '#'
 						},
 						{
 							id: 'network.firewall',
 							name: 'Firewall',
-							description: 'Intra and cross data center connectivity'
+							description: 'Intra and cross data center connectivity',
+							href: '#'
 						},
 						{
 							id: 'network.ipAddresses',
 							name: 'IP Addresses',
-							description: 'Manage IP Addresses'
+							description: 'Manage IP Addresses',
+							href: '#'
 						},
 						{
 							id: 'network.vpn',
 							name: 'VPN',
-							description: 'Connect to cloud networks via VPN'
+							description: 'Connect to cloud networks via VPN',
+							href: '#'
 						},
 						{
 							id: 'network.siteToSite',
 							name: 'Site-To-Site VPN',
-							description: 'Self service IPSec (Point-to-Point) VPN Tunnel'
+							description: 'Self service IPSec (Point-to-Point) VPN Tunnel',
+							href: '#'
 						},
 						{
 							id: 'network.netx',
 							name: 'NetX',
-							description: 'Connect to CenturyLink Data Centers'
+							description: 'Connect to CenturyLink Data Centers',
+							href: '#'
 						}
 					]
 				},
 				{
+					id: 'orchestration',
 					name: 'orchestration',
 					iconId: '#icon-script',
 					items: [
@@ -224,77 +246,92 @@
 							id: 'orchestration.runner',
 							name: 'Runner',
 							description: 'Quickly provision, interact with, and modify environments',
+							href: '#',
 							isBeta: true
 						},
 						{
 							id: 'orchestration.library',
 							name: 'Blueprints Library',
-							description: 'ASDF'
+							description: 'ASDF',
+							href: '#'
 						},
 						{
 							id: 'orchestration.design',
 							name: 'Design a Blueprint',
-							description: 'ASDF'
+							description: 'ASDF',
+							href: '#'
 						},
 						{
 							id: 'orchestration.scripts',
 							name: 'Scripts',
-							description: 'ASDF'
+							description: 'ASDF',
+							href: '#'
 						},
 						{
 							id: 'orchestration.software',
 							name: 'Software',
-							description: 'ASDF'
+							description: 'ASDF',
+							href: '#'
 						},
 						{
 							id: 'orchestration.ftp',
 							name: 'FTP User',
-							description: 'ASDF'
+							description: 'ASDF',
+							href: '#'
 						}
 					]
 				},
 				{
+					id: 'appServices',
 					name: 'App Services',
 					iconId: '#icon-package',
 					items: [
 						{
 							id: 'applicationServices.appfog',
 							name: 'AppFog',
-							description: 'Create, scale, and manage cloud apps'
+							description: 'Create, scale, and manage cloud apps',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.loadBalancer',
 							name: 'Load Balancers',
-							description: 'Keep applications online and traffic flowing evenly'
+							description: 'Keep applications online and traffic flowing evenly',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.objectStorage',
 							name: 'Object Storage',
-							description: 'Highly available file storage and management'
+							description: 'Highly available file storage and management',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.relationalDb',
 							name: 'Orchestrate DB',
-							description: 'A complete NoSQL database service for rapid application development'
+							description: 'A complete NoSQL database service for rapid application development',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.relationalDb',
 							name: 'Relational DB',
-							description: 'High performance, cost efficient, MySQL-compatible database'
+							description: 'High performance, cost efficient, MySQL-compatible database',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.siteRedirect',
 							name: 'Site Redirect',
-							description: 'Redirect sites'
+							description: 'Redirect sites',
+							href: '#'
 						},
 						{
 							id: 'applicationServices.relationalDb',
 							name: 'SMTP Relay',
-							description: 'Efficient, reliable email delivery'
+							description: 'Efficient, reliable email delivery',
+							href: '#'
 						}
 					]
 				},
 				{
+					id: 'queue',
 					name: 'Queue',
 					iconId: '#icon-queue',
 					href: '#'
