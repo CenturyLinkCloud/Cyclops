@@ -18,9 +18,9 @@ class LeftNavFlyoutItem
 
     @isNew = ko.asObservable(options.isNew)
     @isBeta = ko.asObservable(options.isBeta)
-    @hasBadge = ko.pureComputed () =>
+    @hasRibbon = ko.pureComputed () =>
       return @isNew() || @isBeta()
-    @badgeText = ko.pureComputed () =>
+    @ribbonText = ko.pureComputed () =>
       if @isBeta()
         return 'beta'
       if @isNew()

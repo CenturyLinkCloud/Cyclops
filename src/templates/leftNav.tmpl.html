@@ -38,9 +38,9 @@
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
           <p data-bind="text: description">&hellip;</p>
-          <!-- ko if: hasBadge -->
-          <div class="badge">
-            <span data-bind="text: badgeText"></span>
+          <!-- ko if: hasRibbon -->
+          <div class="ribbon">
+            <span data-bind="text: ribbonText"></span>
           </div>
           <!-- /ko -->
         </a>
