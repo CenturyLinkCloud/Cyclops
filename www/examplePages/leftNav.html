@@ -102,6 +102,7 @@
             <p>
               <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
               <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
+              <button class="btn" data-bind="click: clearMenus">Clear All</button>
             </p>
         </div>
       </div>
@@ -507,11 +508,14 @@
 
         self.addMenuItem = function() {
           self.menus.push({
+            id: 'added',
             name: 'Added Item',
             iconId: '#icon-centurylink',
             items: [{
+              id:'added.item',
               name: 'an item',
-              description: 'some description'
+              description: 'some description',
+              href: '#'
             }]
           })
         };
@@ -522,6 +526,9 @@
             name: 'added item',
             description: 'some description'
           })
+        }
+        self.clearMenus = function() {
+          self.menus([]);
         }
       }
 

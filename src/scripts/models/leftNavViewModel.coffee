@@ -6,7 +6,6 @@
 
 # - container margin removes centering
 # - observable for selectedItem
-# - menus with empty items and no href (filter them out)
 # - system admin flyout items
 # - loading state when page first loads and fetching menu items?
 
@@ -131,7 +130,7 @@ class LeftNavViewModel
 
     @selectFlyout = (menu) =>
       previousState = menu.isSelected()
-      @menusWithFlyouts().forEach (m) -> m.isSelected false
+      @menus().forEach (m) -> m.isSelected false
       if(!previousState)
         menu.isSelected !previousState
 
