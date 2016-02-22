@@ -1,24 +1,14 @@
-# var menus = new leftNav();
-
 # <left-nav params="menus: menus, selectedMenu: 'manage', "></left-nav>
-#
-#  var menu = $.ajax(...).complete(function(data) { menus.loadFrom(data); }
-#      i dfs;ljkg;sdfg
-#  var myMenu = menu.find(manage)
-#
 
 # TODO
-
-
 # - may need to look at window resize and recalc scroll buttons
 # - scrolling on iphone is fucked up
 
 # - container margin removes centering
-
 # - observable for selectedItem
 # - menus with empty items and no href (filter them out)
 # - system admin flyout items
-# - no items state
+# - loading state when page first loads and fetching menu items?
 
 class LeftNavFlyoutItem
   constructor: (options) ->
@@ -48,7 +38,6 @@ class LeftNavFlyoutItem
       throw 'A Flyout Menu Item must have a href.'
     @description = ko.asObservable(options.description)
 
-
 class LeftNavMenuItem
   toggleFlyout: (item) ->
     item.isSelected !item.isSelected()
@@ -57,7 +46,6 @@ class LeftNavMenuItem
     options = $.extend {
         iconId: '#icon-circle-o'
         name: 'unknown'
-        items: []
     }, options
 
     @id = options.id
@@ -67,7 +55,6 @@ class LeftNavMenuItem
     @name = ko.asObservable(options.name)
     if !@name()?
       throw "A Menu Item must provide a name."
-
 
     @icon = ko.asObservable(options.iconId)
     @isSelected = ko.observable(false);
@@ -81,7 +68,7 @@ class LeftNavMenuItem
 
 
     # Items can either have and location to navigate to or items but not both
-    if @href()? and @rawFlayoutItems().length > 0
+    if ko.unwrap(options.href)? and ko.unwrap(options.items)?
       throw "The Menu Item with name '#{@name()}' has defined both a href and
       has Flyout Menu Items. This is not allowed please choose one or the other."
 
@@ -90,9 +77,6 @@ class LeftNavMenuItem
         return 'cyclops.leftNav.menuItem.button'
       else
         return 'cyclops.leftNav.menuItem.href'
-
-
-
 
 class LeftNavViewModel
   constructor: (options, element) ->
@@ -136,13 +120,14 @@ class LeftNavViewModel
       $items = $leftNav.find('.items')
       $items.scrollTop($items.scrollTop() - 26)
 
-
     # create menus
     @rawMenus = ko.asObservable(options.menus)
     @menus = ko.pureComputed () =>
-      return @rawMenus().map (m) -> return new LeftNavMenuItem(m)
-    @menusWithFlyouts = ko.pureComputed () =>
-      return @menus().filter (m) -> m.flayoutItems().length > 0
+      return @rawMenus().reduce (menus, menu) =>
+        if menu.href? or (menu.items and ko.unwrap(menu.items).length > 0)
+          menus.push new LeftNavMenuItem(menu)
+        return menus
+      , []
 
     @selectFlyout = (menu) =>
       previousState = menu.isSelected()
@@ -165,10 +150,3 @@ class LeftNavViewModel
     #     console.log 'closing flyouts becuase the user move out for some time'
     #     @menusWithFlyouts().forEach (m) -> m.isSelected false
     #   , 1000
-
-
-    #temp crap
-    @close = () ->
-      $(".flyout-menu").removeClass('open')
-    @open = () ->
-      $(".flyout-menu").toggleClass('open')

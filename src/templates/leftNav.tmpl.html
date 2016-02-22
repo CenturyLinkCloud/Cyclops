@@ -6,7 +6,7 @@
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
-  <!-- ko template:{name: 'cyclops.leftNav.menuItem.flyout', foreach: menusWithFlyouts} -->
+  <!-- ko template:{name: 'cyclops.leftNav.menuItem.flyout', foreach: menus} -->
   <!-- /ko -->
 </script>
 
@@ -26,6 +26,7 @@
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
+  <!-- ko if: flayoutItems().length > 0 -->
   <div class="flyout-menu" data-bind="css: {'open': isSelected}">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
@@ -46,4 +47,5 @@
       </li>
     </ol>
   </div>
+  <!-- /ko -->
 </script>
