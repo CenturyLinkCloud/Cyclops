@@ -19,14 +19,24 @@ $(function () {
       type: 'line'
     },
     xAxis: {
-      categories: ['Feb 14', 'Feb 15', 'Feb 16']
+      categories: ['Feb 14', 'Feb 15', 'Feb 16', 'Feb 17', 'Feb 18']
+    },
+    yAxis: {
+      plotLines: [{
+        color: '#f19996',
+        width: 1,
+        value: 7,
+        label: {
+          text: '7'
+        }
+      }]
     },
     series: [{
       name: 'CPU',
-      data: [5.7, 5.8, 5.9]
+      data: [5.7, 5.8, null, 5.9, 6.4]
     }, {
       name: 'Memory',
-      data: [5.9, 5.9, 6]
+      data: [5.9, 5.9, null, 6, 6.5]
     }]
   });
 
@@ -45,6 +55,9 @@ $(function () {
       labels: {
         format: '${value:.2f}'
       }
+    },
+    legend: {
+      enabled: true
     },
     tooltip: {
       pointFormat: '<span style="color:{point.color}">\u25CF</span> ${point.y:.2f}<br />'

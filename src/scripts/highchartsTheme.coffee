@@ -26,10 +26,7 @@ Highcharts.theme = {
             shared: true
         },
    legend: {
-      itemStyle: {
-         fontWeight: 'bold',
-         fontSize: '13px'
-      }
+      enabled: false
    },
    xAxis: {
       gridLineWidth: 1,
