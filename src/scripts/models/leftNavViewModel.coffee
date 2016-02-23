@@ -1,13 +1,10 @@
 # <left-nav params="menus: menus, selectedMenu: 'manage', "></left-nav>
 
 # TODO
-# - may need to look at window resize and recalc scroll buttons
-# - scrolling on iphone is fucked up
 
 # - container margin removes centering
 # - observable for selectedItem
 # - system admin flyout items
-# - loading state when page first loads and fetching menu items?
 
 class LeftNavFlyoutItem
   constructor: (options) ->
@@ -80,7 +77,9 @@ class LeftNavMenuItem
 class LeftNavViewModel
   constructor: (options, element) ->
     options = $.extend {
-      menus: []
+      menus: [],
+      loading: false,
+      error: false
     }, options
 
     # make left-nav sticky
@@ -96,20 +95,28 @@ class LeftNavViewModel
     $window.on 'scroll', calculateLeftNavPosition
 
     # Set up Scrolling of many menu Items
-    updateMainMenuScrollIcons = () ->
+    @updateMainMenuScrollIcons = () ->
       $items =  $leftNav.find '.items'
+      $up = $leftNav.find('.scroll-up')
+      $down = $leftNav.find('.scroll-down')
 
       if $items.scrollTop() + $items.innerHeight() >= $items[0].scrollHeight
-        $leftNav.find('.scroll-down').fadeOut()
+        if $down.is ':visible'
+          $down.stop().fadeOut()
       else
-        $leftNav.find('.scroll-down').fadeIn()
+        if $down.is ':hidden'
+          $down.stop().fadeIn()
+
       if $items.scrollTop() == 0
         $leftNav.find('.scroll-up').fadeOut()
       else
         $leftNav.find('.scroll-up').fadeIn()
 
-    updateMainMenuScrollIcons()
-    $leftNav.find(".items").on 'scroll', updateMainMenuScrollIcons
+
+    $leftNav.find(".items").on 'scroll', @updateMainMenuScrollIcons
+    $window.on 'resize', @updateMainMenuScrollIcons
+
+
 
     @scrollDownHandler = (data, event) ->
       $items = $leftNav.find('.items')
@@ -119,14 +126,25 @@ class LeftNavViewModel
       $items = $leftNav.find('.items')
       $items.scrollTop($items.scrollTop() - 26)
 
+    # states
+    @isLoading = ko.asObservable(options.loading)
+    @hasErrored = ko.asObservable(options.error)
+
     # create menus
     @rawMenus = ko.asObservable(options.menus)
+    renderTimeout = null
     @menus = ko.pureComputed () =>
-      return @rawMenus().reduce (menus, menu) =>
+      result = @rawMenus().reduce (menus, menu) =>
         if menu.href? or (menu.items and ko.unwrap(menu.items).length > 0)
           menus.push new LeftNavMenuItem(menu)
         return menus
       , []
+      # we are using a timeout here for performance reason so that its not called
+      # 100s of times becuase of the recreation of the entire array.
+      if renderTimeout
+        window.clearTimeout renderTimeout
+      renderTimeout = window.setTimeout @updateMainMenuScrollIcons, 500
+      return result
 
     @selectFlyout = (menu) =>
       previousState = menu.isSelected()
@@ -140,12 +158,11 @@ class LeftNavViewModel
     #   console.log 'closing flyouts becuase the user clicked'
     #   @menusWithFlyouts().forEach (m) -> m.isSelected false
 
-    # timer = undefined
-    # $leftNav.hover () =>
-    #   if(timer)
-    #     window.clearTimeout timer
-    # , () =>
-    #   timer = window.setTimeout () =>
-    #     console.log 'closing flyouts becuase the user move out for some time'
-    #     @menusWithFlyouts().forEach (m) -> m.isSelected false
-    #   , 1000
+    timer = undefined
+    $leftNav.hover () =>
+      if(timer)
+        window.clearTimeout timer
+    , () =>
+      timer = window.setTimeout () =>
+        @menus().forEach (m) -> m.isSelected false
+      , 1000

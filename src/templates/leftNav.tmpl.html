@@ -1,6 +1,20 @@
 <script type="text/html" id="cyclops.leftNav">
   <div class="menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
+    <!-- ko empty: menus -->
+    <!-- ko if: hasErrored -->
+    <div class="error" title="unable to fetch">
+      <svg class="cyclops-icon"><use xlink:href="#icon-exclamation-circle"></svg>
+      unabel to fetch
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isLoading -->
+    <div class="loading" title="fetching menus">
+      <svg class="cyclops-icon"><use xlink:href="#icon-ellipsis"></svg>
+      Fetching Menus
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
     <ol class="items" data-bind="foreach: menus">
       <li data-bind="css: {'selected': isSelected}, template: templateName, title: name"></li>
     </ol>

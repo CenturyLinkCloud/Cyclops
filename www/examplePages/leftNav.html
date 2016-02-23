@@ -74,7 +74,7 @@
   </nav>
 
   <div id="foo">
-    <left-nav params="menus: menus"></left-nav>
+    <left-nav params="menus: menus, loading: loading, error: error"></left-nav>
 
     <!-- <div class="pane-left">
       <div class="pane-header">
@@ -103,6 +103,8 @@
               <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
               <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
               <button class="btn" data-bind="click: clearMenus">Clear All</button>
+              <button class="btn" data-bind="click: setLoading">Loading</button>
+              <button class="btn" data-bind="click: setErrored">Errored</button>
             </p>
         </div>
       </div>
@@ -505,11 +507,13 @@
           }
         ]);
 
-
+        self.loading = ko.observable(false);
+        self.error = ko.observable(false);
+        var idx = 1
         self.addMenuItem = function() {
           self.menus.push({
             id: 'added',
-            name: 'Added Item',
+            name: 'Added Item ' + idx,
             iconId: '#icon-centurylink',
             items: [{
               id:'added.item',
@@ -517,7 +521,8 @@
               description: 'some description',
               href: '#'
             }]
-          })
+          });
+          idx= idx+1;
         };
 
         self.addItemToCreate = function() {
@@ -529,6 +534,18 @@
         }
         self.clearMenus = function() {
           self.menus([]);
+        }
+
+        self.setLoading = function(){
+          self.clearMenus();
+          self.loading(true);
+          self.error(false);
+        }
+
+        self.setErrored = function(){
+          self.clearMenus();
+          self.loading(false);
+          self.error(true);
         }
       }
 

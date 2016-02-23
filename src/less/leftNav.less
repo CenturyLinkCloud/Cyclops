@@ -1,3 +1,51 @@
+.pulsate {
+  -webkit-animation: pulsate 1.5s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.3;
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@-moz-keyframes pulsate {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
 left-nav ~ .primary,
 left-nav ~ .container,
 left-nav ~ .pane-left,
@@ -56,7 +104,7 @@ left-nav {
     &:hover {
       color: @gray-lighter;
       outline: none;
-
+      
       .cyclops-icon {
         fill: @gray-lighter;
       }
@@ -65,7 +113,7 @@ left-nav {
         box-shadow: none;
         outline: none;
         color: #fff;
-
+        
         .cyclops-icon {
           fill: #fff;
         }
@@ -79,21 +127,40 @@ left-nav {
     box-shadow: 0 0 7px black;
     position: relative;
     z-index: 2;
-
+    
     .scroll-up,
     .scroll-down {
       display: none;
       position: absolute;
       z-index: 3;
       width: 100%;
+      
+      svg {
+        margin: 0 0 0 1px;
+      }
     }
 
     .scroll-up {
       top: 0;
+      background: linear-gradient(to top, rgba(45,47,45,0) 0%, rgba(45,48,45,.5) 40%, rgba(45,47,45,.8) 100%);
     }
 
     .scroll-down {
       bottom: 0;
+      background: linear-gradient(to bottom, rgba(45,47,45,0) 0%, rgba(45,48,45,.5) 40%, rgba(45,47,45,.8) 100%);
+    }
+
+    .error,
+    .loading {
+      line-height: 16px;
+      font-size: 16px;
+      width: @left-nav-width-expanded;
+      padding: 10px 0 10px 14px;
+      text-transform: capitalize;
+    }
+
+    .loading svg {
+      animation: pulsate 2s infinite linear;
     }
 
     .items {
@@ -106,20 +173,20 @@ left-nav {
       position: relative;
       z-index: 2;
       background: @left-nav-bg;
-
+      
       li {
         line-height: 16px;
         font-size: 16px;
         width: @left-nav-width-expanded;
         padding: 10px 0 10px 14px;
         text-transform: capitalize;
-
+        
         &.selected {
           background-color: @left-nav-bg-selected;
-
+          
           .btn {
             color: #fff;
-
+            
             .cyclops-icon {
               fill: #fff;
             }
@@ -135,12 +202,12 @@ left-nav {
           color: @gray-light;
           font-size: 16px;
           text-transform: capitalize;
-
+          
           &:focus,
           &:hover {
             color: @gray-lighter;
             outline: none;
-
+            
             .cyclops-icon {
               fill: @gray-lighter;
             }
@@ -150,7 +217,7 @@ left-nav {
             box-shadow: none;
             outline: none;
             color: #fff;
-
+            
             .cyclops-icon {
               fill: #fff;
             }
@@ -171,7 +238,7 @@ left-nav {
     transition: margin-left 0.5s;
     box-shadow: 0 0 7px black;
     overflow-y: auto;
-
+    
     &.open {
       margin-left: @left-nav-width-collapsed;
       z-index: 1;
@@ -182,7 +249,7 @@ left-nav {
       text-align: right;
       color: #757575;
       height: 40px;
-
+      
       .btn-link {
         line-height: 30px;
       }
@@ -197,17 +264,17 @@ left-nav {
     .items {
       list-style: none;
       padding: 0;
-
+      
       li {
         border-bottom: solid 1px #343534;
         border-top: none;
         height: auto;
         overflow: hidden;
         transition: background 0.15s;
-
+        
         &:hover {
           background-color: #1b1d1b;
-
+          
           h3 {
             color: #fff;
           }
@@ -241,7 +308,7 @@ left-nav {
           position: absolute;
           top: 0;
           right: 0;
-
+          
           span {
             display: block;
             text-align: center;
@@ -279,14 +346,14 @@ left-nav {
 
   left-nav {
     width: @left-nav-width-expanded;
-
+    
     &:before {
       width: @left-nav-width-expanded;
     }
 
     .flyout-menu {
       margin-left: -1 * @left-nav-width-expanded;
-
+      
       &.open {
         margin-left: @left-nav-width-expanded;
       }
