@@ -60,9 +60,9 @@ class LeftNavMenuItem
 
     @href = ko.asObservable(options.href)
 
-    @rawFlayoutItems = ko.asObservableArray(options.items)
-    @flayoutItems = ko.pureComputed () =>
-      return @rawFlayoutItems().map (f) ->
+    @rawFlyoutItems = ko.asObservableArray(options.items)
+    @flyoutItems = ko.pureComputed () =>
+      return @rawFlyoutItems().map (f) ->
         return new LeftNavFlyoutItem(f)
 
 

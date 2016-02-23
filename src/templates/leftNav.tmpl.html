@@ -26,14 +26,14 @@
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
-  <!-- ko if: flayoutItems().length > 0 -->
+  <!-- ko if: flyoutItems().length > 0 -->
   <div class="flyout-menu" data-bind="css: {'open': isSelected}">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="items" data-bind="foreach: flayoutItems">
+    <ol class="items" data-bind="foreach: flyoutItems">
       <li>
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
