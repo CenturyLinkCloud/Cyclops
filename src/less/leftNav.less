@@ -40,7 +40,7 @@ left-nav {
     height: 20px;
     fill: @left-nav-icon-color;
     margin-right: 7px;
-    transition: fill 0.1s;
+    transition: fill 0.2s;
   }
 
   a {
@@ -52,6 +52,8 @@ left-nav {
 
   a,
   button.btn {
+
+    padding: 10px 0 10px 14px;
     &:focus,
     &:hover {
       color: @gray-lighter;
@@ -111,8 +113,12 @@ left-nav {
         line-height: 16px;
         font-size: 16px;
         width: @left-nav-width-expanded;
-        padding: 10px 0 10px 14px;
         text-transform: capitalize;
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: @left-nav-bg-hover;
+        }
 
         &.selected {
           background-color: @left-nav-bg-selected;
@@ -129,7 +135,6 @@ left-nav {
         .btn {
           width: 100%;
           margin: 0;
-          padding: 0;
           text-align: left;
           background-color: transparent;
           color: @gray-light;
@@ -169,7 +174,7 @@ left-nav {
     border-right: 1px solid #202220;
     margin-left: -1 * @left-nav-flyout-width;
     transition: margin-left 0.5s;
-    box-shadow: 0 0 7px black;
+    box-shadow: 0 0 7px #000;
     overflow-y: auto;
 
     &.open {
@@ -203,6 +208,7 @@ left-nav {
         border-top: none;
         height: auto;
         overflow: hidden;
+        margin: 0;
         transition: background 0.15s;
 
         &:hover {
@@ -234,7 +240,7 @@ left-nav {
           margin-bottom: 5px;
         }
 
-        
+
       }
     }
   }
