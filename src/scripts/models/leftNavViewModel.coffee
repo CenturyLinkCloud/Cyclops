@@ -181,6 +181,8 @@ class LeftNavViewModel
             else
               f.isSelected false
     @SelectedItemId.subscribe selectAnItem
+    @menus.subscribe () =>
+      selectAnItem @SelectedItemId()
     selectAnItem @SelectedItemId()
 
     @selectFlyout = (menu) =>
