@@ -75,113 +75,112 @@
 
   <div id="foo">
     <left-nav params="menus: menus, loading: loading, error: error, selectedItemId: selectedItemId"></left-nav>
-
-    <!-- <div class="pane-left">
+    <div class="pane-left">
       <div class="pane-header">
         <div class="content">
-          <a class="filter active" href="#" role="button">all</a>
-          <a href="#" role="button" class="filter">active</a>
-          <a href="#" role="button" class="filter">errored</a>
+          <a class="filter" href="#" role="button">expand</a>
+          <a href="#" role="button" class="filter">collapse</a>
           <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
           <a href="#" role="button" class="pull-right" title="Collapse Pane"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-left'></svg></a>
         </div>
+        <div class="filter-window hide">
+          <i class="pull-right fa fa-times"></i>
+          <input type="text">
+        </div>
       </div>
-      <ol class="queue queue-in-pane">
-
-      </ol>
-    </div> -->
-
-    <div class="primary">
+      <ol class="tree tree-with-dividers tree-in-pane"></ol>
+    </div>
+    <main>
+      <div class="primary">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="content-header">
+                <h1>Left Nav</h1>
+                <p class="lead">Try it out!</p>
+              </div>
+              <p>
+                <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
+                <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
+                <button class="btn" data-bind="click: addAdminItemToInfrastructure">Add An Amind Item To infrastructure</button>
+                <button class="btn" data-bind="click: clearMenus">Clear All</button>
+                <button class="btn" data-bind="click: setLoading">Loading</button>
+                <button class="btn" data-bind="click: setErrored">Errored</button>
+                <button class="btn" data-bind="click: selectQueue">Select Queue</button>
+                <button class="btn" data-bind="click: selectRegisterHardware">Select registerHardware</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="content-header">
-              <h1>Left Nav</h1>
-              <p class="lead">Try it out!</p>
-            </div>
-            <p>
-              <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
-              <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
-              <button class="btn" data-bind="click: addAdminItemToInfrastructure">Add An Amind Item To infrastructure</button>
-              <button class="btn" data-bind="click: clearMenus">Clear All</button>
-              <button class="btn" data-bind="click: setLoading">Loading</button>
-              <button class="btn" data-bind="click: setErrored">Errored</button>
-              <button class="btn" data-bind="click: selectQueue">Select Queue</button>
-              <button class="btn" data-bind="click: selectRegisterHardware">Select registerHardware</button>
-            </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-5 col-sm-push-7">
-          <div class="upcoming-events">
-            <h5 class="content-header">UPCOMING EVENTS</h5>
-            <div class="event">
-              <a class="task-datetime" href="#">
-                <span class=" date">10/17</span>
-                <span class="time">11:24 am</span>
-              </a>
-              <div class="details">
-                <div class="category">Delete Snapshot</div>
-                <div class="subject">CA3-DNS-01</div>
+          <div class="col-sm-5 col-sm-push-7">
+            <div class="upcoming-events">
+              <h5 class="content-header">UPCOMING EVENTS</h5>
+              <div class="event">
+                <a class="task-datetime" href="#">
+                  <span class=" date">10/17</span>
+                  <span class="time">11:24 am</span>
+                </a>
+                <div class="details">
+                  <div class="category">Delete Snapshot</div>
+                  <div class="subject">CA3-DNS-01</div>
+                </div>
               </div>
-            </div>
-            <div class="event">
-              <a class="task-datetime" href="#">
-                <span class=" date">10/21</span>
-                <span class="time">07:33 am</span>
-              </a>
-              <div class="details">
-                <div class="category">Delete Snapshot</div>
-                <div class="subject">WA1-DEMO-01</div>
+              <div class="event">
+                <a class="task-datetime" href="#">
+                  <span class=" date">10/21</span>
+                  <span class="time">07:33 am</span>
+                </a>
+                <div class="details">
+                  <div class="category">Delete Snapshot</div>
+                  <div class="subject">WA1-DEMO-01</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-7 col-sm-pull-5">
-          <div class="activity-history">
-            <h5 class="content-header">
-              RECENT ACTIVITY
-            </h5>
-            <section class="day">
-              <h5 class="content-header">Tuesday Sep 29</h5>
-              <ol>
-                <li>
-                  <div class="timestamp">2:50:05 PM</div>
-                  <div class="details">
-                    <div class="subject">Password change for user trent.anderson</div>
-                    <div class="body">Password change for user trent.anderson by system</div>
-                    <div class="attribution">
-                      <span class="createdBy">system</span>
+          <div class="col-sm-7 col-sm-pull-5">
+            <div class="activity-history">
+              <h5 class="content-header">
+                RECENT ACTIVITY
+              </h5>
+              <section class="day">
+                <h5 class="content-header">Tuesday Sep 29</h5>
+                <ol>
+                  <li>
+                    <div class="timestamp">2:50:05 PM</div>
+                    <div class="details">
+                      <div class="subject">Password change for user trent.anderson</div>
+                      <div class="body">Password change for user trent.anderson by system</div>
+                      <div class="attribution">
+                        <span class="createdBy">system</span>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ol>
-            </section>
-            <section class="day">
-              <h5 class="content-header">Tuesday Sep 29</h5>
-              <ol>
-                <li>
-                  <div class="timestamp">2:50:05 PM</div>
-                  <div class="details">
-                    <div class="subject">Password change for user trent.anderson</div>
-                    <div class="body">Password change for user trent.anderson by system</div>
-                    <div class="attribution">
-                      <span class="createdBy">system</span>
+                  </li>
+                </ol>
+              </section>
+              <section class="day">
+                <h5 class="content-header">Tuesday Sep 29</h5>
+                <ol>
+                  <li>
+                    <div class="timestamp">2:50:05 PM</div>
+                    <div class="details">
+                      <div class="subject">Password change for user trent.anderson</div>
+                      <div class="body">Password change for user trent.anderson by system</div>
+                      <div class="attribution">
+                        <span class="createdBy">system</span>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ol>
-            </section>
+                  </li>
+                </ol>
+              </section>
+            </div>
           </div>
         </div>
       </div>
-
+    </main>
   </div>
-  </main>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
   <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" ></script>

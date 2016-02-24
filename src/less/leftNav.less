@@ -46,17 +46,13 @@
   }
 }
 
-left-nav ~ .primary,
-left-nav ~ .container,
 left-nav ~ .pane-left,
-left-nav ~ .container-fluid {
+left-nav ~ main {
   margin-left: @left-nav-width-collapsed;
   transition: margin-left 0.5s;
 }
 
-.pane-left ~ .primary,
-.pane-left ~ .container,
-.pane-left ~ .container-fluid {
+.pane-left ~ main {
   margin-left: @left-nav-width-collapsed + 280px;
 }
 
@@ -325,16 +321,12 @@ left-nav {
 }
 // TODO: consider changing this to something like XL
 @media (min-width: @screen-xl-min) {
-  left-nav ~ .primary,
-  left-nav ~ .container,
   left-nav ~ .pane-left,
-  left-nav ~ .container-fluid {
+  left-nav ~ main {
     margin-left: @left-nav-width-expanded;
   }
 
-  .pane-left ~ .primary,
-  .pane-left ~ .container,
-  .pane-left ~ .container-fluid {
+  .pane-left ~ main {
     margin-left: @left-nav-width-expanded + 280px;
   }
 
@@ -352,26 +344,5 @@ left-nav {
         margin-left: @left-nav-width-expanded;
       }
     }
-  }
-}
-
-@media (min-width: @screen-sm-min) {
-  left-nav ~ .primary .container,
-  left-nav ~ .container {
-    width: 710px;
-  }
-}
-
-@media (min-width: @screen-md-min) {
-  left-nav ~ .primary .container,
-  left-nav ~ .container {
-    width: 930px;
-  }
-}
-
-@media (min-width: @screen-lg-min) {
-  left-nav ~ .primary .container,
-  left-nav ~ .container {
-    width: 1130px;
   }
 }
