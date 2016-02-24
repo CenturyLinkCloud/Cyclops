@@ -40,14 +40,14 @@
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
-  <!-- ko if: flayoutItems().length > 0 -->
+  <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
   <div class="flyout-menu" data-bind="css: {'open': isSelected}">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="items" data-bind="foreach: flayoutItems">
+    <ol class="items" data-bind="foreach: normalFlyoutItems">
       <li>
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
@@ -60,6 +60,22 @@
         </a>
       </li>
     </ol>
+    <!-- ko any: adminFlyoutItems -->
+    <h2 class="divider">System Admin Only</h2>
+    <ol class="items" data-bind="foreach: adminFlyoutItems">
+      <li>
+        <a data-bind="href: href">
+          <h3 data-bind="text: name">&hellip;</h3>
+          <p data-bind="text: description">&hellip;</p>
+          <!-- ko if: hasBadge -->
+          <div class="badge">
+            <span data-bind="text: badgeText"></span>
+          </div>
+          <!-- /ko -->
+        </a>
+      </li>
+    </ol>
+    <!-- /ko -->
   </div>
   <!-- /ko -->
 </script>

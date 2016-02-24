@@ -4,17 +4,18 @@
 
 # - container margin removes centering
 # - observable for selectedItem
-# - system admin flyout items
 
 class LeftNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
         isNew: false
         isBeta: false
+        isAdmin: false
     }, options
 
     @isNew = ko.asObservable(options.isNew)
     @isBeta = ko.asObservable(options.isBeta)
+    @isAdmin = ko.asObservable(options.isAdmin)
     @hasBadge = ko.pureComputed () =>
       return @isNew() || @isBeta()
     @badgeText = ko.pureComputed () =>
@@ -58,9 +59,16 @@ class LeftNavMenuItem
     @href = ko.asObservable(options.href)
 
     @rawFlayoutItems = ko.asObservableArray(options.items)
-    @flayoutItems = ko.pureComputed () =>
-      return @rawFlayoutItems().map (f) ->
-        return new LeftNavFlyoutItem(f)
+
+    @adminFlyoutItems = ko.observableArray([])
+    @normalFlyoutItems = ko.observableArray([])
+    ko.computed () =>
+      @rawFlayoutItems().forEach (f) =>
+        if f.isAdmin
+          @adminFlyoutItems.push new LeftNavFlyoutItem(f)
+        else
+          @normalFlyoutItems.push new LeftNavFlyoutItem(f)
+
 
 
     # Items can either have and location to navigate to or items but not both

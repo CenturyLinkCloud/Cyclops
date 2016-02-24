@@ -102,6 +102,7 @@
             <p>
               <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
               <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
+              <button class="btn" data-bind="click: addAdminItemToInfrastructure">Add An Amind Item To infrastructure</button>
               <button class="btn" data-bind="click: clearMenus">Clear All</button>
               <button class="btn" data-bind="click: setLoading">Loading</button>
               <button class="btn" data-bind="click: setErrored">Errored</button>
@@ -330,7 +331,14 @@
             id: "infrastructure",
             name: 'infrastructure',
             iconId: '#icon-infrastructure',
-            items: [
+            items: ko.observableArray([
+              {
+                id: 'infrastructure.admin',
+                name: 'Register Hardware',
+                description: 'Add hardware records to control',
+                href: "#",
+                isAdmin: true
+              },
               {
                 id: 'infrastructure.manage',
                 name: 'Manage',
@@ -367,7 +375,7 @@
                 description: 'intra and cross data center connectivity',
                 href: "#"
               }
-            ]
+            ])
           },
           {
             id: "network",
@@ -512,7 +520,7 @@
         var idx = 1
         self.addMenuItem = function() {
           self.menus.push({
-            id: 'added',
+            id: 'added' + idx,
             name: 'Added Item ' + idx,
             iconId: '#icon-centurylink',
             items: [{
@@ -525,13 +533,30 @@
           idx= idx+1;
         };
 
+        var idx2 = 1;
         self.addItemToCreate = function() {
-          console.log(self.menus()[0]);
-          self.menus()[0].items.push({
-            name: 'added item',
-            description: 'some description'
-          })
+          self.menus()[2].items.push({
+            id: 'create.addedItem' + idx2,
+            name: 'Added ' + idx2,
+            description: 'Added through the page',
+            href: "#"
+          });
+          idx2 = idx2+1;
         }
+
+        var idx3 = 1;
+        self.addAdminItemToInfrastructure = function() {
+          self.menus()[3].items.push({
+            id: 'infrastructure.addedItem' + idx3,
+            name: 'Added ' + idx3,
+            description: 'Added through the page',
+            href: "#",
+            isAdmin: true
+          });
+          idx3 = idx3+1;
+        }
+
+
         self.clearMenus = function() {
           self.menus([]);
         }
