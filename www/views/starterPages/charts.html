@@ -24,9 +24,16 @@
       <div class="col-sm-9">
         <div class="content-header">
           <h1>Hello, world!</h1>
-          <p class="lead">This is a basic starter page for your service's user interface.</p>
+          <p class="lead">This is a basic starter page with charts.</p>
         </div>
-        {{> starter-pages/list-view }}
+        <div class="row">
+          <div class="col-sm-4">{{> charts/examples/pieChart }}</div>
+          <div class="col-sm-8">{{> charts/examples/lineChart }}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">{{> charts/examples/donutChart }}</div>
+          <div class="col-sm-8">{{> charts/examples/barChart }}</div>
+        </div>
       </div>
     </div>
   </div>

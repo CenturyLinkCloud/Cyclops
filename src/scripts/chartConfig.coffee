@@ -64,7 +64,7 @@ Chart.defaults.global = {
     responsive: true,
 
     # Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
 
     # Boolean - Determines whether to draw tooltips on the canvas or not
     showTooltips: true,
@@ -76,7 +76,7 @@ Chart.defaults.global = {
     tooltipEvents: ["mousemove", "touchstart", "touchmove"],
 
     # String - Tooltip background colour
-    tooltipFillColor: "rgba(0,0,0,0.8)",
+    tooltipFillColor: "rgba(45,48,45,0.9)",
 
     # String - Tooltip label font declaration for the scale label
     tooltipFontFamily: "'Open Sans', Helvetica, Arial, Sans-Serif",
@@ -103,13 +103,13 @@ Chart.defaults.global = {
     tooltipTitleFontColor: "#fff",
 
     # Number - pixel width of padding around tooltip text
-    tooltipYPadding: 6,
+    tooltipYPadding: 10,
 
     # Number - pixel width of padding around tooltip text
-    tooltipXPadding: 6,
+    tooltipXPadding: 15,
 
     # Number - Size of the caret on the tooltip
-    tooltipCaretSize: 8,
+    tooltipCaretSize: 10,
 
     # Number - Pixel radius of the tooltip border
     tooltipCornerRadius: 3,
@@ -254,7 +254,7 @@ Chart.defaults.Doughnut = {
     segmentStrokeWidth : 2,
 
     # Number - The percentage of the chart that we cut out of the middle
-    percentageInnerCutout : 50, #  This is 0 for Pie charts
+    percentageInnerCutout : 80, #  This is 0 for Pie charts
 
     # Number - Amount of animation steps
     animationSteps : 100,
