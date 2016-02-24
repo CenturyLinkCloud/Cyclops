@@ -1,0 +1,38 @@
+<section id="pieChart" class="pl-section">
+	<h3><a href="#pieChart">Pie &amp; Donut Chart</a></h3>
+  <p>A donut chart</p>
+  <div class="pl-example">
+		<div class="row">
+			<div class="col-sm-6">
+				{{> charts/examples/pieChart }}
+			</div>
+			<div class="col-sm-6">
+				{{> charts/examples/donutChart }}
+			</div>
+		</div>
+  </div>
+	<pre class="show-type">
+		<code class="javascript">
+var pieData = [
+  {
+    value: 300,
+    color:"#59b082",
+    highlight: "#59b082",
+    label: "set 1"
+  }
+  {...}
+]
+
+var ptx = $("#pieChartContainer").get(0).getContext("2d");
+var myBarChart = new Chart(ptx).Pie(pieData);
+
+var dtx = $("#donutChartContainer").get(0).getContext("2d");
+var myDoughnutChart = new Chart(dtx).Doughnut(pieData);
+		</code>
+		<code class="html">
+&lt;canvas id=&quot;pieChartContainer&quot; class=&quot;chart&quot;&gt;&lt;/canvas&gt;
+&lt;canvas id=&quot;donutChartContainer&quot; class=&quot;chart&quot;&gt;&lt;/canvas&gt;
+		</code>
+
+	</pre>
+</section>

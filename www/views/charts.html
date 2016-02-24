@@ -1,0 +1,20 @@
+{{#contentFor "title"}}Charts{{/contentFor}}
+{{#contentFor "tabName"}}charts{{/contentFor}}
+{{!< layouts/leftnav.html}}
+
+<div class="content-header">
+  <h1>Charts</h1>
+  <p><a href="http://www.chartjs.org">Chart.js</a> is our recommened charting engine. It's a simple, flexible, and responsive javascript charting framework. For additional information on Chart.js features and options, refer to the <a href="http://www.chartjs.org/docs/">Chart.js Documentation</a>.</p>
+
+  <h4>Requirements</h4>
+  <p>To display charts and graphs, include the Chart.js library on the page.</p>
+  <pre>
+<code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js&quot;&gt;&lt;/script&gt;</code>
+  </pre>
+  <p>To create a chart refer to the steps outlined in the <a href="http://www.chartjs.org/docs/#getting-started-creating-a-chart">Chart.js documentation</a>. Basic examples are below.</p>
+</div>
+
+{{> charts/lineChart }}
+{{> charts/barChart }}
+{{> charts/pieChart }}
+{{> charts/colors }}
