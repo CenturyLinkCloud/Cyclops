@@ -191,9 +191,8 @@ class LeftNavViewModel
 
 
     # Auto Close any Flyouts when the user hovers out or clicks outside the leftnav
-    # $('body > *').not('left-nav').on 'click', () =>
-    #   console.log 'closing flyouts becuase the user clicked'
-    #   @menusWithFlyouts().forEach (m) -> m.isFlyoutOpen false
+    $('body > *').not('left-nav').on 'click', () =>
+      @menus().forEach (m) -> m.isFlyoutOpen false
 
     timer = undefined
     $leftNav.hover () =>
