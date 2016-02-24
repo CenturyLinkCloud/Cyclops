@@ -1,6 +1,20 @@
 <script type="text/html" id="cyclops.leftNav">
   <div class="menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
+    <!-- ko empty: menus -->
+    <!-- ko if: hasErrored -->
+    <div class="error" title="unable to fetch">
+      <svg class="cyclops-icon"><use xlink:href="#icon-exclamation-circle"></svg>
+      unabel to fetch
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isLoading -->
+    <div class="loading" title="fetching menus">
+      <svg class="cyclops-icon"><use xlink:href="#icon-ellipsis"></svg>
+      Fetching Menus
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
     <ol class="items" data-bind="foreach: menus">
       <li data-bind="css: {'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
@@ -26,14 +40,14 @@
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
-  <!-- ko if: flyoutItems().length > 0 -->
+  <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
   <div class="flyout-menu" data-bind="css: {'open': isSelected}">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="items" data-bind="foreach: flyoutItems">
+    <ol class="items" data-bind="foreach: normalFlyoutItems">
       <li>
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
@@ -46,6 +60,22 @@
         </a>
       </li>
     </ol>
+    <!-- ko any: adminFlyoutItems -->
+    <h2 class="divider">System Admin Only</h2>
+    <ol class="items" data-bind="foreach: adminFlyoutItems">
+      <li>
+        <a data-bind="href: href">
+          <h3 data-bind="text: name">&hellip;</h3>
+          <p data-bind="text: description">&hellip;</p>
+          <!-- ko if: hasRibbon -->
+          <div class="ribbon">
+            <span data-bind="text: ribbonText"></span>
+          </div>
+          <!-- /ko -->
+        </a>
+      </li>
+    </ol>
+    <!-- /ko -->
   </div>
   <!-- /ko -->
 </script>
