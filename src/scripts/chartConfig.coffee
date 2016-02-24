@@ -215,6 +215,17 @@ Chart.defaults.Bar = {
     # Boolean - Whether to show vertical lines (except Y axis)
     scaleShowVerticalLines: false,
 
+    # Boolean - If we want to override with a hard coded scale
+    scaleOverride: true,
+
+    # ** Required if scaleOverride is true **
+    # Number - The number of steps in a hard coded scale
+    scaleSteps: 5,
+    # Number - The value jump in the hard coded scale
+    scaleStepWidth: 20,
+    # Number - The scale starting value
+    scaleStartValue: 0,
+
     # Boolean - If there is a stroke on each bar
     barShowStroke : true,
 

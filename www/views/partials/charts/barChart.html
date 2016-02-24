@@ -8,10 +8,27 @@
   </div>
 	<pre class="show-type">
 		<code class="javascript">
+var barData = {
+	labels: ["January", "February", "March", "April", "May", "June", "July"],
+	datasets: [{
+		label: "My First dataset",
+		fillColor: "#8cc63f",
+		highlightFill: "#8cc63f",
+		data: [65, 59, 80, 81, 56, 55, 40]
+	},
+	{
+		label: "My Second dataset",
+		fillColor: "#404c43",
+		highlightFill: "#404c43",
+		data: [28, 48, 40, 19, 86, 27, 90]
+	}]
+};
 
+var btx = $("#barChartContainer").get(0).getContext("2d");
+var myBarChart = new Chart(btx).Bar(barData);
 		</code>
 		<code class="html">
-
+&lt;canvas id=&quot;barChartContainer&quot; class=&quot;chart&quot;&gt;&lt;/canvas&gt;
 		</code>
 
 	</pre>
@@ -32,8 +49,8 @@ $(function () {
       },
       {
         label: "My Second dataset",
-        fillColor: "#58776a",
-        highlightFill: "#58776a",
+        fillColor: "#404c43",
+        highlightFill: "#404c43",
         data: [28, 48, 40, 19, 86, 27, 90]
       }
     ]
