@@ -2,7 +2,7 @@
 
 # TODO
 
-# - container margin removes centering
+# - center scroll buttons
 
 
 class LeftNavFlyoutItem
@@ -196,11 +196,11 @@ class LeftNavViewModel
     $('body > *').not('left-nav').on 'click', () =>
       @menus().forEach (m) -> m.isFlyoutOpen false
 
-    timer = undefined
+    closeTimer = undefined
     $leftNav.hover () =>
-      if(timer)
-        window.clearTimeout timer
+      if closeTimer
+        window.clearTimeout closeTimer
     , () =>
-      timer = window.setTimeout () =>
+      closeTimer = window.setTimeout () =>
         @menus().forEach (m) -> m.isFlyoutOpen false
       , 1000

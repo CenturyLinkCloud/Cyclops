@@ -74,21 +74,6 @@
   </nav>
 
   <left-nav params="menus: menus, loading: loading, error: error, selectedItemId: selectedItemId"></left-nav>
-  <div class="pane-left">
-    <div class="pane-header">
-      <div class="content">
-        <a class="filter" href="#" role="button">expand</a>
-        <a href="#" role="button" class="filter">collapse</a>
-        <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
-        <a href="#" role="button" class="pull-right" title="Collapse Pane"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-left'></svg></a>
-      </div>
-      <div class="filter-window hide">
-        <i class="pull-right fa fa-times"></i>
-        <input type="text">
-      </div>
-    </div>
-    <ol class="tree tree-with-dividers tree-in-pane"></ol>
-  </div>
   <main>
     <div class="primary">
       <div class="container">
@@ -99,14 +84,14 @@
               <p class="lead">Try it out!</p>
             </div>
             <p>
-              <button class="btn" data-bind="click: addMenuItem">Add A Menu</button>
-              <button class="btn" data-bind="click: addItemToCreate">Add An Item To Create</button>
-              <button class="btn" data-bind="click: addAdminItemToInfrastructure">Add An Amind Item To infrastructure</button>
-              <button class="btn" data-bind="click: clearMenus">Clear All</button>
-              <button class="btn" data-bind="click: setLoading">Loading</button>
-              <button class="btn" data-bind="click: setErrored">Errored</button>
-              <button class="btn" data-bind="click: selectQueue">Select Queue</button>
-              <button class="btn" data-bind="click: selectRegisterHardware">Select registerHardware</button>
+              <button class="btn btn-default" data-bind="click: addMenuItem">Add A Menu</button>
+              <button class="btn btn-default" data-bind="click: addItemToCreate">Add An Item To Create</button>
+              <button class="btn btn-default" data-bind="click: addAdminItemToInfrastructure">Add An Amind Item To infrastructure</button>
+              <button class="btn btn-default" data-bind="click: clearMenus">Clear All</button>
+              <button class="btn btn-default" data-bind="click: setLoading">Loading</button>
+              <button class="btn btn-default" data-bind="click: setErrored">Errored</button>
+              <button class="btn btn-default" data-bind="click: selectQueue">Select Queue</button>
+              <button class="btn btn-default" data-bind="click: selectRegisterHardware">Select registerHardware</button>
             </p>
           </div>
         </div>

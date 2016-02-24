@@ -1,3 +1,12 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+}
+
 .pulsate {
   -webkit-animation: pulsate 1.5s ease-out;
   -webkit-animation-iteration-count: infinite;
@@ -133,6 +142,8 @@ left-nav {
       z-index: 3;
       width: 100%;
       transition: none;
+      padding-left: 0;
+      padding-right: 0;
       
       svg {
         margin: 0 0 0 1px;
@@ -319,7 +330,7 @@ left-nav {
     }
   }
 }
-// TODO: consider changing this to something like XL
+
 @media (min-width: @screen-xl-min) {
   left-nav ~ .pane-left,
   left-nav ~ main {
