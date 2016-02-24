@@ -100,13 +100,13 @@ left-nav {
 
   a,
   button.btn {
-
     padding: 10px 0 10px 14px;
+    
     &:focus,
     &:hover {
       color: @gray-lighter;
       outline: none;
-
+      
       .cyclops-icon {
         fill: @gray-lighter;
       }
@@ -115,7 +115,7 @@ left-nav {
         box-shadow: none;
         outline: none;
         color: #fff;
-
+        
         .cyclops-icon {
           fill: #fff;
         }
@@ -129,7 +129,7 @@ left-nav {
     box-shadow: 0 0 7px black;
     position: relative;
     z-index: 2;
-
+    
     .scroll-up,
     .scroll-down {
       display: none;
@@ -137,7 +137,7 @@ left-nav {
       z-index: 3;
       width: 100%;
       transition: none;
-
+      
       svg {
         margin: 0 0 0 1px;
       }
@@ -176,24 +176,26 @@ left-nav {
       position: relative;
       z-index: 2;
       background: @left-nav-bg;
-
+      
       li {
         line-height: 16px;
         font-size: 16px;
         width: @left-nav-width-expanded;
         text-transform: capitalize;
-        transition: background-color .2s;
-
+        transition: background-color 0.2s;
+        
         &:hover {
-            background-color: @left-nav-bg-hover;
+          background-color: @left-nav-bg-hover;
         }
 
+        &.open,
         &.selected {
           background-color: @left-nav-bg-selected;
-
+          
+          a,
           .btn {
             color: #fff;
-
+            
             .cyclops-icon {
               fill: #fff;
             }
@@ -208,12 +210,12 @@ left-nav {
           color: @gray-light;
           font-size: 16px;
           text-transform: capitalize;
-
+          
           &:focus,
           &:hover {
             color: @gray-lighter;
             outline: none;
-
+            
             .cyclops-icon {
               fill: @gray-lighter;
             }
@@ -223,7 +225,7 @@ left-nav {
             box-shadow: none;
             outline: none;
             color: #fff;
-
+            
             .cyclops-icon {
               fill: #fff;
             }
@@ -244,7 +246,7 @@ left-nav {
     transition: margin-left 0.5s;
     box-shadow: 0 0 7px #000;
     overflow-y: auto;
-
+    
     &.open {
       margin-left: @left-nav-width-collapsed;
       z-index: 1;
@@ -255,7 +257,7 @@ left-nav {
       text-align: right;
       color: #757575;
       height: 40px;
-
+      
       .btn-link {
         padding-right: 14px;
       }
@@ -279,7 +281,7 @@ left-nav {
     .items {
       list-style: none;
       padding: 0;
-
+      
       li {
         border-bottom: solid 1px #343534;
         border-top: none;
@@ -287,10 +289,11 @@ left-nav {
         overflow: hidden;
         margin: 0;
         transition: background 0.15s;
-
+        
+        &.selected,
         &:hover {
           background-color: #1b1d1b;
-
+          
           h3 {
             color: #fff;
           }
@@ -316,8 +319,6 @@ left-nav {
           line-height: @line-height-computed - 2;
           margin-bottom: 5px;
         }
-
-
       }
     }
   }
@@ -339,14 +340,14 @@ left-nav {
 
   left-nav {
     width: @left-nav-width-expanded;
-
+    
     &:before {
       width: @left-nav-width-expanded;
     }
 
     .flyout-menu {
       margin-left: -1 * @left-nav-width-expanded;
-
+      
       &.open {
         margin-left: @left-nav-width-expanded;
       }

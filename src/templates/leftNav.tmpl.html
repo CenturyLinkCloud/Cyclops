@@ -16,7 +16,7 @@
     <!-- /ko -->
     <!-- /ko -->
     <ol class="items" data-bind="foreach: menus">
-      <li data-bind="css: {'selected': isSelected}, template: templateName, title: name"></li>
+      <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
@@ -41,14 +41,14 @@
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
   <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
-  <div class="flyout-menu" data-bind="css: {'open': isSelected}">
+  <div class="flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
     <ol class="items" data-bind="foreach: normalFlyoutItems">
-      <li>
+      <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
           <p data-bind="text: description">&hellip;</p>
@@ -63,7 +63,7 @@
     <!-- ko any: adminFlyoutItems -->
     <h2 class="divider">System Admin Only</h2>
     <ol class="items" data-bind="foreach: adminFlyoutItems">
-      <li>
+      <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
           <p data-bind="text: description">&hellip;</p>

@@ -1,9 +1,9 @@
-# <left-nav params="menus: menus, selectedMenu: 'manage', "></left-nav>
+# <left-nav params="menus: menus, selectedItemId: 'manage', "></left-nav>
 
 # TODO
 
 # - container margin removes centering
-# - observable for selectedItem
+
 
 class LeftNavFlyoutItem
   constructor: (options) ->
@@ -16,6 +16,7 @@ class LeftNavFlyoutItem
     @isNew = ko.asObservable(options.isNew)
     @isBeta = ko.asObservable(options.isBeta)
     @isAdmin = ko.asObservable(options.isAdmin)
+    @isSelected = ko.observable(false)
     @hasRibbon = ko.pureComputed () =>
       return @isNew() || @isBeta()
     @ribbonText = ko.pureComputed () =>
@@ -24,8 +25,8 @@ class LeftNavFlyoutItem
       if @isNew()
         return 'new'
 
-    @id = ko.asObservable(options.id)
-    if !@id()?
+    @id = options.id
+    if !@id?
       throw 'A Flyout Menu Item must have an id.'
     @name = ko.asObservable(options.name)
     if !@name()?
@@ -37,7 +38,7 @@ class LeftNavFlyoutItem
 
 class LeftNavMenuItem
   toggleFlyout: (item) ->
-    item.isSelected !item.isSelected()
+    item.isFlyoutOpen !item.isFlyoutOpen()
 
   constructor: (options) ->
     options = $.extend {
@@ -54,7 +55,10 @@ class LeftNavMenuItem
       throw "A Menu Item must provide a name."
 
     @icon = ko.asObservable(options.iconId)
-    @isSelected = ko.observable(false);
+
+    @isFlyoutOpen = ko.observable(false)
+
+    @isSelected = ko.observable(false)
 
     @href = ko.asObservable(options.href)
 
@@ -138,6 +142,8 @@ class LeftNavViewModel
     @isLoading = ko.asObservable(options.loading)
     @hasErrored = ko.asObservable(options.error)
 
+
+
     # create menus
     @rawMenus = ko.asObservable(options.menus)
     renderTimeout = null
@@ -154,17 +160,40 @@ class LeftNavViewModel
       renderTimeout = window.setTimeout @updateMainMenuScrollIcons, 500
       return result
 
+    # selected item
+    @SelectedItemId = ko.asObservable(options.selectedItemId)
+    selectAnItem = (itemId) =>
+      @menus().forEach (m) =>
+        if m.id == itemId
+          m.isSelected(true)
+        else
+          m.isSelected(false)
+          m.normalFlyoutItems().forEach (f) =>
+            if f.id == itemId
+              m.isSelected true
+              f.isSelected true
+            else
+              f.isSelected false
+          m.adminFlyoutItems().forEach (f) =>
+            if f.id == itemId
+              m.isSelected true
+              f.isSelected true
+            else
+              f.isSelected false
+    @SelectedItemId.subscribe selectAnItem
+    selectAnItem @SelectedItemId()
+
     @selectFlyout = (menu) =>
-      previousState = menu.isSelected()
-      @menus().forEach (m) -> m.isSelected false
+      previousState = menu.isFlyoutOpen()
+      @menus().forEach (m) -> m.isFlyoutOpen false
       if(!previousState)
-        menu.isSelected !previousState
+        menu.isFlyoutOpen !previousState
 
 
     # Auto Close any Flyouts when the user hovers out or clicks outside the leftnav
     # $('body > *').not('left-nav').on 'click', () =>
     #   console.log 'closing flyouts becuase the user clicked'
-    #   @menusWithFlyouts().forEach (m) -> m.isSelected false
+    #   @menusWithFlyouts().forEach (m) -> m.isFlyoutOpen false
 
     timer = undefined
     $leftNav.hover () =>
@@ -172,5 +201,5 @@ class LeftNavViewModel
         window.clearTimeout timer
     , () =>
       timer = window.setTimeout () =>
-        @menus().forEach (m) -> m.isSelected false
+        @menus().forEach (m) -> m.isFlyoutOpen false
       , 1000

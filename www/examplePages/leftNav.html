@@ -74,7 +74,7 @@
   </nav>
 
   <div id="foo">
-    <left-nav params="menus: menus, loading: loading, error: error"></left-nav>
+    <left-nav params="menus: menus, loading: loading, error: error, selectedItemId: selectedItemId"></left-nav>
 
     <!-- <div class="pane-left">
       <div class="pane-header">
@@ -106,6 +106,8 @@
               <button class="btn" data-bind="click: clearMenus">Clear All</button>
               <button class="btn" data-bind="click: setLoading">Loading</button>
               <button class="btn" data-bind="click: setErrored">Errored</button>
+              <button class="btn" data-bind="click: selectQueue">Select Queue</button>
+              <button class="btn" data-bind="click: selectRegisterHardware">Select registerHardware</button>
             </p>
         </div>
       </div>
@@ -296,7 +298,7 @@
         var self = this;
         self.menus = ko.observableArray([
           {
-            id: "home",
+            id: "dashboard",
             name: 'Dashboard',
             iconId: '#icon-pie-chart',
             href: '#'
@@ -517,6 +519,9 @@
 
         self.loading = ko.observable(false);
         self.error = ko.observable(false);
+
+        self.selectedItemId = ko.observable('infrastructure.manage');
+
         var idx = 1
         self.addMenuItem = function() {
           self.menus.push({
@@ -556,6 +561,13 @@
           idx3 = idx3+1;
         }
 
+        self.selectQueue = function() {
+          self.selectedItemId('queue');
+        }
+
+        self.selectRegisterHardware = function() {
+          self.selectedItemId('infrastructure.admin');
+        }
 
         self.clearMenus = function() {
           self.menus([]);
