@@ -1,0 +1,78 @@
+<section id="pieChart" class="pl-section">
+	<h3><a href="#pieChart">Pie Chart</a></h3>
+  <p>A donut chart</p>
+  <div class="pl-example">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="chart-container">
+				<div><canvas id="pieChartContainer" class="chart"></canvas></div></div>
+			</div>
+			<div class="col-sm-6">
+				<div class="chart-container">
+				<div><canvas id="donutChartContainer" class="chart"></canvas></div></div>
+			</div>
+		</div>
+  </div>
+	<pre class="show-type">
+		<code class="javascript">
+
+		</code>
+		<code class="html">
+		</code>
+
+	</pre>
+</section>
+
+{{#contentFor "scripts"}}
+<script>
+$(function () {
+
+	var pieData = [
+    {
+        value: 300,
+        color:"#59b082",
+        highlight: "#59b082",
+        label: "set 1"
+    },
+    {
+        value: 50,
+        color: "#8cc63f",
+        highlight: "#8cc63f",
+        label: "set 2"
+    },
+    {
+        value: 100,
+        color: "#58776a",
+        highlight: "#58776a",
+        label: "set 3"
+    },
+    {
+        value: 100,
+        color: "#404c43",
+        highlight: "#404c43",
+        label: "set 4"
+    },
+    {
+        value: 100,
+        color: "#5e9354",
+        highlight: "#5e9354",
+        label: "set 5"
+    },
+    {
+        value: 100,
+        color: "#b8e288",
+        highlight: "#b8e288",
+        label: "set 6"
+    }
+]
+
+  var ptx = $("#pieChartContainer").get(0).getContext("2d");
+  var myBarChart = new Chart(ptx).Pie(pieData);
+
+
+	var dtx = $("#donutChartContainer").get(0).getContext("2d");
+	var myDoughnutChart = new Chart(dtx).Doughnut(pieData);
+
+});
+</script>
+{{/contentFor}}
