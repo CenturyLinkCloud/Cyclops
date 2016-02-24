@@ -31,8 +31,6 @@
         outline: none;
       }
     }
-
-
   }
 
   .heading {
@@ -58,91 +56,92 @@
   margin: 0;
   padding: 0;
 
-  > li > a {
-    text-decoration: none;
-  }
+  > li {
 
-  > li .list-view-item,
-  > li .list-view-link-item,
-  > li .list-view-editable-item,
-  > li .list-view-read-only-item {
-    border-bottom: 1px solid @border-color;
-    padding: 10px 0;
-    .transition(e('background .05s ease-in'));
-    .clearfix();
+    > a {
+      text-decoration: none;
+    }
 
-    &.no-hover {
-      cursor: default;
-      background: none;
+    .list-view-item,
+    .list-view-link-item,
+    .list-view-editable-item,
+    .list-view-read-only-item {
+      border-bottom: 1px solid @border-color;
+      padding: 10px 0;
+      .transition(e('background .05s ease-in'));
+      .clearfix();
 
-      &:hover {
+      &.no-hover {
+        cursor: default;
         background: none;
+
+        &:hover {
+          background: none;
+        }
       }
-    }
 
-    // colored list view item backgrounds
-    &.list-view-item-success {
-      background-color: @state-success-bg;
-      border-bottom-color: @state-success-border;
-    }
-
-    &.list-view-item-info {
-      background-color: @state-info-bg;
-      border-bottom-color: @state-info-border;
-    }
-
-    &.list-view-item-warning {
-      background-color: @state-warning-bg;
-      border-bottom-color: @state-warning-border;
-    }
-
-    &.list-view-item-danger {
-      background-color: @state-danger-bg;
-      color: @state-danger-text;
-      border-bottom-color: @state-danger-border;
-    }
-
-    .new-list-view-actions {
-      text-align: right;
-      opacity: 0;
-      .transition(e('opacity .1s linear'));
-    }
-
-    &:hover .new-list-view-actions {
-      opacity: 1;
-    }
-  }
-
-  > li .list-view-link-item:hover {
-    background: #ebebeb;
-  }
-
-  > li .list-view-editable-item {
-    cursor: pointer;
-
-    &:hover {
-      background: #ebebeb;
-
+      // colored list view item backgrounds
       &.list-view-item-success {
-        background-color: darken(@state-success-bg, 10%);
+        background-color: @state-success-bg;
+        border-bottom-color: @state-success-border;
       }
 
       &.list-view-item-info {
-        background-color: darken(@state-info-bg, 5%);
+        background-color: @state-info-bg;
+        border-bottom-color: @state-info-border;
       }
 
       &.list-view-item-warning {
-        background-color: darken(@state-warning-bg, 10%);
+        background-color: @state-warning-bg;
+        border-bottom-color: @state-warning-border;
       }
 
       &.list-view-item-danger {
-        background-color: darken(@state-danger-bg, 5%);
+        background-color: @state-danger-bg;
+        color: @state-danger-text;
+        border-bottom-color: @state-danger-border;
+      }
+
+      .new-list-view-actions {
+        text-align: right;
+        opacity: 0;
+        .transition(e('opacity .1s linear'));
+      }
+
+      &:hover .new-list-view-actions {
+        opacity: 1;
       }
     }
-  }
+    .list-view-link-item:hover {
+      background: #ebebeb;
+    }
 
-  > li .list-view-read-only-item {
-    background-color: #f9f9f9;
+    .list-view-editable-item {
+      cursor: pointer;
+
+      &:hover {
+        background: #ebebeb;
+
+        &.list-view-item-success {
+          background-color: darken(@state-success-bg, 10%);
+        }
+
+        &.list-view-item-info {
+          background-color: darken(@state-info-bg, 5%);
+        }
+
+        &.list-view-item-warning {
+          background-color: darken(@state-warning-bg, 10%);
+        }
+
+        &.list-view-item-danger {
+          background-color: darken(@state-danger-bg, 5%);
+        }
+      }
+    }
+    .list-view-read-only-item {
+      background-color: #f9f9f9;
+    }
   }
 
   // handle nesting out to 12 levels after 6 levels the padding gets less
@@ -223,64 +222,6 @@
     }
   }
 
-  .disabled-item {
-    color: #999;
-  }
-
-  .empty-list-view-item {
-    line-height: 20px;
-    border-bottom: 1px solid @gray-lighter;
-    padding: 10px 0;
-    text-align: center;
-
-    &:hover {
-      background: none;
-    }
-
-    .btn-link {
-      padding-right: 0;
-      padding-left: 0;
-    }
-
-    &.feature {
-      border-left: 1px solid @gray-lighter;
-      border-right: 1px solid @gray-lighter;
-      border-bottom: 1px solid @gray-lighter;
-      padding: 0 20px;
-
-      > svg.cyclops-icon {
-        margin-top: 20px;
-      }
-
-      > svg.cyclops-icon + h3 {
-        margin-top: 10px;
-      }
-
-      > .lead {
-        margin-left: auto;
-        margin-right: auto;
-        font-size: @font-size-base;
-        max-width: 600px;
-
-        @media (min-width: @screen-sm-min) {
-          font-size: @font-size-large;
-        }
-      }
-    }
-  }
-
-  &.condensed {
-    .col {
-      padding: 0 7px;
-    }
-  }
-
-  &.no-padding {
-    .col {
-      padding: 0;
-    }
-  }
-
   .validationMessage {
     font-size: 13px;
     display: inline-block;
@@ -301,149 +242,175 @@
       }
     }
   }
+}
 
-  .loading-list-view-items, .error-list-view-items {
-    line-height: 20px;
+.empty-list-view-item {
+  border-bottom: 1px solid @gray-lighter;
+  padding: 10px 15px;
+  text-align: center;
+
+  &:hover {
+    background: none;
+  }
+
+  .btn-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &.feature {
+    border-left: 1px solid @gray-lighter;
+    border-right: 1px solid @gray-lighter;
     border-bottom: 1px solid @gray-lighter;
-    padding: 10px 0;
-    text-align: center;
+    padding: 0 20px;
 
-    &:hover {
-      background: none;
+    > svg.cyclops-icon {
+      margin-top: 20px;
     }
-    .cyclops-icon {
-      height: 1.2em;
-      width: 1.2em;
+
+    > svg.cyclops-icon + h3 {
+      margin-top: 10px;
+    }
+
+    > .lead {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: @font-size-base;
+      max-width: 600px;
+
+      @media (min-width: @screen-sm-min) {
+        font-size: @font-size-large;
+      }
+    }
+  }
+}
+
+.loading-list-view-items,
+.error-list-view-items {
+  border-bottom: 1px solid @gray-lighter;
+  padding: 10px 15px;
+  text-align: center;
+
+  &:hover {
+    background: none;
+  }
+  .cyclops-icon {
+    height: 1.2em;
+    width: 1.2em;
+  }
+}
+
+.list-view-item-form {
+  background: #f5f5f5;
+  border: 1px solid @gray-lighter;
+  .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
+  padding: 10px 20px;
+
+  .validation-summary {
+    color: #b94a48;
+    margin: 0 0 0 13px;
+    list-style-type: disc;
+    margin-bottom: 15px;
+
+    li {
+      border: none;
+      padding: 0;
+      line-height: 25px;
     }
   }
 
-  .list-view-item-form {
-    background: #f5f5f5;
-    box-sizing: border-box;
-    border: 1px solid @gray-lighter;
-    .box-shadow(inset 0 0 5px 0 rgba(0,0,0,.1) );
-    padding: 10px 20px;
+  [title],
+  [data-original-title] {
+    text-decoration: underline;
+  }
 
-    &:hover {
-      background: #f5f5f5;
+  // Knockout Validation will put and empty title which would cause
+  // underlines when there was no hover text
+  [title=""],
+  [data-original-title=""],
+  input[title],
+  select[title],
+  textarea[title] {
+    text-decoration: none;
+  }
+
+  [data-password-strength='0'],
+  [data-password-strength='1'],
+  [data-password-strength='2'] {
+    color: #b94a48;
+  }
+
+  [data-password-strength='3'] {
+    color: @text-color;
+  }
+
+  [data-password-strength='4'] {
+    color: green;
+  }
+
+  ol {
+    margin: 0;
+    list-style-type: none;
+    background-color: white;
+
+    &.custom-input-control {
+      max-height: 200px;
+      overflow: auto;
     }
 
-    #modifiedBy {
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
+    li {
+      padding: 0;
+      border: none;
 
-    .well {
-      background-color: #fff;
-      border: 0;
-    }
-
-    .validation-summary {
-      color: #b94a48;
-      margin: 0 0 0 13px;
-      list-style-type: disc;
-      margin-bottom: 15px;
-
-      li {
-        border: none;
-        padding: 0;
-        line-height: 25px;
-      }
-    }
-
-    [title],
-    [data-original-title] {
-      text-decoration: underline;
-    }
-
-    // Knockout Validation will put and empty title which would cause
-    // underlines when there was no hover text
-    [title=""],
-    [data-original-title=""],
-    input[title],
-    select[title],
-    textarea[title] {
-      text-decoration: none;
-    }
-
-    [data-password-strength='0'],
-    [data-password-strength='1'],
-    [data-password-strength='2'] {
-      color: #b94a48;
-    }
-
-    [data-password-strength='3'] {
-      color: @text-color;
-    }
-
-    [data-password-strength='4'] {
-      color: green;
-    }
-
-    ol {
-      margin: 0;
-      list-style-type: none;
-      background-color: white;
-
-      &.custom-input-control {
-        max-height: 200px;
-        overflow: auto;
+      &:hover {
+        background: #fff;
       }
 
-      li {
-        padding: 0;
-        border: none;
+      .item-content {
+        border-bottom: 1px solid @gray-lighter;
+        padding-left: 20px;
+        cursor: pointer;
+      }
 
+      .item-hover {
         &:hover {
-          background: #fff;
+          background-color: #f2f2f2;
         }
+      }
 
+      .item-hover.item-selected {
+        background: #3a3a3a;
+        color: #fff;
+      }
+
+      li {
         .item-content {
-          border-bottom: 1px solid @gray-lighter;
-          padding-left: 20px;
-          cursor: pointer;
-        }
-
-        .item-hover {
-          &:hover {
-            background-color: #f2f2f2;
-          }
-        }
-
-        .item-hover.item-selected {
-          background: #3a3a3a;
-          color: #fff;
+          padding-left: 40px;
         }
 
         li {
           .item-content {
-            padding-left: 40px;
+            padding-left: 60px;
           }
 
           li {
             .item-content {
-              padding-left: 60px;
+              padding-left: 80px;
             }
 
             li {
               .item-content {
-                padding-left: 80px;
+                padding-left: 100px;
               }
 
               li {
                 .item-content {
-                  padding-left: 100px;
+                  padding-left: 120px;
                 }
 
                 li {
                   .item-content {
-                    padding-left: 120px;
-                  }
-
-                  li {
-                    .item-content {
-                      padding-left: 140px;
-                    }
+                    padding-left: 140px;
                   }
                 }
               }
@@ -452,18 +419,18 @@
         }
       }
     }
+  }
 
-    label.error {
-      color: #b94a48;
-    }
+  label.error {
+    color: @error-text;
+  }
 
-    select.error,
-    input.error {
-      color: @text-color;
+  select.error,
+  input.error {
+    color: @text-color;
 
-      &:focus {
-        .box-shadow(none);
-      }
+    &:focus {
+      .box-shadow(none);
     }
   }
 }
