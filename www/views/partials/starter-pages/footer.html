@@ -156,6 +156,13 @@
 					name: 'infrastructure',
 					iconId: '#icon-infrastructure',
 					items: [
+            {
+              id: 'infrastructure.admin',
+              name: 'Register Hardware',
+              description: 'Add hardware records to control',
+              href: "#",
+              isAdmin: true
+            },
 						{
 							id: 'infrastructure.manage',
 							name: 'Manage',
@@ -239,7 +246,7 @@
 				},
 				{
 					id: 'orchestration',
-					name: 'orchestration',
+					name: 'Orchestration',
 					iconId: '#icon-script',
 					items: [
 						{
@@ -337,7 +344,6 @@
 					href: '#'
 				}
 			]);
-
 
 			self.addMenuItem = function() {
 				self.menus.push({

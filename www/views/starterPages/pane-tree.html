@@ -1,12 +1,12 @@
 {{!< ../layouts/starter-page.html}}
 
 <div class="pane-left">
+  <button class="pane-toggle" id="btnTogglePane">toggle</button>
   <div class="pane-header">
     <div class="content">
       <a class="filter" href="#" role="button">expand</a>
       <a href="#" role="button" class="filter">collapse</a>
       <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
-      <a href="#" role="button" class="pull-right" title="Collapse Pane"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-left'></svg></a>
     </div>
     <div class="filter-window hide">
       <i class="pull-right fa fa-times"></i>
@@ -16,13 +16,44 @@
   {{> components/examples/tree-pane }}
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="content-header">
-        <h1>Tree View</h1>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="content-header">
+          <h1>Tree View</h1>
+        </div>
+        {{> components/examples/billing-summary-3 }}
+        <!-- {{> components/examples/tree }} -->
       </div>
-      <!-- {{> components/examples/tree }} -->
     </div>
   </div>
-</div>
+
+  <div class="primary">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+        {{> list-view/responsive }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    {{> components/examples/activity-history }}
+
+  </div>
+
+</main>
+
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    $("#btnTogglePane").click(function() {
+      $(".pane-left").toggleClass("pane--expanded");
+    });
+  });
+</script>
+{{/contentFor}}

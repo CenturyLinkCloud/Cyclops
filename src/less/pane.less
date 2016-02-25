@@ -1,14 +1,15 @@
 .pane-left {
-  width: @pane-width;
-  position: fixed;
-  top: 90px;
-  bottom: 0;
-  background-color: #f2f2f2;
-  background: linear-gradient(to right, rgba(0,0,0,0) 97%, rgba(0,0,0,.05) 100%);
-  overflow: auto;
+
+  position: relative;
+  max-height: 36px;
+  overflow: hidden;
+  .transition(e('max-height .5s ease'));
+  background-color: @body-bg;
 
   .pane-header {
-    height: 40px;
+
+    display: none;
+    max-height: 40px;
     background: linear-gradient(to right, #d5d5d5 97%, #c3c3c3 100%);
     letter-spacing: 1px;
     font-size: @font-size-small;
@@ -35,5 +36,36 @@
         font-weight: 600;
       }
     }
+  }
+
+  &.pane--expanded {
+    max-height: 1000px;
+    overflow-y: auto;
+  }
+}
+
+.pane-toggle {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+
+
+@media (min-width: @screen-sm-min) {
+  .pane-left {
+    max-height: none;
+    width: @pane-width;
+    position: fixed;
+    height: auto;
+    top: 91px;
+    bottom: 0;
+    background-color: #f2f2f2;
+    background: linear-gradient(to right, rgba(0,0,0,0) 97%, rgba(0,0,0,.05) 100%);
+    overflow: auto;
+  }
+
+  .pane-toggle {
+    display: none;
   }
 }
