@@ -203,7 +203,7 @@
 				},
 				{
 					id: 'network',
-					name: 'network',
+					name: 'Network',
 					iconId: '#icon-global-network',
 					items: [
 						{
@@ -344,6 +344,10 @@
 					href: '#'
 				}
 			]);
+
+      self.loading = ko.observable(false);
+      self.error = ko.observable(false);
+      self.selectedItemId = ko.observable('infrastructure.manage');
 
 			self.addMenuItem = function() {
 				self.menus.push({

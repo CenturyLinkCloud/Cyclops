@@ -1,5 +1,5 @@
 <script type="text/html" id="cyclops.leftNav">
-  <div class="menu">
+  <div class="left-nav-menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
     <!-- ko empty: menus -->
     <!-- ko if: hasErrored -->
@@ -15,7 +15,7 @@
     </div>
     <!-- /ko -->
     <!-- /ko -->
-    <ol class="items" data-bind="foreach: menus">
+    <ol class="leftnav-menu-items" data-bind="foreach: menus">
       <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
@@ -28,22 +28,22 @@
 <script type="text/html" id="cyclops.leftNav.menuItem.button">
   <button class="btn" data-bind="click: $component.selectFlyout">
     <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
-    <!-- ko text: name --> <!--/ko -->
+    <span class="left-nav-label" data-bind="text: name"></span>
   </button>
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.href">
   <a data-bind="href: href">
     <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
-    <!-- ko text: name --> <!--/ko -->
+    <span class="left-nav-label" data-bind="text: name"></span>
   </a>
 </script>
 
 <script type="text/html" id="cyclops.leftNav.menuItem.flyout">
   <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
-  <div class="flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
+  <div class="left-nav-flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
     <div class="header clear-fix">
-      <button class="pull-right btn btn-link" data-bind="click: $component.selectFlyout">
+      <button class="pull-right btn btn-link close" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
