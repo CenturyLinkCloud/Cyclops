@@ -30,11 +30,12 @@ For more information view the [dependencies page](https://github.com/CenturyLink
 
 ## Required
 * [jQuery](https://jquery.com/) >= 2.1.4
-* [Knockout](http://knockoutjs.com/) >= 3.3.0 
+* [Knockout](http://knockoutjs.com/) >= 3.3.0
 
 ### Optional
 * [jQuery UI](https://jqueryui.com/) >= 1.11.4
 * [Knockout Validation](https://github.com/Knockout-Contrib/Knockout-Validation) >= 2.0.3
+* [Chart.js](http://www.chartjs.org/)
 
 ## Credit
 

@@ -677,7 +677,7 @@ $(function(){
 
           self.saving = ko.observable(false);
           self.saveButtonText = ko.computed(function () {
-              return self.saving() ? "Saving" : "Save";
+              return self.saving() ? "saving" : "save";
           });
           self.isValid = ko.computed(function () {
               // For more information on validation see the forms section of the pattern Library
@@ -826,7 +826,7 @@ $(function(){
                       <div class="col-sm-offset-3 col-sm-9">
                           <button class="btn btn-primary" data-bind="click: save, disable: saving, text: saveButtonText">Save</button>
                           <button class="btn btn-link" data-bind="click: cancel, disable: saving">cancel</button>
-                          <button class="btn btn-danger pull-right" data-bind="click: $parent.deleteItem, disable: saving, widget:'inlineConfirm'">Delete</button>
+                          <button class="btn btn-danger pull-right" data-bind="click: $parent.deleteItem, disable: saving, widget:'inlineConfirm'">delete</button>
                       </div>
                   </div>
               </fieldset>
