@@ -11,30 +11,35 @@
 			<a class="navbar-brand" href="/">
 				<img src="{{block "logoURL"}}" alt="CenturyLink" />
 			</a>
-			<a class="navbar-service" href="/">Service Name</a>
+			<a class="navbar-service" href="/">Control Portal</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-				<li class="dropdown">
-					<a href="#">
-						Link
-						<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">sub link 1</a></li>
-						<li class="active"><a href="#">sub link 2</a></li>
-						<li><a href="#">sub link 3</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">sub link 4</a></li>
-					</ul>
-				</li>
-			</ul>
+
 			<!-- Link back to the Control Portal, and give a sign out link -->
 			<ul class="nav navbar-nav navbar-right navbar-account">
-				<li><a href="#" class="navbar-link">Sign Out</a></li>
+        <!-- <li class="dropdown">
+					<a href="#" role="button"><svg class="cyclops-icon"><use xlink:href='#icon-settings'></svg> <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></a>
+					<ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">Settings</a></li>
+						<li><a href="#">Users</a></li>
+            <li><a href="#">Sub Accounts</a></li>
+            <li><a href="#">Permissions</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Service Catalog</a></li>
+            <li><a href="#">API</a></li>
+						<li><a href="#">Tickets</a></li>
+  						<li><a href="#">Contact Info</a></li>
+					</ul>
+				</li> -->
+        <li class="dropdown">
+					<a href="#" role="button">trent.anderson <svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#">Your Profile</a></li>
+						<li><a href="#">Sign Out</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

@@ -108,7 +108,7 @@ class LeftNavViewModel
 
     # Set up Scrolling of many menu Items
     @updateMainMenuScrollIcons = () ->
-      $items =  $leftNav.find '.items'
+      $items =  $leftNav.find '.left-nav-menu-items'
       $up = $leftNav.find('.scroll-up')
       $down = $leftNav.find('.scroll-down')
 
@@ -125,17 +125,17 @@ class LeftNavViewModel
         $leftNav.find('.scroll-up').fadeIn()
 
 
-    $leftNav.find(".items").on 'scroll', @updateMainMenuScrollIcons
+    $leftNav.find(".left-nav-menu-items").on 'scroll', @updateMainMenuScrollIcons
     $window.on 'resize', @updateMainMenuScrollIcons
 
 
 
     @scrollDownHandler = (data, event) ->
-      $items = $leftNav.find('.items')
+      $items = $leftNav.find('.left-nav-menu-items')
       $items.scrollTop $items.scrollTop() + 26
 
     @scrollUpHandler = (data, event) ->
-      $items = $leftNav.find('.items')
+      $items = $leftNav.find('.left-nav-menu-items')
       $items.scrollTop($items.scrollTop() - 26)
 
     # states

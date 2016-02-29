@@ -15,7 +15,7 @@
     </div>
     <!-- /ko -->
     <!-- /ko -->
-    <ol class="leftnav-menu-items" data-bind="foreach: menus">
+    <ol class="left-nav-menu-items" data-bind="foreach: menus">
       <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
@@ -47,7 +47,7 @@
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="items" data-bind="foreach: normalFlyoutItems">
+    <ol class="left-nav-flyout-menu-items" data-bind="foreach: normalFlyoutItems">
       <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
@@ -62,7 +62,7 @@
     </ol>
     <!-- ko any: adminFlyoutItems -->
     <h2 class="divider">System Admin Only</h2>
-    <ol class="items" data-bind="foreach: adminFlyoutItems">
+    <ol class="left-nav-flyout-menu-items" data-bind="foreach: adminFlyoutItems">
       <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>

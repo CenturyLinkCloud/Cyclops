@@ -21,7 +21,6 @@ left-nav {
   position: fixed;
   top: 91px;
   bottom: 0;
-  overflow: auto;
   width: @left-nav-width-sm;
   overflow: visible;
   z-index: 1;
@@ -37,12 +36,8 @@ left-nav {
     bottom: 0;
     width: @left-nav-width-sm;
     background: @left-nav-bg;
-    transition: width 0.5s;
+    .transition(width .5s);
     z-index: -1;
-  }
-
-  .left-nav-label {
-    display: none;
   }
 
   a {
@@ -50,6 +45,15 @@ left-nav {
     width: 100%;
     text-decoration: none;
     color: @gray-light;
+  }
+
+  ~ .pane-left,
+  ~ main {
+    margin-left: @left-nav-width-sm;
+  }
+
+  ~ .pane-left {
+    .transition(margin-left .5s);
   }
 
   .left-nav-menu {
@@ -62,8 +66,15 @@ left-nav {
     .cyclops-icon {
       width: 20px;
       height: 20px;
-      fill: @left-nav-icon-color;
-      transition: fill 0.2s;
+      .transition(fill .2s);
+
+      use {
+        fill: @left-nav-icon-color;
+      }
+    }
+
+    .left-nav-label {
+      display: none;
     }
 
     a,
@@ -79,7 +90,7 @@ left-nav {
         color: @gray-lighter;
         outline: none;
 
-        .cyclops-icon {
+        .cyclops-icon use {
           fill: @gray-lighter;
         }
 
@@ -88,7 +99,7 @@ left-nav {
           outline: none;
           color: #fff;
 
-          .cyclops-icon {
+          .cyclops-icon use {
             fill: #fff;
           }
         }
@@ -135,7 +146,7 @@ left-nav {
     }
   }
 
-  .leftnav-menu-items {
+  .left-nav-menu-items {
     list-style: none;
     padding: 0;
     overflow-y: auto;
@@ -144,10 +155,12 @@ left-nav {
     position: relative;
     z-index: 2;
     background: @left-nav-bg;
+    margin-right: -15px;
 
     li {
+      .transition(background-color .2s, width .5s;);
+      width: @left-nav-width-sm;
       border-bottom: 1px solid darken(@left-nav-bg-selected, 2%);
-      transition: background-color 0.2s;
 
       &:hover {
         background-color: @left-nav-bg-hover;
@@ -160,7 +173,7 @@ left-nav {
         .btn {
           color: #fff;
 
-          .cyclops-icon {
+          .cyclops-icon use {
             fill: #fff;
           }
         }
@@ -173,10 +186,6 @@ left-nav {
         a,
         .btn {
           color: #fff;
-
-          .cyclops-icon {
-            fill: #fff;
-          }
         }
       }
 
@@ -218,7 +227,7 @@ left-nav {
     background: @left-nav-flyout-bg;
     border-right: 1px solid #202220;
     margin-left: -1 * @left-nav-flyout-width;
-    transition: margin-left 0.5s;
+    .transition(margin-left .5s);
     box-shadow: 0 0 7px #000;
     overflow-y: auto;
 
@@ -237,8 +246,12 @@ left-nav {
         margin-top: 3px;
         margin-right: 7px;
 
+        .cyclops-icon use {
+          fill: @gray;
+        }
+
         &:hover {
-          .cyclops-icon {
+          .cyclops-icon use {
             fill: #fff;
           }
         }
@@ -259,76 +272,64 @@ left-nav {
       margin-bottom: 0;
     }
 
-    .items {
-      list-style: none;
-      padding: 0;
 
-      li {
-        border-bottom: solid 1px @left-nav-flyout-divider;
-        border-top: none;
-        height: auto;
-        overflow: hidden;
-        margin: 0;
-        transition: background 0.15s;
+  }
 
-        &.selected {
-          background-color: @left-nav-flyout-selected;
-          box-shadow: @left-nav-selected;
+  .left-nav-flyout-menu-items {
+    list-style: none;
+    padding: 0;
 
-          h3 {
-            color: #fff;
-          }
-        }
+    li {
+      border-bottom: solid 1px @left-nav-flyout-divider;
+      border-top: none;
+      height: auto;
+      overflow: hidden;
+      margin: 0;
+      .transition(background .2s);
 
-        &:hover {
-          background-color: @left-nav-flyout-selected;
-
-          h3 {
-            color: #fff;
-          }
-        }
-
-        a {
-          padding: 8px 15px 12px;
-          display: block;
-          position: relative;
-        }
+      &.selected {
+        background-color: @left-nav-flyout-selected;
+        box-shadow: @left-nav-selected;
 
         h3 {
-          color: #bbb;
-          font-size: 15px;
-          line-height: 20px;
-          margin-bottom: 5px;
-          margin-top: 5px;
-          text-transform: capitalize;
+          color: #fff;
         }
+      }
 
-        p {
-          color: @gray-light;
-          font-size: @font-size-small;
-          line-height: @line-height-computed - 2;
-          margin-bottom: 5px;
+      &:hover {
+        background-color: @left-nav-flyout-selected;
+
+        h3 {
+          color: #fff;
         }
+      }
+
+      a {
+        padding: 8px 15px 12px;
+        display: block;
+        position: relative;
+      }
+
+      h3 {
+        color: #bbb;
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-transform: capitalize;
+      }
+
+      p {
+        color: @gray-light;
+        font-size: @font-size-small;
+        line-height: @line-height-computed - 2;
+        margin-bottom: 5px;
       }
     }
   }
 }
 
-left-nav ~ .pane-left,
-left-nav ~ main {
-  margin-left: @left-nav-width-sm;
-}
-
-left-nav ~ .pane-left {
-  .transition(margin-left .5s);
-}
-
 @media (min-width: @screen-sm-min) {
-
-  left-nav ~ .pane-left,
-  left-nav ~ main {
-    margin-left: @left-nav-width-md;
-  }
 
   .pane-left ~ main {
     margin-left: @left-nav-width-md + @pane-width;
@@ -343,8 +344,15 @@ left-nav ~ .pane-left {
       width: @left-nav-width-md;
     }
 
-    .left-nav-label {
-      display: inline;
+    ~ .pane-left,
+    ~ main {
+     margin-left: @left-nav-width-md;
+    }
+
+    .left-nav-menu-items {
+      li {
+        width: @left-nav-width-md;
+      }
     }
 
     .left-nav-menu {
@@ -360,8 +368,11 @@ left-nav ~ .pane-left {
           margin-bottom: 5px;
         }
       }
-    }
 
+      .left-nav-label {
+        display: inline;
+      }
+    }
     .left-nav-flyout-menu {
 
       &.open {
@@ -371,11 +382,7 @@ left-nav ~ .pane-left {
   }
 }
 
-@media (min-width: @screen-lg-min) {
-  left-nav ~ .pane-left,
-  left-nav ~ main {
-    margin-left: @left-nav-width-lg;
-  }
+@media (min-width: @screen-xl-min) {
 
   .pane-left ~ main {
     margin-left: @left-nav-width-lg + @pane-width;
@@ -393,6 +400,11 @@ left-nav ~ .pane-left {
       width: @left-nav-width-lg;
     }
 
+    ~ .pane-left,
+    ~ main {
+     margin-left: @left-nav-width-lg;
+   }
+
     .left-nav-menu {
       a,
       button.btn {
@@ -406,7 +418,12 @@ left-nav ~ .pane-left {
           margin-bottom: 0;
         }
       }
+    }
 
+    .left-nav-menu-items {
+      li {
+        width: @left-nav-width-lg;
+      }
     }
 
     .left-nav-flyout-menu {
