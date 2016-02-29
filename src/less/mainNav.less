@@ -330,36 +330,37 @@ main-nav {
     ~ main {
      margin-left: @main-nav-width-md;
     }
+  }
 
-    .main-nav-menu-items {
-      li {
-        width: @main-nav-width-md;
+  .main-nav-menu {
+    a,
+    button.btn {
+      padding: 10px;
+      letter-spacing: 0;
+
+      .cyclops-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
       }
     }
 
-    .main-nav-menu {
-      a,
-      button.btn {
-        padding: 10px;
-        letter-spacing: 0;
-
-        .cyclops-icon {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          margin-bottom: 5px;
-        }
-      }
-
-      .main-nav-label {
-        display: inline;
-      }
+    .main-nav-label {
+      display: inline;
     }
-    .main-nav-flyout-menu {
+  }
 
-      &.open {
-        margin-left: @main-nav-width-md;
-      }
+  .main-nav-menu-items {
+    li {
+      width: @main-nav-width-md;
+    }
+  }
+
+  .main-nav-flyout-menu {
+
+    &.open {
+      margin-left: @main-nav-width-md;
     }
   }
 }
@@ -386,33 +387,40 @@ main-nav {
     ~ main {
      margin-left: @main-nav-width-lg;
    }
+  }
 
-    .main-nav-menu {
-      a,
-      button.btn {
-        text-align: left;
-        font-size: @font-size-base;
-        padding: 10px 10px 10px 15px;
+  .main-nav-menu {
+    a,
+    button.btn {
+      text-align: left;
+      font-size: @font-size-base;
+      padding: 10px 10px 10px 15px;
 
-        .cyclops-icon {
-          display: inline;
-          margin-right: 7px;
-          margin-bottom: 0;
-        }
+      .cyclops-icon {
+        display: inline;
+        margin-right: 7px;
+        margin-bottom: 0;
+      }
+
+      &.scroll-up,
+      &.scroll-down {
+        text-align: center;
       }
     }
 
-    .main-nav-menu-items {
-      li {
-        width: @main-nav-width-lg;
-      }
+
+  }
+
+  .main-nav-menu-items {
+    li {
+      width: @main-nav-width-lg;
     }
+  }
 
-    .main-nav-flyout-menu {
+  .main-nav-flyout-menu {
 
-      &.open {
-        margin-left: @main-nav-width-lg;
-      }
+    &.open {
+      margin-left: @main-nav-width-lg;
     }
   }
 }

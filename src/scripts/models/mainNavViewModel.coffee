@@ -1,10 +1,5 @@
 # <main-nav params="menus: menus, selectedItemId: 'manage', "></main-nav>
 
-# TODO
-
-# - center scroll buttons
-
-
 class MainNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
