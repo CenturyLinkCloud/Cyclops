@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cyclops LeftNav Demo</title>
+  <title>Cyclops MainNav Demo</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
   <link href="/css/cyclops.css" rel="stylesheet" type="text/css" />
 
@@ -73,7 +73,7 @@
     </div>
   </nav>
 
-  <left-nav params="menus: menus, loading: loading, error: error, selectedItemId: selectedItemId"></left-nav>
+  <main-nav params="menus: menus, loading: loading, error: error, selectedItemId: selectedItemId"></main-nav>
   <main>
     <div class="primary">
       <div class="container">
@@ -279,7 +279,7 @@
       }
       ko.applyBindings(new AccountSwitcherModel(), $("account-switcher")[0]);
 
-      var LeftNavModel = function(){
+      var MainNavModel = function(){
         var self = this;
         self.menus = ko.observableArray([
           {
@@ -589,8 +589,8 @@
         }
       }
 
-      var model = new LeftNavModel()
-      ko.applyBindings(model, $("left-nav")[0]);
+      var model = new MainNavModel()
+      ko.applyBindings(model, $("main-nav")[0]);
       ko.applyBindings(model, $("main")[0]);
     })
   </script>

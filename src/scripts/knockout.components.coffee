@@ -47,12 +47,12 @@ ko.components.register 'date-time-picker', {
     }
 }
 
-ko.components.register 'left-nav', {
+ko.components.register 'main-nav', {
     viewModel: {
       createViewModel: (params, componentInfo) ->
-        return new LeftNavViewModel(params, componentInfo.element)
+        return new MainNavViewModel(params, componentInfo.element)
     },
     template: {
-        element: "cyclops.leftNav"
+        element: "cyclops.mainNav"
     }
 }

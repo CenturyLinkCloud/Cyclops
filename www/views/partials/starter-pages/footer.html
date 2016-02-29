@@ -111,7 +111,7 @@
 		}
 		ko.applyBindings(new AccountSwitcherModel(), $("account-switcher")[0]);
 
-		var LeftNavModel = function(){
+		var MainNavModel = function(){
 			var self = this;
 			self.menus = ko.observableArray([
 				{
@@ -425,7 +425,7 @@
 			}
 		}
 
-		ko.applyBindings(new LeftNavModel(), $("left-nav")[0]);
+		ko.applyBindings(new MainNavModel(), $("main-nav")[0]);
 	})
 </script>
 

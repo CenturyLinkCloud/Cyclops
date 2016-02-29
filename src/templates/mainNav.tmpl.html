@@ -1,5 +1,5 @@
-<script type="text/html" id="cyclops.leftNav">
-  <div class="left-nav-menu">
+<script type="text/html" id="cyclops.mainNav">
+  <div class="main-nav-menu">
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
     <!-- ko empty: menus -->
     <!-- ko if: hasErrored -->
@@ -15,39 +15,39 @@
     </div>
     <!-- /ko -->
     <!-- /ko -->
-    <ol class="left-nav-menu-items" data-bind="foreach: menus">
+    <ol class="main-nav-menu-items" data-bind="foreach: menus">
       <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
     <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
-  <!-- ko template:{name: 'cyclops.leftNav.menuItem.flyout', foreach: menus} -->
+  <!-- ko template:{name: 'cyclops.mainNav.menuItem.flyout', foreach: menus} -->
   <!-- /ko -->
 </script>
 
 
-<script type="text/html" id="cyclops.leftNav.menuItem.button">
+<script type="text/html" id="cyclops.mainNav.menuItem.button">
   <button class="btn" data-bind="click: $component.selectFlyout">
     <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
-    <span class="left-nav-label" data-bind="text: name"></span>
+    <span class="main-nav-label" data-bind="text: name"></span>
   </button>
 </script>
 
-<script type="text/html" id="cyclops.leftNav.menuItem.href">
+<script type="text/html" id="cyclops.mainNav.menuItem.href">
   <a data-bind="href: href">
     <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
-    <span class="left-nav-label" data-bind="text: name"></span>
+    <span class="main-nav-label" data-bind="text: name"></span>
   </a>
 </script>
 
-<script type="text/html" id="cyclops.leftNav.menuItem.flyout">
+<script type="text/html" id="cyclops.mainNav.menuItem.flyout">
   <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
-  <div class="left-nav-flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
+  <div class="main-nav-flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
     <div class="header clear-fix">
       <button class="pull-right btn btn-link close" data-bind="click: $component.selectFlyout">
         <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
       </button>
     </div>
-    <ol class="left-nav-flyout-menu-items" data-bind="foreach: normalFlyoutItems">
+    <ol class="main-nav-flyout-menu-items" data-bind="foreach: normalFlyoutItems">
       <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>
@@ -62,7 +62,7 @@
     </ol>
     <!-- ko any: adminFlyoutItems -->
     <h2 class="divider">System Admin Only</h2>
-    <ol class="left-nav-flyout-menu-items" data-bind="foreach: adminFlyoutItems">
+    <ol class="main-nav-flyout-menu-items" data-bind="foreach: adminFlyoutItems">
       <li data-bind="css: {'selected': isSelected}">
         <a data-bind="href: href">
           <h3 data-bind="text: name">&hellip;</h3>

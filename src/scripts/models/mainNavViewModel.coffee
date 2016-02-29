@@ -1,11 +1,11 @@
-# <left-nav params="menus: menus, selectedItemId: 'manage', "></left-nav>
+# <main-nav params="menus: menus, selectedItemId: 'manage', "></main-nav>
 
 # TODO
 
 # - center scroll buttons
 
 
-class LeftNavFlyoutItem
+class MainNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
         isNew: false
@@ -36,7 +36,7 @@ class LeftNavFlyoutItem
       throw 'A Flyout Menu Item must have a href.'
     @description = ko.asObservable(options.description)
 
-class LeftNavMenuItem
+class MainNavMenuItem
   toggleFlyout: (item) ->
     item.isFlyoutOpen !item.isFlyoutOpen()
 
@@ -69,9 +69,9 @@ class LeftNavMenuItem
     ko.computed () =>
       @rawFlayoutItems().forEach (f) =>
         if f.isAdmin
-          @adminFlyoutItems.push new LeftNavFlyoutItem(f)
+          @adminFlyoutItems.push new MainNavFlyoutItem(f)
         else
-          @normalFlyoutItems.push new LeftNavFlyoutItem(f)
+          @normalFlyoutItems.push new MainNavFlyoutItem(f)
 
 
 
@@ -82,11 +82,11 @@ class LeftNavMenuItem
 
     @templateName = ko.pureComputed () =>
       if !@href()?
-        return 'cyclops.leftNav.menuItem.button'
+        return 'cyclops.mainNav.menuItem.button'
       else
-        return 'cyclops.leftNav.menuItem.href'
+        return 'cyclops.mainNav.menuItem.href'
 
-class LeftNavViewModel
+class MainNavViewModel
   constructor: (options, element) ->
     options = $.extend {
       menus: [],
@@ -94,23 +94,23 @@ class LeftNavViewModel
       error: false
     }, options
 
-    # make left-nav sticky
-    $leftNav = $(element)
+    # make main-nav sticky
+    $mainNav = $(element)
     $window = $(window)
-    leftNavOriginalTopPosition = $leftNav.position().top
-    calculateLeftNavPosition = () ->
-      newTopPosition = leftNavOriginalTopPosition - $window.scrollTop()
+    mainNavOriginalTopPosition = $mainNav.position().top
+    calculateMainNavPosition = () ->
+      newTopPosition = mainNavOriginalTopPosition - $window.scrollTop()
       if newTopPosition < 0
         newTopPosition = 0
-      $leftNav.css('top': newTopPosition)
-    calculateLeftNavPosition()
-    $window.on 'scroll', calculateLeftNavPosition
+      $mainNav.css('top': newTopPosition)
+    calculateMainNavPosition()
+    $window.on 'scroll', calculateMainNavPosition
 
     # Set up Scrolling of many menu Items
     @updateMainMenuScrollIcons = () ->
-      $items =  $leftNav.find '.left-nav-menu-items'
-      $up = $leftNav.find('.scroll-up')
-      $down = $leftNav.find('.scroll-down')
+      $items =  $mainNav.find '.main-nav-menu-items'
+      $up = $mainNav.find('.scroll-up')
+      $down = $mainNav.find('.scroll-down')
 
       if $items.scrollTop() + $items.innerHeight() >= $items[0].scrollHeight
         if $down.is ':visible'
@@ -120,22 +120,22 @@ class LeftNavViewModel
           $down.stop().fadeIn()
 
       if $items.scrollTop() == 0
-        $leftNav.find('.scroll-up').fadeOut()
+        $mainNav.find('.scroll-up').fadeOut()
       else
-        $leftNav.find('.scroll-up').fadeIn()
+        $mainNav.find('.scroll-up').fadeIn()
 
 
-    $leftNav.find(".left-nav-menu-items").on 'scroll', @updateMainMenuScrollIcons
+    $mainNav.find(".main-nav-menu-items").on 'scroll', @updateMainMenuScrollIcons
     $window.on 'resize', @updateMainMenuScrollIcons
 
 
 
     @scrollDownHandler = (data, event) ->
-      $items = $leftNav.find('.left-nav-menu-items')
+      $items = $mainNav.find('.main-nav-menu-items')
       $items.scrollTop $items.scrollTop() + 26
 
     @scrollUpHandler = (data, event) ->
-      $items = $leftNav.find('.left-nav-menu-items')
+      $items = $mainNav.find('.main-nav-menu-items')
       $items.scrollTop($items.scrollTop() - 26)
 
     # states
@@ -150,7 +150,7 @@ class LeftNavViewModel
     @menus = ko.pureComputed () =>
       result = @rawMenus().reduce (menus, menu) =>
         if menu.href? or (menu.items and ko.unwrap(menu.items).length > 0)
-          menus.push new LeftNavMenuItem(menu)
+          menus.push new MainNavMenuItem(menu)
         return menus
       , []
       # we are using a timeout here for performance reason so that its not called
@@ -192,12 +192,12 @@ class LeftNavViewModel
         menu.isFlyoutOpen !previousState
 
 
-    # Auto Close any Flyouts when the user hovers out or clicks outside the leftnav
-    $('body > *').not('left-nav').on 'click', () =>
+    # Auto Close any Flyouts when the user hovers out or clicks outside the mainNav
+    $('body > *').not('main-nav').on 'click', () =>
       @menus().forEach (m) -> m.isFlyoutOpen false
 
     closeTimer = undefined
-    $leftNav.hover () =>
+    $mainNav.hover () =>
       if closeTimer
         window.clearTimeout closeTimer
     , () =>
