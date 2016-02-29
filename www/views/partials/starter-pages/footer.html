@@ -122,7 +122,7 @@
 				},
 				{
 					id: "create",
-					name: 'create',
+					name: 'Create',
 					iconId: '#icon-plus-circle',
 					items: ko.observableArray([
 						{
@@ -154,7 +154,7 @@
 				},
 				{
 					id: 'infrastructure',
-					name: 'infrastructure',
+					name: 'Infrastructure',
 					iconId: '#icon-infrastructure',
 					items: [
             {
@@ -168,36 +168,6 @@
 							id: 'infrastructure.manage',
 							name: 'Manage',
 							description: 'Manage and provision your servers',
-							href: '#'
-						},
-						{
-							id: 'infrastructure.backup',
-							name: 'Backup',
-							description: 'Secure, file-level backup',
-							href: '#'
-						},
-						{
-							id: 'infrastructure.dns',
-							name: 'DNS',
-							description: 'Host and manage DNS zones',
-							href: '#'
-						},
-						{
-							id: 'infrastructure.intrusionPrevention',
-							name: 'Intrusion Prevention',
-							description: 'Monitor traffic to detect and block known vulnerabilities.',
-							href: '#'
-						},
-						{
-							id: 'infrastructure.monitoring',
-							name: 'Monitoring & Alerting',
-							description: 'Define monitor and alert policies to measure application performance',
-							href: '#'
-						},
-						{
-							id: 'infrastructure.patching',
-							name: 'Patching',
-							description: 'Define patching policies to update OSs',
 							href: '#'
 						}
 					]
@@ -229,6 +199,12 @@
 							id: 'network.vpn',
 							name: 'VPN',
 							description: 'Connect to cloud networks via VPN',
+							href: '#'
+						},
+						{
+							id: 'network.dns',
+							name: 'DNS',
+							description: 'Host and manage DNS zones',
 							href: '#'
 						},
 						{
@@ -291,51 +267,83 @@
 				},
 				{
 					id: 'appServices',
-					name: 'App Services',
+					name: 'Services',
 					iconId: '#icon-package',
 					items: [
 						{
-							id: 'applicationServices.appfog',
+							id: 'services.appfog',
 							name: 'AppFog',
 							description: 'Create, scale, and manage cloud apps',
 							href: '#'
 						},
 						{
-							id: 'applicationServices.loadBalancer',
+							id: 'services.backup',
+							name: 'Backup',
+							description: 'Secure, simple, file-level backup',
+							href: '#',
+							isBeta: true
+						},
+						{
+							id: 'services.horizontalAutoscale',
+							name: 'Horizontal Autoscale',
+							description: 'Automatically increase/decrease the number of servers in a group during demand spikes and lulls',
+							href: '#'
+						},
+						{
+							id: 'services.intrusionPrevention',
+							name: 'Intrusion Prevention',
+							description: 'Monitor traffic to detect and block known vulnerabilities.',
+							href: '#'
+						},
+						{
+							id: 'services.loadBalancer',
 							name: 'Load Balancers',
 							description: 'Keep applications online and traffic flowing evenly',
 							href: '#'
 						},
 						{
-							id: 'applicationServices.objectStorage',
+							id: 'services.monitoring',
+							name: 'Monitoring & Alerting',
+							description: 'Define monitor and alert policies to measure application performance',
+							href: '#'
+						},
+						{
+							id: 'services.objectStorage',
 							name: 'Object Storage',
 							description: 'Highly available file storage and management',
 							href: '#'
 						},
 						{
-							id: 'applicationServices.relationalDb',
-							name: 'Orchestrate DB',
+							id: 'services.orchestrate',
+							name: 'Orchestrate',
 							description: 'A complete NoSQL database service for rapid application development',
 							href: '#'
 						},
 						{
-							id: 'applicationServices.relationalDb',
+							id: 'services.relationalDb',
 							name: 'Relational DB',
 							description: 'High performance, cost efficient, MySQL-compatible database',
-							href: '#'
+							href: '#',
+							isNew: true
 						},
 						{
-							id: 'applicationServices.siteRedirect',
-							name: 'Site Redirect',
-							description: 'Redirect sites',
+							id: 'services.verticalAutoscale',
+							name: 'Vertical Autoscale',
+							description: 'Automatically increase/decrease cpu allocation based on usage',
 							href: '#'
 						},
-						{
-							id: 'applicationServices.relationalDb',
-							name: 'SMTP Relay',
-							description: 'Efficient, reliable email delivery',
-							href: '#'
-						}
+						// {
+						// 	id: 'services.siteRedirect',
+						// 	name: 'Site Redirect',
+						// 	description: 'Redirect sites',
+						// 	href: '#'
+						// },
+						// {
+						// 	id: 'services.smtprelay',
+						// 	name: 'SMTP Relay',
+						// 	description: 'Efficient, reliable email delivery',
+						// 	href: '#'
+						// }
 					]
 				},
 				{
