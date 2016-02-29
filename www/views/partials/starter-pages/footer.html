@@ -157,19 +157,25 @@
 					name: 'Infrastructure',
 					iconId: '#icon-infrastructure',
 					items: [
-            {
-              id: 'infrastructure.admin',
-              name: 'Register Hardware',
-              description: 'Add hardware records to control',
-              href: "#",
-              isAdmin: true
-            },
+            // {
+            //   id: 'infrastructure.admin',
+            //   name: 'Register Hardware',
+            //   description: 'Add hardware records to control',
+            //   href: "#",
+            //   isAdmin: true
+            // },
 						{
 							id: 'infrastructure.manage',
 							name: 'Manage',
 							description: 'Manage and provision your servers',
 							href: '#'
-						}
+						},
+						{
+              id: 'infrastructure.import',
+              name: 'Import Servers',
+              description: 'Import an ovf file or an existing server from another cloud provider',
+              href: "#"
+            }
 					]
 				},
 				{
@@ -404,6 +410,111 @@
 							name: 'Service Catalog',
 							description: 'Enable or disable access to particular services for your account or sub accounts.',
 							href: '#'
+						}
+					]
+				},
+				{
+					id: 'admin',
+					name: 'Admin',
+					iconId: '#icon-shield',
+					items: [
+						{
+							id: 'admin.allAccounts',
+							name: 'Active Accounts',
+							description: 'Global list of currently active accounts',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.allAccounts',
+							name: 'Disabled Accounts',
+							description: 'Global list of disabled accounts',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.allNetworks',
+							name: 'All Networks',
+							description: 'View all networks within a data center',
+							href: '#',
+							isAdmin: true
+						},
+						{
+						  id: 'network.manageVlans',
+						  name: 'Manage VLANs',
+						  description: 'View and manage vlans',
+						  href: "#",
+						  isAdmin: true
+						},
+						{
+							id: 'admin.contactList',
+							name: 'Contact List',
+							description: 'Generate and download a customer contact list based on location',
+							href: '#',
+							isAdmin: true
+						},
+						{
+						  id: 'admin.directVpn',
+						  name: 'Direct VPN',
+						  description: 'Create and manage direct vpn connections',
+						  href: "#",
+						  isAdmin: true
+						},
+						{
+							id: 'admin.registeredHardware',
+							name: 'Registered Hardware',
+							description: 'Register hardware associated with an account',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.serviceTasks',
+							name: 'Service Tasks',
+							description: 'View total and per account invoice estimate for the current billing period',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.estimates',
+							name: 'Monthly Invoice Estimate',
+							description: 'View total and per account invoices for a specified billing period',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.invoices',
+							name: 'Invoices',
+							description: 'Add or view service tasks for an account',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.top25',
+							name: 'Top 25 Revenue',
+							description: 'Top 25 accounts by monthly revenue',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.storage',
+							name: 'Storage',
+							description: 'Add additional storage charges to an account',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.software',
+							name: 'Software',
+							description: 'Add additional software charges to an account',
+							href: '#',
+							isAdmin: true
+						},
+						{
+							id: 'admin.additionalCharges',
+							name: 'Additional Charges',
+							description: 'Add additional charges or price overrides to an account',
+							href: '#',
+							isAdmin: true
 						}
 					]
 				}
