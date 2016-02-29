@@ -121,12 +121,14 @@
 
 .tree-in-pane {
 	.tree-item {
-		background: linear-gradient(to right, #f9f9f9 97%, rgba(0,0,0,.05) 100%);
+		.box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.05));
+
 		&:hover {
-			background: linear-gradient(to right, #ffffff 97%, rgba(0,0,0,.05) 100%);
+			background-color: #fff;
 		}
 
 		&.selected {
+			.box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.2));
 			background: #3a3a3a;
 			color: #fff;
 		}
