@@ -165,7 +165,8 @@ main-nav {
 
     &.selected {
       background-color: @main-nav-bg-selected;
-      box-shadow: @main-nav-selected;
+      box-shadow: @main-nav-selected-highlight;
+      border: 1px solid @main-nav-selected-highlight;
 
       .cyclops-icon use {
         fill: #fff;
@@ -274,7 +275,7 @@ main-nav {
 
     &.selected {
       background-color: @main-nav-flyout-selected;
-      box-shadow: @main-nav-selected;
+      box-shadow: @main-nav-selected-highlight;
 
       h3 {
         color: #fff;
