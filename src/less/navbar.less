@@ -350,6 +350,20 @@
       vertical-align: bottom;
     }
 
+    .cyclops-icon {
+      use {
+        fill: #666;
+      }
+    }
+
+    a:hover, button:hover {
+      .cyclops-icon {
+        use {
+          fill: #fff;
+        }
+      }
+    }
+
     @media (min-width: @grid-float-breakpoint) {
       border-left: 1px solid darken(@navbar-inverse-bg, 5%);
       border-right: 1px solid lighten(@navbar-inverse-bg, 5%);
