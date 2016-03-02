@@ -1,19 +1,17 @@
 .pane-left {
-
-  position: relative;
+  position: static;
   max-height: 36px;
   overflow: hidden;
   .transition(e('max-height .5s, margin-left .5s'));
   background-color: @body-bg;
 
-  &.pane--expanded {
-    height: 1000px;
+  &.pane-expanded {
+    max-height: 1000px;
     overflow-y: auto;
   }
 }
 
 .pane-header {
-
   display: none;
   max-height: 36px;
   background-color: #d5d5d5;
@@ -53,8 +51,6 @@
   }
 }
 
-
-
 .pane-toggle {
   position: absolute;
   right: 10px;
@@ -62,7 +58,6 @@
 }
 
 @media (min-width: @screen-sm-min) {
-
   .pane-header {
     display: block;
   }

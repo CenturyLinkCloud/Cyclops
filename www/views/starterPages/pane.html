@@ -48,8 +48,10 @@
 <script>
   $(function(){
     $("#btnTogglePane").click(function() {
-      $(".pane-left").toggleClass("pane--expanded");
+      $(".pane-left").toggleClass("pane-expanded");
     });
+
+    $(".pane-left").affix();
   });
 </script>
 {{/contentFor}}
