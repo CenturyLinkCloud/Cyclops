@@ -4,13 +4,9 @@
   <button class="pane-toggle" id="btnTogglePane">toggle</button>
   <div class="pane-header">
     <div class="content">
-      <a class="filter" href="#" role="button">expand</a>
-      <a href="#" role="button" class="filter">collapse</a>
-      <a href="#" role="button" class="filter"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></a>
-    </div>
-    <div class="filter-window hide">
-      <i class="pull-right fa fa-times"></i>
-      <input type="text">
+      <button class="filter">expand</button>
+      <button class="filter">collapse</button>
+      <button class="filter pull-right"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></button>
     </div>
   </div>
   {{> components/examples/tree-pane }}
