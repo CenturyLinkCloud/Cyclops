@@ -61,6 +61,7 @@ main-nav {
     font-size: @font-size-small;
     text-align: center;
     border-radius: 0;
+    overflow: hidden;
 
     &:focus,
     &:hover {
@@ -75,6 +76,7 @@ main-nav {
         box-shadow: none;
         outline: none;
         color: #fff;
+        .box-shadow(inset 0px 0px 3px 0px rgba(0,0,0,.3));
         transform: scale(.985,.985);
 
         .cyclops-icon use {
