@@ -1,12 +1,14 @@
 {{!< ../layouts/starter-page.html}}
 
 <div class="pane-left">
-  <button class="pane-toggle" id="btnTogglePane">toggle</button>
   <div class="pane-header">
     <div class="content">
-      <button class="filter">expand</button>
-      <button class="filter">collapse</button>
-      <button class="filter pull-right"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></button>
+      <button class="pane-header-btn pane-toggle">browse<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></button>
+      <div class="pane-filters">
+        <button class="pane-header-btn">expand</button>
+        <button class="pane-header-btn">collapse</button>
+        <button class="pane-header-btn"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></button>
+      </div>
     </div>
   </div>
   {{> components/examples/tree-pane }}
@@ -17,7 +19,8 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="content-header">
-          <h1>Tree View</h1>
+          <h1>WA1CORPDB01</h1>
+          <p class="lead">New Navigation Sample</p>
         </div>
         {{> components/examples/billing-summary-3 }}
         <!-- {{> components/examples/tree }} -->
@@ -47,7 +50,7 @@
 {{#contentFor "scripts"}}
 <script>
   $(function(){
-    $("#btnTogglePane").click(function() {
+    $(".pane-toggle").click(function() {
       $(".pane-left").toggleClass("pane-expanded");
     });
 
