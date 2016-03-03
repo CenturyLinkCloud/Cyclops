@@ -4,15 +4,30 @@
 
 <div class="content-header">
   <h1>Charts</h1>
-  <p>TODO: document all the things</p>
 
   <h4>Requirements</h4>
-  <p>To display charts and graphs, include the Chartist library on the page.</p>
-  <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css&quot;&gt;
+  <p>To display charts and graphs, include the depend upon Chartist library on the page.</p>
+  <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css&quot;&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js&quot;&gt;&lt;/script&gt;
 </code>
   </pre>
+  <p>
+    Then use either the cyclops jQuery function or the knockout binding to create your chart. The
+    knockout binding uses the jQuery function under the covers and thus shares all the same options,
+    <a href="./widgets.html#chart">chart API documentation.</a>
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$('.myChart').chart({type: 'Line', data: data})
+    </code>
+    <code class="html">
+&lt;div class=&quot;myChart&quot; data-bind=&quot;chart:{ type: &#39;Line&#39;, data: data }&quot;&gt;&lt;/div&gt;
+    </code>
+  </pre>
 </div>
+<p>
+
+</p>
 
 {{> charts/interactive }}
 {{> charts/lineChart }}

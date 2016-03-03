@@ -3,6 +3,92 @@
 {{!< layouts/code.html}}
 
 <h1>Widgets</h1>
+<section id="chart" class="pl-section">
+  <h3><code>chart</code></h3>
+  <p>
+    The <code>chart</code> function allows you to easily create chartist charts with a cyclops
+    style and feel. It does all the heavy lifting of setting the numeruos configuration options
+    for you.
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.myChart&#39;).chart({ type: 'Line', data: data })
+})
+    </code>
+    <code class="html">
+&lt;div class=&quot;myChart&quot;&gt;&lt;/div&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>type</td>
+        <td>String</td>
+        <td>Line</td>
+        <td>What type of chart. <a href="https://gionkunz.github.io/chartist-js/examples.html">Possible types</a></td>
+      </tr>
+      <tr>
+        <td>isLoading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Is the data loading still</td>
+      </tr>
+      <tr>
+        <td>isErrored</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Was there an error loading the data</td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td>object | observable object</td>
+        <td>required</td>
+        <td>The data for the chart. The shape is determined by the chart type.</td>
+      </tr>
+      <tr>
+        <td>getLoadingMessageHtml</td>
+        <td>function</td>
+        <td>fetching data&hellip;</td>
+        <td>function that returns text to display while loading data</td>
+      </tr>
+      <tr>
+        <td>getErrorMessageHtml</td>
+        <td>function</td>
+        <td>Unable to featch data.</td>
+        <td>function that returns text to display when loading has failed</td>
+      </tr>
+      <tr>
+        <td>getEmptyMessageHtml</td>
+        <td>function</td>
+        <td>No data at this time.</td>
+        <td>function that returns text to display when there is no data</td>
+      </tr>
+      <tr>
+        <td>chartOptions</td>
+        <td>object</td>
+        <td>{ fullWidth: true }</td>
+        <td><a href="https://gionkunz.github.io/chartist-js/index.html">Possible options</a></td>
+      </tr>
+      <tr>
+        <td>responsiveOptions</td>
+        <td>object</td>
+        <td>none</td>
+        <td><a href="https://gionkunz.github.io/chartist-js/index.html">Possible options</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
 
 <section id="inlineConfirm" class="pl-section">
   <h3><code>inlineConfirm</code></h3>
