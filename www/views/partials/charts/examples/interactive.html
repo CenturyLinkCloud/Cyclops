@@ -1,9 +1,3 @@
-<!--
-  INFO:
-   * Aspect Ratios
-   *
--->
-
 <div id="interactiveExample">
   <p>
     <button class="btn btn-default" data-bind="click: loadData">Load Data</button>
@@ -15,10 +9,10 @@
   </div>
 </div>
 
-
-
-
-
+<!-- FOR NATHAN ONLY, DELETE ME LATER -->
+<h2>For Nathan</h2>
+<div id="anotherThing"></div>
+<!-- FOR NATHAN ONLY, DELETE ME LATER -->
 
 
 {{#contentFor "scripts"}}
@@ -26,34 +20,56 @@
 <script>
 $(function () {
 
+  // FOR NATHAN ONLY, DELETE ME LATER
+  isLoading = ko.observable(true);
+  data = ko.observable();
+
+  $("#anotherThing").chart({
+    type: 'Line',
+    isLoading: isLoading,
+    data: data
+  });
+
+  window.setTimeout(function(){
+    isLoading(false);
+    data({
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      series: [
+        { name: 'CPU', value: [1,1,2,3,5] },
+        [3,3,3,3,3],
+        [4,5,6,1,8]
+      ]
+    });
+  },3000);
+  // FOR NATHAN ONLY, DELETE ME LATER
+
   var chartistModel = function() {
     var self = this;
-    self.data = ko.observable(
-      {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-        series: [
-          { name: 'CPU', value: [1,1,2,3,5] },
-          [3,3,3,3,3],
-          [4,5,6,1,8]
-        ]
-      }
-    );
-    self.isLoading = ko.observable(false);
+    self.mockData = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      series: [
+        { name: 'CPU', value: [1,1,2,3,5] },
+        [3,3,3,3,3],
+        [4,5,6,1,8]
+      ]
+    }
+    self.data = ko.observable();
+    self.isLoading = ko.observable(true);
     self.isErrored = ko.observable(false);
+
+    self.timer = window.setTimeout(function(){
+      self.data(self.mockData);
+      self.isLoading(false);
+    }, 3000);
 
     self.loadData = function() {
       self.isLoading(true);
       self.isErrored(false);
       self.data({});
-      window.setTimeout(function(){
-        self.data({
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-          series: [
-            [1,1,2,3,5],
-            [3,3,3,3,3],
-            [4,5,6,1,8]
-          ]
-        })
+      if(self.timer)
+        window.clearTimeout(self.timer)
+      self.timer = window.setTimeout(function(){
+        self.data(self.mockData)
         self.isLoading(false);
         self.isErrored(false);
       }, 2000);
@@ -63,7 +79,9 @@ $(function () {
       self.isLoading(true);
       self.isErrored(false);
       self.data({});
-      window.setTimeout(function(){
+      if(self.timer)
+        window.clearTimeout(self.timer)
+      self.timer = window.setTimeout(function(){
         self.isLoading(false);
         self.isErrored(true);
       }, 2000);
@@ -73,7 +91,9 @@ $(function () {
       self.isLoading(true);
       self.isErrored(false);
       self.data({});
-      window.setTimeout(function(){
+      if(self.timer)
+        window.clearTimeout(self.timer)
+      self.timer = window.setTimeout(function(){
         self.isLoading(false);
         self.isErrored(false);
       }, 2000);
