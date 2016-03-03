@@ -13,25 +13,22 @@
   </div>
 	<pre class="show-type">
 		<code class="javascript">
-var pieData = [
-  {
-    value: 300,
-    color:"#59b082",
-    highlight: "#59b082",
-    label: "set 1"
-  }
-  {...}
-]
+var pieData = {
+  series: [
+    {
+      value: 300,
+      name: "set 1"
+    },
+    {...}
+  ]
+}
 
-var ptx = $("#pieChartContainer").get(0).getContext("2d");
-var myBarChart = new Chart(ptx).Pie(pieData);
-
-var dtx = $("#donutChartContainer").get(0).getContext("2d");
-var myDoughnutChart = new Chart(dtx).Doughnut(pieData);
+ko.applyBindings({ data: pieData }, $("#pieChart")[0]);
+ko.applyBindings({ data: pieData }, $("#donutChart")[0]);
 		</code>
 		<code class="html">
-&lt;canvas id=&quot;pieChartContainer&quot; class=&quot;chart&quot;&gt;&lt;/canvas&gt;
-&lt;canvas id=&quot;donutChartContainer&quot; class=&quot;chart&quot;&gt;&lt;/canvas&gt;
+&lt;div id=&quot;pieChart&quot; data-bind=&quot;chart:{ type: &#39;Pie&#39;, data: data }&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;donutChart&quot; data-bind=&quot;chart:{ type: &#39;Donut&#39;, data: data }&quot;&gt;&lt;/div&gt;
 		</code>
 
 	</pre>

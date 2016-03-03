@@ -1,0 +1,93 @@
+<!--
+  INFO:
+   * Aspect Ratios
+   *
+-->
+
+<div id="interactiveExample">
+  <p>
+    <button class="btn btn-default" data-bind="click: loadData">Load Data</button>
+    <button class="btn btn-default" data-bind="click: failLoading">Load Data &amp; Fail</button>
+    <button class="btn btn-default" data-bind="click: empty">Load Data &amp; Be Empty</button>
+  </p>
+  <div>
+    <div data-bind="chart: { type: 'Bar', isLoading: isLoading, isErrored: isErrored, data: data }"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{{#contentFor "scripts"}}
+
+<script>
+$(function () {
+
+  var chartistModel = function() {
+    var self = this;
+    self.data = ko.observable(
+      {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        series: [
+          { name: 'CPU', value: [1,1,2,3,5] },
+          [3,3,3,3,3],
+          [4,5,6,1,8]
+        ]
+      }
+    );
+    self.isLoading = ko.observable(false);
+    self.isErrored = ko.observable(false);
+
+    self.loadData = function() {
+      self.isLoading(true);
+      self.isErrored(false);
+      self.data({});
+      window.setTimeout(function(){
+        self.data({
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+          series: [
+            [1,1,2,3,5],
+            [3,3,3,3,3],
+            [4,5,6,1,8]
+          ]
+        })
+        self.isLoading(false);
+        self.isErrored(false);
+      }, 2000);
+    };
+
+    self.failLoading = function() {
+      self.isLoading(true);
+      self.isErrored(false);
+      self.data({});
+      window.setTimeout(function(){
+        self.isLoading(false);
+        self.isErrored(true);
+      }, 2000);
+    };
+
+    self.empty = function() {
+      self.isLoading(true);
+      self.isErrored(false);
+      self.data({});
+      window.setTimeout(function(){
+        self.isLoading(false);
+        self.isErrored(false);
+      }, 2000);
+    };
+
+    return self;
+  }
+
+
+  var model = new chartistModel();
+  ko.applyBindings(model, $("#interactiveExample")[0])
+
+
+
+});
+</script>
+{{/contentFor}}
