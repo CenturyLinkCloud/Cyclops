@@ -86,6 +86,112 @@
   }
 }
 
+.navbar-local {
+
+  margin-bottom: 10px;
+
+  .navbar-toggle {
+    float: left;
+    padding: 10px 15px;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid @nav-bottom-border;
+    border-bottom: 1px solid @nav-bottom-border;
+    text-align: left;
+    border-radius: 0;
+
+    &:hover {
+      background-color: @nav-link-hover-bg;
+    }
+
+    &.open {
+      background-color: @nav-link-hover-bg;
+      .cyclops-icon {
+        .rotate(180deg);
+      }
+    }
+
+    .cyclops-icon {
+      float: right;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .navbar-nav {
+    margin-left: -20px;
+
+    > li {
+      border-bottom: 1px solid @nav-bottom-border;
+      letter-spacing: .5px;
+
+      .cyclops-icon {
+        float: right;
+        width: 20px;
+        height: 20px;
+      }
+
+      &.active {
+        font-weight: @bold-font-weight;
+      }
+    }
+  }
+
+  .dropdown.open {
+    .cyclops-icon {
+      .rotate(180deg);
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    .clearfix();
+    display: block;
+    border: none;
+    border-bottom: 5px solid @nav-bottom-border;
+    border-radius: 0;
+    margin-bottom: 30px;
+
+    .navbar-nav {
+      > li {
+        border-bottom: none;
+
+        .cyclops-icon {
+          float: none;
+          width: 14px;
+          height: 14px;
+        }
+
+        &.active {
+          border-bottom: 5px solid #666666;
+          margin-bottom: -5px;
+        }
+      }
+    }
+
+    .dropdown.open {
+      .cyclops-icon {
+        .rotate(0);
+      }
+    }
+
+    .dropdown-menu {
+      margin-top: 4px;
+      width: auto;
+      border: 1px solid #d9d9d9;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      > li > a {
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
 // Both navbar header and collapse
 //
 // When a container is present, change the behavior of the header and collapse.

@@ -17,8 +17,10 @@ $(() ->
     btn.attr('aria-expanded', isVisible)
     if(isVisible)
       menu.removeClass('collapsed')
+      btn.addClass('open')
     else
       menu.addClass('collapsed')
+      btn.removeClass('open')
     return
 
   navbars = $("nav.navbar").each (idx, nb) ->
