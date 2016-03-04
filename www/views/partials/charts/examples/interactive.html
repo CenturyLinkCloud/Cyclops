@@ -39,8 +39,17 @@ $(function () {
         [3,3,3,3,3],
         [4,5,6,1,8]
       ]
-    });
-  },3000);
+    }, {
+      high: 3,
+      low: -3,
+      showArea: true,
+      showLine: false,
+      showPoint: false,
+      fullWidth: true,
+      chartPadding: {
+        right: 200
+      }})
+  },1000);
   // FOR NATHAN ONLY, DELETE ME LATER
 
   var chartistModel = function() {
