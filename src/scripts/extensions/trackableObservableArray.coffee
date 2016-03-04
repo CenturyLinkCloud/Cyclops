@@ -22,6 +22,7 @@ ko.trackableObservableArray = (initValues) ->
 
   result.commit = ->
     result.committedValue result()
+    oldValues = result().slice()
     return
 
   ###
