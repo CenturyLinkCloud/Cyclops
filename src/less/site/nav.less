@@ -1,77 +1,72 @@
-html.cyclops {
-  .nav-cyclops {
-    background-color: @cyclops-header-bg;
-    border-width: 0;
-    padding: 10px 15px 5px;
-    .clearfix();
 
-    .navbar-brand {
-      width: 45px;
-      height: 40px;
-      border: none;
-      padding: 9px 15px 0 0;
-    }
+.nav-cyclops {
+  background-color: @cyclops-header-bg;
+  border-width: 0;
+  padding: 10px 15px 5px;
+  .clearfix();
 
-    .navbar-nav {
-      border-bottom: none;
+  .navbar-brand {
+    width: 45px;
+    height: 40px;
+    border: none;
+    padding: 9px 15px 0 0;
+  }
 
-      li {
-        font-weight: @base-font-weight;
-        letter-spacing: 1px;
+  .navbar-nav {
+    border-bottom: none;
 
-        a {
-          border-radius: 5px;
-          padding: 12px;
+    li {
+      font-weight: @base-font-weight;
+      letter-spacing: 1px;
 
-          &:hover {
-
-          }
-        }
+      a {
+        border-radius: 5px;
+        padding: 12px;
       }
     }
+  }
 
-    .cyclops-icon {
-      width: 21px;
-      height: 21px;
+  .cyclops-icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .navbar-cl-logo {
+    display: none;
+  }
+
+  .navbar-toggle {
+    margin-right: 0;
+    border-color: @border-color;
+
+    .icon-bar {
+      background-color: @gray-light;
     }
+  }
+}
 
+@media (min-width: @grid-float-breakpoint) {
+  .nav-cyclops {
     .navbar-cl-logo {
-      display: none;
+      display: block;
+      width: 127px;
+      height: 33px;
+      float: right;
+      margin-top: 10px;
     }
 
     .navbar-toggle {
-      margin-right: 0;
-      border-color: @border-color;
-
-      .icon-bar {
-        background-color: @gray-light;
-      }
+      margin-right: 15px;
     }
   }
+}
 
-  @media (min-width: @grid-float-breakpoint) {
-    .nav-cyclops {
-      .navbar-cl-logo {
-        display: block;
-        width: 127px;
-        height: 33px;
-        float: right;
-        margin-top: 10px;
-      }
-
-      .navbar-toggle {
-        margin-right: 15px;
-      }
-    }
-  }
-
-  #cyclops-nav-stacked {
-    margin-top: -30px;
+#cyclops-nav-stacked {
+  margin-top: -30px;
 //    background-color: darken(@gray-lighter, 2%);
 
-    @media (min-width: @grid-float-breakpoint) {
+  @media (min-width: @grid-float-breakpoint) {
 //      background-color: transparent;
-    }
-
   }
+
 }
