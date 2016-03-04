@@ -1,4 +1,4 @@
-if [ "$TRAVIS_BRANCH" = "master" ]; then
+if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
   cd ./devDist
 
   ../.travis/cf api https://api.uswest.appfog.ctl.io
