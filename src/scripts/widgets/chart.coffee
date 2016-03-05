@@ -21,6 +21,8 @@ if libraries.chartist
     if(options.type == 'Donut')
       options.type = 'Pie'
       options.chartOptions.donut = true
+      options.chartOptions.chartPadding = 0
+
 
     $(this).each (idx, element) ->
       $element = $(element)
