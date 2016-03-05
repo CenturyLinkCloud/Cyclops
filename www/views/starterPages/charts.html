@@ -28,20 +28,23 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-             {{> charts/examples/pieChart }}
+            <div id="pieChartExample" data-bind="chart: {type: 'Pie', data: data}"></div>
   				  <p class="text-center">pie chart</p>
           </div>
           <div class="col-sm-8">
-             {{> charts/examples/lineChart }}
-          <p class="text-center">line chart</p></div>
+            <div id="lineChart" data-bind="chart:{ type: 'Line', data: data }"></div>
+            <p class="text-center">line chart</p>
+          </div>
         </div>
         <div class="row">
           <div class="col-sm-4">
-            {{> charts/examples/donutChart }}
-  				  <p class="text-center">donut chart</p>
+            <div id="donutChart" data-bind="chart: {type: 'Donut', data: data}"></div>
+            <p class="text-center">line chart</p>
           </div>
-          <div class="col-sm-8">{{> charts/examples/barChart }}
-          <p class="text-center">bar chart</p></div>
+          <div class="col-sm-8">
+            <div id="barChart" data-bind="chart: { type:'Bar', data: data }"></div>
+            <p class="text-center">bar chart</p>
+          </div>
         </div>
       </div>
     </div>
@@ -49,3 +52,99 @@
 </div>
 
 {{> starter-pages/activity-history }}
+
+{{#contentFor "scripts"}}
+<script>
+$(function () {
+
+  var pieData = {
+    series: [
+      {
+          value: 300,
+          name: "Widget"
+      },
+      {
+          value: 50,
+          name: "Gizmo"
+      },
+      {
+          value: 100,
+          name: "Snarfblat"
+      },
+      {
+          value: 100,
+          name: "Dinglehopper"
+      },
+      {
+          value: 100,
+          name: "Watchamacallit"
+      },
+      {
+          value: 100,
+          name: "Doohicky"
+      }
+    ]
+  };
+
+  ko.applyBindings({ data: pieData }, $("#pieChartExample")[0]);
+
+  var donutData = {
+    series: [
+      {
+        name: "cpu usage",
+        value: 95
+      }, {
+        name: "cpu usage capacity",
+        value: 5
+      }
+    ]
+  }
+
+  ko.applyBindings({ data: donutData }, $("#donutChart")[0]);
+
+  var lineData = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    series: [
+      {
+        name: "Widget",
+        value: [75, 76, 77, 78, 81, 79, 76]
+      }, {
+        name: "Gizmo",
+        value: [86, 85, 82, 84, 86, 80, 90]
+      }, {
+        name: "Snarfblat",
+        value: [64, 68, 66, 64, 63, 69, 60]
+      }, {
+        name: "Dinglehopper",
+        value: [18, 56, 24, 53, 45, 85, 22]
+      }, {
+        name: "Watchamacallit",
+        value: [44, 48, 46, 46, 46, 44, 43]
+      }, {
+        name: "Doohicky",
+        value: [14, 18, 16, 16, 16, 14, 13]
+      }
+    ]
+  };
+
+  ko.applyBindings({ data: lineData }, $("#lineChart")[0]);
+
+  var barData = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    series: [
+      {
+        name: "My First dataset",
+        value: [65, 59, 80, 81, 56, 55, 40]
+      },
+      {
+        name: "My Second dataset",
+        value: [28, 48, 40, 19, 86, 27, 90]
+      }
+    ]
+  };
+
+  ko.applyBindings({ data: barData }, $("#barChart")[0]);
+
+});
+</script>
+{{/contentFor}}

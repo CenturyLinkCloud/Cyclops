@@ -9,7 +9,11 @@ if libraries.chartist
       getEmptyMessageHtml: () -> return 'No data at this time.'
       getErrorMessageHtml: () -> return 'Unable to featch data.'
       chartOptions: {
-        fullWidth: true
+        fullWidth: true,
+        chartPadding: {
+          right: 20
+        },
+        lineSmooth: false
       }
       responsiveOptions: {}
     }, options

@@ -5,52 +5,14 @@
     <button class="btn btn-default" data-bind="click: empty">Load Data &amp; Be Empty</button>
   </p>
   <div>
-    <div data-bind="chart: { type: 'Bar', isLoading: isLoading, isErrored: isErrored, data: data }"></div>
+    <div class="ct-major-twelfth" data-bind="chart: { type: 'Bar', isLoading: isLoading, isErrored: isErrored, data: data }"></div>
   </div>
 </div>
-
-<!-- FOR NATHAN ONLY, DELETE ME LATER -->
-<h2>For Nathan</h2>
-<div id="anotherThing"></div>
-<!-- FOR NATHAN ONLY, DELETE ME LATER -->
-
 
 {{#contentFor "scripts"}}
 
 <script>
 $(function () {
-
-  // FOR NATHAN ONLY, DELETE ME LATER
-  isLoading = ko.observable(true);
-  data = ko.observable();
-
-  $("#anotherThing").chart({
-    type: 'Line',
-    isLoading: isLoading,
-    data: data
-  });
-
-  window.setTimeout(function(){
-    isLoading(false);
-    data({
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-      series: [
-        { name: 'CPU', value: [1,1,2,3,5] },
-        [3,3,3,3,3],
-        [4,5,6,1,8]
-      ]
-    }, {
-      high: 3,
-      low: -3,
-      showArea: true,
-      showLine: false,
-      showPoint: false,
-      fullWidth: true,
-      chartPadding: {
-        right: 200
-      }})
-  },1000);
-  // FOR NATHAN ONLY, DELETE ME LATER
 
   var chartistModel = function() {
     var self = this;
@@ -81,7 +43,7 @@ $(function () {
         self.data(self.mockData)
         self.isLoading(false);
         self.isErrored(false);
-      }, 2000);
+      }, 3000);
     };
 
     self.failLoading = function() {
@@ -93,7 +55,7 @@ $(function () {
       self.timer = window.setTimeout(function(){
         self.isLoading(false);
         self.isErrored(true);
-      }, 2000);
+      }, 3000);
     };
 
     self.empty = function() {
@@ -105,7 +67,7 @@ $(function () {
       self.timer = window.setTimeout(function(){
         self.isLoading(false);
         self.isErrored(false);
-      }, 2000);
+      }, 3000);
     };
 
     return self;
