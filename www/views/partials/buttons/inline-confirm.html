@@ -1,4 +1,4 @@
-<button class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
+<button id="inlineConfirmBtn" class="btn btn-danger" data-bind="click: deleteHandler, widget:'inlineConfirm'">Delete</button>
 
 
 {{#contentFor "scripts"}}
@@ -8,7 +8,7 @@
       deleteHandler: function() {
         alert("deleted");
       }
-    });
+    }, $("#inlineConfirmBtn")[0]);
   })
 </script>
 {{/contentFor}}
