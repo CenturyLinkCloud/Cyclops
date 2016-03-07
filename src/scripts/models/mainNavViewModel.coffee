@@ -199,3 +199,6 @@ class MainNavViewModel
       closeTimer = window.setTimeout () =>
         @menus().forEach (m) -> m.isFlyoutOpen false
       , 1000
+
+
+    $mainNav.addClass 'loaded'
