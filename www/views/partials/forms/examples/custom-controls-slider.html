@@ -8,3 +8,17 @@
 		</div>
 	</div>
 </form>
+
+
+{{#contentFor "scripts"}}
+<script>
+$(function(){
+
+	/* Start Sliders */
+  ko.applyBindings({}, $("#formSlider")[0]);
+  /* End Sliders */
+
+})
+</script>
+
+{{/contentFor}}

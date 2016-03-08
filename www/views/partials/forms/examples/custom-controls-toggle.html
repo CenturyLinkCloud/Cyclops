@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form id="formToggle" class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-3 control-label">toggle</label>
 		<div class="col-sm-9">
@@ -6,3 +6,17 @@
 		</div>
 	</div>
 </form>
+
+
+{{#contentFor "scripts"}}
+<script>
+$(function(){
+
+	/* Start Toggle */
+  ko.applyBindings({}, $("#formToggle")[0]);
+  /* End Toggle */
+
+})
+</script>
+
+{{/contentFor}}
