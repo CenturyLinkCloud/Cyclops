@@ -31,7 +31,7 @@ main-nav {
     color: @gray-light;
   }
 
-  ~ .pane-left,
+  ~ .pane,
   ~ main {
     margin-left: @main-nav-width-sm;
   }
@@ -312,7 +312,7 @@ main-nav {
 }
 
 @media (min-width: @screen-sm-min) {
-  .pane-left ~ main {
+  .pane ~ main {
     margin-left: @main-nav-width-md + @pane-width;
   }
 
@@ -323,7 +323,7 @@ main-nav {
       width: @main-nav-width-md;
     }
 
-    ~ .pane-left,
+    ~ .pane,
     ~ main {
       margin-left: @main-nav-width-md;
     }
@@ -362,7 +362,7 @@ main-nav {
 }
 
 @media (min-width: @screen-xl-min) {
-  .pane-left ~ main {
+  .pane ~ main {
     margin-left: @main-nav-width-lg + @pane-width;
   }
 
@@ -377,7 +377,7 @@ main-nav {
       width: @main-nav-width-lg;
     }
 
-    ~ .pane-left,
+    ~ .pane,
     ~ main {
       margin-left: @main-nav-width-lg;
     }

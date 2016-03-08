@@ -1,5 +1,5 @@
 {{!< ../layouts/starter-page.html}}
-<div class="pane-left">
+<div class="pane">
   <div class="pane-header">
     <div class="content">
       <button class="pane-header-btn pane-toggle">browse<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></button>
@@ -137,10 +137,10 @@
   $(function(){
     $("#azure").addClass('selected');
     $(".pane-toggle").click(function() {
-      $(".pane-left").toggleClass("pane-expanded");
+      $(".pane").toggleClass("pane-expanded");
     });
 
-    $(".pane-left").affix();
+    $(".pane").affix();
   });
 </script>
 {{/contentFor}}
