@@ -1,13 +1,13 @@
 //
 // Action Toolbar
 // --------------------------------------------------
-
 .action-area {
   background-color: #e5e5e5;
   height: 40px;
   line-height: 20px;
   padding: 0 10px;
   overflow: hidden;
+  position: relative;
   .clearfix();
 
   &.action-toolbar-confirm-shown {
@@ -38,7 +38,8 @@
       .transition(e('padding .1s ease-in'));
       .transition(e('background-color .1s ease-in'));
       text-decoration: none;
-      border:none;
+      border: none;
+      outline: none;
 
       &:hover {
         background-color: #3a3a3a;
@@ -50,7 +51,8 @@
         }
       }
 
-      &.disabled {
+      &.disabled,
+      &:disabled {
         color: #b9b9b9;
         cursor: @cursor-disabled;
 
@@ -76,7 +78,8 @@
 }
 
 .action-toolbar-right {
-  float: right;
+  position: absolute;
+  right: 10px;
 }
 
 .overflow-menu {
@@ -100,12 +103,12 @@
       font-size: 13px;
     }
 
-   .dropdown-menu {
-     li > a,
-     li > button {
-       padding: 5px 10px;
-     }
-   }
+    .dropdown-menu {
+      li > a,
+      li > button {
+        padding: 5px 10px;
+      }
+    }
 
     svg {
       fill: @white;

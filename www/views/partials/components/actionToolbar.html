@@ -15,7 +15,7 @@
   &lt;ol class=&quot;action-toolbar&quot; data-bind=&quot;widget: 'overflowMenu'&quot;&gt;
     &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; start&lt;/button&gt;&lt;/li&gt;
     &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; stop&lt;/button&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;button type=&quot;button&quot; class=&quot;disabled&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; disabled&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot; disabled&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; disabled&lt;/button&gt;&lt;/li&gt;
     &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-refresh'&gt;&lt;/svg&gt; restart&lt;/button&gt;&lt;/li&gt;
     &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-archive'&gt;&lt;/svg&gt; archive&lt;/button&gt;&lt;/li&gt;
     &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-snapshot'&gt;&lt;/svg&gt; snapshot&lt;/button&gt;&lt;/li&gt;
@@ -36,18 +36,17 @@
   <pre>
     <code class="html">
 &lt;div class=&quot;action-area&quot;&gt;
-  &lt;ol class=&quot;action-toolbar-left&quot; data-bind=&quot;widget: &#39;overflowMenu&#39;&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-play&#39;&gt;&lt;/svg&gt; start&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-stop&#39;&gt;&lt;/svg&gt; stop&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;disabled&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-stop&#39;&gt;&lt;/svg&gt; disabled&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-refresh&#39;&gt;&lt;/svg&gt; restart&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-archive&#39;&gt;&lt;/svg&gt; archive&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-snapshot&#39;&gt;&lt;/svg&gt; snapshot&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-disaster-recovery&#39;&gt;&lt;/svg&gt; recovery&lt;/a&gt;&lt;/li&gt;
+  &lt;ol class=&quot;action-toolbar-left&quot; data-bind=&quot;widget: 'overflowMenu'&quot;&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-play'&gt;&lt;/svg&gt; start&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; stop&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot; disabled&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-stop'&gt;&lt;/svg&gt; disabled&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-refresh'&gt;&lt;/svg&gt; restart&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-archive'&gt;&lt;/svg&gt; archive&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-snapshot'&gt;&lt;/svg&gt; snapshot&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-disaster-recovery'&gt;&lt;/svg&gt; recovery&lt;/button&gt;&lt;/li&gt;
   &lt;/ol&gt;
-
   &lt;ol class=&quot;action-toolbar-right&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-settings&#39;&gt;&lt;/svg&gt; settings&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button type=&quot;button&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href='#icon-settings'&gt;&lt;/svg&gt; settings&lt;/button&gt;&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
     </code>
@@ -55,7 +54,7 @@
 
 
 
-  <h4>Confirmations</h4>
+  <h4 id="actionToolbarConfirmations"><a href="#actionToolbarConfirmations">Action Toolbar Confirmations</a></h4>
   <p>
     Some actions can be costly or even dangerous and therefore should be confirmed to make sure
     that the user actually wants to preform them. This shouldn’t be done on every action just

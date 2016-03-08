@@ -35,7 +35,7 @@ For more information view the [dependencies page](https://github.com/CenturyLink
 ### Optional
 * [jQuery UI](https://jqueryui.com/) >= 1.11.4
 * [Knockout Validation](https://github.com/Knockout-Contrib/Knockout-Validation) >= 2.0.3
-* [Chart.js](http://www.chartjs.org/)
+* [Chartist.js](https://gionkunz.github.io/chartist-js/)
 
 ## Credit
 

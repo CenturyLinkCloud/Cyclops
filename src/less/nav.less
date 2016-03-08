@@ -25,6 +25,8 @@
         text-decoration: none;
         background-color: @nav-link-hover-bg;
       }
+
+      text-decoration: none;
     }
 
     // Disabled state sets text to gray and nukes hover/tab effects
@@ -122,6 +124,65 @@
   margin-top: -20px;
 }
 
+
+// hide sub level nav items by default;
+.tabs-subnav {
+  display: none;
+  padding: 0;
+}
+
+
+// Tabs
+// -------------------------
+.nav-tabs {
+
+  .clearfix();
+  margin-bottom: 20px;
+  border-bottom: 2px solid @nav-bottom-border;
+
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-bottom: 2px solid @nav-bottom-border;
+      padding: 10px 15px;
+      margin-bottom: -2px;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid @gray-darker;
+        background-color: none;
+      }
+    }
+    + li {
+      margin-left: 4px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid @gray-darker;
+      }
+    }
+
+    // Disabled state
+    &.disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid @nav-bottom-border;
+      }
+    }
+  }
+}
+
 @media (min-width: @screen-sm-min) {
 
   .nav-stacked {
@@ -195,10 +256,4 @@
   }
 }
 
-}
-
-// hide sub level nav items by default;
-.tabs-subnav {
-  display: none;
-  padding: 0;
 }

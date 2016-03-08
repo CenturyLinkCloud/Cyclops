@@ -13,6 +13,26 @@
       Getting Started Guide</a>. Bellow is the set of options, validators, and custom validators.
     </p>
 
+    <h4>Global Configuration</h4>
+    <p>
+      There are three global configuration options that need to be set on knockout validation. Due
+      do backwards compatability issues we are unable to automatically set these for you. You may set
+      yourself globally or use the <code>validationOptions</code> binding to set them on each form.
+    </p>
+    <p>
+      <code>insertMessages=false</code>: Turns off the inertion of a text node next to the input,
+      instead use the <code>validationMsg</code> binding.
+    </p>
+    <p>
+      <code>allowHtmlMessages=true</code>: Do not html encode the validation message, note that if you
+      are inserting any kind of user input into your validation message that text must me HTML encoded.
+      see, <a href="http://osbornm.com/2010/05/05/how-and-when-to-encode-for-the-web/">How and when
+      to encode for the web</a>
+    </p>
+    <p>
+      <code>errorsAsTittle=false</code>: Do not append a title attribute with the validation message,
+      this is a problem when you are using HTML messages because titles do not support HTML.
+    </p>
 
     <h4 id="simpleValidation"><a href="#simpleValidation">Demo</a></h4>
     <p>
@@ -43,7 +63,7 @@
       of error messages for the tracked properties.
     </p>
     <div class="pl-example" id="simpleValidationExample">
-      <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+      <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTittle: false }">
         <div class="form-group">
           <label class="col-sm-3 control-label" for="header">Header (optional)</label>
           <div class="col-sm-6">
@@ -80,7 +100,7 @@ self.submit = function() {
 };
       </code>
       <code class="html">
-&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+&lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTittle: false }&quot;&gt;
   &lt;div class=&quot;form-group&quot;&gt;
     &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;header&quot;&gt;Header (optional)&lt;/label&gt;
     &lt;div class=&quot;col-sm-6&quot;&gt;
@@ -149,7 +169,7 @@ self.submit = function() {
     about the options of this widget can be found on the <a href="#">widgets</a> page.
   </p>
   <div class="pl-example" id="passwordStrengthExample">
-    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTittle: false }">
       <div class="form-group">
           <label class="col-sm-3 control-label" for="password">password</label>
           <div class="col-sm-6">
@@ -180,7 +200,7 @@ self.submit = function() {
 };
           </code>
           <code class="html">
-  &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true }&quot;&gt;
+  &lt;form class=&quot;form-horizontal&quot; data-bind=&quot;validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTittle: false }&quot;&gt;
   &lt;div class=&quot;form-group&quot;&gt;
       &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;password&quot;&gt;password&lt;/label&gt;
       &lt;div class=&quot;col-sm-6&quot;&gt;
@@ -212,7 +232,7 @@ self.submit = function() {
     returned so you will need to properly abort the previous call and issue a new one.
   </p>
   <div class="pl-example" id="remoteExample">
-    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true }">
+    <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTittle: false }">
       <div class="form-group">
           <label class="col-sm-3 control-label" for="remoteText">Remotely Validated</label>
           <div class="col-sm-6">

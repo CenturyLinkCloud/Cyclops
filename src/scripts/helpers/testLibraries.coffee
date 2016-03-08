@@ -9,13 +9,25 @@ if !ko?
 
 #test for optional libraries
 if !$? or !$.ui?
-  libraries.jqueryUi = false;
+  libraries.jqueryUi = false
   console.log 'jQuery UI is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
+else
+  libraries.jqueryUi = true
 
 if !ko.validation?
-  libraries.knockoutValidation = false;
+  libraries.knockoutValidation = false
   console.log 'knockout validation is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
+else
+  libraries.knockoutValidation = true
 
 if !moment?
-  libraries.moment = false;
+  libraries.moment = false
   console.log 'momentjs is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
+else
+  libraries.moment = true
+
+if !Chartist?
+  libraries.chartist = false
+  console.log 'chartist is not referenced or is referenced after cyclops some parts of cyclops may not be avalible.'
+else
+  libraries.chartist = true

@@ -1,4 +1,4 @@
-<div><canvas id="barChartContainer" class="chart"></canvas></div>
+<div id="barChart" data-bind="chart: { type:'Bar', data: data }" class="ct-major-twelfth"></div>
 
 {{#contentFor "scripts"}}
 <script>
@@ -6,25 +6,19 @@ $(function () {
 
   var barData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
+    series: [
       {
-        label: "My First dataset",
-        fillColor: "#8cc63f",
-        highlightFill: "#8cc63f",
-        data: [65, 59, 80, 81, 56, 55, 40]
+        name: "My First dataset",
+        value: [65, 59, 80, 81, 56, 55, 40]
       },
       {
-        label: "My Second dataset",
-        fillColor: "#404c43",
-        highlightFill: "#404c43",
-        data: [28, 48, 40, 19, 86, 27, 90]
+        name: "My Second dataset",
+        value: [28, 48, 40, 19, 86, 27, 90]
       }
     ]
   };
 
-  var btx = $("#barChartContainer").get(0).getContext("2d");
-  var myBarChart = new Chart(btx).Bar(barData);
-
+  ko.applyBindings({ data: barData }, $("#barChart")[0]);
 });
 </script>
 {{/contentFor}}

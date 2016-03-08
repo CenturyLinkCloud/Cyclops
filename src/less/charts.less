@@ -1,4 +1,980 @@
-.chart {
-  margin-bottom: @line-height-computed;
-  max-height: 300px !important;
+// Line chart properties
+@ct-line-width: 2px;
+@ct-line-dasharray: false;
+@ct-point-size: 7px; // Line chart point, can be either round or square
+@ct-point-shape: round; // Area fill transparency between 0 and 1
+@ct-area-opacity: 0.1; // Bar chart bar width
+@ct-bar-width: 12px; // Donut width (If donut width is to big it can cause issues where the shape gets distorted)
+
+.ct-label {
+  fill: @text-color-lighter;
+  color: @text-color-lighter;
+  font-size: @font-size-small;
+  line-height: 1;
+}
+
+.ct-chart-line .ct-label,
+.ct-chart-bar .ct-label {
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start;
+}
+
+.ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start;
+}
+
+.ct-label.ct-vertical.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+  text-anchor: end;
+}
+
+.ct-label.ct-vertical.ct-end {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start;
+}
+
+.ct-chart-bar .ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-anchor: start;
+}
+
+.ct-chart-bar .ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-anchor: start;
+}
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-start {
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start;
+}
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-end {
+  -webkit-box-align: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: start;
+}
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-start {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: flex-end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+  text-anchor: end;
+}
+
+.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-end {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  text-anchor: end;
+}
+
+.ct-grid {
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 1px;
+  stroke-dasharray: 4px;
+}
+
+.ct-point {
+  stroke-width: @ct-point-size;
+  stroke-linecap: @ct-point-shape;
+}
+
+.ct-line {
+  fill: none;
+  stroke-width: @ct-line-width;
+}
+
+.ct-area {
+  stroke: none;
+  fill-opacity: @ct-area-opacity;
+}
+
+.ct-bar {
+  fill: none;
+  stroke-width: @ct-bar-width;
+}
+
+.ct-slice-pie {
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.ct-slice-donut {
+  fill: none;
+}
+
+.ct-square {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-square:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.ct-square:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-square > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-minor-second {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-minor-second:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 93.75%;
+}
+
+.ct-minor-second:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-minor-second > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-second {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-second:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 88.8888888889%;
+}
+
+.ct-major-second:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-second > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-minor-third {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-minor-third:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 83.3333333333%;
+}
+
+.ct-minor-third:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-minor-third > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-third {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-third:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 80%;
+}
+
+.ct-major-third:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-third > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-perfect-fourth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-perfect-fourth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 75%;
+}
+
+.ct-perfect-fourth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-perfect-fourth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-perfect-fifth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-perfect-fifth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 66.6666666667%;
+}
+
+.ct-perfect-fifth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-perfect-fifth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-minor-sixth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-minor-sixth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 62.5%;
+}
+
+.ct-minor-sixth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-minor-sixth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-golden-section {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-golden-section:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 61.804697157%;
+}
+
+.ct-golden-section:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-golden-section > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-sixth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-sixth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+.ct-major-sixth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-sixth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-minor-seventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-minor-seventh:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.ct-minor-seventh:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-minor-seventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-seventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-seventh:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 53.3333333333%;
+}
+
+.ct-major-seventh:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-seventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-octave {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-octave:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 50%;
+}
+
+.ct-octave:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-octave > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-tenth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-tenth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 40%;
+}
+
+.ct-major-tenth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-tenth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-eleventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-eleventh:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 37.5%;
+}
+
+.ct-major-eleventh:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-eleventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-major-twelfth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-major-twelfth:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 33.3333333333%;
+}
+
+.ct-major-twelfth:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-major-twelfth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ct-double-octave {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.ct-double-octave:before {
+  display: block;
+  float: left;
+  content: '';
+  width: 0;
+  height: 0;
+  padding-bottom: 25%;
+}
+
+.ct-double-octave:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ct-double-octave > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+////////////
+
+.ct-chart-donut,
+.ct-chart-pie {
+  .ct-label {
+    fill: #fff;
+    color: #fff;
+    opacity: 0;
+  }
+
+  &:hover {
+    .ct-label {
+      opacity: 1;
+    }
+  }
+}
+
+.ct-chart {
+  position: relative;
+
+  .message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: @gray-lighter;
+    font-size: @font-size-base;
+    color: @text-color-lighter;
+  }
+
+  .ct-series-a {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(140,198,63);
+    }
+
+    .ct-area {
+      stroke: rgb(140,198,63);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(140,198,63);
+    }
+  }
+
+  .ct-series-b {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slice-donut {
+      stroke: rgb(88,119,106);
+    }
+
+    .ct-area {
+      stroke: rgb(88,119,106);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(88,119,106);
+    }
+  }
+
+  .ct-series-c {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(245,169,52);
+    }
+
+    .ct-area {
+      stroke: rgb(245,169,52);
+    }
+
+    .ct-slice-pie {
+      fill: rgb(245,169,52);
+    }
+  }
+
+  .ct-series-d {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(212,71,71);
+    }
+
+    .ct-area {
+      stroke: rgb(212,71,71);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(212,71,71);
+    }
+  }
+
+  .ct-series-e {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(89,176,130);
+    }
+
+    .ct-area {
+      stroke: rgb(89,176,130);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(89,176,130);
+    }
+  }
+
+  .ct-series-f {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-area,
+    .ct-slice-donut {
+      stroke: rgb(89,124,151);
+    }
+
+    .ct-area {
+      stroke: rgb(89,124,151);
+    }
+
+    .ct-slice-pie {
+      fill: rgb(89,124,151);
+    }
+  }
+
+  .ct-series-g {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slice-donut {
+      stroke: rgb(64, 76, 67);
+    }
+
+    .ct-area {
+      fill: rgb(64, 76, 67);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(64, 76, 67);
+    }
+  }
+
+  .ct-series-h {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slice-donut {
+      stroke: rgb(94,147,84);
+    }
+
+    .ct-area {
+      stroke: rgb(94,147,84);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(94,147,84);
+    }
+  }
+
+  .ct-series-i {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-area,
+    .ct-slice-donut {
+      stroke: rgb(241,238,107);
+    }
+
+    .ct-area {
+      stroke: rgb(241,238,107);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(241,238,107);
+    }
+  }
+
+  .ct-series-j {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(64,76,67);
+    }
+
+    .ct-area {
+      stroke: rgb(64,76,67);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(64,76,67);
+    }
+  }
+
+  .ct-series-k {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(184,226,136);
+    }
+
+    .ct-area {
+      stroke: rgb(184,226,136);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(184,226,136);
+    }
+  }
+
+  .ct-series-l {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(94,147,84);
+    }
+
+    .ct-area {
+      stroke: rgb(94,147,84);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(94,147,84);
+    }
+  }
+
+  .ct-series-m {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(88,119,106);
+    }
+
+    .ct-area {
+      stroke: rgb(88,119,106);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(88,119,106);
+    }
+  }
+
+  .ct-series-n {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(184,226,136);
+    }
+
+    .ct-area {
+      stroke: rgb(184,226,136);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(184,226,136);
+    }
+  }
+
+  .ct-series-o {
+    .ct-bar,
+    .ct-line,
+    .ct-point,
+    .ct-slide-pie,
+    .ct-slice-donut {
+      stroke: rgb(140,198,63);
+    }
+
+    .ct-area {
+      stroke: rgb(140,198,63);
+    }
+
+    .ct-slice-area,
+    .ct-slice-pie {
+      fill: rgb(140,198,63);
+    }
+  }
 }

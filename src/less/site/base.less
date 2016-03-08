@@ -5,7 +5,7 @@ html {
 
 body {
   background: #f5f5f5;
-  margin-bottom: 40px;
+  margin: 0;
 }
 
 .main-column {
@@ -16,21 +16,17 @@ footer {
   font-size: @font-size-small;
   padding: 1em 1.5em;
   bottom: 0;
-  position: absolute;
   height: 40px;
   background-color: @gray-lighter;
   width: 100%;
 }
 
-html.cyclops {
+main.container {
+  padding-top: 30px;
+}
 
-  main.container {
-    padding-top: 30px;
-  }
-
-  footer {
-    p {
-      margin: 0;
-    }
+footer {
+  p {
+    margin: 0;
   }
 }

@@ -1,24 +1,21 @@
-<div><canvas id="donutChartContainer" class="chart"></canvas></div>
+<div id="donutChart2" data-bind="chart: {type: 'Donut', data: data}" class="ct-major-twelfth"></div>
 
 {{#contentFor "scripts"}}
 <script>
 $(function () {
-	var donutData = [
-    {
-        value: 95,
-        color:"#59b082",
-        highlight: "#59b082",
-        label: "cpu usage"
-    },
-    {
-        value: 5,
-        color: "#ccc",
-        highlight: "#ccc",
-        label: "cpu usage capacity"
-    }
-	]
-	var dtx = $("#donutChartContainer").get(0).getContext("2d");
-	var myDoughnutChart = new Chart(dtx).Doughnut(donutData);
+	var donutData = {
+		series: [
+			{
+				name: "cpu usage",
+				value: 95
+			}, {
+				name: "cpu usage capacity",
+				value: 5
+			}
+		]
+	}
+
+	ko.applyBindings({ data: donutData }, $("#donutChart2")[0]);
 });
 </script>
 {{/contentFor}}
