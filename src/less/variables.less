@@ -1,67 +1,55 @@
 // Extra small screen / phone
 //** Deprecated `@screen-xs` as of v3.0.1
 @screen-xs: 480px;
-
 //** Deprecated `@screen-xs-min` as of v3.2.0
 @screen-xs-min: @screen-xs;
-
 //** Deprecated `@screen-phone` as of v3.0.1
 @screen-phone: @screen-xs-min;
-
 //== Media queries breakpoints
 // Small screen / tablet
 //** Deprecated `@screen-sm` as of v3.0.1
 @screen-sm: 768px;
 @screen-sm-min: @screen-sm;
-
 // Medium screen / desktop
 //** Deprecated `@screen-md` as of v3.0.1
 @screen-md: 992px;
 @screen-md-min: @screen-md;
-
 // Large screen / wide desktop
 //** Deprecated `@screen-lg` as of v3.0.1
 @screen-lg: 1200px;
 @screen-lg-min: @screen-lg;
-
+// X-Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-xl: 1800px;
+@screen-xl-min: @screen-xl;
 //** Deprecated `@screen-lg-desktop` as of v3.0.1
 @screen-lg-desktop: @screen-lg-min;
-
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max: (@screen-sm-min - 1);
 @screen-sm-max: (@screen-md-min - 1);
 @screen-md-max: (@screen-lg-min - 1);
 @screen-lg-max: 1200px;
-
 //== Grid system
 //
 //## Define your custom responsive grid.
 //** Number of columns in the grid.
 @grid-columns: 12;
-
 //** Padding between columns. Gets divided in half for the left and right.
 @grid-gutter-width: 40px;
-
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint: @screen-sm-min;
-
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
-
 // Scaffolding
 // -------------------------
 @padding-base-vertical: 7px;
-
 //** Global textual link color.
 @link-color: @primary-brand-green;
-
 //** Link hover color set via `darken()` function.
 @link-hover-color: darken(@link-color, 15%);
-
 //** Link hover decoration.
 @link-hover-decoration: underline;
-
 // Colors
 // -------------------------
 @primary-brand-green: #00853f;
@@ -73,7 +61,6 @@
 @brand-danger: #e43b34;
 @border-color: #d9d9d9;
 @white: #fff;
-
 // Accent colors
 // -------------------------
 @blue: #049cdb;
@@ -81,10 +68,9 @@
 @green: #46a546;
 @red: #9d261d;
 @yellow: #ffc40d;
-@orange: #f89406;
+@orange: #f5a934;
 @pink: #c3325f;
 @purple: #7a43b6;
-
 // Grays
 // -------------------------
 @black: #000;
@@ -93,7 +79,6 @@
 @gray: #555;
 @gray-light: #999;
 @gray-lighter: #eee;
-
 //-- Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
@@ -101,44 +86,34 @@
 //
 // Note: These variables are not generated into the Customizer.
 @zindex-navbar: 1000;
-
 //@zindex-dropdown:          1000;
 //@zindex-popover:           1060;
 @zindex-tooltip: 1070;
 @zindex-navbar-fixed: 1030;
-
 //@zindex-modal-background:  1040;
 //@zindex-modal:             1050;
-
 //== Typography
 // -------------------------
 @text-color: #666666;
 @text-color-light: @gray;
 @text-color-lighter: @gray-light;
-
 @error-text: #a94442;
-
 @base-font-weight: 400;
 @bold-font-weight: 600;
-
 @font-family: "Open Sans", Helvetica, Arial, Sans-Serif;
 @mono-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-
 @font-size-base: 14px;
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small: ceil((@font-size-base * 0.85)); // ~12px
-
 @font-size-h1: floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2: floor((@font-size-base * 2.15)); // ~30px
 @font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
 @font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
 @font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
-
 @heading-text-color: @gray-darker;
 @headings-small-color: @gray-light;
 @headings-line-height: 1.2em;
-
 // Common Components
 // -------------------------
 //** Unit-less `line-height` for use in components like buttons.
@@ -148,7 +123,6 @@
 @border-radius-base: 4px;
 @border-radius-large: 6px;
 @border-radius-small: 3px;
-
 // Buttons
 //-------------------------
 @btn-default-color: #fff;
@@ -179,63 +153,48 @@
 @btn-outline-bg-hover: #888;
 @btn-outline-bg-active: @btn-outline-bg-hover;
 @btn-outline-bg-disabled: @btn-outline-bg;
-
 // Code
 //-------------------------
 @code-color: #c7254e;
 @code-bg: #f9f2f4;
-
 //== Tables
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
 //** Padding for `<th>`s and `<td>`s.
 @table-cell-padding: 8px;
-
 //** Padding for cells in `.table-condensed`.
 @table-condensed-cell-padding: 5px;
-
 //** Default background color used for all tables.
 @table-bg: transparent;
-
 //** Background color used for `.table-striped`.
 @table-bg-accent: #f9f9f9;
-
 //** Background color used for `.table-hover`.
 @table-bg-hover: #f5f5f5;
 @table-bg-active: @table-bg-hover;
 @table-header-bg-color: #eaeaea;
-
 //** Border color for table and cell borders.
 @table-border-color: #ddd;
-
 // Forms
 //-------------------------
 @input-height-base: 34px;
 @form-group-margin-bottom: 15px;
 @input-bg-disabled: @gray-lighter;
-
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled: not-allowed;
-
 //== Tooltips
 //
 //##
 //** Tooltip max width
 @tooltip-max-width: 200px;
-
 //** Tooltip text color
 @tooltip-color: #fff;
-
 //** Tooltip background color
 @tooltip-bg: #000;
 @tooltip-opacity: 0.9;
-
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
-
 //** Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
-
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
@@ -251,7 +210,6 @@
 @state-danger-text: @error-text;
 @state-danger-bg: #f2dede;
 @state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
-
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -273,7 +231,6 @@
 @alert-instruction-bg: @white;
 @alert-instruction-text: @text-color-light;
 @alert-instruction-border: @border-color;
-
 //== Navs
 //
 //=== Shared nav styles
@@ -282,7 +239,6 @@
 @nav-disabled-link-color: @gray-light;
 @nav-disabled-link-hover-color: @gray-light;
 @nav-bottom-border: #ccc;
-
 //== Navbar
 //
 // Basics of a navbar
@@ -295,7 +251,6 @@
 @navbar-default-color: #777;
 @navbar-default-bg: #f8f8f8;
 @navbar-default-border: darken(@navbar-default-bg, 6.5%);
-
 // Navbar links
 @navbar-default-link-color: #777;
 @navbar-default-link-hover-color: #333;
@@ -304,23 +259,19 @@
 @navbar-default-link-active-bg: darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color: #ccc;
 @navbar-default-link-disabled-bg: transparent;
-
 // Navbar brand label
 @navbar-default-brand-color: @navbar-default-link-color;
 @navbar-default-brand-hover-color: darken(@navbar-default-brand-color, 10%);
 @navbar-default-brand-hover-bg: transparent;
-
 // Navbar toggle
 @navbar-default-toggle-hover-bg: #ddd;
 @navbar-default-toggle-icon-bar-bg: #888;
 @navbar-default-toggle-border-color: #ddd;
-
 //=== Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color: lighten(@gray-light, 15%);
 @navbar-inverse-bg: #262626;
 @navbar-inverse-border: darken(@navbar-inverse-bg, 10%);
-
 // Inverted navbar links
 @navbar-inverse-link-color: lighten(@gray-light, 15%);
 @navbar-inverse-link-hover-color: #fff;
@@ -329,42 +280,53 @@
 @navbar-inverse-link-active-bg: darken(@navbar-inverse-bg, 10%);
 @navbar-inverse-link-disabled-color: #444;
 @navbar-inverse-link-disabled-bg: transparent;
-
 // Inverted navbar brand label
 @navbar-inverse-brand-color: @navbar-inverse-link-color;
 @navbar-inverse-brand-hover-color: #fff;
 @navbar-inverse-brand-hover-bg: transparent;
-
 // Inverted navbar toggle
 @navbar-inverse-toggle-hover-bg: #333;
 @navbar-inverse-toggle-icon-bar-bg: #fff;
 @navbar-inverse-toggle-border-color: #333;
-
-
+// Tree List
+@tree-list-status-default-bg: #d3d3d3;
+@tree-list-status-warning-bg: @orange;
+@tree-list-status-danger-bg: @brand-danger;
+//== Pane
+@pane-width: 280px;
+//== Main Nav
+//
+@main-nav-icon-color: #757575;
+@main-nav-bg: #2d302d;
+@main-nav-bg-hover: #292929;
+@main-nav-bg-selected: #262626;
+@main-nav-icon-color: #666;
+@main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-bg-selected inset, 0 1px 0 @main-nav-bg-selected inset;
+@main-nav-width-sm: 46px;
+@main-nav-width-md: 100px;
+@main-nav-width-lg: 160px;
+@main-nav-flyout-bg: #272827;
+@main-nav-flyout-width: @pane-width; // 280px
+@main-nav-flyout-divider: #343534;
+@main-nav-flyout-selected: #212121;
 //== Pagination
 //
 //## Define pagination colors and padding.
-@pagination-padding-x:                12px;
-@pagination-padding-y:                9px;
-
-@pagination-color:                     @text-color;
-@pagination-bg:                        #fff;
-@pagination-border-width:              1px;
-@pagination-border-color:              #ddd;
-
-@pagination-hover-color:               @text-color;
-@pagination-hover-bg:                  @gray-lighter;
-@pagination-hover-border:              #ddd;
-
-@pagination-active-color:              @text-color;
-@pagination-active-bg:                 #ccc;
-@pagination-active-border:             #ccc;
-
-@pagination-disabled-color:            @gray-light;
-@pagination-disabled-bg:               #fff;
-@pagination-disabled-border:           #ddd;
-
-
+@pagination-padding-x: 12px;
+@pagination-padding-y: 9px;
+@pagination-color: @text-color;
+@pagination-bg: #fff;
+@pagination-border-width: 1px;
+@pagination-border-color: #ddd;
+@pagination-hover-color: @text-color;
+@pagination-hover-bg: @gray-lighter;
+@pagination-hover-border: #ddd;
+@pagination-active-color: @text-color;
+@pagination-active-bg: #ccc;
+@pagination-active-border: #ccc;
+@pagination-disabled-color: @gray-light;
+@pagination-disabled-bg: #fff;
+@pagination-disabled-border: #ddd;
 //== Chart Colors
 //
 @fill-greengrey: #404c43;
@@ -375,5 +337,5 @@
 @fill-seafoam: #59b082;
 @fill-blue: #597c97;
 @fill-yellow: #f1ee6b;
-@fill-orange: #f5a934;
+@fill-orange: @orange;
 @fill-red: #d44747;

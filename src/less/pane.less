@@ -1,0 +1,86 @@
+.pane {
+  position: static;
+  max-height: 36px;
+  overflow: hidden;
+  .transition(e('max-height .5s, margin-left .5s'));
+  background-color: @body-bg;
+
+  &.pane-expanded {
+    max-height: none;;
+    overflow-y: auto;
+  }
+}
+
+.pane-header {
+  height: 36px;
+  background-color: #d5d5d5;
+  border-bottom: 1px solid #ccc;
+  .box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.05));
+  letter-spacing: 1px;
+  font-size: @font-size-small;
+
+  .content {
+    padding: 5px 10px;
+    line-height: 26px;
+  }
+}
+
+.pane-header-btn {
+  .btn();
+  background-color: transparent;
+  text-decoration: none;
+  color: @text-color;
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 3px;
+  line-height: 20px;
+  font-size: @font-size-small;
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+
+  &:hover,
+  &.active {
+    background-color: rgba(255,255,255,.70);
+    color: @gray-dark;
+  }
+
+  &.active {
+    font-weight: 600;
+  }
+}
+
+.pane-toggle {
+  float: right;
+}
+
+.pane-filters {
+  display: none;
+}
+
+@media (min-width: @screen-sm-min) {
+  .pane-header {
+    display: block;
+  }
+
+  .pane-filters {
+    display: block;
+  }
+
+  .pane {
+    max-height: none;
+    width: @pane-width;
+    position: fixed;
+    height: auto;
+    top: 91px;
+    bottom: 0;
+    background-color: #f2f2f2;
+    .box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.05));
+    overflow: auto;
+  }
+
+  .pane-toggle {
+    display: none;
+  }
+}

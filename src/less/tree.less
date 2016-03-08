@@ -1,0 +1,141 @@
+@tree-item-indentation: 15px;
+@tree-item-indent-start: 25px;
+
+.tree {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  li {
+    a,
+    div {
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  // support 7 levels deep after that they are all indented the same
+  li li {
+    .tree-item .tree-item-content {
+      padding-left: @tree-item-indent-start;
+    }
+
+    li {
+      .tree-item .tree-item-content {
+        padding-left: @tree-item-indent-start + @tree-item-indentation;
+      }
+
+      li {
+        .tree-item .tree-item-content {
+          padding-left: @tree-item-indent-start + @tree-item-indentation * 2;
+        }
+
+        li {
+          .tree-item .tree-item-content {
+            padding-left: @tree-item-indent-start + @tree-item-indentation * 3;
+          }
+
+          li {
+            .tree-item .tree-item-content {
+              padding-left: @tree-item-indent-start + @tree-item-indentation * 4;
+            }
+
+            li {
+              .tree-item .tree-item-content {
+                padding-left: @tree-item-indent-start + @tree-item-indentation * 5;
+              }
+
+              li {
+                .tree-item .tree-item-content {
+                  padding-left: @tree-item-indent-start + @tree-item-indentation * 6;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tree-item-icon-spacer {
+  display: inline-block;
+  height: 2px;
+  width: 16px; // width of svg + 2px space
+}
+
+.tree-item {
+  .transition(e('background-color .07s ease-in'));
+  .transition(e('color .07s ease-in'));
+  background-color: #f9f9f9;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+
+  &.selected {
+    background: #3a3a3a;
+    color: #fff;
+
+    a,
+    div {
+      color: #fff;
+    }
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+}
+
+.tree-item-status {
+  .transition(e('background-color .07s ease-in'));
+  background-color: @tree-list-status-default-bg;
+  border-top: 1px solid lighten(@tree-list-status-default-bg, 5%);
+  border-bottom: 1px solid darken(@tree-list-status-default-bg, 5%);
+  width: 10px;
+  float: left;
+  line-height: 36px;
+  height: 36px;
+
+  &.warning {
+    background-color: @tree-list-status-warning-bg;
+    border-top: 1px solid lighten(@tree-list-status-warning-bg, 10%);
+    border-bottom: 1px solid darken(@tree-list-status-warning-bg, 10%);
+  }
+
+  &.danger {
+    background-color: @tree-list-status-danger-bg;
+    border-top: 1px solid lighten(@tree-list-status-danger-bg, 10%);
+    border-bottom: 1px solid darken(@tree-list-status-danger-bg, 10%);
+  }
+}
+
+.tree-item-content {
+  border-top: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 36px;
+  height: 36px;
+}
+
+.tree-in-pane {
+  .tree-item {
+    .box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.05));
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    &.selected {
+      .box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.2));
+      background: #3a3a3a;
+      color: #fff;
+    }
+  }
+}

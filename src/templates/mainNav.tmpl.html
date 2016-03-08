@@ -1,0 +1,81 @@
+<script type="text/html" id="cyclops.mainNav">
+  <div class="main-nav-menu">
+    <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
+    <!-- ko empty: menus -->
+    <!-- ko if: hasErrored -->
+    <div class="error" title="unable to fetch">
+      <svg class="cyclops-icon"><use xlink:href="#icon-exclamation-circle"></svg>
+      unable to fetch data
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isLoading -->
+    <div class="loading" title="fetching menus">
+      <svg class="cyclops-icon"><use xlink:href="#icon-ellipsis"></svg>
+      Fetching Menus
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+    <ol class="main-nav-menu-items" data-bind="foreach: menus">
+      <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
+    </ol>
+    <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
+  </div>
+  <!-- ko template:{name: 'cyclops.mainNav.menuItem.flyout', foreach: menus} -->
+  <!-- /ko -->
+</script>
+
+
+<script type="text/html" id="cyclops.mainNav.menuItem.button">
+  <button class="btn animated fadeIn" data-bind="click: $component.selectFlyout">
+    <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <span class="main-nav-label" data-bind="text: name"></span>
+  </button>
+</script>
+
+<script type="text/html" id="cyclops.mainNav.menuItem.href">
+  <a class="animated fadeIn" data-bind="href: href">
+    <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': icon}"></svg>
+    <span class="main-nav-label" data-bind="text: name"></span>
+  </a>
+</script>
+
+<script type="text/html" id="cyclops.mainNav.menuItem.flyout">
+  <!-- ko if: adminFlyoutItems().length > 0 ||  normalFlyoutItems().length > 0-->
+  <div class="main-nav-flyout-menu" data-bind="css: {'open': isFlyoutOpen }">
+    <div class="header clear-fix">
+      <button class="pull-right btn btn-link close" data-bind="click: $component.selectFlyout">
+        <svg class="cyclops-icon"><use xlink:href='#icon-times'></svg>
+      </button>
+    </div>
+    <ol class="main-nav-flyout-menu-items" data-bind="foreach: normalFlyoutItems">
+      <li data-bind="css: {'selected': isSelected}">
+        <a data-bind="href: href">
+          <h3 data-bind="text: name">&hellip;</h3>
+          <p data-bind="text: description">&hellip;</p>
+          <!-- ko if: hasRibbon -->
+          <div class="ribbon" data-bind="css: { 'ribbon-beta': isBeta() }">
+            <span data-bind="text: ribbonText"></span>
+          </div>
+          <!-- /ko -->
+        </a>
+      </li>
+    </ol>
+    <!-- ko any: adminFlyoutItems -->
+    <h2 class="divider">Admin Only</h2>
+    <ol class="main-nav-flyout-menu-items" data-bind="foreach: adminFlyoutItems">
+      <li data-bind="css: {'selected': isSelected}">
+        <a data-bind="href: href">
+          <h3 data-bind="text: name">&hellip;</h3>
+          <p data-bind="text: description">&hellip;</p>
+          <!-- ko if: hasRibbon -->
+          <div class="ribbon">
+            <span data-bind="text: ribbonText"></span>
+          </div>
+          <!-- /ko -->
+        </a>
+      </li>
+    </ol>
+    <!-- /ko -->
+  </div>
+  <!-- /ko -->
+</script>

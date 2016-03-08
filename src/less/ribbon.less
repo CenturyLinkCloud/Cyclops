@@ -1,0 +1,30 @@
+.ribbon {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	span {
+		display: block;
+		text-align: center;
+		transform: rotate(45deg);
+		position: relative;
+		right: 2px;
+		top: -18px;
+		width: 92px;
+		background-color: @primary-brand-green;
+		color: #FFFFFF;
+		font-size: @font-size-small;
+		font-weight: @bold-font-weight;
+		padding-top: 30px;
+		padding-bottom: 2px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.ribbon-beta span {
+	background-color: @orange;
+}
