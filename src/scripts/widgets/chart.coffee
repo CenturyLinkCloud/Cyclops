@@ -7,7 +7,7 @@ if libraries.chartist
       data: {}
       getLoadingMessageHtml: () -> return 'fetching data&hellip;'
       getEmptyMessageHtml: () -> return 'No data at this time.'
-      getErrorMessageHtml: () -> return 'Unable to featch data.'
+      getErrorMessageHtml: () -> return 'Unable to fetch data.'
       chartOptions: {
         fullWidth: true,
         chartPadding: {

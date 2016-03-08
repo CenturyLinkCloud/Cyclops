@@ -32,7 +32,7 @@ var form = function(){
 };
     </code>
   </pre>
-  <h4>Consturctor Parameters</h4>
+  <h4>Constructor Parameters</h4>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -45,7 +45,7 @@ var form = function(){
       </thead>
       <tbody>
         <tr>
-          <td>paramter</td>
+          <td>parameter</td>
           <td>any</td>
           <td>undefined</td>
           <td>The intial &quot;commited value&quot;</td>
@@ -128,7 +128,7 @@ var form = function(){
 };
     </code>
   </pre>
-  <h4>Consturctor Parameters</h4>
+  <h4>Constructor Parameters</h4>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -141,7 +141,7 @@ var form = function(){
       </thead>
       <tbody>
         <tr>
-          <td>paramter</td>
+          <td>parameter</td>
           <td>array</td>
           <td>undefined</td>
           <td>The intial &quot;commited value&quot;</td>
@@ -202,7 +202,7 @@ var form = function(){
 
   <h3><code>filterableArray</code></h3>
   <p>
-    Filtering and Sorting are frequently needed UX features and using a <code>filterbaleArray</code>
+    Filtering and Sorting are frequently needed UX features and using a <code>filterableArray</code>
     can make implementing them very simple. <code>filterableArray</code> are somewhat expensive and
     should not be a replace all solution for <code>observableArray</code>. They should be used only
     when you need to support filtering and sorting in the UI or even created on the fly when those
@@ -210,7 +210,7 @@ var form = function(){
   </p>
   <pre >
     <code class="javascript">
-var filterbaleListViewModel = function() {
+var filterableListViewModel = function() {
   var self = this;
   // array or observableArray
   self.servers = ko.filterableArray([...], {...});
@@ -331,7 +331,7 @@ var filterbaleListViewModel = function() {
       </tr>
       <tr>
         <td>sort(func)</td>
-        <td>Takes a sort function to be applied and stored. pass it a standard array sort function</td>
+        <td>Takes a sort function to be applied and stored. Pass it a standard array sort function.</td>
       </tr>
       <tr>
         <th colspan="2">
@@ -359,7 +359,7 @@ var filterbaleListViewModel = function() {
         </tr>
         <tr>
           <td>unshift</td>
-          <td>add item to the begining of the array</td>
+          <td>add item to the beginning of the array</td>
         </tr>
         <tr>
           <td>slice</td>
@@ -374,16 +374,16 @@ var filterbaleListViewModel = function() {
           <td>get the index of an item</td>
         </tr>
         <tr>
-          <td>destory</td>
-          <td>destory and Item</td>
+          <td>destroy</td>
+          <td>destroy an Item</td>
         </tr>
         <tr>
-          <td>destoryAll</td>
-          <td>destory all or many items</td>
+          <td>destroyAll</td>
+          <td>destroy all or many items</td>
         </tr>
         <tr>
           <td>remove</td>
-          <td>remove and item</td>
+          <td>remove an item</td>
         </tr>
         <tr>
           <td>removeAll</td>
