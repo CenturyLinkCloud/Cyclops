@@ -4,13 +4,14 @@
 // --------------------------------------------------
 
 .breadcrumb {
-  padding: 8px 15px 8px 0;
+  padding-left: 0;
   margin-bottom: (@line-height-computed / 2);
   margin-top: @line-height-computed;
   list-style: none;
 
   > li {
     display: inline-block;
+    padding: 8px 0;
 
     + li:before {
       content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
