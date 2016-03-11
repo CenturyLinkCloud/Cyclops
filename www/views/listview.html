@@ -11,7 +11,9 @@
   <h3 id="markup"><a href="#markup">Basic Markup</a></h3>
   <p>For the header, use the container class <code>.new-list-view-header</code>, and for each column, use an <code>&lt;h3&gt;</code> with <code>.col</code> and <code>.col-*</code> where <code>*</code> is the percentage width of the column in increments of 5%.</p>
 
-  <p>The body of the list view is a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with <code>.new-list-view</code> applied to it. Within each <code>&lt;li&gt;</code>, their should be a corresponding <code>&lt;div class=&quot;col col-*&quot;&gt;</code> for each column definied in <code>.new-list-view-header</code>.</p>
+  <p>The body of the list view is a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with <code>.new-list-view</code> applied to it. Within each <code>&lt;li&gt;</code>, there should be a corresponding <code>&lt;div class=&quot;col col-*&quot;&gt;</code> for each column defined in <code>.new-list-view-header</code>.</p>
+
+  <p>For list views without headers, include the modifier class <code>.new-list-view-no-header</code> in the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. This will add a top border to your list view.</p>
   <div class="pl-example">
     {{> list-view/basic }}
   </div>
@@ -200,6 +202,41 @@
   &lt;li&gt;
     &lt;div class=&quot;list-view-editable-item list-view-item-danger&quot;&gt;
       &lt;div class=&quot;col col-100&quot;&gt;.list-view-item-danger&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="status">
+  <h3><a href="#status">Status</a></h3>
+  <p>The status list view can be used to quickly show the current state of a list item (e.g. alert policies). Include the modifier class <code>.new-list-view-status</code> in the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> and add <code>.status-warning</code> or <code>.status-danger</code> to the <code>&lt;li&gt;</code>.</p>
+  <div class="pl-example">
+    {{> list-view/status }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;new-list-view new-list-view-status&quot;&gt;
+  &lt;li class=&quot;status-danger&quot;&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;CPU Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Notification Open&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;status-warning&quot;&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Memory Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Ackowledged&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Disk Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Ackowledged&lt;/div&gt;
     &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
