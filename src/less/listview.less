@@ -551,26 +551,23 @@
 
   .new-list-view-toolbar-right-collapsed();
 
-  @media (min-width: @screen-sm-min) {
-    .new-list-view-toolbar-right-expanded();
-  }
-
   .btn,
   .dropdown {
     vertical-align: top;
   }
 
-  .btn + .btn,
-  .btn + .dropdown {
+  > .btn, > .dropdown {
     margin-bottom: 5px;
   }
 
-  .dropdown + p,
-  .dropdown + span,
-  .btn + p,
-  .btn + span {
-    display: inline-block;
-    margin-left: 15px;
+  @media (min-width: @screen-sm-min) {
+
+    .new-list-view-toolbar-right-expanded();
+
+    >.btn, > .dropdown {
+      margin-bottom: 0;
+    }
+
   }
 }
 
@@ -924,13 +921,20 @@
     float:right;
     margin-left: 20px;
     margin-top: 0;
+
+    > .btn, > .dropdown {
+      margin-bottom: 0px;
+    }
   }
 }
 
 .new-list-view-toolbar-right-collapsed {
   .new-list-view-toolbar-right {
     float: none;
-    margin-top: 5px;
     margin-left: 0;
+
+    > .btn, > .dropdown {
+      margin-bottom: 5px;
+    }
   }
 }

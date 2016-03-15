@@ -1,5 +1,5 @@
 .search-input {
-  display: inline-block;
+  display: block;
   position: relative;
 
   input {
@@ -13,6 +13,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    width: 100%;
   }
 
   svg {
@@ -24,5 +25,9 @@
     use.clear {
       cursor: pointer;
     }
+  }
+
+  @media (min-width: @screen-sm-min) {
+    display: inline-block;
   }
 }
