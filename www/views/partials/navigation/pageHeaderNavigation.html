@@ -9,33 +9,46 @@
   </div>
   <pre>
     <code class="html">
-&lt;nav class=&quot;navbar navbar-inverse navbar-static-top&quot;&gt;
-  &lt;div class=&quot;container-fluid&quot;&gt;
+&lt;nav class="navbar navbar-inverse navbar-static-top"&gt;
+  &lt;div class="container-fluid"&gt;
     &lt;!-- Brand and toggle get grouped for better mobile display --&gt;
-    &lt;div class=&quot;navbar-header&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot;&gt;
-        &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
-        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
-        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
-        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+    &lt;div class="navbar-header"&gt;
+      &lt;button type="button" class="navbar-toggle collapsed"&gt;
+        &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;span class="icon-bar"&gt;&lt;/span&gt;
       &lt;/button&gt;
-      &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;
-        &lt;img src=&quot;/img/logo-centurylink.png&quot; alt=&quot;CenturyLink&quot; /&gt;
+      &lt;a class="navbar-brand" href="/"&gt;
+        &lt;img src="/img/logo-centurylink.png" alt="CenturyLink" /&gt;
       &lt;/a&gt;
-      &lt;a class=&quot;navbar-service&quot; href=&quot;/&quot;&gt;Service Name&lt;/a&gt;
+      &lt;a class="navbar-service" href="/"&gt;Control Portal&lt;/a&gt;
     &lt;/div&gt;
 
     &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
-    &lt;div class=&quot;collapse navbar-collapse&quot;&gt;
-      &lt;ul class=&quot;nav navbar-nav&quot;&gt;
-        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Link &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;!-- Link back to the Control Portal, and give a sign out link --&gt;
-      &lt;ul class=&quot;nav navbar-nav navbar-right navbar-account&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;https://control.ctl.io&quot;&gt;Control Portal&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;navbar-link&quot;&gt;Sign Out&lt;/a&gt;&lt;/li&gt;
+    &lt;div class="collapse navbar-collapse"&gt;
+
+    &lt;!-- Support and sign out links --&gt;
+      &lt;ul class="nav navbar-nav navbar-right navbar-account"&gt;
+        &lt;li class="dropdown"&gt;
+          &lt;a href="#" role="button"&gt;&lt;svg class="cyclops-icon support"&gt;&lt;use xlink:href='#icon-question-circle'&gt;&lt;/svg&gt; &lt;svg class="cyclops-icon"&gt;&lt;use xlink:href='#icon-caret-down'&gt;&lt;/svg&gt;&lt;/a&gt;
+          &lt;ul class="dropdown-menu dropdown-menu-right"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Open Support Ticket&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Chat with Support&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://www.ctl.io/knowledge-base"&gt;Knowledge Base&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://www.ctl.io/api-docs"&gt;API Documentation&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;1.877.388.4373&lt;/li&gt;
+            &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Submit a Feature Idea&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li class="dropdown"&gt;
+          &lt;a href="#" role="button"&gt;trent.anderson &lt;svg class="cyclops-icon"&gt;&lt;use xlink:href='#icon-caret-down'&gt;&lt;/svg&gt;&lt;/a&gt;
+          &lt;ul class="dropdown-menu dropdown-menu-right"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Your Profile&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Sign Out&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
       &lt;/ul&gt;
     &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
   &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
