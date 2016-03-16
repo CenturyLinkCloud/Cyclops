@@ -1,4 +1,4 @@
-// make them behave like buttons and line up
+// make them behaive like buttons and line up
 div.dropdown {
   display: inline-block;
 }
@@ -43,36 +43,26 @@ div.dropdown {
     // Dividers (basically an hr) within the dropdown
     .divider {
       .nav-divider(@border-color);
-      padding: 0;
     }
 
     > li:hover {
       background: #ebebeb;
     }
 
-    // Static text and links within the dropdown menu
-    > li {
-      color: @gray-light;
+    // Links within the dropdown menu
+    > li > a {
       display: block;
       padding: 3px 20px;
       clear: both;
       font-weight: normal;
-      > a {
-        white-space: nowrap; // prevent links from randomly breaking onto new lines
-        text-decoration: none;
-      }
-
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+      text-decoration: none;
     }
 
     > li.active {
-      &,
-      &:hover,
-      &:focus {
+      > a {
         font-weight: @bold-font-weight;
-        color: @navbar-inverse-link-active-color;
-        background-color: @navbar-inverse-link-active-bg;
       }
-
     }
   }
 }
