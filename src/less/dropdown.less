@@ -1,4 +1,4 @@
-// make them behaive like buttons and line up
+// make them behave like buttons and line up
 div.dropdown {
   display: inline-block;
 }
@@ -49,14 +49,21 @@ div.dropdown {
       background: #ebebeb;
     }
 
-    // Links within the dropdown menu
-    > li > a {
-      display: block;
-      padding: 3px 20px;
-      clear: both;
-      font-weight: normal;
-      white-space: nowrap; // prevent links from randomly breaking onto new lines
-      text-decoration: none;
+    // Links and text within the dropdown menu
+    > li {
+      > .dropdown-text {
+        color: @gray-light;
+        margin: 0;
+      }
+      > a,
+      > .dropdown-text {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+        text-decoration: none;
+      }
     }
 
     > li.active {
