@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1792 1792" enable-background="new 0 0 1792 1792" xml:space="preserve">
 <path d="M1216,192v256h256L1216,192z M1087,576l1-384H320v1408h1152V576H1087z M704,448h256v128H704V448z M576,1344H448v-128h128
 	V1344z M576,1088H448V960h128V1088z M576,832H448V704h128V832z M576,576H448V448h128V576z M1344,1344H704v-128h640V1344z M1344,1088

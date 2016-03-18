@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-263 173 1792 1792" enable-background="new -263 173 1792 1792" xml:space="preserve">
-<g id="Layer_1_1_">
-</g>
 <path d="M573,1187.5v120h120v-120H573z M-199,1307v120h1664v-120H-199z M752,831.3h119V1069H752V831.3z M989.7,831.3h119V1069h-119
 	V831.3z M1227.3,831.3h119V1069h-119V831.3z M38.7,1069c-65.9,0-119-52.8-119-119s52.8-119,119-119c65.1,0,119,52.8,119,119
 	S103.8,1069,38.7,1069z M-199,712.5v475h1664v-475H-199z"/>
