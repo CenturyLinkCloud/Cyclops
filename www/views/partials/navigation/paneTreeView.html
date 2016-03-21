@@ -1,0 +1,26 @@
+<section class="pl-section" id="paneTreeView">
+  <h3>
+    <a href="#paneTreeView">Pane Tree View</a>
+    <a href="./knockoutComponents.html#paneTreeView"><svg class="cyclops-icon"><use xlink:href='#icon-api'></svg></a></h3>
+  </h3>
+
+  <p>The Pane Tree View provides a way to navigate hierarchical entities with expand/collapse and filtering functionality built-in. It begins collapsed in mobile views, with a toggle button to expand. On desktop or tablets views, the pane tree view begins in a vertical orientation on the left side of the viewport. It expects an object of items (e.g. groups and servers, appfog spaces and apps) and a selected item to highlight the selected item in the tree view.</p>
+
+  <div class="pl-example">
+    <iframe src="./starterPages/pane.html"></iframe>
+    <p>
+      <a href="./starterPages/pane.html">Open Example Page</a>
+    </p>
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;pane params=&quot;{items: items, selectedId: selctedItemId}&quot;&gt;&lt;/pane&gt;
+&lt;main&gt;&lt;!--body content of the page--&gt;&lt;/main&gt;
+    </code>
+    <code class="javascript">
+ko.applyBindings({
+
+});
+    </code>
+  </pre>
+</section>
