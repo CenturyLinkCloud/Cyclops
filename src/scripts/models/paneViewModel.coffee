@@ -1,6 +1,5 @@
 # TODO:
 # * Override everything aka queue view
-# * extra wide
 
 class PaneItemViewModel
   constructor: (item) ->
@@ -19,7 +18,7 @@ class PaneItemViewModel
       throw 'A Flyout Menu Item must have a href.'
 
     @icons = ko.pureComputed () =>
-      return ko.unwrap(rawItem.icons) || ['#icon-question']
+      return ko.unwrap(rawItem.icons) || []
     @statusClass = ko.pureComputed () =>
       return ko.unwrap(rawItem.statusClass) || ''
     @items = ko.pureComputed () =>
@@ -28,9 +27,17 @@ class PaneItemViewModel
 
     @isSelected = ko.observable(false)
     @isExpanded = ko.observable(false)
-    @isSelected.subscribe (newValue) =>
-      if newValue
+    @isChildSelected = ko.computed () =>
+      result = false
+      @items().forEach (i) ->
+        if i.isSelected() || i.isChildSelected()
+          result = true
+      return result
+
+    ko.computed () =>
+      if @isSelected()  || @isChildSelected()
         @isExpanded(true)
+
     toggleExpanded = () =>
       @isExpanded !@isExpanded()
     @hasItems = ko.pureComputed () =>
