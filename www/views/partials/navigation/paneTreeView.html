@@ -8,6 +8,7 @@
 
   <p>To add a pane tree view to a page, use the custom <code>&lt;pane&gt;...&lt;/pane&gt;</code> html component and apply the bindings. Immediately preceding the <code>&lt;pane&gt;</code>, use <code>&lt;main&gt;...&lt;/main&gt;</code> to wrap the page body content. This will apply proper spacing and margin between the pane and the body content.</p>
 
+  <p>Note for developers, the Pane Tree View provides just he basic functionality making the developer still responsible for loading data, choosing icons, etc. Please see the <a href="./knockoutComponents.html#paneTreeView">API</a> documentation for more details.</p>
   <div class="pl-example">
     <iframe src="./starterPages/pane.html"></iframe>
     <p>
@@ -16,12 +17,13 @@
   </div>
   <pre class="show-type">
     <code class="html">
-&lt;pane params=&quot;{items: items, selectedId: selctedItemId}&quot;&gt;&lt;/pane&gt;
+&lt;pane params=&quot;{items: items, selectedItemId: selectedItemId}&quot;&gt;&lt;/pane&gt;
 &lt;main&gt;&lt;!--body content of the page--&gt;&lt;/main&gt;
     </code>
     <code class="javascript">
 ko.applyBindings({
-
+     items: ko.observableArray([...]),
+     selectedItemId: ko.observable("QA1WEBSERVER02")
 });
     </code>
   </pre>

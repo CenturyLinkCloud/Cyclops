@@ -108,18 +108,130 @@
   </ul>
 </section>
 
-<section id="PaneTreeView" class="pl-section">
-  <h3><code>pane-tree-view</code></h3>
+<section id="pane" class="pl-section">
+  <h3><code>pane</code></h3>
   <p>
-    The group picker assumes that the shape of the data passed to it matches closely what the
-    v2 APIs return, for more information you can see the assumed properties section below.
+    The pane has very simple tree view functionality based in but can be overridden by passing
+    template names, giving the developer a chance to complete customize the look and behavior.
   </p>
-
+  <p>
+    It is of note that it was a design decision to make the <code>selectedItemId</code> property a
+    one-way binding, meaning that it is never updated by the component itself. This was done because
+    all the items in a pane are assumed to support deep linking and “right click > open in new tab”.
+    This means that they are all anchor tags and the app itself tells the pane that something should
+    be shown as “selected” to provide context.
+  </p>
   <pre>
     <code class="html">
-
+&lt;pane params=&quot;{items: items, selectedItemId: selectedItemId}&quot;&gt;&lt;/pane&gt;
+&lt;main&gt;&lt;!--body content of the page--&gt;&lt;/main&gt;
     </code>
   </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>items</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The items to show in the pane</td>
+      </tr>
+      <tr>
+        <td>itemTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneItem'</td>
+        <td>Template id for displaying one item</td>
+      </tr>
+      <tr>
+        <td>itemFilteredTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneItemFiltered'</td>
+        <td>Template id for displaying one item when filtering is applied</td>
+      </tr>
+      <tr>
+        <td>headerTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneHeader'</td>
+        <td>Header template to use</td>
+      </tr>
+      <tr>
+        <td>searchComparer</td>
+        <td>function(item, query)</td>
+        <td>compares on case-insensative name property</td>
+        <td>Called for each item to determine if it meets the filter/search criteria</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Item Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string</td>
+        <td>yes</td>
+        <td>ID for the item used when compared to <code>selectedItemId</code></td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The display name for the item</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The value of the anchor tag</td>
+      </tr>
+      <tr>
+        <td>subAccounts</td>
+        <td>Array | observableArray</td>
+        <td>yes</td>
+        <td>A list of sub accounts for that account</td>
+      </tr>
+      <tr>
+        <td>icons</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>An Array of icon IDs to display for the item</td>
+      </tr>
+      <tr>
+        <td>statusClass</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>class applied to status bar on left of pane item</td>
+      </tr>
+      <tr>
+        <td>items</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>Subitems of that item</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./navigation.html#paneTreeView">On a page</a>
+    </li>
+  </ul>
+</section>
 
 <section id="groupPicker" class="pl-section">
   <h3><code>group-picker</code></h3>

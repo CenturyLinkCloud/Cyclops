@@ -1,6 +1,6 @@
 {{!< ../layouts/starter-page.html}}
 
-<pane params="{items: items, selectedId: selctedItemId}"></pane>
+<pane params="{items: items, selectedItemId: selectedItemId}"></pane>
 
 <main>
   <div class="container-fluid">
@@ -112,7 +112,7 @@
       ]
 
 
-      self.selctedItemId = ko.observable("QA1WEBSERVER02")
+      self.selectedItemId = ko.observable("QA1WEBSERVER02")
       return self;
     };
 

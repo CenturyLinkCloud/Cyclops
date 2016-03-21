@@ -72,7 +72,7 @@ class PaneViewModel
         return new PaneItemViewModel(i)
 
     # Selection Logic
-    selectedItem = ko.asObservable(options.selectedId);
+    selectedItem = ko.asObservable(options.selectedItemId);
     _doSelection = (item, id) ->
       item.isSelected(item.id == id)
       item.items().forEach (i) -> _doSelection(i, id)
