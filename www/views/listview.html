@@ -131,7 +131,7 @@
     </tr>
     <tr>
       <td width="40%"><code>.list-view-link-item</code></td>
-      <td>Hover state on mouse over. Ideal for use when clicking the row navigates.</td>
+      <td>Hover state on mouse over. Ideal for use when a column in the row contains an anchor link.</td>
     </tr>
     <tr>
       <td><code>.list-view-editable-item</code></td>
@@ -211,12 +211,17 @@
 
 <section class="pl-section" id="status">
   <h3><a href="#status">Status</a></h3>
-  <p>The status list view can be used to quickly show the current state of a list item (e.g. alert policies). Include the modifier class <code>.new-list-view-status</code> in the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> and add <code>.status-warning</code> or <code>.status-danger</code> to the <code>&lt;li&gt;</code>.</p>
+  <p>To show the current state of list items (e.g. alert policies), add <code>.new-list-view-status</code> to modify both  <code>.new-list-view-header</code> and <code>.new-list-view</code> blocks. Then add <code>.status-warning</code> or <code>.status-danger</code> to the <code>&lt;li&gt;</code>. By default, each <code>&lt;li&gt;</code> will have a grey (or normal) state.</p>
   <div class="pl-example">
     {{> list-view/status }}
   </div>
   <pre>
     <code class="html">
+&lt;div class=&quot;new-list-view-header new-list-view-status&quot;&gt;
+  &lt;h3 class=&quot;col col-35&quot;&gt;Server&lt;/h3&gt;
+  &lt;h3 class=&quot;col col-35&quot;&gt;Policy&lt;/h3&gt;
+  &lt;h3 class=&quot;col col-30&quot;&gt;Status&lt;/h3&gt;
+&lt;/div&gt;
 &lt;ul class=&quot;new-list-view new-list-view-status&quot;&gt;
   &lt;li class=&quot;status-danger&quot;&gt;
     &lt;div class=&quot;list-view-link-item&quot;&gt;

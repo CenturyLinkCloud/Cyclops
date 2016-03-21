@@ -49,6 +49,10 @@
     background: none;
     border-bottom: 2px solid @border-color;
   }
+
+  &.new-list-view-status {
+    padding-left: 15px;
+  }
 }
 
 .new-list-view {
@@ -242,22 +246,24 @@
       }
     }
   }
+}
 
-  // list view status
-  &.new-list-view-status {
-		 > li {
-			 box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 @border-color;
-			 &.status-warning {
-				 box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 orange;
-			 }
-			 &.status-danger {
-				 box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 red;
-			 }
-			 .list-view-editable-item, .list-view-link-item, .list-view-item, .list-view-read-only-item {
-				 margin-left: 15px;
-			 }
-		 }
-	 }
+.new-list-view-status {
+
+  > li {
+
+    .list-view-editable-item, .list-view-link-item, .list-view-item, .list-view-read-only-item {
+      margin-left: 15px;
+    }
+
+    box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 @border-color;
+    &.status-warning {
+      box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 orange;
+    }
+    &.status-danger {
+      box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 red;
+    }
+  }
 }
 
 .new-list-view-no-header {
