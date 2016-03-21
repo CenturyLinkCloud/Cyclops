@@ -1,18 +1,6 @@
 {{!< ../layouts/starter-page.html}}
 
-<div class="pane">
-  <div class="pane-header">
-    <div class="content">
-      <button class="pane-header-btn pane-toggle">browse<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></button>
-      <div class="pane-actions">
-        <button class="pane-header-btn">expand</button>
-        <button class="pane-header-btn">collapse</button>
-        <button class="pane-header-btn"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></button>
-      </div>
-    </div>
-  </div>
-  {{> components/examples/tree-pane }}
-</div>
+<pane params="{items: items, selectedId: selctedItemId}"></pane>
 
 <main>
   <div class="container-fluid">
@@ -50,12 +38,94 @@
 {{#contentFor "scripts"}}
 <script>
   $(function(){
-    $("#WA1CORPDB01").addClass('selected');
-    $(".pane-toggle").click(function() {
-      $(".pane").toggleClass("pane-expanded");
-    });
+    var ViewModel = function(){
+      var self = this;
+      self.items = ko.observableArray([
+        {
+          name: "Default Group",
+          icons: ['#icon-folder'],
+          href: "#123",
+          id: "123",
+          items: [
+            {
+              href: "#123-1",
+              id: "123-1",
+              icons: ["#icon-bare-metal", "#icon-play"],
+              name: "QA1DEVSERVER01",
+              displayName: "Matthew's Server",
+              state: "stopped"
+            },
+            {
+              href: "#123-2",
+              id: "123-2",
+              name: "QA1DEVSERVER02",
+              displayName: "Nathan's Server",
+              state: "started"
+            }
+          ]
+        },
+        {
+          name: "Database Servers",
+          icons: ['#icon-folder'],
+          href: "#456",
+          id: "456",
+          items: [
+            {
+              href: "#456-1",
+              id: "456-1",
+              name: "QA1DEVDB01",
+              displayName: "Primary DB",
+              description: "The Primary Database Server",
+              state: "started"
+            },
+            {
+              href: "#456-2",
+              id: "456-2",
+              name: "QA1DEVDB02",
+              displayName: "Failover DB",
+              description: "The Failouver Database Server",
+              state: "started"
+            }
+          ]
+        },
+        {
+          href: "#789",
+          id: "789",
+          name: "A Simple Group",
+          icons: ['#icon-folder'],
+          statusClass: 'warning'
+        },
+        {
+          href: "#000",
+          id: "000",
+          name: "trash",
+          type: "trash",
+          icons: ['#icon-folder'],
+          statusClass: 'danger'
+        }
+      ]);
 
-    $(".pane").affix();
+      self.selctedItemId = ko.observable("123")
+      return self;
+    };
+
+
+    var model = new ViewModel();
+    
+    setTimeout(function(){
+      model.selctedItemId('456');
+    }, 5000);
+
+    // setTimeout(function(){
+    //   var group = { name: "foo", icon: ko.observable('#icon-refresh'), items: ko.observableArray([]) };
+    //   model.items.push(group)
+    //   setTimeout(function(){
+    //     group.items.push({ name: "A Simple server"})
+    //     group.icon('#icon-folder')
+    //   }, 6000)
+    // }, 2000);
+
+    ko.applyBindings(model, $("pane")[0]);
   });
 </script>
 {{/contentFor}}

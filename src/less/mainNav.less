@@ -31,7 +31,7 @@ main-nav {
     color: @gray-light;
   }
 
-  ~ .pane,
+  ~ pane,
   ~ main {
     margin-left: @main-nav-width-sm;
   }
@@ -312,10 +312,6 @@ main-nav {
 }
 
 @media (min-width: @screen-sm-min) {
-  .pane ~ main {
-    margin-left: @main-nav-width-md + @pane-width;
-  }
-
   main-nav {
     width: @main-nav-width-md;
     // Prevent a BUFOC
@@ -323,7 +319,7 @@ main-nav {
       width: @main-nav-width-md;
     }
 
-    ~ .pane,
+    ~ pane,
     ~ main {
       margin-left: @main-nav-width-md;
     }
@@ -359,10 +355,14 @@ main-nav {
       margin-left: @main-nav-width-md;
     }
   }
+
+  pane ~ main {
+    margin-left: @main-nav-width-md + @pane-width;
+  }
 }
 
 @media (min-width: @screen-xl-min) {
-  .pane ~ main {
+  pane ~ main {
     margin-left: @main-nav-width-lg + @pane-width;
   }
 
@@ -377,7 +377,7 @@ main-nav {
       width: @main-nav-width-lg;
     }
 
-    ~ .pane,
+    ~ pane,
     ~ main {
       margin-left: @main-nav-width-lg;
     }

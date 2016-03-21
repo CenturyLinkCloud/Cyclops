@@ -1,0 +1,55 @@
+<script type="text/html" id="cyclops.pane">
+  <div class="pane-header">
+    <div class="search" data-bind="css: {'open': showSearchbox}">
+      <button class="pane-header-btn pull-right" data-bind="click: toggleSearch"><svg class="cyclops-icon"><use xlink:href='#icon-times'></svg></button>
+      <input type="text" data-bind="value: searchQuery, valueUpdate: 'keyup', hasFocus: showSearchbox()" />
+    </div>
+    <div class="content">
+      <button class="pane-header-btn pane-toggle" data-bind="click: togglePane">browse<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></button>
+      <div class="pane-actions">
+        <button class="pane-header-btn" data-bind="click: expandAll">expand</button>
+        <button class="pane-header-btn" data-bind="click: collapseAll">collapse</button>
+        <button class="pane-header-btn" data-bind="click: toggleSearch"><svg class="cyclops-icon"><use xlink:href='#icon-search'></svg></button>
+      </div>
+    </div>
+  </div>
+  <ol class="tree tree-with-dividers tree-in-pane" data-bind="template: {name: itemTemplateName, foreach: displayItems}"></ol>
+</script>
+
+
+<script type="text/html" id="cyclops.paneItem">
+  <li>
+    <div class="tree-item" data-bind="css: {selected: isSelected}">
+      <div class="tree-item-status" data-bind="css: statusClass"></div>
+      <a class="tree-item-content" data-bind="href: href, click: onClick">
+        <!-- ko if: hasItems -->
+        <svg class="cyclops-icon"><use xlink:href='#icon-caret-right' data-bind="attr: {'xlink:href': caretIcon}"></svg>
+        <!-- /ko -->
+        <!-- ko ifnot: hasItems -->
+        <span class="tree-item-icon-spacer"></span>
+        <!-- /ko -->
+        <!-- ko foreach: icons -->
+        <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': $data}"></svg>
+        <!-- /ko -->
+        <span data-bind="text: name"></span>
+      </a>
+    </div>
+    <!-- ko any: items -->
+    <ol class="tree collapsed" data-bind="css: {expanded: isExpanded}, template: { name:'cyclops.paneItem' , foreach: items}"></ol>
+    <!-- /ko -->
+  </li>
+</script>
+
+<script type="text/html" id="cyclops.paneItemFiltered">
+  <li>
+    <div class="tree-item" data-bind="css: {selected: isSelected}">
+      <div class="tree-item-status" data-bind="css: statusClass"></div>
+      <a class="tree-item-content" href="#">
+        <!-- ko foreach: icons -->
+        <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': $data}"></svg>
+        <!-- /ko -->
+        <span data-bind="text: name"></span>
+      </a>
+    </div>
+  </li>
+</script>
