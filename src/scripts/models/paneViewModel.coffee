@@ -1,26 +1,22 @@
 # TODO:
-# --- * Expand and collapse
-# --- * Dynamic loading of sub items
-# --- * Status indicator
-# --- * links for items (onClick?)
-# --- * search
-# --- * Selecting an item
-# --- * multiple Icons
 # * Override everything aka queue view
-# --- * mobile view
-# --- * WTF is going on with the close search
-# --- * onClick anchor not just svg
 # * extra wide
 
 class PaneItemViewModel
   constructor: (item) ->
     rawItem = item
 
-    # TODO: Throw if properties not defined
-    @name = rawItem.name
-    @href = rawItem.href
     @id = rawItem.id
-    #END TODO
+    if !@id?
+      throw 'A Pane Item must have an id.'
+
+    @name = rawItem.name
+    if !ko.unwrap(@name)?
+      throw 'A Pane Item must have a name.'
+
+    @href = rawItem.href
+    if !ko.unwrap(@href)?
+      throw 'A Flyout Menu Item must have a href.'
 
     @icons = ko.pureComputed () =>
       return ko.unwrap(rawItem.icons) || ['#icon-question']
@@ -29,6 +25,7 @@ class PaneItemViewModel
     @items = ko.pureComputed () =>
       ko.unwrap(rawItem.items || []).map (i) ->
         return new PaneItemViewModel(i)
+
     @isSelected = ko.observable(false)
     @isExpanded = ko.observable(false)
     @isSelected.subscribe (newValue) =>
@@ -57,6 +54,9 @@ class PaneViewModel
     options = $.extend {
       itemTemplateName: 'cyclops.paneItem'
       itemFilteredTemplateName: 'cyclops.paneItemFiltered'
+      headerTemplateName: 'cyclops.paneHeader'
+      searchComparer: (item, query) ->
+         return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     }, options
 
     rawItems = ko.asObservable(options.items || [])
@@ -83,6 +83,8 @@ class PaneViewModel
     @collapseAll = () ->
       expandOrCollapse(false)
 
+    # Templates
+    @headerTemplateName = options.headerTemplateName
     @itemTemplateName = ko.pureComputed () =>
       return if @isSearching() then options.itemFilteredTemplateName else options.itemTemplateName
     @displayItems = ko.pureComputed () =>
@@ -92,15 +94,13 @@ class PaneViewModel
     @searchQuery = ko.observable('')
     @isSearching = ko.pureComputed () =>
       return @searchQuery() != ''
-    searchComparer = options.search || (item, query) ->
-       return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     @showSearchbox = ko.observable(false)
     @toggleSearch = (data, event) =>
       @searchQuery('')
       @showSearchbox !@showSearchbox()
       return
     _doSearch = (item, query, result) ->
-      if searchComparer(item, query)
+      if options.searchComparer(item, query)
         result.push(item)
       item.items().forEach (i) -> _doSearch(i, query, result)
     @filteredItems = ko.pureComputed () => 

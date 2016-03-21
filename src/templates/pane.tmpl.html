@@ -1,4 +1,9 @@
 <script type="text/html" id="cyclops.pane">
+  <!-- ko template: headerTemplateName --><!-- /ko -->
+  <ol class="tree tree-with-dividers tree-in-pane" data-bind="template: {name: itemTemplateName, foreach: displayItems}"></ol>
+</script>
+
+<script type="text/html" id="cyclops.paneHeader">
   <div class="pane-header">
     <div class="search" data-bind="css: {'open': showSearchbox}">
       <button class="pane-header-btn pull-right" data-bind="click: toggleSearch"><svg class="cyclops-icon"><use xlink:href='#icon-times'></svg></button>
@@ -13,9 +18,7 @@
       </div>
     </div>
   </div>
-  <ol class="tree tree-with-dividers tree-in-pane" data-bind="template: {name: itemTemplateName, foreach: displayItems}"></ol>
 </script>
-
 
 <script type="text/html" id="cyclops.paneItem">
   <li>
