@@ -323,6 +323,10 @@ main-nav {
     ~ main {
       margin-left: @main-nav-width-md;
     }
+
+    ~ pane ~ main {
+      margin-left: @main-nav-width-md + @pane-width;
+    }
   }
 
   .main-nav-menu {
@@ -356,9 +360,7 @@ main-nav {
     }
   }
 
-  pane ~ main {
-    margin-left: @main-nav-width-md + @pane-width;
-  }
+
 }
 
 @media (min-width: @screen-xl-min) {
@@ -377,10 +379,11 @@ main-nav {
     ~ main {
       margin-left: @main-nav-width-lg;
     }
-  }
 
-  pane ~ main {
-    margin-left: @main-nav-width-lg + @pane-width;
+    ~ pane ~ main {
+      margin-left: @main-nav-width-lg + @pane-width;
+    }
+
   }
 
   .main-nav-menu {
