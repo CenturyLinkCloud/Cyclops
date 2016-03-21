@@ -2,7 +2,7 @@
   <div class="pane-header">
     <div class="search" data-bind="css: {'open': showSearchbox}">
       <button class="pane-header-btn pull-right" data-bind="click: toggleSearch"><svg class="cyclops-icon"><use xlink:href='#icon-times'></svg></button>
-      <input type="text" data-bind="value: searchQuery, valueUpdate: 'keyup', hasFocus: showSearchbox()" />
+      <input type="text" placeholder="filter..." data-bind="value: searchQuery, valueUpdate: 'keyup', hasFocus: showSearchbox()" />
     </div>
     <div class="content">
       <button class="pane-header-btn pane-toggle" data-bind="click: togglePane">browse<svg class="cyclops-icon"><use xlink:href='#icon-caret-down'></svg></button>

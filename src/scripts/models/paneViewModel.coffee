@@ -10,6 +10,7 @@
 # --- * mobile view
 # --- * WTF is going on with the close search
 # --- * onClick anchor not just svg
+# * extra wide
 
 class PaneItemViewModel
   constructor: (item) ->

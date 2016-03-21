@@ -362,10 +362,6 @@ main-nav {
 }
 
 @media (min-width: @screen-xl-min) {
-  pane ~ main {
-    margin-left: @main-nav-width-lg + @pane-width;
-  }
-
   main-nav {
     width: @main-nav-width-lg;
     // Prevent a BUFOC
@@ -381,6 +377,10 @@ main-nav {
     ~ main {
       margin-left: @main-nav-width-lg;
     }
+  }
+
+  pane ~ main {
+    margin-left: @main-nav-width-lg + @pane-width;
   }
 
   .main-nav-menu {
