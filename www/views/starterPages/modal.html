@@ -22,25 +22,16 @@
           <div id="alertModal" class="hide">
             <div class="modal fade in" role="dialog">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Install the Monitoring Agent on your server</h4>
-                  </div>
+                <div class="modal-content alert alert-warning">
                   <div class="modal-body">
-                    <div class="alert alert-warning alert-pending">
-                      <div class="alert-icon">
-                        <svg class="cyclops-icon"><use xlink:href='#icon-exclamation-triangle'></svg>
-                      </div>
-                      <!-- <h3>Install the Monitoring Agent on your server</h3> -->
-                      <p>Use the following CLI command to install the Monitoring Agent on your server. Once installed, the agent will communicate with the monitoring manager and your billing subscription will be activated.</p>
-                      <p><code class="hljs nginx">curl https://api.monitoring.ctl.io/scripts/install.sh | sudo CLC_USERNAME=trent.anderson CLC_PASSWORD=password123 CLOUD_PROVIDER=provider HOST_NAME=application-server-1 bash</code></p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="alert-icon">
+                      <svg class="cyclops-icon"><use xlink:href='#icon-exclamation-triangle'></svg>
                     </div>
+                    <h3>Install the Monitoring Agent on your server</h3>
+                    <p>Use the following CLI command to install the Monitoring Agent on your server. Once installed, the agent will communicate with the monitoring manager and your billing subscription will be activated.</p>
+                    <p><code class="hljs nginx">curl https://api.monitoring.ctl.io/scripts/install.sh | sudo CLC_USERNAME=trent.anderson CLC_PASSWORD=password123 CLOUD_PROVIDER=provider HOST_NAME=application-server-1 bash</code></p>
                   </div>
-                  <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-default">Close</button>
-                  </div> -->
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
@@ -54,35 +45,29 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Register Server</h4>
                   </div>
-                  <form id="registerServer" class="form-horizontal">
+                  <form id="registerServer">
                     <div class="modal-body">
-
+                      <p>Install the Monitoring Agent anywhere on a physical or cloud server running a supported operating system, where network traffic is allowed to our management infrastructure.</p>
                       <div class="form-group">
-                        <label for="name1" class="col-sm-4 control-label">name</label>
-                        <div class="col-sm-8">
-                          <input type="text" id="name1" class="form-control" placeholder="&lsquo;application server 1&rsquo;" value="application server 1"/>
-                        </div>
+                        <label for="name1" class="ontrol-label">name</label>
+                        <input type="text" id="name1" class="form-control" placeholder="&lsquo;application server 1&rsquo;" value="application server 1"/>
                       </div>
                       <div class="form-group">
-                        <label for="serverProvider" class="col-sm-4 control-label">provider</label>
-                        <div class="col-sm-8">
+                        <label for="serverProvider" class="control-label">provider</label>
                           <select class="form-control" id="serverProvider">
                             <option>AWS</option>
                             <option>Digital Ocean</option>
                             <option>Microsoft Azure</option>
                             <option>Other</option>
                           </select>
-                        </div>
                       </div>
                       <div class="form-group">
-                        <label for="region" class="col-sm-4 control-label">operating system</label>
-                        <div class="col-sm-8">
-                          <select class="form-control" id="region">
-                            <option>--- select an operating system ---</option>
-                            <option>Windows</option>
-                            <option>Linux</option>
-                          </select>
-                        </div>
+                        <label for="region" class="control-label">operating system</label>
+                        <select class="form-control" id="region">
+                          <option>--- select an operating system ---</option>
+                          <option>Windows</option>
+                          <option>Linux</option>
+                        </select>
                       </div>
 
                       <div class="alert alert-info">
@@ -94,7 +79,6 @@
                     </div>
                     <div class="modal-footer">
                       <div class="form-group">
-                        <div class="col-sm-12">
                           <div class="alert alert-info">
                             <div class="alert-icon">
                               <svg class="cyclops-icon"><use xlink:href='#icon-info-circle'></svg>
@@ -103,7 +87,6 @@
                           </div>
                           <button type="submit" class="btn btn-primary">register server</button>
                           <a href="./index.html" class="btn btn-link">cancel</a>
-                        </div>
                       </div>
                     </div>
                   </form>

@@ -9,6 +9,9 @@
   overflow: hidden;
   outline: 0;
   margin: 20px;
+  .alert {
+    text-align: left;
+  }
 }
 
 .fade {
@@ -45,10 +48,26 @@
 
 .modal-content {
   position: relative;
-  background-color: #fff;
   background-clip: padding-box;
+  background-color: #ffffff;
   border-radius: @border-radius-base;
   outline: 0;
+  &.alert {
+    padding: 10px;
+  }
+  &.alert-success {
+    background-color: @state-success-bg;
+  }
+  &.alert-info {
+    background-color: @state-info-bg;
+  }
+  &.alert-warning {
+    background-color: @state-warning-bg;
+  }
+  &.alert-danger {
+    background-color: @state-danger-bg;
+    color: @state-danger-text;
+  }
 }
 
 .modal-header {
