@@ -111,16 +111,11 @@
 <section id="pane" class="pl-section">
   <h3><code>pane</code></h3>
   <p>
-    The pane has very simple tree view functionality based in but can be overridden by passing
-    template names, giving the developer a chance to complete customize the look and behavior.
+    The pane has simple built-in tree view functionality, but can be overwritten by passing template names. This allows developers the option to customize the look and behavior of the pane.
   </p>
-  <p>
-    It is of note that it was a design decision to make the <code>selectedItemId</code> property a
-    one-way binding, meaning that it is never updated by the component itself. This was done because
-    all the items in a pane are assumed to support deep linking and “right click > open in new tab”.
-    This means that they are all anchor tags and the app itself tells the pane that something should
-    be shown as “selected” to provide context.
-  </p>
+  <div class="alert alert-info">
+    Note, the <code>selectedItemId</code> property is a one-way binding, meaning it is never updated by the component itself. All "leaves" in a pane tree view are assumed to support deep linking and “right click > open in new tab”. Essentially, this means that each leaf have an anchor tag &mdash; the app tells the pane what should be shown as “selected”.
+  </div>
   <pre>
     <code class="html">
 &lt;pane params=&quot;{items: items, selectedItemId: selectedItemId}&quot;&gt;&lt;/pane&gt;
