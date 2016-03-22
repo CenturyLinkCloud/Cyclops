@@ -1,4 +1,9 @@
 if libraries.chartist
+  calculateTotal = (data) ->
+    series = Chartist.getDataArray ko.unwrap(data)
+    # assume one series
+    return (series.reduce (prev, curr) -> prev + curr) * 2
+
   $.fn.chart = (options) ->
     options = $.extend {
       type: 'Line'
@@ -22,6 +27,15 @@ if libraries.chartist
       options.type = 'Pie'
       options.chartOptions.donut = true
       options.chartOptions.donutWidth = '30%'
+
+    isGuage = false
+    if(options.type == 'Guage')
+      isGuage = true
+      options.type = 'Pie'
+      options.chartOptions.donut = true
+      options.chartOptions.donutWidth = '30%'
+      options.chartOptions.startAngle= 270
+      options.chartOptions.total = calculateTotal(options.data)
 
 
     $(this).each (idx, element) ->
@@ -54,7 +68,10 @@ if libraries.chartist
 
       if ko.isObservable(options.data)
         options.data.subscribe (newValue) ->
-          chart.update(newValue)
+          if isGuage
+            chart.update(newValue, {total: calculateTotal(newValue)}, true)
+          else
+            chart.update(newValue)
 
 
     return $(this)
