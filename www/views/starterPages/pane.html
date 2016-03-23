@@ -40,72 +40,6 @@
   $(function(){
     var ViewModel = function(){
       var self = this;
-      self.items = ko.observableArray([
-        {
-          name: "Default Group",
-          icons: ['#icon-folder'],
-          href: "#123",
-          id: "123",
-          items: [
-            {
-              href: "#123-1",
-              id: "123-1",
-              icons: ["#icon-bare-metal", "#icon-play"],
-              name: "QA1DEVSERVER01",
-              displayName: "Matthew's Server",
-              state: "stopped"
-            },
-            {
-              href: "#123-2",
-              id: "123-2",
-              name: "QA1DEVSERVER02",
-              displayName: "Nathan's Server",
-              state: "started"
-            }
-          ]
-        },
-        {
-          name: "Database Servers",
-          icons: ['#icon-folder'],
-          href: "#456",
-          id: "456",
-          items: [
-            {
-              href: "#456-1",
-              id: "456-1",
-              name: "QA1DEVDB01",
-              displayName: "Primary DB",
-              description: "The Primary Database Server",
-              state: "started"
-            },
-            {
-              href: "#456-2",
-              id: "456-2",
-              name: "QA1DEVDB02",
-              displayName: "Failover DB",
-              description: "The Failouver Database Server",
-              state: "started"
-            }
-          ]
-        },
-        {
-          href: "#789",
-          id: "789",
-          name: "A Simple Group",
-          icons: ['#icon-folder'],
-          statusClass: 'warning'
-        },
-        {
-          href: "#000",
-          id: "000",
-          name: "trash",
-          type: "trash",
-          icons: ['#icon-folder'],
-          statusClass: 'danger'
-        }
-      ]);
-
-
       self.items = [
         { id: "qa1", name: "QA1 - US West (Bellevue)", href: "#/qa1", items: ko.observableArray([]), icons: ko.observableArray(["#icon-circle-o"]) },
         { id: "qa3", name: "[Private] QA3 - US West (Spokane)", href: "#/qa3", items: ko.observableArray([]), icons: ko.observableArray(["#icon-circle-o"]) }
@@ -165,7 +99,8 @@
             href: "#/qa1/123/QA1WEBSERVER03",
             id: "QA1WEBSERVER03",
             icons: ["#icon-play"],
-            name: "QA1WEBSERVER03"
+            name: "QA1WEBSERVER03",
+            statusClass: "warning"
           }
         ]
       });
