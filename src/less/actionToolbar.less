@@ -53,7 +53,7 @@
 
       &.active,
       &:active {
-        background-color: #666666;
+        background-color: @gray;
         color: @white;
         svg.cyclops-icon {
           fill: @white;
@@ -70,6 +70,10 @@
 
           svg.cyclops-icon {
             fill: #b9b9b9;
+          }
+          &.active,
+          &:active {
+            background-color: @gray;
           }
         }
 
@@ -137,8 +141,13 @@
       &:hover {
         background: #000;
 
-        &.disabled {
-          background: #3a3a3a;
+        &.disabled,
+        &:disabled {
+          background: none;
+        }
+        &.active,
+        &:active {
+          background-color: @gray;
         }
       }
     }
