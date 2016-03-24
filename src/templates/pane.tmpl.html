@@ -47,7 +47,7 @@
   <li>
     <div class="tree-item" data-bind="css: {selected: isSelected}">
       <div class="tree-item-status" data-bind="css: statusClass"></div>
-      <a class="tree-item-content" href="#">
+      <a class="tree-item-content" data-bind="href: href">
         <!-- ko foreach: icons -->
         <svg class="cyclops-icon"><use xlink:href='#icon-question' data-bind="attr: {'xlink:href': $data}"></svg>
         <!-- /ko -->
