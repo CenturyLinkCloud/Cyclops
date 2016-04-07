@@ -143,13 +143,20 @@
         <td>itemTemplateName</td>
         <td>string</td>
         <td>'cyclops.paneItem'</td>
-        <td>Template id for displaying one item</td>
+        <td>Template id for displaying one item. The original item is wrapped by the
+          <a href="https://github.com/CenturyLinkCloud/Cyclops/blob/master/src/scripts/models/paneViewModel.coffee"><code>PaneItemViewModel</code></a>
+          who then exposes the original item as a property called <code>rawItem</code>. This can be used to access additional
+          information in your custom template.
+        </td>
       </tr>
       <tr>
         <td>itemFilteredTemplateName</td>
         <td>string</td>
         <td>'cyclops.paneItemFiltered'</td>
-        <td>Template id for displaying one item when filtering is applied</td>
+        <td>Template id for displaying one item when filtering is applied. The original item is wrapped by the
+          <a href="https://github.com/CenturyLinkCloud/Cyclops/blob/master/src/scripts/models/paneViewModel.coffee"><code>PaneItemViewModel</code></a>
+          who then exposes the original item as a property called <code>rawItem</code>. This can be used to access additional
+          information in your custom template.</td>
       </tr>
       <tr>
         <td>headerTemplateName</td>

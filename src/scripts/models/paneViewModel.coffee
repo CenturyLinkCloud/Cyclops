@@ -3,26 +3,26 @@
 
 class PaneItemViewModel
   constructor: (item) ->
-    rawItem = item
+    @rawItem = item
 
-    @id = rawItem.id
+    @id = @rawItem.id
     if !@id?
       throw 'A Pane Item must have an id.'
 
-    @name = rawItem.name
+    @name = @rawItem.name
     if !ko.unwrap(@name)?
       throw 'A Pane Item must have a name.'
 
-    @href = rawItem.href
+    @href = @rawItem.href
     if !ko.unwrap(@href)?
       throw 'A Flyout Menu Item must have a href.'
 
     @icons = ko.pureComputed () =>
-      return ko.unwrap(rawItem.icons) || []
+      return ko.unwrap(@rawItem.icons) || []
     @statusClass = ko.pureComputed () =>
-      return ko.unwrap(rawItem.statusClass) || ''
+      return ko.unwrap(@rawItem.statusClass) || ''
     @items = ko.pureComputed () =>
-      ko.unwrap(rawItem.items || []).map (i) ->
+      ko.unwrap(@rawItem.items || []).map (i) ->
         return new PaneItemViewModel(i)
 
     @isSelected = ko.observable(false)
@@ -66,9 +66,9 @@ class PaneViewModel
          return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     }, options
 
-    rawItems = ko.asObservable(options.items || [])
+    @rawItems = ko.asObservable(options.items || [])
     @items = ko.computed () =>
-      rawItems().map (i) ->
+      @rawItems().map (i) ->
         return new PaneItemViewModel(i)
 
     # Selection Logic
