@@ -25,7 +25,7 @@ $(() ->
 
   navbars = $("nav.navbar").each (idx, nb) ->
     $nb = $(nb)
-    menu = $nb.find('.avbar-collapse')
+    menu = $nb.find('.navbar-collapse')
     btn = $nb.find('.navbar-toggle')
     setAriaAndClass(menu, btn)
     btn.click toggle
