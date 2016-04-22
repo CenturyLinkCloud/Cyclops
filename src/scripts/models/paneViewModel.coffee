@@ -1,6 +1,3 @@
-# TODO:
-# * Override everything aka queue view
-
 class PaneItemViewModel
   constructor: (item) ->
     @rawItem = item
@@ -61,15 +58,28 @@ class PaneViewModel
     options = $.extend {
       itemTemplateName: 'cyclops.paneItem'
       itemFilteredTemplateName: 'cyclops.paneItemFiltered'
+      emptyTemplateName: 'cyclops.paneEmpty'
+      loadingTemplateName: 'cyclops.paneItemsLoading'
+      loading: false
       headerTemplateName: 'cyclops.paneHeader'
       searchComparer: (item, query) ->
          return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     }, options
 
+
+
     @rawItems = ko.asObservable(options.items || [])
     @items = ko.computed () =>
       @rawItems().map (i) ->
         return new PaneItemViewModel(i)
+
+    @bodyTemplateName = ko.pureComputed () =>
+      if ko.unwrap(options.loading)
+        return options.loadingTemplateName
+      else if @rawItems().length < 1
+        return options.emptyTemplateName
+      else
+        return 'cyclops.paneForeach'
 
     # Selection Logic
     selectedItem = ko.asObservable(options.selectedItemId);

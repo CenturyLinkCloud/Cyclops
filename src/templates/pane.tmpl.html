@@ -1,5 +1,9 @@
 <script type="text/html" id="cyclops.pane">
   <!-- ko template: headerTemplateName --><!-- /ko -->
+  <!-- ko template: bodyTemplateName --><!-- /ko -->
+</script>
+
+<script type=text/html id="cyclops.paneForeach">
   <ol class="tree tree-with-dividers tree-in-pane" data-bind="template: {name: itemTemplateName, foreach: displayItems}"></ol>
 </script>
 
@@ -55,4 +59,17 @@
       </a>
     </div>
   </li>
+</script>
+
+
+<script type=text/html id="cyclops.paneEmpty">
+  <p class="m-t-sm text-center deemphasize">
+    Nothing to Show
+  </p>
+</script>
+
+<script type=text/html id="cyclops.paneItemsLoading">
+  <p class="m-t-sm text-center deemphasize">
+    Fetching&hellip;
+  </p>
 </script>

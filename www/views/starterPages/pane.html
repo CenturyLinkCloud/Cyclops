@@ -1,6 +1,6 @@
 {{!< ../layouts/starter-page.html}}
 
-<pane params="{items: items, selectedItemId: selectedItemId}"></pane>
+<pane params="{items: items, selectedItemId: selectedItemId, loading: loading }"></pane>
 
 <main>
   <div class="container-fluid">
@@ -36,16 +36,27 @@
 
 
 {{#contentFor "scripts"}}
+<script type=text/html id="foo">
+  <p class="m-t-sm text-center deemphasize">
+    EMPTY BITCH
+  </p>
+</script>
+
+<script type=text/html id="bar">
+  <p class="m-t-sm text-center deemphasize">
+    Getting shit
+  </p>
+</script>
+
 <script>
   $(function(){
     var ViewModel = function(){
       var self = this;
+      self.loading = ko.observable(true);
       self.items = [
         { id: "qa1", name: "QA1 - US West (Bellevue)", href: "#/qa1", items: ko.observableArray([]), icons: ko.observableArray(["#icon-circle-o"]) },
         { id: "qa3", name: "[Private] QA3 - US West (Spokane)", href: "#/qa3", items: ko.observableArray([]), icons: ko.observableArray(["#icon-circle-o"]) }
       ]
-
-
       self.selectedItemId = ko.observable("QA1WEBSERVER02")
       return self;
     };
@@ -110,7 +121,9 @@
         name: "Database Servers",
         icons: ['#icon-folder']
       });
-      qa1.icons(["#icon-dot-circle-o"])
+      qa1.icons(["#icon-dot-circle-o"]);
+      if(model.loading())
+        model.loading(false);
     }, Math.floor(Math.random() * 5000) + 1 );
 
     // QA2 loading
@@ -128,7 +141,9 @@
         name: "Web Servers",
         icons: ['#icon-folder']
       });
-      qa2.icons(["#icon-dot-circle-o"])
+      qa2.icons(["#icon-dot-circle-o"]);
+      if(model.loading())
+        model.loading(false);
     }, Math.floor(Math.random() * 5000) + 1 );
 
 
