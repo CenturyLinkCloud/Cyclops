@@ -8,11 +8,11 @@
   <p>We've adopted subset of icons from the wonderful <a href="http://fontawesome.io/">Font Awesome</a> project, and have added our own custom icons to suit the needs of the CenturyLink Platform. </p>
   <p>We are using an SVG based implementation for ease of maintainablility and customization. To use an icon, include a <code>&lt;svg&gt;</code> object with class <code>.cyclops-icon</code>. Within the object, specify the id of the icon you wish to use like the following:</p>
   <div class="pl-example">
-    <svg class="cyclops-icon"><use xlink:href='#icon-centurylink'></svg>
+    <svg class="cyclops-icon"><use xlink:href='#icon-centurylink' /></svg>
   </div>
   <pre>
     <code class="html">
-&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-centurylink&#39;&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-centurylink&#39; /&gt;&lt;/svg&gt;
     </code>
   </pre>
 
@@ -24,7 +24,7 @@
   <pre>
     <code class="html">
 &lt;svg class=&quot;cyclops-icon&quot;&gt;
-  &lt;use xlink:href=&#39;#icon-question&#39 data-bind=&quot;attr: {&apos;xlink:href&apos;: iconObservable}&quot;&gt;
+  &lt;use xlink:href=&#39;#icon-question&#39 data-bind=&quot;attr: {&apos;xlink:href&apos;: iconObservable}&quot; /&gt;
 &lt;/svg&gt;
     </code>
   </pre>
@@ -38,10 +38,10 @@
   </div>
   <pre>
     <code class="html">
-&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon lg&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon xl&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon lg&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon xl&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
     </code>
   </pre>
 </section>
@@ -54,10 +54,10 @@
   </div>
   <pre>
     <code class="html">
-&lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon md green&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon md danger&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon md info&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39;&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon md&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon md green&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon md danger&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon md info&quot;&gt;&lt;use xlink:href=&#39;#icon-hyperscale&#39; /&gt;&lt;/svg&gt;
     </code>
   </pre>
 </section>
@@ -70,8 +70,8 @@
   </div>
     <pre>
       <code class="html">
-&lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-refresh&#39;&gt;&lt;/svg&gt;
-&lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-spinner&#39;&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-refresh&#39; /&gt;&lt;/svg&gt;
+&lt;svg class=&quot;cyclops-icon cyclops-spin&quot;&gt;&lt;use xlink:href=&#39;#icon-spinner&#39; /&gt;&lt;/svg&gt;
       </code>
     </pre>
 </section>
@@ -90,12 +90,12 @@
   </div>
     <pre>
       <code class="html">
-&lt;h1&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading One&lt;/h1&gt;
-&lt;h2&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading Two&lt;/h2&gt;
-&lt;h3&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading Three&lt;/h3&gt;
-&lt;h4&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading Four&lt;/h4&gt;
-&lt;h5&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading Five&lt;/h5&gt;
-&lt;h6&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39;&gt;&lt;/svg&gt; Heading Six&lt;/h6&gt;
+&lt;h1&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading One&lt;/h1&gt;
+&lt;h2&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading Two&lt;/h2&gt;
+&lt;h3&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading Three&lt;/h3&gt;
+&lt;h4&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading Four&lt;/h4&gt;
+&lt;h5&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading Five&lt;/h5&gt;
+&lt;h6&gt;&lt;svg class=&quot;cyclops-icon&quot;&gt;&lt;use xlink:href=&#39;#icon-info-circle&#39; /&gt;&lt;/svg&gt; Heading Six&lt;/h6&gt;
       </code>
     </pre>
 </section>
