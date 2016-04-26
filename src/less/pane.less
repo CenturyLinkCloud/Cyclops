@@ -3,7 +3,7 @@ pane {
   max-height: 36px;
   overflow: hidden;
   display: block;
-  .transition(e('max-height .5s, margin-left .5s'));
+  .transition(e(  'max-height .5s, margin-left .5s'));
   background-color: @body-bg;
 
   &.pane-expanded {
@@ -24,7 +24,6 @@ pane {
       display: block;
     }
   }
-
   @media (min-width: @screen-sm-min) {
     max-height: none;
     width: @pane-width;
@@ -44,14 +43,12 @@ pane {
       }
     }
   }
-
   @media (min-width: @screen-md-min) {
     ~ main .container {
       width: @container-md - @pane-width;
       margin-left: 0;
     }
   }
-
   @media (min-width: @screen-lg-min) {
     ~ main .container {
       width: @container-lg - @pane-width;
@@ -74,7 +71,7 @@ pane {
     position: absolute;
     margin- top: 5px;
     margin-left: 10px;
-    .transition(e('margin-top .2s'));
+    .transition(e(  'margin-top .2s'));
     line-height: 26px;
     display: none;
 
@@ -98,13 +95,21 @@ pane {
   }
 
   .content {
-    padding: 5px 10px;
+    padding: 5px 15px;
     line-height: 26px;
   }
-
   @media (min-width: @screen-sm-min) {
     display: block;
   }
+}
+
+.pane-search-message {
+  padding: 5px 22px;
+  font-size: @font-size-small;
+  color: @text-color-lighter;
+  line-height: 26px;
+  .box-shadow(inset -5px 0px 3px 0px rgba(0,0,0,0.05));
+  border-bottom: 1px solid @border-color;
 }
 
 .pane-header-btn {
@@ -122,8 +127,8 @@ pane {
     fill: @text-color;
   }
 
-  &:hover,
-  &.active {
+  &.active,
+  &:hover {
     background-color: rgba(255,255,255,.70);
     color: @gray-dark;
   }
@@ -135,7 +140,6 @@ pane {
 
 .pane-toggle {
   float: right;
-
   @media (min-width: @screen-sm-min) {
     display: none;
   }
@@ -143,7 +147,6 @@ pane {
 
 .pane-actions {
   display: none;
-
   @media (min-width: @screen-sm-min) {
     display: block;
   }

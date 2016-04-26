@@ -62,6 +62,7 @@ class PaneViewModel
       loadingTemplateName: 'cyclops.paneItemsLoading'
       loading: false
       headerTemplateName: 'cyclops.paneHeader'
+      maxSearchResults: 5
       searchComparer: (item, query) ->
          return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     }, options
@@ -104,8 +105,21 @@ class PaneViewModel
     @headerTemplateName = options.headerTemplateName
     @itemTemplateName = ko.pureComputed () =>
       return if @isSearching() then options.itemFilteredTemplateName else options.itemTemplateName
+
     @displayItems = ko.pureComputed () =>
-      return if @isSearching() then @filteredItems() else @items()
+      if @isSearching()
+        return @filteredItems().slice(0, options.maxSearchResults)
+      else @items()
+
+    @paneSearchMessage = ko.pureComputed () =>
+      maxLength = ko.unwrap options.maxSearchResults
+      if @isSearching() && maxLength < @filteredItems().length
+        return "showing #{maxLength} of #{@filteredItems().length} results."
+      else if @filteredItems().length == 0
+        return 'no results'
+      else
+        return 'showing all results'
+
 
     # Search Logic
     @searchQuery = ko.observable('')
