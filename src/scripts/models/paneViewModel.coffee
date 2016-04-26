@@ -62,7 +62,7 @@ class PaneViewModel
       loadingTemplateName: 'cyclops.paneItemsLoading'
       loading: false
       headerTemplateName: 'cyclops.paneHeader'
-      maxSearchResults: 5
+      maxSearchResults: 20
       searchComparer: (item, query) ->
          return ko.unwrap(item.name).toLowerCase().indexOf(query) > -1
     }, options
