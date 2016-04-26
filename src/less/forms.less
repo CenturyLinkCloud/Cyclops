@@ -313,8 +313,12 @@ fieldset[disabled] {
     padding-top: 15px;
   }
   // space out inputs that are stacked, but remove the spacing if adjacent
-  .form-control + .form-control {
+  .form-control + .form-control,
+  .validationMessage + .form-control  {
     margin-top: 10px;
+  }
+
+  .form-control:first-child + .form-control {
 
     &.w10,
     &.w20,
@@ -328,6 +332,7 @@ fieldset[disabled] {
     &.w100 {
       margin-top: 0;
     }
+
   }
 
   input + .btn {
