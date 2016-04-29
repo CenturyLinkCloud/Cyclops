@@ -174,7 +174,20 @@ $(function(){
             displayName: "Nathan's Server",
             state: "started"
           }
+        ],
+        groups: [
+          {
+            name: "Sub Group",
+            servers: [{name: "QA1DEVSERVER03",displayName: "A nested Server", state: "stopped"}],
+            groups: [
+              {
+                name: "Another Sub Group",
+                servers: [{name: "QA1DEVSERVER04",displayName: "Another Nested Server", state: "stopped"}],
+              }
+            ]
+          }
         ]
+
       },
       {
         name: "Database Servers",

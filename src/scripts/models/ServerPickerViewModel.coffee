@@ -61,7 +61,7 @@ class ServerPickerGroupViewModel
     @allServers = ko.computed () =>
       servers = @selectableServers()
       @selectableGroups().forEach (g) ->
-        servers = servers.concat g.servers()
+        servers = servers.concat g.allServers()
         return
       return servers
 
