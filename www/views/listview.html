@@ -104,7 +104,7 @@
   <pre>
     <code class="html">
 &lt;li class=&quot;empty-list-view-item feature&quot;&gt;
-  &lt;svg class=&quot;cyclops-icon lg green&quot;&gt;&lt;use xlink:href='#icon-database'&gt;&lt;/svg&gt;
+  &lt;svg class=&quot;cyclops-icon lg green&quot;&gt;&lt;use xlink:href='#icon-database' /&gt;&lt;/svg&gt;
   &lt;h3&gt;Get Started with Relational DB&lt;/h3&gt;
   &lt;p class=&quot;lead&quot;&gt;Relational DB makes it easy to set up and manage high performance, cost efficient, MySQL-compatible relational databases. &lt;/p&gt;
   &lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;create a database&lt;/a&gt;&lt;/p&gt;
@@ -350,7 +350,7 @@
     <code class="html">
 &lt;div class=&quot;new-list-view-responsive new-list-view-responsive-sm&quot;&gt;
   &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
-    &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;create item&lt;/button&gt;
     &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
       ...
     &lt;/div&gt;
@@ -444,7 +444,7 @@
   <div id="readOnly" class="pl-example">
     <div class="new-list-view-toolbar">
       <!-- This content is just used for demo purposes you'll wire up your own -->
-      <button class="btn btn-default" data-bind="click: addAnItem">add an item</button>
+      <button class="btn btn-primary" data-bind="click: addAnItem"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> item</button>
       <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-md">
@@ -466,7 +466,7 @@
   <h4>Create, Read, Update, Delete (CRUD)</h4>
   <div id="crud" class="pl-example">
     <div class="new-list-view-toolbar">
-      <button class="btn btn-default" data-bind="click: addItem">create an item</button>
+      <button class="btn btn-primary" data-bind="click: addItem"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> item</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-sm">
       <div class="new-list-view-header">
@@ -492,9 +492,9 @@
   </ul>
   <div id="filterSort" class="pl-example">
     <div class="new-list-view-toolbar">
-      <button class="btn btn-default" data-bind="click: createServer">create server</button>
+      <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
       <div class="new-list-view-toolbar-right">
-        <button class="btn btn-default" data-bind="click: createServer">create server</button>
+        <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
         <span class="search-input">
           <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
           <svg class="cyclops-icon">
