@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .action-area {
-  background-color: #e5e5e5;
+  background-color: @action-toolbar-bg;
   height: 40px;
   line-height: 20px;
   padding: 0 20px;
@@ -31,12 +31,10 @@
 
     a,
     button {
-      background-color: #e5e5e5;
+      background-color: @action-toolbar-bg;
       display: inline-block;
       padding: 8px 10px 12px;
-      .transition(e('color .1s ease-in'));
-      .transition(e('padding .1s ease-in'));
-      .transition(e('background-color .1s ease-in'));
+      .transition(e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in'));
       text-decoration: none;
       border:none;
       outline:none;
@@ -44,9 +42,9 @@
       &:hover {
         background-color: #3a3a3a;
         color: @white;
-        .transition(e('none'));
 
         svg.cyclops-icon {
+          .transition(e('fill .15s'));
           fill: @white;
         }
       }
@@ -61,19 +59,15 @@
       }
 
       &.disabled,
-      &:disabled:not(.active) {
+      &:disabled {
         color: #b9b9b9;
         cursor: @cursor-disabled;
 
         &:hover {
-          background: none;
+          background: @action-toolbar-bg;
 
           svg.cyclops-icon {
             fill: #b9b9b9;
-          }
-          &.active,
-          &:active {
-            background-color: @gray;
           }
         }
 
