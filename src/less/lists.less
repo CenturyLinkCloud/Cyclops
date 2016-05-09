@@ -52,7 +52,8 @@ dd {
 
 	> li {
 		border-bottom: 1px solid @border-color;
-		padding: 10px 0;
+		padding: 12px 0;
+		line-height: 20px;
 
 		.info-label {
 			display: block;
@@ -68,19 +69,16 @@ dd {
 			width: 100%;
 		}
 
-		@media (min-width: @screen-sm-min) {
-			margin-bottom: 10px;
-		}
-
 		@media (min-width: @screen-md-min) {
 
 			.info-label {
 				display: inline-block;
 				width: 35%;
+				margin-right: 5%
 			}
 
 			.info-value {
-				width: 60%;
+				width: 55%;
 			}
 		}
 	}
