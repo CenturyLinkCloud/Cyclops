@@ -1,0 +1,94 @@
+// checkbox toggle
+.toggle {
+  position: relative;
+  width: 70px;
+  height: 34px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+
+    label {
+      cursor: not-allowed;
+    }
+
+    .handle,
+    .text .affirmative,
+    .text .negative {
+      color: #bababa;
+      background-color: #eee;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .bug-fix {
+    .text {
+      margin-left: 0;
+    }
+
+    .handle {
+      right: 0;
+    }
+  }
+
+  label {
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid @border-color;
+    border-radius: 3px;
+    margin-bottom: 0;
+  }
+
+  .text {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+
+    .affirmative,
+    .negative {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 32px;
+      padding: 0;
+      line-height: 30px;
+      font-size: 14px;
+      color: white;
+      font-weight: @base-font-weight;
+      text-align: center;
+    }
+
+    .affirmative {
+      padding-left: 5px;
+      background-color: @brand-success;
+      color: #fff;
+      padding-right: 30px;
+    }
+
+    .negative {
+      padding-right: 5px;
+      background-color: #eee;
+      color: #999;
+      padding-left: 30px;
+    }
+  }
+
+  .handle {
+    display: block;
+    width: 28px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 42px;
+    border-radius: 3px;
+    border: 1px solid @border-color;
+    transition: all 0.3s ease-in 0s;
+  }
+}
