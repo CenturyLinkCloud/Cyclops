@@ -7,10 +7,20 @@
   background-color: @white;
   border: 1px solid @border-color;
   border-radius: @border-radius-base;
+
+  .new-list-view > li:last-child {
+
+    .list-view-item,
+    .list-view-link-item,
+    .list-view-editable-item,
+    .list-view-read-only-item {
+      border-bottom: none;
+    }
+  }
 }
 
 .card-block {
-  padding: 15px 20px;
+  padding: 15px 15px;
 }
 
 .card-title {
@@ -29,9 +39,10 @@
 // Optional textual caps
 //
 .card-header {
-  padding: (@line-height-computed / 2) @line-height-computed;
+  padding: (@line-height-computed / 2) 15px;
   background-color: @gray-lighter;
   border-bottom: 1px solid @border-color;
+  .clearfix();
 
   &:first-child {
     border-top-left-radius: @border-radius-base;
@@ -54,7 +65,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 15px 20px;
+  padding: 15px 15px;
   background-color: rgba(0,0,0, .8);
   border-radius: @border-radius-base;
 

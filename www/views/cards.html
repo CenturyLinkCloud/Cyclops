@@ -125,6 +125,31 @@
   </pre>
 </section>
 
+<section class="pl-section" id="cardList">
+  <h3><a href="#cardList">Card List View</a></h3>
+  <p><a href="/listview.html">List views</a> may be contained within a cards by simply wrapping a <code>.new-list-view</code> element with <code>.card</code></p>
+  <div class="pl-example">
+    {{> cards/card-listview }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card-header&quot;&gt;
+    List View Items
+  &lt;/div&gt;
+  &lt;ul class=&quot;new-list-view&quot;&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
+
 <section class="pl-section" id="addCard">
   <h3><a href="#addCard">Add Card</a></h3>
   <p>If you're using cards to display a list of objects, use <code>.card-add</code> and <code>.v-center</code> at the end of the list to give users an option to add a another object to the list. A <code>height</code> on the <code>.card-add</code> must be set for content to center vertically.</p>
@@ -142,7 +167,6 @@
     </code>
   </pre>
 </section>
-
 
 <section class="pl-section" id="decks">
   <h3><a href="#decks">Card Decks</a></h3>
@@ -186,3 +210,22 @@
     </code>
   </pre>
 </section>
+
+{{#contentFor "scripts"}}
+<script>
+$(function(){
+  var viewModel = function(){
+    var self = this;
+    self.openForm = ko.observable(false);
+
+    self.toggleForm = function(){
+      self.openForm(!self.openForm());
+    };
+
+    return self;
+  };
+  ko.applyBindings(new viewModel(), $('#cardList')[0]);
+
+})
+</script>
+{{/contentFor}}
