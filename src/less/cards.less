@@ -17,6 +17,18 @@
       border-bottom: none;
     }
   }
+
+  > .alert {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+
+.alert + .new-list-view,
+.card-block + .new-list-view,
+.new-list-view + .card-block {
+  border-top: 1px solid @border-color;
 }
 
 .card-block {
