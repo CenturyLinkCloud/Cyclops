@@ -444,7 +444,7 @@
   <div id="readOnly" class="pl-example">
     <div class="new-list-view-toolbar">
       <!-- This content is just used for demo purposes you'll wire up your own -->
-      <button class="btn btn-primary" data-bind="click: addAnItem"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> item</button>
+      <button class="btn btn-primary" data-bind="click: addAnItem"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> item</button>
       <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-md">
@@ -466,7 +466,7 @@
   <h4>Create, Read, Update, Delete (CRUD)</h4>
   <div id="crud" class="pl-example">
     <div class="new-list-view-toolbar">
-      <button class="btn btn-primary" data-bind="click: addItem"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> item</button>
+      <button class="btn btn-primary" data-bind="click: addItem"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> item</button>
     </div>
     <div class="new-list-view-responsive new-list-view-responsive-sm">
       <div class="new-list-view-header">
@@ -492,12 +492,12 @@
   </ul>
   <div id="filterSort" class="pl-example">
     <div class="new-list-view-toolbar">
-      <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
+      <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
       <div class="new-list-view-toolbar-right">
-        <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
+        <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
         <span class="search-input">
           <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
-          <svg class="cyclops-icon">
+          <svg class="cyclops-icon" aria-hidden="true">
             <!-- ko ifnot: servers.query -->
             <use xlink:href='#icon-search'></use>
             <!-- /ko -->
@@ -513,7 +513,7 @@
         <h3 class="col col-30">
           <button class="btn btn-link-text" data-bind="click:toggleSortOrder">
             name
-            <svg class="cyclops-icon"><use xlink:href='#icon-angle-up' data-bind="attr: {'xlink:href': sortingIcon}"></svg>
+            <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-angle-up' data-bind="attr: {'xlink:href': sortingIcon}"></svg>
           </button>
         </h3>
         <h3 class="col col-60">description</h3>
@@ -522,7 +522,7 @@
       <li>
           <div class="list-view-item">
               <div class="col col-10">
-                <svg class="cyclops-icon"><use xlink:href="#icon-question" data-bind="attr: {'xlink:href': icon}"></svg>
+                <svg class="cyclops-icon" aria-hidden="true"><use xlink:href="#icon-question" data-bind="attr: {'xlink:href': icon}"></svg>
               </div>
               <div class="col col-30" data-bind="text: name"></div>
               <div class="col col-60" data-bind="text: description"></div>
