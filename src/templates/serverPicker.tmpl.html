@@ -18,7 +18,7 @@
   <li>
     <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title }">
       <!-- ko if: selectable -->
-      <input type="checkbox" name="group" data-bind="click: clickHandler, checked: isChecked, indeterminate: isIndeterminate"/>
+      <input type="checkbox" data-bind="attr: {name: $component.controlName}, click: clickHandler, checked: isChecked, indeterminate: isIndeterminate"/>
       <!-- /ko -->
       <span class="content">
         <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span data-bind="text: rawGroup.name"></span>
@@ -37,7 +37,7 @@
   <li>
     <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title}">
       <!-- ko if: selectable -->
-      <input type="checkbox" name="group" data-bind="checked: isChecked" />
+      <input type="checkbox" data-bind="attr: {name: $component.controlName}, checked: isChecked" />
       <!-- /ko -->
       <span class="content">
         <svg class="cyclops-icon">
@@ -68,7 +68,7 @@
   <li>
     <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title}">
       <!-- ko if: selectable -->
-      <input type="radio" name="group" data-bind="checked: $component.selected, checkedValue: $data.rawServer" />
+      <input type="radio" data-bind="attr: {name: $component.controlName}, checked: $component.selected, checkedValue: $data.rawServer" />
       <!-- /ko -->
       <span class="content">
         <svg class="cyclops-icon">
