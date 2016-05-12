@@ -120,6 +120,8 @@ class ServerPickerViewModel
   constructor: (options) ->
     options = options || {}
 
+    @controlName = 'server_picker_' + Math.random().toString(36).substr(2, 9)
+
     @defaultShouldShowGroup = (group)->
       if group.type?
         return ko.unwrap(group.type) == 'default'
