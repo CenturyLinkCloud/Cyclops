@@ -8,6 +8,7 @@ class GroupPickerViewModel
       else
         return true
 
+    @controlName = 'group_picker_' + Math.random().toString(36).substr(2, 9)
 
     @shouldShow = if options.shouldShow? then options.shouldShow else @defaultShouldShow
     @groups = ko.asObservableArray if options.groups? then options.groups else []

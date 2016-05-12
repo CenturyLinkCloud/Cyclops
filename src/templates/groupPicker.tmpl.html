@@ -18,7 +18,7 @@
   <!-- ko if: $component.shouldShow($data) -->
   <li>
     <label class="item-hover" data-bind="attr: { title: $data.description }">
-      <input type="radio" name="group" data-bind="checkedValue: $data, checked: $component.selected"/>
+      <input type="radio" data-bind="attr: {name: $component.controlName}, checkedValue: $data, checked: $component.selected"/>
       <span class="content">
         <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span data-bind="text: name"></span>
       </span>
