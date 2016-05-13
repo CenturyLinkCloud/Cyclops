@@ -263,6 +263,11 @@
     &.status-danger {
       box-shadow: inset 0 -1px 0 0 #ffffff, inset 15px 0 red;
     }
+
+    &.empty-list-view-item,
+    &.loading-list-view-items {
+      box-shadow: none;
+    }
   }
 }
 
@@ -315,7 +320,7 @@
 
 .loading-list-view-items,
 .error-list-view-items {
-  border-bottom: 1px solid @gray-lighter;
+  border-bottom: 1px solid @border-color;
   padding: 10px 15px;
   text-align: center;
 
