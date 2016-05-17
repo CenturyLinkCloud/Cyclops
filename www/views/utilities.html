@@ -6,28 +6,36 @@
 
 <section class="pl-section" id="unordered">
   <h4>Spacing</h4>
-  <p>Assign <code>margin</code> or <code>padding</code> to the top or bottom of an element with a spacing utility class. All classes are multiples of <code>20px</code>.</p>
+  <p>Assign <code>margin</code> or <code>padding</code> to an element with a spacing utility class. All classes are multiples of <code>20px</code>. Use of these classes is explicitly stating your intention to override any pre-existing margin or padding styles.</p>
   <p>Class names use the format: <code>[property]-[side]-[size]</code> where <code>[property]</code> is <code>m</code> for margin or <code>p</code> for padding. <code>[side]</code> is <code>t</code> for top, <code>b</code> for bottom, <code>l</code> for left, and <code>r</code> for right. <code>[size]</code> is <code>0</code> to remove margin or padding, <code>sm</code> is for 20px, <code>md</code> is 30px, and <code>lg</code> is 40px.</p>
   <pre>
     <code class="html">
+.p-sm {
+  padding: 20px !important;
+}
+
+.m-lg {
+  margin: 40px !important;
+}
+
 .m-t-0 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .m-t-xs {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 
 .m-t-sm {
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 .p-b-md {
-  padding-bottom: 30px;
+  padding-bottom: 30px !important;
 }
 
 .p-b-lg {
-  padding-bottom: 40px;
+  padding-bottom: 40px !important;
 }
     </code>
   </pre>
