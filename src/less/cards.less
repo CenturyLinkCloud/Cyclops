@@ -62,6 +62,18 @@
   }
 }
 
+.card-footer {
+  .clearfix();
+  padding: (@line-height-computed / 2) 15px;
+  background-color: @gray-lighter;
+  border-top: 1px solid @border-color;
+
+  &:last-child {
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+  }
+}
+
 .card-hover {
   display:none;
 }
