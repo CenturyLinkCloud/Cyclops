@@ -3,7 +3,7 @@ if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
 
   ../.travis/cf api https://api.uswest.appfog.ctl.io
   ../.travis/cf login --u $APPFOG_USERNAME --p $APPFOG_PASSWORD --o "uiux" --s "dev"
-  ../.travis/cf push "cyclops-dev" -b https://github.com/cloudfoundry/staticfile-buildpack.git#63426a021d148eb46e3c0f7e223d6c1a5195d49b 
+  ../.travis/cf push "cyclops-dev" -b https://github.com/cloudfoundry/staticfile-buildpack.git
   ../.travis/cf logout
 else
   echo "we only deploy the master branch"
