@@ -1,8 +1,12 @@
 <section class="pl-section" id="inputs">
   <h3 id="inputs"><a href="#inputs">Basic Inputs</a></h3>
   <p>Examples of standard form inputs used throughout the Control Portal. Add the <code>.form-control</code> class to each input type to get proper formatting and alignment.</p>
-  <p>Provide labels to identity all form controls, including text fields, checkboxes, radio buttons, and drop-down menus. In most cases this is done by using the <code>&lt;label&gt;</code> element, and should be used to describe the purpose of the form control.</p>
-  <p>A label for a form control helps everyone better understand its purpose. In some cases the purpose may be clear enough from the context when the content is rendered visually. In such cases a label can be hidden visually, though it still needs to be provided within the code to support other forms of presentation and interaction, such as for screen reader and speech input users. The recommonded approach for hiding a label element, is to add the <code>.sr-only</code> class to the label in the code, but avoids the visual redundancy for users who can derive the purpose from its context.</p>
+
+  <div class="alert alert-info">
+    <h3 id="labels"><a href="#labels">Labels &amp; Accessibility</a></h3>
+    <p>Provide labels to identity all form controls, including text fields, checkboxes, radio buttons, and drop-down menus. In most cases this is done by using the <code>&lt;label&gt;</code> element, and should be used to describe the purpose of the form control.</p>
+    <p>A label for a form control helps everyone better understand its purpose. In some cases the purpose may be clear enough from the context when the content is rendered visually. In such cases a label can be hidden visually, though it still needs to be provided within the code to support other forms of presentation and interaction, such as for screen reader and speech input users. The recommended approach for hiding a label element, is to add the <code>.sr-only</code> class to the label in the code. This avoids the visual redundancy for users who can derive the purpose from its visual context, but still provides screen reader support.</p>
+  </div>
 
   <h4>Text</h4>
   <div class="pl-example">
