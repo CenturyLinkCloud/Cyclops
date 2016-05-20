@@ -1,0 +1,37 @@
+.tag {
+  display: inline-block;
+  padding: .4em;
+  font-size: 75%;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 3px;
+
+  // Empty tags collapse automatically
+  &:empty {
+    display: none;
+  }
+}
+
+.tag-default {
+  background-color: @tag-default-bg;
+}
+
+.tag-primary {
+  background-color: @tag-primary-bg;
+}
+
+.tag-info {
+  background-color: @tag-info-bg;
+}
+
+.tag-warning {
+  background-color: @tag-warning-bg;
+}
+
+.tag-danger {
+  background-color: @tag-danger-bg;
+}
