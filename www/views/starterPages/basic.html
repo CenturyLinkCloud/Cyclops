@@ -1,14 +1,22 @@
 {{!< ../layouts/starter-page.html}}
 
+<div class="alert alert-banner alert-info alert--texture" role="alert">
+	<p>This is a system alert.</p>
+</div>
+
 <main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Hello, world!</h1>
+        <p class="lead">This is a basic starter page for your service's user interface.</p>
+      </div>
+    </div>
+  </div>
   <div class="primary">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="content-header">
-            <h1>Hello, world!</h1>
-            <p class="lead">This is a basic starter page for your service's user interface.</p>
-          </div>
           {{> starter-pages/list-view }}
         </div>
       </div>

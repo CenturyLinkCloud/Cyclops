@@ -64,10 +64,23 @@
   }
 }
 
+// Alert banner for top level (under the main nav) notifications
+
+.alert-banner {
+  border-radius: 0;
+  font-weight: 600;
+  border-left: none;
+  border-right: none;
+}
+
 @media (min-width: @screen-sm-min) {
 
   .alert {
     text-align: left;
+  }
+
+  .alert-banner {
+    text-align: center;
   }
 
   .alert-icon {
@@ -96,7 +109,6 @@
     position: relative;
     top: -2px;
     right: -21px;
-    color: inherit;
   }
 }
 
@@ -122,4 +134,9 @@
 
 .alert-danger {
   .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text; @text-color);
+}
+
+.alert--texture {
+  background-image: linear-gradient(45deg,rgba(255,255,255,.25) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.25) 50%,rgba(255,255,255,.25) 75%,transparent 75%,transparent);
+  background-size: 50px 50px;
 }
