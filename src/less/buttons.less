@@ -3,7 +3,7 @@
   border: none;
   .border-radius(3px);
   .box-shadow(none);
-  color: @white;
+  color: #fff;
   display: inline-block;
   font-family: @font-family;
   font-size: 13px;
@@ -22,6 +22,7 @@
   &:focus {
     outline-offset: -4px;
     outline: 1px dotted lighten(@btn-default-bg, 20%);
+    .box-shadow(0 0 3px @btn-default-bg);
   }
 
   &[disabled],
@@ -52,20 +53,20 @@ fieldset[disabled] {
 
   .btn-primary {
     background-color: @btn-primary-bg-disabled;
-    color: @white;
+    color: #fff;
 
     &:hover {
       background-color: @btn-primary-bg-disabled;
-      color: @white;
+      color: #fff;
     }
   }
 
   .btn-danger {
     background-color: @btn-danger-bg-disabled;
-    color: @white;
+    color: #fff;
 
     &:hover {
-      color: @white;
+      color: #fff;
       background-color: @btn-danger-bg-disabled;
     }
   }
@@ -110,7 +111,7 @@ fieldset[disabled] {
 
     &:hover {
       background-color: @btn-default-bg-disabled;
-      color: @white;
+      color: #fff;
     }
   }
 }
@@ -132,16 +133,16 @@ fieldset[disabled] {
 
   &[disabled] {
     background-color: @btn-primary-bg-disabled;
-    color: @white;
+    color: #fff;
 
     &:hover {
-      color: @white;
+      color: #fff;
     }
   }
 }
 
 .btn-danger {
-  color: @white;
+  color: #fff;
   background-color: @btn-danger-bg;
 
   &:hover {
@@ -158,17 +159,17 @@ fieldset[disabled] {
 
   &[disabled] {
     background-color: @btn-danger-bg-disabled;
-    color: @white;
+    color: #fff;
 
     &:hover {
-      color: @white;
+      color: #fff;
     }
   }
 }
 
 .btn-inverse {
   background-color: @btn-inverse-bg;
-  color: @text-color;
+  color: @btn-inverse-color;
 
   &:hover {
     background-color: @btn-inverse-bg-hover;
@@ -199,7 +200,7 @@ fieldset[disabled] {
 .btn-outline {
   border: 1px solid @btn-outline-border;
   background-color: @btn-outline-bg;
-  color: @text-color;
+  color: @btn-outline-color;
   padding: 3px 10px 5px;
 
   &:hover {
@@ -209,7 +210,7 @@ fieldset[disabled] {
   &.active {
     background-color: @btn-outline-bg-active;
     border: 1px solid @btn-outline-bg-hover;
-    color: @white;
+    color: #fff;
   }
 
   &:focus {
@@ -277,6 +278,10 @@ fieldset[disabled] {
 
   &:focus {
     outline: 1px dotted lighten(@text-color, 40%);
+  }
+
+  &[disabled] {
+    color: @text-color;
   }
 
   .cyclops-icon use {

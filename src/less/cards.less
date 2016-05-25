@@ -4,7 +4,7 @@
 .card {
   position: relative;
   margin-bottom: @line-height-computed;
-  background-color: @white;
+  background-color: #fff;
   border: 1px solid @border-color;
   border-radius: @border-radius-base;
 
@@ -52,7 +52,7 @@
 //
 .card-header {
   padding: (@line-height-computed / 2) 15px;
-  background-color: @gray-lighter;
+  background-color: @gray-100;
   border-bottom: 1px solid @border-color;
   .clearfix();
 
@@ -65,7 +65,7 @@
 .card-footer {
   .clearfix();
   padding: (@line-height-computed / 2) 15px;
-  background-color: @gray-lighter;
+  background-color: @gray-100;
   border-top: 1px solid @border-color;
 
   &:last-child {
@@ -128,15 +128,15 @@
   background-color: #f5f5f5;
 
   .cyclops-icon {
-    fill: #ccc;
+    fill: @gray-200;
   }
 
   &:hover {
     background-color: #fff;
-    border-color: #999;
+    border-color: @gray-400;
 
     .cyclops-icon {
-      fill: #333;
+      fill: @gray-500;
     }
   }
 }
@@ -149,14 +149,14 @@
   background-color: #f5f5f5;
 
   .cyclops-icon {
-    fill: #ccc;
+    fill: @gray-200;
   }
 
   &:hover {
-    border-color: #999;
+    border-color: @gray-400;
 
     .cyclops-icon {
-      fill: #333;
+      fill: @gray-500;
     }
   }
 }

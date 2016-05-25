@@ -41,20 +41,20 @@
 
       &:hover {
         background-color: #3a3a3a;
-        color: @white;
+        color: #fff;
 
         svg.cyclops-icon {
           .transition(e('fill .15s'));
-          fill: @white;
+          fill: #fff;
         }
       }
 
       &.active,
       &:active {
-        background-color: @gray;
-        color: @white;
+        background-color: @gray-600;
+        color: #fff;
         svg.cyclops-icon {
-          fill: @white;
+          fill: #fff;
         }
       }
 
@@ -97,12 +97,12 @@
 
   &:hover,
   &.open {
-    color: @white;
+    color: #fff;
     background: #3a3a3a;
 
     a,
     button {
-      color: @white;
+      color: #fff;
       background-color: #3a3a3a;
       width: 100%;
       text-align: left;
@@ -117,12 +117,12 @@
    }
 
     svg {
-      fill: @white;
+      fill: #fff;
     }
   }
 
   .dropdown-menu {
-    color: @white;
+    color: #fff;
     background: #3a3a3a;
     border: 0;
     margin-top: 0;
@@ -141,7 +141,7 @@
         }
         &.active,
         &:active {
-          background-color: @gray;
+          background-color: @gray-600;
         }
       }
     }
@@ -196,18 +196,18 @@
       }
 
       &.no {
-        color: @gray-lighter;
+        color: @gray-100;
 
         svg {
-          fill: @gray-lighter;
+          fill: @gray-100;
         }
 
         &:hover {
-          color: @white;
+          color: #fff;
           background-color: darken(#3a3a3a, 10%);
 
           svg {
-            fill: @white;
+            fill: #fff;
           }
         }
       }

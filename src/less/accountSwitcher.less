@@ -69,7 +69,7 @@ account-switcher {
         fill: @account-switcher-text-color;
 
         &:hover {
-          fill: @white;
+          fill: #fff;
         }
       }
     }
@@ -87,7 +87,7 @@ account-switcher {
       .transition(e('color .05s ease-in'));
 
       &:hover {
-        color: @white;
+        color: #fff;
       }
     }
   }
@@ -119,7 +119,7 @@ account-switcher {
           font-size: 16px;
           background: @account-switcher-bg;
           border-color: @account-switcher-border-color;
-          color: #ccc;
+          color: @gray-200;
 
           &::-ms-clear {
             display: none;
@@ -155,7 +155,7 @@ account-switcher {
         margin-bottom: 2px;
         opacity: 0;
         .transition(e('opacity .05s ease-in'));
-        fill: @white;
+        fill: #fff;
       }
     }
 
@@ -181,12 +181,12 @@ account-switcher {
 
         &.current {
           background-color: @account-switcher-active-bg;
-          color: @white;
+          color: #fff;
         }
 
         &.active-item {
           background-color: @account-switcher-active-bg;
-          color: @white;
+          color: #fff;
 
           .col-active-item svg {
             opacity: 1;

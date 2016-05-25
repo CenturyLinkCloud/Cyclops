@@ -7,7 +7,7 @@ main-nav {
   z-index: 1;
   background: @main-nav-bg;
   .transition(width .5s);
-  color: @gray-light;
+  color: @gray-300;
   // Prevent a BUFOC
   &:before {
     content: ' ';
@@ -28,7 +28,7 @@ main-nav {
     display: inline-block;
     width: 100%;
     text-decoration: none;
-    color: @gray-light;
+    color: @gray-300;
   }
 
   ~ pane,
@@ -69,11 +69,11 @@ main-nav {
 
     &:focus,
     &:hover {
-      color: @gray-lighter;
+      color: @gray-100;
       outline: none;
 
       .cyclops-icon use {
-        fill: @gray-lighter;
+        fill: @gray-100;
       }
 
       &:active {
@@ -176,16 +176,16 @@ main-nav {
       width: 100%;
       margin: 0;
       background-color: transparent;
-      color: @gray-light;
+      color: @gray-300;
       text-transform: capitalize;
 
       &:focus,
       &:hover {
-        color: @gray-lighter;
+        color: @gray-100;
         outline: none;
 
         .cyclops-icon {
-          fill: @gray-lighter;
+          fill: @gray-100;
         }
       }
 
@@ -230,7 +230,7 @@ main-nav {
       margin-right: 7px;
 
       .cyclops-icon use {
-        fill: @gray;
+        fill: @gray-600;
       }
 
       &:hover {

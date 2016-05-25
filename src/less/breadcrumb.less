@@ -18,18 +18,18 @@
     + li:before {
       content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
       padding: 0 5px;
-      color: #ccc;
+      color: @gray-200;
     }
 
     &:last-child:after {
         content: "|\00a0"; // Unicode space added since inline-block means non-collapsing white-space
         padding: 0 5px;
-        color: #ccc;
+        color: @gray-200;
     }
   }
 
   > .active {
-    color: @gray-light;
+    color: @gray-300;
   }
 
   @media (min-width: @screen-xs-min) {

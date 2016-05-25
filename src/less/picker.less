@@ -1,8 +1,8 @@
 
 .picker {
   height: 160px;
-  border: solid 1px #ccc;
-  background-color: @white;
+  border: solid 1px @gray-200;
+  background-color: #fff;
   .border-radius(4px);
   overflow: auto;
 
@@ -23,7 +23,7 @@
   .item-hover {
     cursor: pointer;
     display: block;
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid @border-color;
     margin: 0;
     font-weight: @base-font-weight;
     position: relative;
@@ -40,25 +40,25 @@
     }
 
     input:checked + .content {
-      background-color: @gray-dark;
-      color: @white;
+      background-color: @gray-700;
+      color: #fff;
 
 
       svg {
-        fill: @white;
+        fill: #fff;
       }
     }
 
     input:disabled + .content {
       cursor: not-allowed;
-      color: @gray-light;
+      color: @gray-300;
 
       &:hover {
         background-color: transparent;
       }
 
       svg {
-        fill: @gray-light;
+        fill: @gray-300;
       }
     }
 
@@ -78,10 +78,10 @@
     cursor: not-allowed;
 
     .content {
-      color: @gray-light;
+      color: @gray-300;
 
       svg {
-        fill: @gray-light;
+        fill: @gray-300;
       }
     }
 
