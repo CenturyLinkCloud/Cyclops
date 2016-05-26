@@ -4,10 +4,11 @@ main-nav {
   bottom: 0;
   width: @main-nav-width-sm;
   overflow: visible;
-  z-index: 1;
+  z-index: @zindex-main-nav;
   background: @main-nav-bg;
   .transition(width .5s);
   color: @gray-300;
+
   // Prevent a BUFOC
   &:before {
     content: ' ';
@@ -28,7 +29,7 @@ main-nav {
     display: inline-block;
     width: 100%;
     text-decoration: none;
-    color: @gray-300;
+    color: @main-nav-link-color;
   }
 
   ~ pane,
@@ -47,19 +48,14 @@ main-nav {
   .cyclops-icon {
     width: 20px;
     height: 20px;
-    .transition(fill .2s);
 
     use {
+      .transition(fill .2s);
       fill: @main-nav-icon-color;
     }
   }
 
-  .main-nav-label {
-    display: none;
-  }
-
-  a,
-  button.btn {
+  .btn {
     padding: 10px 0;
     letter-spacing: 0;
     font-size: @font-size-small;
@@ -129,6 +125,10 @@ main-nav {
   }
 }
 
+.main-nav-label {
+  display: none;
+}
+
 .main-nav-menu-items {
   list-style: none;
   padding: 0;
@@ -136,14 +136,15 @@ main-nav {
   overflow-x: hidden;
   height: 100%;
   position: relative;
-  z-index: 2;
   background: @main-nav-bg;
   margin-right: -15px;
+  box-shadow: inset 0 1px 0 0 rgba(0,0,0,.3); //top border
 
   li {
-    .transition(background-color .2s, width .5s;);
+    .transition(background-color .2s, width .2s, height .2s;);
+    border-bottom: 1px solid @gray-900;
     width: @main-nav-width-sm;
-    border-bottom: 1px solid darken(@main-nav-bg-selected, 2%);
+    height: 44px;
 
     &:hover {
       background-color: @main-nav-bg-hover;
@@ -176,22 +177,20 @@ main-nav {
       width: 100%;
       margin: 0;
       background-color: transparent;
-      color: @gray-300;
+      color: @main-nav-link-color;
       text-transform: capitalize;
 
-      &:focus,
       &:hover {
-        color: @gray-100;
-        outline: none;
+        color: #fff;
 
         .cyclops-icon {
           fill: @gray-100;
         }
       }
 
+      &:focus,
       &:active {
         box-shadow: none;
-        outline: none;
         color: #fff;
 
         .cyclops-icon {
@@ -220,9 +219,9 @@ main-nav {
   }
 
   .header {
-    background-color: #0c0c0c;
+    background-color: @gray-900;
+    border-bottom: 1px solid #000;
     text-align: right;
-    color: #757575;
     height: 40px;
 
     .close {
@@ -249,7 +248,7 @@ main-nav {
   .divider {
     font-size: @font-size-small + 1px;
     text-transform: uppercase;
-    color: #8cc63f;
+    color: @bright-green;
     padding: 0 15px 10px;
     margin-top: 0;
     border-bottom: solid 1px @main-nav-flyout-divider;
@@ -285,6 +284,10 @@ main-nav {
       h3 {
         color: #fff;
       }
+
+      p {
+        color: @gray-300;
+      }
     }
 
     a {
@@ -294,7 +297,7 @@ main-nav {
     }
 
     h3 {
-      color: #bbb;
+      color: @main-nav-link-color;
       font-size: 15px;
       line-height: 20px;
       margin-bottom: 5px;
@@ -303,7 +306,7 @@ main-nav {
     }
 
     p {
-      color: @text-color;
+      color: @gray-400;
       font-size: @font-size-small;
       line-height: @line-height-computed - 2;
       margin-bottom: 5px;
@@ -330,7 +333,7 @@ main-nav {
   }
 
   .main-nav-menu {
-    a,
+    a.btn,
     button.btn {
       padding: 10px;
       letter-spacing: 0;
@@ -351,6 +354,7 @@ main-nav {
   .main-nav-menu-items {
     li {
       width: @main-nav-width-md;
+      height: 66px;
     }
   }
 
@@ -387,7 +391,7 @@ main-nav {
   }
 
   .main-nav-menu {
-    a,
+    a.btn,
     button.btn {
       text-align: left;
       font-size: @font-size-base;
@@ -409,6 +413,7 @@ main-nav {
   .main-nav-menu-items {
     li {
       width: @main-nav-width-lg;
+      height: 43px;
     }
   }
 

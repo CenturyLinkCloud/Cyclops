@@ -65,7 +65,6 @@
 @padding-base-vertical: 7px;
 //** Global textual link color.
 @link-color: @primary-brand-green;
-//** Link hover color set via `darken()` function.
 @link-hover-color: darken(@link-color, 15%);
 //** Link hover decoration.
 @link-hover-decoration: underline;
@@ -102,6 +101,7 @@
 //-- Z-index master list
 // -------------------------
 @zindex-navbar: 1000;
+@zindex-main-nav: 1;
 @zindex-tooltip: 1070;
 @zindex-navbar-fixed: 1030;
 
@@ -311,7 +311,7 @@
 @navbar-inverse-link-disabled-color: @gray-700;
 @navbar-inverse-link-disabled-bg: transparent;
 // Inverted navbar brand label
-@navbar-inverse-brand-color: @navbar-inverse-link-color;
+@navbar-inverse-brand-color: @gray-100;
 @navbar-inverse-brand-hover-color: #fff;
 @navbar-inverse-brand-hover-bg: transparent;
 // Inverted navbar toggle
@@ -326,19 +326,21 @@
 @pane-width: 280px;
 //== Main Nav
 //
-@main-nav-icon-color: #757575;
-@main-nav-bg: #2d302d;
-@main-nav-bg-hover: #292929;
-@main-nav-bg-selected: #262626;
+
+@main-nav-bg: @gray-800;
+@main-nav-icon-color: @gray-400;
+@main-nav-link-color: @gray-200;
+@main-nav-bg-hover: darken(@gray-800, 3%);
+@main-nav-bg-selected: @gray-900;
 @main-nav-icon-color: @gray-500;
 @main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-bg-selected inset, 0 1px 0 @main-nav-bg-selected inset;
+@main-nav-flyout-bg: @main-nav-bg;
 @main-nav-width-sm: 46px;
 @main-nav-width-md: 100px;
 @main-nav-width-lg: 160px;
-@main-nav-flyout-bg: #272827;
 @main-nav-flyout-width: @pane-width; // 280px
-@main-nav-flyout-divider: #343534;
-@main-nav-flyout-selected: #212121;
+@main-nav-flyout-divider: @gray-700;
+@main-nav-flyout-selected: @gray-900;
 //== Pagination
 //
 //## Define pagination colors and padding.
