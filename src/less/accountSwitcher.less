@@ -1,10 +1,7 @@
 // Variables
 @ease: cubic-bezier(0.77, 0, 0.175, 1);
 @duration: 0.4s;
-@account-switcher-bg: #3a3a3a;
-@account-switcher-text-color: #bdbdbd;
-@account-switcher-border-color: lighten(@account-switcher-bg, 5%);
-@account-switcher-active-bg: darken(@account-switcher-bg, 10%);
+
 
 .account-switcher-open {
   overflow: hidden;
@@ -52,7 +49,7 @@ account-switcher {
     display: block;
     z-index: 1051;
     height: 40px;
-    background-color: @account-switcher-bg;
+    background-color: @account-switcher-header-bg;
     color: @account-switcher-text-color;
     font-weight: @base-font-weight;
     height: 40px;
@@ -64,11 +61,13 @@ account-switcher {
     .toggle-btn {
       padding: 0;
 
-      svg {
+      .cyclops-icon use {
         .transition(e('fill .05s ease-in'));
-        fill: @account-switcher-text-color;
+        fill: @gray-300;
+      }
 
-        &:hover {
+      &:hover {
+        .cyclops-icon use {
           fill: #fff;
         }
       }
@@ -93,7 +92,7 @@ account-switcher {
   }
 
   .take-over {
-    background-color: #2d2d2d;
+    background-color: @account-switcher-bg;
     overflow: hidden;
     position: fixed;
     top: -100%;
@@ -134,7 +133,7 @@ account-switcher {
       border-bottom: 2px solid @account-switcher-border-color;
 
       h3 {
-        color: #999;
+        color: @gray-400;
       }
     }
 
@@ -171,7 +170,7 @@ account-switcher {
 
       .loading-list-view-items {
         border-bottom-color: @account-switcher-border-color;
-        color: #999;
+        color: @gray-300;
       }
 
       .list-view-item {

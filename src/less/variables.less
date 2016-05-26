@@ -99,9 +99,6 @@
 @gray-900: #141414;
 @black: #000;
 
-
-
-
 //-- Z-index master list
 // -------------------------
 @zindex-navbar: 1000;
@@ -234,6 +231,15 @@
 @state-danger-text: @text-error;
 @state-danger-bg: #f2dede;
 @state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
+
+//== Account Switcher
+//
+@account-switcher-header-bg: @gray-700;
+@account-switcher-bg: @gray-800;
+@account-switcher-text-color: #bdbdbd;
+@account-switcher-border-color: @gray-700;
+@account-switcher-active-bg: @gray-900;
+
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -259,10 +265,10 @@
 //
 //=== Shared nav styles
 @nav-link-padding: 15px;
-@nav-link-hover-bg: @gray-100;
+@nav-link-hover-bg: @body-bg;
 @nav-disabled-link-color: @gray-300;
 @nav-disabled-link-hover-color: @gray-300;
-@nav-bottom-border: #ccc;
+@nav-bottom-border: @gray-100;
 //== Navbar
 //
 // Basics of a navbar
@@ -293,27 +299,27 @@
 @navbar-default-toggle-border-color: #ddd;
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color: lighten(@gray-300, 15%);
-@navbar-inverse-bg: #262626;
-@navbar-inverse-border: darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-color: @gray-700;
+@navbar-inverse-bg: @gray-800;
+@navbar-inverse-border: @gray-900;
 // Inverted navbar links
-@navbar-inverse-link-color: @gray-300;
+@navbar-inverse-link-color: @gray-200;
 @navbar-inverse-link-hover-color: #fff;
 @navbar-inverse-link-hover-bg: transparent;
 @navbar-inverse-link-active-color: @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg: darken(@navbar-inverse-bg, 10%);
-@navbar-inverse-link-disabled-color: #444;
+@navbar-inverse-link-active-bg: @gray-900;
+@navbar-inverse-link-disabled-color: @gray-700;
 @navbar-inverse-link-disabled-bg: transparent;
 // Inverted navbar brand label
 @navbar-inverse-brand-color: @navbar-inverse-link-color;
 @navbar-inverse-brand-hover-color: #fff;
 @navbar-inverse-brand-hover-bg: transparent;
 // Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg: #333;
+@navbar-inverse-toggle-hover-bg: @gray-700;
 @navbar-inverse-toggle-icon-bar-bg: #fff;
-@navbar-inverse-toggle-border-color: #333;
+@navbar-inverse-toggle-border-color: @gray-700;
 // Tree List
-@tree-list-status-default-bg: #d3d3d3;
+@tree-list-status-default-bg: @gray-100;
 @tree-list-status-warning-bg: @brand-warning;
 @tree-list-status-danger-bg: @brand-danger;
 //== Pane
@@ -324,7 +330,7 @@
 @main-nav-bg: #2d302d;
 @main-nav-bg-hover: #292929;
 @main-nav-bg-selected: #262626;
-@main-nav-icon-color: #666;
+@main-nav-icon-color: @gray-500;
 @main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-bg-selected inset, 0 1px 0 @main-nav-bg-selected inset;
 @main-nav-width-sm: 46px;
 @main-nav-width-md: 100px;
@@ -336,21 +342,21 @@
 //== Pagination
 //
 //## Define pagination colors and padding.
-@pagination-padding-x: 12px;
-@pagination-padding-y: 9px;
+@pagination-padding-x: 15px;
+@pagination-padding-y: 7px;
 @pagination-color: @text-color;
 @pagination-bg: #fff;
 @pagination-border-width: 1px;
-@pagination-border-color: #ddd;
+@pagination-border-color: @border-color;
 @pagination-hover-color: @text-color;
 @pagination-hover-bg: @gray-100;
 @pagination-hover-border: #ddd;
 @pagination-active-color: @text-color;
-@pagination-active-bg: #ccc;
-@pagination-active-border: #ccc;
-@pagination-disabled-color: @gray-300;
+@pagination-active-bg: @gray-100;
+@pagination-active-border: @gray-100;
+@pagination-disabled-color: @gray-200;
 @pagination-disabled-bg: #fff;
-@pagination-disabled-border: #ddd;
+@pagination-disabled-border: @gray-100;
 
 //== Chart Colors
 //

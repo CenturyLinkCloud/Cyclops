@@ -153,7 +153,7 @@
     border: none;
     border-bottom: 5px solid @nav-bottom-border;
     border-radius: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     .navbar-nav {
       > li {
@@ -166,7 +166,7 @@
         }
 
         &.active {
-          border-bottom: 5px solid #666666;
+          border-bottom: 5px solid @gray-500;
           margin-bottom: -5px;
         }
       }
@@ -268,7 +268,6 @@
   &:hover {
     color: @navbar-default-brand-hover-color;
   }
-
 
   @media (min-width: @grid-float-breakpoint) {
     padding: @navbar-padding-vertical @navbar-padding-horizontal;
@@ -462,7 +461,7 @@
 
     .cyclops-icon {
       use {
-        fill: #666;
+        fill: @gray-300;
       }
     }
 
