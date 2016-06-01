@@ -117,13 +117,16 @@ class AccountSwitcherViewModel
       @currentAccountAlias(newValue.alias)
 
     _setCurrentAccount = () =>
+      alias = @currentAccountAlias();
       possibleAccounts = @flatOrgList().filter (acct) =>
-        acct.alias.toLowerCase() == @currentAccountAlias().toLowerCase()
+        acct.alias.toLowerCase() == alias.toLowerCase()
 
       if possibleAccounts.length == 1
         @impersonatedOrg possibleAccounts[0]
+      else if possibleAccounts.length > 1
+        throw "There is more than one account with the alias '#{alias}'. This is not allowed please check the list of accounts."
       else
-        throw 'There is more than one account with the same alias, this should not be possible check the data please.'
+        throw "There is no account with the alias '#{alias}'."
 
 
     if !@loading()
@@ -137,6 +140,10 @@ class AccountSwitcherViewModel
     @impersonateOrg = (acct)  =>
       @impersonatedOrg(acct)
       @toggleHandler()
+
+
+    @currentAccountAlias.subscribe (newAlias) =>
+      _setCurrentAccount()
 
 
     ###############################
