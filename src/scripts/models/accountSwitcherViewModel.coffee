@@ -143,7 +143,10 @@ class AccountSwitcherViewModel
 
 
     @currentAccountAlias.subscribe (newAlias) =>
-      _setCurrentAccount()
+      # if we are still loading accounts this will be called after anyway,
+      # this prevents false errors when switching accounts before loading is finished
+      if not @loading()
+        _setCurrentAccount()
 
 
     ###############################
