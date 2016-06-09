@@ -34,10 +34,14 @@ $.fn.inlineConfirm = (options) ->
     float = $btn.css("float");
     $btn.attr("class").split(" ").forEach (c) ->
       if c.indexOf("btn") != 0
-          $container.addClass(c);
-          $btn.removeClass(c);
+          $container.addClass c
+          $btn.removeClass c
       else
-        $yesBtn.addClass(c);
+        $yesBtn.addClass c
+        if c == 'btn-lg' or c == 'btn-sm' or c == 'btn-mini'
+          $noBtn.addClass c
+
+
 
     $btn.css("float", float);
     $btn.addClass("original-button");
