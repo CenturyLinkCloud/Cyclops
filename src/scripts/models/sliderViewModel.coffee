@@ -8,7 +8,7 @@ class SliderViewModel
 
     # Properties
     @hasjQueryUi = libraries.jqueryUi
-    @value = ko.asObservable if options.value? then options.value else minDefault
+    @value = ko.asObservable if options.value? then options.value else @minDefault
     @min = ko.asObservable if options.min? then options.min else @getMinFromValidationRule()
     @max = ko.asObservable if options.max? then options.max else @getMaxFromValidationRule()
     @disabled = ko.asObservable if options.disabled? then options.disabled else false
