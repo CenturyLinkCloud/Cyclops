@@ -10,7 +10,6 @@ $(() ->
         setAriaAndClass(menu, btn)
     return
 
-
   setAriaAndClass = (menu, btn) ->
     isVisible = menu.is(':visible')
     menu.attr('aria-expanded', isVisible)
@@ -23,10 +22,20 @@ $(() ->
       btn.removeClass('open')
     return
 
-  navbars = $("nav.navbar").each (idx, nb) ->
-    $nb = $(nb)
-    menu = $nb.find('.navbar-collapse')
-    btn = $nb.find('.navbar-toggle')
-    setAriaAndClass(menu, btn)
-    btn.click toggle
+  $.fn.navbar = () ->
+    @each ->
+      $nb = $(this)
+      menu = $nb.find('.navbar-collapse')
+      btn = $nb.find('.navbar-toggle')
+
+      isVisible = menu.is(':visible')
+      menu.attr('aria-expanded', isVisible)
+      btn.attr('aria-expanded', isVisible)
+
+      btn.click toggle
+    return
+
+  $("nav.navbar").each (idx, nb) ->
+    $(nb).navbar()
+
 )

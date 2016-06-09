@@ -293,4 +293,49 @@ $(function(){
       </tr>
     </tbody>
   </table>
-</section
+</section>
+
+<section id="navbar" class="pl-section">
+  <h3><code>navbar</code></h3>
+  <p>
+    The <code>navbar</code> is used to wired up responsive behavior for the local nav or the page header nav.
+  </p>
+  <p>
+    This is meant to be used in conjunction with the
+    <a href="./navigation.html#navLocal">Nav Local</a> or <a href="./navigation.html#pageHeader">Page Header</a>.
+  </p>
+  <div class="alert alert-warning">
+    Do not call this widget unless your HTML is added after page render. Cyclops will call this for all navbars
+    that are on the page at render time.
+  </div>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.navbar&#39;).navbar()
+})
+    </code>
+    <code class="html">
+      &lt;nav class=&quot;navbar navbar-local&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot;&gt;
+            Menu &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+          &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Events&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;active dropdown&quot;&gt;
+              &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#navLocal&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Policies &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;&lt;/a&gt;
+              &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Alert&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Suppression&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Integrations&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;
+    </code>
+  </pre>
+</section>
