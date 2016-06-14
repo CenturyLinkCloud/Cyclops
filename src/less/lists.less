@@ -30,6 +30,22 @@ ol {
 	}
 }
 
+// comma separated list
+.list-comma {
+	.list-unstyled();
+  li {
+    display: inline;
+
+    &:after {
+      content: ", ";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+
 // Description Lists
 dl {
 	margin-top: 0; // Remove browser default
