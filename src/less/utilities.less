@@ -1,12 +1,68 @@
-// Quick floats
+// Responsive Floats
 
-.pull-right {
-  float: right;
+.pull-left,
+.pull-xs-left {
+  float: left !important;
 }
 
-.pull-left {
-  float: left;
+.pull-right,
+.pull-xs-right {
+  float: right !important;
 }
+
+.pull-none,
+.pull-xs-none {
+  float: none !important;
+}
+
+@media (min-width: @screen-xs) {
+  .pull-sm-left {
+    float: left !important;
+  }
+  .pull-sm-right {
+    float: right !important;
+  }
+  .pull-sm-none {
+    float: none !important;
+  }
+}
+
+@media (min-width: @screen-sm) {
+  .pull-md-left {
+    float: left !important;
+  }
+  .pull-md-right {
+    float: right !important;
+  }
+  .pull-md-none {
+    float: none !important;
+  }
+}
+
+@media (min-width: @screen-md) {
+  .pull-lg-left {
+    float: left !important;
+  }
+  .pull-lg-right {
+    float: right !important;
+  }
+  .pull-lg-none {
+    float: none !important;
+  }
+}
+
+@media (min-width: @screen-lg) {
+  .pull-xl-left {
+    float: left !important;
+  }
+  .pull-xl-right {
+    float: right !important;
+  }
+  .pull-xl-none {
+    float: none !important;
+  }
+}
+
 // Clearfix
 .clear-fix {
   *zoom: 1;
@@ -298,6 +354,9 @@
 .p-r-lg {
   padding-right: @space-x * 2 !important;
 }
+
+
+
 
 .cyclops-spin {
   -webkit-animation: cyclops-spin 2s infinite linear;
