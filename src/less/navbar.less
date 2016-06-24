@@ -88,7 +88,7 @@
 
 .navbar-local {
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   .navbar-toggle {
     float: left;
@@ -99,6 +99,9 @@
     border-bottom: 1px solid @nav-bottom-border;
     text-align: left;
     border-radius: 0;
+    font-weight: @bold-font-weight;
+    text-transform: uppercase;
+    font-size: @font-size-base - 1;
 
     &:hover {
       background-color: @nav-link-hover-bg;
@@ -123,7 +126,10 @@
 
     > li {
       border-bottom: 1px solid @nav-bottom-border;
-      letter-spacing: .5px;
+      letter-spacing: 2px;
+      font-weight: @bold-font-weight;
+      text-transform: uppercase;
+      font-size: @font-size-base - 1;
 
       .cyclops-icon {
         float: right;
@@ -132,7 +138,9 @@
       }
 
       &.active {
-        font-weight: @bold-font-weight;
+        > a{
+        background-color: @gray-100;
+        }
       }
     }
   }
@@ -145,19 +153,27 @@
 
   .dropdown-menu {
     padding: 0;
+
+    > li {
+      font-size: @font-size-base - 1;
+      text-transform: none;
+      letter-spacing: normal;
+    }
   }
 
   @media (min-width: @screen-sm-min) {
     .clearfix();
     display: block;
-    border: none;
-    border-bottom: 5px solid @nav-bottom-border;
     border-radius: 0;
-    margin-bottom: 20px;
+    border-bottom: 1px solid @border-color;
 
     .navbar-nav {
       > li {
         border-bottom: none;
+
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
 
         .cyclops-icon {
           float: none;
@@ -166,8 +182,14 @@
         }
 
         &.active {
-          border-bottom: 5px solid @gray-500;
-          margin-bottom: -5px;
+          > a {
+            background-color: @gray-100;
+          }
+        }
+
+        > a {
+          border-radius: 3px;
+          padding: 7px 15px;
         }
       }
     }
@@ -179,14 +201,11 @@
     }
 
     .dropdown-menu {
-      margin-top: 5px;
       width: auto;
       border: 1px solid @border-color;
-      border-top: none;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
 
       > li {
+
         > a, > .dropdown-text {
           padding: 10px 15px;
         }
