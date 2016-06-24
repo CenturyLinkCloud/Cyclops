@@ -51,15 +51,10 @@
 // Optional textual caps
 //
 .card-header {
+  .clearfix();
   padding: (@line-height-computed / 2) 15px;
   background-color: @gray-100;
   border-bottom: 1px solid @border-color;
-  .clearfix();
-
-  &:first-child {
-    border-top-left-radius: @border-radius-base;
-    border-top-right-radius: @border-radius-base;
-  }
 }
 
 .card-footer {
@@ -67,11 +62,6 @@
   padding: (@line-height-computed / 2) 15px;
   background-color: @gray-100;
   border-top: 1px solid @border-color;
-
-  &:last-child {
-    border-bottom-left-radius: @border-radius-base;
-    border-bottom-right-radius: @border-radius-base;
-  }
 }
 
 .card-hover {
