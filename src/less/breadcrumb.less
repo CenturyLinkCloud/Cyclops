@@ -7,6 +7,7 @@
   padding-left: 0;
   margin-bottom: 0;
   margin-top: (@line-height-computed / 2);
+  margin-bottom: -(@line-height-computed);
   list-style: none;
 
   > li {
@@ -33,13 +34,5 @@
   }
 
   @media (min-width: @screen-xs-min) {
-    margin-top: @line-height-computed;
   }
-}
-
-.breadcrumb + h1,
-.breadcrumb + h2,
-.breadcrumb + .content-header h1,
-.breadcrumb + .content-header h2  {
-  margin-top: 0;
 }
