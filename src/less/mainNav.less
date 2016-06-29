@@ -6,7 +6,7 @@ main-nav {
   overflow: visible;
   z-index: @zindex-main-nav;
   background: @main-nav-bg;
-  box-shadow: 0 0 7px black;
+  box-shadow: 0 0 7px black, inset 0 1px 0 0 rgba(0,0,0,.3); //top border and right shadow
   .transition(width .5s);
   color: @gray-300;
 
@@ -44,6 +44,8 @@ main-nav {
   overflow: hidden;
   position: relative;
   z-index: 2;
+  background: @main-nav-bg;
+  box-shadow: inset 0 1px 0 0 rgba(0,0,0,.3); //top border
 
   .cyclops-icon {
     width: 20px;
@@ -110,18 +112,22 @@ main-nav {
     bottom: 0;
     background: linear-gradient(to bottom, rgba(45,47,45,0) 0%, rgba(45,48,45,.5) 40%, rgba(45,47,45,.8) 100%);
   }
+}
 
-  .error,
-  .loading {
-    line-height: 16px;
-    font-size: 16px;
-    width: @main-nav-width-lg;
-    padding: 10px 0 10px 14px;
-    text-transform: capitalize;
-  }
+.main-nav-error,
+.main-nav-loading {
+  padding: 8px;
+  color: @gray-400;
+  font-size: @font-size-small;
+  letter-spacing: 1px;
+  line-height: @line-height-computed - 3;
+  text-align: center;
 
-  .loading svg {
-    animation: pulsate 2s infinite linear;
+  .cyclops-icon {
+    width: 26px;
+    height: 26px;
+    margin: 0 auto @line-height-computed / 2 auto;
+    display: block;
   }
 }
 
@@ -136,9 +142,7 @@ main-nav {
   overflow-x: hidden;
   height: 100%;
   position: relative;
-  background: @main-nav-bg;
   margin-right: -15px;
-  box-shadow: inset 0 1px 0 0 rgba(0,0,0,.3); //top border
 
   li {
     .transition(background-color .2s, width .2s, height .2s;);
@@ -363,8 +367,6 @@ main-nav {
       margin-left: @main-nav-width-md;
     }
   }
-
-
 }
 
 @media (min-width: @screen-xl-min) {

@@ -3,15 +3,15 @@
     <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
     <!-- ko empty: menus -->
     <!-- ko if: hasErrored -->
-    <div class="error" title="unable to fetch">
+    <div class="main-nav-error" title="unable to fetch">
       <svg class="cyclops-icon"><use xlink:href="#icon-exclamation-circle"></svg>
-      unable to fetch data
+      <span class="main-nav-label">unable to fetch menu</span>
     </div>
     <!-- /ko -->
     <!-- ko if: isLoading -->
-    <div class="loading" title="fetching menus">
+    <div class="main-nav-loading" title="fetching menus">
       <svg class="cyclops-icon"><use xlink:href="#icon-ellipsis"></svg>
-      Fetching Menus
+      <span class="main-nav-label">fetching menu</span>
     </div>
     <!-- /ko -->
     <!-- /ko -->
