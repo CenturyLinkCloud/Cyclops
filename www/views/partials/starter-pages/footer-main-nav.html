@@ -132,18 +132,6 @@
 							href: '#'
 						},
 						{
-							id: 'create.network',
-							name: 'Network',
-							description: 'Add and new network to your location of choice',
-							href: '#'
-						},
-						{
-							id: 'create.bucket',
-							name: 'Object Storage Bucket',
-							description: 'Create a highly available repository for your app data',
-							href: '#'
-						},
-						{
 							id: 'create.relationalDb',
 							name: 'Relational DB',
 							description: 'Easily provision a MySQL-compatible database instance',
@@ -157,13 +145,6 @@
 					name: 'Infrastructure',
 					iconId: '#icon-infrastructure',
 					items: [
-            // {
-            //   id: 'infrastructure.admin',
-            //   name: 'Register Hardware',
-            //   description: 'Add hardware records to control',
-            //   href: "#",
-            //   isAdmin: true
-            // },
 						{
 							id: 'infrastructure.manage',
 							name: 'Manage',
@@ -242,31 +223,26 @@
 						{
 							id: 'orchestration.library',
 							name: 'Blueprints Library',
-							description: 'ASDF',
 							href: '#'
 						},
 						{
 							id: 'orchestration.design',
 							name: 'Design a Blueprint',
-							description: 'ASDF',
 							href: '#'
 						},
 						{
 							id: 'orchestration.scripts',
 							name: 'Scripts',
-							description: 'ASDF',
 							href: '#'
 						},
 						{
 							id: 'orchestration.software',
 							name: 'Software',
-							description: 'ASDF',
 							href: '#'
 						},
 						{
 							id: 'orchestration.ftp',
 							name: 'FTP User',
-							description: 'ASDF',
 							href: '#'
 						}
 					]
@@ -287,18 +263,12 @@
 							name: 'Backup',
 							description: 'Secure, simple, file-level backup',
 							href: '#',
-							isBeta: true
+							isNew: true
 						},
 						{
 							id: 'services.horizontalAutoscale',
 							name: 'Horizontal Autoscale',
 							description: 'Automatically increase/decrease the number of servers in a group during demand spikes and lulls',
-							href: '#'
-						},
-						{
-							id: 'services.intrusionPrevention',
-							name: 'Intrusion Prevention',
-							description: 'Monitor traffic to detect and block known vulnerabilities.',
 							href: '#'
 						},
 						{
@@ -329,15 +299,8 @@
 							id: 'services.relationalDb',
 							name: 'Relational DB',
 							description: 'High performance, cost efficient, MySQL-compatible database',
-							href: '#',
-							isNew: true
-						},
-						{
-							id: 'services.verticalAutoscale',
-							name: 'Vertical Autoscale',
-							description: 'Automatically increase/decrease cpu allocation based on usage',
 							href: '#'
-						},
+						}
 						// {
 						// 	id: 'services.siteRedirect',
 						// 	name: 'Site Redirect',
@@ -367,6 +330,12 @@
 							id: 'orgSettings.accountContactInfo',
 							name: 'Account Profile',
 							description: 'Account address and contact information',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.accountSettings',
+							name: 'Accout Settings',
+							description: 'Color scheme, logos, data center preferences and general account settings',
 							href: '#'
 						},
             {
@@ -410,111 +379,6 @@
 							name: 'Service Catalog',
 							description: 'Enable or disable access to particular services for your account or sub accounts.',
 							href: '#'
-						}
-					]
-				},
-				{
-					id: 'admin',
-					name: 'Admin',
-					iconId: '#icon-shield',
-					items: [
-						{
-							id: 'admin.allAccounts',
-							name: 'Active Accounts',
-							description: 'Global list of currently active accounts',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.allAccounts',
-							name: 'Disabled Accounts',
-							description: 'Global list of disabled accounts',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.allNetworks',
-							name: 'All Networks',
-							description: 'View all networks within a data center',
-							href: '#',
-							isAdmin: true
-						},
-						{
-						  id: 'network.manageVlans',
-						  name: 'Manage VLANs',
-						  description: 'View and manage vlans',
-						  href: "#",
-						  isAdmin: true
-						},
-						{
-							id: 'admin.contactList',
-							name: 'Contact List',
-							description: 'Generate and download a customer contact list based on location',
-							href: '#',
-							isAdmin: true
-						},
-						{
-						  id: 'admin.directVpn',
-						  name: 'Direct VPN',
-						  description: 'Create and manage direct vpn connections',
-						  href: "#",
-						  isAdmin: true
-						},
-						{
-							id: 'admin.registeredHardware',
-							name: 'Registered Hardware',
-							description: 'Register hardware associated with an account',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.serviceTasks',
-							name: 'Service Tasks',
-							description: 'View total and per account invoice estimate for the current billing period',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.estimates',
-							name: 'Monthly Invoice Estimate',
-							description: 'View total and per account invoices for a specified billing period',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.invoices',
-							name: 'Invoices',
-							description: 'Add or view service tasks for an account',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.top25',
-							name: 'Top 25 Revenue',
-							description: 'Top 25 accounts by monthly revenue',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.storage',
-							name: 'Storage',
-							description: 'Add additional storage charges to an account',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.software',
-							name: 'Software',
-							description: 'Add additional software charges to an account',
-							href: '#',
-							isAdmin: true
-						},
-						{
-							id: 'admin.additionalCharges',
-							name: 'Additional Charges',
-							description: 'Add additional charges or price overrides to an account',
-							href: '#',
-							isAdmin: true
 						}
 					]
 				}
