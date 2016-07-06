@@ -53,7 +53,7 @@
           <h3 data-bind="text: name">&hellip;</h3>
           <p data-bind="text: description">&hellip;</p>
           <!-- ko if: hasRibbon -->
-          <div class="ribbon" data-bind="css: { 'ribbon-beta': isBeta() }">
+          <div class="ribbon" data-bind="css: ribbonCssClass ">
             <span data-bind="text: ribbonText"></span>
           </div>
           <!-- /ko -->

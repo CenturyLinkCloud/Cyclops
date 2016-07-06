@@ -4,11 +4,22 @@
     <a href="./knockoutComponents.html#mainNav"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg><span class="sr-only">api documentation</span></a></h3>
   </h3>
 
-  <p>The <code>&lt;main-nav&gt;</code> is a custom web component created for the CenturyLink Control Portal. It is a left-aligned bar that is the primary means of navigating between different sections of the Control Portal. Its contents are meant to be data-driven, as different users have varying levels of access to areas of the site.</p>
-  <p>Responsive behavior is built in, so at narrow viewports (portrait tablet or mobile device), the links will collapse into an icon-based menu. At wide viewports, the icon and label will be adjacent instead of stacked.</p>
+  <p>
+    The <code>&lt;main-nav&gt;</code> was created to provide the primary navigation though
+    an application. It supports a simple two level system of navigation, for more information see
+    the <a href="./knockoutComponents.html#mainNav">API documentation</a>.
+  </p>
+  <p>
+    Responsive behavior is built in, so at narrow viewports (portrait tablet or mobile device),
+    the links will collapse into an icon-based menu. At wide viewports, the icon and label will be
+    adjacent instead of stacked.
+  </p>
 
   <div class="pl-example">
-    <p>In the iframe below, the main-nav is the menu bar on the left (Dashboard, Creat, Infrastructure, Network...).</p>
+    <p>
+      In the iframe below, the main-nav is the menu bar on the left (Dashboard, Creat,
+      Infrastructure, Network&hellip;)
+    </p>
     <iframe src="./starterPages/basic.html"></iframe>
     <p>
       <a href="./starterPages/basic.html">Open Example Page</a>
@@ -32,7 +43,7 @@ $(function(){
     ],
     self.loading = ko.observable(false);
     self.error = ko.observable(false);
-    self.selectedItemId = ko.observable('home');
+    self.selectedItemId = ko.observable('infrastructure');
   });
 });
     </code>

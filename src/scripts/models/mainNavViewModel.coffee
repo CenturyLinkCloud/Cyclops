@@ -3,22 +3,25 @@
 class MainNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
-        isNew: false
-        isBeta: false
         isAdmin: false
+        flag: ''
     }, options
 
-    @isNew = ko.asObservable(options.isNew)
-    @isBeta = ko.asObservable(options.isBeta)
+
     @isAdmin = ko.asObservable(options.isAdmin)
     @isSelected = ko.observable(false)
+
     @hasRibbon = ko.pureComputed () =>
-      return @isNew() || @isBeta()
+      return !!options.flag
+
     @ribbonText = ko.pureComputed () =>
-      if @isBeta()
-        return 'beta'
-      if @isNew()
-        return 'new'
+      return options.flag
+
+    @ribbonCssClass = ko.pureComputed () =>
+      if options.flag == 'beta'
+        return 'ribbon-beta'
+      else 
+        return ''
 
     @id = options.id
     if !@id?

@@ -112,11 +112,27 @@
 <section id="mainNav" class="pl-section">
   <h3><code>main-nav</code></h3>
   <p>
-    TBD
+    The <code>main-nav</code> assumes that the shape of the data passed to it matched closely with
+    that is return from the control navigation API, for more information you can see the assumed
+    account properties section below.
+  </p>
+  <p>
+    The <code>main-nav</code> is designed to be the primary means of navigating between multiple
+    smaller application, sometimes called satellite application. These applications should not be
+    inserting items into this menu and instead should be using the local navigation model. It is
+    of note that currently only one level of nesting is supported.
   </p>
   <pre>
     <code class="html">
-tbd
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    &lt;account-switcher params=&quot;{...}&quot;&gt;&lt;/account-switcher&gt;
+    &lt;nav class=&quot;navbar navbar-inverse navbar-static-top&quot;&gt;...&lt;/nav&gt;
+    &lt;main-nav params=&quot;menus: menus, selectedItemId: selectedItemId, loading: loading, error: error&quot;&gt;&lt;/main-nav&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
     </code>
   </pre>
   <h4>params</h4>
@@ -131,14 +147,32 @@ tbd
     </thead>
     <tbody>
       <tr>
-        <td>tbd</td>
-        <td>tbd</td>
-        <td>tbd</td>
-        <td>tbd</td>
+        <td>menus</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The list of menu items</td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to show a loading state while waiting for menus to return</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to show a failed state when menus cannot be loaded</td>
+      </tr>
+      <tr>
+        <td>selectedItemId</td>
+        <td>string | Observable string</td>
+        <td>None (Required)</td>
+        <td>Which menu item should be highlighted as the current page.</td>
       </tr>
     </tbody>
   </table>
-  <h4>Assumed Account Properties</h4>
+  <h4>Assumed Menu Properties</h4>
   <table class="table">
     <thead>
       <tr>
@@ -150,10 +184,71 @@ tbd
     </thead>
     <tbody>
       <tr>
-        <td>tbd</td>
-        <td>tbd</td>
-        <td>tbd</td>
-        <td>tbd</td>
+        <td>id</td>
+        <td>string </td>
+        <td>yes</td>
+        <td>Unique id used when selecting the current item</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The name of the menu</td>
+      </tr>
+      <tr>
+        <td>iconId</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>icon to be displayed</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>location to navigate to if the menu contains not flyout menus</td>
+      </tr>
+      <tr>
+        <td>items</td>
+        <td>array | observableArray</td>
+        <td>no</td>
+        <td>An array of menu flyout items</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Menu Flyout Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string </td>
+        <td>yes</td>
+        <td>Unique id used when selecting the current item</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The name of the flyout</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The locaiton to navigate to</td>
+      </tr>
+      <tr>
+        <td>flag</td>
+        <td>string</td>
+        <td>no</td>
+        <td>Text to be displayed in the ribbon. Currently 'new' or 'beta'</td>
       </tr>
     </tbody>
   </table>
