@@ -112,15 +112,11 @@
 <section id="mainNav" class="pl-section">
   <h3><code>main-nav</code></h3>
   <p>
-    The <code>main-nav</code> assumes that the shape of the data passed to it matched closely with
-    that is return from the control navigation API, for more information you can see the assumed
-    account properties section below.
+    The <code>main-nav</code> is designed to be the primary means of navigating between multiple
+    smaller applications &mdash; sometimes referred to as &ldquo;satellite apps&rdquo; &mdash; but gives the appearance of a single application or unified experience to the user. Satellite  apps should not insert items into this menu, rather they should be using the local navigation model. It is of note that currently only one level of nesting is supported.
   </p>
   <p>
-    The <code>main-nav</code> is designed to be the primary means of navigating between multiple
-    smaller application, sometimes called satellite application. These applications should not be
-    inserting items into this menu and instead should be using the local navigation model. It is
-    of note that currently only one level of nesting is supported.
+    The <code>main-nav</code> assumes that the shape of the data passed to it matches with what is return from the control navigation API. The assumed properties are displayed below.
   </p>
   <pre>
     <code class="html">
