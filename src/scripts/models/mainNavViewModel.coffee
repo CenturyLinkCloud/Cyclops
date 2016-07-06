@@ -3,12 +3,10 @@
 class MainNavFlyoutItem
   constructor: (options) ->
     options = $.extend {
-        isAdmin: false
         flag: ''
     }, options
 
 
-    @isAdmin = ko.asObservable(options.isAdmin)
     @isSelected = ko.observable(false)
 
     @hasRibbon = ko.pureComputed () =>
@@ -20,7 +18,7 @@ class MainNavFlyoutItem
     @ribbonCssClass = ko.pureComputed () =>
       if options.flag == 'beta'
         return 'ribbon-beta'
-      else 
+      else
         return ''
 
     @id = options.id
@@ -62,14 +60,9 @@ class MainNavMenuItem
 
     @rawFlayoutItems = ko.asObservableArray(options.items)
 
-    @adminFlyoutItems = ko.observableArray([])
-    @normalFlyoutItems = ko.observableArray([])
+    @fluyoutItems = ko.observableArray([])
     ko.computed () =>
-      @rawFlayoutItems().forEach (f) =>
-        if f.isAdmin
-          @adminFlyoutItems.push new MainNavFlyoutItem(f)
-        else
-          @normalFlyoutItems.push new MainNavFlyoutItem(f)
+      @fluyoutItems @rawFlayoutItems().map (f) -> new MainNavFlyoutItem(f)
 
 
 
@@ -166,13 +159,7 @@ class MainNavViewModel
           m.isSelected(true)
         else
           m.isSelected(false)
-          m.normalFlyoutItems().forEach (f) =>
-            if f.id == itemId
-              m.isSelected true
-              f.isSelected true
-            else
-              f.isSelected false
-          m.adminFlyoutItems().forEach (f) =>
+          m.fluyoutItems().forEach (f) =>
             if f.id == itemId
               m.isSelected true
               f.isSelected true
