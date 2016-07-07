@@ -330,8 +330,15 @@ main-nav {
       margin-left: @main-nav-width-md;
     }
 
+    ~ main {
+      .container {
+        width: @container-sm - @main-nav-width-md;
+      }
+    }
+
     ~ pane ~ main {
       margin-left: @main-nav-width-md + @pane-width;
+
     }
   }
 
@@ -368,6 +375,26 @@ main-nav {
   }
 }
 
+@media (min-width: @screen-md-min) {
+  main-nav {
+    ~ main {
+      .container {
+        width: @container-md - @main-nav-width-md;
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-lg-min) {
+  main-nav {
+    ~ main {
+      .container {
+        width: @container-lg - @main-nav-width-md;
+      }
+    }
+  }
+}
+
 @media (min-width: @screen-xl-min) {
   main-nav {
     width: @main-nav-width-lg;
@@ -383,6 +410,12 @@ main-nav {
     ~ pane,
     ~ main {
       margin-left: @main-nav-width-lg;
+    }
+
+    ~ main {
+      .container {
+        width: @container-xl - @main-nav-width-lg;
+      }
     }
 
     ~ pane ~ main {
