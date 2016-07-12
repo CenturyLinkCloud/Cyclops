@@ -1,0 +1,40 @@
+
+<div id="cyclops-nav-stacked" class="nav nav-stacked">
+  <ul class="tabs">
+    <li class="nav-title"><a href="./grid.html">Patterns</a></li>
+    <li class="tab">
+      <a href="#tokens">Tokens</a>
+    </li>
+    <li class="tab">
+      <a href="#font">Font</a>
+    </li>
+    <li class="tab">
+      <a href="#fontSize">Font Size</a>
+    </li>
+    <li class="tab">
+      <a href="#textColor">Text Color</a>
+    </li>
+    <li class="tab">
+      <a href="#lineHeight">Line Height</a>
+    </li>
+    <li class="tab">
+      <a href="#backgroundColor">Background Color</a>
+    </li>
+    <li class="tab">
+      <a href="#spacing">Spacing</a>
+    </li>
+    <li class="tab">
+      <a href="#mediaQueries">Media Queries</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  (function(tabName) {
+    if (tabName) {
+      var tab = document.getElementById(tabName);
+      if (tab)
+        tab.className = tab.className + ' selected';
+    }
+  })('{{block "tabName"}}');
+</script>

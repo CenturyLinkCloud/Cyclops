@@ -13,7 +13,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-weight: @base-font-weight;
+  font-weight: @font-weight-regular;
   color: @heading-text-color;
   line-height: @headings-line-height;
 
@@ -33,7 +33,7 @@ h3,
   letter-spacing: 1px;
 
   small {
-    font-weight: @base-font-weight;
+    font-weight: @font-weight-regular;
     font-size: 65%;
     color: @headings-small-color;
 
@@ -54,7 +54,7 @@ h6,
 
   small,
   .small {
-    font-weight: @base-font-weight;
+    font-weight: @font-weight-regular;
     font-size: 75%;
 
     a {
@@ -161,7 +161,7 @@ h6,
 // -------------------------
 
 body {
-  font-weight: @base-font-weight;
+  font-weight: @font-weight-regular;
   font-family: @font-family;
   font-size: @font-size-base;
   color: @text-color;
@@ -184,7 +184,7 @@ p {
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: @base-font-weight;
+  font-weight: @font-weight-regular;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -199,7 +199,7 @@ p {
   h1 {
     font-size: 100px;
     color: @gray-600;
-    font-weight: @bold-font-weight;
+    font-weight: @font-weight-bold;
     margin-bottom: 0;
   }
   .lead {
