@@ -1,5 +1,4 @@
 {{#contentFor "title"}}Tokens{{/contentFor}}
-{{#contentFor "tabName"}}tokens{{/contentFor}}
 {{!< layouts/tokens.html}}
 
 <section class="pl-section" id="tokens">
@@ -15,6 +14,7 @@
     <thead>
       <tr>
         <th>token</th>
+        <th>value</th>
         <th>example</th>
       </tr>
     </thead>
@@ -22,30 +22,30 @@
       <tr>
         <td><code>@font-family</code></td>
         <td>
-          <div class="token-example-font">The quick brown fox</div>
           <code>"Open Sans", Helvetica, Arial, Sans-Serif;</code>
         </td>
+        <td class="token-example-font">The quick brown fox</td>
       </tr>
       <tr>
         <td>
           <code>@font-weight-light</code>
         </td>
         <td>
-          <div class="token-example-font" style="font-weight: 300">The quick brown fox</div>
           <code>300</code>
+          <td class="token-example-font" style="font-weight: 300">The quick brown fox</td>
         </td>
       </tr>
       <tr>
         <td><code>@font-weight-regular</code></td>
         <td>
-          <div class="token-example-font" style="font-weight: 400">The quick brown fox</div>
           <code>400</code></td>
+          <td class="token-example-font" style="font-weight: 400">The quick brown fox</td>
       </tr>
       <tr>
         <td><code>@font-weight-bold</code></td>
         <td>
-          <div class="token-example-font" style="font-weight: 600">The quick brown fox</div>
           <code>600</code></td>
+          <td class="token-example-font" style="font-weight: 600">The quick brown fox</td>
       </tr>
     </tbody>
   </table>
@@ -74,4 +74,36 @@
 
 <section class="pl-section" id="mediaQueries">
   <h3>Media Queries</h3>
+  <p>Cyclops is mobile first, so media queries are set with minimum screen widths. Use the following media query tokens to set media query width ranges.</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>token</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>@screen-xs-min</code></td>
+        <td><code>only screen and (min-width: 480px)</code></td>
+      </tr>
+      <tr>
+        <td><code>@screen-sm-min</code></td>
+        <td><code>only screen and (min-width: 768px)</code></td>
+      </tr>
+      <tr>
+        <td><code>@screen-md-min</code></td>
+        <td><code>only screen and (min-width: 992px)</code></td>
+      </tr>
+      <tr>
+        <td><code>@screen-lg-min</code></td>
+        <td><code>only screen and (min-width: 1200px)</code></td>
+      </tr>
+      <tr>
+        <td><code>@screen-xl-min</code></td>
+        <td><code>only screen and (min-width: 1800px)</code></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
