@@ -106,7 +106,8 @@
 @text-color: @gray-500;
 @text-color-light: @gray-400;
 @text-color-lighter: @gray-300;
-@text-error: @brand-danger;
+@text-color-error: @brand-danger;
+
 @font-weight-light: 300;
 @font-weight-regular: 400;
 @font-weight-bold: 600;
@@ -192,7 +193,7 @@
 @table-bg-active: @table-bg-hover;
 @table-header-bg-color: #eaeaea;
 //** Border color for table and cell borders.
-@table-border-color: #ddd;
+@table-border-color: @border-color;
 // Forms
 //-------------------------
 @input-height-base: 34px;
@@ -223,10 +224,10 @@
 @state-info-text: #317495;
 @state-info-bg: #d9edf7;
 @state-info-border: darken(spin(@state-info-bg, -10), 10%);
-@state-warning-text: #c48729;
+@state-warning-text: @brand-warning;
 @state-warning-bg: #fcf8e3;
 @state-warning-border: darken(spin(@state-warning-bg, -10), 10%);
-@state-danger-text: @text-error;
+@state-danger-text: @text-color-error;
 @state-danger-bg: #f2dede;
 @state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
 
