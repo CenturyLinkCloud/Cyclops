@@ -66,7 +66,7 @@ select[size] {
   width: 100%;
   height: @input-height-base;
   padding: 6px 12px;
-  font-size: @font-size-base;
+  font-size: @font-size-regular;
   line-height: 1.42857143;
   color: @text-color;
   background-color: #fff;
@@ -196,7 +196,7 @@ fieldset[disabled] {
 }
 
 .control-label {
-  font-size: @font-size-base - 1;
+  font-size: @font-size-regular - 1;
   margin-bottom: 5px;
 }
 // Static form control text
@@ -209,7 +209,7 @@ fieldset[disabled] {
   padding-bottom: (@padding-base-vertical + 1);
   // Remove default margin from `p`
   margin-bottom: 0;
-  min-height: (@line-height-computed + @font-size-base);
+  min-height: (@line-height-computed + @font-size-regular);
 
   &.input-lg,
   &.input-sm {
