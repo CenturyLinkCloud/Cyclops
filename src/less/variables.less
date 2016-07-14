@@ -1,388 +1,396 @@
 // Extra small screen / phone
-@screen-xs: 480px;
-@screen-xs-min: @screen-xs;
+@screen-xs:                   480px;
+@screen-xs-min:               @screen-xs;
 //== Media queries breakpoints
 // Small screen / tablet
-@screen-sm: 768px;
-@screen-sm-min: @screen-sm;
+@screen-sm:                   768px;
+@screen-sm-min:               @screen-sm;
 // Medium screen / desktop
-@screen-md: 992px;
-@screen-md-min: @screen-md;
+@screen-md:                   992px;
+@screen-md-min:               @screen-md;
 // Large screen / wide desktop
-@screen-lg: 1200px;
-@screen-lg-min: @screen-lg;
+@screen-lg:                   1200px;
+@screen-lg-min:               @screen-lg;
 // X-Large screen / wide desktop
-@screen-xl: 1800px;
-@screen-xl-min: @screen-xl;
+@screen-xl:                   1800px;
+@screen-xl-min:               @screen-xl;
 // So media queries don't overlap when required, provide a maximum
-@screen-xs-max: (@screen-sm-min - 1);
-@screen-sm-max: (@screen-md-min - 1);
-@screen-md-max: (@screen-lg-min - 1);
-@screen-lg-max: (@screen-xl-min - 1);
-@screen-xl-max: 1800px;
+@screen-xs-max:               (@screen-sm-min - 1);
+@screen-sm-max:               (@screen-md-min - 1);
+@screen-md-max:               (@screen-lg-min - 1);
+@screen-lg-max:               (@screen-xl-min - 1);
+@screen-xl-max:               1800px;
+//== Pane
+//
+@pane-width:                  280px;
 //== Grid system
 //
 //## Define your custom responsive grid.
 //** Number of columns in the grid.
-@grid-columns: 12;
+@grid-columns:                12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width: 40px;
+@grid-gutter-width:           40px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint: @screen-md-min;
+@grid-float-breakpoint:       @screen-md-min;
 //** Point at which the navbar begins collapsing.
-@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+@grid-float-breakpoint-max:   (@grid-float-breakpoint - 1);
 
 
 //== Container sizes
 //
 //## Define the maximum width of `.container` for different screen sizes.
-
 // Small screen / tablet
 //** For `@screen-sm-min` and up.
 @container-sm:                 760px;
 
 // Medium screen / desktop
 //** For `@screen-md-min` and up.
-@container-md:                 980px;
-
+@container-md:                980px;
 // Large screen / wide desktop
 //** For `@screen-lg-min` and up.
-@container-lg:                 1180px;
-
+@container-lg:                1180px;
 // Very wide screen / wide desktop
 //** For `@screen-xl-min` and up.
-@container-xl:                 1600px;
-
+@container-xl:                1600px;
 
 // Scaffolding
 // -------------------------
-@padding-base-vertical: 7px;
+@padding-base-vertical:       7px;
 //** Global textual link color.
-@link-color: @primary-brand-green;
-@link-hover-color: darken(@link-color, 15%);
+@link-color:                  @primary-brand-green;
+@link-hover-color:            darken(@link-color, 15%);
 //** Link hover decoration.
-@link-hover-decoration: underline;
-
+@link-hover-decoration:       underline;
 
 // Colors
 // -------------------------
 // grayscale and brand colors used throughout the site.
 
-@primary-brand-green: #00853f;
-@bright-green: #8cc63f;
-@body-bg: #f2f2f2;
+@primary-brand-green:         #00853f;
+@bright-green:                #8cc63f;
+@body-bg:                     #f2f2f2;
+@primary-body-bg:             #fff;
 
-@brand-success: #3cac30;
-@brand-info: #43c1e6;
-@brand-warning: #f5a934;
-@brand-danger: #e43b34;
-@orange: #f5a934;
+@brand-success:               #3cac30;
+@brand-info:                  #43c1e6;
+@brand-warning:               #f5a934;
+@brand-danger:                #e43b34;
+@orange:                      #f5a934;
 
-@gray-100: #e0e0e0;
-@gray-200: #c1c1c1;
-@gray-300: #a3a3a3;
-@gray-400: #848484;
-@gray-500: #666;
-@gray-600: #515151;
-@gray-700: #3d3d3d;
-@gray-800: #282828;
-@gray-900: #141414;
-@black: #000;
+@gray-100:                    #e0e0e0;
+@gray-200:                    #c1c1c1;
+@gray-300:                    #a3a3a3;
+@gray-400:                    #848484;
+@gray-500:                    #666;
+@gray-600:                    #515151;
+@gray-700:                    #3d3d3d;
+@gray-800:                    #282828;
+@gray-900:                    #141414;
+@black:                       #000;
 
-
-@border-color: @gray-100;
-@border-color-dark: @gray-200;
+@border-color:                @gray-100;
+@border-color-dark:           @gray-200;
 
 //-- Z-index master list
 // -------------------------
-@zindex-navbar: 1000;
-@zindex-main-nav: 1;
-@zindex-tooltip: 1070;
-@zindex-navbar-fixed: 1030;
+@zindex-navbar:               1000;
+@zindex-main-nav:             1;
+@zindex-tooltip:              1070;
+@zindex-navbar-fixed:         1030;
 
 //== Typography
 // -------------------------
 
-@text-color: @gray-500;
-@text-color-light: @gray-400;
-@text-color-lighter: @gray-300;
-@text-color-error: @brand-danger;
+@text-color:                  @gray-500;
+@text-color-light:            @gray-400;
+@text-color-lighter:          @gray-300;
+@text-color-error:            @brand-danger;
 
-@font-weight-light: 300;
-@font-weight-regular: 400;
-@font-weight-bold: 600;
-@font-family: "Open Sans", Helvetica, Arial, Sans-Serif;
-@mono-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-weight-light:           300;
+@font-weight-regular:         400;
+@font-weight-bold:            600;
+@font-family:                 "Open Sans", Helvetica, Arial, Sans-Serif;
+@mono-font-family:            Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@font-size-base: 14px;
-@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
-@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
-@font-size-h5: ceil((@font-size-base * 0.9)); // ~13px
-@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+@font-size-base:              14px;
+@font-size-large:             ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:             ceil((@font-size-base * 0.85)); // ~12px
+@font-size-h1:                floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:                floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:                ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:                ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:                ceil((@font-size-base * 0.9)); // ~13px
+@font-size-h6:                ceil((@font-size-base * 0.85)); // ~12px
 
-@heading-text-color: @gray-800;
-@headings-small-color: @gray-300;
-@headings-line-height: 1.2em;
+@heading-text-color:          @gray-800;
+@headings-small-color:        @gray-300;
+@headings-line-height:        1.2em;
 
 // Common Components
 // -------------------------
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base: 1.428571429; // 20/14
+@line-height-base:            1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
-@border-radius-base: 4px;
-@border-radius-large: 6px;
-@border-radius-small: 3px;
+@line-height-computed:        floor((@font-size-base * @line-height-base)); // ~20px
+
+// Border Radius
+//-------------------------
+@border-radius-base:          4px;
+@border-radius-large:         6px;
+@border-radius-small:         3px;
+@border-radius-circle:        50%;
 
 // Buttons
 //-------------------------
-@btn-default-color: #fff;
-@btn-default-bg: @gray-400;
-@btn-default-bg-hover: @gray-500;
-@btn-default-bg-active: @gray-600;
-@btn-default-bg-disabled: @gray-300;
+@btn-default-color:           #fff;
+@btn-default-bg:              @gray-400;
+@btn-default-bg-hover:        @gray-500;
+@btn-default-bg-active:       @gray-600;
+@btn-default-bg-disabled:     @gray-300;
 
-@btn-primary-color: @btn-default-color;
-@btn-primary-bg: @brand-success;
-@btn-primary-bg-hover: #369a2b;
-@btn-primary-bg-active: #308a26;
-@btn-primary-bg-disabled: #9ad493;
+@btn-primary-color:           @btn-default-color;
+@btn-primary-bg:              @brand-success;
+@btn-primary-bg-hover:        #369a2b;
+@btn-primary-bg-active:       #308a26;
+@btn-primary-bg-disabled:     #9ad493;
 
-@btn-danger-color: @btn-default-color;
-@btn-danger-bg: @brand-danger;
-@btn-danger-bg-hover: #c2322c;
-@btn-danger-bg-active: #9f2924;
-@btn-danger-bg-disabled: #e9625c;
+@btn-danger-color:            @btn-default-color;
+@btn-danger-bg:               @brand-danger;
+@btn-danger-bg-hover:         #c2322c;
+@btn-danger-bg-active:        #9f2924;
+@btn-danger-bg-disabled:      #e9625c;
 
-@btn-inverse-color: @gray-700;
-@btn-inverse-color-disabled: @gray-400;
-@btn-inverse-bg: @gray-100;
-@btn-inverse-bg-hover: lighten(@gray-100, 5%);
-@btn-inverse-bg-active: @btn-inverse-bg-hover;
-@btn-inverse-bg-disabled: @btn-inverse-bg;
+@btn-inverse-color:           @gray-700;
+@btn-inverse-color-disabled:  @gray-400;
+@btn-inverse-bg:              @gray-100;
+@btn-inverse-bg-hover:        lighten(@gray-100, 5%);
+@btn-inverse-bg-active:       @btn-inverse-bg-hover;
+@btn-inverse-bg-disabled:     @btn-inverse-bg;
 
-@btn-outline-color: @gray-700;
-@btn-outline-color-disabled: @btn-inverse-color-disabled;
-@btn-outline-border: @gray-200;
-@btn-outline-bg: #f5f5f5;
-@btn-outline-bg-hover: @gray-400;
-@btn-outline-bg-active: @btn-outline-bg-hover;
-@btn-outline-bg-disabled: @btn-outline-bg;
+@btn-outline-color:           @gray-700;
+@btn-outline-color-disabled:  @btn-inverse-color-disabled;
+@btn-outline-border:          @gray-200;
+@btn-outline-bg:              #f5f5f5;
+@btn-outline-bg-hover:        @gray-400;
+@btn-outline-bg-active:       @btn-outline-bg-hover;
+@btn-outline-bg-disabled:     @btn-outline-bg;
 
 // Code
 //-------------------------
-@code-color: #c7254e;
-@code-bg: #f9f2f4;
+@code-color:                  #c7254e;
+@code-bg:                     #f9f2f4;
 //== Tables
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
 //** Padding for `<th>`s and `<td>`s.
-@table-cell-padding: 8px;
+@table-cell-padding:          8px;
 //** Padding for cells in `.table-condensed`.
 @table-condensed-cell-padding: 5px;
 //** Default background color used for all tables.
-@table-bg: transparent;
+@table-bg:                    transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent: #f9f9f9;
+@table-accent-bg:             #f9f9f9;
 //** Background color used for `.table-hover`.
-@table-bg-hover: #f5f5f5;
-@table-bg-active: @table-bg-hover;
-@table-header-bg-color: #eaeaea;
+@table-hover-bg:              #f5f5f5;
+@table-active-bg:             @table-hover-bg;
+@table-header-bg:             @gray-100;
 //** Border color for table and cell borders.
-@table-border-color: @border-color;
+@table-border-color:          @border-color;
 // Forms
 //-------------------------
-@input-height-base: 34px;
-@form-group-margin-bottom: 15px;
-@input-bg-disabled: @gray-100;
+@input-height-base:           34px;
+@form-group-margin-bottom:    15px;
+@input-bg-disabled:           @gray-100;
 //** Disabled cursor for form controls and buttons.
-@cursor-disabled: not-allowed;
+@cursor-disabled:             not-allowed;
 //== Tooltips
 //
-//##
-//** Tooltip max width
-@tooltip-max-width: 200px;
-//** Tooltip text color
-@tooltip-color: #fff;
-//** Tooltip background color
-@tooltip-bg: #000;
-@tooltip-opacity: 0.9;
-//** Tooltip arrow width
-@tooltip-arrow-width: 5px;
-//** Tooltip arrow color
-@tooltip-arrow-color: @tooltip-bg;
+@tooltip-max-width:           200px;
+@tooltip-color:               #fff;
+@tooltip-bg:                  #000;
+@tooltip-opacity:             0.9;
+@tooltip-arrow-width:         5px;
+@tooltip-arrow-color:         @tooltip-bg;
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
-@state-success-text: #3cac30;
-@state-success-bg: #dff0d8;
-@state-success-border: darken(spin(@state-success-bg, -10), 5%);
-@state-info-text: #317495;
-@state-info-bg: #d9edf7;
-@state-info-border: darken(spin(@state-info-bg, -10), 10%);
-@state-warning-text: @brand-warning;
-@state-warning-bg: #fcf8e3;
-@state-warning-border: darken(spin(@state-warning-bg, -10), 10%);
-@state-danger-text: @text-color-error;
-@state-danger-bg: #f2dede;
-@state-danger-border: darken(spin(@state-danger-bg, -10), 5%);
+@state-success-text:          #3cac30;
+@state-success-bg:            #dff0d8;
+@state-success-border:        darken(spin(@state-success-bg, -10), 5%); // #d6e9c6
+@state-info-text:             #317495;
+@state-info-bg:               #d9edf7;
+@state-info-border:           darken(spin(@state-info-bg, -10), 10%); // #afe4ee
+@state-warning-text:          @brand-warning;
+@state-warning-bg:            #fcf8e3;
+@state-warning-border:        darken(spin(@state-warning-bg, -10), 10%); // #f7e1b5
+@state-danger-text:           @text-color-error;
+@state-danger-bg:             #f2dede;
+@state-danger-border:         darken(spin(@state-danger-bg, -10), 5%); // #ebccd1
 
 //== Account Switcher
 //
-@account-switcher-header-bg: @gray-700;
-@account-switcher-bg: @gray-800;
-@account-switcher-text-color: #bdbdbd;
-@account-switcher-border-color: @gray-700;
-@account-switcher-active-bg: @gray-900;
-
+@account-switcher-header-bg:          @gray-700;
+@account-switcher-bg:                 @gray-800;
+@account-switcher-text:               @gray-200;
+@account-switcher-border-color:       @gray-700;
+@account-switcher-active-bg:          @gray-900;
+//== Action Toolbar
+//
+@action-toolbar-bg:                   @gray-100;
+@action-toolbar-hover-bg:             @gray-600;
+@action-toolbar-active-bg:            @gray-700;
+@action-toolbar-dropdown-bg:          @gray-700;
+@action-toolbar-dropdown-hover-bg:    @gray-800;
+@action-toolbar-dropdown-active-bg:   @gray-900;
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
-@alert-padding: 15px;
-@alert-border-radius: @border-radius-base;
-@alert-link-font-weight: @font-weight-bold;
-@alert-success-bg: @state-success-bg;
-@alert-success-text: @state-success-text;
-@alert-success-border: @state-success-border;
-@alert-info-bg: @state-info-bg;
-@alert-info-text: @state-info-text;
-@alert-info-border: @state-info-border;
-@alert-warning-bg: @state-warning-bg;
-@alert-warning-text: @state-warning-text;
-@alert-warning-border: @state-warning-border;
-@alert-danger-bg: @state-danger-bg;
-@alert-danger-text: @state-danger-text;
-@alert-danger-border: @state-danger-border;
-@alert-instruction-bg: #fff;
-@alert-instruction-text: @text-color-light;
-@alert-instruction-border: @border-color;
-//== Navs
+@alert-padding:               @line-height-computed - 5;
+@alert-border-radius:         @border-radius-base;
+@alert-link-font-weight:      @font-weight-bold;
+@alert-success-bg:            @state-success-bg;
+@alert-success-icon:          @state-success-text;
+@alert-success-border:        @state-success-border;
+@alert-info-bg:               @state-info-bg;
+@alert-info-icon:             @state-info-text;
+@alert-info-border:           @state-info-border;
+@alert-warning-bg:            @state-warning-bg;
+@alert-warning-icon:          @state-warning-text;
+@alert-warning-border:        @state-warning-border;
+@alert-danger-bg:             @state-danger-bg;
+@alert-danger-icon:           @state-danger-text;
+@alert-danger-border:         @state-danger-border;
+@alert-instruction-bg:        #fff;
+@alert-instruction-icon:      @text-color-light;
+@alert-instruction-border:    @border-color;
+@alert-text:                  @text-color;
+//== Chart Colors
 //
+@fill-greengrey:              #404c43;
+@fill-moss:                   #58776a;
+@fill-forestgreen:            #5e9354;
+@fill-green:                  #8cc63f;
+@fill-lightgreen:             #b8e288;
+@fill-seafoam:                #59b082;
+@fill-blue:                   #597c97;
+@fill-yellow:                 #f1ee6b;
+@fill-orange:                 @orange;
+@fill-red:                    #d44747;
+//== Navs
+//=========================================
+//== Main Nav
+//
+@main-nav-text:               @gray-300;
+@main-nav-bg:                 @gray-800;
+@main-nav-hover-bg:           darken(@gray-800, 3%);
+@main-nav-active-bg:        @gray-900;
+@main-nav-icon-color:         @gray-400;
+@main-nav-link-text:          @gray-200;
+@main-nav-link-text-hover:    @gray-100;
+@main-nav-link-text-active:   #fff;
+@main-nav-icon-color:         @gray-500;
+@main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-active-bg inset, 0 1px 0 @main-nav-active-bg inset;
+@main-nav-flyout-bg:          @gray-800;
+@main-nav-flyout-hover-bg:    darken(@gray-800, 3%);
+@main-nav-flyout-active-bg:   @gray-900;
+@main-nav-width-sm:           46px;
+@main-nav-width-md:           100px;
+@main-nav-width-lg:           160px;
+@main-nav-flyout-width:       @pane-width; // 280px
+@main-nav-flyout-divider:     @gray-700;
 //=== Shared nav styles
-@nav-link-padding: 15px;
-@nav-link-hover-bg: @body-bg;
-@nav-disabled-link-color: @gray-300;
-@nav-disabled-link-hover-color: @gray-300;
-@nav-bottom-border: @gray-100;
+@nav-link-padding:                    15px;
+@nav-link-hover-bg:                   @body-bg;
+@nav-disabled-link-color:             @gray-300;
+@nav-disabled-link-hover-color:       @gray-300;
+@nav-bottom-border:                   @gray-100;
 //== Navbar
 //
 // Basics of a navbar
-@navbar-height: 50px;
-@navbar-margin-bottom: 0;
-@navbar-border-radius: @border-radius-base;
-@navbar-padding-horizontal: floor((@grid-gutter-width / 2));
-@navbar-padding-vertical: ((@navbar-height - @line-height-computed) / 2);
-@navbar-collapse-max-height: 340px;
-@navbar-default-color: #777;
-@navbar-default-bg: #f8f8f8;
-@navbar-default-border: darken(@navbar-default-bg, 6.5%);
+@navbar-height:               50px;
+@navbar-margin-bottom:        0;
+@navbar-border-radius:        @border-radius-base;
+@navbar-padding-horizontal:   floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:     ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:  340px;
+@navbar-default-color:        #777;
+@navbar-default-bg:           #f8f8f8;
+@navbar-default-border:       darken(@navbar-default-bg, 6.5%);
 // Navbar links
-@navbar-default-link-color: #777;
-@navbar-default-link-hover-color: #333;
-@navbar-default-link-hover-bg: transparent;
-@navbar-default-link-active-color: #555;
-@navbar-default-link-active-bg: darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color: #ccc;
-@navbar-default-link-disabled-bg: transparent;
+@navbar-default-link-color:           #777;
+@navbar-default-link-hover-color:     #333;
+@navbar-default-link-hover-bg:        transparent;
+@navbar-default-link-active-color:    #555;
+@navbar-default-link-active-bg:       darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-disabled-color:  #ccc;
+@navbar-default-link-disabled-bg:     transparent;
 // Navbar brand label
-@navbar-default-brand-color: @navbar-default-link-color;
-@navbar-default-brand-hover-color: darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg: transparent;
+@navbar-default-brand-color:          @navbar-default-link-color;
+@navbar-default-brand-hover-color:    darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:       transparent;
 // Navbar toggle
-@navbar-default-toggle-hover-bg: #ddd;
-@navbar-default-toggle-icon-bar-bg: #888;
-@navbar-default-toggle-border-color: #ddd;
+@navbar-default-toggle-hover-bg:      #ddd;
+@navbar-default-toggle-icon-bar-bg:   #888;
+@navbar-default-toggle-border-color:  #ddd;
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color: @gray-700;
-@navbar-inverse-bg: @gray-800;
-@navbar-inverse-border: @gray-900;
+@navbar-inverse-text:                 @gray-700;
+@navbar-inverse-bg:                   @gray-800;
+@navbar-inverse-border:               @gray-900;
 // Inverted navbar links
-@navbar-inverse-link-color: @gray-200;
-@navbar-inverse-link-hover-color: #fff;
-@navbar-inverse-link-hover-bg: transparent;
-@navbar-inverse-link-active-color: @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg: @gray-900;
-@navbar-inverse-link-disabled-color: @gray-700;
-@navbar-inverse-link-disabled-bg: transparent;
+@navbar-inverse-link-color:           @gray-200;
+@navbar-inverse-link-hover-color:     #fff;
+@navbar-inverse-link-hover-bg:        transparent;
+@navbar-inverse-link-active-color:    @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:       @gray-900;
+@navbar-inverse-link-disabled-color:  @gray-700;
+@navbar-inverse-link-disabled-bg:     transparent;
 // Inverted navbar brand label
-@navbar-inverse-brand-color: @gray-100;
-@navbar-inverse-brand-hover-color: #fff;
-@navbar-inverse-brand-hover-bg: transparent;
+@navbar-inverse-brand-color:          @gray-100;
+@navbar-inverse-brand-hover-color:    #fff;
+@navbar-inverse-brand-hover-bg:       transparent;
 // Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg: @gray-700;
-@navbar-inverse-toggle-icon-bar-bg: #fff;
-@navbar-inverse-toggle-border-color: @gray-700;
-// Tree List
-@tree-list-status-default-bg: @gray-100;
-@tree-list-status-warning-bg: @brand-warning;
-@tree-list-status-danger-bg: @brand-danger;
-//== Pane
-@pane-width: 280px;
-//== Main Nav
-//
-
-@main-nav-bg: @gray-800;
-@main-nav-icon-color: @gray-400;
-@main-nav-link-color: @gray-200;
-@main-nav-bg-hover: darken(@gray-800, 3%);
-@main-nav-bg-selected: @gray-900;
-@main-nav-icon-color: @gray-500;
-@main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-bg-selected inset, 0 1px 0 @main-nav-bg-selected inset;
-@main-nav-flyout-bg: @main-nav-bg;
-@main-nav-width-sm: 46px;
-@main-nav-width-md: 100px;
-@main-nav-width-lg: 160px;
-@main-nav-flyout-width: @pane-width; // 280px
-@main-nav-flyout-divider: @gray-700;
-@main-nav-flyout-selected: @gray-900;
+@navbar-inverse-toggle-hover-bg:      @gray-700;
+@navbar-inverse-toggle-icon-bar-bg:   #fff;
+@navbar-inverse-toggle-border-color:  @gray-700;
 //== Pagination
 //
 //## Define pagination colors and padding.
-@pagination-padding-x: 15px;
-@pagination-padding-y: 7px;
-@pagination-color: @text-color;
-@pagination-bg: #fff;
-@pagination-border-width: 1px;
-@pagination-border-color: @border-color;
-@pagination-hover-color: @text-color;
-@pagination-hover-bg: @gray-100;
-@pagination-hover-border: #ddd;
-@pagination-active-color: @text-color;
-@pagination-active-bg: @gray-100;
-@pagination-active-border: @gray-100;
-@pagination-disabled-color: @gray-200;
-@pagination-disabled-bg: #fff;
-@pagination-disabled-border: @gray-100;
-
-//== Chart Colors
+@pagination-padding-x:        15px;
+@pagination-padding-y:        7px;
+@pagination-color:            @text-color;
+@pagination-bg:               #fff;
+@pagination-border-width:     1px;
+@pagination-border-color:     @border-color;
+@pagination-hover-color:      @text-color;
+@pagination-hover-bg:         @gray-100;
+@pagination-hover-border:     #ddd;
+@pagination-active-color:     @text-color;
+@pagination-active-bg:        @gray-100;
+@pagination-active-border:    @gray-100;
+@pagination-disabled-color:   @gray-200;
+@pagination-disabled-bg:      #fff;
+@pagination-disabled-border:  @gray-100;
+// Progress bars
 //
-@fill-greengrey: #404c43;
-@fill-moss: #58776a;
-@fill-forestgreen: #5e9354;
-@fill-green: #8cc63f;
-@fill-lightgreen: #b8e288;
-@fill-seafoam: #59b082;
-@fill-blue: #597c97;
-@fill-yellow: #f1ee6b;
-@fill-orange: @orange;
-@fill-red: #d44747;
-
+@progress-bg:                 @gray-100;
+@progress-border-radius:      @border-radius-large;
+@progress-bar-success-bg:     @brand-success;
+@progress-bar-info-bg:        @brand-info;
+@progress-bar-warning-bg:     @brand-warning;
+@progress-bar-danger-bg:      @brand-danger;
 //== Tag Colors
 //
-@tag-default-bg:  @btn-default-bg;
-@tag-primary-bg:  @btn-primary-bg;
-@tag-info-bg:     @brand-info;
-@tag-warning-bg:  @brand-warning;
-@tag-danger-bg:   @brand-danger;
-
-//== Action Toolbar
-@action-toolbar-bg: #e5e5e5;
+@tag-default-bg:              @gray-300;
+@tag-primary-bg:              @brand-success;
+@tag-info-bg:                 @brand-info;
+@tag-warning-bg:              @brand-warning;
+@tag-danger-bg:               @brand-danger;
+// Tree List
+@tree-list-status-default-bg: @gray-100;
+@tree-list-status-warning-bg: @brand-warning;
+@tree-list-status-danger-bg:  @brand-danger;
 
 //==Spacing
 @space-y: 20px;
