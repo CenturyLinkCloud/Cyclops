@@ -189,23 +189,7 @@
 //-------------------------
 @code-color:                  #c7254e;
 @code-bg:                     #f9f2f4;
-//== Tables
-//
-//## Customizes the `.table` component with basic values, each used across all table variations.
-//** Padding for `<th>`s and `<td>`s.
-@table-cell-padding:          8px;
-//** Padding for cells in `.table-condensed`.
-@table-condensed-cell-padding: 5px;
-//** Default background color used for all tables.
-@table-bg:                    transparent;
-//** Background color used for `.table-striped`.
-@table-accent-bg:             #f9f9f9;
-//** Background color used for `.table-hover`.
-@table-hover-bg:              #f5f5f5;
-@table-active-bg:             @table-hover-bg;
-@table-header-bg:             @gray-100;
-//** Border color for table and cell borders.
-@table-border-color:          @border-color;
+
 // Forms
 //-------------------------
 @input-height-base:           34px;
@@ -213,14 +197,6 @@
 @input-bg-disabled:           @gray-100;
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled:             not-allowed;
-//== Tooltips
-//
-@tooltip-max-width:           200px;
-@tooltip-color:               #fff;
-@tooltip-bg:                  #000;
-@tooltip-opacity:             0.9;
-@tooltip-arrow-width:         5px;
-@tooltip-arrow-color:         @tooltip-bg;
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
@@ -389,6 +365,23 @@
 @progress-bar-info-bg:        @brand-info;
 @progress-bar-warning-bg:     @brand-warning;
 @progress-bar-danger-bg:      @brand-danger;
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+//** Padding for `<th>`s and `<td>`s.
+@table-cell-padding:          8px;
+//** Padding for cells in `.table-condensed`.
+@table-condensed-cell-padding: 5px;
+//** Default background color used for all tables.
+@table-bg:                    transparent;
+//** Background color used for `.table-striped`.
+@table-accent-bg:             #f9f9f9;
+//** Background color used for `.table-hover`.
+@table-hover-bg:              #f5f5f5;
+@table-active-bg:             @table-hover-bg;
+@table-header-bg:             @gray-100;
+//** Border color for table and cell borders.
+@table-border-color:          @border-color;
 //== Tag Colors
 //
 @tag-default-bg:              @gray-300;
@@ -396,6 +389,14 @@
 @tag-info-bg:                 @brand-info;
 @tag-warning-bg:              @brand-warning;
 @tag-danger-bg:               @brand-danger;
+//== Tooltips
+//
+@tooltip-max-width:           200px;
+@tooltip-color:               #fff;
+@tooltip-bg:                  #000;
+@tooltip-opacity:             0.9;
+@tooltip-arrow-width:         5px;
+@tooltip-arrow-color:         @tooltip-bg;
 // Tree List
 //
 @tree-list-status-default-bg: @gray-100;
