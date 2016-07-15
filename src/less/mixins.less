@@ -28,175 +28,7 @@
   margin-right: floor((@gutter / -2));
   .clearfix();
 }
-// CSS3 PROPERTIES
-// --------------------------------------------------
-// Border Radius
 
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-}
-// Single Corner Border Radius
-
-.border-top-left-radius(@radius) {
-  -webkit-border-top-left-radius: @radius;
-  -moz-border-radius-topleft: @radius;
-  border-top-left-radius: @radius;
-}
-
-.border-top-right-radius(@radius) {
-  -webkit-border-top-right-radius: @radius;
-  -moz-border-radius-topright: @radius;
-  border-top-right-radius: @radius;
-}
-
-.border-bottom-right-radius(@radius) {
-  -webkit-border-bottom-right-radius: @radius;
-  -moz-border-radius-bottomright: @radius;
-  border-bottom-right-radius: @radius;
-}
-
-.border-bottom-left-radius(@radius) {
-  -webkit-border-bottom-left-radius: @radius;
-  -moz-border-radius-bottomleft: @radius;
-  border-bottom-left-radius: @radius;
-}
-// Single Side Border Radius
-
-.border-top-radius(@radius) {
-  .border-top-right-radius(@radius);
-  .border-top-left-radius(@radius);
-}
-
-.border-right-radius(@radius) {
-  .border-top-right-radius(@radius);
-  .border-bottom-right-radius(@radius);
-}
-
-.border-bottom-radius(@radius) {
-  .border-bottom-right-radius(@radius);
-  .border-bottom-left-radius(@radius);
-}
-
-.border-left-radius(@radius) {
-  .border-top-left-radius(@radius);
-  .border-bottom-left-radius(@radius);
-}
-// Drop shadows
-
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  box-shadow: @shadow;
-}
-
-.gradient (@startColor: #eee, @endColor: #fff) {
-  background-color: @startColor;
-  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-  background: -webkit-linear-gradient(top, @startColor, @endColor);
-  background: -moz-linear-gradient(top, @startColor, @endColor);
-  background: -ms-linear-gradient(top, @startColor, @endColor);
-  background: -o-linear-gradient(top, @startColor, @endColor);
-}
-
-.horizontal-gradient (@startColor: #eee, @endColor: #fff) {
-  background-color: @startColor;
-  background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
-  background-image: -webkit-linear-gradient(left, @startColor, @endColor);
-  background-image: -moz-linear-gradient(left, @startColor, @endColor);
-  background-image: -ms-linear-gradient(left, @startColor, @endColor);
-  background-image: -o-linear-gradient(left, @startColor, @endColor);
-}
-// Transitions
-
-.transition(@transition) {
-  -webkit-transition: @transition;
-  -moz-transition: @transition;
-  -o-transition: @transition;
-  transition: @transition;
-}
-
-.transition-delay(@transition-delay) {
-  -webkit-transition-delay: @transition-delay;
-  -moz-transition-delay: @transition-delay;
-  -o-transition-delay: @transition-delay;
-  transition-delay: @transition-delay;
-}
-// Transformations
-
-.rotate(@degrees) {
-  -webkit-transform: rotate(@degrees);
-  -moz-transform: rotate(@degrees);
-  -ms-transform: rotate(@degrees);
-  -o-transform: rotate(@degrees);
-  transform: rotate(@degrees);
-}
-
-.scale(@ratio) {
-  -webkit-transform: scale(@ratio);
-  -moz-transform: scale(@ratio);
-  -ms-transform: scale(@ratio);
-  -o-transform: scale(@ratio);
-  transform: scale(@ratio);
-}
-
-.translate(@x, @y) {
-  -webkit-transform: translate(@x, @y);
-  -moz-transform: translate(@x, @y);
-  -ms-transform: translate(@x, @y);
-  -o-transform: translate(@x, @y);
-  transform: translate(@x, @y);
-}
-
-.skew(@x, @y) {
-  -webkit-transform: skew(@x, @y);
-  -moz-transform: skew(@x, @y);
-  -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
-  -o-transform: skew(@x, @y);
-  transform: skew(@x, @y);
-  -webkit-backface-visibility: hidden; // See https://github.com/twitter/bootstrap/issues/5319
-}
-
-.translate3d(@x, @y, @z) {
-  -webkit-transform: translate3d(@x, @y, @z);
-  -moz-transform: translate3d(@x, @y, @z);
-  -o-transform: translate3d(@x, @y, @z);
-  transform: translate3d(@x, @y, @z);
-}
-// Backface visibility
-// Prevent browsers from flickering when using CSS 3D transforms.
-// Default value is `visible`, but can be changed to `hidden
-// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
-
-.backface-visibility(@visibility) {
-  -webkit-backface-visibility: @visibility;
-  -moz-backface-visibility: @visibility;
-  backface-visibility: @visibility;
-}
-// Background clipping
-// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
-
-.background-clip(@clip) {
-  -webkit-background-clip: @clip;
-  -moz-background-clip: @clip;
-  background-clip: @clip;
-}
-// Background sizing
-
-.background-size(@size) {
-  -webkit-background-size: @size;
-  -moz-background-size: @size;
-  -o-background-size: @size;
-  background-size: @size;
-}
-// Box sizing
-
-.box-sizing(@boxmodel) {
-  -webkit-box-sizing: @boxmodel;
-  -moz-box-sizing: @boxmodel;
-  box-sizing: @boxmodel;
-}
 // input text placeholder {
 
 .placeholder (@color) {
@@ -212,16 +44,6 @@
     color: @color;
   }
 }
-// User select
-// For selecting text on the page
-
-.user-select(@select) {
-  -webkit-user-select: @select;
-  -moz-user-select: @select;
-  -ms-user-select: @select;
-  -o-user-select: @select;
-  user-select: @select;
-}
 // Resize anything
 
 .resizable(@direction) {
@@ -231,21 +53,13 @@
 // CSS3 Content Columns
 
 .content-columns(@columnCount, @columnGap: @gridGutterWidth) {
-  -webkit-column-count: @columnCount;
-  -moz-column-count: @columnCount;
   column-count: @columnCount;
-  -webkit-column-gap: @columnGap;
-  -moz-column-gap: @columnGap;
   column-gap: @columnGap;
 }
 // Optional hyphenation
 
 .hyphens(@mode: auto) {
   word-wrap: break-word;
-  -webkit-hyphens: @mode;
-  -moz-hyphens: @mode;
-  -ms-hyphens: @mode;
-  -o-hyphens: @mode;
   hyphens: @mode;
 }
 

@@ -1,4 +1,5 @@
 gulp = require 'gulp'
+autoprefixer = require 'gulp-autoprefixer'
 concat = require 'gulp-concat'
 rename = require 'gulp-rename'
 less = require 'gulp-less'
@@ -25,12 +26,18 @@ gulp.task 'less-concat', ->
   cyclops = gulp.src './src/less/cyclops.less'
     .pipe sourcemaps.init()
     .pipe less()
+    .pipe autoprefixer
+      browsers: [ 'ie >= 9', 'last 2 versions' ]
+      cascade: false
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/css'
 
   site = gulp.src './src/less/site/site.less'
     .pipe sourcemaps.init()
     .pipe less()
+    .pipe autoprefixer
+      browsers: [ 'ie >= 9', 'last 2 versions' ]
+      cascade: false
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/css'
 
@@ -40,6 +47,9 @@ gulp.task 'less-min', ->
   return gulp.src './src/less/cyclops.less'
     .pipe sourcemaps.init()
     .pipe less()
+    .pipe autoprefixer
+      browsers: [ 'ie >= 9', 'last 2 versions' ]
+      cascade: false
     .pipe minifyCSS()
     .pipe rename { suffix: '.min' }
     .pipe sourcemaps.write './'

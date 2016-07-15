@@ -34,7 +34,7 @@
       background-color: @action-toolbar-bg;
       display: inline-block;
       padding: 8px 10px 12px;
-      .transition(e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in'));
+      transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
       text-decoration: none;
       border:none;
       outline:none;
@@ -44,7 +44,7 @@
         color: #fff;
 
         svg.cyclops-icon {
-          .transition(e('fill .15s'));
+          transition: e('fill .15s');
           fill: #fff;
         }
       }
@@ -126,7 +126,7 @@
     background: @action-toolbar-dropdown-bg;
     border: 0;
     margin-top: 0;
-    .border-radius(0);
+    border-radius: 0;
 
     li a,
     li button {

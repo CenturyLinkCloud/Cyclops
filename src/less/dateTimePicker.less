@@ -42,7 +42,7 @@
   background: @gray-700;
 
   &.ui-corner-all {
-    .border-radius(@border-radius-base);
+    border-radius: @border-radius-base;
   }
 
   .ui-datepicker-header {
@@ -132,7 +132,7 @@
         text-align: center;
         text-decoration: none;
         color: @gray-300;
-        .transition(e('background .1s ease-in, color .1s'));
+        transition: e('background .1s ease-in, color .1s');
         &:hover {
           background-color: #fff;
           color: @gray-700;
