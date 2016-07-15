@@ -17,7 +17,7 @@
   &:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
+    .border-radius(@navbar-border-radius);
   }
 }
 
@@ -98,10 +98,10 @@
     border-top: 1px solid @nav-bottom-border;
     border-bottom: 1px solid @nav-bottom-border;
     text-align: left;
-    border-radius: 0;
-    font-weight: @bold-font-weight;
+    .border-radius(0);
+    font-weight: @font-weight-bold;
     text-transform: uppercase;
-    font-size: @font-size-base - 1;
+    font-size: @font-size-regular - 1;
 
     &:hover {
       background-color: @nav-link-hover-bg;
@@ -127,9 +127,9 @@
     > li {
       border-bottom: 1px solid @nav-bottom-border;
       letter-spacing: 2px;
-      font-weight: @bold-font-weight;
+      font-weight: @font-weight-bold;
       text-transform: uppercase;
-      font-size: @font-size-base - 1;
+      font-size: @font-size-regular - 1;
 
       .cyclops-icon {
         float: right;
@@ -155,7 +155,7 @@
     padding: 0;
 
     > li {
-      font-size: @font-size-base - 1;
+      font-size: @font-size-regular - 1;
       text-transform: none;
       letter-spacing: normal;
     }
@@ -164,7 +164,7 @@
   @media (min-width: @grid-float-breakpoint) {
     .clearfix();
     display: block;
-    border-radius: 0;
+    .border-radius(0);
     border-bottom: 1px solid @border-color;
 
     .navbar-nav {
@@ -187,7 +187,7 @@
         }
 
         > a {
-          border-radius: 3px;
+          .border-radius(@border-radius-small);
           padding: 6px 13px 6px 15px;
         }
       }
@@ -243,7 +243,7 @@
   border-width: 0 0 1px;
 
   @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
+    .border-radius(0);
   }
 }
 
@@ -306,7 +306,7 @@
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
-  border-radius: @border-radius-base;
+  .border-radius(@border-radius-base);
 
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
@@ -320,7 +320,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    border-radius: 1px;
+    .border-radius(1px);
   }
 
   .icon-bar + .icon-bar {
@@ -511,7 +511,7 @@
   }
 
   .navbar-text {
-    color: @navbar-inverse-color;
+    color: @navbar-inverse-text;
   }
 
   .dropdown-menu,

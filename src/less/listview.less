@@ -22,7 +22,7 @@
       text-transform: uppercase;
       font-size: 12px;
       text-decoration: none;
-      font-weight: @base-font-weight;
+      font-weight: @font-weight-regular;
       letter-spacing: 1px;
 
       &:active,
@@ -35,7 +35,7 @@
 
   .heading {
     letter-spacing: 1px;
-    font-weight: @base-font-weight;
+    font-weight: @font-weight-regular;
     text-align: right;
   }
 
@@ -307,7 +307,7 @@
     > .lead {
       margin-left: auto;
       margin-right: auto;
-      font-size: @font-size-base;
+      font-size: @font-size-regular;
       max-width: 600px;
 
       @media (min-width: @screen-sm-min) {
@@ -454,7 +454,7 @@
   }
 
   label.error {
-    color: @text-error;
+    color: @text-color-error;
   }
 
   select.error,
@@ -834,7 +834,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 0;
-    font-weight: @bold-font-weight;
+    font-weight: @font-weight-bold;
     cursor: default;
   }
 

@@ -90,7 +90,7 @@
    > li {
      float: none;
      display: inline-block;
-     font-size: @font-size-base;
+     font-size: @font-size-regular;
      margin-bottom: 7px;
 
      &.nav-title {
@@ -111,7 +111,7 @@
 
      &.selected {
        > a {
-         font-weight: @bold-font-weight;
+         font-weight: @font-weight-bold;
        }
      }
    }
@@ -193,7 +193,7 @@
 
     > li {
       display: block;
-      font-size: @font-size-base;
+      font-size: @font-size-regular;
       margin-left: 0;
       margin-bottom: 0;
 
@@ -240,12 +240,12 @@
             }
 
             &.selected {
-              font-weight: @bold-font-weight;
+              font-weight: @font-weight-bold;
             }
 
             > a {
               display: block;
-              font-size: @font-size-base - 2;
+              font-size: @font-size-regular - 2;
               padding: 5px 10px 5px 20px;
             }
           }

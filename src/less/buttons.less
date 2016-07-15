@@ -1,13 +1,13 @@
 .btn {
   background-image: none;
   border: none;
-  .border-radius(3px);
+  .border-radius(@border-radius-small);
   .box-shadow(none);
   color: #fff;
   display: inline-block;
   font-family: @font-family;
   font-size: 13px;
-  font-weight: @base-font-weight;
+  font-weight: @font-weight-regular;
   letter-spacing: 1px;
   line-height: @line-height-computed;
   padding: 4px 10px 6px;
@@ -234,7 +234,7 @@ fieldset[disabled] {
   text-decoration: none;
   background-color: transparent;
   font-family: @font-family;
-  font-size: @font-size-base;
+  font-size: @font-size-regular;
   background: none;
   border: none;
   .box-shadow(none);
@@ -290,7 +290,7 @@ fieldset[disabled] {
 
 .btn-lg,
 .btn-large {
-  .border-radius(3px);
+  .border-radius(@border-radius-small);
   font-size: 15px;
   line-height: 20px;
   padding: 6px 10px 9px;
@@ -302,7 +302,7 @@ fieldset[disabled] {
 
 .btn-sm,
 .btn-small {
-  .border-radius(3px);
+  .border-radius(@border-radius-small);
   font-size: 12px;
   line-height: 18px;
   padding: 3px 8px 4px;
@@ -313,7 +313,7 @@ fieldset[disabled] {
 }
 
 .btn-mini {
-  .border-radius(3px);
+  .border-radius(@border-radius-small);
   font-size: 11px;
   line-height: 12px;
   text-decoration: none;
@@ -325,7 +325,7 @@ fieldset[disabled] {
 }
 
 .btn-group > .btn {
-  .border-radius(3px);
+  .border-radius(@border-radius-small);
 }
 
 .btn-row > .btn {
@@ -334,7 +334,7 @@ fieldset[disabled] {
 
 .btn-link-text {
   font-family: @font-family;
-  font-size: @font-size-base;
+  font-size: @font-size-regular;
   .btn-link();
   background: none;
   border: none;
@@ -375,7 +375,7 @@ input[type="button"] {
 .close {
   float: right;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: @font-weight-bold;
   line-height: @line-height-base;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
   color: @text-color-lighter;
