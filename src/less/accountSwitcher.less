@@ -56,13 +56,13 @@ account-switcher {
     padding: 5px 10px;
     z-index: 1051;
     position: relative;
-    .box-shadow(0 -2px 3px 1px #000);
+    box-shadow: 0 -2px 3px 1px #000;
 
     .toggle-btn {
       padding: 0;
 
       .cyclops-icon use {
-        .transition(e('fill .05s ease-in'));
+        transition: e('fill .05s ease-in');
         fill: @gray-300;
       }
 
@@ -83,7 +83,7 @@ account-switcher {
       white-space: nowrap;
       vertical-align: middle;
       margin-right: 5px;
-      .transition(e('color .05s ease-in'));
+      transition: e('color .05s ease-in');
 
       &:hover {
         color: #fff;
@@ -153,13 +153,13 @@ account-switcher {
       svg {
         margin-bottom: 2px;
         opacity: 0;
-        .transition(e('opacity .05s ease-in'));
+        transition: e('opacity .05s ease-in');
         fill: #fff;
       }
     }
 
     .scroll-area {
-      .box-shadow(inset 0 2px 5px 0 rgba(0, 0, 0, 0.15));
+      box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.15);
       position: absolute;
       top: 130px;
       bottom: 20px;
@@ -175,7 +175,7 @@ account-switcher {
 
       .list-view-item {
         border-bottom-color: @account-switcher-border-color;
-        .transition(e('color .05s ease-in'));
+        transition: e('color .05s ease-in');
         cursor: pointer;
 
         &.current {

@@ -68,8 +68,8 @@
 }
 
 .tree-item {
-  .transition(e('background-color .07s ease-in'));
-  .transition(e('color .07s ease-in'));
+  transition: e('background-color .07s ease-in');
+  transition: e('color .07s ease-in');
   background-color: #f9f9f9;
 
   &:hover {
@@ -92,7 +92,7 @@
 }
 
 .tree-item-status {
-  .transition(e('background-color .07s ease-in'));
+  transition: e('background-color .07s ease-in');
   background-color: @tree-list-status-default-bg;
   border-top: 1px solid lighten(@tree-list-status-default-bg, 5%);
   border-bottom: 1px solid darken(@tree-list-status-default-bg, 5%);
@@ -126,14 +126,14 @@
 
 .tree-in-pane {
   .tree-item {
-    .box-shadow(inset -5px 0 3px 0 rgba(0,0,0,0.05));
+    box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
 
     &:hover {
       background-color: #fff;
     }
 
     &.selected {
-      .box-shadow(inset -5px 0 3px 0 rgba(0,0,0,0.2));
+      box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.2);
       background: #3a3a3a;
       color: #fff;
     }

@@ -8,7 +8,7 @@ main-nav {
   z-index: @zindex-main-nav;
   background: @main-nav-bg;
   box-shadow: inset 0 1px 0 0 rgba(0,0,0,.3); //top border
-  .transition(width .5s);
+  transition: width .5s;
   color: @main-nav-text;
 
   // Prevent a BUFOC
@@ -19,7 +19,7 @@ main-nav {
     bottom: 0;
     width: @main-nav-width-sm;
     background: @main-nav-bg;
-    .transition(width .5s);
+    transition: width .5s;
     z-index: -1;
   }
 
@@ -53,7 +53,7 @@ main-nav {
     height: 20px;
 
     use {
-      .transition(fill .2s);
+      transition: fill .2s;
       fill: @main-nav-icon-color;
     }
   }
@@ -63,7 +63,7 @@ main-nav {
     padding: 10px 0;
     width: 100%;
     background-color: transparent;
-    .border-radius(0);
+    border-radius: 0;
     color: @main-nav-link-text;
     font-size: @font-size-small;
     overflow: hidden;
@@ -80,14 +80,14 @@ main-nav {
       .cyclops-icon use {
         fill: @main-nav-link-text-hover;
       }
-    }f
+    }
 
     &:active {
-      box-shadow: none;
       outline: none;
       background-color: @main-nav-active-bg;
       color: @main-nav-link-text-active;
-      .box-shadow(inset 0 0 3px 0 rgba(0,0,0,.3));
+      box-shadow: inset 0 0 3px 0 rgba(0,0,0,.3);
+      transform: scale(.985,.985);
 
       .cyclops-icon use {
         fill: @main-nav-link-text-active;
@@ -152,7 +152,7 @@ main-nav {
   list-style: none;
 
   li {
-    .transition(background-color .2s, width .2s, height .2s;);
+    transition: background-color .2s, width .2s, height .2s;
     border-bottom: 1px solid @gray-900;
     width: @main-nav-width-sm;
     height: 44px;
@@ -194,7 +194,7 @@ main-nav {
   background: @main-nav-flyout-bg;
   border-right: 1px solid #202220;
   margin-left: -1 * @main-nav-flyout-width;
-  .transition(margin-left .5s);
+  transition: margin-left .5s;
   box-shadow: 0 0 7px #000;
   overflow-y: auto;
 
@@ -251,7 +251,7 @@ main-nav {
     height: auto;
     overflow: hidden;
     margin: 0;
-    .transition(background .2s);
+    transition: background .2s;
 
     &.selected,
     &.selected:hover {
