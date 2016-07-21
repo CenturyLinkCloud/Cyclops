@@ -45,24 +45,36 @@ div.dropdown {
       .nav-divider(@border-color);
     }
 
-    > li a:hover {
+    > li a:hover,
+    > li button:hover {
       background: #ebebeb;
     }
 
-    // Links and text within the dropdown menu
+    // Links, buttons and text within the dropdown menu
     > li {
       > .dropdown-text {
         color: @gray-300;
         margin: 0;
       }
       > a,
+      > button,
       > .dropdown-text {
+        border: none;
+        border-radius: @border-radius-small;
         display: block;
         padding: 3px 20px;
         clear: both;
         font-weight: normal;
         white-space: nowrap; // prevent links from randomly breaking onto new lines
         text-decoration: none;
+      }
+
+      > button {
+        background-color: transparent;
+        background-image: none;
+        width: 100%;
+        text-align: left;
+
       }
     }
 
