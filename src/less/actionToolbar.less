@@ -24,7 +24,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: @font-size-base - 1;
+  font-size: @font-size-regular - 1;
 
   > li {
     float: left;
@@ -34,24 +34,24 @@
       background-color: @action-toolbar-bg;
       display: inline-block;
       padding: 8px 10px 12px;
-      .transition(e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in'));
+      transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
       text-decoration: none;
       border:none;
       outline:none;
 
       &:hover {
-        background-color: #3a3a3a;
+        background-color: @action-toolbar-hover-bg;
         color: #fff;
 
         svg.cyclops-icon {
-          .transition(e('fill .15s'));
+          transition: e('fill .15s');
           fill: #fff;
         }
       }
 
       &.active,
       &:active {
-        background-color: @gray-600;
+        background-color: @action-toolbar-active-bg;
         color: #fff;
         svg.cyclops-icon {
           fill: #fff;
@@ -98,12 +98,12 @@
   &:hover,
   &.open {
     color: #fff;
-    background: #3a3a3a;
+    background: @action-toolbar-dropdown-bg;
 
     a,
     button {
       color: #fff;
-      background-color: #3a3a3a;
+      background-color: @action-toolbar-dropdown-bg;
       width: 100%;
       text-align: left;
       font-size: 13px;
@@ -123,17 +123,17 @@
 
   .dropdown-menu {
     color: #fff;
-    background: #3a3a3a;
+    background: @action-toolbar-dropdown-bg;
     border: 0;
     margin-top: 0;
-    .border-radius(0);
+    border-radius: 0;
 
     li a,
     li button {
       transition: none;
 
       &:hover {
-        background: #000;
+        background: @action-toolbar-dropdown-hover-bg;
 
         &.disabled,
         &:disabled {
@@ -141,7 +141,7 @@
         }
         &.active,
         &:active {
-          background-color: @gray-600;
+          background-color: @action-toolbar-dropdown-active-bg;
         }
       }
     }
@@ -150,7 +150,7 @@
 
 .action-toolbar-confirm {
   clear: both;
-  background-color: #3a3a3a;
+  background-color: @action-toolbar-dropdown-bg;
   color: #fff;
   height: 40px;
   margin-right: -20px;
@@ -204,7 +204,7 @@
 
         &:hover {
           color: #fff;
-          background-color: darken(#3a3a3a, 10%);
+          background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
           svg {
             fill: #fff;

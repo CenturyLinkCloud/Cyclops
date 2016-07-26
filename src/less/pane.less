@@ -3,7 +3,7 @@ pane {
   max-height: 36px;
   overflow: hidden;
   display: block;
-  .transition(e(  'max-height .5s, margin-left .5s'));
+  transition: e('max-height .5s, margin-left .5s');
   background-color: @body-bg;
 
   &.pane-expanded {
@@ -32,7 +32,7 @@ pane {
     top: 91px;
     bottom: 0;
     background-color: #f2f2f2;
-    .box-shadow(inset -5px 0 3px 0 rgba(0,0,0,0.05));
+    box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
     overflow: auto;
 
     ~ main {
@@ -60,7 +60,7 @@ pane {
   height: 36px;
   background-color: #d5d5d5;
   border-bottom: 1px solid @gray-200;
-  .box-shadow(inset -5px 0 3px 0 rgba(0,0,0,0.05));
+  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
   letter-spacing: 1px;
   font-size: @font-size-small;
 
@@ -71,7 +71,7 @@ pane {
     position: absolute;
     margin- top: 5px;
     margin-left: 10px;
-    .transition(e(  'margin-top .2s'));
+    transition: e('margin-top .2s');
     line-height: 26px;
     display: none;
 
@@ -108,7 +108,7 @@ pane {
   font-size: @font-size-small;
   color: @text-color-lighter;
   line-height: 26px;
-  .box-shadow(inset -5px 0 3px 0 rgba(0,0,0,0.05));
+  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
   border-bottom: 1px solid @border-color;
 }
 
@@ -119,7 +119,7 @@ pane {
   color: @text-color;
   display: inline-block;
   padding: 3px 5px;
-  border-radius: 3px;
+  border-radius: @border-radius-small;
   line-height: 20px;
   font-size: @font-size-small;
 
@@ -134,7 +134,7 @@ pane {
   }
 
   &.active {
-    font-weight: 600;
+    font-weight: @font-weight-bold;
   }
 }
 

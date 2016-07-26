@@ -99,9 +99,9 @@
     border-bottom: 1px solid @nav-bottom-border;
     text-align: left;
     border-radius: 0;
-    font-weight: @bold-font-weight;
+    font-weight: @font-weight-bold;
     text-transform: uppercase;
-    font-size: @font-size-base - 1;
+    font-size: @font-size-regular - 1;
 
     &:hover {
       background-color: @nav-link-hover-bg;
@@ -110,7 +110,7 @@
     &.open {
       background-color: @nav-link-hover-bg;
       .cyclops-icon {
-        .rotate(180deg);
+        transform: rotate(180deg);
       }
     }
 
@@ -127,9 +127,9 @@
     > li {
       border-bottom: 1px solid @nav-bottom-border;
       letter-spacing: 2px;
-      font-weight: @bold-font-weight;
+      font-weight: @font-weight-bold;
       text-transform: uppercase;
-      font-size: @font-size-base - 1;
+      font-size: @font-size-regular - 1;
 
       .cyclops-icon {
         float: right;
@@ -147,7 +147,7 @@
 
   .dropdown.open {
     .cyclops-icon {
-      .rotate(180deg);
+      transform: rotate(180deg);
     }
   }
 
@@ -155,7 +155,7 @@
     padding: 0;
 
     > li {
-      font-size: @font-size-base - 1;
+      font-size: @font-size-regular - 1;
       text-transform: none;
       letter-spacing: normal;
     }
@@ -187,7 +187,7 @@
         }
 
         > a {
-          border-radius: 3px;
+          border-radius: @border-radius-small;
           padding: 6px 13px 6px 15px;
         }
       }
@@ -195,7 +195,7 @@
 
     .dropdown.open {
       .cyclops-icon {
-        .rotate(0);
+        transform: rotate(0);
       }
     }
 
@@ -359,6 +359,7 @@
       box-shadow: none;
 
       > li > a,
+      > li > button,
       > li > .dropdown-text,
       .dropdown-header {
         padding: 5px 15px 5px 25px;
@@ -511,13 +512,15 @@
   }
 
   .navbar-text {
-    color: @navbar-inverse-color;
+    color: @navbar-inverse-text;
   }
 
   .dropdown-menu,
   .navbar-nav {
+    > li > button,
     > li > a {
       color: @navbar-inverse-link-color;
+      background-color: transparent;
 
       &:hover,
       &:focus {

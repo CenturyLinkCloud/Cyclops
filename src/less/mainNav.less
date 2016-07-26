@@ -8,8 +8,8 @@ main-nav {
   z-index: @zindex-main-nav;
   background: @main-nav-bg;
   box-shadow: inset 0 1px 0 0 rgba(0,0,0,.3); //top border
-  .transition(width .5s);
-  color: @gray-300;
+  transition: width .5s;
+  color: @main-nav-text;
 
   // Prevent a BUFOC
   &:before {
@@ -19,7 +19,7 @@ main-nav {
     bottom: 0;
     width: @main-nav-width-sm;
     background: @main-nav-bg;
-    .transition(width .5s);
+    transition: width .5s;
     z-index: -1;
   }
 
@@ -31,7 +31,7 @@ main-nav {
     display: inline-block;
     width: 100%;
     text-decoration: none;
-    color: @main-nav-link-color;
+    color: @main-nav-link-text;
   }
 
   ~ pane,
@@ -53,38 +53,44 @@ main-nav {
     height: 20px;
 
     use {
-      .transition(fill .2s);
+      transition: fill .2s;
       fill: @main-nav-icon-color;
     }
   }
 
   .btn {
+    margin: 0;
     padding: 10px 0;
-    letter-spacing: 0;
-    font-size: @font-size-small;
-    text-align: center;
+    width: 100%;
+    background-color: transparent;
     border-radius: 0;
+    color: @main-nav-link-text;
+    font-size: @font-size-small;
     overflow: hidden;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-align: center;
 
     &:focus,
     &:hover {
-      color: @gray-100;
+      background-color: @main-nav-hover-bg;
+      color: @main-nav-link-text-hover;
       outline: none;
 
       .cyclops-icon use {
-        fill: @gray-100;
+        fill: @main-nav-link-text-hover;
       }
+    }
 
-      &:active {
-        box-shadow: none;
-        outline: none;
-        color: #fff;
-        .box-shadow(inset 0 0 3px 0 rgba(0,0,0,.3));
-        transform: scale(.985,.985);
+    &:active {
+      outline: none;
+      background-color: @main-nav-active-bg;
+      color: @main-nav-link-text-active;
+      box-shadow: inset 0 0 3px 0 rgba(0,0,0,.3);
+      transform: scale(.985,.985);
 
-        .cyclops-icon use {
-          fill: #fff;
-        }
+      .cyclops-icon use {
+        fill: @main-nav-link-text-active;
       }
     }
   }
@@ -137,68 +143,42 @@ main-nav {
 }
 
 .main-nav-menu-items {
-  list-style: none;
-  padding: 0;
+  height: 100%;
+  margin-right: -15px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
+  padding: 0;
   position: relative;
-  margin-right: -15px;
+  list-style: none;
 
   li {
-    .transition(background-color .2s, width .2s, height .2s;);
+    transition: background-color .2s, width .2s, height .2s;
     border-bottom: 1px solid @gray-900;
     width: @main-nav-width-sm;
     height: 44px;
 
-    &:hover {
-      background-color: @main-nav-bg-hover;
-    }
-
     &.open {
-      background-color: @main-nav-bg-selected;
+      .btn {
+        background-color: @main-nav-active-bg;
+      }
 
       a,
       .btn {
-        color: #fff;
+        color: @main-nav-link-text-active;
 
         .cyclops-icon use {
-          fill: #fff;
+          fill: @main-nav-link-text-active;
         }
       }
     }
 
     &.selected {
-      background-color: @main-nav-bg-selected;
-      box-shadow: @main-nav-selected-highlight;
-      border: 1px solid @main-nav-selected-highlight;
+      .btn {
+        background-color: @main-nav-active-bg;
+        box-shadow: @main-nav-selected-highlight;
+        border: 1px solid @main-nav-selected-highlight;
 
-      .cyclops-icon use {
-        fill: #fff;
-      }
-    }
-
-    .btn {
-      width: 100%;
-      margin: 0;
-      background-color: transparent;
-      color: @main-nav-link-color;
-      text-transform: capitalize;
-
-      &:hover {
-        color: #fff;
-
-        .cyclops-icon {
-          fill: @gray-100;
-        }
-      }
-
-      &:focus,
-      &:active {
-        box-shadow: none;
-        color: #fff;
-
-        .cyclops-icon {
+        .cyclops-icon use {
           fill: #fff;
         }
       }
@@ -214,7 +194,7 @@ main-nav {
   background: @main-nav-flyout-bg;
   border-right: 1px solid #202220;
   margin-left: -1 * @main-nav-flyout-width;
-  .transition(margin-left .5s);
+  transition: margin-left .5s;
   box-shadow: 0 0 7px #000;
   overflow-y: auto;
 
@@ -271,19 +251,24 @@ main-nav {
     height: auto;
     overflow: hidden;
     margin: 0;
-    .transition(background .2s);
+    transition: background .2s;
 
-    &.selected {
-      background-color: @main-nav-flyout-selected;
-      box-shadow: @main-nav-selected-highlight;
-
+    &.selected,
+    &.selected:hover {
+      a {
+        background-color: @main-nav-flyout-active-bg;
+        box-shadow: @main-nav-selected-highlight;
+      }
       h3 {
         color: #fff;
       }
     }
 
+    &:focus,
     &:hover {
-      background-color: @main-nav-flyout-selected;
+      a {
+        background-color: @main-nav-flyout-hover-bg;
+      }
 
       h3 {
         color: #fff;
@@ -301,7 +286,7 @@ main-nav {
     }
 
     h3 {
-      color: @main-nav-link-color;
+      color: @main-nav-link-text;
       font-size: 15px;
       line-height: 20px;
       margin-bottom: 5px;
@@ -429,7 +414,7 @@ main-nav {
     a.btn,
     button.btn {
       text-align: left;
-      font-size: @font-size-base;
+      font-size: @font-size-regular;
       padding: 10px 10px 10px 15px;
 
       .cyclops-icon {

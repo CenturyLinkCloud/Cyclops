@@ -19,10 +19,10 @@ slider {
 }
 
 .slider-track {
-  background: #e3e3e3;
-  .gradient(#d7d7d7, rgba(227,227,211,.5));
+  background-color: #d7d7d7;
+  background-image: linear-gradient(to bottom, #d7d7d7, rgba(227,227,211,.5));
   border: solid 1px #bbb;
-  .border-radius(3px);
+  border-radius: @border-radius-small;
   margin-right: 10px;
 
   .slider-min-bound-label,
@@ -124,7 +124,7 @@ slider {
       background-color: #fff;
       color: #555;
       border: solid 1px #bebebe;
-      .border-radius(3px);
+      border-radius: @border-radius-small;
     }
   }
 
@@ -145,7 +145,7 @@ slider {
   height: 22px;
   background-color: #59b955;
   border: solid 1px #248e1b;
-  .border-radius(3px);
+  border-radius: @border-radius-small;
 }
 
 .has-min-bound {
@@ -154,7 +154,7 @@ slider {
   }
 
   .slider-value-fill {
-    .border-radius(0);
+    border-radius: 0;
   }
 }
 

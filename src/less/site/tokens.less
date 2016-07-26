@@ -1,0 +1,44 @@
+.tokens {
+	tr {
+		td {
+			&:first-child {
+				width: 40%;
+			}
+		}
+	}
+}
+
+.token-value {
+	width: 60%;
+}
+
+.token-example-font {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+}
+
+.token-example-font--inverse {
+  background-color: @navbar-inverse-bg;
+  padding: .25em;
+}
+
+.token-color-box {
+  width: 3em;
+  height: 3em;
+  margin-bottom: @line-height-computed;
+}
+
+.token-color-box--bg {
+  box-shadow: inset -1px -1px 0px 0px #fff, inset 1px 1px 0px 0px #fff;
+  border: 1px solid @border-color;
+  width: 100%;
+}
+
+.token-color-box--border {
+  border-width: 2px;
+  border-style: solid;
+}
+
+.token-color-border--radius {
+  background-color: @gray-900;
+}

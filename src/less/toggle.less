@@ -3,9 +3,7 @@
   position: relative;
   width: 70px;
   height: 34px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  user-select: none;
 
   &.disabled {
     cursor: not-allowed;
@@ -40,7 +38,7 @@
     overflow: hidden;
     cursor: pointer;
     border: 1px solid @border-color;
-    border-radius: 3px;
+    border-radius: @border-radius-small;
     margin-bottom: 0;
   }
 
@@ -58,9 +56,9 @@
       height: 32px;
       padding: 0;
       line-height: 30px;
-      font-size: 14px;
+      font-size: @font-size-regular;
       color: #fff;
-      font-weight: @base-font-weight;
+      font-weight: @font-weight-regular;
       text-align: center;
     }
 
@@ -87,7 +85,7 @@
     top: 0;
     bottom: 0;
     right: 42px;
-    border-radius: 3px;
+    border-radius: @border-radius-small;
     border: 1px solid @border-color;
     transition: all 0.3s ease-in 0s;
   }

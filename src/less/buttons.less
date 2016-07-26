@@ -1,22 +1,22 @@
 .btn {
   background-image: none;
   border: none;
-  .border-radius(3px);
-  .box-shadow(none);
+  border-radius: @border-radius-small;
+  box-shadow: none;
   color: #fff;
   display: inline-block;
   font-family: @font-family;
   font-size: 13px;
-  font-weight: @base-font-weight;
+  font-weight: @font-weight-regular;
   letter-spacing: 1px;
   line-height: @line-height-computed;
   padding: 4px 10px 6px;
   text-shadow: none;
   text-decoration: none;
-  .transition(e('background-color .1s, color .1s, opacity .1s, border .1s'));
+  transition: e('background-color .1s, color .1s, opacity .1s, border .1s');
 
   &:active {
-    .box-shadow(inset 0 2px 1px 0 rgba(0,0,0,0.2));
+    box-shadow: inset 0 2px 1px 0 rgba(0,0,0,0.2);
   }
 
   &:focus {
@@ -28,7 +28,7 @@
   &.disabled {
     opacity: 0.65;
     cursor: @cursor-disabled;
-    .box-shadow(none);
+    box-shadow: none;
   }
 
   .cyclops-icon use {
@@ -39,7 +39,7 @@
 fieldset[disabled] {
   .btn {
     cursor: @cursor-disabled;
-    .box-shadow(none);
+    box-shadow: none;
   }
 
   .btn-default {
@@ -234,10 +234,10 @@ fieldset[disabled] {
   text-decoration: none;
   background-color: transparent;
   font-family: @font-family;
-  font-size: @font-size-base;
+  font-size: @font-size-regular;
   background: none;
   border: none;
-  .box-shadow(none);
+  box-shadow: none;
   letter-spacing: 0;
   margin-top: -3px;
   padding: 0;
@@ -249,7 +249,7 @@ fieldset[disabled] {
   }
 
   &:active {
-    .box-shadow(none);
+    box-shadow: none;
   }
 
   &:focus {
@@ -272,7 +272,7 @@ fieldset[disabled] {
   }
 
   &:active {
-    .box-shadow(none);
+    box-shadow: none;
   }
 
   &:focus {
@@ -290,7 +290,7 @@ fieldset[disabled] {
 
 .btn-lg,
 .btn-large {
-  .border-radius(3px);
+  border-radius: @border-radius-small;
   font-size: 15px;
   line-height: 20px;
   padding: 6px 10px 9px;
@@ -302,7 +302,7 @@ fieldset[disabled] {
 
 .btn-sm,
 .btn-small {
-  .border-radius(3px);
+  border-radius: @border-radius-small;
   font-size: 12px;
   line-height: 18px;
   padding: 3px 8px 4px;
@@ -313,7 +313,7 @@ fieldset[disabled] {
 }
 
 .btn-mini {
-  .border-radius(3px);
+  border-radius: @border-radius-small;
   font-size: 11px;
   line-height: 12px;
   text-decoration: none;
@@ -325,7 +325,7 @@ fieldset[disabled] {
 }
 
 .btn-group > .btn {
-  .border-radius(3px);
+  border-radius: @border-radius-small;
 }
 
 .btn-row > .btn {
@@ -334,11 +334,11 @@ fieldset[disabled] {
 
 .btn-link-text {
   font-family: @font-family;
-  font-size: @font-size-base;
+  font-size: @font-size-regular;
   .btn-link();
   background: none;
   border: none;
-  .box-shadow(none);
+  box-shadow: none;
   letter-spacing: 0;
   margin-top: -3px;
   padding: 0;
@@ -353,7 +353,7 @@ fieldset[disabled] {
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  .box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 // Vertically space out multiple block buttons
@@ -375,7 +375,7 @@ input[type="button"] {
 .close {
   float: right;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: @font-weight-bold;
   line-height: @line-height-base;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
   color: @text-color-lighter;
@@ -395,5 +395,5 @@ button.close {
   cursor: pointer;
   background: transparent;
   border: 0;
-  -webkit-appearance: none;
+  appearance: none;
 }
