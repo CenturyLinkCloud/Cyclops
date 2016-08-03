@@ -27,6 +27,30 @@
       <div class="list-view-item">
         <div class="col col-100">Item</div>
       </div>
+      <ul class="new-list-view">
+        <li>
+          <div class="list-view-item">
+            <div class="col col-100 col-indent">sub item 1</div>
+          </div>
+          <ul class="new-list-view">
+            <li>
+              <div class="list-view-item">
+                <div class="col col-100 col-indent">sub sub a</div>
+              </div>
+            </li>
+            <li>
+              <div class="list-view-item">
+                <div class="col col-100 col-indent">sub sub b</div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list-view-item">
+            <div class="col col-100 col-indent">sub item 2</div>
+          </div>
+        </li>
+      </ul>
     </li>
     <li>
       <div class="list-view-link-item">
@@ -47,21 +71,30 @@
   <div class="card-block">
     <p class="card-text">A card-block paragraph of text dividing two lists inside a card.</p>
   </div>
-  <ul class="new-list-view">
-    <li>
-      <div class="list-view-item">
-        <div class="col col-100">Item</div>
+  <ul class="new-list-view new-list-view-status">
+    <li class="status-danger">
+    <div class="list-view-link-item">
+      <div class="col col-100"><a href="#">Danger Status</a></div>
+    </div>
+    </li>
+    <li class="status-warning">
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Warning Status</a></div>
+      </div>
+    </li>
+    <li class="status-success">
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Success Status</a></div>
       </div>
     </li>
     <li>
-      <div class="list-view-item">
-        <div class="col col-100">Item</div>
-      </div>
-    </li>
-    <li>
-      <div class="list-view-item">
-        <div class="col col-100">Item</div>
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Default Status</a></div>
       </div>
     </li>
   </ul>
+
+  <div class="card-block">
+    <p class="card-text">A card-block paragraph of text.</p>
+  </div>
 </div>

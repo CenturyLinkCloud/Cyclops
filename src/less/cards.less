@@ -8,16 +8,6 @@
   border: 1px solid @border-color;
   border-radius: @border-radius-base;
 
-  .new-list-view > li:last-child {
-
-    .list-view-item,
-    .list-view-link-item,
-    .list-view-editable-item,
-    .list-view-read-only-item {
-      border-bottom: none;
-    }
-  }
-
   > .alert {
     border: none;
     border-radius: 0;
@@ -26,8 +16,7 @@
 }
 
 .alert + .new-list-view,
-.card-block + .new-list-view,
-.new-list-view + .card-block {
+.card-block + .new-list-view {
   border-top: 1px solid @border-color;
 }
 
