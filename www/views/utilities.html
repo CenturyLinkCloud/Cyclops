@@ -41,7 +41,7 @@
   <p>Assign <code>margin</code> or <code>padding</code> to an element with a spacing utility class. All classes are multiples of <code>20px</code>. Use of these classes is explicitly stating your intention to override any pre-existing margin or padding styles.</p>
   <p>Class names use the format: <code>[property]-[side]-[size]</code> where <code>[property]</code> is <code>m</code> for margin or <code>p</code> for padding. <code>[side]</code> is <code>t</code> for top, <code>b</code> for bottom, <code>l</code> for left, and <code>r</code> for right. <code>[size]</code> is <code>0</code> to remove margin or padding, <code>sm</code> is for 20px, <code>md</code> is 30px,  <code>lg</code> is 40px, and <code>xl</code> is 60px.</p>
   <pre>
-    <code class="html">
+    <code class="css">
 .p-sm {
   padding: 20px !important;
 }
@@ -72,6 +72,64 @@
 
 .p-b-lg {
   padding-bottom: 40px !important;
+}
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="sticky-positioning">
+  <h4>Sticky Positioning</h4>
+  <p>
+    Sometimes you may wish to have content affixed to the viewport as the user
+    scrolls through the page. Some examples of this might be for navigation or
+    the <a href="./components.html#priceEstimate">Price Estimate</a> component.
+  </p>
+  <p>
+    Cyclops implements a polyfill for a new <a href="https://drafts.csswg.org/css-position/#sticky-pos">draft standard</a>
+    for <code>position: sticky</code>. For browsers that <a href="http://caniuse.com/#feat=css-sticky">support it</a>,
+    we will do nothing and allow the native implementation to render the sticky
+    content. Otherwise, we will do our best to emulate the native behavior with
+    a bit of JavaScript.
+  </p>
+  <p>
+    You don't need to do anything special to enable the polyfill, as it is taken
+    care of for you when you include Cyclops. Simply use the <code>position: sticky</code>
+    declaration in your stylesheet and you should be all set. You must also be
+    sure to specify the <code>top</code> property to tell the browser the point
+    at which the content should become sticky when scrolling.
+  </p>
+  <div class="pl-example">
+    <iframe src="./starterPages/sticky-nav-stacked.html"></iframe>
+    <p><a href="./starterPages/sticky-nav-stacked.html">Open Example Page</a></p>
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-3 sidebar"&gt;
+    &lt;div class="nav nav-stacked"&gt;
+      &lt;ul class="tabs"&gt;
+        &lt;li class="tab"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="tab selected"&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="tab"&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="tab"&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="tab"&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-sm-9"&gt;
+    &lt;h2&gt;Content&lt;/h2&gt;
+    &lt;p&gt;
+      ...
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+    <code class="css">
+.sidebar {
+  @media (min-width: @screen-sm-min) {
+    position: sticky;
+    top: 0;
+  }
 }
     </code>
   </pre>
