@@ -84,9 +84,11 @@ gulp.task 'script-concat', ->
       '!./src/scripts/validators/register.coffee']
     .pipe addSrc.append './src/scripts/validators/register.coffee'
     .pipe addSrc.append './src/scripts/*.*'
+    .pipe addSrc.prepend './src/scripts/polyfills/**/*'
     .pipe coffee({bare: true})
     .pipe addSrc.prepend './build/before.js'
     .pipe addSrc.append './build/after.js'
+    .pipe addSrc.prepend './src/scripts/vendor/polyfill.js'
     .pipe sourcemaps.init()
     .pipe concat('cyclops.js')
     .pipe sourcemaps.write './'
