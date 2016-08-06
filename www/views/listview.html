@@ -348,67 +348,6 @@
   </pre>
 </section>
 
-<section class="pl-section" id="responsive">
-  <h3><a href="#responsive">Responsive List Views</a></h3>
-  <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint. The <code>.new-list-view-toolbar-right</code> will also adhere to the breakpoint set by the classes below.</p>
-
-  <table class="table">
-    <tr>
-      <td width="40%"><code>.new-list-view-responsive-sm</code></td>
-      <td>768px</td>
-    </tr>
-    <tr>
-      <td><code>.new-list-view-responsive-md</code></td>
-      <td>992px</td>
-    </tr>
-    <tr>
-      <td><code>.new-list-view-responsive-lg</code></td>
-      <td>1200px</td>
-    </tr>
-  </table>
-
-  <p>In each <code>col</code>, set an optional <code>label</code> to appear above each column value.</p>
-
-  <div class="pl-example">
-    {{> list-view/responsive }}
-  </div>
-
-  <pre>
-    <code class="html">
-&lt;div class=&quot;new-list-view-responsive new-list-view-responsive-sm&quot;&gt;
-  &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
-    &lt;button class=&quot;btn btn-primary&quot;&gt;create item&lt;/button&gt;
-    &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
-      ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;new-list-view-header&quot;&gt;
-      &lt;h3 class=&quot;col col-25&quot;&gt;First Name&lt;/h3&gt;
-      &lt;h3 class=&quot;col col-25&quot;&gt;Last Name&lt;/h3&gt;
-      &lt;h3 class=&quot;col col-50&quot;&gt;Username&lt;/h3&gt;
-  &lt;/div&gt;
-  &lt;ul class=&quot;new-list-view&quot;&gt;
-    &lt;li&gt;
-      &lt;div class=&quot;list-view-item&quot;&gt;
-        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;First Name&lt;/span&gt;Alyssa&lt;/div&gt;
-        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Last Name&lt;/span&gt;Carizzalas&lt;/div&gt;
-        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Username&lt;/span&gt;alyssa.carizzalas&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;div class=&quot;list-view-item&quot;&gt;
-        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;First Name&lt;/span&gt;Matthew&lt;/div&gt;
-        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Last Name&lt;/span&gt;Osborn&lt;/div&gt;
-        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Username&lt;/span&gt;mosborn&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-      </code>
-    </pre>
-  </section>
-
-
 <section class="pl-section" id="nested">
   <h3><a href="#nested">Nested List View</a></h3>
   <p>When it is necessary to display hierarchy (e.g. subaccounts, groups/servers), nest a <code>.new-list-view</code> immediately after the <code>.list-view-*-item</code> element. Then add <code>.col-indent</code> to the <code>.col</code> within the <code>&lt;li&gt;</code> in that should be indented.</p>
@@ -463,6 +402,91 @@
     </code>
   </pre>
 </section>
+
+<section class="pl-section" id="responsive">
+  <h3><a href="#responsive">Responsive List View</a></h3>
+  <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint. The <code>.new-list-view-toolbar-right</code> will also adhere to the breakpoint set by the classes below. At narrow/mobile viewport widths, all content within a <code>&lt;li&gt;</code> is indented to show hierarchy.</p>
+
+  <table class="table">
+    <tr>
+      <td width="40%"><code>.new-list-view-responsive-sm</code></td>
+      <td>768px</td>
+    </tr>
+    <tr>
+      <td><code>.new-list-view-responsive-md</code></td>
+      <td>992px</td>
+    </tr>
+    <tr>
+      <td><code>.new-list-view-responsive-lg</code></td>
+      <td>1200px</td>
+    </tr>
+  </table>
+
+  <p>In each <code>col</code>, set an optional <code>label</code> to appear above each column value.</p>
+
+  <div class="pl-example">
+    {{> list-view/responsive }}
+  </div>
+
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-responsive new-list-view-responsive-sm&quot;&gt;
+  &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;create item&lt;/button&gt;
+    &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;new-list-view-header&quot;&gt;
+      &lt;h3 class=&quot;col col-25&quot;&gt;First Name&lt;/h3&gt;
+      &lt;h3 class=&quot;col col-25&quot;&gt;Last Name&lt;/h3&gt;
+      &lt;h3 class=&quot;col col-50&quot;&gt;Username&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;ul class=&quot;new-list-view&quot;&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Inc.&lt;/div&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACME&lt;/div&gt;
+        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;ul class=&quot;new-list-view&quot;&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;list-view-item&quot;&gt;
+            &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Sub 1 Inc.&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM1&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+          &lt;/div&gt;
+            &lt;ul class=&quot;new-list-view&quot;&gt;
+              &lt;li&gt;
+                &lt;div class=&quot;list-view-item&quot;&gt;
+                  &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME 3 Inc.&lt;/div&gt;
+                  &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM3&lt;/div&gt;
+                  &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;list-view-item&quot;&gt;
+            &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Sub 2 Inc.&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM2&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;Rick James Productions&lt;/div&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;RJP&lt;/div&gt;
+        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US East&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </section>
 
 <section id="interactiveExamples" class="pl-section">
   <h3><a href="#interactiveExamples">Interactive Examples</a></h3>
