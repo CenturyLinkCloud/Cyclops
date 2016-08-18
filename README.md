@@ -14,7 +14,7 @@ Include the built cyclops javaScript and CSS files as well as the dependencies l
 ## Developing Cyclops
 
 ```
-npm install coffee -g
+npm install coffee-script -g
 npm install
 gulp dev
 ```
