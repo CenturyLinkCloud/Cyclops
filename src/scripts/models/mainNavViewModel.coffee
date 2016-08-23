@@ -60,9 +60,9 @@ class MainNavMenuItem
 
     @rawFlayoutItems = ko.asObservableArray(options.items)
 
-    @fluyoutItems = ko.observableArray([])
+    @flyoutItems = ko.observableArray([])
     ko.computed () =>
-      @fluyoutItems @rawFlayoutItems().map (f) -> new MainNavFlyoutItem(f)
+      @flyoutItems @rawFlayoutItems().map (f) -> new MainNavFlyoutItem(f)
 
 
 
@@ -159,7 +159,7 @@ class MainNavViewModel
           m.isSelected(true)
         else
           m.isSelected(false)
-          m.fluyoutItems().forEach (f) =>
+          m.flyoutItems().forEach (f) =>
             if f.id == itemId
               m.isSelected true
               f.isSelected true
