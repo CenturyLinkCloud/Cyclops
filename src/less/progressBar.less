@@ -9,6 +9,9 @@ progress {
   overflow: hidden;
   margin-bottom: 10px;
 
+  /* IE */
+  color: @progress-bar-success-bg;
+
   &::-webkit-progress-bar {
     background: @progress-bg;
     border: solid 1px @border-color-dark;
@@ -47,6 +50,9 @@ progress {
       background-color: @progress-bar-info-bg;
       border-color: darken(@progress-bar-info-bg, 15%);
     }
+
+    /* IE */
+    color: @progress-bar-info-bg;
   }
 
   &.warning {
@@ -59,6 +65,9 @@ progress {
       background-color: @progress-bar-warning-bg;
       border-color: darken(@progress-bar-warning-bg, 10%);
     }
+
+    /* IE */
+    color: @progress-bar-warning-bg;
   }
 
   &.danger {
@@ -71,5 +80,8 @@ progress {
       background-color: @progress-bar-danger-bg;
       border-color: darken(@progress-bar-danger-bg, 10%);
     }
+
+    /* IE */
+    color: @progress-bar-danger-bg;
   }
 }
