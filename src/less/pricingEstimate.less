@@ -7,9 +7,6 @@
   .make-sm-column(4);
   .make-md-column(3);
 
-  position: sticky;
-  top: 0;
-
   font-weight: @font-weight-regular;
   overflow: auto;
   padding-top: 15px;
@@ -58,6 +55,7 @@
       color: @gray-300;
     }
   }
+
 }
 
 #createFormContainer {
@@ -83,7 +81,8 @@
 
   #priceEstimateContainer {
     box-shadow: 7px 0 7px -7px rgba(0, 0, 0, 0.2);
-
+    position: sticky;
+    top: 0;
 
     .cost-value {
       font-size: 30px;
