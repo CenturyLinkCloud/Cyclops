@@ -1,0 +1,24 @@
+<div id="guageChartExample" data-bind="chart: {type: 'Guage', data: data}" class="ct-major-twelfth"></div>
+
+{{#contentFor "scripts"}}
+<script>
+$(function () {
+
+	var pieData = {
+		series: [
+	    {
+	        value: 25,
+	        name: "Used"
+	    },
+	    {
+	        value: 75,
+	        name: "Free"
+	    }
+		]
+	};
+
+  ko.applyBindings({ data: pieData }, $("#guageChartExample")[0]);
+
+});
+</script>
+{{/contentFor}}

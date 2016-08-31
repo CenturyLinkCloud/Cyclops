@@ -1,0 +1,42 @@
+<section class="pl-section" id="basicForm">
+  <h3><a href="#basicForm">Basic Form</a></h3>
+  <p>Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt</code>, <code>&lt;textarea&gt</code>, and <code>&lt;select&gt</code> elements with <code>.form-control</code> are set to width: 100%; by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing.</p>
+
+  <ul>
+      <li>Labels should have a <code>for</code> attribute that points to the <code>id</code> of an input type. It is only allowed to point to input types not any element</li>
+      <li>The fieldset legend name should be useful not just <code>edit</code> or <code>create</code></li>
+      <li>Optional fields are denoted not required fields.</li>
+      <li>Tab order should be logical and visit ever valid field (e.g. do not tab to disabled items)</li>
+      <li>Items that are not editable are presented as paragraph tags not disabled inputs</li>
+  </ul>
+
+<div class="pl-example">
+  {{> forms/examples/basic }}
+</div>
+<pre>
+  <code class="html">
+&lt;form&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;basicFormEmail&quot;&gt;Email address&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;basicFormEmail&quot; placeholder=&quot;Email&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;basicFormPassword&quot;&gt;Password&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;basicFormPassword&quot; placeholder=&quot;Password&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;basicFormFileInput&quot;&gt;File input&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;basicFormFileInput&quot;&gt;
+    &lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;checkbox&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Check me out
+  &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;
+  &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+&lt;/form&gt;
+  </code>
+</pre>
+</section>

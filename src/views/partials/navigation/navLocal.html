@@ -1,0 +1,43 @@
+<section class="pl-section" id="navLocal">
+  <h3><a href="#navLocal">Nav Local</a></h3>
+  <p>Nav local is used to jump between pages fall within the same section or service. If there are secondary pages in a section, then links to those pages are shown inside <code>.dropdown-menu</code> menus. A bold nav label indicates the currently active page in view.</p>
+  <p>Up to 768px, the nav local is collapsed into a stacked menu. Greater than 768px, it spans the full width of it's container.</p>
+  <div class="pl-example">
+		{{> navigation/examples/nav-local }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;nav class=&quot;navbar navbar-local&quot;&gt;
+  &lt;div class=&quot;navbar-header&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot;&gt;
+      Menu &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+    &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+      &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Events&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;dropdown&quot;&gt;
+        &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#navLocal&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Policies &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Alert&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Suppression&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Integrations&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;active dropdown&quot;&gt;
+        &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#navLocal&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Settings &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Account&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Billing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;SSH Keys&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+    </code>
+  </pre>
+</section>

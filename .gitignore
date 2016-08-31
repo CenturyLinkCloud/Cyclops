@@ -3,12 +3,9 @@
 .DS_Store
 npm-debug.log
 
-/node_modules
 /bower_components
-/www/assets/css
-/www/assets/templates
-/www/assets/scripts
-/www/assets/svg
-/dist
+/build
 /devDist
+/dist
+/node_modules
 /temp

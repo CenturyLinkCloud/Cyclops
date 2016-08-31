@@ -1,0 +1,341 @@
+{{#contentFor "title"}}Widgets | Code{{/contentFor}}
+{{#contentFor "tabName"}}widgets{{/contentFor}}
+{{!< layouts/code.html}}
+
+<h1>Widgets</h1>
+<section id="chart" class="pl-section">
+  <h3><code>chart</code></h3>
+  <p>
+    The <code>chart</code> function allows you to easily create chartist charts with a cyclops
+    style and feel. It does all the heavy lifting of setting the numeruos configuration options
+    for you.
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.myChart&#39;).chart({ type: 'Line', data: data })
+})
+    </code>
+    <code class="html">
+&lt;div class=&quot;myChart&quot;&gt;&lt;/div&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>type</td>
+        <td>String</td>
+        <td>Line</td>
+        <td>What type of chart. <a href="https://gionkunz.github.io/chartist-js/examples.html">Possible types</a></td>
+      </tr>
+      <tr>
+        <td>isLoading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Is the data loading still</td>
+      </tr>
+      <tr>
+        <td>isErrored</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Was there an error loading the data</td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td>object | observable object</td>
+        <td>required</td>
+        <td>The data for the chart. The shape is determined by the chart type.</td>
+      </tr>
+      <tr>
+        <td>getLoadingMessageHtml</td>
+        <td>function</td>
+        <td>fetching data&hellip;</td>
+        <td>function that returns text to display while loading data</td>
+      </tr>
+      <tr>
+        <td>getErrorMessageHtml</td>
+        <td>function</td>
+        <td>Unable to fetch data.</td>
+        <td>function that returns text to display when loading has failed</td>
+      </tr>
+      <tr>
+        <td>getEmptyMessageHtml</td>
+        <td>function</td>
+        <td>No data at this time.</td>
+        <td>function that returns text to display when there is no data</td>
+      </tr>
+      <tr>
+        <td>chartOptions</td>
+        <td>object</td>
+        <td>{ fullWidth: true }</td>
+        <td><a href="https://gionkunz.github.io/chartist-js/index.html">Possible options</a></td>
+      </tr>
+      <tr>
+        <td>responsiveOptions</td>
+        <td>object</td>
+        <td>none</td>
+        <td><a href="https://gionkunz.github.io/chartist-js/index.html">Possible options</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<section id="inlineConfirm" class="pl-section">
+  <h3><code>inlineConfirm</code></h3>
+  <p>
+    The <code>inlineConfirm</code> widget is used to request user confirmation for an action
+    without disrupting the workflow by presenting a modal dialog. Not every action or event
+    needs to be confirmed only ones that have potentially negative side effects.
+  </p>
+  <p>
+    To use this you simply wire up the button like there was no confirm. This means just
+    adding a handler to the buttons click event, many handlers are supported if you need
+    more than one, and adding the appropriate classes <code>btn-danger</code>,
+    <code>btn-primary</code>, etc. Once the button is all set up you just need to call the
+    widget on the button and it will take care of the rest. This can be done in javaScript
+    or as a knockout binding. Keep in mind that for knockout binding executes in order so
+    the widget binding will need to come after the click binding.
+
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.btn-danger&#39;).inlineConfirm()
+})
+    </code>
+    <code class="html">
+&lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>messageHtml</td>
+        <td>HTML String</td>
+        <td>Are you sure?</td>
+        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+      </tr>
+      <tr>
+        <td>yesHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "yes" button</td>
+      </tr>
+      <tr>
+        <td>noHtml</td>
+        <td>HTML String</td>
+        <td>NO</td>
+        <td>Text (can be HTML) to be displayed on the "no" button</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td>number</td>
+        <td>3000</td>
+        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+<section id="overflowMenu" class="pl-section">
+  <h3><code>overflowMenu</code></h3>
+  <p>
+    The overflow widget takes a menu and automatically places items in the menu into a "actions"
+    overflow dropdown, when there isn't enough horizontal screen resolution to view the entire menu.
+  </p>
+  <p>
+    This is meant to be used in conjunction with the
+    <a href="./components.html#actionToolbar">action toolbar</a>.
+  </p>
+  <pre>
+    <code class="javascript">
+$(function(){
+  $(&#39;.action-toolbar&#39;).overflowMenu()
+})
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>threshold</td>
+        <td>number</td>
+        <td>2</td>
+        <td>requires this many items before kicking in</td>
+      </tr>
+      <tr>
+        <td>cutoff</td>
+        <td>number</td>
+        <td>0</td>
+        <td>how many items are left before putting everything in the dropdown</td>
+      </tr>
+      <tr>
+        <td>linkText</td>
+        <td>html string</td>
+        <td>more&amp;hellip;</td>
+        <td>text of the dropdown button</td>
+      </tr>
+      <tr>
+        <td>linkTitle</td>
+        <td>string</td>
+        <td>View More</td>
+        <td>title of the dropdown button</td>
+      </tr>
+      <tr>
+        <td>linkTextAll</td>
+        <td>html string</td>
+        <td>actions&amp;hellip;</td>
+        <td>text of the dropdown button when all items are in it</td>
+      </tr>
+      <tr>
+        <td>linkTitleAll</td>
+        <td>string</td>
+        <td>View More</td>
+        <td>Open/Close Menu</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="actionToolbarConfirm" class="pl-section">
+  <h3><code>actionToolbarConfirm</code></h3>
+  <p>
+    The <code>actionToolbarConfirm</code> is wired up exactly like the <code>inlineConfirm</code>.
+    See above for more information on how to wire it up.
+  </p>
+  <p>
+    This is meant to be used in conjunction with the
+    <a href="./components.html#actionToolbar">action toolbar</a>.
+  </p>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.action-toolbar-left a&#39;).actionToolbarConfirm()
+})
+    </code>
+    <code class="html">
+&lt;ol class=&quot;action-toolbar-left&quot; data-bind=&quot;widget: &#39;overflowMenu&#39;&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href=&#39;#icon-play&#39;&gt;&lt;/svg&gt; start&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href=&#39;#icon-refresh&#39;&gt;&lt;/svg&gt; restart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; data-bind=&quot;click: handler, widget: &#39;actionToolbarConfirm&#39;&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href=&#39;#icon-archive&#39;&gt;&lt;/svg&gt; archive&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>messageHtml</td>
+        <td>HTML String</td>
+        <td>Are you sure?</td>
+        <td>Message (can be HTML) to be displayed to the the left of the "yes" "no" buttons</td>
+      </tr>
+      <tr>
+        <td>yesHtml</td>
+        <td>HTML String</td>
+        <td>YES</td>
+        <td>Text (can be HTML) to be displayed on the "yes" button</td>
+      </tr>
+      <tr>
+        <td>noHtml</td>
+        <td>HTML String</td>
+        <td>NO</td>
+        <td>Text (can be HTML) to be displayed on the "no" button</td>
+      </tr>
+      <tr>
+        <td>timeout</td>
+        <td>number</td>
+        <td>3000</td>
+        <td>Time in milliseconds to leave the confirmation open after the mouse leaves the area before reseting the control. </td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>string</td>
+        <td>action-toolbar-confirm-primary</td>
+        <td>Used to style the yes button, these match the default button pattern with primary, default, and danger.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="navbar" class="pl-section">
+  <h3><code>navbar</code></h3>
+  <p>
+    The <code>navbar</code> is used to wired up responsive behavior for the local nav or the page header nav.
+  </p>
+  <p>
+    This is meant to be used in conjunction with the
+    <a href="./navigation.html#navLocal">Nav Local</a> or <a href="./navigation.html#pageHeader">Page Header</a>.
+  </p>
+  <div class="alert alert-warning">
+    Do not call this widget unless your HTML is added after page render. Cyclops will call this for all navbars
+    that are on the page at render time.
+  </div>
+  <pre class="show-type">
+    <code class="javascript">
+$(function(){
+  $(&#39;.navbar&#39;).navbar()
+})
+    </code>
+    <code class="html">
+      &lt;nav class=&quot;navbar navbar-local&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot;&gt;
+            Menu &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+          &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Events&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;active dropdown&quot;&gt;
+              &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#navLocal&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Policies &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;&lt;/a&gt;
+              &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Alert&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Suppression&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#navLocal&quot;&gt;Integrations&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#navLocal&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;
+    </code>
+  </pre>
+</section>

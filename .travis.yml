@@ -5,5 +5,5 @@ install:
   - npm install
   - npm install -g gulp
 before_script:
-- gulp travis-compile
+  - gulp travis
 script: gulp test && ./.travis/deploy.sh

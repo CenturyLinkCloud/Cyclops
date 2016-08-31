@@ -1,0 +1,965 @@
+{{#contentFor "title"}}List View{{/contentFor}}
+{{#contentFor "tabName"}}listview{{/contentFor}}
+{{!< layouts/components.html}}
+
+<div class="content-header">
+<h1>List View</h1>
+<p>List view provides built-in views for create, read, update, and delete (CRUD) operations, making them ideal for displaying many different types of user managable entities in the Control Portal (e.g. alerts policies, scheduled tasks).</p>
+</div>
+<section class="pl-section">
+
+  <h3 id="markup"><a href="#markup">Basic Markup</a></h3>
+  <p>For the header, use the container class <code>.new-list-view-header</code>, and for each column, use an <code>&lt;h3&gt;</code> with <code>.col</code> and <code>.col-*</code> where <code>*</code> is the percentage width of the column in increments of 5%.</p>
+
+  <p>The body of the list view is a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> with <code>.new-list-view</code> applied to it. Within each <code>&lt;li&gt;</code>, there should be a corresponding <code>&lt;div class=&quot;col col-*&quot;&gt;</code> for each column defined in <code>.new-list-view-header</code>.</p>
+
+  <p>For list views without headers, include the modifier class <code>.new-list-view-no-header</code> in the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. This will add a top border to your list view.</p>
+  <div class="pl-example">
+    {{> list-view/basic }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;!-- header of the list --&gt;
+&lt;div class=&quot;new-list-view-header&quot;&gt;
+    &lt;h3 class=&quot;col col-25&quot;&gt;Header Column 1&lt;/h3&gt;
+    &lt;h3 class=&quot;col col-25&quot;&gt;Header Column 2&lt;/h3&gt;
+    &lt;h3 class=&quot;col col-50&quot;&gt;Header Column 3&lt;/h3&gt;
+&lt;/div&gt;
+&lt;!-- body of the list --&gt;
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+      &lt;div class=&quot;col col-25&quot;&gt;Body Column 1&lt;/div&gt;
+      &lt;div class=&quot;col col-25&quot;&gt;Body Column 2&lt;/div&gt;
+      &lt;div class=&quot;col col-50&quot;&gt;Body Column 3&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+      &lt;div class=&quot;col col-25&quot;&gt;Body Column 1&lt;/div&gt;
+      &lt;div class=&quot;col col-25&quot;&gt;Body Column 2&lt;/div&gt;
+      &lt;div class=&quot;col col-50&quot;&gt;Body Column 3&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="states">
+  <h3><a href="#states">States</a></h3>
+  <p>In addition to simply displaying data in a list view, there are additional states that should be considered:</p>
+  <ul>
+    <li><a href="#loadingList">Loading</a></li>
+    <li><a href="#loadingError">Failed to Load Data</a></li>
+    <li><a href="#emptyList">Empty</a></li>
+    <li><a href="#emptyFirstRun">Empty - First Run</a></li>
+  </ul>
+
+  <h4 id="loadingList">Loading Data</h4>
+  <p>Provide text and use a <code>&amp;hellip;</code> to indicate that data is loading in place by wrapping it inside a <code>.loading-list-view-items</code> item within the <code>.new-list-view</code>.</p>
+  <p>View the <a href="listview.html#interactiveExamples">interactive example of the list view</a> and refresh the page.</p>
+  <div class="pl-example">
+    {{> list-view/loading }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;loading-list-view-items&quot;&gt;
+  Fetching alert policies from server&amp;hellip;
+&lt;/li&gt;
+    </code>
+  </pre>
+
+  <h4 id="loadingError"><a href="#loadingError">Failed to Load Data</a></h4>
+  <p>Provide text to indicate that the data has failed to load inside a <code>.error-list-view-items</code> item within the <code>.new-list-view</code>. If possible, provide a link to retry loading the data.</p>
+  <div class="pl-example">
+    {{> list-view/loading-failed }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;error-list-view-items&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon danger&quot;&gt;&lt;use xlink:href=&#39;#icon-exclamation-circle&#39;&gt;&lt;/svg&gt; Alert policies failed to load.
+&lt;/li&gt;
+    </code>
+  </pre>
+
+  <h4 id="emptyList"><a href="#emptyList">Empty List</a></h4>
+  <p>When a list view is empty, provide a way within the empty list to create whatever entity the list contains by defining the contents of a <code>.empty-list-view-item</code> item within the <code>.new-list-view</code>.</p>
+  <div class="pl-example">
+    {{> list-view/empty }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;empty-list-view-item&quot;&gt;
+  There are no alert policies on this server. &lt;button class=&quot;btn btn-link-text&quot;&gt;Apply an alert policy&lt;/button&gt;.
+&lt;/li&gt;
+    </code>
+  </pre>
+
+  <h4 id="emptyFirstRun"><a href="#emptyFirstRun">First-Run Empty List</a></h4>
+  <p>To provide a prominent message about the contents of an empty list, add <code>.feature</code> to <code>.empty-list-view-item</code> and use the following as a template for featuring the benefits/info of the service with a call to action.</p>
+  <div class="pl-example">
+    {{> list-view/empty-first-run }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;li class=&quot;empty-list-view-item feature&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon lg green&quot;&gt;&lt;use xlink:href='#icon-database' /&gt;&lt;/svg&gt;
+  &lt;h3&gt;Get Started with Relational DB&lt;/h3&gt;
+  &lt;p class=&quot;lead&quot;&gt;Relational DB makes it easy to set up and manage high performance, cost efficient, MySQL-compatible relational databases. &lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;create a database&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+    </code>
+  </pre>
+
+</section>
+
+<section class="pl-section" id="columnWidths">
+  <h3><a href="#columnWidths">Column Widths</a></h3>
+  <p>List view columns are built using a <code>.col</code> and corresponding percentage width <code>.col-*</code>. Available widths include: <code>.col-10, .col-15, .col-20, .col-25 , .col-30, .col-35, .col-40, .col-45, .col-50, .col-55, .col-60, .col-65, .col-70, .col-75, .col-80, .col-85, .col-90, .col-95, .col-100</code></p>
+</section>
+
+<section class="pl-section" id="rowTypes">
+  <h3><a href="#rowTypes">Row Types (Items)</a></h3>
+
+  <p>The immediate child of a <code>li</code> element within a list, is the type of row you wish to use. There are four distinct row types for list view.</p>
+
+  <table class="table">
+    <tr>
+      <td width="40%"><code>.list-view-item</code></td>
+      <td>No hover state on mouse over. Ideal for displaying lists of read-only data.</td>
+    </tr>
+    <tr>
+      <td width="40%"><code>.list-view-link-item</code></td>
+      <td>Hover state on mouse over. Ideal for use when a column in the row contains an anchor link.</td>
+    </tr>
+    <tr>
+      <td><code>.list-view-editable-item</code></td>
+      <td>Entire row is highlighted on hover, and is clickable. Clicking the row will link to another page, or the edit form will replace the selected row. Ideal for items whose entire row should be clickable.</td>
+    </tr>
+    <tr>
+      <td><code>.list-view-read-only-item</code></td>
+      <td>The row is not selectable, and the background is slightly dimmed as to appear un-editable. Ideal for displaying lists where items are a mix of read-only and editable items.</td>
+    </tr>
+  </table>
+
+  <div class="pl-example">
+    {{> list-view/types }}
+  </div>
+
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Link Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Editable Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-read-only-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Read Only Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="rowColors">
+  <h3><a href="#rowColors">Row Colors</a></h3>
+  <p>To highlight rows within a list view, add <code>.list-view-item-*</code> &mdash; where * is success, info, warning or danger &mdash; to a <code>.list-view-item</code> or <code>.list-view-editable-item</code>. </p>
+  <div class="pl-example">
+    {{> list-view/colors }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item list-view-item-success&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;.list-view-item-success&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item list-view-item-info&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;.list-view-item-info&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item list-view-item-warning&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;.list-view-item-warning&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item list-view-item-danger&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;.list-view-item-danger&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="rowStatus">
+  <h3><a href="#rowStatus">Row Status</a></h3>
+  <p>To show the current state of list items (e.g. alert policies), add <code>.new-list-view-status</code> to modify both  <code>.new-list-view-header</code> and <code>.new-list-view</code> blocks. Then add <code>.status-warning</code> or <code>.status-danger</code> to the <code>&lt;li&gt;</code>. By default, each <code>&lt;li&gt;</code> will have a grey (or normal) state.</p>
+  <div class="pl-example">
+    {{> list-view/status }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-header new-list-view-status&quot;&gt;
+  &lt;h3 class=&quot;col col-35&quot;&gt;Server&lt;/h3&gt;
+  &lt;h3 class=&quot;col col-35&quot;&gt;Policy&lt;/h3&gt;
+  &lt;h3 class=&quot;col col-30&quot;&gt;Status&lt;/h3&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;new-list-view new-list-view-status&quot;&gt;
+  &lt;li class=&quot;status-danger&quot;&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;CPU Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Notification Open&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;status-warning&quot;&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Memory Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Ackowledged&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;status-success&quot;&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Memory Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Ackowledged&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-link-item&quot;&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Server Name&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-35&quot;&gt;&lt;a href=&quot;#&quot;&gt;Disk Usage &gt; 90%&lt;/a&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-30&quot;&gt;Ackowledged&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="inlineForm">
+  <h3><a href="#inlineForm">Inline Form</a></h3>
+  <p>If an item in a list view may be edited, or a new item maybe added inline, the list view inline form is available for in context editing (as opposed to navigating to a different page). Wrap the create/edit form in an <code>.li</code> with <code>.list-view-item-form</code>. Consider the complexity and number of input parameters the form will contain when deciding whether to use an inline form, or having a separate create/edit page.</p>
+  <p>If allowed, be sure to include a delete button, with <a href="./buttons.html#inlineConfirm">confirmation</a>, button in the edit form.</p>
+  <p><a href="listview.html#interactiveExamples">View a fully interactive demo of the list view</a>.</p>
+  <div class="pl-example">
+    {{> list-view/inline-form }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item&quot;&gt;
+      &lt;div class=&quot;col col-100&quot;&gt;Item&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-item-form&quot;&gt;
+      &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;fieldset&gt;
+          &lt;legend&gt;Inline Edit Form &lt;button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;×&lt;/span&gt;&lt;/button&gt;&lt;/legend&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;listViewInlineFormName&quot;&gt;name&lt;/label&gt;
+            &lt;div class=&quot;col-sm-9&quot;&gt;
+              &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;listViewInlineFormName&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label class=&quot;col-sm-3 control-label&quot; for=&quot;listViewInlineFormEmail&quot;&gt;email&lt;/label&gt;
+            &lt;div class=&quot;col-sm-9&quot;&gt;
+              &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;listViewInlineFormEmail&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group form-submit&quot;&gt;
+            &lt;div class=&quot;col-sm-offset-3 col-sm-9&quot;&gt;
+              &lt;button class=&quot;btn btn-primary&quot;&gt;Save&lt;/button&gt;
+              &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+              &lt;button class=&quot;btn btn-danger pull-right&quot;&gt;Delete&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/fieldset&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="toolbar">
+  <h3><a href="#toolbar">Toolbar</a></h3>
+  <p>The <code>.new-list-view-toolbar</code> is a container for block elements used for modifying or augmenting the view of items in a list view (e.g. create and filter). Wrap any text that follows a button with a <code>p</code> or <code>span</code> tag to provide padding on the left.</p>
+
+  <div class="pl-example">
+    {{> list-view/toolbar }}
+    <div class="new-list-view-header">
+      <h3 class="col col-100">list view header&hellip;</h3>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-toolbar&quot;&gt;
+  &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+  &lt;span class=&quot;p-l-xs&quot;&gt;1 - 10 of 23 items&lt;/span&gt;
+  &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+  <p>To add more visual emphasis to the toolbar, add the modifier class, <code>.new-list-view-toolbar--border</code> to add a border and background around the toolbar items.</p>
+  <div class="pl-example">
+  {{> list-view/toolbar-border }}
+    <div class="new-list-view-header">
+      <h3 class="col col-100">list view header&hellip;</h3>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-toolbar new-list-view-toolbar--border&quot;&gt;
+  &lt;button class=&quot;btn btn-default&quot;&gt;create item&lt;/button&gt;
+  &lt;span class=&quot;p-l-xs&quot;&gt;1 - 10 of 23 items&lt;/span&gt;
+  &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="nested">
+  <h3><a href="#nested">Nested List View</a></h3>
+  <p>When it is necessary to display hierarchy (e.g. subaccounts, groups/servers), nest a <code>.new-list-view</code> immediately after the <code>.list-view-*-item</code> element. Then add <code>.col-indent</code> to the <code>.col</code> within the <code>&lt;li&gt;</code> in that should be indented.</p>
+  <p>Six levels of indentation is supported. </p>
+  <div class="pl-example">
+    {{> list-view/nested }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;new-list-view&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90&quot;&gt;Level 1a&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90&quot;&gt;Level 1b&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;new-list-view&quot;&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;list-view-editable-item&quot;&gt;
+          &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 2a&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;ul class=&quot;new-list-view&quot;&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;list-view-editable-item&quot;&gt;
+              &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 3&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;list-view-editable-item&quot;&gt;
+          &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 2b&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;list-view-editable-item&quot;&gt;
+      &lt;div class=&quot;col col-10&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;col col-90 col-indent&quot;&gt;Level 1c&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+</section>
+
+<section class="pl-section" id="responsive">
+  <h3><a href="#responsive">Responsive List View</a></h3>
+  <p>To accomodate narrow viewports (i.e. phones), wrap list views in a <code>.new-list-view-responsive</code> div and one of the following classes to set the breakpoint. The <code>.new-list-view-toolbar-right</code> will also adhere to the breakpoint set by the classes below. At narrow/mobile viewport widths, all content within a <code>&lt;li&gt;</code> is indented to show hierarchy.</p>
+
+  <table class="table">
+    <tr>
+      <td width="40%"><code>.new-list-view-responsive-sm</code></td>
+      <td>768px</td>
+    </tr>
+    <tr>
+      <td><code>.new-list-view-responsive-md</code></td>
+      <td>992px</td>
+    </tr>
+    <tr>
+      <td><code>.new-list-view-responsive-lg</code></td>
+      <td>1200px</td>
+    </tr>
+  </table>
+
+  <p>In each <code>col</code>, set an optional <code>label</code> to appear above each column value.</p>
+
+  <div class="pl-example">
+    {{> list-view/responsive }}
+  </div>
+
+  <pre>
+    <code class="html">
+&lt;div class=&quot;new-list-view-responsive new-list-view-responsive-sm&quot;&gt;
+  &lt;div class=&quot;new-list-view-toolbar&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;create item&lt;/button&gt;
+    &lt;div class=&quot;new-list-view-toolbar-right&quot;&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;new-list-view-header&quot;&gt;
+      &lt;h3 class=&quot;col col-25&quot;&gt;First Name&lt;/h3&gt;
+      &lt;h3 class=&quot;col col-25&quot;&gt;Last Name&lt;/h3&gt;
+      &lt;h3 class=&quot;col col-50&quot;&gt;Username&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;ul class=&quot;new-list-view&quot;&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Inc.&lt;/div&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACME&lt;/div&gt;
+        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;ul class=&quot;new-list-view&quot;&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;list-view-item&quot;&gt;
+            &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Sub 1 Inc.&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM1&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+          &lt;/div&gt;
+            &lt;ul class=&quot;new-list-view&quot;&gt;
+              &lt;li&gt;
+                &lt;div class=&quot;list-view-item&quot;&gt;
+                  &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME 3 Inc.&lt;/div&gt;
+                  &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM3&lt;/div&gt;
+                  &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class=&quot;list-view-item&quot;&gt;
+            &lt;div class=&quot;col col-25 col-indent&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;ACME Sub 2 Inc.&lt;/div&gt;
+            &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;ACM2&lt;/div&gt;
+            &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US West&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;list-view-item&quot;&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Account&lt;/span&gt;Rick James Productions&lt;/div&gt;
+        &lt;div class=&quot;col col-25&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Alias&lt;/span&gt;RJP&lt;/div&gt;
+        &lt;div class=&quot;col col-50&quot;&gt;&lt;span class=&quot;col-header&quot;&gt;Location&lt;/span&gt;US East&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </section>
+
+<section id="interactiveExamples" class="pl-section">
+  <h3><a href="#interactiveExamples">Interactive Examples</a></h3>
+  <p>Below are examples of list view using javascript objects and knockout bindings.</p>
+  <h4>Read Only</h4>
+  <div id="readOnly" class="pl-example">
+    <div class="new-list-view-toolbar">
+      <!-- This content is just used for demo purposes you'll wire up your own -->
+      <button class="btn btn-primary" data-bind="click: addAnItem"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> item</button>
+      <button class="btn btn-danger" data-bind="click: DeleteAllItems">remove all items</button>
+    </div>
+    <div class="new-list-view-responsive new-list-view-responsive-md">
+        <div class="new-list-view-header">
+            <h3 class="col col-25">Name</h3>
+            <h3 class="col col-25">Type</h3>
+            <h3 class="col col-50">Servers</h3>
+        </div>
+        <ul class="new-list-view"  data-bind="templateSwitcher: {
+          value: items,
+          loading: isLoading,
+          templates: {
+            display: 'listViewReadOnlyItemTemplate',
+            loading: 'listViewReadOnlyLoadingTemplate',
+            empty: 'listViewReadOnlyEmptyTemplate'}}"></ul>
+    </div>
+  </div>
+
+  <h4>Create, Read, Update, Delete (CRUD)</h4>
+  <div id="crud" class="pl-example">
+    <div class="new-list-view-toolbar">
+      <button class="btn btn-primary" data-bind="click: addItem"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> item</button>
+    </div>
+    <div class="new-list-view-responsive new-list-view-responsive-sm">
+      <div class="new-list-view-header">
+        <h3 class="col col-25">Name</h3>
+        <h3 class="col col-25">IP Address</h3>
+        <h3 class="col col-50">Description</h3>
+      </div>
+      <ul class="new-list-view" data-bind="templateSwitcher: {value: items, loading: isLoading, foo: hasErrord, templates: {display: 'listViewEditableItemsTemplate', loading: 'listViewEditableLoadingTemplate', empty: 'listViewEditableEmptyTemplate'}}"></ul>
+    </div>
+  </div>
+
+  <h4>Filtering &amp; Sorting</h4>
+  <p>
+    Filtering and sorting can easily be added to a list view by using a
+    <code>filterableArray</code>. For information about how to use a
+    <code>filterableArray</code> and available options, see the
+    <a href="./classes.html#filterableArray">code documentation</a>.
+  </p>
+  <p>Be judicious when deciding whether to implement filtering or sorting. Here are some guidelines to consider:</p>
+  <ul>
+    <li>Allow filtering only on fields that are visible, so users can see why that row or item is being displayed.</li>
+    <li>If 95% of the use cases involve having a list of 1-10 items, then it's probably not worth the cost of implementing filtering or sorting.</li>
+  </ul>
+  <div id="filterSort" class="pl-example">
+    <div class="new-list-view-toolbar">
+      <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
+      <div class="new-list-view-toolbar-right">
+        <button class="btn btn-primary" data-bind="click: createServer"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> new server</button>
+        <span class="search-input">
+          <input type="text" data-bind="value: servers.query, valueUpdate: 'afterkeydown'" />
+          <svg class="cyclops-icon" aria-hidden="true">
+            <!-- ko ifnot: servers.query -->
+            <use xlink:href='#icon-search'></use>
+            <!-- /ko -->
+            <!-- ko if: servers.query -->
+            <use class="clear" xlink:href='#icon-times' data-bind="click: clearFilter" ></use>
+            <!-- /ko -->
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div class="new-list-view-header">
+        <h3 class="col col-10"></h3>
+        <h3 class="col col-30">
+          <button class="btn btn-link-text" data-bind="click:toggleSortOrder">
+            name
+            <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-angle-up' data-bind="attr: {'xlink:href': sortingIcon}"></svg>
+          </button>
+        </h3>
+        <h3 class="col col-60">description</h3>
+    </div>
+    <ul class="new-list-view" data-bind="foreach: {data: servers, afterAdd: addItemAnimation, beforeRemove: removeItemAnimation}">
+      <li>
+          <div class="list-view-item">
+              <div class="col col-10">
+                <svg class="cyclops-icon" aria-hidden="true"><use xlink:href="#icon-question" data-bind="attr: {'xlink:href': icon}"></svg>
+              </div>
+              <div class="col col-30" data-bind="text: name"></div>
+              <div class="col col-60" data-bind="text: description"></div>
+          </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{{#contentFor "scripts"}}
+<!-- Begin ListView Filter and Sort -->
+<script>
+$(function(){
+  var fakeServerModel = function(data) {
+    var self = this;
+    self.id = data.id;
+    self.name = ko.observable(data.name);
+    self.description = ko.observable(data.description);
+    self.status = ko.observable(data.status);
+    self.icon = ko.pureComputed(function(){
+      status = self.status();
+      if(status === "running")
+        return "#icon-play";
+      else if (status === "queued")
+        return "#icon-queue";
+      else if (status === "stopped")
+        return "#icon-stop";
+      else
+        return "#icon-question";
+    })
+    return self;
+  }
+
+  var filterbaleListViewModel = function() {
+    var self = this;
+    // Notice that they are not in order. APIs do not garantee an order
+    // so if you are going to allow sorting on a field then make sure you
+    // order the array to begin with.
+    self.servers = ko.filterableArray([
+      new fakeServerModel({ name: 'QA1DEVTEST1',
+        description: "This is server 1 in the Dev account for testing",
+        id: 1,
+        status: "running"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST3',
+        description: 'This is server 3 in the Dev account for testing',
+        id: 3,
+        status: "stopped"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST2',
+        description: 'This is server 2 in the Dev account for testing',
+        id: 2,
+        status: "stopped"
+      }),
+      new fakeServerModel({ name: 'QA1DEVTEST4',
+        description: 'This is server 4 in the Dev account for testing',
+        id: 4,
+        status: "running"
+      })
+    ]);
+    self.servers.sortByString('name');
+    self.isSortingAsc = ko.observable(true);
+    self.sortingIcon = ko.pureComputed(function(){
+      return self.isSortingAsc() ? "#icon-angle-up" : "#icon-angle-down";
+    });
+    self.toggleSortOrder = function(){
+      if(self.isSortingAsc())
+        self.servers.sortByStringDesc('name');
+      else
+        self.servers.sortByString('name');
+      self.isSortingAsc(!self.isSortingAsc());
+    }
+    self.createServer = function(){
+      length = self.servers.all().length + 1;
+      self.servers.push(new fakeServerModel({ name: 'QA1DEVTEST' + length,
+        description: 'This server is queued for creation',
+        id: length,
+        status: "queued"
+      }));
+    }
+    self.clearFilter = function() {
+      self.servers.query("");
+    }
+    self.addItemAnimation = function(element) {
+        $(element).filter("li")
+          .hide()
+          .animate({ height: "toggle", backgroundColor: '#d9edf7' }, 200)
+          .animate({ backgroundColor: 'transparent' }, 800);
+    }
+    self.removeItemAnimation = function(element) {
+        $(element).filter("li").slideUp();
+    }
+    return self;
+  }
+
+  ko.applyBindings(new filterbaleListViewModel(), $("#filterSort")[0]);
+});
+</script>
+<!-- End ListView Filter and Sort -->
+
+<!-- Begin ListView Read Only -->
+<script>
+  $(function () {
+    var Item = function () {
+      var self = this;
+      self.name = ko.observable("My Name");
+      self.type = ko.observable("The Type");
+      self.servers = ko.observableArray([]);
+      self.loadingServers = ko.observable(true);
+      // this would be replaced with a shell.ajax call
+      setTimeout(function () {
+          self.servers.push("QA1DEVTEST1");
+          self.servers.push("QA1DEVTEST2");
+          self.servers.push("QA1DEVTEST3");
+          self.loadingServers(false);
+      }, 3000);
+    };
+    var ListViewReadOnlyModel = function () {
+        var self = this;
+        self.items = ko.observableArray([]);
+        self.isLoading = ko.observable(true);
+        self.addAnItem = function () {
+            var item = new Item();
+            self.items.push(item);
+        };
+        self.DeleteAllItems = function () {
+            self.items([]);
+        }
+    };
+    var model = new ListViewReadOnlyModel();
+    // This is to simulate a shall.ajax call to the server
+    setTimeout(function () {
+        model.isLoading(false);
+    }, 3000);
+
+    ko.applyBindings(model, $("#readOnly")[0]);
+  })
+</script>
+<script type="text/html" id="listViewReadOnlyEmptyTemplate">
+  <li class="empty-list-view-item">
+    There are no items &hellip; Always give the user a way to <button class="btn btn-link-text" data-bind="click: addAnItem">create something</button> if there is nothing
+  </li>
+</script>
+<script type="text/html" id="listViewReadOnlyLoadingTemplate">
+    <li class="loading-list-view-items">Fetching Items from server&hellip;</li>
+</script>
+<script type="text/html" id="listViewReadOnlyServersLoadingTemplate">
+    &hellip;
+</script>
+<script type="text/html" id="listViewReadOnlyServersEmptyTemplate">
+    &mdash;
+</script>
+<script type="text/html" id="listViewReadOnlyServersDisplayTemplate">
+    <ul data-bind="foreach: servers">
+        <li data-bind="text: $data"></li>
+    </ul>
+</script>
+<script type="text/html" id="listViewReadOnlyItemTemplate">
+  <!-- ko foreach: items -->
+  <li>
+    <div class="list-view-read-only-item">
+      <div class="col col-25"><span class="col-header">name</span><!--ko text: name--><!--/ko--></div>
+      <div class="col col-25"><span class="col-header">type</span><!--ko text: type--><!--/ko--></div>
+      <div class="col col-50">
+        <span class="col-header">servers</span>
+        <!-- ko templateSwitcher: { value: servers,
+                                    loading: loadingServers,
+                                    templates: { display: 'listViewReadOnlyServersDisplayTemplate',
+                                                 empty: 'listViewReadOnlyServersEmptyTemplate',
+                                                 loading: 'listViewReadOnlyServersLoadingTemplate'
+                                               }
+                                  }-->
+        <!--/ko-->
+      </div>
+    </div>
+  </li>
+  <!-- /ko -->
+</script>
+<!-- End ListView Read Only-->
+
+<!-- Begin ListView Editable -->
+<script>
+  $(function () {
+      var Item = function () {
+          var self = this;
+          self.name = "Name Cannot Change";
+          self.description = ko.trackableObservable("A Longer Description would go here...");
+          self.description.extend({ required: { params: true, message: "A description is required" } });
+          self.ipAddress = ko.trackableObservable("192.168.1.1");
+          self.inEditMode = ko.observable(false);
+          self.templateName = ko.computed(function () {
+              return self.inEditMode() ? "listViewEditableItemEditTemplate" : "listViewEditableItemTemplate";
+          });
+
+          self.saving = ko.observable(false);
+          self.saveButtonText = ko.computed(function () {
+              return self.saving() ? "saving" : "save";
+          });
+          self.isValid = ko.computed(function () {
+              // For more information on validation see the forms section of the pattern Library
+              return self.description.isValid();
+          });
+          self.save = function () {
+              if (!self.isValid()) {
+                  return false;
+              }
+              self.saving(true);
+              // This simulates a AJAX call. If the call failed you would want to
+              // display a error message and not commit the values and leave the user in edit mode.
+              window.setTimeout(function () {
+                  self.ipAddress.commit();
+                  self.description.commit();
+                  self.inEditMode(false);
+                  self.saving(false);
+              }, 3000);
+          };
+          self.cancel = function () {
+              self.ipAddress.reset();
+              self.description.reset();
+              self.inEditMode(false);
+          }
+          return self;
+      };
+      var CreateItemModel = function () {
+          var self = this;
+          self.open = ko.observable(false);
+          self.item = ko.observable(new Item());
+          self.creating = ko.observable(false);
+          self.createButtonText = ko.computed(function () {
+              return self.creating() ? "Creating..." : "create";
+          });
+          self.reset = function () {
+              self.open(false);
+              self.item(new Item());
+          };
+          self.save = function () {
+              var newItem = self.item();
+              self.reset();
+              return newItem;
+          }
+          return self;
+      }
+      var ListViewCrudModel = function () {
+          var self = this;
+          self.items = ko.observableArray([
+              new Item(),
+              new Item(),
+              new Item(),
+              new Item()
+          ]);
+          self.create = new CreateItemModel();
+          self.isLoading = ko.observable(true);
+          self.hasErrord = ko.observable(true);
+          self.editItem = function (item) {
+              self._closeAllEdits();
+              item.inEditMode(true);
+          };
+          self._closeAllEdits = function () {
+              // Call each item and have it cancel its edit mode
+              // we do it this was so that partial edits do not looked committed
+              self.items().forEach(function (i) {
+                  i.cancel(false);
+              })
+              self.create.reset();
+          };
+          self.deleteItem = function (item) {
+              self.items.splice(self.items().indexOf(item), 1);
+          };
+          self.addItem = function () {
+              self.create.open(true);
+          };
+          self.createItem = function () {
+              if (self.create.item().isValid()) {
+                  var item = self.create.save();
+                  item.ipAddress.commit();
+                  item.description.commit();
+                  self.items.push(item);
+              }
+          };
+          return self;
+      };
+      var model = new ListViewCrudModel();
+      // This is to simulate a shall.ajax call to the server
+      setTimeout(function () {
+          model.isLoading(false);
+      }, 1000);
+      ko.applyBindings(model, $("#crud")[0]);
+  })
+</script>
+<script type="text/html" id="listViewEditableEmptyTemplate">
+  <li class="empty-list-view-item">
+      There are no items &hellip; Always give the user a way to <button class="btn btn-link" data-bind="click: addAnItem">create something</button> if there is nothing
+  </li>
+</script>
+<script type="text/html" id="listViewEditableLoadingTemplate">
+  <li class="loading-list-view-items">Fetching Items from server&hellip;</li>
+</script>
+<script type="text/html" id="listViewEditableItemsTemplate">
+  <!--
+      This is done with virtual elements to save DOM markup.
+      Also note that if you want to use s compute property in the item as the template
+      name you have to nest the template binding and not use the built in foreach in the
+      template binding as that uses the parent context when looking for the property
+  -->
+  <!-- ko template: { name: 'listViewEditableItemCreateTemplate', data: create }--><!-- /ko -->
+  <!-- ko foreach: { data: items, as: 'i' }  -->
+  <li data-bind="fadeSlideTemplate: {name: i.templateName} "></li>
+  <!-- /ko -->
+</script>
+<script type="text/html" id="listViewEditableItemTemplate">
+      <div class="list-view-editable-item" data-bind="click:$parent.editItem">
+          <div class="col col-25"><span class="col-header">name</span><!--ko text: name--><!--/ko--></div>
+          <div class="col col-25"><span class="col-header">IP Address</span><!--ko text: ipAddress--><!--/ko--></div>
+          <div class="col col-50"><span class="col-header">Description</span><!--ko text: description--><!--/ko--></div>
+      </div>
+      <!-- This is where you would put the nested see the listViewHierarchy for more details -->
+</script>
+<script type="text/html" id="listViewEditableItemEditTemplate">
+      <div class="list-view-item-form">
+          <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
+              <fieldset>
+                  <legend>Edit &ldquo;<!-- ko text: name--><!--/ko-->&rdquo; <button type="button" class="close" data-bind="click: cancel, disable: saving" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">name</label>
+                      <div class="col-sm-6">
+                          <p data-bind="text: name"></p>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">ip address</label>
+                      <div class="col-sm-6">
+                          <input type="text" class="form-control" data-bind="value: ipAddress, disable: saving" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">description</label>
+                      <div class="col-sm-6">
+                          <textarea class="form-control" data-bind="value: description, disable: saving, validationElement: description"></textarea>
+                          <span class="validationMessage" data-bind="validationMessage: description"></span>
+                      </div>
+                  </div>
+                  <div class="form-group form-submit">
+                      <div class="col-sm-offset-3 col-sm-9">
+                          <button class="btn btn-primary" data-bind="click: save, disable: saving, text: saveButtonText">Save</button>
+                          <button class="btn btn-link" data-bind="click: cancel, disable: saving">cancel</button>
+                          <button class="btn btn-danger pull-right" data-bind="click: $parent.deleteItem, disable: saving, widget:'inlineConfirm'">delete</button>
+                      </div>
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+      <!-- Dont forget if you have hierarchy to render the children here, see the listViewHierarchy for more details  -->
+</script>
+<script type="text/html" id="listViewEditableItemCreateTemplate">
+  <li class="hide list-view-item-form" data-bind="fadeSlide: open">
+      <form class="form-horizontal new" data-bind="validationOptions: { insertMessages: false }">
+          <fieldset>
+              <legend>Add an item <button type="button" class="close" data-bind="click: reset, disable: creating" aria-label="Close"><span aria-hidden="true">&times;</span></button></legend>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">name</label>
+                  <div class="col-sm-9">
+                      <input class="form-control" type="text" data-bind="value: item().name, disable: creating" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">IP Address</label>
+                  <div class="col-sm-9">
+                      <input class="form-control" type="text" data-bind="value: item().ipAddress, disable: creating" />
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">Description</label>
+                  <div class="col-sm-6">
+                      <textarea class="form-control" data-bind="value: item().description, disable: creating, validationElement: item().description"></textarea>
+                      <span class="validationMessage" data-bind="validationMessage: item().description"></span>
+                  </div>
+              </div>
+              <div class="form-group form-submit">
+                  <div class="col-sm-offset-3 col-sm-9">
+                      <button class="btn btn-primary" data-bind="click: $parent.createItem, disable: creating, text: createButtonText">Save</button>
+                      <button class="btn btn-link" data-bind="click: reset, disable: creating">cancel</button>
+                  </div>
+              </div>
+          </fieldset>
+      </form>
+  </li>
+</script>
+
+{{/contentFor}}

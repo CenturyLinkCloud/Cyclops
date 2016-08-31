@@ -1,0 +1,39 @@
+<section id="pieChart" class="pl-section">
+	<h3><a href="#pieChart">Pie, Donut &amp; Guage Chart</a></h3>
+  <div class="pl-example">
+		<div class="row">
+			<div class="col-sm-4">
+				{{> charts/examples/pieChart }}
+			</div>
+			<div class="col-sm-4">
+				{{> charts/examples/donutChart }}
+			</div>
+			<div class="col-sm-4">
+				{{> charts/examples/guageChart }}
+			</div>
+		</div>
+  </div>
+	<pre class="show-type">
+		<code class="javascript">
+var pieData = {
+  series: [
+    {
+      value: 300,
+      name: "set 1"
+    },
+    {...}
+  ]
+}
+
+ko.applyBindings({ data: pieData }, $("#pieChart")[0]);
+ko.applyBindings({ data: pieData }, $("#donutChart")[0]);
+ko.applyBindings({ data: pieData }, $("#guageChart")[0]);
+		</code>
+		<code class="html">
+&lt;div id=&quot;pieChart&quot; data-bind=&quot;chart:{ type: &#39;Pie&#39;, data: data }&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;donutChart&quot; data-bind=&quot;chart:{ type: &#39;Donut&#39;, data: data }&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;guageChart&quot; data-bind=&quot;chart:{ type: &#39;Guage&#39;, data: data }&quot;&gt;&lt;/div&gt;
+		</code>
+
+	</pre>
+</section>
