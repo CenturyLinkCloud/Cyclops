@@ -213,6 +213,70 @@
   }
 }
 
+.navbar-local--pillbar {
+
+  margin-bottom: 0;
+  min-height: 0;
+  border-bottom: 0;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.02);
+  background-color: #fff;
+  border: 1px solid @gray-100;
+  border-radius: 5px;
+
+  .navbar-toggle {
+    border-radius: 5px;
+  }
+
+  .navbar-toggle {
+    border: none;
+
+    &:hover {
+      background-color: #fff;
+    }
+
+  }
+
+
+
+  .navbar-nav {
+    margin-left: -20px;
+
+    > li {
+
+      &:not(:last-child) {
+      margin-right: 0;
+
+      }
+
+      > a {
+        border-radius: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+//        border-bottom: 3px solid transparent;
+      }
+
+      &.active {
+        > a {
+  //        background-color: transparent;
+//          border-bottom: 3px solid @gray-700;
+        }
+      }
+
+      &:not(.disabled) {
+        > a {
+          &:hover {
+  //          border-bottom-color: @gray-700;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    border: 1px solid @gray-100;
+  }
+}
+
 // Both navbar header and collapse
 //
 // When a container is present, change the behavior of the header and collapse.
