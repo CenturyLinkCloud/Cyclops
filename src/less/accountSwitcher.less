@@ -20,7 +20,7 @@ account-switcher {
   display: block;
   height: 40px;
   background-color: @account-switcher-bg;
-  z-index: 1051;
+  z-index: @zindex-account-switcher;
   position: relative;
 
   button.btn-link {
@@ -47,14 +47,14 @@ account-switcher {
 
   .header {
     display: block;
-    z-index: 1051;
+    z-index: @zindex-account-switcher;
     height: 40px;
     background-color: @account-switcher-header-bg;
     color: @account-switcher-text;
     font-weight: @font-weight-regular;
     height: 40px;
     padding: 5px 10px;
-    z-index: 1051;
+    z-index: @zindex-account-switcher;
     position: relative;
     box-shadow: 0 -2px 3px 1px #000;
 
@@ -99,7 +99,7 @@ account-switcher {
     right: 0;
     bottom: 100%;
     left: 0;
-    z-index: 1050;
+    z-index: @zindex-account-takeover;
     outline: 0;
     color: @account-switcher-text;
     padding: 20px;

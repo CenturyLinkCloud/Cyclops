@@ -10,6 +10,7 @@
   font-weight: @font-weight-regular;
   overflow: auto;
   padding-top: 15px;
+  z-index: @zindex-price-estimate;
 
   #priceEstimate {
     background-color: #fff;
@@ -55,6 +56,7 @@
       color: @gray-300;
     }
   }
+
 }
 
 #createFormContainer {
@@ -80,15 +82,14 @@
 
   #priceEstimateContainer {
     box-shadow: 7px 0 7px -7px rgba(0, 0, 0, 0.2);
-
+    position: sticky;
+    top: 0;
 
     .cost-value {
       font-size: 30px;
       margin-bottom: 7px;
     }
-
   }
-
 }
 
 // hide cost break down on small screens

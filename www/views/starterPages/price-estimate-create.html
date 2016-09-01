@@ -1,5 +1,16 @@
 {{!< ../layouts/starter-page.html}}
 
+<style>
+
+  @media (min-width: 768px) {
+    #priceEstimateContainer {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+</style>
+
 <main>
   <div class="container-fluid">
   	<div class="row">
@@ -208,7 +219,6 @@
 
 </main>
 
-
 {{#contentFor "scripts"}}
 
 <script>
@@ -218,6 +228,5 @@
 	  /* End Sliders */
 	})
 </script>
-
 
 {{/contentFor}}
