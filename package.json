@@ -44,7 +44,6 @@
     "gulp-util": "^3.0.6",
     "gulp-webshot": "^0.2.1",
     "jasmine-core": "^2.5.0",
-    "merge-stream": "^1.0.0",
     "node-notifier": "^4.6.0",
     "nodemon": "^1.7.0",
     "phantomjs": "^2.1.3",

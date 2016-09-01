@@ -1,8 +1,8 @@
 #
 # Cyclops Build Script
 #
-# Provides a number of tasks for building, testing and distributing the Cyclops
-# project through the use of Gulp.
+# Provides the tasks for building, testing and distributing the Cyclops project
+# through the use of Gulp.
 #
 
 gulp = require 'gulp'
@@ -16,7 +16,6 @@ hbs = require 'express-hbs'
 jasmine = require 'gulp-jasmine-phantom'
 less = require 'gulp-less'
 liveServer = require 'gulp-live-server'
-merge = require 'merge-stream'
 minifyCSS = require 'gulp-minify-css'
 minifyHTML = require 'gulp-minify-html'
 notifier = require 'node-notifier'
@@ -47,8 +46,10 @@ webshot = require 'gulp-webshot'
 # * Removed nodemon and all the express-related files (app.coffee, config.coffee and routes.coffee). Now that we have the intermediate build step, we can just serve all static content in development.
 # * Prefixed the globals from scripts/helpers/init.coffee with window. so that the globals (blech) can still be accessed by tests when wrapped by before.js and after.js. This is a definite fixme.
 # * Introduces gulp-live-server for automatically refreshing as you make changes.
+#
 
 # TODO: Rename src/less to src/stylesheets
+# TODO: Consider... and with a big question mark... vendorizing all of the 3rd-party scripts that we _depend_ on. (i.e. jQuery, knockout, etc) so that we can control the deployed versions of these.
 
 # Configuration ----------------------------------------------------------------
 
@@ -71,9 +72,14 @@ gulp.task 'build', [
 gulp.task 'clean', [
   'clean-images', 'clean-scripts', 'clean-stylesheets', 'clean-templates',
   'clean-tests', 'clean-distribution'
-], ->
-  # TODO: Because it's not very easy to clean up the built views...
-  gulp.src(BUILD_OUTPUT).pipe(clean())
+]
+#, ->
+# TODO: Because it's not very easy to clean up the built views, as they are
+#       copied into the build tree... We could put views in build/views and
+#       have a final step that constructs the output tree into something like
+#       build/output to make it easier to clean the view step, but not sure if
+#       that's worthwhile at the moment...
+# gulp.src(BUILD_OUTPUT).pipe(clean())
 
 gulp.task 'dev', [
   'build', 'watch', 'serve'
@@ -105,7 +111,6 @@ gulp.task 'compile-stylesheets', ->
       title: 'Stylesheet Compilation Error'
       message: error.message
       icon: './www/assets/img/centurylink-cyclops.png'
-  concatenated
 
 gulp.task 'optimize-stylesheets', [ 'compile-stylesheets' ], ->
   gulp.src [ "#{BUILD_OUTPUT}/cyclops/css/cyclops.css", "#{BUILD_OUTPUT}/cyclops/css/site.css" ]
@@ -155,7 +160,6 @@ gulp.task 'compile-scripts', ->
       title: 'Script Compilation Error'
       message: error.message
       icon: './www/assets/img/centurylink-cyclops.png'
-  concatenated
 
 gulp.task 'optimize-scripts', [ 'compile-scripts' ], ->
   gulp.src "#{BUILD_OUTPUT}/cyclops/scripts/cyclops.js"
@@ -195,6 +199,8 @@ gulp.task 'clean-images', ->
   gulp.src("#{BUILD_OUTPUT}/cyclops/svg").pipe clean()
 
 gulp.task 'compile-images', ->
+  gulp.src 'src/images/**/*'
+    .pipe gulp.dest "#{BUILD_OUTPUT}/cyclops/img"
   gulp.src 'src/svg/**/*.svg'
     .pipe rename { prefix: 'icon-' }
     .pipe svgstore { inlineSvg: true }
@@ -202,6 +208,7 @@ gulp.task 'compile-images', ->
     .pipe gulp.dest "#{BUILD_OUTPUT}/cyclops/svg"
 
 gulp.task 'optimize-images', [ 'compile-images' ], ->
+  # TODO: pngcrush, etc?
   gulp.src "#{BUILD_OUTPUT}/cyclops/svg/*.svg"
     .pipe svgmin()
     .pipe rename 'cyclops.icons.min.svg'
@@ -223,7 +230,6 @@ gulp.task 'compile-views', ->
         layoutDir: 'src/views/layouts'
         defaultLayout: 'src/views/layouts/default.html'
         extName: 'html'
-
       locals = {
         settings: {
           views: 'src/views'
@@ -248,12 +254,13 @@ gulp.task 'clean-screenshots', ->
   gulp.src("#{BUILD_OUTPUT}/cyclops/img/screenshots").pipe clean()
 
 gulp.task 'take-screenshots', ->
-  console.log('TODO')
-  # gulp.src "#{BUILD_OUTPUT}/cyclops/starterPages/*.html"
-  #   .pipe webshot {
-  #     dest: "#{BUILD_OUTPUT}/cyclops/img/screenshots",
-  #     root: "starterPages"
-  #   }
+  gulp.src "#{BUILD_OUTPUT}/cyclops/starterPages/*.html"
+    .pipe webshot {
+      dest: "#{BUILD_OUTPUT}/cyclops/img/screenshots",
+      root: "."
+      renderDelay: 3000
+      flatten: true
+    }
 
 # Test Tasks -------------------------------------------------------------------
 
@@ -273,6 +280,7 @@ gulp.task 'execute-tests', [ 'compile-tests' ], ->
       abortOnFail: true
       integration: true
       keepRunner: true
+      # TODO: It bothers me that this is not in sync with (or can easily lose sync with) what is actually included...
       vendor: [
         'http://code.jquery.com/jquery-2.2.0.min.js'
         'http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'
@@ -290,66 +298,21 @@ gulp.task 'distribute', [ 'clean-distribution', 'create-distribution', 'output-d
 gulp.task 'clean-distribution', ->
   gulp.src(DISTRIBUTION_OUTPUT).pipe clean()
 
-gulp.task 'create-distribution', [ 'clean-distribution' ], ->
-  copyCSS = gulp.src './www/assets/css/**/*'
-    .pipe gulp.dest "./dist/#{pkg.version}/css/"
+gulp.task 'create-distribution', [ 'clean-distribution', 'build' ], ->
 
-  copyScripts = gulp.src './www/assets/scripts/**/*'
+  # Copy Build Output
+  gulp.src "#{BUILD_OUTPUT}/cyclops"
+    .pipe gulp.dest "#{DISTRIBUTION_OUTPUT}/#{pkg.version}"
+
+  # Rewrite References to Distributed/Hosted Cyclops
+  gulp.src "#{DISTRIBUTION_OUTPUT}/#{pkg.version}/**/*"
     .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "https://assets.ctl.io/cyclops/#{pkg.version}/templates/cyclops.tmpl.min.html"
     .pipe replace /\/svg\/cyclops\.icons\.svg/i, "https://assets.ctl.io/cyclops/#{pkg.version}/svg/cyclops.icons.min.svg"
-    .pipe gulp.dest "./dist/#{pkg.version}/scripts/"
-
-  copyTemplates = gulp.src './www/assets/templates/**/*'
-    .pipe gulp.dest "./dist/#{pkg.version}/templates/"
-
-  copySvg = gulp.src './www/assets/svg/**/*'
-    .pipe gulp.dest "./dist/#{pkg.version}/svg/"
-
-  copyStarterPages = gulp.src './www/starterPages/**/*'
     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
-    .pipe gulp.dest "./dist/#{pkg.version}/starterPages/"
-
-  # copyExamplePages = gulp.src './www/examplePages/**/*'
-  #   .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
-  #   .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
-  #   .pipe gulp.dest "./dist/#{pkg.version}/examplePages/"
-
-  copyImages = gulp.src './www/assets/img/**/*'
-    .pipe gulp.dest "./dist/#{pkg.version}/img/"
-
-  renderHTML = gulp.src './www/views/**/*.html'
-    .pipe through.obj (file, enc, cb) ->
-      render = hbs.create().express3
-        viewsDir: './www/views'
-        partialsDir: './www/views/partials'
-        layoutDir: './www/views/layouts'
-        defaultLayout: './www/views/layouts/default.html'
-        extName: 'html'
-
-      locals = {
-        settings: {
-          views: './www/views'
-        },
-        version: "#{pkg.version}"
-        enviroment: "release"
-      }
-
-      self = this;
-      render file.path, locals, (err, html) ->
-        if(!err)
-          file.contents = new Buffer(html);
-          self.push(file);
-          cb();
-        else
-          console.log "failed to render #{file.path}"
-    .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
     .pipe replace /\/css\/site\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/site.css"
-    .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe replace /\/img\/favicon\//gi, "https://assets.ctl.io/cyclops/#{pkg.version}/img/favicon/"
-    .pipe gulp.dest "./dist/#{pkg.version}/"
-
-  return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML
+    .pipe gulp.dest "#{DISTRIBUTION_OUTPUT}/#{pkg.version}"
 
 gulp.task 'output-distribution-help', ->
   console.log 'To distribute a new version of Cyclops:'
@@ -448,79 +411,6 @@ gulp.task 'serve', ->
 
 # ==============================================================================
 
-# gulp.task 'script-concat', ->
-#   concatenated = combine.obj [
-#     gulp.src './src/scripts/helpers/init.coffee'
-#       addSrc.append [ './src/scripts/helpers/**/*.*', '!./src/scripts/helpers/init.coffee' ]
-#       addSrc.append './src/scripts/extensions/**/*.*'
-#       addSrc.append './src/scripts/bindings/**/*.*'
-#       addSrc.append './src/scripts/widgets/**/*.*'
-#       addSrc.append './src/scripts/models/**/*.*'
-#       addSrc.append [ './src/scripts/validators/**/*.*', '!./src/scripts/validators/register.coffee' ]
-#       addSrc.append './src/scripts/validators/register.coffee'
-#       addSrc.append './src/scripts/*.*'
-#       addSrc.prepend './src/scripts/polyfills/**/*'
-#       coffee({ bare: true })
-#       addSrc.prepend './build/before.js'
-#       addSrc.append './build/after.js'
-#       addSrc.prepend './src/scripts/vendor/polyfill.js'
-#       sourcemaps.init()
-#       concat('cyclops.js')
-#       sourcemaps.write './'
-#       gulp.dest './www/assets/scripts'
-#   ]
-#   concatenated.on 'error', (error) ->
-#     console.error.bind(console)
-#     notifier.notify
-#       title: 'Script Compilation Error'
-#       message: error.message
-#       icon: './www/assets/img/centurylink-cyclops.png'
-#   concatenated
-#
-# gulp.task 'test-build', ->
-#   buildCyclops = gulp.src './src/scripts/helpers/init.coffee'
-#     .pipe addSrc.append ['./src/scripts/helpers/**/*.*',
-#       '!./src/scripts/helpers/init.coffee']
-#     .pipe addSrc.append './src/scripts/extensions/**/*.*'
-#     .pipe addSrc.append './src/scripts/bindings/**/*.*'
-#     .pipe addSrc.append './src/scripts/widgets/**/*.*'
-#     .pipe addSrc.append './src/scripts/models/**/*.*'
-#     .pipe addSrc.append ['./src/scripts/validators/**/*.*',
-#       '!./src/scripts/validators/register.coffee']
-#     .pipe addSrc.append './src/scripts/validators/register.coffee'
-#     .pipe addSrc.append './src/scripts/*.*'
-#     .pipe coffee({bare: true})
-#     .pipe sourcemaps.init()
-#     .pipe concat('cyclops.test.only.js')
-#     .pipe sourcemaps.write './'
-#     .pipe gulp.dest './temp'
-#
-#   buildTests = gulp.src ['./specs/testHelpers/*.coffee', './specs/**/*.spec.coffee']
-#     .pipe coffee({bare: true})
-#     .pipe gulp.dest './temp/tests'
-#
-#   return merge buildCyclops, buildTests
-#
-# gulp.task 'test-run', ['test-build'], ->
-#   return gulp.src './temp/tests/**/*.js'
-#     .pipe jasmine {
-#             abortOnFail: true
-#             integration: true
-#             keepRunner: true
-#             vendor: [
-#               'http://code.jquery.com/jquery-2.2.0.min.js'
-#               'http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js'
-#               'http://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js'
-#               'http://code.jquery.com/ui/1.11.4/jquery-ui.min.js'
-#               'http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js'
-#               './temp/cyclops.test.only.js'
-#             ]
-#           }
-#
-# # gulp.task 'test', ['test-run'], ->
-# #   gulp.src './temp'
-# #     .pipe clean()
-#
 # gulp.task 'cleanDist', ->
 #   return gulp.src "./dist/#{pkg.version}", { read: false }
 #     .pipe clean()
