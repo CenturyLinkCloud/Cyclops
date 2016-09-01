@@ -5,6 +5,7 @@ calculateAndSetNewPosition = (start, element) ->
   $(element).css('top', newTopPosition)
 
 $.fn.affix = () ->
+  console.warn('Affix is deprecated. You should use sticky positioning (i.e. "position: sticky") in your CSS instead.')
   $(this).each (idx, ele) ->
     startingTopPosition = $(ele).position().top
     calculateAndSetNewPosition(startingTopPosition, ele)
