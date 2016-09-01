@@ -110,7 +110,7 @@
   # Check to see if the browser supports sticky positioning natively or not. If
   # it does, we'll just skip the polyfill altogether.
   #
-  isSupportedNatively = () ->
+  isSupportedNatively = ->
     testElement = ($ '<test-element>')
     for prefix in [ '', '-webkit-', '-moz-', '-ms-' ]
       testElement.css('position', "#{prefix}sticky")
@@ -123,10 +123,12 @@
   return if isSupportedNatively()
 
   #
-  # Register the polyfill with Polyfill.js.
+  # Initialize the Sticky Polyfill with Polyfill.js.
   #
-  Polyfill({ declarations: [ 'position:sticky' ] }, include: [ 'position-sticky' ])
-    .doMatched(doMatched)
-    .undoUnmatched(undoUnmatched)
+  polyfill = Polyfill { declarations: [ 'position:sticky' ] }, include: [ 'position-sticky' ]
+  polyfill.doMatched(doMatched)
+  polyfill.undoUnmatched(undoUnmatched)
+
+  window.stickyPolyfill = polyfill
 
 ) jQuery
