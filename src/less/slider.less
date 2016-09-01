@@ -29,7 +29,7 @@ slider {
   .slider-max-bound-label {
     line-height: 18px;
     position: absolute;
-    z-index: 1;
+    z-index: @zindex-slider;
     color: #fff;
   }
 
@@ -57,8 +57,7 @@ slider {
   right: 0;
   left: 0;
   margin-right: 10px;
-  //background-color: red;
-  z-index: 2;
+  z-index: @zindex-slider-track-click;
 }
 
 .slider-tick-container {
@@ -83,7 +82,7 @@ slider {
   .slider-out-of-range-value {
     height: 20px;
     position: absolute;
-    z-index: 1;
+    z-index: @zindex-slider;
 
     .slider-out-of-range-marker {
       height: 20px;
@@ -111,7 +110,7 @@ slider {
   margin-right: -11px;
   position: absolute;
   left: 0;
-  z-index: 3;
+  z-index: @zindex-slider-handle2;
 
   .slider-tooltip {
     opacity: 1;
