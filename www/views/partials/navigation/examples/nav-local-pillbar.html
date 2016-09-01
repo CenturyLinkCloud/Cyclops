@@ -1,17 +1,18 @@
 
-<nav class="navbar navbar-local navbar-local--pillbar m-t-sm">
+<nav class="navbar navbar-local navbar-local--pillbar">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed">
-			Menu <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg>
+			<span class="icon-bar"></span>
+			Service Menu <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg>
 		</button>
 	</div>
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#navLocal">Products</a></li>
+			<li class="active"><a href="#navLocal">Service</a></li>
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#navLocal" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
 				<ul class="dropdown-menu">
-					<li class="active"><a href="#navLocal">Active Item</a></li>
+					<li><a href="#navLocal">Active Item</a></li>
 					<li><a href="#navLocal">Item</a></li>
 				</ul>
 			</li>
@@ -27,6 +28,8 @@
 					<li><a href="#navLocal">SSH Keys</a></li>
 				</ul>
 			</li>
+		</ul>
+		<div class="navbar-right"><a href="#" class="btn btn-primary navbar-btn m-r-xs"><svg class="cyclops-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-plus-circle"></use></svg><span class="sr-only">create</span> job</a></div>
 		</ul>
 	</div>
 </nav>

@@ -1,10 +1,21 @@
 {{!< ../layouts/starter-page.html}}
 
+<style>
+
+  @media (min-width: 768px) {
+    .navbar-local--pillbar {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+</style>
+
 <main>
+  {{> navigation/examples/nav-local-pillbar }}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        {{> navigation/examples/nav-local-pillbar }}
         <h1>Hello, world!</h1>
         <p class="lead">This is a basic starter page for your service's user interface.</p>
       </div>

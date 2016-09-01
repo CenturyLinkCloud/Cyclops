@@ -2,11 +2,22 @@
 
 <pane params="{items: items, selectedItemId: selectedItemId, loading: loading }"></pane>
 
+<style>
+
+  @media (min-width: 768px) {
+    .navbar-local--pillbar {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+</style>
+
 <main>
+  {{> navigation/examples/nav-local-pillbar }}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        {{> navigation/examples/nav-local-pillbar }}
         <div class="content-header">
           <ol class="breadcrumb hidden-md-up">
             <li><a href="index.html">UC1 - US West (Santa Clara)</a></li>
