@@ -66,7 +66,7 @@ DEVELOPMENT_PORT = process.env.PORT or '4000'
 # Primary Tasks ----------------------------------------------------------------
 
 gulp.task 'build', [
-  'images', 'scripts', 'stylesheets', 'templates', 'views', 'screenshots'
+  'images', 'scripts', 'stylesheets', 'templates', 'views'
 ]
 
 gulp.task 'clean', [
@@ -248,19 +248,19 @@ gulp.task 'compile-views', ->
 
 # Screenshot Tasks (for Sample Pages) ------------------------------------------
 
-gulp.task 'screenshots', [ 'take-screenshots' ]
-
-gulp.task 'clean-screenshots', ->
-  gulp.src("#{BUILD_OUTPUT}/cyclops/img/screenshots").pipe clean()
-
-gulp.task 'take-screenshots', ->
-  gulp.src "#{BUILD_OUTPUT}/cyclops/starterPages/*.html"
-    .pipe webshot {
-      dest: "#{BUILD_OUTPUT}/cyclops/img/screenshots",
-      root: "."
-      renderDelay: 3000
-      flatten: true
-    }
+# gulp.task 'screenshots', [ 'take-screenshots' ]
+#
+# gulp.task 'clean-screenshots', ->
+#   gulp.src("#{BUILD_OUTPUT}/cyclops/img/screenshots").pipe clean()
+#
+# gulp.task 'take-screenshots', ->
+#   gulp.src "#{BUILD_OUTPUT}/cyclops/starterPages/*.html"
+#     .pipe webshot {
+#       dest: "#{BUILD_OUTPUT}/cyclops/img/screenshots",
+#       root: "."
+#       renderDelay: 3000
+#       flatten: true
+#     }
 
 # Test Tasks -------------------------------------------------------------------
 
@@ -327,18 +327,34 @@ gulp.task 'output-distribution-help', ->
 # Development Tasks ------------------------------------------------------------
 
 gulp.task 'watch', ->
-  gulp.watch 'src/less/**/**', [ 'compile-stylesheets' ]
-  gulp.watch 'src/templates/**/**', [ 'compile-templates' ]
-  gulp.watch 'src/scripts/**/**', [ 'compile-scripts' ]
-  gulp.watch 'src/svg/**/**', [ 'compile-images' ]
-  gulp.watch 'src/views/**/**', [ 'compile-views' ]
-  gulp.watch 'src/views/starterPages/**/**', [ 'take-screenshots' ]
+  gulp.watch 'src/less/**/**', [ 'compile-stylesheets', 'prepare-for-localhost' ]
+  gulp.watch 'src/templates/**/**', [ 'compile-templates', 'prepare-for-localhost' ]
+  gulp.watch 'src/scripts/**/**', [ 'compile-scripts', 'prepare-for-localhost' ]
+  gulp.watch 'src/svg/**/**', [ 'compile-images', 'prepare-for-localhost' ]
+  gulp.watch 'src/views/**/**', [ 'compile-views', 'prepare-for-localhost' ]
+  # gulp.watch 'src/views/starterPages/**/**', [ 'take-screenshots' ]
 
-gulp.task 'serve', ->
-  server = liveServer.static "#{BUILD_OUTPUT}/cyclops", DEVELOPMENT_PORT
+gulp.task 'prepare-for-localhost', ->
+  gulp.src "#{BUILD_OUTPUT}/cyclops/**/*"
+    .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "http://localhost:#{DEVELOPMENT_PORT}/templates/cyclops.tmpl.min.html"
+    .pipe replace /\/svg\/cyclops\.icons\.svg/i, "http://localhost:#{DEVELOPMENT_PORT}/svg/cyclops.icons.min.svg"
+    .pipe replace /\/css\/cyclops\.css/i, "http://localhost:#{DEVELOPMENT_PORT}/css/cyclops.min.css"
+    .pipe replace /\/scripts\/cyclops\.js/i, "http://localhost:#{DEVELOPMENT_PORT}/scripts/cyclops.min.js"
+    .pipe replace /\/css\/site\.css/i, "http://localhost:#{DEVELOPMENT_PORT}/css/site.css"
+    .pipe replace /\/img\/favicon\//gi, "http://localhost:#{DEVELOPMENT_PORT}/img/favicon/"
+    .pipe gulp.dest "#{BUILD_OUTPUT}/serve"
+
+gulp.task 'serve', [ 'prepare-for-localhost' ], ->
+  # TODO: Insert middleware to rewrite URLs on the fly (so we don't have to copy to build/serve)
+  server = liveServer.new ['static.js', "#{BUILD_OUTPUT}/serve", DEVELOPMENT_PORT]
   server.start()
-  gulp.watch "#{BUILD_OUTPUT}/cyclops/**/**", (file) ->
-    server.notify.apply server, [ file ]
+
+  # server = liveServer.static "#{BUILD_OUTPUT}/serve", DEVELOPMENT_PORT
+  # console.log "server:", server
+  # server.start()
+  # gulp.watch "#{BUILD_OUTPUT}/serve/**/*", (file) ->
+  #   server.notify.apply server, [ file ]
+  # # TODO: Restart server when gulpfile.coffee is modified
 
 # Travis Tasks -----------------------------------------------------------------
 
@@ -408,70 +424,3 @@ gulp.task 'serve', ->
 #     .pipe gulp.dest './devDist/'
 #
 #   merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML, copyStaticBuildPackFiles
-
-# ==============================================================================
-
-# gulp.task 'cleanDist', ->
-#   return gulp.src "./dist/#{pkg.version}", { read: false }
-#     .pipe clean()
-#
-# gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify', 'svg-minify'], ->
-#   copyCSS = gulp.src './www/assets/css/**/*'
-#     .pipe gulp.dest "./dist/#{pkg.version}/css/"
-#
-#   copyScripts = gulp.src './www/assets/scripts/**/*'
-#     .pipe replace /\/templates\/cyclops\.tmpl\.html/i, "https://assets.ctl.io/cyclops/#{pkg.version}/templates/cyclops.tmpl.min.html"
-#     .pipe replace /\/svg\/cyclops\.icons\.svg/i, "https://assets.ctl.io/cyclops/#{pkg.version}/svg/cyclops.icons.min.svg"
-#     .pipe gulp.dest "./dist/#{pkg.version}/scripts/"
-#
-#   copyTemplates = gulp.src './www/assets/templates/**/*'
-#     .pipe gulp.dest "./dist/#{pkg.version}/templates/"
-#
-#   copySvg = gulp.src './www/assets/svg/**/*'
-#     .pipe gulp.dest "./dist/#{pkg.version}/svg/"
-#
-#   copyStarterPages = gulp.src './www/starterPages/**/*'
-#     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
-#     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
-#     .pipe gulp.dest "./dist/#{pkg.version}/starterPages/"
-#
-#   copyExamplePages = gulp.src './www/examplePages/**/*'
-#     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
-#     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
-#     .pipe gulp.dest "./dist/#{pkg.version}/examplePages/"
-#
-#   copyImages = gulp.src './www/assets/img/**/*'
-#     .pipe gulp.dest "./dist/#{pkg.version}/img/"
-#
-#   renderHTML = gulp.src './www/views/**/*.html'
-#     .pipe through.obj (file, enc, cb) ->
-#       render = hbs.create().express3
-#         viewsDir: './www/views'
-#         partialsDir: './www/views/partials'
-#         layoutDir: './www/views/layouts'
-#         defaultLayout: './www/views/layouts/default.html'
-#         extName: 'html'
-#
-#       locals = {
-#         settings: {
-#           views: './www/views'
-#         },
-#         version: "#{pkg.version}"
-#         enviroment: "release"
-#       }
-#
-#       self = this;
-#       render file.path, locals, (err, html) ->
-#         if(!err)
-#           file.contents = new Buffer(html);
-#           self.push(file);
-#           cb();
-#         else
-#           console.log "failed to render #{file.path}"
-#     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
-#     .pipe replace /\/css\/site\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/site.css"
-#     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
-#     .pipe replace /\/img\/favicon\//gi, "https://assets.ctl.io/cyclops/#{pkg.version}/img/favicon/"
-#     .pipe gulp.dest "./dist/#{pkg.version}/"
-#
-#   return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML

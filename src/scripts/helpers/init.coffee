@@ -1,5 +1,5 @@
-window.helpers = {}
-window.libraries = {
+helpers = {}
+libraries = {
   jquery: true,
   jqueryUi: true,
   knockout: true,
