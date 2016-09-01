@@ -1,5 +1,5 @@
 var app = require('connect')();
-var cors = require('connect-cors');
+var cors = require('cors');
 var path = require('path');
 var connect_livereload = require('connect-livereload');
 var serve_static = require('serve-static');
