@@ -1,0 +1,89 @@
+<div id="cyclops-nav-stacked" class="nav nav-stacked">
+  <ul class="tabs">
+    <li class="nav-title"><a href="./dependencies.html">code</a></li>
+    <li id="dependencies" class="tab">
+      <a href="./dependencies.html">Dependencies</a>
+      <ul class="tabs-subnav">
+        <li><a href="#required">Required</a></li>
+        <li><a href="#optional">Optional</a></li>
+      </ul>
+    </li>
+    <li id="bindings" class="tab">
+      <a href="./bindings.html">Bindings</a>
+      <ul class="tabs-subnav">
+        <li><a href="#any">any</a></li>
+        <li><a href="#asyncMessage">asyncMessage</a></li>
+        <li><a href="#console">console</a></li>
+        <li><a href="#empty">empty</a></li>
+        <li><a href="#fadeSlide">fadeSlide</a></li>
+        <li><a href="#fadeSlideTemplate">fadeSlideTemplate</a></li>
+        <li><a href="#fadeVisible">fadeVisible</a></li>
+        <li><a href="#href">href</a></li>
+        <li><a href="#indeterminate">indeterminate</a></li>
+        <li><a href="#templateSwitcher">templateSwitcher</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#scrollTo">scrollTo</a></li>
+        <li><a href="#validationMsg">validationMsg</a></li>
+        <li><a href="#widget">widget</a></li>
+      </ul>
+    </li>
+    <li id="classes" class="tab">
+      <a href="./classes.html">Classes</a>
+      <ul class="tabs-subnav">
+        <li><a href="#trackableObservable">trackableObservable</a></li>
+        <li><a href="#trackableObservableArray">trackableObservableArray</a></li>
+        <li><a href="#filterableArray">filterableArray</a></li>
+      </ul>
+    </li>
+    <li id="knockoutComponents" class="tab">
+      <a href="./knockoutComponents.html">Knockout Components</a>
+      <ul class="tabs-subnav">
+        <li><a href="#accountSwitcher">account-switcher</a></li>
+        <li><a href="#mainNav">main-nav</a></li>
+        <li><a href="#pane">pane</a></li>
+        <li><a href="#groupPicker">group-picker</a></li>
+        <li><a href="#showPassword">show-password</a></li>
+        <li><a href="#slider">slider</a></li>
+        <li><a href="#toggle">toggle</a></li>
+        <li><a href="#dateTimePicker">date-time-picker</a></li>
+      </ul>
+    </li>
+    <li id="helpers" class="tab">
+      <a href="./codeHelpers.html">Helpers</a>
+      <ul class="tabs-subnav">
+        <li><a href="#asObservable">asObservable</a></li>
+        <li><a href="#asObservableArray">asObservableArray</a></li>
+      </ul>
+    </li>
+    <li id="validators" class="tab">
+      <a href="./validators.html">Validators</a>
+      <ul class="tabs-subnav">
+        <li><a href="#checked">checked</a></li>
+        <li><a href="#ipAddress">ipAddress</a></li>
+        <li><a href="#ipAddressCidr">ipAddressCidr</a></li>
+        <li><a href="#notEmpty">notEmpty</a></li>
+        <li><a href="#passwordStrength">passwordStrength</a></li>
+        <li><a href="#uri">uri</a></li>
+      </ul>
+    </li>
+    <li id="widgets" class="tab">
+      <a href="./widgets.html">Widgets</a>
+      <ul class="tabs-subnav">
+        <li><a href="#chart">chart</a></li>
+        <li><a href="#inlineConfirm">inlineConfirm</a></li>
+        <li><a href="#overflowMenu">overflowMenu</a></li>
+        <li><a href="#actionToolbarConfirm">actionToolbarConfirm</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+  (function(tabName) {
+    if (tabName) {
+      var tab = document.getElementById(tabName);
+      if (tab)
+        tab.className = tab.className + ' selected';
+    }
+  })('{{block "tabName"}}');
+</script>

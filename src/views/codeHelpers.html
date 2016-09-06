@@ -1,0 +1,35 @@
+{{#contentFor "title"}}Helpers | Code{{/contentFor}}
+{{#contentFor "tabName"}}helpers{{/contentFor}}
+{{!< layouts/code.html}}
+
+<h1 class="content-header">Helpers</h1>
+
+<section id="asObservable" class="pl-section">
+
+  <h3><code>asObservable</code></h3>
+  <p>
+    A helper function that given a value ensure that the value is returned as an observable. If the
+    value is already an observable it is simply returned if not a new observable is created
+    wrapping that value.  This is helpful when you want your code to use an observable but you want
+    the developer to be able to pass  a value or and observable value.
+  </p>
+  <pre>
+    <code class="javascript">
+self.value = ko.asObservable(possibleObservableValue);
+    </code>
+  </pre>
+</section>
+
+
+<section id="asObservableArray" class="pl-section">
+  <h3><code>asObservableArray</code></h3>
+  <p>
+    Same as <a href="#asObservable"><code>asObservable</code></a> but for observableArray.
+  </p>
+  <pre>
+    <code class="javascript">
+self.array = ko.asObservableArray(possibleObservableArray);
+    </code>
+  </pre>
+
+</section>

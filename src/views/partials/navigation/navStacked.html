@@ -1,0 +1,42 @@
+<section class="pl-section" id="navStacked">
+  <h3><a href="#navStacked">Nav Stacked</a></h3>
+  <p>An alternative to <a href="#navLocal">Nav Local</a>, <code>.nav-stacked</code> is designed to to be 100% of the width of its parent grid column. At smaller viewports, each item in the nav will become <code>inline-block</code> and display in a single wrapping line.</p>
+  <div class="pl-example">
+    {{> navigation/examples/nav-stacked }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;nav nav-stacked&quot;&gt;
+  &lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab selected&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;tab&quot;&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+  <h4>Nav Stacked Second Level</h4>
+  <p>A second level maybe added to the Stacked Nav for additional navigation options. However, at small viewports, the second level is not visible. If the second level needs to be visible in all viewport sizes, use the <a href="#navLocal">Nav Local</a> pattern instead.</p>
+  <div class="pl-example">
+    {{> navigation/examples/nav-stacked-second }}
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;nav nav-stacked&quot;&gt;
+  &lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li class=&quot;tab selected&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;
+      &lt;ul class=&quot;tabs-subnav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Widget&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;selected&quot;&gt;&lt;a href=&quot;#&quot;&gt;Gizmo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Snarfblat&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>

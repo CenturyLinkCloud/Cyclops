@@ -1,0 +1,46 @@
+<section class="pl-section" id="accountSwitcher">
+  <h3>
+    <a href="#accountSwitcher">Account Switcher</a>
+    <a href="./knockoutComponents.html#AccountSwitcher"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg><span class="sr-only">api documentation</span></a></h3>
+  </h3>
+
+  <p>The CenturyLink Platform supports the ability to create sub-accounts, which fall under a parent account. Sub accounts have of the advantage of:</p>
+
+  <ul>
+    <li><strong>Hierarchy:</strong> user permissions flow down, but not up or sideways</li>
+    <li><strong>Billing:</strong> sub accounts may be billed separately or to the parent account</li>
+    <li><strong>Share Parent Networks:</strong> sub accounts may access their parent account's networks, in addition to their own network</li>
+    <li><strong>Inheritance:</strong> account settings are inherited</li>
+  </ul>
+
+  <p>
+    If a user has access to multiple accounts, their account context needs to be maintained as they navigate to different platform satellite apps. This component is a means for platform customers to view their current account context, change account context, and maintain that context across CenturyLink Platform satelite apps.
+  </p>
+  <h4>Keyboard Shortcuts</h4>
+  <ul>
+    <li><code>ctl + i</code>: toggle account switcher open or closed</li>
+    <li><code>esc</code>: close account switcher when open</li>
+    <li><code>up, down</code>: navigate the list of accounts</li>
+    <li><code>enter</code>: change to selected account context</li>
+  </ul>
+  <div class="pl-example">
+    <p>In the iframe below, click the top bar to open the account switcher.</p>
+    <iframe src="./starterPages/basic.html"></iframe>
+    <p>
+      <a href="./starterPages/basic.html">Open Example Page</a>
+    </p>
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;account-switcher params=&quot;{accounts: accounts, currentAccountAlias: currentAccountAlias}&quot;&gt;&lt;/account-switcher&gt;
+    </code>
+    <code class="javascript">
+$(function(){
+  ko.applyBindings({
+    accounts: [...],
+    currentAccountAlias: '...'
+  });
+});
+    </code>
+  </pre>
+</section>

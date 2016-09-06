@@ -1,0 +1,100 @@
+<div class="card">
+  <div class="card-header">
+    <button class="btn btn-outline pull-right" data-bind="click: toggleForm"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-plus-circle' /></svg> button</button>
+    <div class="m-t-xxs">List View Items</div>
+  </div>
+  <ul class="new-list-view">
+    <li class="hide list-view-item-form" data-bind="fadeSlide: openForm">
+      <form>
+        <fieldset>
+          <legend>Card Inline Form <button type="button" class="close" aria-label="Close" data-bind="click: toggleForm"><span aria-hidden="true">×</span></button></legend>
+          <div class="form-group">
+            <label class="control-label">name</label>
+            <input class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-label">description</label>
+            <textarea class="form-control" title=""></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" data-bind="click: toggleForm">submit</button>
+            <button class="btn btn-link" data-bind="click: toggleForm">cancel</button>
+          </div>
+        </fieldset>
+      </form>
+    </li>
+    <li>
+      <div class="list-view-item">
+        <div class="col col-100">Item</div>
+      </div>
+      <ul class="new-list-view">
+        <li>
+          <div class="list-view-item">
+            <div class="col col-100 col-indent">sub item 1</div>
+          </div>
+          <ul class="new-list-view">
+            <li>
+              <div class="list-view-item">
+                <div class="col col-100 col-indent">sub sub a</div>
+              </div>
+            </li>
+            <li>
+              <div class="list-view-item">
+                <div class="col col-100 col-indent">sub sub b</div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list-view-item">
+            <div class="col col-100 col-indent">sub item 2</div>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div class="list-view-link-item">
+        <div class="col col-100">Link Item</div>
+      </div>
+    </li>
+    <li>
+      <div class="list-view-editable-item">
+        <div class="col col-100">Editable Item</div>
+      </div>
+    </li>
+    <li>
+      <div class="list-view-read-only-item">
+        <div class="col col-100">Read Only Item</div>
+      </div>
+    </li>
+  </ul>
+  <div class="card-block">
+    <p class="card-text">A card-block paragraph of text dividing two lists inside a card.</p>
+  </div>
+  <ul class="new-list-view new-list-view-status">
+    <li class="status-danger">
+    <div class="list-view-link-item">
+      <div class="col col-100"><a href="#">Danger Status</a></div>
+    </div>
+    </li>
+    <li class="status-warning">
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Warning Status</a></div>
+      </div>
+    </li>
+    <li class="status-success">
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Success Status</a></div>
+      </div>
+    </li>
+    <li>
+      <div class="list-view-link-item">
+        <div class="col col-100"><a href="#">Default Status</a></div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="card-block">
+    <p class="card-text">A card-block paragraph of text.</p>
+  </div>
+</div>

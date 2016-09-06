@@ -1,0 +1,232 @@
+{{!< ../layouts/starter-page.html}}
+
+<style>
+
+  @media (min-width: 768px) {
+    #priceEstimateContainer {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+</style>
+
+<main>
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-sm-12">
+  			<h2 class="content-header">Create Server with Price Estimate Example</h2>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div id="priceEstimateContainer">
+  		  <div id="priceEstimate">
+          <h5 class="content-header">COST ESTIMATE AS CONFIGURED</h5>
+  		    <div class="cost-value">$75.29</div>
+  		    <div class="cost-interval">PER MONTH</div>
+  		    <div class="cost-value">$0.10</div>
+  		    <div class="cost-interval">PER HOUR</div>
+          <div class="disclaimer">Does not include bandwidth charges. Final cost will vary based on usage.</div>
+  		  </div>
+  		  <div id="priceBreakdown" class="hidden-xs-down">
+  		    <div class="line-item">
+  		      <div class="line-item-display">2 CPUs</div>
+  		      <div class="line-item-cost">(~$0.02/hr)</div>
+  		    </div>
+  		    <div class="line-item">
+  		      <div class="line-item-display">4GB Memory</div>
+  		      <div class="line-item-cost">(~$0.06/hr)</div>
+  		    </div>
+  		    <div class="line-item">
+  		      <div class="line-item-display">100GB Storage</div>
+  		      <div class="line-item-cost">(~$0.02/hr)</div>
+  		    </div>
+  		  </div>
+  		</div>
+
+  		<div id="createFormContainer">
+  			<form class="form-horizontal">
+          <fieldset>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="location">location</label>
+              <div class="col-sm-6">
+                <select id="location" class="form-control">
+                  <option>IL1 - US Central (Chicago)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" >group member of</label>
+              <div class="col-sm-9">
+                <div class="picker">
+                	<ol>
+                		<li>
+                			<label class="item-hover">
+                				<input type="radio" name="group">
+                				<span class="content">
+                					<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Application Servers</span>
+                				</span>
+                			</label>
+                		</li>
+                		<li>
+                			<label class="item-hover">
+                				<input type="radio" name="group">
+                				<span class="content">
+                					<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Default Group</span>
+                				</span>
+                			</label>
+                			<ol>
+                				<li>
+                					<label class="item-hover">
+                						<input type="radio" name="group">
+                						<span class="content">
+                							<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Level 2a</span>
+                						</span>
+                					</label>
+                				</li>
+                			</ol>
+                		</li>
+                		<li>
+                			<label class="item-hover">
+                				<input type="radio" name="group">
+                				<span class="content">
+                					<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Level 1c</span>
+                				</span>
+                			</label>
+                			<ol>
+                				<li>
+                					<label class="item-hover">
+                						<input type="radio" name="group">
+                						<span class="content">
+                							<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Level 2a</span>
+                						</span>
+                					</label>
+                				</li>
+                				<li>
+                					<label class="item-hover">
+                						<input type="radio" name="group">
+                						<span class="content">
+                							<svg class="cyclops-icon" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-folder"></use></svg> <span>Level 2b</span>
+                						</span>
+                					</label>
+                				</li>
+                			</ol>
+                		</li>
+                	</ol>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="serverType" class="col-sm-3 control-label">server type</label>
+              <div class="col-sm-9">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="serverType" id="standardServer" value="standardServer" checked>
+                    <strong>Standard</strong><br>Virtual private servers with any combo of cpu, memory and storage
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="serverType" id="hyperscaleServer" value="hyperscaleServer">
+                    <strong>Hyperscale</strong>
+                    <br>Delivers significantly more IOPS than standard servers making them ideal for NoSQL databases and data-intensive jobs
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" title="operating system is required" for="template">operating system</label>
+              <div class="col-sm-6">
+                <select id="template" class="form-control"><option value="">Please select an operating system...</option><option value="">BOSH Ubuntu Trusty Stemcell 3062</option><option value="">BOSH Volume (Internal)</option><option value="">CentOS 5 | 64-bit</option><option value="">CentOS 6 | 64-bit</option><option value="">CentOS 7 | 64-bit</option><option value="">Debian 6 | 64-bit</option><option value="">Debian 7 | 64-bit</option><option value="">Open VPN Template</option><option value="">PXE Boot [EXPERIMENTAL]</option><option value="">RedHat Enterprise Linux 5 | 64-bit</option><option value="">RedHat Enterprise Linux 6 | 64-bit</option><option value="">RedHat Enterprise Linux 7 | 64-bit</option><option value="">Ubuntu 12 | 64-bit</option><option value="">Ubuntu 14 | 64-bit</option><option value="">Windows 2008 R2 Datacenter Edition | 64-bit</option><option value="">Windows 2008 R2 Enterprise | 64-bit</option><option value="">Windows 2008 R2 Standard | 64-bit</option><option value="">Windows 2012 Datacenter Edition | 64-bit</option><option value="">Windows 2012 R2 Datacenter Edition | 64-bit</option></select><span class="validationMessage" style="display: none;"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputName" class="col-sm-3 control-label">name</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription" class="col-sm-3 control-label">description</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputDescription">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="password">password</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="password" id="password" data-bind="validationElement: password, widget: 'passwordStrength'" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="confirmPassword">confirm password</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="password" id="confirmPassword">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset id="resources">
+            <legend>Resources</legend>
+            <div class="form-group">
+              <label for="inputDescription" class="col-sm-3 control-label">memory</label>
+              <div class="col-sm-9">
+                <slider params="value: 4, min: 1, max: 128"></slider>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription" class="col-sm-3 control-label">cpu</label>
+              <div class="col-sm-9">
+                <slider params="value: 6, min: 1, max: 16"></slider>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Network</legend>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputNetwork" title="network is required">network</label>
+              <div class="col-sm-6">
+                <select id="inputNetwork" class="form-control">
+                  <option>vlan_1234_10.90.100</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputPrimaryDns">primary dns</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" id="inputPrimaryDns">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputSecondaryDns">secondary dns</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" id="inputSecondaryDns">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-group form-submit">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="submit" class="btn btn-primary btn-lg">create server</button>
+              <button class="btn btn-link btn-lg">cancel</button>
+            </div>
+          </div>
+  			</form>
+  		</div>
+  	</div>
+  </div>
+
+</main>
+
+{{#contentFor "scripts"}}
+
+<script>
+	$(function(){
+		/* Start Sliders */
+	  ko.applyBindings({}, $("#resources")[0]);
+	  /* End Sliders */
+	})
+</script>
+
+{{/contentFor}}

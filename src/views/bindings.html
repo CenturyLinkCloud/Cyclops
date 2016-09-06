@@ -1,0 +1,590 @@
+{{#contentFor "title"}}Bindings | Code{{/contentFor}}
+{{#contentFor "tabName"}}bindings{{/contentFor}}
+{{!< layouts/code.html}}
+
+
+<h1 class="content-header">Bindings</h1>
+
+<section id="any" class="pl-section">
+
+
+<h3><code>any</code></h3>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  This is short hand for an if binding that looks at length
+</p>
+<pre>
+  <code class="html">
+&lt;!-- ko any: value --&gt;
+show only if there are items
+&lt;!-- /ko --&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>array | observable array</td>
+      <td>undefined</td>
+      <td>If there are items in the value the contents are shown</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="asyncMessage" class="pl-section">
+
+<h3><code>asyncMessage</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  Used to display notification to the end user that an action is taking place. Mainly used
+  in conjunction with remote validation.
+</p>
+<pre>
+  <code class="html">
+&lt;p data-bind=&quot;asyncMessage: trueFalseObservable&quot; /&gt;
+&lt;!-- with options --&gt;
+&lt;p data-bind=&quot;asyncMessage: { value: trueFalseObservable }&quot; /&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>observable boolean</td>
+      <td>undefined</td>
+      <td>should a validating message me shown</td>
+    </tr>
+    <tr>
+      <td>validating</td>
+      <td>html string | observable html string</td>
+      <td>checking availability...</td>
+      <td>HTML to be displayed when value is true</td>
+    </tr>
+    <tr>
+      <td>valid</td>
+      <td>html string | observable html string</td>
+      <td>available</td>
+      <td>HTML to be displayed when value is valid</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="console" class="pl-section">
+<h3><code>console</code></h3>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  Prints the object out on the console. should only be used when debuging.
+</p>
+<pre>
+  <code class="html">
+&lt;!-- ko console: value --&gt;&lt;!-- /ko --&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>any | observable any</td>
+      <td>undefined</td>
+      <td>the object that is passed to console.log</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="empty" class="pl-section">
+<h3><code>empty</code></h3>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  This is short hand for an if binding that looks at length
+</p>
+<pre>
+  <code class="html">
+&lt;!-- ko empty: value --&gt;
+There are no items
+&lt;!-- /ko --&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>array | observable array</td>
+      <td>undefined</td>
+      <td>If there are no items in the value the contents are shown</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="fadeSlide" class="pl-section">
+<h3><code>fadeSlide</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  When the value is true the element will be slide down at the same time it is faded in. When the
+  value is false the element is slide up and faded out.
+</p>
+<pre>
+  <code class="html">
+&lt;div data-bind=&quot;fadeSlide: trueFalseObservable&quot; /&gt;
+&lt;!-- with options --&gt;
+&lt;div data-bind=&quot;fadeSlide: { visible: trueFalseObservable }&quot; /&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>visible</td>
+      <td>observable boolean</td>
+      <td>false</td>
+      <td>Should the element be visible</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>number</td>
+      <td>300</td>
+      <td>number of milliseconds for the animation to complete</td>
+    </tr>
+    <tr>
+      <td>afterAnimation</td>
+      <td>function</td>
+      <td>undefined</td>
+      <td>Will be called after the slide fade animations completes</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="fadeSlideTemplate" class="pl-section">
+  <h3><code>fadeSlideTemplate</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Works just like the <a href="http://knockoutjs.com/documentation/template-binding.html">knockout template binding</a>
+    but will fade and slide in changes in templates. Note that this only happens on changes to the template name and does
+    not happen on the first render.
+  </p>
+  <pre>
+    <code class="html">
+  &lt;li data-bind=&quot;fadeSlideTemplate: templateName&quot;&gt;&lt;li/&gt;
+  &lt;!-- with options --&gt;
+  &lt;li data-bind=&quot;fadeSlideTemplate: { name: templateName, data: model.user }&quot;&gt;&lt;li/&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <p>
+    Supports all the options of the <a href="http://knockoutjs.com/documentation/template-binding.html">knockout template binding</a>
+  </p>
+</section>
+
+<section id="fadeVisible" class="pl-section">
+<h3><code>fadeVisible</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  When the value is true the element will be faded in. When the value is false the element
+  faded out.
+</p>
+<pre>
+  <code class="html">
+&lt;div data-bind=&quot;fadeVisible: trueFalseObservable&quot; /&gt;
+&lt;!-- with options --&gt;
+&lt;div data-bind=&quot;fadeVisible: { visible: trueFalseObservable }&quot; /&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>visible</td>
+      <td>observable boolean</td>
+      <td>false</td>
+      <td>Should the element be visible</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>number</td>
+      <td>300</td>
+      <td>number of milliseconds for the animation to complete</td>
+    </tr>
+    <tr>
+      <td>afterAnimation</td>
+      <td>function</td>
+      <td>undefined</td>
+      <td>Will be called after the fade animation completes</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="href" class="pl-section">
+
+<h3><code>href</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  This is short hand for an attr binding that sets the href attribut
+</p>
+<pre>
+  <code class="html">
+&lt;a data-binding=&#39;href: model.url&#39;&gt;&lt;/a&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>string | observable string</td>
+      <td>undefined</td>
+      <td>url to place in the href</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="indeterminate" class="pl-section">
+  <h3><code>indeterminate</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Allows you to set an indeterminate state to a checkbox or radio button, which can only be done
+    programmatically.
+  </p>
+  <pre>
+    <code class="html">
+&lt;input type=&#39;cehckbox&#39; data-binding=&#39;indeterminate: model.isIndeterminate&#39;&gt;&lt;/input&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>boolean | observable boolean</td>
+        <td>false</td>
+        <td>should the element be marked as indeterminate</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="templateSwitcher" class="pl-section">
+
+<h3><code>templateSwitcher</code></h3>
+<h4>Supports Virtual Elements: YES</h4>
+<p>
+  Will switch out templates based on the value, loading, and error properties. This saves you from
+  having to write a bunch of if logic to pick the template you want to display. This binding is
+  heavily used in the listview control
+</p>
+<pre>
+  <code class="html">
+&lt;div data-bind=&#39;templateSwitcher: { value: ArrayOrObject, loading: loadingProp, error: hasRequestErrored, templates :{ display:&quot;templateName&quot;} }&#39;&gt;&lt;/div&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>any | observable any</td>
+      <td>undefined</td>
+      <td>value that will be passed to the display template</td>
+    </tr>
+    <tr>
+      <td>loading</td>
+      <td>boolean | observable boolean</td>
+      <td>false</td>
+      <td>when true the loading template is displayed</td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>boolean | observable boolean</td>
+      <td>false</td>
+      <td>when true the error template is displayed</td>
+    </tr>
+    <tr>
+      <td>templates.display</td>
+      <td>string | observable string</td>
+      <td>undefined</td>
+      <td>will be called with value if error and loading are false</td>
+    </tr>
+    <tr>
+      <td>templates.empty</td>
+      <td>string | observable string</td>
+      <td>cyclops.templateSwitcherEmptyTemplate</td>
+      <td>if value is an array and it is empty this template will be called</td>
+    </tr>
+    <tr>
+      <td>templates.loading</td>
+      <td>string | observable string</td>
+      <td>cyclops.templateSwitcherLoadingTemplate</td>
+      <td>will be called when loading is true</td>
+    </tr>
+    <tr>
+      <td>templates.error</td>
+      <td>string | observable string</td>
+      <td>cyclops.templateSwitcherErrorTemplate</td>
+      <td>will be called when error is true</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="title" class="pl-section">
+  <h3><code>Title</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Set the title attribute of the element. This is just shorthand for the <code>attr</code> binding.
+  </p>
+  <pre>
+    <code class="html">
+&lt;span data-binding=&#39;title: model.helpfulTitle&#39;&gt;&lt;/sapn&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>string | observable string</td>
+        <td>false</td>
+        <td>The text to use as the title</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="scrollTo" class="pl-section">
+  <h3><code>scrollTo</code></h3>
+  <h4>Supports Virtual Elements: NO</h4>
+  <p>
+    Should the element be scrolled into view.
+  </p>
+  <pre>
+    <code class="html">
+&lt;span data-binding=&#39;scrollTo: model.isCurrentItem&#39;&gt;&lt;/sapn&gt;
+    </code>
+  </pre>
+  <h4>Options</h4>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>boolean | observable boolean</td>
+        <td>false</td>
+        <td>if true the item will be scrolled to in the browser</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="validationMsg" class="pl-section">
+
+<h3><code>validationMsg</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  Same as the knockout-validation validationMessage binding but has a nice animation when displaying
+  or hiding the message.
+</p>
+<pre>
+  <code class="html">
+&lt;p data-bind=&quot;validationMsg: someValue&quot; /&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>any | observable any</td>
+      <td>undefined</td>
+      <td>value that is being validated</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section id="widget" class="pl-section">
+
+<h3><code>widget</code></h3>
+<h4>Supports Virtual Elements: NO</h4>
+<p>
+  Creates jQuery widgets based on the name and options passed in.  This is relatively expensive
+  so it should be used with caution but it can be very handy. Technically it doesn’t have to be a
+  jQuery widget just a function that hangs off a dom node but it works best when it follows the
+  jQuery widget conventions.
+</p>
+<pre>
+  <code class="html">
+    &lt;input type=&quot;submit&quot; value=&quot;OK&quot; data-bind=&#39;widget: &quot;button&quot;&#39; /&gt;
+    &lt;!-- with options --&gt;
+    &lt;input id=&#39;search&#39; data-bind=&#39;widget: { name: &quot;autocomplete&quot;, options: { source: searchCompletions(), delay: 500 } }, value: searchString&#39; /&gt;
+    &lt;!-- enable or disable --&gt;
+    &lt;input id=&#39;search&#39; data-bind=&#39;widget: { name: &quot;autocomplete&quot;, disabled: trueyOrFalsey, value: searchString&#39; /&gt;
+  </code>
+</pre>
+<h4>Options</h4>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string | observable string</td>
+      <td>undefined</td>
+      <td>name of the widget or function</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>boolean | observable boolean</td>
+      <td>false</td>
+      <td>calls the widgets disable funtion</td>
+    </tr>
+    <tr>
+      <td>enabled</td>
+      <td>boolean | observable boolean</td>
+      <td>false</td>
+      <td>calls the widgets disable funtion with false and wires everything back up</td>
+    </tr>
+    <tr>
+      <td>options</td>
+      <td>any | observable any</td>
+      <td>empty object</td>
+      <td>any options for the widget</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>

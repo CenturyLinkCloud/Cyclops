@@ -1,0 +1,946 @@
+{{#contentFor "title"}}Knockout Components | Code{{/contentFor}}
+{{#contentFor "tabName"}}knockoutComponents{{/contentFor}}
+{{!< layouts/code.html}}
+
+<h1 class="content-header">Knockout Components</h1>
+<p>
+  To make complex markup and interactions easy to consume cyclops takes advantage of a feature of
+  knockoutJS called components. This allows the use of custom HTML elements that contain there
+  set of templates and view models that are rendered at runtime. This makes consuming types of
+  things much easier. For more information on how components work please see the
+  <a href="http://knockoutjs.com/documentation/component-overview.html">Knockout Documentation</a>.
+</p>
+<section id="accountSwitcher" class="pl-section">
+  <h3><code>account-switcher</code></h3>
+  <p>
+    The account assumes that the shape of the data passed to it matches closely what the v2 APIs
+    return, for more information you can see the assumed account properties section below.
+  </p>
+  <p>
+    The <code>currentAccountAlias</code> property is used to notify your app that the user requested
+    an account impersaonation. Listen to changes to this property and refresh the page data approperiately.
+  </p>
+  <pre>
+    <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    &lt;account-switcher params=&quot;{accounts: accounts, currentAccountAlias: currentAccountAlias}&quot;&gt;&lt;/account-switcher&gt;
+    &lt;nav class=&quot;navbar navbar-inverse navbar-static-top&quot;&gt;...&lt;/nav&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>accounts</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The account hierarchy returned from the v2 API</td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to show a loading state while waiting for account list or current account to return</td>
+      </tr>
+      <tr>
+        <td>currentAccountAlias</td>
+        <td>string | Observable string</td>
+        <td>None (Required)</td>
+        <td>Will be set to the selected account. You can use this to set the starting account as well</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Account Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>accountAlias</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The account alias (4 characters)</td>
+      </tr>
+      <tr>
+        <td>businessName</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The display name for the account</td>
+      </tr>
+      <tr>
+        <td>primaryDataCenter</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The primary Data Center of the account</td>
+      </tr>
+      <tr>
+        <td>subAccounts</td>
+        <td>Array | observableArray</td>
+        <td>yes</td>
+        <td>A list of sub accounts for that account</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./navigation.html#accountSwitcher">On a page</a>
+    </li>
+  </ul>
+</section>
+
+
+<section id="mainNav" class="pl-section">
+  <h3><code>main-nav</code></h3>
+  <p>
+    The <code>main-nav</code> is designed to be the primary means of navigating between multiple
+    smaller applications &mdash; sometimes referred to as &ldquo;satellite apps&rdquo; &mdash; but gives the appearance of a single application or unified experience to the user. Satellite  apps should not insert items into this menu, rather they should be using the local navigation model. It is of note that currently only one level of nesting is supported.
+  </p>
+  <p>
+    The <code>main-nav</code> assumes that the shape of the data passed to it matches with what is return from the control navigation API. The assumed properties are displayed below.
+  </p>
+  <pre>
+    <code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;cyclops&quot;&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;
+    &lt;account-switcher params=&quot;{...}&quot;&gt;&lt;/account-switcher&gt;
+    &lt;nav class=&quot;navbar navbar-inverse navbar-static-top&quot;&gt;...&lt;/nav&gt;
+    &lt;main-nav params=&quot;menus: menus, selectedItemId: selectedItemId, loading: loading, error: error&quot;&gt;&lt;/main-nav&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>menus</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The list of menu items</td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to show a loading state while waiting for menus to return</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to show a failed state when menus cannot be loaded</td>
+      </tr>
+      <tr>
+        <td>selectedItemId</td>
+        <td>string | Observable string</td>
+        <td>None (Required)</td>
+        <td>Which menu item should be highlighted as the current page.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Menu Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string </td>
+        <td>yes</td>
+        <td>Unique id used when selecting the current item</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The name of the menu</td>
+      </tr>
+      <tr>
+        <td>iconId</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>icon to be displayed</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>location to navigate to if the menu contains not flyout menus</td>
+      </tr>
+      <tr>
+        <td>items</td>
+        <td>array | observableArray</td>
+        <td>no</td>
+        <td>An array of menu flyout items</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Menu Flyout Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string </td>
+        <td>yes</td>
+        <td>Unique id used when selecting the current item</td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The name of the flyout</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The locaiton to navigate to</td>
+      </tr>
+      <tr>
+        <td>flag</td>
+        <td>string</td>
+        <td>no</td>
+        <td>Text to be displayed in the ribbon. Currently 'new' or 'beta'</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./navigation.html#mainNav">On a page</a>
+    </li>
+  </ul>
+</section>
+
+
+<section id="pane" class="pl-section">
+  <h3><code>pane</code></h3>
+  <p>
+    The pane has simple built-in tree view functionality, but can be overwritten by passing template names. This allows developers the option to customize the look and behavior of the pane.
+  </p>
+  <div class="alert alert-info">
+    Note, the <code>selectedItemId</code> property is a one-way binding, meaning it is never updated by the component itself. All "leaves" in a pane tree view are assumed to support deep linking and “right click > open in new tab”. Essentially, this means that each leaf have an anchor tag &mdash; the app tells the pane what should be shown as “selected”.
+  </div>
+  <pre>
+    <code class="html">
+&lt;pane params=&quot;{items: items, selectedItemId: selectedItemId}&quot;&gt;&lt;/pane&gt;
+&lt;main&gt;&lt;!--body content of the page--&gt;&lt;/main&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>items</td>
+        <td>Array | ObservableArray</td>
+        <td>None (Required)</td>
+        <td>The items to show in the pane</td>
+      </tr>
+      <tr>
+        <td>itemTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneItem'</td>
+        <td>Template id for displaying one item. The original item is wrapped by the
+          <a href="https://github.com/CenturyLinkCloud/Cyclops/blob/master/src/scripts/models/paneViewModel.coffee"><code>PaneItemViewModel</code></a>
+          who then exposes the original item as a property called <code>rawItem</code>. This can be used to access additional
+          information in your custom template.
+        </td>
+      </tr>
+      <tr>
+        <td>itemFilteredTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneItemFiltered'</td>
+        <td>Template id for displaying one item when filtering is applied. The original item is wrapped by the
+          <a href="https://github.com/CenturyLinkCloud/Cyclops/blob/master/src/scripts/models/paneViewModel.coffee"><code>PaneItemViewModel</code></a>
+          who then exposes the original item as a property called <code>rawItem</code>. This can be used to access additional
+          information in your custom template.</td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>boolean | observable boolean</td>
+        <td>false</td>
+        <td>Should show loading tempalte</td>
+      </tr>
+      <tr>
+        <td>loadingTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneItemsLoading'</td>
+        <td>loading template to use</td>
+      </tr>
+      <tr>
+        <td>emptyTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneEmpty'</td>
+        <td>empty template to use</td>
+      </tr>
+      <tr>
+        <td>headerTemplateName</td>
+        <td>string</td>
+        <td>'cyclops.paneHeader'</td>
+        <td>Header template to use</td>
+      </tr>
+      <tr>
+        <td>searchComparer</td>
+        <td>function(item, query)</td>
+        <td>compares on case-insensative name property</td>
+        <td>Called for each item to determine if it meets the filter/search criteria</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Assumed Item Properties</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string</td>
+        <td>yes</td>
+        <td>ID for the item used when compared to <code>selectedItemId</code></td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The display name for the item</td>
+      </tr>
+      <tr>
+        <td>href</td>
+        <td>string | observable string</td>
+        <td>yes</td>
+        <td>The value of the anchor tag</td>
+      </tr>
+      <tr>
+        <td>icons</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>An Array of icon IDs to display for the item</td>
+      </tr>
+      <tr>
+        <td>statusClass</td>
+        <td>string | observable string</td>
+        <td>no</td>
+        <td>class applied to status bar on left of pane item</td>
+      </tr>
+      <tr>
+        <td>items</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>Subitems of that item</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./navigation.html#paneTreeView">On a page</a>
+    </li>
+  </ul>
+</section>
+
+<section id="groupPicker" class="pl-section">
+  <h3><code>group-picker</code></h3>
+  <p>
+    The group picker assumes that the shape of the data passed to it matches closely what the
+    v2 APIs return, for more information you can see the assumed properties section below.
+  </p>
+  <p>
+    If validation is required it should be performed on the <code>selectedGroup</code> property
+    that was passed into the component and the error message displayed bellow using the standard
+    <code>validationMsg</code> binding.
+  </p>
+  <pre>
+    <code class="html">
+&lt;form id=&quot;formGroupPicker&quot; class=&quot;form-horizontal&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;Select a Group&lt;/label&gt;
+      &lt;div class=&quot;col-sm-9&quot;&gt;
+        &lt;group-picker params=&quot;{ selectedGroup: selectedGroup, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Groups</td>
+        <td>Array | ObservableArray</td>
+        <td>empty array</td>
+        <td>The list of groups, see bellow to see the require property names</td>
+      </tr>
+      <tr>
+        <td>selectedGroup</td>
+        <td>group | Observable group</td>
+        <td>undefined</td>
+        <td>Will be set to the selected group. You can use this to set the starting selected group as well</td>
+      </tr>
+      <tr>
+        <td>isLoading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to decided if the loading message should be shown</td>
+      </tr>
+      <tr>
+        <td>loadingHtmlMessage</td>
+        <td>html | Observable html</td>
+        <td>Fetching Groups&amp;hellip;</td>
+        <td>Message displayed when isLoading is true</td>
+      </tr>
+      <tr>
+        <td>emptyHtmlMessage</td>
+        <td>html | Observable html</td>
+        <td>No Groups</td>
+        <td>Message displayed when isLoading is false, and groups is empty</td>
+      </tr>
+      <tr>
+        <td>shouldShow</td>
+        <td>function </td>
+        <td>only display group type default</td>
+        <td>the default implementation looks at group type and only displays groups that have type 'default' or not type at all.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Assumed Group Properties</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>string | Observable string</td>
+        <td>yes</td>
+        <td>name to be displayed</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>string | Observable string</td>
+        <td>no</td>
+        <td>if present it is used as the title for the row</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>string | Observable string</td>
+        <td>maybe</td>
+        <td>if using the default <code>shouldShow</code> function type is required</td>
+      </tr>
+      <tr>
+        <td>groups</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>sub groups if not present it is assumed there are none</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./forms.html#groupPicker">In a form</a>
+    </li>
+  </ul>
+</section>
+
+<section id="serverPicker" class="pl-section">
+  <h3><code>server-picker</code></h3>
+  <p>
+    The server picker assumes that the shape of the data passed to it matches closely what the
+    v2 APIs return, for more information you can see the assumed properties section below.
+    The component has both single and multi select functionality.
+  </p>
+  <pre>
+    <code class="html">
+&lt;form id=&quot;formServerPicker&quot; class=&quot;form-horizontal&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label class=&quot;col-sm-3 control-label&quot;&gt;server(s)&lt;/label&gt;
+      &lt;div class=&quot;col-sm-9&quot;&gt;
+        &lt;server-picker params=&quot;{ selectedServers: selectedServers, multiSelect: multiSelect, isLoading: isLoading, groups: groups}&quot;&gt;&lt;/group-picker&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+    </code>
+  </pre>
+
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Groups</td>
+        <td>Array | ObservableArray</td>
+        <td>empty array</td>
+        <td>The list of groups, see bellow to see the require property names</td>
+      </tr>
+      <tr>
+        <td>selectedServers</td>
+        <td>Array | ObservableArray</td>
+        <td>Empty Array</td>
+        <td>Will be set to the selected servers. You can use this to set the starting selected servers as well</td>
+      </tr>
+      <tr>
+        <td>isLoading</td>
+        <td>boolean | Observable boolean</td>
+        <td>false</td>
+        <td>Used to decided if the loading message should be shown</td>
+      </tr>
+      <tr>
+        <td>loadingHtmlMessage</td>
+        <td>html | Observable html</td>
+        <td>Fetching Groups&amp;hellip;</td>
+        <td>Message displayed when isLoading is true</td>
+      </tr>
+      <tr>
+        <td>emptyHtmlMessage</td>
+        <td>html | Observable html</td>
+        <td>No Groups</td>
+        <td>Message displayed when isLoading is false, and groups is empty</td>
+      </tr>
+      <tr>
+        <td>multiSelect</td>
+        <td>boolean | Observable boolean</td>
+        <td>true</td>
+        <td>Allow more than one server to be selected</td>
+      </tr>
+      <tr>
+        <td>getServerIcon</td>
+        <td>function </td>
+        <td></td>
+        <td>the default implementation looks at server state and shows default icons</td>
+      </tr>
+      <tr>
+        <td>shouldShowGroup</td>
+        <td>function </td>
+        <td></td>
+        <td>the default implementation looks at group type and only displays groups that have type 'default' or not type at all.</td>
+      </tr>
+      <tr>
+        <td>getGroupTitle</td>
+        <td>function </td>
+        <td></td>
+        <td>the default implementation returns group description.</td>
+      </tr>
+      <tr>
+        <td>getServerTitle</td>
+        <td>function </td>
+        <td></td>
+        <td>the default implementation returns server description.</td>
+      </tr>
+      <tr>
+        <td>isServerSelectable</td>
+        <td>function </td>
+        <td></td>
+        <td>the default implementation returns true for all servers.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Assumed Group Properties</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>string | Observable string</td>
+        <td>yes</td>
+        <td>name to be displayed</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>string | Observable string</td>
+        <td>no</td>
+        <td>if present it is used as the title for the row</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>string | Observable string</td>
+        <td>maybe</td>
+        <td>if using the default <code>shouldShowGroup</code> function type is required</td>
+      </tr>
+      <tr>
+        <td>groups</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>sub groups if not present it is assumed there are none</td>
+      </tr>
+      <tr>
+        <td>servers</td>
+        <td>Array | observableArray</td>
+        <td>no</td>
+        <td>servers in that group if not present it is assumed there are none</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Assumed Server Properties</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>string | Observable string</td>
+        <td>Maybe</td>
+        <td>name to be displayed, required only if displayName is not present</td>
+      </tr>
+      <tr>
+        <td>displayName</td>
+        <td>string | Observable string</td>
+        <td>yes</td>
+        <td>friendly name to be displayed</td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td>string | Observable string</td>
+        <td>yes</td>
+        <td>used as the default title arrtibute</td>
+      </tr>
+      <tr>
+        <td>state</td>
+        <td>string | Observable string</td>
+        <td>maybe</td>
+        <td>used by the default <code>getServerIcon</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./forms.html#serverPicker">In a form</a>
+    </li>
+  </ul>
+</section>
+
+<section id="showPassword" class="pl-section">
+  <h3><code>show-password</code></h3>
+  <p>
+    A control to show a password. After <code>15 seconds</code>, it will automatically hide itself.
+  </p>
+  <pre>
+    <code class="html">
+&lt;ul class=&quot;list-info&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;info-label&quot;&gt;password&lt;/div&gt;
+    &lt;div class=&quot;info-value&quot;&gt;
+      &lt;show-password params=&quot;getPassword: getPassword&quot;&gt;&lt;/show-password&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+  </pre>
+  <p>
+    The <code>getPassword</code> may return either a <code>string</code> or <code>JSON</code> with
+    a <code>password</code> property on it. Additional it may return a deferred, e.g. the object
+    returned from the jQuery AJAX call. In the case that a deferred is returned the control will
+    show a loading state until the deferred is resolved and if the deferred is rejected a retry
+    state is shown.
+  </p>
+  <h4>Parameters (params)</h4>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>getPassword</td>
+          <td>function</td>
+          <td>Yes</td>
+          <td>None</td>
+          <td>A function to be called when the user wants to display
+            the password. See bellow to see allowed return types</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h4>Expected return types for <code>getPassword</code></h4>
+  <ul>
+    <li>a string - <code>'thepassword'</code></li>
+    <li>a object - <code>{ password: 'thepassword' }</code></li>
+    <li>
+      a jQuery Deffered  - <code>$.get('api.ctl.io/getPassword')</code>
+    </li>
+  </ul>
+  <p>
+    In the case that a deferred is returned the control will
+    show a loading state until the deferred is resolved and if the deferred is rejected a retry
+    state is shown.
+  </p>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./components.html#showPassword">In a property list</a>
+    </li>
+  </ul>
+</section>
+<section id="slider" class="pl-section">
+  <h3><code>slider</code></h3>
+  <p>
+    Some common sizes of slider, basically CPU, Memory, and Disks. Not that the tick marks do not show (even if forced to true) for anything over 128. This was a design choice.
+  </p>
+  <p>
+    In general it would be best practice to also pass in
+    <strong>`maxBound`</strong> and
+    <strong>`minBound`</strong> set to the platforms maximum allowable values to void issues whens limits have been set. See the above 'complex example' for more details.
+  </p>
+  <pre>
+    <code class="html">
+&lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
+&lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
+&lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
+    </code>
+  </pre>
+
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>number | Observable number</td>
+        <td>min value</td>
+        <td>value selected</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>Boolean | Observable Boolean</td>
+        <td>false</td>
+        <td>Is the control disabled</td>
+      </tr>
+      <tr>
+        <td>min</td>
+        <td>number | Observable number</td>
+        <td>1</td>
+        <td>minimum allowed value</td>
+      </tr>
+      <tr>
+        <td>minBound</td>
+        <td>number | Observable number</td>
+        <td>min value</td>
+        <td>Used when globally allowable values are less then current allowed values.</td>
+      </tr>
+      <tr>
+        <td>max</td>
+        <td>number | Observable number</td>
+        <td>128</td>
+        <td>maximun allowed value</td>
+      </tr>
+      <tr>
+        <td>maxBound</td>
+        <td>number | Observable number</td>
+        <td>min value</td>
+        <td>Used when globally allowable values are more then current allowed values.</td>
+      </tr>
+      <tr>
+        <td>shouldShowTicks</td>
+        <td>Boolean | Observable Boolean</td>
+        <td>true</td>
+        <td>show ticks above the slider, Ignored if there is more than 32 steps</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./forms.html#sliders">In a form</a>
+    </li>
+  </ul>
+</section>
+
+<section id="toggle" class="pl-section">
+  <h3><code>toggle</code></h3>
+  <pre>
+    <code class="html">
+  &lt;toggle params=&quot;value: value, disabled: disabled, affirmativeText: 'yes', negativeText: 'no'&quot;&gt;&lt;/toggle&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>Boolean | Observable Boolean</td>
+        <td>false</td>
+        <td>The value of the control true for affirmative and false for negative</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>Boolean | Observable Boolean</td>
+        <td>false</td>
+        <td>Is the control disabled</td>
+      </tr>
+      <tr>
+        <td>affirmativeText</td>
+        <td>String | Observable String</td>
+        <td>yes</td>
+        <td>Text displayed when the value is true</td>
+      </tr>
+      <tr>
+        <td>negativeText</td>
+        <td>String | Observable String</td>
+        <td>no</td>
+        <td>Text displayed when the value is false</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./forms.html#toggle">In a form</a>
+    </li>
+  </ul>
+</section>
+
+<section id="dateTimePicker" class="pl-section">
+  <h3><code>date-time-picker</code></h3>
+  <pre>
+    <code class="html">
+&lt;date-time-picker params=&quot;dateTime: myDateTime&quot;&gt;&lt;/date-time-picker&gt;
+    </code>
+  </pre>
+  <h4>params</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>dateTime</td>
+        <td>moment | Observable moment</td>
+        <td>Curent DateTime + 1 Day</td>
+        <td>The date and time including utc offset</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Examples</h4>
+  <ul>
+    <li>
+      <a href="./forms.html#dateTimePicker">In a form</a>
+    </li>
+  </ul>
+</section>

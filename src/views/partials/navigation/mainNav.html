@@ -1,0 +1,50 @@
+<section class="pl-section" id="mainNav">
+  <h3>
+    <a href="#mainNav">Main Navigation</a>
+    <a href="./knockoutComponents.html#mainNav"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg><span class="sr-only">api documentation</span></a></h3>
+  </h3>
+
+  <p>
+    The <code>&lt;main-nav&gt;</code> is the primary navigation of a Cyclops-based application. It supports a simple two level system of navigation. For more information see
+    the <a href="./knockoutComponents.html#mainNav">API documentation</a>.
+  </p>
+  <p>
+    Responsive behavior is built in, so at narrow viewports (portrait tablet or mobile device)
+    the links will collapse into an icon-based menu. At wide viewports, the icon and label will be
+    adjacent instead of stacked.
+  </p>
+
+  <div class="pl-example">
+    <p>
+      In the iframe below, the main-nav is the menu bar on the left (Dashboard, Creat,
+      Infrastructure, Network&hellip;)
+    </p>
+    <iframe src="./starterPages/basic.html"></iframe>
+    <p>
+      <a href="./starterPages/basic.html">Open Example Page</a>
+    </p>
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;main-nav role=&quot;navigation&quot; params=&quot;menus: menus, loading: loading, error: error, selectedItemId: selectedItemId&quot;&gt;&lt;/main-nav&gt;
+    </code>
+    <code class="javascript">
+$(function(){
+  ko.applyBindings({
+    menus: [
+      {
+        id: "home",
+        name: 'Dashboard',
+        iconId: '#icon-home',
+        href: '#'
+      },
+      {...}
+    ],
+    self.loading = ko.observable(false);
+    self.error = ko.observable(false);
+    self.selectedItemId = ko.observable('infrastructure');
+  });
+});
+    </code>
+  </pre>
+</section>

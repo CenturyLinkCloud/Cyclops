@@ -1,0 +1,34 @@
+<section class="pl-section" id="paneTreeView">
+  <h3>
+    <a href="#paneTreeView">Pane Tree View</a>
+    <a href="./knockoutComponents.html#pane"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg><span class="sr-only">api documentation</span></a></h3>
+  </h3>
+
+  <p>The Pane Tree View provides a way to navigate hierarchical entities with expand/collapse and filtering functionality built-in. It begins collapsed in mobile views, with a toggle button to expand. On desktop or tablets views, the pane tree view begins in a vertical orientation on the left side of the viewport. It expects an object of items (e.g. groups and servers, appfog spaces and apps) and a selected item to highlight the selected item in the tree view.</p>
+
+  <p>To add a pane tree view to a page, use the custom <code>&lt;pane&gt;...&lt;/pane&gt;</code> html component and apply the bindings. Immediately preceding the <code>&lt;pane&gt;</code>, use <code>&lt;main&gt;&lt;div class=&quot;container-fluid&quot;&gt;...&lt;/div&gt;&lt;/main&gt;</code> to wrap the page body content. This will apply proper spacing and margin between the pane and the body content.</p>
+
+  <div class="alert alert-info">The Pane Tree View provides basic functionality. The implementator is  responsible for loading data, choosing icons, etc. Please see the <a href="./knockoutComponents.html#pane">API documentation</a> for more details.</div>
+  <div class="pl-example">
+    <iframe src="./starterPages/pane.html"></iframe>
+    <p>
+      <a href="./starterPages/pane.html">Open Example Page</a>
+    </p>
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;pane params=&quot;{items: items, selectedItemId: selectedItemId}&quot;&gt;&lt;/pane&gt;
+&lt;main&gt;
+  &lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;!--body content of the page--&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+    </code>
+    <code class="javascript">
+ko.applyBindings({
+     items: ko.observableArray([...]),
+     selectedItemId: ko.observable("QA1WEBSERVER02")
+});
+    </code>
+  </pre>
+</section>

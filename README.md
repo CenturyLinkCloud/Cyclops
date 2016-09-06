@@ -5,22 +5,31 @@ For the latest release info, see the [Release section](https://github.com/Centur
 [![CenturyLink Cyclops](www/assets/img/centurylink-cyclops.png)](http://assets.ctl.io/)
 
 # CYCLOPS
-The UI/UX Pattern Guide for the CenturyLink Platform. View the latest version of Cyclops here: http://assets.ctl.io/
+
+The UI/UX Pattern Guide for the CenturyLink Platform. View the latest version of
+Cyclops here: http://assets.ctl.io/
 
 ## Get Started
-Include the built cyclops javaScript and CSS files as well as the dependencies listed below. Add `.cyclops` to the `html` tag to properly scope the styles. This allows Cyclops to override any existing styles that have been defined by legacy markup. Documentation for cyclops can be viewed by running the development server `gulp dev`
 
+Include the built cyclops javaScript and CSS files as well as the dependencies
+listed below. Add `.cyclops` to the `html` tag to properly scope the styles.
+This allows Cyclops to override any existing styles that have been defined by
+legacy markup. Documentation for Cyclops can be viewed by running the development
+server `gulp dev`.
 
 ## Developing Cyclops
 
 ```
-npm install coffee-script -g
+npm install -g coffee-script
 npm install
 gulp dev
 ```
 
-## Creating a Release/Build
-Releases are placed in the `dist` folder at the root of the project inside of a version number folder. The version number is pulled from `package.json`
+## Creating a Release/Build for Distribution
+
+Releases are placed in the `dist` folder at the root of the project inside of a
+version number folder. The version number is pulled from `package.json`.
+
 ```
 gulp dist
 ```
@@ -62,6 +71,7 @@ Many of the icons in the SVG icon library are based off of the work done by [Fon
 Code and documentation is released under the [MIT license](https://github.com/CenturyLinkCloud/Cyclops/blob/master/LICENSE).
 
 ### NOTE
+
 Cyclops uses several 3rd party libraries, a list of which can be viewed in the [package.json](https://github.com/CenturyLinkCloud/Cyclops/blob/master/package.json) file, please review each of their license and user agreements as well.
 
 ---
