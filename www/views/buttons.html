@@ -75,6 +75,53 @@
         </code>
       </pre>
 
+      <h3 id="buttonsWithIcons">Buttons with Icons</h3>
+      <p><a href="./icons.html">Svg icons</a> maybe placed within a <code>button</code> or <code>a</code> tag, and will be automatically sized based on the button size specified.</p>
+
+      <div class="pl-example">
+        {{> buttons/buttons-with-icons}}
+      </div>
+      <pre>
+        <code class="html">
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+        </code>
+      </pre>
+
+      <h3 id="iconButtons">Icon Buttons</h3>
+      <p>To use an <a href="./icons.html">svg icon</a> as a button, wrap the <code>&lt;svg&gt;</code> with <code>&lt;button&gt;</code> and apply <code>.btn</code> and <code>.btn-*</code> to apply the approprite fill color. Icon buttons may also be sized using <code>.btn-sm</code> and <code>.btn-lg</code>.</p>
+
+      <div class="pl-example">
+        {{> buttons/icon-buttons}}
+      </div>
+      <pre>
+        <code class="html">
+&lt;!-- small grey x icon button --&gt;
+&lt;button class=&quot;btn btn-default btn-sm btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- default sized green x icon button --&gt;
+&lt;button class=&quot;btn btn-primary btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- large red x icon button --&gt;
+&lt;button class=&quot;btn btn-danger btn-lg btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+&lt;/button&gt;
+        </code>
+      </pre>
 
       <h3 id="dropdowns">Dropdown</h3>
       <p>
