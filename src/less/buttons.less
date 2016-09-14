@@ -90,6 +90,15 @@ fieldset[disabled] {
   }
 }
 
+.btn-icon {
+  padding: 5px 0;
+  .cyclops-icon {
+    width: @btn-icon-size-default;
+    height: @btn-icon-size-default;
+    margin-bottom: -2px;
+  }
+}
+
 .btn-default {
   background-color: @btn-default-bg;
 
@@ -113,6 +122,20 @@ fieldset[disabled] {
       color: #fff;
     }
   }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-default-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-default-bg-hover;
+      }
+    }
+  }
+
 }
 
 .btn-primary {
@@ -136,6 +159,19 @@ fieldset[disabled] {
 
     &:hover {
       color: #fff;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-primary-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-primary-bg-hover;
+      }
     }
   }
 }
@@ -162,6 +198,19 @@ fieldset[disabled] {
 
     &:hover {
       color: #fff;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-danger-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-danger-bg-hover;
+      }
     }
   }
 }
@@ -193,6 +242,19 @@ fieldset[disabled] {
 
   .cyclops-icon use {
     fill: @text-color;
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-inverse-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-inverse-bg-hover;
+      }
+    }
   }
 }
 
@@ -298,29 +360,66 @@ fieldset[disabled] {
   &.btn-outline {
     padding: 5px 10px 8px;
   }
+
+  &.btn-icon {
+
+    padding: 0;
+    line-height: 30px;
+
+    .cyclops-icon {
+      width: @btn-icon-size-lg;
+      height: @btn-icon-size-lg;
+      margin-bottom: -6px;
+    }
+  }
+
+  .cyclops-icon {
+    width: 21px;
+    height: 21px;
+    margin-bottom: -2px;
+  }
 }
 
 .btn-sm,
 .btn-small {
   border-radius: @border-radius-small;
-  font-size: 12px;
+  font-size: @font-size-small;
   line-height: 18px;
   padding: 3px 8px 4px;
 
   &.btn-outline {
     padding: 2px 8px 3px;
   }
+
+  &.btn-icon {
+
+    padding: 3px 0;
+    line-height: 14px;
+
+    .cyclops-icon {
+      width: @btn-icon-size-sm;
+      height: @btn-icon-size-sm;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .btn-mini {
   border-radius: @border-radius-small;
-  font-size: 11px;
-  line-height: 12px;
+  font-size: @font-size-small - 1;
+  line-height: 11px;
   text-decoration: none;
   padding: 5px 7px 6px;
+  height: 23px;
 
   &.btn-outline {
     padding: 4px 7px 5px;
+  }
+
+  .cyclops-icon {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 1px;
   }
 }
 
