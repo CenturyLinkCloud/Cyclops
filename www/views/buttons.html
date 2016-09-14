@@ -101,6 +101,11 @@
       <h3 id="iconButtons">Icon Buttons</h3>
       <p>To use an <a href="./icons.html">svg icon</a> as a button, wrap the <code>&lt;svg&gt;</code> with <code>&lt;button&gt;</code> and apply <code>.btn</code> and <code>.btn-*</code> to apply the approprite fill color. Icon buttons may also be sized using <code>.btn-sm</code> and <code>.btn-lg</code>.</p>
 
+      <div class="alert alert-info">
+        <h4>Include Button Label Text for Accessibility</h4>
+        <p>Be sure to include text inside the button element for screen readers by using  <code>.sr-only</code>.</p>
+      </div>
+
       <div class="pl-example">
         {{> buttons/icon-buttons}}
       </div>
@@ -109,16 +114,19 @@
 &lt;!-- small grey x icon button --&gt;
 &lt;button class=&quot;btn btn-default btn-sm btn-icon&quot;&gt;
   &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
 &lt;/button&gt;
 
 &lt;!-- default sized green x icon button --&gt;
 &lt;button class=&quot;btn btn-primary btn-icon&quot;&gt;
   &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
 &lt;/button&gt;
 
 &lt;!-- large red x icon button --&gt;
 &lt;button class=&quot;btn btn-danger btn-lg btn-icon&quot;&gt;
   &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
 &lt;/button&gt;
         </code>
       </pre>
