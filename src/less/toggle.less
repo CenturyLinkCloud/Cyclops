@@ -3,6 +3,7 @@
   position: relative;
   width: 70px;
   height: 34px;
+//  display: inline-block;
   user-select: none;
 
   &.disabled {
@@ -27,6 +28,9 @@
   input:checked + .bug-fix {
     .text {
       margin-left: 0;
+      background-color: @brand-success;
+      border: 1px solid darken(@brand-success, 5%);
+      color: #fff;
     }
 
     .handle {
@@ -37,54 +41,49 @@
   label {
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid @border-color;
-    border-radius: @border-radius-small;
-    margin-bottom: 0;
+    margin: 0;
+    width: 70px;
+    height: 34px;
+
   }
 
   .text {
-    display: block;
-    width: 200%;
-    margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+    width: 70px;
+    height: 34px;
+    padding-top: 5px;
+    background-color: #eee;
+    border: 1px solid @border-color;
+    color: @text-color;
+    border-radius: @border-radius-base;
+//    line-height: 34px;
 
-    .affirmative,
-    .negative {
-      display: block;
-      float: left;
-      width: 50%;
-      height: 32px;
-      padding: 0;
-      line-height: 30px;
-      font-size: @font-size-regular;
-      color: #fff;
-      font-weight: @font-weight-regular;
-      text-align: center;
-    }
-
-    .affirmative {
-      padding-left: 5px;
-      background-color: @brand-success;
-      color: #fff;
-      padding-right: 30px;
-    }
-
-    .negative {
-      padding-right: 5px;
-      background-color: #eee;
-      color: #999;
-      padding-left: 30px;
-    }
+    transition: background 0.3s ease-in, border 0.3s ease-in, color .1s ease-in .1s;
   }
+
+
+  .affirmative,
+  .negative {
+    float: left;
+    width: 34px;
+    padding: 0;
+    font-size: @font-size-regular;
+    font-weight: @font-weight-regular;
+    text-align: center;
+  }
+
+  .negative {
+    left: 34px;
+  }
+
 
   .handle {
     display: block;
-    width: 28px;
+    width: 35px;
     background: #fff;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 42px;
+    right: 35px;
     border-radius: @border-radius-small;
     border: 1px solid @border-color;
     transition: all 0.3s ease-in 0s;

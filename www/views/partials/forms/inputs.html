@@ -240,8 +240,8 @@
     </pre>
 </section>
 
-<section class="pl-section">
-  <h3 id="stackedInputs"><a href="#stackedInputs">One Label with Stacked Inputs</a></h3>
+<section class="pl-section" id="stackedInputs">
+  <h3><a href="#stackedInputs">One Label with Stacked Inputs</a></h3>
   <p>By default, inputs will automatically stack when placed in a single column.</p>
   <div class="pl-example">
     {{> forms/examples/input-stacked-inputs }}
@@ -267,8 +267,10 @@
 &lt;/form&gt;
     </code>
   </pre>
+</section>
 
-  <h3 id="adjacentInputs"><a href="#adjacentInputs">One Label with Adjacent Inputs</a></h3>
+<section class="pl-section" id="adjacentInputs">
+  <h3><a href="#adjacentInputs">One Label with Adjacent Inputs</a></h3>
   <p>When it is more appropriate to adjacently align inputs within a <code>.col-*</code>, add a <code>.w*</code> to the <code>.form-control</code> set the width based on a percentage of the parent. Widths are avaialbe in increments of 10, starting at 10%.</p>
   <div class="pl-example">
     {{> forms/examples/input-adjacent-inputs }}
@@ -280,8 +282,20 @@
     &lt;div class=&quot;form-group&quot;&gt;
       &lt;label class=&quot;col-sm-3 control-label&quot;&gt;nodes&lt;/label&gt;
       &lt;div class=&quot;col-sm-6&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;form-control w70&quot; placeholder=&quot;ip address&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;form-control w30&quot; placeholder=&quot;port&quot;&gt;
+        &lt;label class=&quot;sr-only&quot; for=&quot;inputTextAdjacentNode1&quot;&gt;node 1&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;inputTextAdjacentNode1&quot; class=&quot;form-control w50&quot; placeholder=&quot;ip address&quot;&gt;
+        &lt;label class=&quot;sr-only&quot; for=&quot;inputTextAdjacentPort1&quot;&gt;node port 1&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;inputTextAdjacentPort1&quot; class=&quot;form-control w30 m-t-0&quot; placeholder=&quot;port&quot;&gt;
+        &lt;div class=&quot;w20&quot;&gt;
+          &lt;button class=&quot;btn btn-default btn-icon&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;sr-only&quot; for=&quot;inputTextAdjacentNode2&quot;&gt;node 1&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;inputTextAdjacentNode2&quot; class=&quot;form-control w50&quot; placeholder=&quot;ip address&quot;&gt;
+        &lt;label class=&quot;sr-only&quot; for=&quot;inputTextAdjacentPort2&quot;&gt;node port 1&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;inputTextAdjacentPort2&quot; class=&quot;form-control w30&quot; placeholder=&quot;port&quot;&gt;
+        &lt;div class=&quot;w20&quot;&gt;
+          &lt;button class=&quot;btn btn-default btn-icon&quot;&gt;&lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;&lt;/button&gt;
+        &lt;/div&gt;
         ...
         &lt;button class=&quot;btn btn-mini btn-default m-t-xs&quot;&gt;add node&lt;/button&gt;
       &lt;/div&gt;
