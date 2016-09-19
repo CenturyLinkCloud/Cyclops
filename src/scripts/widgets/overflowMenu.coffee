@@ -87,7 +87,6 @@ $.fn.overflowMenu = (options) ->
       if allInPopup
         button = $("<a role='button' href='#' title='#{s.linkTitleAll}'>#{s.linkTextAll} <svg class='cyclops-icon'><use xlink:href='#icon-caret-down'></svg></a>")
       else
-        $popup.addClass 'dropdown-menu-right'
         button = $("<a role='button' href='#' title='#{s.linkTitle}'>#{s.linkText} <svg class='cyclops-icon'><use xlink:href='#icon-caret-down'></svg></a>")
 
       button.dropdown()
