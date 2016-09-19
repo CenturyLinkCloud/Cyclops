@@ -1,33 +1,41 @@
 <nav class="navbar navbar-local navbar-local--persistent">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle collapsed">
-			<span class="icon-bar"></span>
-			Service Menu <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg>
-		</button>
-	</div>
-	<div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Service</a></li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Active Item</a></li>
-					<li><a href="#">Item</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Integrations</a></li>
-			<li class="disabled"><a href="#">Disabled</a></li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Items <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Account</a></li>
-					<li><a href="#">Billing</a></li>
-					<li><a href="#">Notifications</a></li>
-					<li><a href="#">SSH Keys</a></li>
-				</ul>
-			</li>
-		</ul>
-		<div class="navbar-right"><a href="#" class="btn btn-primary navbar-btn m-r-xs"><svg class="cyclops-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-plus-circle"></use></svg><span class="sr-only">create</span> job</a></div>
-	</div>
+	<ul class="nav navbar-nav"  data-bind="widget: 'overflowMenu'">
+		<li class="active"><a href="#">Active</a></li>
+		<!-- <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Active Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</li> -->
+		<li><a href="#">Option 1</a></li>
+		<li><a href="#">Option 2</a></li>
+		<li><a href="#">Option 3</a></li>
+		<li><a href="#">Option 4</a></li>
+		<li><a href="#">Option 5</a></li>
+		<li><a href="#">Option 6</a></li>
+		<!-- <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Items <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Account</a></li>
+				<li><a href="#">Billing</a></li>
+				<li><a href="#">Notifications</a></li>
+				<li><a href="#">SSH Keys</a></li>
+			</ul>
+		</li> -->
+	</ul>
+	<div class="action-toolbar-right"><a href="#" class="btn btn-primary navbar-btn m-r-sm"><svg class="cyclops-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-plus-circle"></use></svg><span class="sr-only">create</span> create item</a></div>
 </nav>
+
+{{#contentFor "scripts"}}
+
+<script>
+
+	$(function(){
+		ko.applyBindings({}, $('.navbar-local--persistent')[0]);
+	})
+
+</script>
+
+{{/contentFor}}
