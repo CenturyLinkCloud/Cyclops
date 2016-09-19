@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  {{> components/examples/action-toolbar }}
+  {{> components/examples/action-toolbar-right }}
   <div class="primary">
     <div class="container-fluid">
       <div class="row">
@@ -154,6 +154,7 @@
 
 
     ko.applyBindings(model, $("pane")[0]);
+    ko.applyBindings({}, $(".action-area")[0]);
   });
 </script>
 {{/contentFor}}

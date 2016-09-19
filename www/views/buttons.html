@@ -3,8 +3,8 @@
 {{!< layouts/components.html}}
 
     <h1 class="content-header">Buttons</h1>
-    <section class="pl-section">
-      <h3 id="tags">Tags</h3>
+    <section class="pl-section" id="tags">
+      <h3><a href="#tags">Tags</a></h3>
       <p>Use the button classes on <code>button</code>, <code>a</code>, and <code>input</code> elements.</p>
       <div class="pl-example">
         {{> buttons/tags }}
@@ -17,8 +17,10 @@
 &lt;input class=&quot;btn btn-default&quot; type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
         </code>
       </pre>
+    </section>
 
-      <h3 id="types">Types</h3>
+    <section class="pl-section" id="types">
+      <h3><a href="#types">Types</a></h3>
       <p>Six different button types are available for most situations.</p>
       <div class="pl-example">
         {{> buttons/types }}
@@ -33,8 +35,11 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;link&lt;/button&gt;
         </code>
       </pre>
+    </section>
 
-      <h3 id="sizes">Sizes</h3>
+    <section class="pl-section" id="sizes">
+
+      <h3><a href="#sizes">Sizes</a></h3>
       <p>Add a <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-mini</code> class for additional sizing options.</p>
       <div class="pl-example">
         {{> buttons/sizes }}
@@ -47,8 +52,10 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;btn-mini&lt;/button&gt;
         </code>
       </pre>
+    </section>
 
-      <h3 id="disabled">Disabled Buttons</h3>
+    <section class="pl-section" id="disabled">
+      <h3><a href="#disabled">Disabled Buttons</a></h3>
       <p>Adding the <code>disabled</code> attribute to a button element will disable it.</p>
       <div class="pl-example">
         {{> buttons/disabled }}
@@ -64,7 +71,10 @@
         </code>
       </pre>
 
-      <h3 id="blockLevel">Block Level Button</h3>
+    </section>
+
+    <section class="pl-section" id="blockLevel">
+      <h3><a href="#blockLevel">Block Level Button</a></h3>
       <p>Adding <code>.btn-block</code> will span the width of the button to 100% of it's parent.</p>
       <div class="pl-example">
         {{> buttons/block-level }}
@@ -74,9 +84,70 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-block&quot;&gt;btn-block&lt;/button&gt;
         </code>
       </pre>
+    </section>
 
+    <section class="pl-section" id="buttonsWithIcons">
+      <h3><a href="#buttonsWithIcons">Buttons with Icons</a></h3>
+      <p><a href="./icons.html">Svg icons</a> maybe placed within a <code>button</code> or <code>a</code> tag, and will be automatically sized based on the button size specified.</p>
 
-      <h3 id="dropdowns">Dropdown</h3>
+      <div class="pl-example">
+        {{> buttons/buttons-with-icons}}
+      </div>
+      <pre>
+        <code class="html">
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-mini&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt; add item
+&lt;/button&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section class="pl-section" id="iconButtons">
+      <h3><a href="#iconButtons">Icon Buttons</a></h3>
+      <p>To use an <a href="./icons.html">svg icon</a> as a button, wrap the <code>&lt;svg&gt;</code> with <code>&lt;button&gt;</code> and apply <code>.btn</code> and <code>.btn-*</code> to apply the approprite fill color. Icon buttons may also be sized using <code>.btn-sm</code> and <code>.btn-lg</code>.</p>
+
+      <div class="alert alert-info">
+        <h4>Include Button Label Text for Accessibility</h4>
+        <p>Be sure to include text inside the button element for screen readers by using  <code>.sr-only</code>.</p>
+      </div>
+
+      <div class="pl-example">
+        {{> buttons/icon-buttons}}
+      </div>
+      <pre>
+        <code class="html">
+&lt;!-- small grey x icon button --&gt;
+&lt;button class=&quot;btn btn-default btn-sm btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- default sized green x icon button --&gt;
+&lt;button class=&quot;btn btn-primary btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- large red x icon button --&gt;
+&lt;button class=&quot;btn btn-danger btn-lg btn-icon&quot;&gt;
+  &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-times' /&gt;&lt;/svg&gt;
+  &lt;span class=&quot;sr-only&quot;&gt;remove&lt;/span&gt;
+&lt;/button&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section class="pl-section" id="dropdowns">
+      <h3><a href="#dropdowns">Dropdown</a></h3>
       <p>
         To make a dropdown button wrap the tigger button in a container with the class
         <code>dropdown</code> and add a <code>ul</code> with class <code>dropdow-menu</code>. By
@@ -130,8 +201,10 @@ $(function(){
 })
         </code>
       </pre>
+    </section>
 
-      <h3 id="inlineTextButton">Inline Text Button</h3>
+    <section class="pl-section" id="inlineTextButton">
+      <h3><a href="#inlineTextButton">Inline Text Button</a></h3>
       <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
       <div class="pl-example">
         {{> buttons/inline-text }}
@@ -143,8 +216,8 @@ $(function(){
       </pre>
     </section>
 
-    <section class="pl-section">
-      <h3 id="inlineConfirm">Inline Confirm</h3>
+    <section class="pl-section" id="inlineConfirm">
+      <h3><a href="#inlineConfirm">Inline Confirm</a></h3>
       <p>Inline confirm is a jQuery widget that can be applied to any button that will require the
         user to confirm the action they wish to perform. Typically this is used for Delete
         scenario's but can be used other places. Use it as a pure jQuery Widget or you can use

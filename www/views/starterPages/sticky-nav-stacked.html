@@ -1,21 +1,16 @@
 {{!< ../layouts/starter-page.html}}
 
 <style>
-  @media only screen and (min-width: 768px) {
-    .nav-column {
-      position: sticky;
-      top: 0px;
-    }
+  html.cyclops .nav-column {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 10; /* @zindex-sticky-content */
   }
 </style>
 
 <main>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="content-header">Sticky Stacked Navigation Example</h2>
-      </div>
-    </div>
     <div class="row">
       <div class="col-sm-3 nav-column">
         <div class="nav nav-stacked">
@@ -29,6 +24,7 @@
         </div>
       </div>
       <div class="col-sm-9">
+        <h2 class="content-header">Sticky Stacked Navigation Example</h2>
         <h3>Scroll Down…</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vestibulum posuere risus at lacinia. Praesent convallis tincidunt porttitor. Maecenas neque sapien, malesuada sed blandit et, auctor eget tellus. Suspendisse eget sollicitudin enim, vitae porta purus. Nullam purus eros, ullamcorper et risus a, fermentum blandit dui. Aliquam lobortis est in augue luctus euismod. Nullam sem purus, egestas ac eleifend sit amet, fringilla cursus tellus. Aenean interdum elit eget lobortis posuere. In at quam mattis, placerat libero at, molestie dolor. Morbi eget sodales erat. In sem odio, malesuada vel magna in, iaculis pretium lorem. Integer rutrum tellus lectus, id porta erat feugiat eu. In vehicula nec quam eu iaculis. Duis porttitor elit a auctor auctor.</p>
         <p>Pellentesque at pharetra ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec justo mi, ultricies ac metus quis, facilisis accumsan ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus cursus placerat metus nec maximus. Duis bibendum ex eu libero rutrum, vitae tristique eros gravida. Etiam elementum gravida urna, nec tincidunt est sodales non. Vivamus sed felis egestas, accumsan mauris ut, posuere urna. Suspendisse vestibulum facilisis mauris.</p>

@@ -43,6 +43,7 @@ $.fn.overflowMenu = (options) ->
     $items = $this.find('> li')
     $firstItem = $items.first()
     $lastItem = $items.last()
+    $rightToolbar = $this.siblings '.action-toolbar-right'
     numItems = $this.find('li').length
     firstItemTop = Math.floor(($firstItem.offset() or {}).top)
     firstItemHeight = Math.floor($firstItem.outerHeight(true))
@@ -53,6 +54,11 @@ $.fn.overflowMenu = (options) ->
     allInPopup = false
     $menu = undefined
     i = undefined
+
+    if $rightToolbar
+      newWidth = $this.parent().width() - $rightToolbar.width()
+      $this.css 'margin-right', 0
+      $this.css 'width', newWidth
 
     needsMenu = ($itemOfInterest) ->
       if $itemOfInterest.length < 1

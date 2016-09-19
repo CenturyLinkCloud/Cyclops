@@ -100,6 +100,11 @@
     sure to specify the <code>top</code> property to tell the browser the point
     at which the content should become sticky when scrolling.
   </p>
+  <p>
+    <strong>Note:</strong> On IE9 and IE10, the polyfill will not register for
+    elements that have been inserted into the DOM dynamically (i.e. after initial
+    rendering).
+  </p>
   <div class="pl-example">
     <iframe src="./starterPages/sticky-nav-stacked.html"></iframe>
     <p><a href="./starterPages/sticky-nav-stacked.html">Open Example Page</a></p>

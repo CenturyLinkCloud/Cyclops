@@ -1,5 +1,59 @@
 <section class="pl-section" id="validation">
     <h3><a href="#validation">Validation</a></h3>
+
+    <p>By default, the form submit button should be enabled. Upon user submission of an incomplete or invalid form, perform inline validation by clearly marking the invalid/incomplete fields. Sample markup below shows invalid form fields, as well as a summary message that may appear just above the submit button if you the form is particularly long and the invalid field is scrolled off screen.</p>
+
+    <div class="pl-example" id="validationMessages">
+<form>
+  <div class="form-group">
+    <label for="basicFormEmail">First Name</label>
+    <input type="email" class="form-control" id="firstName">
+    <p class="validationMessage">First name is required</p>
+  </div>
+  <div class="form-group">
+    <label for="basicFormEmail">Last Name</label>
+    <input type="email" class="form-control" id="lastName">
+    <p class="validationMessage">Last name is required</p>
+  </div>
+  <div class="alert alert-danger">
+    <p>Please correct the following:</p>
+    <ul>
+      <li>First name is required</li>
+      <li>Last name is required</li>
+    </ul>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button class="btn btn-link">cancel</button>
+</form>
+    </div>
+    <pre>
+      <code class="hml">
+&lt;form&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;basicFormEmail&quot;&gt;First Name&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;firstName&quot;&gt;
+    &lt;p class=&quot;validationMessage&quot;&gt;First name is required&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;basicFormEmail&quot;&gt;Last Name&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;lastName&quot;&gt;
+    &lt;p class=&quot;validationMessage&quot;&gt;Last name is required&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;alert alert-danger&quot;&gt;
+    &lt;p&gt;Please correct the following:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;First name is required&lt;/li&gt;
+      &lt;li&gt;Last name is required&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+  &lt;button class=&quot;btn btn-link&quot;&gt;cancel&lt;/button&gt;
+&lt;/form&gt;
+      </code>
+    </pre>
+
+
+    <h4>Knockout Validation</h4>
     <p>
       We suggest using <a href="https://github.com/Knockout-Contrib/Knockout-Validation">
       knockout-validation</a> and have created several bindings and validators that
