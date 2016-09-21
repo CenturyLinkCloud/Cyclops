@@ -219,6 +219,7 @@
   padding: 0 @navbar-padding-horizontal;
   min-height: 0;
   height: 47px;
+  z-index: @zindex-nav-local-persistent;
 //  overflow: hidden;
   border: none;
   background-color: #fff;
@@ -243,7 +244,12 @@
       float: left;
       padding: 8px 0;
 
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+
       > a {
+        border-radius: 3px;
         padding: 4px 10px 6px;
       }
     }

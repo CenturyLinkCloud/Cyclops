@@ -1,6 +1,15 @@
+<style>
+
+	.navbar-local--persistent {
+		position: sticky;
+		top: 0;
+	}
+
+</style>
+
 <nav class="navbar navbar-local navbar-local--persistent">
-	<ul class="nav navbar-nav"  data-bind="widget: 'overflowMenu'">
-		<li class="active"><a href="#">Active</a></li>
+	<ul class="nav navbar-nav"  data-bind="widget: {name: 'overflowMenu', options: {cutoff: 1, linkTextAll: 'MENU'}}">
+		<li class="active"><a href="#">Products</a></li>
 		<!-- <li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
 			<ul class="dropdown-menu">
@@ -8,12 +17,10 @@
 				<li><a href="#">Item</a></li>
 			</ul>
 		</li> -->
-		<li><a href="#">Option 1</a></li>
-		<li><a href="#">Option 2</a></li>
-		<li><a href="#">Option 3</a></li>
-		<li><a href="#">Option 4</a></li>
-		<li><a href="#">Option 5</a></li>
-		<li><a href="#">Option 6</a></li>
+		<li><a href="#">Manual Jobs</a></li>
+		<li><a href="#">Schedules</a></li>
+		<li><a href="#">History</a></li>
+		<li><a href="#">Help &amp; Settings</a></li>
 		<!-- <li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Items <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
 			<ul class="dropdown-menu">
