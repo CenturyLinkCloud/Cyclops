@@ -213,6 +213,101 @@
   }
 }
 
+.navbar-local--persistent {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0 @navbar-padding-horizontal;
+  min-height: 0;
+  height: 47px;
+  z-index: @zindex-nav-local-persistent;
+//  overflow: hidden;
+  border: none;
+  background-color: #fff;
+  border-bottom: 1px solid @gray-100;
+
+  .open > a {
+    background-color: #f2f2f2;
+  }
+
+  .action-toolbar-right {
+    position: absolute;
+    right: 0;
+  }
+
+  // never collapse the nav because we use overflow binding
+  .navbar-nav {
+
+    float: left;
+    margin: 0;
+
+    > li {
+      float: left;
+      padding: 8px 0;
+
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+
+      > a {
+        border-radius: 3px;
+        padding: 4px 10px 6px;
+      }
+    }
+
+    .dropdown.overflow-menu {
+
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+
+      > li {
+        border: none;
+      }
+
+      &:hover,
+      &.open {
+        > a {
+          background-color: @nav-link-hover-bg;
+          color: @text-color;
+          border-radius: 3px;
+
+          .cyclops-icon {
+            fill: @text-color;
+          }
+        }
+
+        > .dropdown-menu {
+          position: absolute;
+          top: 114%;
+
+          > li > a {
+            border-radius: 0;
+          }
+        }
+      }
+
+    }
+
+  }
+
+
+
+  // @media (min-width: @grid-float-breakpoint) {
+  //
+  //   .navbar-nav {
+  //     margin-left: 0;
+  //     margin-top: 5px;
+  //
+  //     > li {
+  //
+  //       > a {
+  //         padding: 7px 10px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
 // Both navbar header and collapse
 //
 // When a container is present, change the behavior of the header and collapse.

@@ -1,0 +1,48 @@
+<style>
+
+	.navbar-local--persistent {
+		position: sticky;
+		top: 0;
+	}
+
+</style>
+
+<nav class="navbar navbar-local navbar-local--persistent">
+	<ul class="nav navbar-nav"  data-bind="widget: {name: 'overflowMenu', options: {cutoff: 1, linkTextAll: 'MENU'}}">
+		<li class="active"><a href="#">Products</a></li>
+		<!-- <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Active Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</li> -->
+		<li><a href="#">Manual Jobs</a></li>
+		<li><a href="#">Schedules</a></li>
+		<li><a href="#">History</a></li>
+		<li><a href="#">Help &amp; Settings</a></li>
+		<!-- <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Items <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-caret-down' /></svg></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Account</a></li>
+				<li><a href="#">Billing</a></li>
+				<li><a href="#">Notifications</a></li>
+				<li><a href="#">SSH Keys</a></li>
+			</ul>
+		</li> -->
+	</ul>
+	<div class="action-toolbar-right"><a href="#" class="btn btn-primary navbar-btn m-r-sm"><svg class="cyclops-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-plus-circle"></use></svg><span class="sr-only">create</span> create item</a></div>
+</nav>
+
+{{#contentFor "scripts"}}
+
+<script>
+
+	$(function(){
+		ko.applyBindings({}, $('.navbar-local--persistent')[0]);
+	})
+
+</script>
+
+{{/contentFor}}
