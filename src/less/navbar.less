@@ -220,7 +220,7 @@
   min-height: 0;
   height: 47px;
   z-index: @zindex-nav-local-persistent;
-//  overflow: hidden;
+  //overflow: hidden;
   border: none;
   background-color: #fff;
   border-bottom: 1px solid @gray-100;
@@ -236,7 +236,8 @@
 
   // never collapse the nav because we use overflow binding
   .navbar-nav {
-
+    height: 46px;
+    overflow: hidden;
     float: left;
     margin: 0;
 
@@ -255,7 +256,7 @@
     }
 
     .dropdown.overflow-menu {
-
+      position: absolute;
       display: inline-block;
       background-color: transparent;
       border: none;
