@@ -15,6 +15,66 @@
       display: none;
     }
   }
+
+  .overflow-menu {
+    vertical-align: inherit;
+    height: 40px;
+    position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+
+    &:hover,
+    &.open {
+      color: #fff;
+      background: @action-toolbar-dropdown-bg;
+
+      a,
+      button {
+        color: #fff;
+        background-color: @action-toolbar-dropdown-bg;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+
+     .dropdown-menu {
+       li > a,
+       li > button {
+         padding: 5px 10px;
+       }
+     }
+
+      svg {
+        fill: #fff;
+      }
+    }
+
+    .dropdown-menu {
+      color: #fff;
+      background: @action-toolbar-dropdown-bg;
+      border: 0;
+      margin-top: 0;
+      border-radius: 0;
+
+      li a,
+      li button {
+        transition: none;
+
+        &:hover {
+          background: @action-toolbar-dropdown-hover-bg;
+
+          &.disabled,
+          &:disabled {
+            background: none;
+          }
+          &.active,
+          &:active {
+            background-color: @action-toolbar-dropdown-active-bg;
+          }
+        }
+      }
+    }
+  }
 }
 
 .action-toolbar,
@@ -86,66 +146,6 @@
 
 .action-toolbar-right {
   float: right;
-}
-
-.overflow-menu {
-  vertical-align: inherit;
-  height: 40px;
-  position: absolute;
-  display: inline-block;
-  white-space: nowrap;
-
-  &:hover,
-  &.open {
-    color: #fff;
-    background: @action-toolbar-dropdown-bg;
-
-    a,
-    button {
-      color: #fff;
-      background-color: @action-toolbar-dropdown-bg;
-      width: 100%;
-      text-align: left;
-      font-size: 13px;
-    }
-
-   .dropdown-menu {
-     li > a,
-     li > button {
-       padding: 5px 10px;
-     }
-   }
-
-    svg {
-      fill: #fff;
-    }
-  }
-
-  .dropdown-menu {
-    color: #fff;
-    background: @action-toolbar-dropdown-bg;
-    border: 0;
-    margin-top: 0;
-    border-radius: 0;
-
-    li a,
-    li button {
-      transition: none;
-
-      &:hover {
-        background: @action-toolbar-dropdown-hover-bg;
-
-        &.disabled,
-        &:disabled {
-          background: none;
-        }
-        &.active,
-        &:active {
-          background-color: @action-toolbar-dropdown-active-bg;
-        }
-      }
-    }
-  }
 }
 
 .action-toolbar-confirm {

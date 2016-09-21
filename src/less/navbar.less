@@ -256,6 +256,7 @@
     }
 
     .dropdown.overflow-menu {
+
       position: absolute;
       display: inline-block;
       background-color: transparent;
@@ -279,34 +280,14 @@
 
         > .dropdown-menu {
           position: absolute;
-          top: 114%;
 
           > li > a {
             border-radius: 0;
           }
         }
       }
-
     }
-
   }
-
-
-
-  // @media (min-width: @grid-float-breakpoint) {
-  //
-  //   .navbar-nav {
-  //     margin-left: 0;
-  //     margin-top: 5px;
-  //
-  //     > li {
-  //
-  //       > a {
-  //         padding: 7px 10px;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 // Both navbar header and collapse
@@ -340,6 +321,36 @@
 
   @media (min-width: @grid-float-breakpoint) {
     border-radius: 0;
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+
+      > li > a,
+      > li > button,
+      > li > .dropdown-text,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+
+      > li > a {
+        line-height: @line-height-computed;
+
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
   }
 }
 
@@ -442,35 +453,7 @@
     line-height: @line-height-computed;
   }
 
-  @media (max-width: @grid-float-breakpoint-max) {
 
-    // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-
-      > li > a,
-      > li > button,
-      > li > .dropdown-text,
-      .dropdown-header {
-        padding: 5px 15px 5px 25px;
-      }
-
-      > li > a {
-        line-height: @line-height-computed;
-
-        &:hover,
-        &:focus {
-          background-image: none;
-        }
-      }
-    }
-  }
 
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {
