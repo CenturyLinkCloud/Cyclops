@@ -215,7 +215,7 @@
 
 .navbar-local-right {
   position: absolute;
-  right: 0;
+  right: 20px;
 }
 
 .navbar-local--persistent {
@@ -252,6 +252,29 @@
       > a {
         border-radius: 3px;
         padding: 4px 10px 6px;
+      }
+
+      &.logo {
+        margin-right: 10px;
+        border-bottom: none;
+
+        > a {
+          padding: 3px 0 0 0;
+
+          &:hover {
+            background-color: transparent;
+
+            .cyclops-icon {
+              fill: @gray-500;
+            }
+          }
+
+          .cyclops-icon {
+            width: 24px;
+            height: 24px;
+            fill: @gray-400;
+          }
+        }
       }
     }
 
