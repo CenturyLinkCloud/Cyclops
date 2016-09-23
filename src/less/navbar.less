@@ -213,6 +213,83 @@
   }
 }
 
+.navbar-local--persistent {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0 @navbar-padding-horizontal;
+  min-height: 0;
+  height: 47px;
+  z-index: @zindex-nav-local-persistent;
+  //overflow: hidden;
+  border: none;
+  background-color: #fff;
+  border-bottom: 1px solid @gray-100;
+
+  .open > a {
+    background-color: #f2f2f2;
+  }
+
+  .action-toolbar-right {
+    position: absolute;
+    right: 0;
+  }
+
+  // never collapse the nav because we use overflow binding
+  .navbar-nav {
+    height: 46px;
+    overflow: hidden;
+    float: left;
+    margin: 0;
+
+    > li {
+      float: left;
+      padding: 8px 0;
+
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+
+      > a {
+        border-radius: 3px;
+        padding: 4px 10px 6px;
+      }
+    }
+
+    .dropdown.overflow-menu {
+
+      position: absolute;
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+
+      > li {
+        border: none;
+      }
+
+      &:hover,
+      &.open {
+        > a {
+          background-color: @nav-link-hover-bg;
+          color: @text-color;
+          border-radius: 3px;
+
+          .cyclops-icon {
+            fill: @text-color;
+          }
+        }
+
+        > .dropdown-menu {
+          position: absolute;
+
+          > li > a {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Both navbar header and collapse
 //
 // When a container is present, change the behavior of the header and collapse.
@@ -244,6 +321,36 @@
 
   @media (min-width: @grid-float-breakpoint) {
     border-radius: 0;
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+
+      > li > a,
+      > li > button,
+      > li > .dropdown-text,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+
+      > li > a {
+        line-height: @line-height-computed;
+
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
   }
 }
 
@@ -346,35 +453,7 @@
     line-height: @line-height-computed;
   }
 
-  @media (max-width: @grid-float-breakpoint-max) {
 
-    // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-
-      > li > a,
-      > li > button,
-      > li > .dropdown-text,
-      .dropdown-header {
-        padding: 5px 15px 5px 25px;
-      }
-
-      > li > a {
-        line-height: @line-height-computed;
-
-        &:hover,
-        &:focus {
-          background-image: none;
-        }
-      }
-    }
-  }
 
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {

@@ -100,6 +100,13 @@ textarea.form-control {
 // horizontal forms, use the predefined grid classes.
 .form-group {
   margin-bottom: @form-group-margin-bottom;
+
+  @media (min-width: @screen-sm-min) {
+    input + p,
+    textarea + p {
+      padding-top: @padding-base-vertical;
+    }
+  }
 }
 // Checkboxes and radios
 //
@@ -219,6 +226,7 @@ fieldset[disabled] {
 }
 
 .validationMessage {
+  font-size: @font-size-small;
   color: @text-color-error;
   margin: 0;
 }
@@ -236,6 +244,10 @@ fieldset[disabled] {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
+
+      &.hide {
+        display: none;
+      }
     }
   }
 
@@ -299,12 +311,6 @@ fieldset[disabled] {
   // Make form groups behave like rows
   .form-group {
     .make-row();
-
-    @media (min-width: @screen-sm-min) {
-      input + p {
-        padding-top: @padding-base-vertical;
-      }
-    }
   }
 
   .form-submit {
