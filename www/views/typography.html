@@ -3,19 +3,97 @@
 {{!< layouts/components.html}}
 
     <h1 class="content-header">Typography</h1>
+
+    <section class="pl-section" id="system-fonts">
+      <h3><a href="#system-fonts">System Fonts</a></h3>
+      <p>As of version 1.6, Cyclops has moved to using system fonts in the browser. With this method, fonts used by different operating systems are explicitly called in the <code>font-family</code> property.</p>
+
+      <h4>The Font Stack</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Font</th>
+            <th>System</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>-apple-system</code></td>
+            <td>iOS Safari, macOS Safari, macOS Firefox</td>
+          </tr>
+          <tr>
+            <td><code>BlinkMacSystemFont</code></td>
+            <td>macOS Chrome</td>
+          </tr>
+          <tr>
+            <td><code>Segoe UI</code></td>
+            <td>Windows</td>
+          </tr>
+          <tr>
+            <td><code>Roboto</code></td>
+            <td>Android, Chrome OS</td>
+          </tr>
+          <tr>
+            <td><code>Oxygen</code></td>
+            <td>KDE</td>
+          </tr>
+          <tr>
+            <td><code>Ubuntu</code></td>
+            <td>Ubuntu</td>
+          </tr>
+          <tr>
+            <td><code>Cantarell</code></td>
+            <td>GNOME</td>
+          </tr>
+          <tr>
+            <td><code>Fira Sans</code></td>
+            <td>Firefox OS</td>
+          </tr>
+          <tr>
+            <td><code>Droid Sans</code></td>
+            <td>Older Versions of Android</td>
+          </tr>
+          <tr>
+            <td><code>Helvetica Neue</code></td>
+            <td>macOS versions < 10.11</td>
+          </tr>
+          <tr>
+            <td><code>Sans-Serif</code></td>
+            <td>Any</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>The font stack looks like this in implementation.</p>
+      <pre>
+        <code>
+font-family:  -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              "Roboto",
+              "Oxygen",
+              "Ubuntu",
+              "Cantarell",
+              "Fira Sans",
+              "Droid Sans",
+              "Helvetica Neue",
+              Sans-Serif;
+        </code>
+      </pre>
+    </section>
+
     <section class="pl-section" id="headings">
-      <h3 id="headings"><a href="#headings">Headings</a></h3>
+      <h3><a href="#headings">Headings</a></h3>
       <div class="pl-example">
         {{> typography/headings }}
       </div>
       <pre>
         <code class="html">
-&lt;h1&gt;H1 36pt Open Sans Light &lt;small&gt;h1 small text&lt;/small&gt;&lt;/h1&gt;
-&lt;h2&gt;H2 30pt Open Sans Light &lt;small&gt;h2 small text&lt;/small&gt;&lt;/h2&gt;
-&lt;h3&gt;H3 24pt Open Sans Light &lt;small&gt;h3 small text&lt;/small&gt;&lt;/h3&gt;
-&lt;h4&gt;H4 18pt Open Sans Light &lt;small&gt;h4 small text&lt;/small&gt;&lt;/h4&gt;
-&lt;h5&gt;H5 13pt Open Sans Light &lt;small&gt;h5 small text&lt;/small&gt;&lt;/h5&gt;
-&lt;h6&gt;H6 12pt Open Sans Light&lt;/h6&gt;
+&lt;h1&gt;H1 36pt System Font &lt;small&gt;h1 small text&lt;/small&gt;&lt;/h1&gt;
+&lt;h2&gt;H2 30pt System Font &lt;small&gt;h2 small text&lt;/small&gt;&lt;/h2&gt;
+&lt;h3&gt;H3 24pt System Font &lt;small&gt;h3 small text&lt;/small&gt;&lt;/h3&gt;
+&lt;h4&gt;H4 18pt System Font &lt;small&gt;h4 small text&lt;/small&gt;&lt;/h4&gt;
+&lt;h5&gt;H5 13pt System Font &lt;small&gt;h5 small text&lt;/small&gt;&lt;/h5&gt;
+&lt;h6&gt;H6 12pt System Font&lt;/h6&gt;
         </code>
       </pre>
 
@@ -27,22 +105,22 @@
       </div>
       <pre>
         <code class="html">
-&lt;h1 class=&quot;content-header&quot;&gt;H1 36pt Open Sans Light
+&lt;h1 class=&quot;content-header&quot;&gt;H1 36pt System Font
 &lt;small&gt;h1 small text&lt;/small&gt;
 &lt;/h1&gt;
-&lt;h2 class=&quot;content-header&quot;&gt;H2 30pt Open Sans Light
+&lt;h2 class=&quot;content-header&quot;&gt;H2 30pt System Font
 &lt;small&gt;h2 small text&lt;/small&gt;
 &lt;/h2&gt;
-&lt;h3 class=&quot;content-header&quot;&gt;H3 24pt Open Sans Light
+&lt;h3 class=&quot;content-header&quot;&gt;H3 24pt System Font
 &lt;small&gt;h3 small text&lt;/small&gt;
 &lt;/h3&gt;
-&lt;h4 class=&quot;content-header&quot;&gt;H4 18pt Open Sans Light
+&lt;h4 class=&quot;content-header&quot;&gt;H4 18pt System Font
 &lt;small&gt;h4 small text&lt;/small&gt;
 &lt;/h4&gt;
-&lt;h5 class=&quot;content-header&quot;&gt;H5 13pt Open Sans Light
+&lt;h5 class=&quot;content-header&quot;&gt;H5 13pt System Font
 &lt;small&gt;h5 small text&lt;/small&gt;
 &lt;/h5&gt;
-&lt;h6 class=&quot;content-header&quot;&gt;H6 12pt Open Sans Light
+&lt;h6 class=&quot;content-header&quot;&gt;H6 12pt System Font
 &lt;small&gt;h6 small text&lt;/small&gt;
 &lt;/h6&gt;
         </code>
