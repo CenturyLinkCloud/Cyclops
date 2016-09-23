@@ -213,13 +213,18 @@
   }
 }
 
+.navbar-local-right {
+  position: absolute;
+  right: 0;
+}
+
 .navbar-local--persistent {
   position: relative;
+  z-index: @zindex-nav-local-persistent;
   margin-bottom: 0;
   padding: 0 @navbar-padding-horizontal;
   min-height: 0;
   height: 47px;
-  z-index: @zindex-nav-local-persistent;
   //overflow: hidden;
   border: none;
   background-color: #fff;
@@ -227,11 +232,6 @@
 
   .open > a {
     background-color: #f2f2f2;
-  }
-
-  .action-toolbar-right {
-    position: absolute;
-    right: 0;
   }
 
   // never collapse the nav because we use overflow binding
