@@ -51,6 +51,18 @@
           </code>
         </pre>
 
+        <div class="alert alert-info">
+          <div class="alert-icon">
+            <svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-info-circle'></svg>
+          </div>
+          <h4 id="1-5-upgrade"><a href="#1-5-upgrade">Upgrading From 1.5 And Earlier</a></h4>
+          <p>In versions 1.5 and prior, Open Sans, a Google hosted font, was specced as the font for Cyclops. For performance and dependency reasons, Open Sans has been removed from Cyclops spec. This means the stylesheet that includes Open Sans should be removed from your project, as it is no longer specified in Cyclops styles.</p>
+
+          <pre class="m-t-sm m-b-sm m-l-lg"><code>&lt;!-- remove this --&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</code></pre>
+          <p><a href="http://localhost:4000/typography.html#system-fonts">Learn more about the Operating System font stack.</a></p>
+        </div>
+
         <p>
           Not all of the javaScript libraries are strictly required. However, becuase they are
           referenced from a CDN, and are likely already cached client side, it is best practice to
