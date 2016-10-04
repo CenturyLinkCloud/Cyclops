@@ -20,7 +20,6 @@
     </code>
   </pre>
 
-
   <h4 id="sliders">
     <a href="#sliders">Sliders</a>
     <a href="./knockoutComponents.html#slider"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg></a>
@@ -36,8 +35,6 @@
     </code>
   </pre>
 
-
-
   <h4 id="groupPicker">
     <a href="#groupPicker">Group Picker</a>
     <a href="./knockoutComponents.html#groupPicker"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-api' /></svg></a>
@@ -51,7 +48,6 @@
 
     </code>
   </pre>
-
 
   <h4 id="serverPicker">
     <a href="#serverPicker">Server Picker</a>
@@ -96,4 +92,46 @@
 &lt;date-time-picker params=&quot;dateTime: myDateTime&quot;&gt;&lt;/date-time-picker&gt;
     </code>
   </pre>
+
+  <h4 id="providerPicker"><a href="#providerPicker">Provider Picker</a></h4>
+  The provider picker is allows users to select one more many cloud providers as part of a form.
+  <div class="pl-example">
+    <form id="formProviderPicker" class="form-horizontal">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">cloud provider(s)</label>
+          <div class="col-sm-9">
+            <div class="provider-picker">
+              <ul class="list-unstyled">
+                <li class="card hover-dim">
+                    <div class="card-block">
+                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-centurylink' /></svg>
+                      <h5>CenturyLink</h5>
+                    </div>
+                </li>
+                <li class="card hover-shadow hover-underline hover-pointer">
+                    <div class="card-block">
+                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-amazon' /></svg>
+                      <h5>Amazon AWS</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="card-block">
+                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-microsoft' /></svg>
+                      <h5>Microsoft Azure</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="card-block">
+                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-google' /></svg>
+                      <h5>Google Cloud</h5>
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
 </section>
