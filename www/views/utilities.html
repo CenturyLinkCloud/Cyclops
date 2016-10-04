@@ -4,8 +4,98 @@
 
 <h1 class="content-header">Utilities</h1>
 
+
+<section class="pl-section" id="hover">
+  <h3><a href="hover">Hover Effects</a></h3>
+  <p>Add hover effects to elements to indicate elements that can be interacted with.</p>
+
+  <h4 id="hoverShadow"><a href="#hoverShadow">Shadow</a></h4>
+  <p>Add a shadow to element using <code>.hover-shadow</code>.</p>
+  <div class="pl-example">
+
+    <div class="card hover-shadow">
+      <div class="card-block">
+        A card that dims on hover.
+      </div>
+    </div>
+
+    <pre>
+      <code class="html">
+&lt;div class=&quot;card hover-shadow&quot;&gt;
+  &lt;div class=&quot;card-block&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </div>
+
+  <h4 id="hoverDim"><a href="#hoverDim">Dim</a></h4>
+  <p>Dim text or an entire element using <code>.hover-dim</code>.</p>
+  <div class="pl-example">
+
+    <p><a href="#" class="hover-dim">Link Text</a></p>
+
+    <div class="card hover-dim">
+      <div class="card-block">
+        A card that dims on hover.
+      </div>
+    </div>
+    <pre>
+      <code class="html">
+&lt;div class=&quot;card hover-dim&quot;&gt;
+  &lt;div class=&quot;card-block&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </div>
+
+  <h4 id="hoverPointer"><a href="#hoverPointer">Pointer (mouse)</a></h4>
+  <p>Change the mouse cursor to a pointer on hover, to indicate elements that can be interacted with. This is best used in combination with another hover effect.</p>
+  <div class="pl-example">
+    <div class="card hover-shadow hover-pointer">
+      <div class="card-block">
+        A card that changes mouse cursor to pointer, and adds a shadow on hover.
+      </div>
+    </div>
+  </div>
+  <pre>
+    <code class="html">
+&lt;div class=&quot;card hover-shadow hover-pointer&quot;&gt;
+  &lt;div class=&quot;card-block&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+
+  <h4 id="hoverDim"><a href="#hoverDim">Underline</a></h4>
+  <p>Underline text or text within an element using <code>.hover-underline</code>.</p>
+  <div class="pl-example">
+    <div class="card hover-underline">
+      <div class="card-block">
+        <h4 class="card-title">Header Underline</h4>
+        <p class="card-text">A card that underlines text on hover.</p>
+      </div>
+    </div>
+    <pre>
+      <code class="html">
+&lt;div class=&quot;card hover-underline&quot;&gt;
+  &lt;div class=&quot;card-block&quot;&gt;
+    &lt;h4 class=&quot;card-title&quot;&gt;Header Underline&lt;/h4&gt;
+    &lt;p class=&quot;card-text&quot;&gt;A card that underlines text on hover.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code>
+    </pre>
+  </div>
+</section>
+
+
 <section class="pl-section" id="floats">
-  <h4><a href="#floats">Responsive Floats</a></h4>
+  <h3><a href="#floats">Responsive Floats</a></h3>
   <p>Float an element left or right based on the current viewport size using the same breakpoints as the grid system.</p>
 
   <p>Non-responsive floats are also available (<code>.pull-left</code> and <code>.pull-right</code>).</p>
@@ -39,7 +129,7 @@
 </section>
 
 <section class="pl-section" id="spacing">
-  <h4><a href="#spacing">Spacing</a></h4>
+  <h3><a href="#spacing">Spacing</a></h3>
   <p>Assign <code>margin</code> or <code>padding</code> to an element with a spacing utility class. All classes are multiples of <code>20px</code>. Use of these classes is explicitly stating your intention to override any pre-existing margin or padding styles.</p>
   <p>Class names use the format: <code>[property]-[side]-[size]</code> where <code>[property]</code> is <code>m</code> for margin or <code>p</code> for padding. <code>[side]</code> is <code>t</code> for top, <code>b</code> for bottom, <code>l</code> for left, and <code>r</code> for right. <code>[size]</code> is <code>0</code> to remove margin or padding, <code>sm</code> is for 20px, <code>md</code> is 30px,  <code>lg</code> is 40px, and <code>xl</code> is 60px.</p>
   <pre>
@@ -80,7 +170,7 @@
 </section>
 
 <section class="pl-section" id="sticky-positioning">
-  <h4><a href="#sticky-positioning">Sticky Positioning</a></h4>
+  <h3><a href="#sticky-positioning">Sticky Positioning</a></h3>
   <p>
     Sometimes you may wish to have content affixed to the viewport as the user
     scrolls through the page. Some examples of this might be for navigation or
