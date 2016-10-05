@@ -1,37 +1,62 @@
-.provider-picker {
+.custom-picker {
 
-	input {
-		display: none;
-	}
+  .control {
+    position: relative;
+    margin-bottom: 0;
+    width: 24%;
+
+    &:after {
+      border-radius: @border-radius-base;
+    }
+
+    // Hide default browser input
+    input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
+      &:checked ~ .card {
+    		background-color: @brand-success;
+    		border-radius: @border-radius-small;
+        border-color: darken(@brand-success, 5%);
+    		h5 {
+    			color: white;
+    		}
+
+    		.cyclops-icon {
+    			fill: white;
+    		}
+    	}
+
+      &:focus ~ .card {
+        border: 1px solid @gray-500;
+        outline-offset: -5px;
+        outline: 1px dotted lighten(@btn-default-bg, 20%);
+      }
+    }
+  }
+
+  .card {
+    margin-bottom: 5px;
+  }
 
 	.card-block {
 		transition: background-color .2s ease-in-out;
 	}
 
-	input:checked + .card-block {
-		background-color: @brand-success;
-		border-radius: @border-radius-small;
-		h5 {
-			color: white;
-		}
 
-		.cyclops-icon {
-			fill: white;
-		}
-	}
-
-	@media (min-width: @screen-sm-min) {
-		.card {
-			width: 45%;
-			display: inline-block;
-			margin-right: 15px;
-		}
-	}
-
-	@media (min-width: @screen-lg-min) {
-		.card {
-			width: 30%;
-			margin-right: 17px;
-		}
-	}
+	// @media (min-width: @screen-sm-min) {
+	// 	.card {
+	// 		width: 45%;
+	// 		display: inline-block;
+	// 		margin-right: 15px;
+	// 	}
+	// }
+  //
+	// @media (min-width: @screen-lg-min) {
+	// 	.card {
+	// 		width: 30%;
+	// 		margin-right: 17px;
+	// 	}
+	// }
 }
