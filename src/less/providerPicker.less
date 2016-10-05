@@ -16,17 +16,17 @@
       opacity: 0;
 
       &:checked ~ .card {
-    		background-color: @brand-success;
-    		border-radius: @border-radius-small;
+        background-color: @brand-success;
+        border-radius: @border-radius-small;
         border-color: darken(@brand-success, 5%);
-    		h5 {
-    			color: white;
-    		}
+        h5 {
+          color: white;
+        }
 
-    		.cyclops-icon {
-    			fill: white;
-    		}
-    	}
+        .cyclops-icon {
+          fill: white;
+        }
+      }
 
       &:focus ~ .card {
         border: 1px solid @gray-500;
@@ -40,23 +40,7 @@
     margin-bottom: 5px;
   }
 
-	.card-block {
-		transition: background-color .2s ease-in-out;
-	}
-
-
-	// @media (min-width: @screen-sm-min) {
-	// 	.card {
-	// 		width: 45%;
-	// 		display: inline-block;
-	// 		margin-right: 15px;
-	// 	}
-	// }
-  //
-	// @media (min-width: @screen-lg-min) {
-	// 	.card {
-	// 		width: 30%;
-	// 		margin-right: 17px;
-	// 	}
-	// }
+  .card-block {
+    transition: background-color .2s ease-in-out;
+  }
 }

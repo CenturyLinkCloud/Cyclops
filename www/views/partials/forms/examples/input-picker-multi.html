@@ -1,62 +1,39 @@
-<div class="picker">
-	<ol>
-		<li>
-			<label class="item-hover">
-				<span class="content">
-					<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Default Group</span>
-				</span>
-			</label>
-			<ol>
-				<li>
-					<label class="item-hover">
-						<input type="checkbox"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-play' /></svg> <span>QA1DEVTEST01</span>
-						</span>
-					</label>
-				</li>
-				<li>
-					<label class="item-hover">
-						<input type="checkbox"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-play' /></svg> <span>QA1DEVTEST02</span>
-						</span>
-					</label>
-				</li>
-			</ol>
-		</li>
-		<li>
-			<label class="item-hover">
-				<span class="content">
-					<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Web Servers</span>
-				</span>
-			</label>
-			<ol>
-				<li>
-					<label class="item-hover">
-						<input type="checkbox" disabled/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-stop' /></svg> <span>QA1DEVSRVR01</span>
-						</span>
-					</label>
-				</li>
-				<li>
-					<label class="item-hover">
-						<input type="checkbox"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-play' /></svg> <span>QA1DEVSRVR02</span>
-						</span>
-					</label>
-				</li>
-				<li>
-					<label class="item-hover">
-						<input type="checkbox"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-play' /></svg> <span>QA1DEVSRVR03</span>
-						</span>
-					</label>
-				</li>
-			</ol>
-		</li>
-	</ol>
-</div>
+<form id="formCustomPickerMulti" class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">multi-select</label>
+      <div class="col-sm-9">
+        <div class="custom-picker">
+          <label for="checkbox1" class="control">
+            <input id="checkbox1" checked name='multi' type="checkbox" value="1">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-home' /></svg>
+              <h5>Multi-Select Option 1</h5>
+            </div>
+          </label>
+          <label for="checkbox2" class="control">
+            <input id="checkbox2" checked name="multi" type="checkbox" value="2">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-database' /></svg>
+              <h5>Multi-Select Option 2</h5>
+            </div>
+          </label>
+          <label for="checkbox3" class="control" >
+            <input id="checkbox3" name="multi" type="checkbox" value="3">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-global-network' /></svg>
+              <h5>Multi-Select Option 3</h5>
+            </div>
+          </label>
+          <label for="checkbox4" class="control">
+            <input id="checkbox4" name="multi" type="checkbox" value="4">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-infrastructure' /></svg>
+              <h5>Multi-Select Option 4</h5>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
