@@ -1,4 +1,25 @@
 .provider-picker {
+
+	input {
+		display: none;
+	}
+
+	.card-block {
+		transition: background-color .2s ease-in-out;
+	}
+
+	input:checked + .card-block {
+		background-color: @brand-success;
+		border-radius: @border-radius-small;
+		h5 {
+			color: white;
+		}
+
+		.cyclops-icon {
+			fill: white;
+		}
+	}
+
 	@media (min-width: @screen-sm-min) {
 		.card {
 			width: 45%;

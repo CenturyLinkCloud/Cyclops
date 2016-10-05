@@ -102,32 +102,35 @@
           <label class="col-sm-3 control-label">cloud provider(s)</label>
           <div class="col-sm-9">
             <div class="provider-picker">
-              <ul class="list-unstyled">
-                <li class="card hover-dim">
-                    <div class="card-block">
-                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-centurylink' /></svg>
-                      <h5>CenturyLink</h5>
-                    </div>
-                </li>
-                <li class="card hover-shadow hover-underline hover-pointer">
-                    <div class="card-block">
-                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-amazon' /></svg>
-                      <h5>Amazon AWS</h5>
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="card-block">
-                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-microsoft' /></svg>
-                      <h5>Microsoft Azure</h5>
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="card-block">
-                      <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-google' /></svg>
-                      <h5>Google Cloud</h5>
-                    </div>
-                </li>
-              </ul>
+              <label class="card hover-shadow hover-pointer">
+                <input checked name='provider' type="checkbox" value="other-item">
+                <div class="card-block">
+                  <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-centurylink' /></svg>
+                  <h5>CenturyLink</h5>
+                </div>
+              </label>
+              <label class="card hover-shadow hover-pointer">
+                <input name="provider" type="checkbox" value="other-item">
+                <div class="card-block">
+                  <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-amazon' /></svg>
+                  <h5>Amazon AWS</h5>
+                </div>
+              </label>
+              <label class="card hover-shadow hover-pointer">
+                <input name="provider" type="checkbox" value="other-item">
+                <div class="card-block">
+                  <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-microsoft' /></svg>
+                  <h5>Microsoft Azure</h5>
+                </div>
+              </label>
+              <label class="card hover-shadow hover-pointer">
+                <input name="provider" type="checkbox" value="other-item">
+                <div class="card-block">
+                  <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-logo-google' /></svg>
+                  <h5>Google Cloud</h5>
+                </div>
+              </label>
+
             </div>
           </div>
         </div>
