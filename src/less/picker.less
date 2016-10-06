@@ -1,4 +1,57 @@
+.custom-picker {
 
+  .control {
+    position: relative;
+    margin-bottom: 0;
+    width: 24%;
+
+    &:after {
+      border-radius: @border-radius-base;
+    }
+
+    // Hide default browser input
+    input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
+      &[disabled] ~ .card {
+        background-color: @gray-100;
+        cursor: @cursor-disabled;
+      }
+
+      &:checked ~ .card {
+        background-color: @brand-success;
+        border-radius: @border-radius-small;
+        border-color: darken(@brand-success, 5%);
+        h5 {
+          color: white;
+        }
+
+        .cyclops-icon {
+          fill: white;
+        }
+      }
+
+      &:focus ~ .card {
+        border: 1px solid @gray-500;
+        outline-offset: -5px;
+        outline: 1px dotted lighten(@btn-default-bg, 20%);
+      }
+    }
+  }
+
+  .card {
+    margin-bottom: 5px;
+  }
+
+  .card-block {
+    transition: background-color .2s ease-in-out;
+  }
+}
+
+
+// hierarchy picker
 .picker {
   height: 160px;
   border: solid 1px @gray-200;
@@ -39,7 +92,6 @@
       background-color: @gray-700;
       color: #fff;
 
-
       svg {
         fill: #fff;
       }
@@ -67,7 +119,6 @@
         background-color: @body-bg;
       }
     }
-
   }
 
   .unselectable {

@@ -1,56 +1,39 @@
-<div class="picker">
-	<ol>
-		<li>
-			<label class="item-hover">
-				<input type="radio" name="group"/>
-				<span class="content">
-					<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 1a</span>
-				</span>
-			</label>
-		</li>
-		<li>
-			<label class="item-hover">
-				<input type="radio" name="group"/>
-				<span class="content">
-					<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 1b</span>
-				</span>
-			</label>
-			<ol>
-				<li>
-					<label class="item-hover">
-						<input type="radio" name="group"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 2a</span>
-						</span>
-					</label>
-				</li>
-			</ol>
-		</li>
-		<li>
-			<label class="item-hover">
-				<input type="radio" name="group"/>
-				<span class="content">
-					<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 1c</span>
-				</span>
-			</label>
-			<ol>
-				<li>
-					<label class="item-hover">
-						<input type="radio" name="group"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 2a</span>
-						</span>
-					</label>
-				</li>
-				<li>
-					<label class="item-hover">
-						<input type="radio" name="group"/>
-						<span class="content">
-							<svg class="cyclops-icon" aria-hidden="true"><use xlink:href='#icon-folder' /></svg> <span>Level 2b</span>
-						</span>
-					</label>
-				</li>
-			</ol>
-		</li>
-	</ol>
-</div>
+<form id="formCustomPickerSingle" class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">single-select</label>
+      <div class="col-sm-9">
+        <div class="custom-picker">
+          <label for="radio1" class="control">
+            <input id="radio1" checked name='radioOptions' type="radio" value="centurylink">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-home' /></svg>
+              <h5>Single-Select Option 1</h5>
+            </div>
+          </label>
+          <label for="radio2" class="control">
+            <input id="radio2" name="radioOptions" type="radio" value="2">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-database' /></svg>
+              <h5>Single-Select Option 2</h5>
+            </div>
+          </label>
+          <label for="radio3" class="control" >
+            <input id="radio3" name="radioOptions" type="radio" value="3">
+            <div class="card card-block hover-shadow hover-pointer">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-global-network' /></svg>
+              <h5>Single-Select Option 3</h5>
+            </div>
+          </label>
+          <label for="radio4" class="control">
+            <input id="radio4" disabled name="radioOptions" type="radio" value="4">
+            <div class="card card-block">
+              <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-infrastructure' /></svg>
+              <h5>Disabled Single-Select Option</h5>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

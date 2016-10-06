@@ -116,16 +116,19 @@
   </pre>
 </section>
 
-<section class="pl-section" id="hierarchyPicker">
-  <h3><a href="#hierarchyPicker">Hierarchy Picker</a></h3>
+{{> forms/custom-picker }}
+
+
+<section class="pl-seciton" id="hierarchyPicker">
+  <h3><a href="#hiearchyPickers">Hierarchy Pickers</a></h3>
   <p>When it is important to display the hierarchy of a collection (e.g. servers, groups, or organizations/accounts) in the selection process, use a hierarchy picker.</p>
 
-  <h4>Single-Select Picker</h4>
+  <h4 id="#hierarchySinglePicker"><a href="#hierarchySinglePicker">Single-Select Hierarchy Picker</a></h4>
   <p>
     If you want to allow the user to only pick one item use radio buttons.
   </p>
   <div class="pl-example">
-    {{> forms/examples/input-picker-single }}
+    {{> forms/examples/input-hierarchy-picker-single }}
   </div>
   <pre>
     <code class="html">
@@ -162,17 +165,15 @@
     </code>
   </pre>
 
-
-
-    <h4>Multi-Select Picker</h4>
-    <p>
-      If you want to allow the user pick many items use checkboxes.
-    </p>
-    <div class="pl-example">
-      {{> forms/examples/input-picker-multi }}
-    </div>
-    <pre>
-      <code class="html">
+  <h4 id="#hierarchyMultiPicker"><a href="#hierarchyMultiPicker">Multi-Select Hierarchy Picker</a></h4>
+  <p>
+    If you want to allow the user pick many items use checkboxes.
+  </p>
+  <div class="pl-example">
+    {{> forms/examples/input-hierarchy-picker-multi }}
+  </div>
+  <pre>
+    <code class="html">
 &lt;div class=&quot;picker&quot;&gt;
   &lt;ol&gt;
     &lt;li&gt;
@@ -236,9 +237,11 @@
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
-      </code>
-    </pre>
+    </code>
+  </pre>
+
 </section>
+
 
 <section class="pl-section" id="stackedInputs">
   <h3><a href="#stackedInputs">One Label with Stacked Inputs</a></h3>
