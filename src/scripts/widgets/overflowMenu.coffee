@@ -57,7 +57,7 @@ $.fn.overflowMenu = (options) ->
 
     if $rightToolbar
       # add an additio 10 px to adjust for non fixed width fonts
-      newWidth = $this.parent().width() - $rightToolbar.width() - 10
+      newWidth = $this.parent().width() - $rightToolbar.width() - 20
       $this.css 'margin-right', 0
       $this.css 'width', newWidth
 
