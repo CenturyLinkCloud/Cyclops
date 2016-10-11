@@ -56,7 +56,8 @@ $.fn.overflowMenu = (options) ->
     i = undefined
 
     if $rightToolbar
-      newWidth = $this.parent().width() - $rightToolbar.width()
+      # add an additio 10 px to adjust for non fixed width fonts
+      newWidth = $this.parent().width() - $rightToolbar.width() - 10
       $this.css 'margin-right', 0
       $this.css 'width', newWidth
 
