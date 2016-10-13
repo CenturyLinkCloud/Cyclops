@@ -172,6 +172,8 @@ main-nav {
       }
     }
 
+
+
     &.selected {
       .btn {
         background-color: @main-nav-active-bg;
@@ -261,6 +263,18 @@ main-nav {
       }
       h3 {
         color: #fff;
+      }
+    }
+
+    a:focus {
+      background-color: @main-nav-flyout-hover-bg;
+      outline: 0;
+      h3 {
+        color: #fff;
+      }
+
+      p {
+        color: @gray-300;
       }
     }
 

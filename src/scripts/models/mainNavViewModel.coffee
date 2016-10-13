@@ -171,11 +171,13 @@ class MainNavViewModel
     selectAnItem @SelectedItemId()
 
     @selectFlyout = (menu) =>
+
       previousState = menu.isFlyoutOpen()
       @menus().forEach (m) -> m.isFlyoutOpen false
       if(!previousState)
         menu.isFlyoutOpen !previousState
-
+      $(".main-nav-flyout-menu.open .main-nav-flyout-menu-items li:first-child a").focus()
+      return
 
     # Auto Close any Flyouts when the user hovers out or clicks outside the mainNav
     $('body > *').not('main-nav').on 'click', () =>
