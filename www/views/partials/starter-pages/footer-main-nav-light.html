@@ -1,0 +1,419 @@
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.3/knockout.validation.min.js" ></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script src="/scripts/cyclops.js" ></script>
+<!-- Include any additional scripts your service needs -->
+
+<script>
+	$(function(){
+		var AccountSwitcherModel = function() {
+			var self = this;
+
+			self.accounts = ko.observableArray([]);
+
+			window.setTimeout(function(){
+				accounts = [
+					{
+						accountAlias: "ROOT",
+						businessName: "My Awesome Business",
+						accountStatus: "active",
+						primaryDataCenter : "QA1",
+						subAccounts:[
+							{ accountAlias: "APPL", businessName: "Apple Designed in California", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[
+								{ accountAlias: "APLP", businessName: "iPhone division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+								{ accountAlias: "APLC", businessName: "iCar division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+								{ accountAlias: "APLO", businessName: "OSX division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+								{ accountAlias: "APP", businessName: "Not what you're looking for", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+								{ accountAlias: "AP", businessName: "Nothing to See", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+								{ accountAlias: "APLI", businessName: "iPad division", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] }
+							] },
+							{ accountAlias: "SUB1", businessName: "Sub Account One", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+							{ accountAlias: "SUB2", businessName: "Sub Account Two", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+							{ accountAlias: "SUB3", businessName: "Sub Account Three", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[
+								{ accountAlias: "SSUB", businessName: "Nested Sub Account", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] }
+							] },
+							{
+								accountAlias: "SUB4",
+								businessName: "Sub Account Four",
+								accountStatus: "active",
+								primaryDataCenter : "QA1",
+								subAccounts:[{
+									accountAlias: "SSB4",
+									businessName: "Nested Sub Account",
+									accountStatus: "active",
+									primaryDataCenter : "QA1",
+									subAccounts:[{
+										accountAlias: "NOOB",
+										businessName: "Really Nested Sub Account",
+										accountStatus: "active",
+										primaryDataCenter : "QA1",
+										subAccounts:[]
+									}]
+								}]
+							},
+							{
+								accountAlias: "SUB5",
+								businessName: "Sub Account Five",
+								accountStatus: "active",
+								primaryDataCenter : "QA1",
+								subAccounts:[]
+							},
+							{
+								accountAlias: "SUB6",
+								businessName: "Sub Account Six",
+								accountStatus: "active",
+								primaryDataCenter : "QA1",
+								subAccounts:[{
+									accountAlias: "FOO",
+									businessName: "Nested Sub Account",
+									accountStatus: "active",
+									primaryDataCenter : "QA1",
+									subAccounts:[]
+								}]
+							},
+							{
+								accountAlias: "SUB7",
+								businessName: "Sub Account Seven",
+								accountStatus: "active",
+								primaryDataCenter : "QA1",
+								subAccounts:[]
+							},
+							{ accountAlias: "RJP", businessName: "Rick James Productions", accountStatus: "active", primaryDataCenter : "QA1", subAccounts:[] },
+
+						]
+					}
+				];
+
+				for (var i = 0; i < 100; i++) {
+					accounts[0].subAccounts.push({
+						accountAlias: "G0" + i,
+						businessName: "" + i + " Generated Account for Perf Testing",
+						accountStatus: "active",
+						primaryDataCenter : "QA2",
+						subAccounts:[]
+					});
+				}
+
+				self.accounts(accounts);
+				self.loadingAccounts(false);
+			}, 3000);
+
+			self.loadingAccounts = ko.observable(true);
+			self.currentAccountAlias = ko.observable('ROOT');
+			self.currentAccountAlias.subscribe(function(newValue) {
+				console.log(newValue)
+			});
+
+			return self;
+		}
+		ko.applyBindings(new AccountSwitcherModel(), $("account-switcher")[0]);
+
+		var MainNavModel = function(){
+			var self = this;
+			self.menus = ko.observableArray([
+				{
+					id: "home",
+					name: 'Dashboard',
+					iconId: '#icon-home',
+					href: '#'
+				},
+				{
+					id: "create",
+					name: 'Create',
+					iconId: '#icon-plus-circle',
+					items: ko.observableArray([
+						{
+							id: 'create.server',
+							name: 'Server',
+							description: 'Configure and provision a virtual or physical server to your location of choice',
+							href: '#'
+						},
+						{
+							id: 'create.relationalDb',
+							name: 'Relational DB',
+							description: 'Easily provision a MySQL-compatible database instance',
+							isNew: true,
+							href: '#'
+						}
+					])
+				},
+				{
+					id: 'infrastructure',
+					name: 'Infrastructure',
+					iconId: '#icon-infrastructure',
+					items: [
+						{
+							id: 'infrastructure.manage',
+							name: 'Manage',
+							description: 'Manage and provision your servers',
+							href: '#'
+						},
+						{
+              id: 'infrastructure.import',
+              name: 'Import Servers',
+              description: 'Import an ovf file or an existing server from another cloud provider',
+              href: "#"
+            }
+					]
+				},
+				{
+					id: 'network',
+					name: 'Network',
+					iconId: '#icon-global-network',
+					items: [
+						{
+							id: 'network.networks',
+							name: 'Networks',
+							description: 'Manage and create networks',
+							href: '#'
+						},
+						{
+							id: 'network.firewall',
+							name: 'Firewall',
+							description: 'Intra and cross data center connectivity',
+							href: '#'
+						},
+						{
+							id: 'network.ipAddresses',
+							name: 'IP Addresses',
+							description: 'Manage IP Addresses',
+							href: '#'
+						},
+						{
+							id: 'network.vpn',
+							name: 'VPN',
+							description: 'Connect to cloud networks via VPN',
+							href: '#'
+						},
+						{
+							id: 'network.dns',
+							name: 'DNS',
+							description: 'Host and manage DNS zones',
+							href: '#'
+						},
+						{
+							id: 'network.siteToSite',
+							name: 'Site-To-Site VPN',
+							description: 'Self service IPSec (Point-to-Point) VPN Tunnel',
+							href: '#'
+						},
+						{
+							id: 'network.netx',
+							name: 'NetX',
+							description: 'Connect to CenturyLink Data Centers',
+							href: '#'
+						}
+					]
+				},
+				{
+					id: 'orchestration',
+					name: 'Orchestration',
+					iconId: '#icon-script',
+					items: [
+						{
+							id: 'orchestration.runner',
+							name: 'Runner',
+							description: 'Quickly provision, interact with, and modify environments',
+							href: '#',
+							flag: 'beta'
+						},
+						{
+							id: 'orchestration.library',
+							name: 'Blueprints Library',
+							href: '#'
+						},
+						{
+							id: 'orchestration.design',
+							name: 'Design a Blueprint',
+							href: '#'
+						},
+						{
+							id: 'orchestration.scripts',
+							name: 'Scripts',
+							href: '#'
+						},
+						{
+							id: 'orchestration.software',
+							name: 'Software',
+							href: '#'
+						},
+						{
+							id: 'orchestration.ftp',
+							name: 'FTP User',
+							href: '#'
+						}
+					]
+				},
+				{
+					id: 'appServices',
+					name: 'Services',
+					iconId: '#icon-package',
+					items: [
+						{
+							id: 'services.appfog',
+							name: 'AppFog',
+							description: 'Create, scale, and manage cloud apps',
+							href: '#'
+						},
+						{
+							id: 'services.backup',
+							name: 'Backup',
+							description: 'Secure, simple, file-level backup',
+							href: '#',
+							flag: 'new'
+						},
+						{
+							id: 'services.horizontalAutoscale',
+							name: 'Horizontal Autoscale',
+							description: 'Automatically increase/decrease the number of servers in a group during demand spikes and lulls',
+							href: '#'
+						},
+						{
+							id: 'services.loadBalancer',
+							name: 'Load Balancers',
+							description: 'Keep applications online and traffic flowing evenly',
+							href: '#'
+						},
+						{
+							id: 'services.monitoring',
+							name: 'Monitoring & Alerting',
+							description: 'Define monitor and alert policies to measure application performance',
+							href: '#'
+						},
+						{
+							id: 'services.objectStorage',
+							name: 'Object Storage',
+							description: 'Highly available file storage and management',
+							href: '#'
+						},
+						{
+							id: 'services.orchestrate',
+							name: 'Orchestrate',
+							description: 'A complete NoSQL database service for rapid application development',
+							href: '#'
+						},
+						{
+							id: 'services.relationalDb',
+							name: 'Relational DB',
+							description: 'High performance, cost efficient, MySQL-compatible database',
+							href: '#'
+						}
+						// {
+						// 	id: 'services.siteRedirect',
+						// 	name: 'Site Redirect',
+						// 	description: 'Redirect sites',
+						// 	href: '#'
+						// },
+						// {
+						// 	id: 'services.smtprelay',
+						// 	name: 'SMTP Relay',
+						// 	description: 'Efficient, reliable email delivery',
+						// 	href: '#'
+						// }
+					]
+				},
+				{
+					id: 'queue',
+					name: 'Queue',
+					iconId: '#icon-queue',
+					href: '#'
+				},
+				{
+					id: 'orgSettings',
+					name: 'Settings',
+					iconId: '#icon-settings',
+					items: [
+						{
+							id: 'orgSettings.accountContactInfo',
+							name: 'Account Profile',
+							description: 'Account address and contact information',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.accountSettings',
+							name: 'Accout Settings',
+							description: 'Color scheme, logos, data center preferences and general account settings',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.users',
+							name: 'Users',
+							description: 'Manage users associated with this account',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.permissions',
+							name: 'Permissions',
+							description: 'Define user access to resources and information',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.billing',
+							name: 'Billing',
+							description: 'Billing, usage history and payment option',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.subAccounts',
+							name: 'Sub Accounts',
+							description: 'Create a sub account for hierarchal management and separate billing',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.notifications',
+							name: 'Notifications',
+							description: 'Define primary and billing contacts',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.api',
+							name: 'API & Webhooks',
+							description: 'Manage API Users and Webhooks',
+							href: '#'
+						},
+            {
+							id: 'orgSettings.serviceCatalog',
+							name: 'Service Catalog',
+							description: 'Enable or disable access to particular services for your account or sub accounts.',
+							href: '#'
+						}
+					]
+				}
+			]);
+
+      self.loading = ko.observable(false);
+      self.error = ko.observable(false);
+      self.selectedItemId = ko.observable('infrastructure.manage');
+
+			self.addMenuItem = function() {
+				self.menus.push({
+					name: 'Added Item',
+					iconId: '#icon-centurylink',
+					items: [{
+						name: 'an item',
+						description: 'some description'
+					}]
+				})
+			};
+
+			self.addItemToCreate = function() {
+				console.log(self.menus()[0]);
+				self.menus()[0].items.push({
+					name: 'added item',
+					description: 'some description'
+				})
+			}
+		}
+
+		ko.applyBindings(new MainNavModel(), $("main-nav")[0]);
+
+	})
+</script>
+
+{{{block "scripts"}}}
+
+</body>
+</html>
