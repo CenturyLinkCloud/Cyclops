@@ -1,0 +1,70 @@
+//
+// Upcoming Events
+// --------------------------------------------------
+
+.upcoming-events {
+
+  .empty-upcoming-events {
+    margin-top: 20px;
+    font-size: @font-size-small;
+  }
+
+  .event {
+    margin-top: 10px;
+    .clearfix();
+
+    &:first-of-type {
+      margin-top: 20px;
+    }
+  }
+
+  .task-datetime {
+    font-size: @font-size-small;
+    margin: 0;
+    transition: e('background-color .2s, color .2s');
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+
+  @media (min-width: @screen-sm-min) {
+
+    .task-datetime {
+
+      &:hover {
+        background-color: #3a3a3a;
+        color: #fff;
+      }
+
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      float: left;
+      margin-right: 10px;
+      padding: 5px 0 7px 0;
+      text-align: center;
+      text-decoration: none;
+      width: 70px;
+    }
+
+    .date {
+      display: block;
+      font-size: @font-size-large;
+    }
+
+    .time {
+      line-height: 17px;
+      font-size: @font-size-small;
+    }
+
+    .details {
+      margin-top: 4px;
+
+      span {
+        display: block;
+      }
+    }
+
+  }
+}

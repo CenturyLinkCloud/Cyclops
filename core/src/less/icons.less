@@ -1,0 +1,59 @@
+@baseIconSize: 14px;
+
+.cyclops-icon {
+  width: @baseIconSize;
+  height: @baseIconSize;
+  fill: @text-color;
+  vertical-align: sub;
+
+  &.md {
+    width: (@baseIconSize * 2);
+    height: (@baseIconSize * 2);
+  }
+
+  &.lg {
+    width: (@baseIconSize * 3);
+    height: (@baseIconSize * 3);
+  }
+
+  &.xl {
+    width: (@baseIconSize * 4);
+    height: (@baseIconSize * 4);
+  }
+
+  &.green,
+  &.success {
+    fill: @primary-brand-green;
+  }
+
+  &.danger,
+  &.error {
+    fill: @btn-danger-bg;
+  }
+
+  &.warning {
+    fill: @brand-warning;
+  }
+
+  &.info {
+    fill: #3a87ad;
+  }
+}
+
+// vertically align an svg icon in a p or a tag.
+p svg.cyclops-icon,
+a svg.cyclops-icon {
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .cyclops-icon {
+    height: @headings-line-height;
+    width: @headings-line-height;
+  }
+}

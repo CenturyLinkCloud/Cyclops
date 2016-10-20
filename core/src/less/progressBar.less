@@ -1,0 +1,87 @@
+progress {
+  width: 100%;
+  display: block;
+  /* Important Thing */
+  appearance: none;
+  border: none;
+  position: relative;
+  border-radius: @progress-border-radius;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  /* IE */
+  color: @progress-bar-success-bg;
+
+  &::-webkit-progress-bar {
+    background: @progress-bg;
+    border: solid 1px @border-color-dark;
+    border-radius: @progress-border-radius
+  }
+
+  &::-webkit-progress-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: @progress-bar-success-bg;
+    border: solid 1px darken(@progress-bar-success-bg, 10%);
+    border-radius: @progress-border-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &::-moz-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: @progress-bar-success-bg;
+    border: solid 1px darken(@progress-bar-success-bg, 10%);
+    border-radius: @progress-border-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.info {
+    &::-moz-progress-bar {
+      background-color: @progress-bar-info-bg;
+      border-color: darken(@progress-bar-info-bg, 15%);
+    }
+
+    &::-webkit-progress-value {
+      background-color: @progress-bar-info-bg;
+      border-color: darken(@progress-bar-info-bg, 15%);
+    }
+
+    /* IE */
+    color: @progress-bar-info-bg;
+  }
+
+  &.warning {
+    &::-moz-progress-bar {
+      background-color: @progress-bar-warning-bg;
+      border-color: darken(@progress-bar-warning-bg, 10%);
+    }
+
+    &::-webkit-progress-value {
+      background-color: @progress-bar-warning-bg;
+      border-color: darken(@progress-bar-warning-bg, 10%);
+    }
+
+    /* IE */
+    color: @progress-bar-warning-bg;
+  }
+
+  &.danger {
+    &::-moz-progress-bar {
+      background-color: @progress-bar-danger-bg;
+      border-color: darken(@progress-bar-danger-bg, 10%);
+    }
+
+    &::-webkit-progress-value {
+      background-color: @progress-bar-danger-bg;
+      border-color: darken(@progress-bar-danger-bg, 10%);
+    }
+
+    /* IE */
+    color: @progress-bar-danger-bg;
+  }
+}

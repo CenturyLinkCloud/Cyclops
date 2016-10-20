@@ -1,0 +1,255 @@
+//
+// Action Toolbar
+// --------------------------------------------------
+
+.action-area {
+  background-color: @action-toolbar-bg;
+  height: 40px;
+  line-height: 20px;
+  padding: 0 20px;
+  overflow: hidden;
+  .clearfix();
+
+  &.action-toolbar-confirm-shown {
+    .overflow-menu {
+      display: none;
+    }
+  }
+
+  .overflow-menu {
+    vertical-align: inherit;
+    height: 40px;
+    position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+
+    &:hover,
+    &.open {
+      color: #fff;
+      background: @action-toolbar-dropdown-bg;
+
+      a,
+      button {
+        color: #fff;
+        background-color: @action-toolbar-dropdown-bg;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+
+     .dropdown-menu {
+       li > a,
+       li > button {
+         padding: 5px 10px;
+       }
+     }
+
+      svg {
+        fill: #fff;
+      }
+    }
+
+    .dropdown-menu {
+      color: #fff;
+      background: @action-toolbar-dropdown-bg;
+      border: 0;
+      margin-top: 0;
+      border-radius: 0;
+
+      li a,
+      li button {
+        transition: none;
+
+        &:hover {
+          background: @action-toolbar-dropdown-hover-bg;
+
+          &.disabled,
+          &:disabled {
+            background: none;
+          }
+          &.active,
+          &:active {
+            background-color: @action-toolbar-dropdown-active-bg;
+          }
+        }
+      }
+    }
+  }
+}
+
+.action-toolbar,
+.action-toolbar-left,
+.action-toolbar-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: @font-size-regular - 1;
+
+  > li {
+    float: left;
+
+    a,
+    button {
+      background-color: @action-toolbar-bg;
+      display: inline-block;
+      padding: 8px 10px 12px;
+      transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
+      text-decoration: none;
+      border:none;
+      outline:none;
+
+      &:hover {
+        background-color: @action-toolbar-hover-bg;
+        color: #fff;
+
+        svg.cyclops-icon {
+          transition: e('fill .15s');
+          fill: #fff;
+        }
+      }
+
+      &.active,
+      &:active {
+        background-color: @action-toolbar-active-bg;
+        color: #fff;
+        svg.cyclops-icon {
+          fill: #fff;
+        }
+      }
+
+      &.disabled,
+      &:disabled {
+        color: #b9b9b9;
+        cursor: @cursor-disabled;
+
+        &:hover {
+          background: @action-toolbar-bg;
+
+          svg.cyclops-icon {
+            fill: #b9b9b9;
+          }
+        }
+
+        svg.cyclops-icon {
+          fill: #b9b9b9;
+        }
+      }
+    }
+  }
+}
+
+.action-toolbar-left {
+  float: left;
+  margin-right: 110px;
+}
+
+.action-toolbar-right {
+  float: right;
+}
+
+.action-toolbar-confirm {
+  clear: both;
+  background-color: @action-toolbar-dropdown-bg;
+  color: #fff;
+  height: 40px;
+  margin-right: -20px;
+  padding-right: 20px;
+  margin-left: -20px;
+  padding-left: 20px;
+
+  svg {
+    fill: #fff;
+  }
+
+  .message {
+    display: none;
+    padding-right: 10px;
+    line-height: 40px;
+    word-break: break-all;
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .buttons {
+    button {
+      height: 40px;
+      border: none;
+      padding-right: 20px;
+      padding-left: 20px;
+      background: none;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+
+      &.yes {
+        background-color: @btn-default-bg;
+
+        &:hover {
+          background-color: @btn-default-bg-hover;
+        }
+      }
+
+      &.no {
+        color: @gray-100;
+
+        svg {
+          fill: @gray-100;
+        }
+
+        &:hover {
+          color: #fff;
+          background-color: darken(@action-toolbar-dropdown-bg, 10%);
+
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: @screen-sm-min) {
+    .buttons {
+      float: right;
+    }
+
+    .message {
+      display: block;
+    }
+  }
+
+  &.action-toolbar-confirm-primary {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    button {
+      &.yes {
+        background-color: @btn-primary-bg;
+
+        &:hover {
+          background-color: @btn-primary-bg-hover;
+        }
+      }
+    }
+  }
+
+  &.action-toolbar-confirm-danger {
+    button {
+      &.yes {
+        background-color: @btn-danger-bg;
+
+        &:hover {
+          background-color: @btn-danger-bg-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+.custom-picker {
+
+  .control {
+    position: relative;
+    margin-bottom: 0;
+    width: 24%;
+
+    &:after {
+      border-radius: @border-radius-base;
+    }
+
+    // Hide default browser input
+    input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
+      &[disabled] ~ .card {
+        background-color: @gray-100;
+        cursor: @cursor-disabled;
+      }
+
+      &:checked ~ .card {
+        background-color: @brand-success;
+        border-radius: @border-radius-small;
+        border-color: darken(@brand-success, 5%);
+        h5 {
+          color: white;
+        }
+
+        .cyclops-icon {
+          fill: white;
+        }
+      }
+
+      &:focus ~ .card {
+        border: 1px solid @gray-500;
+        outline-offset: -5px;
+        outline: 1px dotted lighten(@btn-default-bg, 20%);
+      }
+    }
+  }
+
+  .card {
+    margin-bottom: 5px;
+  }
+
+  .card-block {
+    transition: background-color .2s ease-in-out;
+  }
+}
+
+
+// hierarchy picker
+.picker {
+  height: 160px;
+  border: solid 1px @gray-200;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: auto;
+
+  .empty,
+  .loading {
+    font-size: @font-size-large;
+    text-align: center;
+    margin-top: 70px;
+    color: #ccc;
+  }
+
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .item-hover {
+    cursor: pointer;
+    display: block;
+    border-bottom: 1px solid @border-color;
+    margin: 0;
+    font-weight: @font-weight-regular;
+    position: relative;
+    user-select: none;
+
+    input {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
+
+    input:checked + .content {
+      background-color: @gray-700;
+      color: #fff;
+
+      svg {
+        fill: #fff;
+      }
+    }
+
+    input:disabled + .content {
+      cursor: not-allowed;
+      color: @gray-300;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      svg {
+        fill: @gray-300;
+      }
+    }
+
+    input[type=checkbox]:indeterminate + .content {
+//        background-color: lighten(@gray-dark, 60%);
+    }
+
+    &:hover {
+      .content {
+        background-color: @body-bg;
+      }
+    }
+  }
+
+  .unselectable {
+    cursor: not-allowed;
+
+    .content {
+      color: @gray-300;
+
+      svg {
+        fill: @gray-300;
+      }
+    }
+
+    &:hover {
+      .content {
+        background: none;
+      }
+    }
+  }
+
+  .content {
+    display: block;
+    padding: 7px 10px 7px 30px;
+  }
+
+  li {
+    .contnet {
+      padding-left: 30px;
+    }
+
+    li {
+      .content {
+        padding-left: 50px;
+      }
+
+      li {
+        .content {
+          padding-left: 70px;
+        }
+
+        li {
+          .content {
+            padding-left: 90px;
+          }
+
+          li {
+            .content {
+              padding-left: 110px;
+            }
+
+            li {
+              .content {
+                padding-left: 130px;
+              }
+
+              li {
+                .content {
+                  padding-left: 150px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

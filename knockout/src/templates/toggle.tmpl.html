@@ -1,0 +1,27 @@
+<script id="cyclops.toggle" type="text/html">
+  <div class="toggle" data-bind="css: {'disabled': disabled}">
+    <label>
+      <input type="checkbox" data-bind="checked:value, disable: disabled" />
+      <!-- https://css-tricks.com/webkit-sibling-bug/ -->
+      <div class="bug-fix">
+        <div class="text">
+          <div class="affirmative" data-bind="text:affirmativeText">yes</div>
+          <div class="negative" data-bind="text:negativeText">no</div>
+        </div>
+        <svg class="handle" height="34" viewBox="0 0 35 34">
+          <g>
+            <rect x="13" y="13" fill="#777777" width="1" height="1"/>
+            <rect x="16" y="13" fill="#777777" width="1" height="1"/>
+            <rect x="19" y="13" fill="#777777" width="1" height="1"/>
+            <rect x="13" y="16" fill="#777777" width="1" height="1"/>
+            <rect x="16" y="16" fill="#777777" width="1" height="1"/>
+            <rect x="19" y="16" fill="#777777" width="1" height="1"/>
+            <rect x="13" y="19" fill="#777777" width="1" height="1"/>
+            <rect x="16" y="19" fill="#777777" width="1" height="1"/>
+            <rect x="19" y="19" fill="#777777" width="1" height="1"/>
+          </g>
+        </svg>
+      </div>
+    </label>
+  </div>
+</script>

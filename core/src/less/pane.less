@@ -1,0 +1,153 @@
+pane {
+  position: static;
+  max-height: 36px;
+  overflow: hidden;
+  display: block;
+  transition: e('max-height .5s, margin-left .5s');
+  background-color: @body-bg;
+
+  &.pane-expanded {
+    max-height: none;
+    overflow-y: auto;
+
+    .pane-actions {
+      display: block;
+    }
+  }
+
+  .tree {
+    .collapsed {
+      display: none;
+    }
+
+    .expanded {
+      display: block;
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    max-height: none;
+    width: @pane-width;
+    position: fixed;
+    height: auto;
+    top: 91px;
+    bottom: 0;
+    background-color: #f2f2f2;
+    box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+    overflow: auto;
+
+    ~ main {
+      margin-left: @pane-width;
+
+      .container {
+        width: 100%;
+      }
+    }
+  }
+  @media (min-width: @screen-md-min) {
+    ~ main .container {
+      width: @container-md - @pane-width;
+      margin-left: 0;
+    }
+  }
+  @media (min-width: @screen-lg-min) {
+    ~ main .container {
+      width: @container-lg - @pane-width;
+    }
+  }
+}
+
+.pane-header {
+  height: 36px;
+  background-color: #d5d5d5;
+  border-bottom: 1px solid @gray-200;
+  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+  letter-spacing: 1px;
+  font-size: @font-size-small;
+
+  .search {
+    background-color: #fff;
+    width: 225px;
+    height: 25px;
+    position: absolute;
+    margin- top: 5px;
+    margin-left: 10px;
+    transition: e('margin-top .2s');
+    line-height: 26px;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    .pane-header-btn:hover {
+      background-color: transparent;
+    }
+
+    input {
+      border: none;
+      padding-left: 5px;
+      width: 200px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .content {
+    padding: 5px 15px;
+    line-height: 26px;
+  }
+  @media (min-width: @screen-sm-min) {
+    display: block;
+  }
+}
+
+.pane-search-message {
+  padding: 5px 22px;
+  font-size: @font-size-small;
+  color: @text-color-lighter;
+  line-height: 26px;
+  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+  border-bottom: 1px solid @border-color;
+}
+
+.pane-header-btn {
+  .btn();
+  background-color: transparent;
+  text-decoration: none;
+  color: @text-color;
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: @border-radius-small;
+  line-height: 20px;
+  font-size: @font-size-small;
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+
+  &.active,
+  &:hover {
+    background-color: rgba(255,255,255,.70);
+    color: @gray-700;
+  }
+
+  &.active {
+    font-weight: @font-weight-bold;
+  }
+}
+
+.pane-toggle {
+  float: right;
+  @media (min-width: @screen-sm-min) {
+    display: none;
+  }
+}
+
+.pane-actions {
+  display: none;
+  @media (min-width: @screen-sm-min) {
+    display: block;
+  }
+}

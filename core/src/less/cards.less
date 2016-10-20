@@ -1,0 +1,180 @@
+//
+// Base styles
+//
+.card {
+  position: relative;
+  margin-bottom: @line-height-computed;
+  background-color: #fff;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-base;
+
+  > .alert {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+
+.alert + .new-list-view,
+.card-block + .new-list-view {
+  border-top: 1px solid @border-color;
+}
+
+.card-block {
+  padding: 15px 15px;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: @line-height-computed;
+}
+
+.card-subtitle {
+  margin-top: -(@line-height-computed / 2);
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+//
+// Optional textual caps
+//
+.card-header {
+  .clearfix();
+  padding: (@line-height-computed / 2) 15px;
+  background-color: @gray-100;
+  border-bottom: 1px solid @border-color;
+}
+
+.card-footer {
+  .clearfix();
+  padding: (@line-height-computed / 2) 15px;
+  background-color: @gray-100;
+  border-top: 1px solid @border-color;
+}
+
+.card-hover {
+  display:none;
+}
+
+.card:hover .card-hover {
+  display: block;
+}
+
+.card-overlay {
+  .card-inverse();
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px 15px;
+  background-color: rgba(0,0,0, .8);
+  border-radius: @border-radius-base;
+
+  .card-title {
+    margin-bottom: @line-height-computed / 2;
+  }
+}
+//
+// Background variations
+//
+.card-success {
+  .card-inverse();
+  background-color: @brand-success;
+  border-color: @brand-success;
+}
+
+.card-info {
+  .card-inverse();
+  background-color: @brand-info;
+  border-color: @brand-info;
+}
+
+.card-warning {
+  .card-inverse();
+  background-color: @brand-warning;
+  border-color: @brand-warning;
+}
+
+.card-danger {
+  .card-inverse();
+  background-color: @brand-danger;
+  border-color: @brand-danger;
+}
+
+.card-enable {
+  background-color: #f5f5f5;
+
+  .cyclops-icon {
+    fill: @gray-200;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border-color: @gray-400;
+
+    .cyclops-icon {
+      fill: @gray-500;
+    }
+  }
+}
+
+.card-add {
+  height: 150px;
+  text-align: center;
+  border-width: 2px;
+  border-style: dashed;
+  background-color: #f5f5f5;
+
+  .cyclops-icon {
+    fill: @gray-200;
+  }
+
+  &:hover {
+    border-color: @gray-400;
+
+    .cyclops-icon {
+      fill: @gray-500;
+    }
+  }
+}
+//
+// Inverse text within a card for use with dark backgrounds
+//
+.card-inverse {
+  .card-header {
+    border-bottom: 0.075rem solid rgba(255,255,255,.2);
+  }
+
+  .card-header,
+  .card-footer,
+  .card-title,
+  .card-subtitle {
+    color: #fff;
+  }
+
+  .card-link,
+  .card-text {
+    color: rgba(255,255,255,.75);
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .card-deck {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 1.25rem 0;
+
+    .card {
+      display: table-cell;
+      width: 1%;
+      vertical-align: top;
+    }
+  }
+
+  .card-deck-wrapper {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}

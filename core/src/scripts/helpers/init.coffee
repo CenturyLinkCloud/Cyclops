@@ -1,0 +1,4 @@
+helpers = {}
+libraries = {
+  jquery: true
+}

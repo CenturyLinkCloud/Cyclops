@@ -1,0 +1,142 @@
+//
+// Alerts
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: @alert-padding;
+  margin-bottom: @line-height-computed;
+  border: 1px solid transparent;
+  border-radius: @alert-border-radius;
+  text-align: center;
+
+  // Headings for larger alerts
+  h4 {
+    font-size: @font-size-regular;
+    font-weight: @font-weight-bold;
+    letter-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  h1, h2, h3, h4 {
+    color: @alert-text;
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: @font-size-h1 - 4;
+  }
+
+  h2 {
+    font-size: @font-size-h2 - 4;
+  }
+
+  h3 {
+    font-size: @font-size-h3 - 4;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: @alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 10px;
+  }
+
+  .alert-icon {
+
+    text-align: center;
+    margin-bottom: @line-height-computed / 2;
+
+    > svg {
+    width: 28px;
+    height: 28px;
+    }
+  }
+}
+
+// Alert banner for top level (under the main nav) notifications
+
+.alert-banner {
+  border-radius: 0;
+  font-weight: @font-weight-bold;
+  border-left: none;
+  border-right: none;
+}
+
+@media (min-width: @screen-sm-min) {
+
+  .alert {
+    text-align: left;
+  }
+
+  .alert-banner {
+    text-align: center;
+  }
+
+  .alert-icon {
+    float: left;
+    line-height: (@line-height-computed * 2) - 6 ; // 34px
+  }
+
+  .alert-icon ~ h1,
+  .alert-icon ~ h2,
+  .alert-icon ~ h3,
+  .alert-icon ~ h4,
+  .alert-icon ~ p {
+    margin-left: @alert-padding * 2.5;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: (@alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-instruction {
+  .alert-variant(@alert-instruction-bg; @alert-instruction-border; @alert-instruction-icon; @alert-text);
+}
+
+.alert-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-icon; @alert-text);
+}
+
+.alert-info {
+  .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-icon; @alert-text);
+}
+
+.alert-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-icon; @alert-text);
+}
+
+.alert-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-icon; @alert-text);
+}
+
+.alert--texture {
+  background-image: linear-gradient(45deg,rgba(255,255,255,.25) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.25) 50%,rgba(255,255,255,.25) 75%,transparent 75%,transparent);
+  background-size: 50px 50px;
+}

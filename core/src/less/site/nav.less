@@ -1,0 +1,70 @@
+
+.nav-cyclops {
+  background-color: @cyclops-header-bg;
+  border-width: 0;
+  padding: 10px 15px 5px;
+  .clearfix();
+
+  .navbar-brand {
+    width: 45px;
+    height: 40px;
+    border: none;
+    padding: 9px 15px 0 0;
+  }
+
+  .navbar-nav {
+    border-bottom: none;
+
+    li {
+      letter-spacing: 1px;
+
+      a {
+        border-radius: 5px;
+        padding: 12px;
+      }
+    }
+  }
+
+  .cyclops-icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .navbar-cl-logo {
+    display: none;
+  }
+
+  .navbar-toggle {
+    margin-right: 0;
+    border-color: @border-color;
+
+    .icon-bar {
+      background-color: @gray-300;
+    }
+  }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+  .nav-cyclops {
+    .navbar-cl-logo {
+      display: block;
+      width: 127px;
+      height: 33px;
+      float: right;
+      margin-top: 10px;
+    }
+
+    .navbar-toggle {
+      margin-right: 15px;
+    }
+  }
+}
+
+#cyclops-nav-stacked {
+  margin-top: -30px;
+
+  @media (min-width: @grid-float-breakpoint) {
+//      background-color: transparent;
+  }
+
+}

@@ -1,0 +1,37 @@
+.search-input {
+  display: block;
+  position: relative;
+
+  input {
+    height: 30px; //match button height
+    padding: 6px 26px 6px 12px;
+    font-size: @font-size-regular;
+    line-height: 1.42857143;
+    color: @text-color;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: @border-radius-base;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    width: 100%;
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    fill: #ccc;
+
+    use.clear {
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: @screen-sm-min) {
+    display: inline-block;
+  }
+}

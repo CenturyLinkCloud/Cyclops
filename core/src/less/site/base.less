@@ -1,0 +1,39 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.nav-column {
+  @media (min-width: @grid-float-breakpoint) {
+    position: sticky;
+    top: 20px;
+  }
+}
+
+.main-column {
+  margin-bottom: 100px;
+}
+
+footer {
+  font-size: @font-size-small;
+  padding: 1em 1.5em;
+  bottom: 0;
+  height: 40px;
+  background-color: @gray-100;
+  width: 100%;
+}
+
+main.container {
+  padding-top: 30px;
+}
+
+footer {
+  p {
+    margin: 0;
+  }
+}

@@ -1,0 +1,53 @@
+@import "utilities/clearfix.less";
+@import "utilities/display.less";
+@import "utilities/float.less";
+@import "utilities/hover.less";
+@import "utilities/spacing.less";
+@import "utilities/type.less";
+@import "utilities/visibility.less";
+
+// For Affix plugin
+.affix {
+  position: fixed;
+}
+// single line
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cyclops-spin {
+  animation: cyclops-spin 2s infinite linear;
+}
+
+@keyframes cyclops-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.cyclops-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.cyclops-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.cyclops-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.cyclops-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.cyclops-flip-vertical {
+  transform: scale(1, -1);
+}

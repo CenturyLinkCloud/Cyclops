@@ -1,0 +1,35 @@
+{{!< ../layouts/knockout-layout.html}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Knockout</h1>
+      <p class="lead">using cyclops.knockout to consume cyclops.core</p>
+    </div>
+  </div>
+</div>
+<div class="primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12" data-bind="console: $data">
+        <h2>toggle</h2>
+        <toggle params="value: value"></toggle>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    var model = {
+      value: ko.observable(false)
+    }
+    model.value.subscribe(function(value){
+      console.log("From Knockout Consumer: " + value);
+    });
+    ko.applyBindings(model);
+  });
+</script>
+{{/contentFor}}

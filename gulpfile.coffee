@@ -21,6 +21,7 @@ svgstore = require 'gulp-svgstore'
 svgmin = require 'gulp-svgmin'
 pkg = require './package.json'
 notifier = require 'node-notifier'
+babel = require 'gulp-babel'
 
 __base = './www/'
 
@@ -330,3 +331,139 @@ gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 
     .pipe gulp.dest './devDist/'
 
   return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML, copyStaticBuildPackFiles
+
+
+
+
+
+
+
+
+
+# cyclops.core
+gulp.task 'core-less-concat', ->
+  concatenated = combine.obj [
+    gulp.src [ './core/src/less/cyclops.core.less', './core/src/less/site/site.less' ]
+      sourcemaps.init()
+      less()
+      autoprefixer
+        browsers: [ 'ie >= 9', 'last 2 versions' ]
+        cascade: false
+      sourcemaps.write './'
+      gulp.dest './www/assets/css'
+  ]
+  concatenated.on 'error', (error) ->
+    console.error.bind(console)
+    notifier.notify
+      title: 'Less Compilation Error'
+      message: error.message
+      icon: './www/assets/img/centurylink-cyclops.png'
+  concatenated
+
+gulp.task 'core-script-concat', ->
+  concatenated = combine.obj [
+    gulp.src './core/src/scripts/helpers/init.coffee'
+      addSrc.append [ './core/src/scripts/helpers/**/*.*', '!./core/src/scripts/helpers/init.coffee' ]
+      addSrc.append './core/src/scripts/*.*'
+      addSrc.prepend './core/src/scripts/polyfills/**/*'
+      coffee({ bare: true })
+      addSrc.prepend './core/build/before.js'
+      addSrc.append './core/build/after.js'
+      addSrc.prepend './core/src/scripts/vendor/polyfill.js'
+      sourcemaps.init()
+      concat('cyclops.core.js')
+      sourcemaps.write './'
+      gulp.dest './www/assets/scripts'
+  ]
+  concatenated.on 'error', (error) ->
+    console.error.bind(console)
+    notifier.notify
+      title: 'Script Compilation Error'
+      message: error.message
+      icon: './www/assets/img/centurylink-cyclops.png'
+  concatenated
+
+gulp.task 'core-svg-concat', ->
+  gulp.src './core/src/svg/**/*.svg'
+    .pipe rename { prefix: 'icon-' }
+    .pipe svgstore { inlineSvg: true }
+    .pipe rename 'cyclops.icons.svg'
+    .pipe gulp.dest './www/assets/svg/'
+
+gulp.task 'core', ['core-less-concat','core-script-concat', 'core-svg-concat']
+
+# cyclops.react
+gulp.task 'react-script-concat', ->
+  concatenated = combine.obj [
+    gulp.src './react/src/scripts/**/*.jsx'
+      sourcemaps.init()
+      babel {presets: ['react']}
+      concat 'cyclops.react.js'
+      sourcemaps.write './'
+      gulp.dest './www/assets/scripts'
+  ]
+  concatenated.on 'error', (error) ->
+    console.error.bind(console)
+    notifier.notify
+      title: 'Script Compilation Error'
+      message: error.message
+      icon: './www/assets/img/centurylink-cyclops.png'
+  concatenated
+
+gulp.task 'react', ['react-script-concat']
+
+# cyclops.knockout
+gulp.task 'knockout-script-concat', ->
+  concatenated = combine.obj [
+    gulp.src './knockout/src/scripts/helpers/init.coffee'
+      addSrc.append [ './knockout/src/scripts/helpers/**/*.*', '!./knockout/src/scripts/helpers/init.coffee' ]
+      addSrc.append './knockout/src/scripts/extensions/*.*'
+      addSrc.append './knockout/src/scripts/models/*.*'
+      addSrc.append './knockout/src/scripts/*.*'
+      coffee({ bare: true })
+      addSrc.prepend './knockout/build/before.js'
+      addSrc.append './knockout/build/after.js'
+      sourcemaps.init()
+      concat('cyclops.knockout.js')
+      sourcemaps.write './'
+      gulp.dest './www/assets/scripts'
+  ]
+  concatenated.on 'error', (error) ->
+    console.error.bind(console)
+    notifier.notify
+      title: 'Script Compilation Error'
+      message: error.message
+      icon: './www/assets/img/centurylink-cyclops.png'
+  concatenated
+
+gulp.task 'knockout-template-concat', ->
+  gulp.src './knockout/src/templates/**/*.tmpl.html'
+    .pipe sourcemaps.init()
+    .pipe concat 'cyclops.knockout.tmpl.html'
+    .pipe sourcemaps.write './'
+    .pipe gulp.dest './www/assets/templates'
+
+gulp.task 'knockout', ['knockout-script-concat', 'knockout-template-concat']
+
+# dev
+gulp.task 'client-watch2', ->
+  gulp.watch './core/src/less/**/**', ['core-less-concat']
+  gulp.watch './core/src/scripts/**/**', ['core-script-concat']
+  gulp.watch './core/src/svg/**/**', ['core-svg-concat']
+
+
+  gulp.watch './react/src/scripts/**/**', ['react-script-concat']
+
+gulp.task 'server-watch2', ->
+  return nodemon
+    script: 'app.coffee'
+    ext: 'js,coffee'
+    ignore: [
+      './gulpfile.coffee'
+      'node_modules/*'
+      'src/*'
+      'www/*'
+      '.git/*'
+    ]
+
+gulp.task 'dev2', ['core', 'react', 'knockout', 'client-watch2', 'server-watch2']

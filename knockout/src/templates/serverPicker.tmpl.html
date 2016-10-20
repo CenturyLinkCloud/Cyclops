@@ -1,0 +1,80 @@
+<script id="cyclops.serverPicker" type="text/html">
+  <div class="picker">
+    <!-- ko if: isLoading -->
+    <p class="loading" data-bind="html: loadingHtmlMessage"></p>
+    <!-- /ko -->
+    <!-- ko ifnot: isLoading -->
+      <!-- ko empty: groups -->
+      <p class="empty" data-bind="html: emptyHtmlMessage"></p>
+      <!-- /ko -->
+      <!-- ko any: groups -->
+      <ol data-bind="template: { name: $component.templateName, foreach: groups }"></ol>
+      <!-- /ko -->
+    <!-- /ko -->
+  </div>
+</script>
+
+<script id="cyclops.serverPicker.group.multi" type="text/html">
+  <li>
+    <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title }">
+      <!-- ko if: selectable -->
+      <input type="checkbox" data-bind="attr: {name: $component.controlName}, click: clickHandler, checked: isChecked, indeterminate: isIndeterminate"/>
+      <!-- /ko -->
+      <span class="content">
+        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span data-bind="text: rawGroup.name"></span>
+      </span>
+    </label>
+    <!-- ko any: groups -->
+    <ol data-bind="template: {name: 'cyclops.serverPicker.group.multi', foreach: groups}"></ol>
+    <!-- /ko -->
+    <!-- ko any: servers -->
+    <ol data-bind="template: {name: 'cyclops.serverPicker.server.multi', foreach: servers}"></ol>
+    <!-- /ko -->
+  </li>
+</script>
+
+<script id="cyclops.serverPicker.server.multi" type="text/html">
+  <li>
+    <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title}">
+      <!-- ko if: selectable -->
+      <input type="checkbox" data-bind="attr: {name: $component.controlName}, checked: isChecked" />
+      <!-- /ko -->
+      <span class="content">
+        <svg class="cyclops-icon">
+          <use xlink:href='#icon-question' data-bind="attr: { 'xlink:href': $component.getServerIcon(rawServer.state) }" >
+        </svg> <span data-bind="text: displayName"></span>
+      </span>
+    </label>
+  </li>
+</script>
+
+<script id="cyclops.serverPicker.group.single" type="text/html">
+  <li>
+    <label class="item-hover" data-bind="attr: { title: title }">
+      <span class="content">
+        <svg class="cyclops-icon"><use xlink:href='#icon-folder'></svg> <span data-bind="text: rawGroup.name"></span>
+      </span>
+    </label>
+    <!-- ko any: groups -->
+    <ol data-bind="template: {name: 'cyclops.serverPicker.group.single', foreach: groups}"></ol>
+    <!-- /ko -->
+    <!-- ko any: servers -->
+    <ol data-bind="template: {name: 'cyclops.serverPicker.server.single', foreach: servers}"></ol>
+    <!-- /ko -->
+  </li>
+</script>
+
+<script id="cyclops.serverPicker.server.single" type="text/html">
+  <li>
+    <label class="item-hover" data-bind="css : { 'unselectable': !selectable()}, attr: { title: title}">
+      <!-- ko if: selectable -->
+      <input type="radio" data-bind="attr: {name: $component.controlName}, checked: $component.selected, checkedValue: $data.rawServer" />
+      <!-- /ko -->
+      <span class="content">
+        <svg class="cyclops-icon">
+          <use xlink:href='#icon-question' data-bind="attr: { 'xlink:href': $component.getServerIcon(rawServer.state) }" >
+        </svg> <span data-bind="text: displayName"></span>
+      </span>
+    </label>
+  </li>
+</script>

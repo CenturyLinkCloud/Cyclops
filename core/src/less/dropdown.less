@@ -1,0 +1,95 @@
+// make them behave like buttons and line up
+div.dropdown {
+  display: inline-block;
+}
+
+.dropdown {
+  position: relative;
+
+  &.open {
+    .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none; // none by default, but block on "open" of the menu
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0; // override default ul
+    list-style: none;
+    font-size: @font-size-regular;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    background-color: #fff;
+    border: 1px solid @border-color;
+    border-radius: @border-radius-small;
+    background-clip: padding-box;
+
+    &.dropdown-menu-right {
+      left: auto; // Reset the default from `.dropdown-menu`
+      right: 0;
+    }
+
+    &.dropdown-menu-left {
+      left: 0;
+      right: auto;
+    }
+
+    // Dividers (basically an hr) within the dropdown
+    .divider {
+      .nav-divider(@border-color);
+    }
+
+    > li a:hover,
+    > li button:hover {
+      background: #ebebeb;
+    }
+
+    // Links, buttons and text within the dropdown menu
+    > li {
+      > .dropdown-text {
+        color: @gray-300;
+        margin: 0;
+      }
+      > a,
+      > button,
+      > .dropdown-text {
+        border: none;
+        border-radius: @border-radius-small;
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+        text-decoration: none;
+      }
+
+      > button {
+        background-color: transparent;
+        background-image: none;
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    > li.active {
+      > a {
+        font-weight: @font-weight-bold;
+      }
+    }
+  }
+}
+
+.dropdown-dismiss {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}

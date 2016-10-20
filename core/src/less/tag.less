@@ -1,0 +1,37 @@
+.tag {
+  display: inline-block;
+  padding: .5em;
+  font-size: 75%;
+  font-weight: @font-weight-bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: @border-radius-small;
+
+  // Empty tags collapse automatically
+  &:empty {
+    display: none;
+  }
+}
+
+.tag-default {
+  .tag-variant(@tag-default-bg);
+}
+
+.tag-primary {
+  .tag-variant(@tag-primary-bg);
+}
+
+.tag-info {
+  .tag-variant(@tag-info-bg);
+}
+
+.tag-warning {
+  .tag-variant(@tag-warning-bg);
+}
+
+.tag-danger {
+  .tag-variant(@tag-danger-bg);
+}

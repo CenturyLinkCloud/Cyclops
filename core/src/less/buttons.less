@@ -1,0 +1,498 @@
+.btn {
+  background-image: none;
+  border: none;
+  border-radius: @border-radius-small;
+  box-shadow: none;
+  color: #fff;
+  display: inline-block;
+  font-family: @font-family;
+  font-size: 13px;
+  font-weight: @font-weight-regular;
+  letter-spacing: 1px;
+  line-height: @line-height-computed;
+  padding: 4px 10px 6px;
+  text-shadow: none;
+  text-decoration: none;
+  transition: e('background-color .1s, color .1s, opacity .1s, border .1s');
+
+  &:active {
+    box-shadow: inset 0 2px 1px 0 rgba(0,0,0,0.2);
+  }
+
+  &:focus {
+    outline-offset: -4px;
+    outline: 1px dotted lighten(@btn-default-bg, 20%);
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 0.65;
+    cursor: @cursor-disabled;
+    box-shadow: none;
+  }
+
+  .cyclops-icon use {
+    fill: #fff;
+  }
+}
+
+fieldset[disabled] {
+  .btn {
+    cursor: @cursor-disabled;
+    box-shadow: none;
+  }
+
+  .btn-default {
+    background-color: @btn-default-bg-disabled;
+
+    &:hover {
+      background-color: @btn-default-bg-disabled;
+    }
+  }
+
+  .btn-primary {
+    background-color: @btn-primary-bg-disabled;
+    color: #fff;
+
+    &:hover {
+      background-color: @btn-primary-bg-disabled;
+      color: #fff;
+    }
+  }
+
+  .btn-danger {
+    background-color: @btn-danger-bg-disabled;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      background-color: @btn-danger-bg-disabled;
+    }
+  }
+
+  .btn-inverse {
+    color: @btn-inverse-color-disabled;
+
+    &:hover {
+      color: @btn-inverse-color-disabled;
+      background-color: @btn-inverse-bg-disabled;
+    }
+  }
+
+  .btn-outline {
+    color: @btn-outline-color-disabled;
+
+    &:hover {
+      border: 1px solid @btn-outline-border;
+      background-color: @btn-outline-bg-disabled;
+      color: @btn-outline-color-disabled;
+    }
+  }
+}
+
+.btn-icon {
+  padding: 5px 0;
+  .cyclops-icon {
+    width: @btn-icon-size-default;
+    height: @btn-icon-size-default;
+    margin-bottom: -2px;
+  }
+}
+
+.btn-default {
+  background-color: @btn-default-bg;
+
+  &:hover {
+    background-color: @btn-default-bg-hover;
+  }
+
+  &:active {
+    background-color: @btn-default-bg-active;
+  }
+
+  &:focus {
+    outline: 1px dotted lighten(@btn-default-bg, 20%);
+  }
+
+  &[disabled] {
+    background-color: @btn-default-bg-disabled;
+
+    &:hover {
+      background-color: @btn-default-bg-disabled;
+      color: #fff;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-default-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-default-bg-hover;
+      }
+    }
+  }
+
+}
+
+.btn-primary {
+  background-color: @btn-primary-bg;
+
+  &:hover {
+    background-color: @btn-primary-bg-hover;
+  }
+
+  &:active {
+    background-color: @btn-primary-bg-active;
+  }
+
+  &:focus {
+    outline: 1px dotted lighten(@btn-primary-bg-hover, 20%);
+  }
+
+  &[disabled] {
+    background-color: @btn-primary-bg-disabled;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-primary-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-primary-bg-hover;
+      }
+    }
+  }
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: @btn-danger-bg;
+
+  &:hover {
+    background-color: @btn-danger-bg-hover;
+  }
+
+  &:active {
+    background-color: @btn-danger-bg-active;
+  }
+
+  &:focus {
+    outline: 1px dotted lighten(@btn-danger-bg-hover, 20%);
+  }
+
+  &[disabled] {
+    background-color: @btn-danger-bg-disabled;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-danger-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-danger-bg-hover;
+      }
+    }
+  }
+}
+
+.btn-inverse {
+  background-color: @btn-inverse-bg;
+  color: @btn-inverse-color;
+
+  &:hover {
+    background-color: @btn-inverse-bg-hover;
+  }
+
+  &:active {
+    background-color: @btn-inverse-bg-active;
+  }
+
+  &:focus {
+    outline: 1px dotted darken(@btn-inverse-bg-hover, 20%);
+  }
+
+  &[disabled] {
+    color: @btn-inverse-color-disabled;
+
+    &:hover {
+      background-color: @btn-inverse-bg-disabled;
+      color: @btn-inverse-color-disabled;
+    }
+  }
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    .cyclops-icon use {
+      fill: @btn-inverse-bg;
+    }
+
+    &:hover {
+      .cyclops-icon use {
+        fill: @btn-inverse-bg-hover;
+      }
+    }
+  }
+}
+
+.btn-outline {
+  border: 1px solid @btn-outline-border;
+  background-color: @btn-outline-bg;
+  color: @btn-outline-color;
+  padding: 3px 10px 5px;
+
+  &:hover {
+    border: 1px solid darken(@btn-outline-border, 40%);
+  }
+
+  &.active {
+    background-color: @btn-outline-bg-active;
+    border: 1px solid @btn-outline-bg-hover;
+    color: #fff;
+  }
+
+  &:focus {
+    outline: 1px dotted lighten(@btn-outline-bg-hover, 20%);
+  }
+
+  &[disabled] {
+    &:hover {
+      border: 1px solid @btn-outline-border;
+      background-color: @btn-outline-bg-disabled;
+      color: @text-color;
+    }
+  }
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+}
+
+.btn-no-style {
+  color: @text-color;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: @font-family;
+  font-size: @font-size-regular;
+  background: none;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 0;
+  margin-top: -3px;
+  padding: 0;
+  text-transform: none;
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+}
+
+.btn-link {
+  color: @text-color;
+  text-decoration: underline;
+  background-color: transparent;
+
+  &:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: 1px dotted lighten(@text-color, 40%);
+  }
+
+  &[disabled] {
+    color: @text-color;
+  }
+
+  .cyclops-icon use {
+    fill: @text-color;
+  }
+}
+
+.btn-lg,
+.btn-large {
+  border-radius: @border-radius-small;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 6px 10px 9px;
+
+  &.btn-outline {
+    padding: 5px 10px 8px;
+  }
+
+  &.btn-icon {
+
+    padding: 0;
+    line-height: 30px;
+
+    .cyclops-icon {
+      width: @btn-icon-size-lg;
+      height: @btn-icon-size-lg;
+      margin-bottom: -6px;
+    }
+  }
+
+  .cyclops-icon {
+    width: 21px;
+    height: 21px;
+    margin-bottom: -2px;
+  }
+}
+
+.btn-sm,
+.btn-small {
+  border-radius: @border-radius-small;
+  font-size: @font-size-small;
+  line-height: 18px;
+  padding: 3px 8px 4px;
+
+  &.btn-outline {
+    padding: 2px 8px 3px;
+  }
+
+  &.btn-icon {
+
+    padding: 3px 0;
+    line-height: 14px;
+
+    .cyclops-icon {
+      width: @btn-icon-size-sm;
+      height: @btn-icon-size-sm;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.btn-mini {
+  border-radius: @border-radius-small;
+  font-size: @font-size-small - 1;
+  line-height: 11px;
+  text-decoration: none;
+  padding: 5px 7px 6px;
+  height: 23px;
+
+  &.btn-outline {
+    padding: 4px 7px 5px;
+  }
+
+  .cyclops-icon {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 1px;
+  }
+}
+
+.btn-group > .btn {
+  border-radius: @border-radius-small;
+}
+
+.btn-row > .btn {
+  margin-bottom: 5px;
+}
+
+.btn-link-text {
+  font-family: @font-family;
+  font-size: @font-size-regular;
+  .btn-link();
+  background: none;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 0;
+  margin-top: -3px;
+  padding: 0;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+// Block button
+// -------------------------
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Close icons used inside list view forms
+// --------------------------------------------------
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-base;
+  text-shadow: 0 1px 0 rgba(255,255,255,1);
+  color: @text-color-lighter;
+
+  &:hover {
+    color: @text-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Additional properties for button version
+// iOS requires the button element instead of an anchor tag.
+// If you want the anchor version, it requires `href="#"`.
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  appearance: none;
+}

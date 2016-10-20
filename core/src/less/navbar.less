@@ -1,0 +1,775 @@
+//
+// Navbars
+// --------------------------------------------------
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  position: relative;
+  min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: @navbar-margin-bottom;
+  border: 1px solid transparent;
+
+  // Prevent floats from breaking the navbar
+  &:extend(.clearfix all);
+
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: @navbar-border-radius;
+  }
+}
+
+// Navbar heading
+//
+// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
+
+.navbar-header {
+  &:extend(.clearfix all);
+  .clearfix();
+
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+  }
+}
+
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
+
+.navbar-collapse {
+  overflow-x: visible;
+  padding-right: @navbar-padding-horizontal;
+  padding-left: @navbar-padding-horizontal;
+  &:extend(.clearfix all);
+  -webkit-overflow-scrolling: touch;
+
+  &.in {
+    overflow-y: auto;
+  }
+
+  &.collapse {
+    display: none;
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+
+    &.collapse {
+      display: block !important;
+      height: auto !important;
+      padding-bottom: 0; // Override default setting
+      overflow: visible !important;
+    }
+
+    &.in {
+      overflow-y: visible;
+    }
+
+    // Undo the collapse side padding for navbars with containers to ensure
+    // alignment of right-aligned contents.
+
+    .navbar-static-top & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.navbar-local {
+
+  margin-bottom: 20px;
+
+  .navbar-toggle {
+    float: left;
+    padding: 10px 15px;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid @nav-bottom-border;
+    border-bottom: 1px solid @nav-bottom-border;
+    text-align: left;
+    border-radius: 0;
+    font-weight: @font-weight-bold;
+    text-transform: uppercase;
+    font-size: @font-size-regular - 1;
+
+    &:hover {
+      background-color: @nav-link-hover-bg;
+    }
+
+    &.open {
+      background-color: @nav-link-hover-bg;
+      .cyclops-icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    .cyclops-icon {
+      float: right;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .navbar-nav {
+    margin-left: -20px;
+
+    > li {
+      border-bottom: 1px solid @nav-bottom-border;
+      letter-spacing: 2px;
+      font-weight: @font-weight-bold;
+      text-transform: uppercase;
+      font-size: @font-size-regular - 1;
+
+      .cyclops-icon {
+        float: right;
+        width: 20px;
+        height: 20px;
+      }
+
+      &.active {
+        > a {
+          background-color: @gray-100;
+        }
+      }
+    }
+  }
+
+  .dropdown.open {
+    .cyclops-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+
+    > li {
+      font-size: @font-size-regular - 1;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    .clearfix();
+    display: block;
+    border-radius: 0;
+    border-bottom: 1px solid @border-color;
+
+    .navbar-nav {
+      > li {
+        border-bottom: none;
+
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
+
+        .cyclops-icon {
+          float: none;
+          width: 14px;
+          height: 14px;
+        }
+
+        &.active {
+          > a {
+          }
+        }
+
+        > a {
+          border-radius: @border-radius-small;
+          padding: 6px 13px 6px 15px;
+        }
+      }
+    }
+
+    .dropdown.open {
+      .cyclops-icon {
+        transform: rotate(0);
+      }
+    }
+
+    .dropdown-menu {
+      width: auto;
+      border: 1px solid @border-color;
+
+      > li {
+
+        > a, > .dropdown-text {
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+}
+
+.navbar-local-right {
+  position: absolute;
+  right: 20px;
+}
+
+.navbar-local--persistent {
+  position: relative;
+  z-index: @zindex-nav-local-persistent;
+  margin-bottom: 0;
+  padding: 0 @navbar-padding-horizontal;
+  min-height: 0;
+  height: 47px;
+  //overflow: hidden;
+  border: none;
+  background-color: #fff;
+  border-bottom: 1px solid @gray-100;
+
+  .open > a {
+    background-color: #f2f2f2;
+  }
+
+  // never collapse the nav because we use overflow binding
+  .navbar-nav {
+    height: 46px;
+    overflow: hidden;
+    float: left;
+    margin: 0;
+
+    > li {
+      float: left;
+      padding: 8px 0;
+
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+
+      > a {
+        border-radius: 3px;
+        padding: 4px 10px 6px;
+      }
+
+      &.logo {
+        margin-right: 10px;
+        border-bottom: none;
+
+        > a {
+          padding: 3px 0 0 0;
+
+          &:hover {
+            background-color: transparent;
+
+            .cyclops-icon {
+              fill: @gray-500;
+            }
+          }
+
+          .cyclops-icon {
+            width: 24px;
+            height: 24px;
+            fill: @gray-400;
+          }
+        }
+      }
+    }
+
+    .dropdown.overflow-menu {
+
+      position: absolute;
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+
+      > li {
+        border: none;
+      }
+
+      &:hover,
+      &.open {
+        > a {
+          background-color: @nav-link-hover-bg;
+          color: @text-color;
+          border-radius: 3px;
+
+          .cyclops-icon {
+            fill: @text-color;
+          }
+        }
+
+        > .dropdown-menu {
+          position: absolute;
+
+          > li > a {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
+
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -@navbar-padding-horizontal;
+    margin-left: -@navbar-padding-horizontal;
+
+    @media (min-width: @grid-float-breakpoint) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+//
+// Navbar alignment options
+//
+// Display the navbar across the entirety of the page or fixed it to the top or
+// bottom of the page.
+// Static top (unfixed, but 100% wide) navbar
+
+.navbar-static-top {
+  z-index: @zindex-navbar;
+  border-width: 0 0 1px;
+
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: 0;
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+
+      > li > a,
+      > li > button,
+      > li > .dropdown-text,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+
+      > li > a {
+        line-height: @line-height-computed;
+
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
+  }
+}
+
+// Brand name
+.navbar-brand {
+  border-right: 1px solid darken(@navbar-default-bg, 5%);
+  float: left;
+  overflow: hidden;
+  padding: @navbar-padding-vertical 10px @navbar-padding-vertical 10px;
+  font-size: @font-size-large;
+  line-height: @line-height-computed;
+  height: @navbar-height;
+  text-decoration: none;
+  height: 50px;
+
+  > img {
+    display: block;
+    max-width: 119px;
+    max-height: 20px;
+  }
+
+  @media(min-width: @grid-float-breakpoint) {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  width: auto;
+
+}
+
+// Product/Service Name after CenturyLink logo
+.navbar-service {
+  border-left: 1px solid lighten(@navbar-default-bg, 5%);
+  float: left;
+  padding: @navbar-padding-vertical (@navbar-padding-horizontal / 2);
+  font-size: @font-size-large;
+  line-height: @line-height-computed;
+  text-decoration: none;
+
+  &:hover {
+    color: @navbar-default-brand-hover-color;
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  }
+}
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 5px;
+  padding: 9px 10px;
+  .navbar-vertical-align(34px);
+  background-color: transparent;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  border-radius: @border-radius-base;
+
+  // We remove the `outline` here, but later compensate by attaching `:hover`
+  // styles to `:focus`.
+
+  &:focus {
+    outline: 0;
+  }
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
+}
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with its own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.navbar-nav {
+  margin: 0 -20px;
+
+  > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: @line-height-computed;
+  }
+
+
+
+  // Uncollapse the nav
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    margin: 0;
+
+    > li {
+      float: left;
+
+      > a {
+        padding-top: @navbar-padding-vertical;
+        padding-bottom: @navbar-padding-vertical;
+      }
+    }
+  }
+}
+
+// Buttons in navbars
+//
+// Vertically center a button within a navbar (when *not* in a form).
+
+.navbar-btn {
+  .navbar-vertical-align(34);
+
+  &.btn-sm {
+    .navbar-vertical-align(28);
+  }
+
+  &.btn-xs {
+    .navbar-vertical-align(22);
+  }
+}
+
+// Text in navbars
+//
+// Add a class to make any element properly align itself vertically within the navbars.
+
+.navbar-text {
+  .navbar-vertical-align(@line-height-computed);
+
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    margin-left: @navbar-padding-horizontal;
+    margin-right: @navbar-padding-horizontal;
+  }
+}
+
+// Component alignment
+//
+// Repurpose the pull utilities as their own navbar utilities to avoid specificity
+// issues with parents and chaining. Only do this when the navbar is uncollapsed
+// though so that navbar contents properly stack and align in mobile.
+//
+// Declared after the navbar components to ensure more specificity on the margins.
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-left {
+    .pull-left();
+  }
+
+  .navbar-right {
+    .pull-right();
+    margin-right: -@navbar-padding-horizontal;
+
+    ~ .navbar-right {
+      margin-right: 0;
+    }
+  }
+}
+
+.navbar-inverse {
+  background-color: @navbar-inverse-bg;
+
+  .navbar-brand {
+    border-right: 1px solid darken(@navbar-inverse-bg, 5%);
+    color: @navbar-inverse-brand-color;
+
+    &:hover,
+    &:focus {
+      color: @navbar-inverse-brand-hover-color;
+      background-color: @navbar-inverse-brand-hover-bg;
+    }
+  }
+
+  .navbar-service {
+    border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
+    color: @navbar-inverse-brand-color;
+
+    &:hover,
+    &:focus {
+      color: @navbar-inverse-brand-hover-color;
+    }
+  }
+
+  .navbar-account {
+    margin-top: 0;
+
+    .support {
+      width: 20px;
+      height: 20px;
+      vertical-align: bottom;
+    }
+
+    .cyclops-icon {
+      use {
+        fill: @gray-300;
+      }
+    }
+
+    a:hover, button:hover {
+      .cyclops-icon {
+        use {
+          fill: #fff;
+        }
+      }
+    }
+
+    @media (min-width: @grid-float-breakpoint) {
+      border-left: 1px solid darken(@navbar-inverse-bg, 5%);
+      border-right: 1px solid lighten(@navbar-inverse-bg, 5%);
+
+      > li {
+        border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
+        border-right: 1px solid darken(@navbar-inverse-bg, 5%);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: @navbar-inverse-bg;
+  }
+
+  svg {
+    fill: @navbar-inverse-link-color;
+  }
+
+  .navbar-text {
+    color: @navbar-inverse-text;
+  }
+
+  .dropdown-menu,
+  .navbar-nav {
+    > li > button,
+    > li > a {
+      color: @navbar-inverse-link-color;
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+
+        svg {
+          fill: @navbar-inverse-link-hover-color;
+        }
+      }
+    }
+
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-active-color;
+        background-color: @navbar-inverse-link-active-bg;
+      }
+    }
+
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+        background-color: @navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+
+  .dropdown-menu {
+
+    border: 1px solid darken(@navbar-inverse-bg, 5%);
+
+    li {
+      &:hover {
+      background-color: @navbar-inverse-link-hover-bg;
+
+      }
+    }
+
+    // Dividers (basically an hr) within the dropdown
+    .divider {
+      .nav-divider(darken(@navbar-inverse-bg, 5%));
+    }
+
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: @navbar-inverse-toggle-border-color;
+
+    &:hover,
+    &:focus {
+      background-color: @navbar-inverse-toggle-hover-bg;
+    }
+
+    .icon-bar {
+      background-color: @navbar-inverse-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: darken(@navbar-inverse-bg, 7%);
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-inverse-link-active-bg;
+        color: @navbar-inverse-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+
+        background-color: @navbar-inverse-bg;
+
+        > .dropdown-header {
+          border-color: @navbar-inverse-border;
+        }
+
+        .divider {
+          background-color: @navbar-inverse-border;
+        }
+
+        > li > a {
+          color: @navbar-inverse-link-color;
+
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-hover-color;
+            background-color: @navbar-inverse-link-hover-bg;
+          }
+        }
+
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-active-color;
+            background-color: @navbar-inverse-link-active-bg;
+          }
+        }
+
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-inverse-link-disabled-color;
+            background-color: @navbar-inverse-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-link {
+    color: @navbar-inverse-link-color;
+
+    &:hover {
+      color: @navbar-inverse-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: @navbar-inverse-link-color;
+
+    &:hover,
+    &:focus {
+      color: @navbar-inverse-link-hover-color;
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<script id="cyclops.dateTimePicker" type="text/html">
+  <div class="date-time-picker">
+    <input class="form-control date-value" type="text" data-bind="value: dateValue, widget: {name: 'datepicker', options: datepickerOptions}" />
+    <select class="form-control time-value" data-bind="options: hourOptions, optionsText: padNumber, value: hourValue"></select>
+    <select class="form-control time-value" data-bind="options: minuteOptions, optionsText: padNumber, value: minuteValue"></select>
+    <select class="form-control zone-option" data-bind="options: zoneOptions, optionsText: 'display', optionsValue: 'value', value: zoneValue"></select>
+  </div>
+  <p class="help-block">local time preview: <span data-bind="text: localTimePreview"></span></p>
+</script>

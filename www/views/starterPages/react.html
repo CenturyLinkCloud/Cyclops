@@ -1,0 +1,38 @@
+{{!< ../layouts/react-layout.html}}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>React</h1>
+      <p class="lead">cyclops.react</p>
+    </div>
+  </div>
+</div>
+<div class="primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 app">
+        <h2>toggle</h2>
+        <div class="toggleControl"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#contentFor "scripts"}}
+
+<script type="text/babel">
+  var change = function(value) {
+      console.log("From React Consumer: " + value);
+  }
+  var isChecked = false
+
+  ReactDOM.render(
+    <Toggle onChange={change} defaultChecked={isChecked}/>,
+    $(".toggleControl")[0]
+  );
+</script>
+
+{{/contentFor}}

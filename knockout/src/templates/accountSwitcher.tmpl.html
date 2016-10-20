@@ -1,0 +1,69 @@
+<script id="cyclops.accountSwitcher" type="text/html">
+  <div class="header">
+    <button class="btn btn-link" data-bind="click: toggleHandler">
+      <!-- ko ifnot: loading -->
+      <span class="current" data-bind="text: getImpersonatedOrgDiaplayText(impersonatedOrg()), title: impersonatedOrg().pathDisplayText" ></span>
+      <!-- /ko -->
+      <!-- ko if: loading -->
+      <span class="current">fetching current account&hellip;</span>
+      <!-- /ko -->
+    </button>
+    <button class="btn btn-link pull-right toggle-btn" data-bind="click: toggleHandler">
+      <svg class="cyclops-icon md">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-angle-down"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="take-over">
+    <form class="search">
+      <div class="form-group">
+        <span class="search-input">
+          <input type="text" palceholder="search" data-bind="disable: loading, textInput: flatOrgList.query">
+          <svg class="cyclops-icon">
+            <!-- ko ifnot: flatOrgList.query -->
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+            <!-- /ko -->
+            <!-- ko if: flatOrgList.query -->
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" class="clear" xlink:href='#icon-times' data-bind="click: clearSearch"></use>
+            <!-- /ko -->
+          </svg>
+        </span>
+      </div>
+    </form>
+    <span class="org-message" data-bind="text: limitedOrgsDisplayedMessage"></span>
+    <button class="btn btn-link" data-bind="visible: !showingAllOrgs(), click: showAllOrgsHandler" title="depending on your account hierarchy, this may take a moment to display">show all</button>
+    <div class="new-list-view-header">
+      <div class="col col-active-item"></svg></div>
+      <h3 class="col col-alias">Alias</h3>
+      <h3 class="col col-dc">Data Center</h3>
+      <h3 class="col col-60">Business Name</h3>
+    </div>
+    <div class="scroll-area">
+    <ul class="new-list-view" data-bind="">
+      <!-- ko if: loading -->
+      <li class="loading-list-view-items">
+        fetching account list&hellip;
+      </li>
+      <!-- /ko -->
+      <!-- ko foreach: displayOrgs -->
+      <li>
+        <div class="list-view-item" data-bind="event: {mouseover: $component.hoverHandler}, title: pathDisplayText, scrollTo: $component.isActiveItem($data), css: {'active-item': $component.isActiveItem($data), 'current': $component.isCurrentItem($data)}, click: $component.impersonateOrg">
+          <div class="col col-active-item"><svg class="cyclops-icon"><use xlink:href='#icon-arrow-right'></svg></div>
+          <div class="col col-alias" data-bind="text: alias"></div>
+          <div class="col col-dc" data-bind="text: primaryDatacenter"></div>
+          <div class="col col-60">
+            <!-- ko if: $component.isSearching -->
+              <!-- ko text: pathDisplayText --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko ifnot: $component.isSearching -->
+            <span class="indent" data-bind=" html: depthHtml"></span>
+            <span data-bind="text: name"></span>
+            <!-- /ko -->
+          </div>
+        </div>
+      </li>
+      <!-- /ko -->
+    </ul>
+    </div>
+  </div>
+</script>

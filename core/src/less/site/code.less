@@ -1,0 +1,88 @@
+//
+// Code (inline and block)
+// --------------------------------------------------
+// Inline and block code styles
+
+code,
+kbd,
+pre,
+samp {
+  font-family: @mono-font-family;
+}
+
+// Inline code
+code {
+  padding: 2px 4px;
+  color: @code-color;
+  border-radius: @border-radius-base;
+}
+
+.hljs {
+  padding: 0.5em 2em;
+}
+
+pre {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+pre > code {
+  overflow: auto;
+}
+
+.pl-example + pre {
+  margin-top: -46px;
+
+  code {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+pre code + code {
+  border-top: 1px solid @gray-600;
+  margin-top: -46px;
+}
+
+pre.show-type {
+  code {
+    position: relative;
+    padding-top: 1.6em;
+
+    &:after {
+      position: absolute;
+      top: 10px;
+      padding: 2px 9px;
+      background-color: #6b5a5a;
+      font-size: 10px;
+      color: #fff;
+      left: 0;
+      border: solid 1px #151114;
+    }
+
+    &.javascript:after {
+      content: "JavaScript";
+    }
+
+    &.css:after {
+      content: "CSS";
+    }
+
+    &.less:after {
+      content: "LESS";
+    }
+
+    &.markdown:after {
+      content: "Markdown";
+    }
+
+    &.json:after {
+      content: "HTML";
+    }
+
+    &.html:after {
+      content: "HTML";
+    }
+  }
+}

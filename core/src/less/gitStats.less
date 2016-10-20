@@ -1,0 +1,26 @@
+.git-stats {
+  border-top: 1px solid @border-color;
+  border-bottom: 1px solid @border-color;
+  list-style: none;
+  padding: 7px 0;
+  margin: 0 auto 20px;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 0 4px;
+    font-size: @font-size-small;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    svg {
+      fill: @gray-300;
+    }
+  }
+}
