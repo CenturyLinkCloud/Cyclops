@@ -38,7 +38,25 @@
               </svg>
             </div>
           </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>toggle widget</h2>
+        <input type="checkbox" id="test" />
       </div>
     </div>
   </div>
 </div>
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    var foo = function(checked){
+      console.log(checked);
+    }
+    $("#test").toggle({onChange: foo, defaultChecked: true})
+  })
+</script>
+{{/contentFor}}

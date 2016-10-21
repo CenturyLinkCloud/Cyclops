@@ -1,7 +1,7 @@
 var Toggle = React.createClass({
-  handleChecked: function(event){
-    this.setState({checked: event.target.checked});
-    this.props.onChange(event.target.checked);
+  handleChecked: function(checked){
+    this.setState({checked: checked});
+    this.props.onChange(checked);
   },
   getInitialState: function(){
     return {checked: this.props.defaultChecked}
@@ -16,38 +16,21 @@ var Toggle = React.createClass({
     return {
       affirmativeText: "yes",
       negativeText: "no",
-      onChange: function(value) {
-        console.log(value);
-      },
+      onChange: function(value) {},
       defaultChecked: false
     };
   },
+  componentDidMount: function() {
+    $(ReactDOM.findDOMNode(this)).toggle({
+      affirmativeText: this.props.affirmativeText,
+      negativeText: this.props.negativeText,
+      defaultChecked: this.state.checked,
+      onChange: this.handleChecked
+    })
+  },
   render: function() {
     return (
-      <div className="toggle">
-        <label>
-          <input type="checkbox" checked={!!this.state.checked} onChange={this.handleChecked} />
-          <div className="bug-fix">
-            <div className="text">
-              <div className="affirmative">{this.props.affirmativeText}</div>
-              <div className="negative">{this.props.negativeText}</div>
-            </div>
-            <svg className="handle" height="34" viewBox="0 0 35 34">
-              <g>
-                <rect x="13" y="13" fill="#777777" width="1" height="1"/>
-                <rect x="16" y="13" fill="#777777" width="1" height="1"/>
-                <rect x="19" y="13" fill="#777777" width="1" height="1"/>
-                <rect x="13" y="16" fill="#777777" width="1" height="1"/>
-                <rect x="16" y="16" fill="#777777" width="1" height="1"/>
-                <rect x="19" y="16" fill="#777777" width="1" height="1"/>
-                <rect x="13" y="19" fill="#777777" width="1" height="1"/>
-                <rect x="16" y="19" fill="#777777" width="1" height="1"/>
-                <rect x="19" y="19" fill="#777777" width="1" height="1"/>
-              </g>
-            </svg>
-          </div>
-        </label>
-      </div>
+      <input type="checkbox" />
     );
   }
 });

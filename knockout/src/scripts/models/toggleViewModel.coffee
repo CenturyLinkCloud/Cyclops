@@ -1,7 +1,14 @@
+#TODO 1. disabled
+#     2. subscribe to value change
 class ToggleViewModel
-  constructor: (options) ->
+  constructor: (options, element) ->
     options = options || {}
-    @affirmativeText = ko.asObservable if options.affirmativeText? then options.affirmativeText else 'yes'
-    @negativeText = ko.asObservable if options.negativeText? then options.negativeText else 'no'
     @value = ko.asObservable if options.value? then options.value else false
-    @disabled = ko.asObservable if options.disabled? then options.disabled else false
+
+    $(element).find("input").toggle({
+      affirmativeText: options.affirmativeText
+      negativeText: options.negativeText
+      defaultChecked: @value()
+      onChange: (checked) =>
+        @value(checked)
+    })
