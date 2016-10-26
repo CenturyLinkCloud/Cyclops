@@ -15,12 +15,9 @@ class CopyableInput
 
     # Resize the input to make space for the button without changing the
     # overall width of the combined input+button.
-    # inputStyles = getComputedStyle(@element)
-    # buttonStyles = getComputedStyle(@copyButtonElement)
     inputWidth = ($ @element).innerWidth()
     buttonWidth = @copyButtonElement.innerWidth()
     newInputWidth = inputWidth - buttonWidth
-
     ($ @element).css('width', newInputWidth)
 
   addEventListeners: ->
