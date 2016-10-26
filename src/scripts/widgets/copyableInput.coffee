@@ -10,7 +10,9 @@ class CopyableInput
     @addEventListeners()
 
   insertCopyButton: ->
-    @copyButtonElement = $('<button title="Copy to Clipboard">Copy</button>')
+    # @copyButtonElement = $('<button title="Copy to Clipboard">Copy</button>')
+    @copyButtonElement = $('<button title="Copy to Clipboard"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href="#icon-clipboard" /></svg></button>')
+
     @copyButtonElement.insertAfter(@element)
 
     # Resize the input to make space for the button without changing the
