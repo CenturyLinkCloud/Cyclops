@@ -1,0 +1,33 @@
+.copyable-input {
+  display: inline-block;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  + button {
+    background-color: rgb(250, 250, 250);
+    border: 1px solid @gray-200;
+    border-left-width: 0;
+    border-top-right-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+    color: rgb(175, 175, 175);
+    font-size: smaller;
+    font-weight: bold;
+    height: @input-height-base;
+    line-height: 100%;
+    padding: 0 10px;
+    text-transform: uppercase;
+    transition: background-color 0.25s, color 0.25s;
+
+    &:hover {
+      background-color: rgb(240, 240, 240);
+      color: rgb(125, 125, 125);
+      cursor: pointer;
+    }
+
+    &:active {
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1),
+        inset 1px 0 1px rgba(0, 0, 0, 0.05),
+        inset -1px 0 1px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
