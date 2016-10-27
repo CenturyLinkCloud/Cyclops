@@ -10,9 +10,7 @@ class CopyableInput
     @addEventListeners()
 
   insertCopyButton: ->
-    # @copyButtonElement = $('<button title="Copy to Clipboard">Copy</button>')
     @copyButtonElement = $('<button title="Copy to Clipboard"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href="#icon-clipboard" /></svg></button>')
-
     @copyButtonElement.insertAfter(@element)
 
     # Resize the input to make space for the button without changing the
@@ -23,19 +21,37 @@ class CopyableInput
     ($ @element).css('width', newInputWidth)
 
   addEventListeners: ->
-    @copyButtonElement.on('click', @copyToClipboard)
+    @copyButtonElement.on('click', @onClick)
 
-  copyToClipboard: (event) =>
-    @element.focus()
+  onClick: (event) =>
+    inputValue = @element.value
 
-    document.execCommand('selectAll')
-    document.execCommand('copy', false, null)
-    document.execCommand('unselect')
-
-    @element.blur()
+    # console.log '[CopyableInput] Input Value:', inputValue
 
     event.preventDefault()
     event.stopPropagation()
+
+    @copyToClipboard(inputValue)
+
+  copyToClipboard: (value) ->
+    # console.log '[CopyableInput] Copying Value to Clipboard...', value
+
+    temporaryElement = document.createElement('div')
+    temporaryElement.innerText = value
+    temporaryElement.style.position = 'absolute'
+    temporaryElement.style.left = '-10000px'
+    temporaryElement.style.top = '-10000px'
+    document.body.appendChild(temporaryElement)
+
+    selection = getSelection()
+    range = document.createRange()
+    selection.removeAllRanges()
+    range.selectNodeContents(temporaryElement)
+    selection.addRange(range)
+    document.execCommand('copy', false, null)
+    selection.removeAllRanges()
+
+    temporaryElement.parentElement.removeChild(temporaryElement)
 
 $.fn.copyableInput = (options) ->
   options = $.extend { }, options
