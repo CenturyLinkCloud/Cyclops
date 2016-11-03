@@ -27,7 +27,7 @@ class Copyable
 
   addEventListeners: ->
     if @isButton
-      @element.on 'click', @onClick
+      ($ @element).on 'click', @onClick
     else
       @copyButtonElement.on 'click', @onClick
 
