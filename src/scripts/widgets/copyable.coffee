@@ -1,15 +1,20 @@
-class CopyableInput
+class Copyable
 
   constructor: (@element) ->
-    unless @element.tagName is 'INPUT'
-      throw 'CopyableInput may only be used with <input> elements!'
+    unless @element.tagName in [ 'BUTTON', 'INPUT' ]
+      throw 'Copyable may only be used with <input> or <button> elements!'
 
-    ($ @element).addClass('copyable-input')
+    if @element.tagName is 'BUTTON' and @element.value.length is 0
+      throw 'Copyable buttons must have a value attribute!'
 
-    @insertCopyButton()
+    @isButton = (@element.tagName is 'BUTTON')
+
+    @insertCopyButton() unless @isButton
     @addEventListeners()
 
   insertCopyButton: ->
+    return if @isButton
+
     @copyButtonElement = $('<button title="Copy to Clipboard"><svg class="cyclops-icon" aria-hidden="true"><use xlink:href="#icon-clipboard" /></svg></button>')
     @copyButtonElement.insertAfter(@element)
 
@@ -21,20 +26,23 @@ class CopyableInput
     ($ @element).css('width', newInputWidth)
 
   addEventListeners: ->
-    @copyButtonElement.on('click', @onClick)
+    if @isButton
+      @element.on 'click', @onClick
+    else
+      @copyButtonElement.on 'click', @onClick
 
   onClick: (event) =>
-    inputValue = @element.value
+    copyableValue = @element.value
 
-    # console.log '[CopyableInput] Input Value:', inputValue
+    # console.log '[Copyable] Value:', copyableValue
 
     event.preventDefault()
     event.stopPropagation()
 
-    @copyToClipboard(inputValue)
+    @copyToClipboard(copyableValue)
 
   copyToClipboard: (value) ->
-    # console.log '[CopyableInput] Copying Value to Clipboard...', value
+    # console.log '[Copyable] Copying Value to Clipboard...', value
 
     temporaryElement = document.createElement('div')
     temporaryElement.innerText = value
@@ -53,8 +61,8 @@ class CopyableInput
 
     temporaryElement.parentElement.removeChild(temporaryElement)
 
-$.fn.copyableInput = (options) ->
+$.fn.copyable = (options) ->
   options = $.extend { }, options
   $(this).each (idx, input) ->
-    copyableInputInstance = new CopyableInput(input)
+    copyableInstance = new Copyable(input)
   $(this)

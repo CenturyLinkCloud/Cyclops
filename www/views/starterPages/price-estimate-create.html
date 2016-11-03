@@ -155,7 +155,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label" for="password">password</label>
               <div class="col-sm-6">
-                <input class="form-control copyable-input" type="password" id="password" data-bind="validationElement: password, widget: 'passwordStrength'" >
+                <input class="form-control copyable" type="password" id="password" data-bind="validationElement: password, widget: 'passwordStrength'" >
               </div>
             </div>
             <div class="form-group">
@@ -167,7 +167,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label" for="apiKey">api key</label>
               <div class="col-sm-6">
-                <input class="form-control copyable-input" type="text" id="apiKey">
+                <input class="form-control copyable" type="text" id="apiKey">
               </div>
             </div>
           </fieldset>
@@ -233,9 +233,9 @@
 	  ko.applyBindings({}, $("#resources")[0]);
 	  /* End Sliders */
 
-    /* Start Copyable Inputs */
-    $(".copyable-input").copyableInput();
-    /* End Copyable Inputs */
+    /* Start Copyables */
+    $(".copyable").copyable();
+    /* End Copyables */
 	})
 </script>
 
