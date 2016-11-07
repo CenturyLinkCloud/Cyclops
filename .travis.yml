@@ -1,9 +1,12 @@
 language: node_js
 before_install:
-  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
-  - npm install
-  - npm install -g gulp
+- npm install
+- npm install -g gulp
 before_script:
 - gulp travis-compile
 script: gulp test && ./.travis/deploy.sh
+notifications:
+  slack:
+    secure: XeGUrRacgdnz6c4eSe2O072N8+4fbZIIP8Fi6MrhExZdZpR0Yb+Q4tAdAI9IRGKcNedWnKVjqBuS5fdLrWgzB2YRM9NfNMyA4KrM+xQ5fa6z9pMOBtzXDJZvc7ICKPtqvn0Vdswt7jz0x/PZ6fmNx8o+vY+yLQ4J9UmYpw6zUPvYym6wQSiOpvn+hO8isNhz/IYN34eDNAZdmNi/sZNZIUcsu78wHeInfB3OWTNqq6Fpom/hiG8AHMjWIcYmXGkvDWke7nAbJPz6lO6Suksxk2fCD1BoqjMgNrwHQ1MWBwrPoJdSLVYKktGcG6ayKVm+WJzMvHd0N9ZUaZx/fF9ZcYQ/9qbiAN+Dx2bVDy2c1HP54LN3cF2GCYod0Rpua5MWvqzVjYdAWFX+QvPzbfygdKudjoM1xBQ0PZb2ENEmHobVbUJzQJTuYj9DvCti06NVnS7xku3aM7dY941P0rQiTAg1iOKxbZeWt1DzKMvOdou7uPA/8NF7Gp5/8WiszmEdCEbIwfsKOPH73F7ErAmVsR534fc+kQRikd1V+dna0PYRjRL/OowuR4jdUkytViDJEnT3PpYbnQKeFLNmiME3qO6hck3639SG2Yx4JBQSTrJtgfCqeJ2IKvc+rSIiLsvAwfoClXhVTDWcMjMlQ3WAu/tfvcCqLhc8XF7CsGtZFJw=
