@@ -21,8 +21,20 @@ svgstore = require 'gulp-svgstore'
 svgmin = require 'gulp-svgmin'
 pkg = require './package.json'
 notifier = require 'node-notifier'
-
+inject = require 'gulp-inject'
+streamqueue = require 'streamqueue'
+es = require 'event-stream'
 __base = './www/'
+
+inlineSvgTransform = (filePath, file) ->
+  return file.contents.toString().replace(/"/g, '\\"')
+
+appendStream = () ->
+  console.log 'Starting Monkey'
+  pass = through.obj()
+  return es.duplex(pass, streamqueue({ objectMode: true }, pass, arguments[0]))
+
+
 
 gulp.task 'less-concat', ->
   concatenated = combine.obj [
@@ -73,6 +85,14 @@ gulp.task 'template-minify', ['template-concat'], ->
     .pipe gulp.dest './www/assets/templates'
 
 gulp.task 'script-concat', ->
+  svgs = gulp.src './src/svg/**/*.svg'
+    .pipe rename { prefix: 'icon-' }
+    .pipe svgmin()
+    .pipe svgstore { inlineSvg: true }
+
+  afterFile = gulp.src './build/after.js'
+    .pipe inject(svgs, { transform: inlineSvgTransform })
+
   concatenated = combine.obj [
     gulp.src './src/scripts/helpers/init.coffee'
       addSrc.append [ './src/scripts/helpers/**/*.*', '!./src/scripts/helpers/init.coffee' ]
@@ -86,7 +106,7 @@ gulp.task 'script-concat', ->
       addSrc.prepend './src/scripts/polyfills/**/*'
       coffee({ bare: true })
       addSrc.prepend './build/before.js'
-      addSrc.append './build/after.js'
+      appendStream afterFile
       addSrc.prepend './src/scripts/vendor/polyfill.js'
       sourcemaps.init()
       concat('cyclops.js')
