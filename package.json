@@ -1,18 +1,38 @@
 {
   "name": "cyclops",
-  "version": "1.6.3",
-  "description": "cyclops: The UI/UX Pattern Guide",
+  "version": "2.0.0-alpha.1",
+  "description": "Cyclops: The UI/UX Pattern Guide",
+  "keywords": [
+    "css",
+    "framework",
+    "front-end",
+    "less",
+    "responsive",
+    "web"
+  ],
   "scripts": {
     "test": "gulp test",
     "start": "gulp dev"
   },
   "author": "CenturyLink Cloud",
-  "licenses": [
+  "contributors": [
     {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
+      "name": "Nathan Young",
+      "email": "mathan.young@ctl.io"
+    },
+    {
+      "name": "Matthew Osborn",
+      "email": "matthew.osborn@ctl.io"
+    },
+    {
+      "name": "Rathromony Ros"
+    },
+    {
+      "name": "Justin Mecham",
+      "email": "justin.mecham@ctl.io"
     }
   ],
+  "licenses": "MIT",
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
@@ -52,5 +72,9 @@
     "react-dom": "^15.3.2",
     "stream-combiner2": "^1.1.1",
     "through2": "^2.0.1"
-  }
+  },
+  "files": [
+    "dist",
+    "www"
+  ]
 }
