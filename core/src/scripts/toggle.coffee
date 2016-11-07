@@ -52,7 +52,8 @@ $.widget "cylops.toggle",
     this.element.prop "checked", this.options.defaultChecked
     if this.options.onChange
       this.element.on "change", (event) =>
-        this.options.onChange(this.element.checked)
+        element = event.target
+        this.options.onChange(element.checked)
 
   _destroy: ->
     this.element.off "change"
