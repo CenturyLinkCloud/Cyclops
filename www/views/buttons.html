@@ -241,6 +241,22 @@ $(function(){
 &lt;button class=&quot;btn btn-danger&quot; data-bind=&quot;click: deleteHandler, widget:&#39;inlineConfirm&#39;&quot;&gt;Delete&lt;/button&gt;
         </code>
       </pre>
+    </section>
 
+    <section class="pl-section" id="copy">
+      <h3><a href="#copy">Copy to Clipboard Button</a></h3>
+      <p>The copy to clipboard button pattern allows users to copy a specified value to their system clipboard with the press of a button. This component can be useful to allow users to copy things such as keys, ids, or passwords.</p>
+      <p>See the <a href="forms.html#copyInput">copy to clipboard input</a> and <a href="./widgets.html#copyable">widget binding</a>.</p>
+      <div class="pl-example">
+        {{> buttons/copy }}
+      </div>
 
+      <pre class="show-type">
+        <code class="javascript">
+$(&quot;#copyBtn&quot;).copyable();
+        </code>
+        <code class="html">
+&lt;button id=&quot;copyBtn&quot; class=&quot;btn btn-default copyable&quot; value=&quot;value to copy&quot;&gt;Copy me!&lt;/button&gt;
+        </code>
+      </pre>
     </section>

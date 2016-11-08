@@ -58,7 +58,7 @@
 // -------------------------
 @padding-base-vertical:       7px;
 //** Global textual link color.
-@link-color:                  @primary-brand-green;
+@link-color:                  @text-color;
 @link-hover-color:            darken(@link-color, 15%);
 //** Link hover decoration.
 @link-hover-decoration:       underline;
@@ -322,11 +322,10 @@
 @navbar-padding-horizontal:   floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:     ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:  340px;
-@navbar-default-color:        #777;
-@navbar-default-bg:           #f8f8f8;
+@navbar-default-bg:           #fff;
 @navbar-default-border:       darken(@navbar-default-bg, 6.5%);
 // Navbar links
-@navbar-default-link-color:           #777;
+@navbar-default-link-color:           @link-color;
 @navbar-default-link-hover-color:     #333;
 @navbar-default-link-hover-bg:        transparent;
 @navbar-default-link-active-color:    #555;
@@ -338,9 +337,9 @@
 @navbar-default-brand-hover-color:    darken(@navbar-default-brand-color, 10%);
 @navbar-default-brand-hover-bg:       transparent;
 // Navbar toggle
-@navbar-default-toggle-hover-bg:      #ddd;
-@navbar-default-toggle-icon-bar-bg:   #888;
-@navbar-default-toggle-border-color:  #ddd;
+@navbar-default-toggle-hover-bg:      @gray-100;
+@navbar-default-toggle-icon-bar-bg:   @gray-300;
+@navbar-default-toggle-border-color:  @gray-200;
 //=== Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-text:                 @gray-700;

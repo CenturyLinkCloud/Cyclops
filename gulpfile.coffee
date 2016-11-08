@@ -21,9 +21,21 @@ svgstore = require 'gulp-svgstore'
 svgmin = require 'gulp-svgmin'
 pkg = require './package.json'
 notifier = require 'node-notifier'
+inject = require 'gulp-inject'
+streamqueue = require 'streamqueue'
+es = require 'event-stream'
 babel = require 'gulp-babel'
 
 __base = './www/'
+
+inlineSvgsAndTemplatesTransform = (filePath, file) ->
+  return file.contents.toString().replace(/"/g, '\\"')
+
+appendStream = () ->
+  pass = through.obj()
+  return es.duplex(pass, streamqueue({ objectMode: true }, pass, arguments[0]))
+
+
 
 gulp.task 'less-concat', ->
   concatenated = combine.obj [
@@ -58,22 +70,22 @@ gulp.task 'less-min', ->
 
 gulp.task 'less', ['less-concat', 'less-min']
 
-gulp.task 'template-concat', ->
-  gulp.src './src/templates/**/*.tmpl.html'
-    .pipe sourcemaps.init()
-    .pipe concat 'cyclops.tmpl.html'
-    .pipe sourcemaps.write './'
-    .pipe gulp.dest './www/assets/templates'
-
-gulp.task 'template-minify', ['template-concat'], ->
-  gulp.src ['./www/assets/templates/cyclops.tmpl.html']
-    .pipe sourcemaps.init()
-    .pipe minifyHTML { empty: true }
-    .pipe rename { suffix: '.min' }
-    .pipe sourcemaps.write './'
-    .pipe gulp.dest './www/assets/templates'
-
 gulp.task 'script-concat', ->
+
+  # inline icons SVGs
+  svgs = gulp.src './src/svg/**/*.svg'
+    .pipe rename { prefix: 'icon-' }
+    .pipe svgmin()
+    .pipe svgstore { inlineSvg: true }
+
+  templates = gulp.src './src/templates/**/*.tmpl.html'
+    .pipe concat 'cyclops.tmpl.html'
+    .pipe minifyHTML { empty: true }
+
+  afterFile = gulp.src './build/after.js'
+    .pipe inject(svgs, { name: 'icons', transform: inlineSvgsAndTemplatesTransform })
+    .pipe inject(templates, { name: 'templates', transform: inlineSvgsAndTemplatesTransform })
+
   concatenated = combine.obj [
     gulp.src './src/scripts/helpers/init.coffee'
       addSrc.append [ './src/scripts/helpers/**/*.*', '!./src/scripts/helpers/init.coffee' ]
@@ -87,7 +99,7 @@ gulp.task 'script-concat', ->
       addSrc.prepend './src/scripts/polyfills/**/*'
       coffee({ bare: true })
       addSrc.prepend './build/before.js'
-      addSrc.append './build/after.js'
+      appendStream afterFile
       addSrc.prepend './src/scripts/vendor/polyfill.js'
       sourcemaps.init()
       concat('cyclops.js')
@@ -110,20 +122,6 @@ gulp.task 'script-minify', ['script-concat'], ->
     .pipe sourcemaps.write './'
     .pipe gulp.dest './www/assets/scripts'
 
-gulp.task 'svg-concat', ->
-  gulp.src './src/svg/**/*.svg'
-    .pipe rename { prefix: 'icon-' }
-    .pipe svgstore { inlineSvg: true }
-    .pipe rename 'cyclops.icons.svg'
-    .pipe gulp.dest './www/assets/svg/'
-
-gulp.task 'svg-minify', ['svg-concat'], ->
-  gulp.src './src/svg/**/*.svg'
-    .pipe rename { prefix: 'icon-' }
-    .pipe svgmin()
-    .pipe svgstore { inlineSvg: true }
-    .pipe rename 'cyclops.icons.min.svg'
-    .pipe gulp.dest './www/assets/svg/'
 
 gulp.task 'test-build', ->
   buildCyclops = gulp.src './src/scripts/helpers/init.coffee'
@@ -191,7 +189,7 @@ gulp.task 'cleanDist', ->
   return gulp.src "./dist/#{pkg.version}", { read: false }
     .pipe clean()
 
-gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify', 'svg-minify'], ->
+gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify'], ->
   copyCSS = gulp.src './www/assets/css/**/*'
     .pipe gulp.dest "./dist/#{pkg.version}/css/"
 
@@ -252,9 +250,9 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify', 'template-minify
 
   return merge copyCSS, copyScripts, copyTemplates, copySvg, copyStarterPages, copyExamplePages, copyImages, renderHTML
 
-gulp.task 'dev', ['less-concat', 'template-concat', 'svg-concat', 'script-concat', 'client-watch', 'server-watch']
+gulp.task 'dev', ['less-concat', 'script-concat', 'client-watch', 'server-watch']
 
-gulp.task 'build', ['less-concat', 'template-concat', 'svg-concat', 'script-concat']
+gulp.task 'build', ['less-concat', 'script-concat']
 
 gulp.task 'dist', ['compile'], ->
   console.log 'To distribute a new version of cyclops'
@@ -268,7 +266,7 @@ gulp.task 'dist', ['compile'], ->
 
 
 # TRAVIS CRAP
-gulp.task 'travis-compile', ['less-concat', 'script-concat', 'template-concat', 'svg-concat'], ->
+gulp.task 'travis-compile', ['less-concat', 'script-concat'], ->
   copyCSS = gulp.src './www/assets/css/**/*'
     .pipe gulp.dest "./devDist/css/"
 

@@ -88,14 +88,20 @@ class MainNavViewModel
     # make main-nav sticky
     $mainNav = $(element)
     $window = $(window)
-    mainNavOriginalTopPosition = $mainNav.position().top
-    calculateMainNavPosition = () ->
-      newTopPosition = mainNavOriginalTopPosition - $window.scrollTop()
+    $accountSwitcher = $('account-switcher')
+    $navbar = $('nav.navbar')
+
+    calculateMainNavPosition = () =>
+      originalTopPosition = 0
+      originalTopPosition += 40 if $accountSwitcher.length > 0
+      originalTopPosition += 51 if $navbar.length > 0
+      newTopPosition = originalTopPosition - $window.scrollTop()
       if newTopPosition < 0
         newTopPosition = 0
       $mainNav.css('top': newTopPosition)
     calculateMainNavPosition()
     $window.on 'scroll', calculateMainNavPosition
+    $window.on 'resize', calculateMainNavPosition
 
     # Set up Scrolling of many menu Items
     @updateMainMenuScrollIcons = () ->

@@ -111,10 +111,10 @@
   # it does, we'll just skip the polyfill altogether.
   #
   isSupportedNatively = ->
-    testElement = ($ '<test-element>')
+    testElement = document.createElement('test-element')
     for prefix in [ '', '-webkit-', '-moz-', '-ms-' ]
-      testElement.css('position', "#{prefix}sticky")
-      return true if testElement.css('position').indexOf('sticky') != -1
+      testElement.style.position = "#{prefix}sticky"
+      return true if testElement.style.position.indexOf('sticky') != -1
     false
 
   #

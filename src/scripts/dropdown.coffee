@@ -44,7 +44,9 @@ $(() ->
   $('.dropdown').children('a, button').click toggle
   $(document).on 'click.cyclops.dropdown', (event) ->
     dropdown = $('.dropdown.open')
-    closeAll()
+    if dropdown
+      if not dropdown.find($(event.target)).length
+        closeAll()
 
 
   $.fn.dropdown = () ->

@@ -1,0 +1,9 @@
+<button class="btn btn-default copyable" value="secret password">copy password</button>
+
+{{#contentFor "scripts"}}
+<script>
+  $(function(){
+    $(".copyable").copyable();
+  })
+</script>
+{{/contentFor}}
