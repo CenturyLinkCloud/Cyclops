@@ -89,7 +89,7 @@ class MainNavViewModel
     $mainNav = $(element)
     $window = $(window)
     $accountSwitcher = $('account-switcher')
-    $navbar = $('nav.navbar')
+    $navbar = $('brand-bar, nav.navbar')
 
     calculateMainNavPosition = () =>
       originalTopPosition = 0
