@@ -24,25 +24,24 @@
   </pre>
 
   <h4 id="alertBanner"><a href="#alertBanner">Alert Banners</a></h4>
-  <p>Alert banners should be used for portal or service wide notifications. It should be the first element inside <code>&lt;main&gt;</code> so that it appears immediately below the <a href="/navigation.html#pageHeader">page header navigation</a>.</p>
+  <p>Alert banners should be used for portal or service wide notifications. It should be the first element inside <code>&lt;main&gt;</code> so that it appears immediately below the <a href="/navigation.html#pageHeader">page header navigation</a>. Use an optional <code>.alert--texture</code> modifier to adds an angled texture background pattern.</p>
 
   <div class="pl-example">
     {{> components/examples/alert-banner }}
   </div>
   <pre>
     <code class="html">
-&lt;div class=&quot;alert alert-banner alert-info alert-dismissible alert--texture&quot; role=&quot;alert&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
-  This is a dismissible system alert.
+&lt;div class=&quot;alert alert-banner alert-instruction alert--texture&quot; role=&quot;alert&quot;&gt;
+  This is a system alert.
 &lt;/div&gt;
-
-&lt;div class=&quot;alert alert-success alert-info &quot; role=&quot;alert&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
-  &lt;div class=&quot;alert-icon&quot;&gt;
-    &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-plus-circle' /&gt;&lt;/svg&gt;
-  &lt;/div&gt;
-  &lt;h4&gt;This is a dismissible alert!&lt;/h4&gt;
-  &lt;p&gt;This is a warning message.&lt;/p&gt;
+&lt;div class=&quot;alert alert-banner alert-info&quot; role=&quot;alert&quot;&gt;
+  This is a system alert.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-banner alert-warning alert--texture&quot; role=&quot;alert&quot;&gt;
+  This is a system alert.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-banner alert-danger alert--texture&quot; role=&quot;alert&quot;&gt;
+  This is a system alert.
 &lt;/div&gt;
     </code>
 
