@@ -1,6 +1,6 @@
 .btn {
   background-image: none;
-  border: none;
+  border: 1px solid transparent;
   border-radius: @border-radius-small;
   box-shadow: none;
   color: #fff;
@@ -10,7 +10,7 @@
   font-weight: @font-weight-regular;
   letter-spacing: 1px;
   line-height: @line-height-computed;
-  padding: 4px 10px 6px;
+  padding: 3px 9px 5px;
   cursor: pointer;
   text-shadow: none;
   text-decoration: none;
@@ -31,63 +31,13 @@
     cursor: @cursor-disabled;
     box-shadow: none;
   }
-
-  .cyclops-icon use {
-    fill: #fff;
-  }
 }
 
 fieldset[disabled] {
   .btn {
     cursor: @cursor-disabled;
     box-shadow: none;
-  }
-
-  .btn-default {
-    background-color: @btn-default-bg-disabled;
-
-    &:hover {
-      background-color: @btn-default-bg-disabled;
-    }
-  }
-
-  .btn-primary {
-    background-color: @btn-primary-bg-disabled;
-    color: #fff;
-
-    &:hover {
-      background-color: @btn-primary-bg-disabled;
-      color: #fff;
-    }
-  }
-
-  .btn-danger {
-    background-color: @btn-danger-bg-disabled;
-    color: #fff;
-
-    &:hover {
-      color: #fff;
-      background-color: @btn-danger-bg-disabled;
-    }
-  }
-
-  .btn-inverse {
-    color: @btn-inverse-color-disabled;
-
-    &:hover {
-      color: @btn-inverse-color-disabled;
-      background-color: @btn-inverse-bg-disabled;
-    }
-  }
-
-  .btn-outline {
-    color: @btn-outline-color-disabled;
-
-    &:hover {
-      border: 1px solid @btn-outline-border;
-      background-color: @btn-outline-bg-disabled;
-      color: @btn-outline-color-disabled;
-    }
+    opacity: 0.65;
   }
 }
 
@@ -101,195 +51,23 @@ fieldset[disabled] {
 }
 
 .btn-default {
-  background-color: @btn-default-bg;
-
-  &:hover {
-    background-color: @btn-default-bg-hover;
-  }
-
-  &:active {
-    background-color: @btn-default-bg-active;
-  }
-
-  &:focus {
-    outline: 1px dotted lighten(@btn-default-bg, 20%);
-  }
-
-  &[disabled] {
-    background-color: @btn-default-bg-disabled;
-
-    &:hover {
-      background-color: @btn-default-bg-disabled;
-      color: #fff;
-    }
-  }
-
-  &.btn-icon {
-    background-color: transparent;
-    .cyclops-icon use {
-      fill: @btn-default-bg;
-    }
-
-    &:hover {
-      .cyclops-icon use {
-        fill: @btn-default-bg-hover;
-      }
-    }
-  }
-
+  .button-variant(@btn-default-color, @btn-default-bg, @btn-default-bg)
 }
 
 .btn-primary {
-  background-color: @btn-primary-bg;
-
-  &:hover {
-    background-color: @btn-primary-bg-hover;
-  }
-
-  &:active {
-    background-color: @btn-primary-bg-active;
-  }
-
-  &:focus {
-    outline: 1px dotted lighten(@btn-primary-bg-hover, 20%);
-  }
-
-  &[disabled] {
-    background-color: @btn-primary-bg-disabled;
-    color: #fff;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-
-  &.btn-icon {
-    background-color: transparent;
-    .cyclops-icon use {
-      fill: @btn-primary-bg;
-    }
-
-    &:hover {
-      .cyclops-icon use {
-        fill: @btn-primary-bg-hover;
-      }
-    }
-  }
+  .button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-bg)
 }
 
 .btn-danger {
-  color: #fff;
-  background-color: @btn-danger-bg;
-
-  &:hover {
-    background-color: @btn-danger-bg-hover;
-  }
-
-  &:active {
-    background-color: @btn-danger-bg-active;
-  }
-
-  &:focus {
-    outline: 1px dotted lighten(@btn-danger-bg-hover, 20%);
-  }
-
-  &[disabled] {
-    background-color: @btn-danger-bg-disabled;
-    color: #fff;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-
-  &.btn-icon {
-    background-color: transparent;
-    .cyclops-icon use {
-      fill: @btn-danger-bg;
-    }
-
-    &:hover {
-      .cyclops-icon use {
-        fill: @btn-danger-bg-hover;
-      }
-    }
-  }
+  .button-variant(@btn-danger-color, @btn-danger-bg, @btn-danger-bg)
 }
 
 .btn-inverse {
-  background-color: @btn-inverse-bg;
-  color: @btn-inverse-color;
-
-  &:hover {
-    background-color: @btn-inverse-bg-hover;
-  }
-
-  &:active {
-    background-color: @btn-inverse-bg-active;
-  }
-
-  &:focus {
-    outline: 1px dotted darken(@btn-inverse-bg-hover, 20%);
-  }
-
-  &[disabled] {
-    color: @btn-inverse-color-disabled;
-
-    &:hover {
-      background-color: @btn-inverse-bg-disabled;
-      color: @btn-inverse-color-disabled;
-    }
-  }
-
-  .cyclops-icon use {
-    fill: @text-color;
-  }
-
-  &.btn-icon {
-    background-color: transparent;
-    .cyclops-icon use {
-      fill: @btn-inverse-bg;
-    }
-
-    &:hover {
-      .cyclops-icon use {
-        fill: @btn-inverse-bg-hover;
-      }
-    }
-  }
+  .button-variant(@btn-inverse-color, @btn-inverse-bg, @btn-inverse-bg)
 }
 
 .btn-outline {
-  border: 1px solid @btn-outline-border;
-  background-color: @btn-outline-bg;
-  color: @btn-outline-color;
-  padding: 3px 10px 5px;
-
-  &:hover {
-    border: 1px solid darken(@btn-outline-border, 40%);
-  }
-
-  &.active {
-    background-color: @btn-outline-bg-active;
-    border: 1px solid @btn-outline-bg-hover;
-    color: #fff;
-  }
-
-  &:focus {
-    outline: 1px dotted lighten(@btn-outline-bg-hover, 20%);
-  }
-
-  &[disabled] {
-    &:hover {
-      border: 1px solid @btn-outline-border;
-      background-color: @btn-outline-bg-disabled;
-      color: @text-color;
-    }
-  }
-
-  .cyclops-icon use {
-    fill: @text-color;
-  }
+  .button-variant(@btn-outline-color, @btn-outline-bg, @btn-outline-border)
 }
 
 .btn-no-style {

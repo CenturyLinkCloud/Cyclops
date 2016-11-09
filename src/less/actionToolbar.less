@@ -191,7 +191,7 @@
         background-color: @btn-default-bg;
 
         &:hover {
-          background-color: @btn-default-bg-hover;
+          background-color: darken(@btn-default-bg, @btn-hover-darken-percentage);
         }
       }
 
@@ -235,7 +235,7 @@
         background-color: @btn-primary-bg;
 
         &:hover {
-          background-color: @btn-primary-bg-hover;
+          background-color: darken(@btn-primary-bg, @btn-hover-darken-percentage);
         }
       }
     }
@@ -247,7 +247,7 @@
         background-color: @btn-danger-bg;
 
         &:hover {
-          background-color: @btn-danger-bg-hover;
+          background-color: darken(@btn-danger-bg, @btn-hover-darken-percentage);
         }
       }
     }
