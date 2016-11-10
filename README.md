@@ -1,3 +1,14 @@
+# v2.0.0 roadmap
+
+ - Break cyclops up into a core package and framework dependent packages
+ - remove as many dependencies as possible
+ - core package to be based on jQuery widgets
+ - strong focus on performance
+ - maintain or improve level and quaility of documentation
+ 
+
+![outline](http://i.imgur.com/phGE8Qb.png)
+
 For the latest release info, see the [Release section](https://github.com/CenturyLinkCloud/Cyclops/releases).
 
 --------------------------------------------------------------------------------
