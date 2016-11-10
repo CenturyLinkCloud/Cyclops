@@ -268,3 +268,129 @@
   margin-top: ((@navbar-height - @element-height) / 2);
   margin-bottom: ((@navbar-height - @element-height) / 2);
 }
+
+
+.button-variant(@color, @background, @border) {
+  @active-background: darken(@background, 10%);
+  @active-border: darken(@border, 12%);
+
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover {
+    color: @color;
+    background-color: @active-background;
+    border-color: @active-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: @active-background;
+    border-color: @active-border;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: @color;
+    background-color: @active-background;
+    border-color: @active-border;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: darken(@background, @btn-hover-darken-percentage);
+      border-color: darken(@border, 25%);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      background-color: @background;
+      border-color: @border;
+    }
+    &:hover {
+      background-color: @background;
+      border-color: @border;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    border-color: transparent;
+    .cyclops-icon {
+      fill: @background;
+    }
+
+    &:active,
+    &.active {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    &:hover {
+      .cyclops-icon {
+        fill: @active-background;
+      }
+    }
+  }
+
+  .cyclops-icon {
+    fill: @color;
+  }
+}
+
+
+.button-outline-variant(@color, @color-hover: #fff) {
+  color: @color;
+  background-image: none;
+  background-color: transparent;
+  border-color: @color;
+
+  &:hover {
+    color: @color-hover;
+    background-color: @color;
+    border-color: @color;
+  }
+
+  &:focus,
+  &.focus {
+    color: @color-hover;
+    background-color: @color;
+    border-color: @color;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: @color-hover;
+    background-color: @color;
+    border-color: @color;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color-hover;
+      background-color: darken(@color, @btn-hover-darken-percentage);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: transparent;
+    }
+    &:hover {
+      color: @color;
+      background-color: transparent;
+    }
+  }
+}

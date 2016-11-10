@@ -58,7 +58,7 @@ $.fn.inlineConfirm = (options) ->
                 .show()
                 .attr({'aria-hidden': 'true'})
     clone.appendTo($("body"))
-    buttonHeight = clone.innerHeight()
+    buttonHeight = clone.outerHeight()
     clone.remove()
     topAmount = (buttonHeight * -1) + -5
     $container.height buttonHeight
