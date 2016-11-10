@@ -1,34 +1,32 @@
-// Make the div behave like a button
 .btn-group {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
 
-	> .btn {
+	> .btn,
+	> .dropdown {
 		position: relative;
 		float: left;
 		margin-bottom: 0;
 
-		// Bring the "active" button to the front
 		&:focus,
 		&:active,
-		&.active {
-			z-index: 2;
-		}
+		&.active,
 		&:hover {
 			z-index: 2;
 		}
 	}
 
 	.btn + .btn,
-  .btn + .btn-group,
-  .btn-group + .btn,
-  .btn-group + .btn-group {
+  .btn + .dropdown,
+  .dropdown + .btn,
+  .dropdown + .dropdown {
     margin-left: -1px;
   }
 }
 
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child,
+.btn-group > .dropdown:not(:first-child):not(:last-child) > .btn {
   margin-left: 0;
 
   &:not(:last-child):not(.dropdown-toggle) {
@@ -37,11 +35,12 @@
   }
 }
 
-.btn-group > .btn:last-child:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown:not(:first-child):not(:last-child) > .btn {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child) {
   border-radius: 0;
 }

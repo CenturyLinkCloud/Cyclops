@@ -155,40 +155,6 @@
       </pre>
     </section>
 
-    <section class="pl-section" id="group">
-      <h3><a href="#group">Button Groups</a></h3>
-      <p>Group buttons together.</p>
-
-      <div class="pl-example">
-        <div class="btn-group">
-          <button class="btn btn-default">only</button>
-        </div>
-
-
-        <div class="btn-group">
-          <button class="btn btn-default">first</button>
-          <button class="btn btn-default">second</button>
-        </div>
-
-        <div class="btn-group">
-          <button class="btn btn-default">first</button>
-          <button class="btn btn-default active">second</button>
-          <button class="btn btn-default">third</button>
-          <button class="btn btn-default">fourth</button>
-          <button class="btn btn-default">fifth</button>
-        </div>
-
-
-        <div class="btn-group">
-          <button class="btn btn-outline">first</button>
-          <button class="btn btn-outline active">second</button>
-          <button class="btn btn-outline">third</button>
-          <button class="btn btn-outline">fourth</button>
-          <button class="btn btn-outline">fifth</button>
-        </div>
-      </div>
-    </section>
-
     <section class="pl-section" id="dropdowns">
       <h3><a href="#dropdowns">Dropdown</a></h3>
       <p>
@@ -242,6 +208,34 @@
 $(function(){
   $(&#39;.dropdown button&#39;).dropdown()
 })
+        </code>
+      </pre>
+    </section>
+
+    <section class="pl-section" id="group">
+      <h3><a href="#group">Button Group</a></h3>
+      <p>Group buttons together using <code>.btn-group</code> to wrap a series of buttons. They may include <a href="#dropdowns">button dropdowns</a> as well.</p>
+
+      <div class="pl-example">
+        {{> buttons/button-group }}
+      </div>
+      <pre>
+        <code class="html">
+&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;first&lt;/button&gt;
+  &lt;button class=&quot;btn btn-outline active&quot;&gt;active&lt;/button&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;third&lt;/button&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;
+      dropdown
+      &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;button&gt;...&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;fifth&lt;/button&gt;
+&lt;/div&gt;
         </code>
       </pre>
     </section>
