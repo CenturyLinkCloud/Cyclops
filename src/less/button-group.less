@@ -1,0 +1,46 @@
+.btn-group {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+
+	> .btn,
+	> .dropdown {
+		position: relative;
+		float: left;
+		margin-bottom: 0;
+
+		&:focus,
+		&:active,
+		&.active,
+		&:hover {
+			z-index: 2;
+		}
+	}
+
+	.btn + .btn,
+  .btn + .dropdown,
+  .dropdown + .btn,
+  .dropdown + .dropdown {
+    margin-left: -1px;
+  }
+}
+
+.btn-group > .btn:first-child,
+.btn-group > .dropdown:not(:first-child):not(:last-child) > .btn {
+  margin-left: 0;
+
+  &:not(:last-child):not(.dropdown-toggle) {
+		border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown:not(:first-child):not(:last-child) > .btn {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}

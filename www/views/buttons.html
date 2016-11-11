@@ -212,6 +212,34 @@ $(function(){
       </pre>
     </section>
 
+    <section class="pl-section" id="group">
+      <h3><a href="#group">Button Group</a></h3>
+      <p>Group buttons together using <code>.btn-group</code> to wrap a series of buttons. They may include <a href="#dropdowns">button dropdowns</a> as well.</p>
+
+      <div class="pl-example">
+        {{> buttons/button-group }}
+      </div>
+      <pre>
+        <code class="html">
+&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;first&lt;/button&gt;
+  &lt;button class=&quot;btn btn-outline active&quot;&gt;active&lt;/button&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;third&lt;/button&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;
+      dropdown
+      &lt;svg class=&quot;cyclops-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use xlink:href='#icon-caret-down' /&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;button&gt;...&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;button class=&quot;btn btn-outline&quot;&gt;fifth&lt;/button&gt;
+&lt;/div&gt;
+        </code>
+      </pre>
+    </section>
+
     <section class="pl-section" id="inlineTextButton">
       <h3><a href="#inlineTextButton">Inline Text Button</a></h3>
       <p>When semantically it makes more sense to use a <code>button</code> instead of an <code>a</code> tag within a block of text, add the <code>.btn-text-link</code> class to match the text styles.</p>
