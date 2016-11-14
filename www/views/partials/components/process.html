@@ -1,0 +1,86 @@
+
+<section class="pl-section" id="process">
+  <h3><a href="#process">Process</a></h3>
+  <p>This shows users which step in a process they are on, in a process of "n" number of steps. The width of the <code>.process-progress-bar</code> should be set dynamically. Completed steps should have <code>.is-done</code> added, and an active step should have <code>.active</code> applied. </p>
+  <div class="pl-example">
+    <div class="process" role="navigation">
+      <ol class="process-list" role="tablist">
+        <li class="is-done">
+          <a href="#" aria-selected="false" role="tab">
+            <span class="process-step"></span>
+            <span class="process-label truncate" title="order">order</span>
+          </a>
+        </li>
+        <li class="is-done">
+          <a href="#" aria-selected="false" role="tab">
+            <span class="process-step"></span>
+            <span class="process-label truncate" title="installation">installation</span>
+          </a>
+        </li>
+        <li class="is-done active">
+          <a href="#" aria-selected="false" role="tab">
+            <span class="process-step"></span>
+            <span class="process-label truncate" title="testing">testing</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-selected="false" role="tab">
+            <span class="process-step"></span>
+            <span class="process-label truncate" title="billing">billing</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-selected="false" role="tab">
+            <span class="process-step"></span>
+            <span class="process-label truncate" title="feedback">feedback</span>
+          </a>
+        </li>
+      </ol>
+      <div class="process-progress">
+        <div class="process-progress-bar" style="width:50%"></div>
+      </div>
+    </div>
+  </div>
+
+  <pre>
+    <code class="html">
+&lt;div class=&quot;process-container&quot; role=&quot;navigation&quot;&gt;
+  &lt;ol class=&quot;process&quot; role=&quot;tablist&quot;&gt;
+    &lt;li class=&quot;is-done&quot;&gt;
+      &lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; role=&quot;tab&quot;&gt;
+        &lt;span class=&quot;process-step&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;process-label truncate&quot; title=&quot;order&quot;&gt;order&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;is-done&quot;&gt;
+      &lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; role=&quot;tab&quot;&gt;
+        &lt;span class=&quot;process-step&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;process-label truncate&quot; title=&quot;installation&quot;&gt;installation&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;is-done active&quot;&gt;
+      &lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; role=&quot;tab&quot;&gt;
+        &lt;span class=&quot;process-step&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;process-label truncate&quot; title=&quot;testing&quot;&gt;testing&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; role=&quot;tab&quot;&gt;
+        &lt;span class=&quot;process-step&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;process-label truncate&quot; title=&quot;billing&quot;&gt;billing&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; role=&quot;tab&quot;&gt;
+        &lt;span class=&quot;process-step&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;process-label truncate&quot; title=&quot;feedback&quot;&gt;feedback&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;div class=&quot;process-progress&quot;&gt;
+    &lt;div class=&quot;process-progress-bar&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</section>
