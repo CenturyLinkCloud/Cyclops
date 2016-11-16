@@ -6,25 +6,51 @@
 
 <section class="pl-section" id="borders">
   <h3><a href="#borders">Borders</a></h3>
-  <p>Add borders to page elements with these border utilities.</p>
+  <p>Add borders to page elements with these border utilities. The default border-width is 1px.</p>
 
   <div class="pl-example">
-    <div class="p-xs m-b-sm b-all" style="background-color: #f9f9f9;">b-all</div>
-    <div class="p-xs m-b-sm b-top" style="background-color: #f9f9f9;">b-top</div>
-    <div class="p-xs m-b-sm b-right" style="background-color: #f9f9f9;">b-right</div>
-    <div class="p-xs m-b-sm b-bottom" style="background-color: #f9f9f9;">b-bottom</div>
-    <div class="p-xs m-b-sm b-left" style="background-color: #f9f9f9;">b-left</div>
+    <div class="p-xs m-b-sm b-all show-box">b-all</div>
+    <div class="p-xs m-b-sm b-top show-box">b-top</div>
+    <div class="p-xs m-b-sm b-right show-box">b-right</div>
+    <div class="p-xs m-b-sm b-bottom show-box">b-bottom</div>
+    <div class="p-xs m-b-sm b-left show-box">b-left</div>
   </div>
 
+  <h4><a href="borderWidths">Border Widths</a></h4>
+  <p>Set border widths with <code>.b-width-*</code>, from <code>0-3</code>. Append responsive modifiers to the class (e.g. <code>.b-width-3-xl</code>) to apply border width styles at <a href="/grid.html#mediaQueries">specified viewport widths</a>.</p>
+  <div class="pl-example">
+    <div class="p-xs m-b-sm b-all b-width-0 show-box">b-width-0</div>
+    <div class="p-xs m-b-sm b-all b-width-1 show-box">b-width-1</div>
+    <div class="p-xs m-b-sm b-all b-width-2 show-box">b-width-2</div>
+    <div class="p-xs m-b-sm b-all b-width-3 show-box">b-width-3</div>
+  </div>
 
-  <h4><a href="#borders">Responsive Borders</a></h4>
-  <p>Add borders to page elements with these border utilities.</p>
+  <h4><a href="borderColors">Border Colors</a></h4>
+  <div class="pl-example">
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-100">b-color-100</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-200">b-color-200</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-300">b-color-300</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-400">b-color-400</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-500">b-color-500</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-600">b-color-600</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-700">b-color-700</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-800">b-color-800</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-900">b-color-900</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-success">b-color-success</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-info">b-color-info</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-warning">b-color-warning</div>
+    <div class="p-t-xxs m-b-sm b-top b-width-3 b-color-danger">b-color-danger</div>
+  </div>
+
+  <h4><a href="#borderResponsive">Responsive Borders</a></h4>
+  <p>Add borders to page elements at <a href="/grid.html#mediaQueries">specified viewport widths</a>.</p>
 
   <div class="pl-example">
-    <div class="p-xs m-b-sm b-all-sm" style="background-color: #f9f9f9;">b-all-sm</div>
-    <div class="p-xs m-b-sm b-all-md" style="background-color: #f9f9f9;">b-all-md</div>
-    <div class="p-xs m-b-sm b-all-lg" style="background-color: #f9f9f9;">b-all-lg</div>
-    <div class="p-xs m-b-sm b-all-xl" style="background-color: #f9f9f9;">b-all-xl</div>
+    <div class="p-xs m-b-sm b-all show-box">b-all</div>
+    <div class="p-xs m-b-sm b-all-sm show-box">b-all-sm</div>
+    <div class="p-xs m-b-sm b-all-md show-box">b-all-md</div>
+    <div class="p-xs m-b-sm b-all-lg show-box">b-all-lg</div>
+    <div class="p-xs m-b-sm b-all-xl show-box">b-all-xl</div>
   </div>
 </section>
 
@@ -64,15 +90,6 @@
         A card that dims on mouse hover.
       </div>
     </div>
-    <pre>
-      <code class="html">
-&lt;div class=&quot;card hover-dim&quot;&gt;
-  &lt;div class=&quot;card-block&quot;&gt;
-    ...
-  &lt;/div&gt;
-&lt;/div&gt;
-      </code>
-    </pre>
   </div>
 
   <h4 id="hoverPointer"><a href="#hoverPointer">Pointer (mouse)</a></h4>
