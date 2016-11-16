@@ -4,6 +4,33 @@
 
 <h1 class="content-header">Utilities</h1>
 
+<section class="pl-section" id="borders">
+  <h3><a href="#borders">Borders</a></h3>
+  <p>Add borders to page elements with these border utilities. The default border-width is 1px.</p>
+
+  <div class="pl-example">
+    {{> utilities/border }}
+  </div>
+
+  <h4><a href="borderWidths">Border Widths</a></h4>
+  <p>Set border widths with <code>.b-width-*</code>, from <code>0-3</code>. Append responsive modifiers to the class (e.g. <code>.b-width-3-xl</code>) to apply border width styles at <a href="/grid.html#mediaQueries">specified viewport widths</a>.</p>
+  <div class="pl-example">
+    {{> utilities/border-widths }}
+  </div>
+
+  <h4><a href="borderColors">Border Colors</a></h4>
+  <p>Specify border color using using <code>.b-color-*</code>.</p>
+  <div class="pl-example">
+    {{> utilities/border-colors }}
+  </div>
+
+  <h4><a href="#borderResponsive">Responsive Borders</a></h4>
+  <p>Add borders to page elements at <a href="/grid.html#mediaQueries">specified viewport widths</a>.</p>
+
+  <div class="pl-example">
+    {{> utilities/border-responsive}}
+  </div>
+</section>
 
 <section class="pl-section" id="hover">
   <h3><a href="hover">Hover Effects</a></h3>
@@ -44,9 +71,9 @@
   <pre>
     <code class="html">
 &lt;div class=&quot;card hover-dim&quot;&gt;
-&lt;div class=&quot;card-block&quot;&gt;
-  ...
-&lt;/div&gt;
+  &lt;div class=&quot;card-block&quot;&gt;
+    ...
+  &lt;/div&gt;
 &lt;/div&gt;
     </code>
   </pre>
