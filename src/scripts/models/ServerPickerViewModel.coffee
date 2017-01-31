@@ -107,7 +107,7 @@ class ServerPickerServerViewModel
 
     @displayName = ko.asObservable if @rawServer.displayName? then @rawServer.displayName else @rawServer.name
 
-    @isChecked = ko.observable(false)
+    @isChecked = ko.observable(@rawServer.isChecked)
 
     @title = ko.computed () =>
       return options.getServerTitle(@rawServer)
