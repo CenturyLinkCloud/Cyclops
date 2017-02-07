@@ -7,6 +7,7 @@
   background-color: #fff;
   border: 1px solid @border-color;
   border-radius: @border-radius-base;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
 
   > .alert {
     border: none;
@@ -27,10 +28,12 @@
 .card-title {
   margin-top: 0;
   margin-bottom: @line-height-computed;
+  color: @gray-200;
 }
 
 .card-subtitle {
   margin-top: -(@line-height-computed / 2);
+  color: @gray-200;
 }
 
 .card-text:last-child {
@@ -42,15 +45,13 @@
 .card-header {
   .clearfix();
   padding: (@line-height-computed / 2) 15px;
-  background-color: @gray-100;
-  border-bottom: 1px solid @border-color;
+  border-bottom: 1px solid @gray-100;
+  color: @black;
 }
 
 .card-footer {
   .clearfix();
   padding: (@line-height-computed / 2) 15px;
-  background-color: @gray-100;
-  border-top: 1px solid @border-color;
 }
 
 .card-hover {
@@ -125,7 +126,7 @@
   text-align: center;
   border-width: 2px;
   border-style: dashed;
-  background-color: #f5f5f5;
+  background-color: @body-bg;
 
   .cyclops-icon {
     fill: @gray-200;
@@ -135,7 +136,7 @@
     border-color: @gray-400;
 
     .cyclops-icon {
-      fill: @gray-500;
+      fill: @black;
     }
   }
 }

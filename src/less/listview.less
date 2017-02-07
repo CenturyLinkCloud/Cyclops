@@ -1,8 +1,10 @@
 .new-list-view-header {
-  background-color: @gray-100;
+  background-color: @gray-50;
   box-sizing: border-box;
   padding: 6px 0;
   text-transform: uppercase;
+  border-top: 1px solid @gray-100;
+  border-bottom: 1px solid @gray-100;
   .clearfix();
 
   h3 {
@@ -70,7 +72,8 @@
     .list-view-link-item,
     .list-view-editable-item,
     .list-view-read-only-item {
-      border-bottom: 1px solid @border-color;
+      border-bottom: 1px solid @gray-75;
+      background-color: @body-bg;
       padding: 10px 0;
       transition: e('background .05s ease-in');
       .clearfix();
@@ -82,6 +85,10 @@
         &:hover {
           background: none;
         }
+      }
+
+      &:hover {
+        background-color: @gray-50;
       }
 
       // colored list view item backgrounds
@@ -143,7 +150,7 @@
       }
     }
     .list-view-read-only-item {
-      background-color: #f9f9f9;
+      background-color: @gray-50;
     }
   }
 
@@ -283,10 +290,7 @@
   border-bottom: 1px solid @border-color;
   padding: 10px 15px;
   text-align: center;
-
-  &:hover {
-    background: none;
-  }
+  background-color: @body-bg;
 
   .btn-link {
     padding-right: 0;
@@ -325,10 +329,8 @@
   border-bottom: 1px solid @border-color;
   padding: 10px 15px;
   text-align: center;
+  background-color: @body-bg;
 
-  &:hover {
-    background: none;
-  }
   .cyclops-icon {
     height: 1.2em;
     width: 1.2em;
@@ -336,9 +338,9 @@
 }
 
 .list-view-item-form {
-  background: #f5f5f5;
+  background: @body-bg;
   border: 1px solid @gray-100;
-  box-shadow: inset 0 0 5px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
   padding: 10px 20px;
 
   .validation-summary {

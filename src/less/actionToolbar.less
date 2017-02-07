@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .action-area {
-  background-color: @action-toolbar-bg;
+  background: @body-bg;
   height: 40px;
   line-height: 20px;
   padding: 0 20px;
@@ -25,13 +25,8 @@
 
     &:hover,
     &.open {
-      color: #fff;
-      background: @action-toolbar-dropdown-bg;
-
       a,
       button {
-        color: #fff;
-        background-color: @action-toolbar-dropdown-bg;
         width: 100%;
         text-align: left;
         font-size: 13px;
@@ -50,29 +45,9 @@
     }
 
     .dropdown-menu {
-      color: #fff;
-      background: @action-toolbar-dropdown-bg;
       border: 0;
       margin-top: 0;
       border-radius: 0;
-
-      li a,
-      li button {
-        transition: none;
-
-        &:hover {
-          background: @action-toolbar-dropdown-hover-bg;
-
-          &.disabled,
-          &:disabled {
-            background: none;
-          }
-          &.active,
-          &:active {
-            background-color: @action-toolbar-dropdown-active-bg;
-          }
-        }
-      }
     }
   }
 }
@@ -91,7 +66,7 @@
 
     a,
     button {
-      background-color: @action-toolbar-bg;
+      background: @body-bg;
       display: inline-block;
       padding: 8px 10px 12px;
       transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
@@ -99,37 +74,10 @@
       border:none;
       outline:none;
 
-      &:hover {
-        background-color: @action-toolbar-hover-bg;
-        color: #fff;
-
-        svg.cyclops-icon {
-          transition: e('fill .15s');
-          fill: #fff;
-        }
-      }
-
-      &.active,
-      &:active {
-        background-color: @action-toolbar-active-bg;
-        color: #fff;
-        svg.cyclops-icon {
-          fill: #fff;
-        }
-      }
-
       &.disabled,
       &:disabled {
         color: #b9b9b9;
         cursor: @cursor-disabled;
-
-        &:hover {
-          background: @action-toolbar-bg;
-
-          svg.cyclops-icon {
-            fill: #b9b9b9;
-          }
-        }
 
         svg.cyclops-icon {
           fill: #b9b9b9;

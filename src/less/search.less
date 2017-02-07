@@ -10,10 +10,15 @@
     color: @text-color;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #ccc;
+    border: 1px solid @gray-150;
     border-radius: @border-radius-base;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     width: 100%;
+
+    &:focus {
+      border-color: #89AED2;
+      box-shadow: 0 0 4px 1px rgba(137, 174, 210, 0.3);
+    }
 
     &::-ms-clear {
       display: none;
@@ -24,7 +29,7 @@
     position: absolute;
     top: 7px;
     right: 10px;
-    fill: #ccc;
+    fill: @gray-200;
 
     use.clear {
       cursor: pointer;

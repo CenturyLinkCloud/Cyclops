@@ -54,10 +54,11 @@
 // hierarchy picker
 .picker {
   height: 160px;
-  border: solid 1px @gray-200;
+  border: solid 1px @gray-100;
   background-color: #fff;
   border-radius: 4px;
   overflow: auto;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
 
   .empty,
   .loading {
@@ -76,7 +77,7 @@
   .item-hover {
     cursor: pointer;
     display: block;
-    border-bottom: 1px solid @border-color;
+    border-bottom: 1px solid @gray-75;
     margin: 0;
     font-weight: @font-weight-regular;
     position: relative;
@@ -89,11 +90,11 @@
     }
 
     input:checked + .content {
-      background-color: @gray-700;
-      color: #fff;
+      background-color: @gray-25;
+      color: @gray-200;
 
       svg {
-        fill: #fff;
+        fill: @gray-200;
       }
     }
 

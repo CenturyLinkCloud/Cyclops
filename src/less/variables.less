@@ -76,27 +76,33 @@
 // -------------------------
 // grayscale and brand colors used throughout the site.
 
-@primary-brand-green:         #00853f;
-@bright-green:                #8cc63f;
-@body-bg:                     #f2f2f2;
-@primary-body-bg:             #fff;
+@primary-brand-green:         #3CAC30;
+@bright-green:                #3CAC30;
+@body-bg:                     #fff; // @layout6
+@primary-body-bg:             #f8f8f8; 
 
 @brand-success:               #3cac30;
 @brand-info:                  #43c1e6;
-@brand-warning:               #f5a934;
+@brand-warning:               #FDB630;
 @brand-danger:                #e43b34;
-@orange:                      #f5a934;
+@orange:                      #FDB630;
 
-@gray-100:                    #e0e0e0;
-@gray-200:                    #c1c1c1;
-@gray-300:                    #a3a3a3;
-@gray-400:                    #848484;
-@gray-500:                    #666;
-@gray-600:                    #515151;
-@gray-700:                    #3d3d3d;
-@gray-800:                    #282828;
-@gray-900:                    #141414;
-@black:                       #000;
+
+@gray-25:					  #fafafa; // @layout5
+@gray-50:					  #f8f8f8; // @layout4
+@gray-75:					  #eeeeee; // @layout3
+@gray-100:                    #e0e0e0; // @layout2
+@gray-150:                    #d5d5d5; // @layout1
+
+@gray-200:                    #999;
+@gray-300:                    #999;
+@gray-400:                    #757575;
+@gray-500:                    #757575;
+@gray-600:                    #757575;
+@gray-700:                    #333;
+@gray-800:                    #333;
+@gray-900:                    #333;
+@black:                       #333;
 
 //-- Z-index master list
 // -------------------------
@@ -115,7 +121,7 @@
 //== Typography
 // -------------------------
 
-@text-color:                  @gray-500;
+@text-color:                  @gray-700;
 @text-color-light:            @gray-400;
 @text-color-lighter:          @gray-300;
 @text-color-error:            @brand-danger;
@@ -175,10 +181,12 @@
 
 // Buttons
 //-------------------------
-@btn-default-color:           #fff;
-@btn-default-bg:              @gray-400;
+@btn-default-color:           @black;
+@btn-default-bg:              @body-bg;
+@btn-default-border:          @gray-150;
 
-@btn-primary-color:           @btn-default-color;
+
+@btn-primary-color:           @body-bg;
 @btn-primary-bg:              @brand-success;
 
 @btn-danger-color:            @btn-default-color;
@@ -198,7 +206,7 @@
 @btn-icon-size-default:       21px;
 @btn-icon-size-lg:            30px;
 
-@btn-hover-darken-percentage: 15%;
+@btn-hover-darken-percentage: 3%;
 
 // Code
 //-------------------------
@@ -209,7 +217,7 @@
 //-------------------------
 @input-height-base:           34px;
 @form-group-margin-bottom:    15px;
-@input-bg-disabled:           @gray-100;
+@input-bg-disabled:           @gray-75;
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled:             not-allowed;
 //== Form states and alerts
@@ -223,7 +231,7 @@
 @state-info-border:           darken(spin(@state-info-bg, -10), 10%); // #afe4ee
 @state-warning-text:          @brand-warning;
 @state-warning-bg:            #fcf8e3;
-@state-warning-border:        darken(spin(@state-warning-bg, -10), 10%); // #f7e1b5
+@state-warning-border:        #f5d9a5;
 @state-danger-text:           @text-color-error;
 @state-danger-bg:             #f2dede;
 @state-danger-border:         darken(spin(@state-danger-bg, -10), 5%); // #ebccd1
@@ -284,23 +292,22 @@
 //== Main Nav
 //
 @main-nav-text:               @gray-300;
-@main-nav-bg:                 @gray-800;
-@main-nav-hover-bg:           darken(@gray-800, 3%);
-@main-nav-active-bg:        @gray-900;
+@main-nav-bg:                 @body-bg;
+@main-nav-active-bg:          @gray-75;
 @main-nav-icon-color:         @gray-400;
-@main-nav-link-text:          @gray-200;
-@main-nav-link-text-hover:    @gray-100;
-@main-nav-link-text-active:   #fff;
-@main-nav-icon-color:         @gray-500;
+@main-nav-link-text:          @black;
+@main-nav-link-text-hover:    @black;
+@main-nav-link-text-active:   @black;
+@main-nav-icon-color:         @gray-200;
 @main-nav-selected-highlight: inset 3px 0 0 @primary-brand-green, 0 -1px 0 @main-nav-active-bg inset, 0 1px 0 @main-nav-active-bg inset;
-@main-nav-flyout-bg:          @gray-800;
+@main-nav-flyout-bg:          @body-bg;
 @main-nav-flyout-hover-bg:    darken(@gray-800, 3%);
-@main-nav-flyout-active-bg:   @gray-900;
+@main-nav-flyout-active-bg:   @gray-75;
 @main-nav-width-sm:           46px;
 @main-nav-width-md:           100px;
 @main-nav-width-lg:           160px;
 @main-nav-flyout-width:       @pane-width; // 280px
-@main-nav-flyout-divider:     @gray-700;
+@main-nav-flyout-divider:     @gray-75;
 //=== Shared nav styles
 @nav-link-padding:                    15px;
 @nav-link-hover-bg:                   @body-bg;
@@ -361,14 +368,14 @@
 @pagination-padding-x:        15px;
 @pagination-padding-y:        7px;
 @pagination-color:            @text-color;
-@pagination-bg:               #fff;
+@pagination-bg:               transparent;
 @pagination-border-width:     1px;
-@pagination-border-color:     @border-color;
+@pagination-border-color:     @gray-150;
 @pagination-hover-color:      @text-color;
-@pagination-hover-bg:         @gray-100;
+@pagination-hover-bg:         @body-bg;
 @pagination-hover-border:     #ddd;
 @pagination-active-color:     @text-color;
-@pagination-active-bg:        @gray-100;
+@pagination-active-bg:        @gray-75;
 @pagination-active-border:    @gray-100;
 @pagination-disabled-color:   @gray-200;
 @pagination-disabled-bg:      #fff;
@@ -376,7 +383,7 @@
 // Progress bars
 //
 @progress-bg:                 @gray-100;
-@progress-border-radius:      @border-radius-large;
+@progress-border-radius:      @border-radius-small;
 @progress-bar-success-bg:     @brand-success;
 @progress-bar-info-bg:        @brand-info;
 @progress-bar-warning-bg:     @brand-warning;
@@ -395,7 +402,7 @@
 //** Background color used for `.table-hover`.
 @table-hover-bg:              #f5f5f5;
 @table-active-bg:             @table-hover-bg;
-@table-header-bg:             @gray-100;
+@table-header-bg:             @gray-50;
 //** Border color for table and cell borders.
 @table-border-color:          @border-color;
 //== Tag Colors

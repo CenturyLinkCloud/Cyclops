@@ -45,43 +45,32 @@
   > li > a,
   > li > span {
     &:hover {
-      color: @pagination-hover-color;
       background-color: @pagination-hover-bg;
-      border-color: @pagination-hover-border;
     }
   }
 
   > .active > a,
   > .active > span {
-
-		color: @pagination-active-color;
 		cursor: default;
 		background-color: @pagination-active-bg;
-		border-color: @pagination-active-border;
 		font-weight: @font-weight-bold;
 
     &:hover {
-      color: @pagination-active-color;
-      cursor: default;
-      background-color: @pagination-active-bg;
-      border-color: @pagination-active-border;
+      background-color: @pagination-active-bg;  
     }
   }
 
   > .disabled {
     > span,
     > a {
-
-			color: @pagination-disabled-color;
+      color: @black;
+      background-color: @body-bg;
+      border-color: @gray-150;
+      opacity: 0.5;
 			cursor: @cursor-disabled;
-			background-color: @pagination-disabled-bg;
-			border-color: @pagination-disabled-border;
 
       &:hover {
-        color: @pagination-disabled-color;
-        cursor: @cursor-disabled;
         background-color: @pagination-disabled-bg;
-        border-color: @pagination-disabled-border;
       }
     }
   }
