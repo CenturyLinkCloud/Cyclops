@@ -1,6 +1,6 @@
 {
   "name": "cyclops",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "cyclops: The UI/UX Pattern Guide",
   "scripts": {
     "test": "gulp test",
