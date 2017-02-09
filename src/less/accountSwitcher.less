@@ -1,259 +1,220 @@
-// Variables
-@ease: cubic-bezier(0.77, 0, 0.175, 1);
-@duration: 0.4s;
+//
+// Action Toolbar
+// --------------------------------------------------
 
-
-.account-switcher-open {
-  overflow: hidden;
-  position: fixed;
-  left: 0;
-  right: 0;
-}
-
-@media (min-width: @screen-xs-min) {
-  .account-switcher-open {
-    position: relative;
-  }
-}
-
-account-switcher {
-  display: block;
+.action-area {
+  background-color: @action-toolbar-bg;
+  background: @body-bg;
   height: 40px;
-  background-color: @account-switcher-bg;
-  z-index: @zindex-account-switcher;
-  position: relative;
+  line-height: 20px;
+  padding: 0 20px;
+  overflow: hidden;
+  .clearfix();
 
-  button.btn-link {
-    color: @gray-400;
-    font-size: @font-size-small;
-    text-decoration: none;
-    padding-left: 0;
-
-    &:hover {
-      color: #fff;
-      outline: none;
-      text-decoration: none;
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-    }
-
-    @media(min-width: @grid-float-breakpoint) {
-      padding-left: 10px;
-    }
-  }
-
-  .header {
-    display: block;
-    z-index: @zindex-account-switcher;
-    height: 40px;
-    background-color: @account-switcher-header-bg;
-    color: @account-switcher-text;
-    font-weight: @font-weight-regular;
-    height: 40px;
-    padding: 5px 10px;
-    z-index: @zindex-account-switcher;
-    position: relative;
-    box-shadow: -1px 1px @black;
-
-    .toggle-btn {
-      padding: 0;
-
-      .cyclops-icon use {
-        transition: e('fill .05s ease-in');
-        fill: @gray-300;
-      }
-
-      &:hover {
-        .cyclops-icon use {
-          fill: #fff;
-        }
-      }
-    }
-
-    .current {
-      color: @gray-200;
-      font-weight: @font-weight-regular;
-      display: inline-block;
-      max-width: 200px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      vertical-align: middle;
-      margin-right: 5px;
-      transition: e('color .05s ease-in');
-
-      &:hover {
-        color: #fff;
-      }
-    }
-  }
-
-  .take-over {
-    background-color: @account-switcher-bg;
-    overflow: hidden;
-    position: fixed;
-    top: -100%;
-    right: 0;
-    bottom: 100%;
-    left: 0;
-    z-index: @zindex-account-takeover;
-    outline: 0;
-    color: @account-switcher-text;
-    padding: 20px;
-
-    .org-message {
-      color:   @gray-150;
-      display: inline-block;
-      padding: 4px 0 6px;
-    }
-
-    form.search {
-      .search-input {
-        width: 100%;
-
-        input {
-          width: 100%;
-          font-size: 16px;
-          background: @switcher-bg;
-          border-color: @gray-400;
-          color: @gray-200;
-
-          &::-ms-clear {
-            display: none;
-          }
-        }
-      }
-    }
-
-    .new-list-view-header {
-      border-top: none;
-      clear: both;
-      background-color: transparent;
-      border-bottom: 2px solid @account-switcher-border-color;
-
-      h3 {
-        color: @account-switcher-header-text;
-      }
-    }
-
-    .col-alias {
-      width: 105px;
-    }
-
-    .col-dc {
-      width: 150px;
+  &.action-toolbar-confirm-shown {
+    .overflow-menu {
       display: none;
     }
+  }
 
-    .col-active-item {
-      width: 29px;
-      padding: 0 0 0 15px;
+  .overflow-menu {
+    vertical-align: inherit;
+    height: 40px;
+    position: absolute;
+    display: inline-block;
+    white-space: nowrap;
+
+    &:hover,
+    &.open {
+      a,
+      button {
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+
+     .dropdown-menu {
+       li > a,
+       li > button {
+         padding: 5px 10px;
+       }
+     }
 
       svg {
-        margin-bottom: 2px;
-        opacity: 0;
-        transition: e('opacity .05s ease-in');
         fill: #fff;
       }
     }
 
-    .scroll-area {
-      box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.15);
-      position: absolute;
-      top: 130px;
-      bottom: 20px;
-      right: 20px;
-      left: 20px;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
+    .dropdown-menu {
+      border: 0;
+      margin-top: 0;
+      border-radius: 0;
+    }
+  }
+}
 
-      .loading-list-view-items {
-        background: @switcher-bg;
-        border-bottom-color: @account-switcher-border-color;
-        color: @gray-300;
+.action-toolbar,
+.action-toolbar-left,
+.action-toolbar-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: @font-size-regular - 1;
+
+  > li {
+    float: left;
+
+    a,
+    button {
+      background-color: @action-toolbar-bg;
+      background: @body-bg;
+      display: inline-block;
+      padding: 8px 10px 12px;
+      transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
+      text-decoration: none;
+      border:none;
+      outline:none;
+
+      &:hover {
+        background-color: @action-toolbar-hover-bg;
+        svg.cyclops-icon {
+          fill: @black;
+        }
       }
 
-      .list-view-item {
-        border-bottom-color: @gray-700;
-        transition: e('color .05s ease-in');
-        cursor: pointer;
-        color:      @gray-150;
-        background: @switcher-bg;
+      &.active,		
+      &:active {		
+        background-color: @action-toolbar-active-bg;
+        svg.cyclops-icon {		
+          fill: @black;
+        }
+      }
 
-        &.current {
-          background-color: @switcher-current-bg;
+      &.disabled,
+      &:disabled {
+        color: #b9b9b9;
+        cursor: @cursor-disabled;
+
+        svg.cyclops-icon {
+          fill: #b9b9b9;
+        }
+      }
+    }
+  }
+}
+
+.action-toolbar-left {
+  float: left;
+  margin-right: 110px;
+}
+
+.action-toolbar-right {
+  float: right;
+}
+
+.action-toolbar-confirm {
+  clear: both;
+  background-color: @action-toolbar-dropdown-bg;
+  color: #fff;
+  height: 40px;
+  margin-right: -20px;
+  padding-right: 20px;
+  margin-left: -20px;
+  padding-left: 20px;
+
+  svg {
+    fill: #fff;
+  }
+
+  .message {
+    display: none;
+    padding-right: 10px;
+    line-height: 40px;
+    word-break: break-all;
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .buttons {
+    button {
+      height: 40px;
+      border: none;
+      padding-right: 20px;
+      padding-left: 20px;
+      background: none;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+
+      &.yes {
+        background-color: @btn-default-bg;
+
+        &:hover {
+          background-color: darken(@btn-default-bg, @btn-hover-darken-percentage);
+        }
+      }
+
+      &.no {
+        color: @gray-100;
+
+        svg {
+          fill: @gray-100;
+        }
+
+        &:hover {
           color: #fff;
-        }
+          background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
-        &.active-item {
-          background-color: @switcher-current-bg;
-          color: #fff;
-
-          .col-active-item svg {
-            opacity: 1;
+          svg {
+            fill: #fff;
           }
-
-          &:hover {
-            background-color: @switcher-current-bg;
-            color: #fff;
-          }
-        }
-
-        .marker {
-          display: inline-block;
-          margin-right: 5px;
-          color: darken(@account-switcher-text, 15%);
         }
       }
     }
   }
-}
 
-@media (min-width: @screen-sm-min) {
-  account-switcher {
-    .take-over {
-      form.search {
-        float: right;
-
-        .search-input {
-          width: auto;
-
-          input {
-            width: auto;
-          }
-        }
-      }
-
-      .scroll-area {
-        top: 100px;
-      }
-    }
-  }
-}
-
-@media (min-width: @screen-xs-min) {
-  account-switcher .header .current {
-    max-width: none;
-  }
-}
-
-@media (min-width: @screen-sm-min) {
-  account-switcher {
-    .header .current {
-      max-width: 700px;
+  @media (min-width: @screen-sm-min) {
+    .buttons {
+      float: right;
     }
 
-    .take-over .col-dc {
+    .message {
       display: block;
     }
   }
-}
 
-@media (min-width: @screen-md-min) {
-  account-switcher .header .current {
-    max-width: 924px;
+  &.action-toolbar-confirm-primary {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    button {
+      &.yes {
+        background-color: @btn-primary-bg;
+
+        &:hover {
+          background-color: darken(@btn-primary-bg, @btn-hover-darken-percentage);
+        }
+      }
+    }
+  }
+
+  &.action-toolbar-confirm-danger {
+    button {
+      &.yes {
+        background-color: @btn-danger-bg;
+
+        &:hover {
+          background-color: darken(@btn-danger-bg, @btn-hover-darken-percentage);
+        }
+      }
+    }
   }
 }

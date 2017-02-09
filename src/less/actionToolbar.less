@@ -3,7 +3,8 @@
 // --------------------------------------------------
 
 .action-area {
-  background: @action-toolbar-bg;
+  background-color: @action-toolbar-bg;
+  background: @body-bg;
   height: 40px;
   line-height: 20px;
   padding: 0 20px;
@@ -77,7 +78,8 @@
 
     a,
     button {
-      background: transparent;
+      background-color: @action-toolbar-bg;
+      background: @body-bg;
       display: inline-block;
       padding: 8px 10px 12px;
       transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
@@ -85,20 +87,17 @@
       border:none;
       outline:none;
 
+      &:hover {
+        background-color: @action-toolbar-hover-bg;
+        svg.cyclops-icon {
+          fill: @black;
+        }
+      }
 
       &:active {		
         background-color: @action-toolbar-active-bg;
         svg.cyclops-icon {		
           fill: @black;
-        }
-      }
-
-      &:enabled { 
-        &:hover {
-         background-color: @action-toolbar-hover-bg;
-         svg.cyclops-icon {
-           fill: @black;
-         }
         }
       }
 
