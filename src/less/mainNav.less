@@ -72,6 +72,7 @@ main-nav {
 
     &:focus,
     &:hover {
+      background-color: @main-nav-hover-bg;
       color: @main-nav-link-text-hover;
       outline: none;
 
@@ -154,6 +155,10 @@ main-nav {
     width: @main-nav-width-sm;
     height: 44px;
 
+    .btn {
+      border: 0;
+    }
+
     &.open {
       .btn {
         background-color: @main-nav-active-bg;
@@ -172,6 +177,7 @@ main-nav {
     &.selected {
       .btn {
         background-color: @main-nav-active-bg;
+        box-shadow: @main-nav-selected-highlight;
         color: @black;
 
         .cyclops-icon use {
@@ -264,6 +270,10 @@ main-nav {
 
     &:focus,
     &:hover {
+      a {
+        background-color: @main-nav-flyout-hover-bg;
+      }
+
       h3 {
         color: @black;
       }

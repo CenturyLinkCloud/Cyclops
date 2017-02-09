@@ -3,6 +3,7 @@
 // --------------------------------------------------
 
 .action-area {
+  background-color: @action-toolbar-bg;
   background: @body-bg;
   height: 40px;
   line-height: 20px;
@@ -66,6 +67,7 @@
 
     a,
     button {
+      background-color: @action-toolbar-bg;
       background: @body-bg;
       display: inline-block;
       padding: 8px 10px 12px;
@@ -73,6 +75,21 @@
       text-decoration: none;
       border:none;
       outline:none;
+
+      &:hover {
+        background-color: @action-toolbar-hover-bg;
+        svg.cyclops-icon {
+          fill: @black;
+        }
+      }
+
+      &.active,		
+      &:active {		
+        background-color: @action-toolbar-active-bg;
+        svg.cyclops-icon {		
+          fill: @black;
+        }
+      }
 
       &.disabled,
       &:disabled {
