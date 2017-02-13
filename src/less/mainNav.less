@@ -109,15 +109,15 @@ main-nav {
   }
 
   .scroll-up {
-    background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 20%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to top, transparent, @body-bg);
     border-bottom: 0px;
     top: 0;
-    background: @gray-150;
   }
 
   .scroll-down {
     bottom: 0;
-    background: @gray-150;
+    background: linear-gradient(to bottom, transparent, @body-bg);
+    border-top: 0px;
   }
 }
 
