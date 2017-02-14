@@ -85,17 +85,20 @@
       border:none;
       outline:none;
 
-      &:hover {
-        background-color: @action-toolbar-hover-bg;
-        svg.cyclops-icon {
-          fill: @black;
-        }
-      }
 
       &:active {		
         background-color: @action-toolbar-active-bg;
         svg.cyclops-icon {		
           fill: @black;
+        }
+      }
+
+      &:enabled { 
+        &:hover {
+         background-color: @action-toolbar-hover-bg;
+         svg.cyclops-icon {
+           fill: @black;
+         }
         }
       }
 

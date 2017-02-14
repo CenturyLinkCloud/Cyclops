@@ -17,28 +17,24 @@
     }
   }
 
-  .overflow-menu {
-    vertical-align: inherit;
-    height: 40px;
-    position: absolute;
-    display: inline-block;
-    white-space: nowrap;
+account-switcher {
+  display: block;
+  height: 40px;
+  background-color: @account-switcher-bg;
+  z-index: @zindex-account-switcher;
+  position: relative;
 
-    &:hover,
-    &.open {
-      a,
-      button {
-        width: 100%;
-        text-align: left;
-        font-size: 13px;
-      }
+  button.btn-link {
+    color: @gray-400;
+    font-size: @font-size-small;
+    text-decoration: none;
+    padding-left: 0;
 
-     .dropdown-menu {
-       li > a,
-       li > button {
-         padding: 5px 10px;
-       }
-     }
+    &:hover {
+      color: #fff;
+      outline: none;
+      text-decoration: none;
+    }
 
       svg {
         fill: #fff;
@@ -53,14 +49,18 @@
   }
 }
 
-.action-toolbar,
-.action-toolbar-left,
-.action-toolbar-right {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  font-size: @font-size-regular - 1;
+  .header {
+    display: block;
+    z-index: @zindex-account-switcher;
+    height: 40px;
+    background-color: @account-switcher-header-bg;
+    color: @account-switcher-text;
+    font-weight: @font-weight-regular;
+    height: 40px;
+    padding: 5px 10px;
+    z-index: @zindex-account-switcher;
+    position: relative;
+    box-shadow: -1px 1px @black;
 
   > li {
     float: left;
@@ -82,6 +82,19 @@
           fill: @black;
         }
       }
+    }
+
+    .current {
+      color: @gray-200;
+      font-weight: @font-weight-regular;
+      display: inline-block;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+      margin-right: 5px;
+      transition: e('color .05s ease-in');
 
       &.active,		
       &:active {		
@@ -90,11 +103,38 @@
           fill: @black;
         }
       }
+    }
+  }
 
-      &.disabled,
-      &:disabled {
-        color: #b9b9b9;
-        cursor: @cursor-disabled;
+  .take-over {
+    background-color: @account-switcher-bg;
+    overflow: hidden;
+    position: fixed;
+    top: -100%;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: @zindex-account-takeover;
+    outline: 0;
+    color: @account-switcher-text;
+    padding: 20px;
+
+    .org-message {
+      color:   @gray-150;
+      display: inline-block;
+      padding: 4px 0 6px;
+    }
+
+    form.search {
+      .search-input {
+        width: 100%;
+
+        input {
+          width: 100%;
+          font-size: 16px;
+          background: @switcher-bg;
+          border-color: @gray-400;
+          color: @gray-200;
 
         svg.cyclops-icon {
           fill: #b9b9b9;
@@ -104,10 +144,12 @@
   }
 }
 
-.action-toolbar-left {
-  float: left;
-  margin-right: 110px;
-}
+
+    .new-list-view-header {
+      border-top: none;
+      clear: both;
+      background-color: transparent;
+      border-bottom: 2px solid @account-switcher-border-color;
 
 .action-toolbar-right {
   float: right;
@@ -152,27 +194,46 @@
         outline: none;
       }
 
-      &.yes {
-        background-color: @btn-default-bg;
+    .scroll-area {
+      box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+      position: absolute;
+      top: 130px;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
 
-        &:hover {
-          background-color: darken(@btn-default-bg, @btn-hover-darken-percentage);
-        }
+      .loading-list-view-items {
+        background: @switcher-bg;
+        border-bottom-color: @account-switcher-border-color;
+        color: @gray-300;
       }
 
-      &.no {
-        color: @gray-100;
+      .list-view-item {
+        border-bottom-color: @gray-700;
+        transition: e('color .05s ease-in');
+        cursor: pointer;
+        color:      @gray-150;
+        background: @switcher-bg;
 
-        svg {
-          fill: @gray-100;
+        &.current {
+          background-color: @switcher-current-bg;
+          color: #fff;
         }
 
-        &:hover {
+        &.active-item {
+          background-color: @switcher-current-bg;
           color: #fff;
           background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
           svg {
             fill: #fff;
+          }
+
+          &:hover {
+            background-color: @switcher-current-bg;
+            color: #fff;
           }
         }
       }
