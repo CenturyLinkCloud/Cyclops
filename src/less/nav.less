@@ -21,6 +21,10 @@
       display: block;
       padding: @nav-link-padding;
       text-decoration: none;
+      &:hover,
+      &:focus {
+        background-color: @nav-link-hover-bg;
+      }
     }
 
     // Disabled state sets text to gray and nukes hover/tab effects
