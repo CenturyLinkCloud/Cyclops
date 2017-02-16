@@ -141,6 +141,10 @@
           border-radius: 0;
           box-shadow: 0 3px @brand-success;
           color: @brand-success;
+          padding-bottom: 9px;
+          &:hover {
+            background: none;
+          }
         }
       }
     }
@@ -249,7 +253,7 @@
 
       > a {
         border-radius: 3px;
-        padding: 4px 10px 9px;
+        padding: 4px 10px 6px;
       }
 
       &.logo {
@@ -338,7 +342,7 @@
 
 .navbar-static-top {
   z-index: @zindex-navbar;
-  border-width: 0 0 1px;
+  border: 0;
 
   @media (min-width: @grid-float-breakpoint) {
     border-radius: 0;
@@ -403,7 +407,6 @@
 
 // Product/Service Name after CenturyLink logo
 .navbar-service {
-  border-left: 1px solid @body-bg;
   float: left;
   padding: @navbar-padding-vertical (@navbar-padding-horizontal / 2);
   font-size: @font-size-large;
