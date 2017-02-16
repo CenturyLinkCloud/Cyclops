@@ -121,14 +121,14 @@
       }
     }
     .list-view-link-item:hover {
-      background: #ebebeb;
+      background: @gray-50;
     }
 
     .list-view-editable-item {
       cursor: pointer;
 
       &:hover {
-        background: #ebebeb;
+        background: @gray-50;
 
         &.list-view-item-success {
           background-color: darken(@state-success-bg, 10%);
@@ -288,7 +288,7 @@
   border-bottom: 1px solid @border-color;
   padding: 10px 15px;
   text-align: center;
-  background-color: @body-bg;
+  background-color: #fff;
 
   .btn-link {
     padding-right: 0;
@@ -327,7 +327,7 @@
   border-bottom: 1px solid @border-color;
   padding: 10px 15px;
   text-align: center;
-  background-color: @body-bg;
+  background-color: #fff;
 
   .cyclops-icon {
     height: 1.2em;
@@ -336,9 +336,9 @@
 }
 
 .list-view-item-form {
-  background: @body-bg;
+  background: @gray-50;
   border: 1px solid @gray-100;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
 
   .validation-summary {
