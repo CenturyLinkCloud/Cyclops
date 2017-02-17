@@ -40,7 +40,7 @@
      }
 
       svg {
-        fill: #fff;
+        fill: @gray-200;
       }
     }
 
@@ -48,6 +48,17 @@
       border: 0;
       margin-top: 0;
       border-radius: 0;
+      background: #eee;
+
+      > li {
+        a,
+        button {
+          background: transparent;
+            svg.cyclops-icon {		
+              fill: @gray-200;
+            }
+        }
+      }
     }
   }
 }
