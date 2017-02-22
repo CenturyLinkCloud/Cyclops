@@ -65,16 +65,10 @@ account-switcher {
   > li {
     float: left;
 
-    a,
-    button {
-      background-color: @action-toolbar-bg;
-      background: @body-bg;
-      display: inline-block;
-      padding: 8px 10px 12px;
-      transition: e('color .15s ease-in, padding .15s ease-in, background-color .15s ease-in');
-      text-decoration: none;
-      border:none;
-      outline:none;
+      .cyclops-icon use {
+        transition: e('fill .05s ease-in');
+        fill: @gray-200;
+      }
 
       &:hover {
         background-color: @action-toolbar-hover-bg;
@@ -207,11 +201,11 @@ account-switcher {
       .loading-list-view-items {
         background: @switcher-bg;
         border-bottom-color: @account-switcher-border-color;
-        color: @gray-300;
+        color: @gray-200;
       }
 
       .list-view-item {
-        border-bottom-color: @gray-700;
+        border-bottom-color: @black;
         transition: e('color .05s ease-in');
         cursor: pointer;
         color:      @gray-150;

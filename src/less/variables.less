@@ -98,13 +98,7 @@
 @gray-150:                    #d5d5d5; // @layout1
 
 @gray-200:                    #999;
-@gray-300:                    #999;
 @gray-400:                    #757575;
-@gray-500:                    #757575;
-@gray-600:                    #757575;
-@gray-700:                    #333;
-@gray-800:                    #333;
-@gray-900:                    #333;
 @black:                       #333;
 
 //-- Z-index master list
@@ -124,9 +118,9 @@
 //== Typography
 // -------------------------
 
-@text-color:                  @gray-700;
+@text-color:                  @black;
 @text-color-light:            @gray-400;
-@text-color-lighter:          @gray-300;
+@text-color-lighter:          @gray-200;
 @text-color-error:            @brand-danger;
 
 @font-weight-light:           300;
@@ -155,8 +149,8 @@
 @font-size-h5:                ceil((@font-size-regular * 0.9)); // ~13px
 @font-size-h6:                ceil((@font-size-regular * 0.85)); // ~12px
 
-@heading-text-color:          @gray-700;
-@headings-small-color:        @gray-300;
+@heading-text-color:          @black;
+@headings-small-color:        @gray-200;
 @headings-line-height:        1.2em;
 
 // Common Components
@@ -198,10 +192,10 @@
 @btn-warning-color:           @btn-default-color;
 @btn-warning-bg:              @brand-warning;
 
-@btn-inverse-color:           @gray-700;
+@btn-inverse-color:           @black;
 @btn-inverse-bg:              @gray-100;
 
-@btn-outline-color:           @gray-700;
+@btn-outline-color:           @black;
 @btn-outline-border:          @gray-150;
 @btn-outline-bg:              #fff;
 
@@ -241,11 +235,11 @@
 
 //== Account Switcher
 //
-@account-switcher-header-bg:          @gray-700;
+@account-switcher-header-bg:          @black;
 @account-switcher-bg:                 @switcher-bg;
 @account-switcher-text:               @gray-200;
-@account-switcher-border-color:       @gray-700;
-@account-switcher-active-bg:          @gray-900;
+@account-switcher-border-color:       @black;
+@account-switcher-active-bg:          @black;
 @account-switcher-input-text:         @gray-200;
 @account-switcher-header-text:        @gray-400;
 //== Action Toolbar
@@ -253,9 +247,9 @@
 @action-toolbar-bg:                   @gray-75;
 @action-toolbar-hover-bg:             @gray-100;
 @action-toolbar-active-bg:            @gray-150;
-@action-toolbar-dropdown-bg:          @gray-700;
-@action-toolbar-dropdown-hover-bg:    @gray-800;
-@action-toolbar-dropdown-active-bg:   @gray-900;
+@action-toolbar-dropdown-bg:          @black;
+@action-toolbar-dropdown-hover-bg:    @black;
+@action-toolbar-dropdown-active-bg:   @black;
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -294,7 +288,7 @@
 //=========================================
 //== Main Nav
 //
-@main-nav-text:               @gray-300;
+@main-nav-text:               @gray-200;
 @main-nav-bg:                 @primary-body-bg;
 @main-nav-hover-bg:           @gray-50;
 @main-nav-active-bg:          @gray-75;
@@ -315,8 +309,8 @@
 //=== Shared nav styles
 @nav-link-padding:                    15px;
 @nav-link-hover-bg:                   @gray-75;
-@nav-disabled-link-color:             @gray-300;
-@nav-disabled-link-hover-color:       @gray-300;
+@nav-disabled-link-color:             @gray-200;
+@nav-disabled-link-hover-color:       @gray-200;
 @nav-bottom-border:                   @gray-100;
 //== Navbar
 //
@@ -343,7 +337,7 @@
 @navbar-default-brand-hover-bg:       transparent;
 // Navbar toggle
 @navbar-default-toggle-hover-bg:      @gray-100;
-@navbar-default-toggle-icon-bar-bg:   @gray-300;
+@navbar-default-toggle-icon-bar-bg:   @gray-200;
 @navbar-default-toggle-border-color:  @gray-200;
 //== Pagination
 //
@@ -390,7 +384,7 @@
 @table-border-color:          @gray-75;
 //== Tag Colors
 //
-@tag-default-bg:              @gray-300;
+@tag-default-bg:              @gray-200;
 @tag-primary-bg:              @brand-success;
 @tag-info-bg:                 @brand-info;
 @tag-warning-bg:              @brand-warning;
@@ -414,5 +408,5 @@
 //== Process
 //
 @process-step-bg:							@gray-100;
-@process-step-done-bg:         @gray-500;
+@process-step-done-bg:         @gray-400;
 @process-step-active-bg:			@bright-green;
