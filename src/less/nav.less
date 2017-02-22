@@ -20,13 +20,11 @@
       position: relative;
       display: block;
       padding: @nav-link-padding;
+      text-decoration: none;
       &:hover,
       &:focus {
-        text-decoration: none;
         background-color: @nav-link-hover-bg;
       }
-
-      text-decoration: none;
     }
 
     // Disabled state sets text to gray and nukes hover/tab effects
@@ -48,8 +46,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: @nav-link-hover-bg;
-      border-color: @link-color;
+      background-color: @gray-75;
     }
   }
 
@@ -112,6 +109,7 @@
      &.selected {
        > a {
          font-weight: @font-weight-bold;
+         color: @brand-success;
        }
      }
    }
@@ -137,25 +135,21 @@
 
   .clearfix();
   margin-bottom: 20px;
-  border-bottom: 2px solid @nav-bottom-border;
+  border-bottom: 1px solid @nav-bottom-border;
 
   > li {
     float: left;
 
     // Links rendered as pills
     > a {
-      border-bottom: 2px solid @nav-bottom-border;
       padding: 10px 15px;
       margin-bottom: -2px;
 
-      &:hover {
-        background-color: transparent;
-      }
-
       &:hover,
       &:focus {
-        border-bottom: 2px solid @gray-800;
+        border-bottom: 2px solid @brand-success;
         background-color: none;
+        color: @brand-success;
       }
     }
     + li {
@@ -167,7 +161,8 @@
       &,
       &:hover,
       &:focus {
-        border-bottom: 2px solid @gray-800;
+        border-bottom: 2px solid @brand-success;
+        color: @brand-success;
       }
     }
 
@@ -176,7 +171,7 @@
       &,
       &:hover,
       &:focus {
-        border-bottom: 2px solid @nav-bottom-border;
+        border-bottom-color: transparent;
       }
     }
   }
@@ -207,19 +202,13 @@
     }
 
     .tab {
-      border-bottom: 1px solid @border-color;
-
-      &:first-child {
-        border-top: 1px solid @border-color;
-      }
-
+      
       a {
         text-decoration: none;
         padding: 10px;
         display: block;
 
         &:hover {
-          background-color: #eee;
           text-decoration: none;
         }
       }

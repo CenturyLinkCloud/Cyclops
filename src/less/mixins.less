@@ -269,42 +269,70 @@
   margin-bottom: ((@navbar-height - @element-height) / 2);
 }
 
-
-.button-variant(@color, @background, @border) {
-  @active-background: darken(@background, 10%);
-  @active-border: darken(@border, 12%);
+.button-variant-default(@color, @background, @border) {
+  @active-background: @gray-75;
+  @active-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.07);
 
   color: @color;
   background-color: @background;
   border-color: @border;
-
-  &:hover {
-    color: @color;
-    background-color: @active-background;
-    border-color: @active-border;
-  }
-
-  &:focus,
-  &.focus {
-    color: @color;
-    background-color: @active-background;
-    border-color: @active-border;
-  }
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
 
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: @color;
     background-color: @active-background;
-    border-color: @active-border;
+    box-shadow: @active-box-shadow;
+  }
 
-    &:hover,
+  &.disabled,
+  &:disabled {
     &:focus,
     &.focus {
-      color: @color;
-      background-color: darken(@background, @btn-hover-darken-percentage);
-      border-color: darken(@border, 25%);
+      background-color: @background;
+      border-color: @border;
     }
+    &:hover {
+      background-color: @background;
+      border-color: @border;
+    }
+  }
+
+  &.btn-icon {
+    background-color: transparent;
+    border-color: transparent;
+    .cyclops-icon {
+      fill: @gray-200;
+    }
+
+    &:active,
+    &.active {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    &:hover {
+      .cyclops-icon {
+        fill: @black;
+      }
+    }
+  }
+}
+
+
+.button-variant(@color, @background, @border) {
+  @active-background: darken(@background, 3%);
+
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-color: @active-background;
   }
 
   &.disabled,
@@ -353,32 +381,12 @@
   background-color: transparent;
   border-color: @color;
 
-  &:hover {
-    color: @color-hover;
-    background-color: @color;
-    border-color: @color;
-  }
-
-  &:focus,
-  &.focus {
-    color: @color-hover;
-    background-color: @color;
-    border-color: @color;
-  }
-
   &:active,
   &.active,
   .open > &.dropdown-toggle {
-    color: @color-hover;
-    background-color: @color;
+    background-color: @gray-75;
     border-color: @color;
 
-    &:hover,
-    &:focus,
-    &.focus {
-      color: @color-hover;
-      background-color: darken(@color, @btn-hover-darken-percentage);
-    }
   }
 
   &.disabled,

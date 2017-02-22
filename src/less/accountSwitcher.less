@@ -24,7 +24,7 @@ account-switcher {
   position: relative;
 
   button.btn-link {
-    color: gray;
+    color: @gray-400;
     font-size: @font-size-small;
     text-decoration: none;
     padding-left: 0;
@@ -56,7 +56,7 @@ account-switcher {
     padding: 5px 10px;
     z-index: @zindex-account-switcher;
     position: relative;
-    box-shadow: 0 -2px 3px 1px #000;
+    box-shadow: -1px 1px @black;
 
     .toggle-btn {
       padding: 0;
@@ -74,7 +74,7 @@ account-switcher {
     }
 
     .current {
-      color: @account-switcher-text;
+      color: @gray-200;
       font-weight: @font-weight-regular;
       display: inline-block;
       max-width: 200px;
@@ -105,6 +105,7 @@ account-switcher {
     padding: 20px;
 
     .org-message {
+      color:   @gray-150;
       display: inline-block;
       padding: 4px 0 6px;
     }
@@ -116,9 +117,9 @@ account-switcher {
         input {
           width: 100%;
           font-size: 16px;
-          background: @account-switcher-bg;
-          border-color: @account-switcher-border-color;
-          color: @account-switcher-input-text;
+          background: @switcher-bg;
+          border-color: @gray-400;
+          color: @gray-200;
 
           &::-ms-clear {
             display: none;
@@ -128,6 +129,7 @@ account-switcher {
     }
 
     .new-list-view-header {
+      border-top: none;
       clear: both;
       background-color: transparent;
       border-bottom: 2px solid @account-switcher-border-color;
@@ -169,26 +171,34 @@ account-switcher {
       -webkit-overflow-scrolling: touch;
 
       .loading-list-view-items {
+        background: @switcher-bg;
         border-bottom-color: @account-switcher-border-color;
         color: @gray-300;
       }
 
       .list-view-item {
-        border-bottom-color: @account-switcher-border-color;
+        border-bottom-color: @gray-700;
         transition: e('color .05s ease-in');
         cursor: pointer;
+        color:      @gray-150;
+        background: @switcher-bg;
 
         &.current {
-          background-color: @account-switcher-active-bg;
+          background-color: @switcher-current-bg;
           color: #fff;
         }
 
         &.active-item {
-          background-color: @account-switcher-active-bg;
+          background-color: @switcher-current-bg;
           color: #fff;
 
           .col-active-item svg {
             opacity: 1;
+          }
+
+          &:hover {
+            background-color: @switcher-current-bg;
+            color: #fff;
           }
         }
 

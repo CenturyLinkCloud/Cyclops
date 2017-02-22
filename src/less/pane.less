@@ -4,7 +4,7 @@ pane {
   overflow: hidden;
   display: block;
   transition: e('max-height .5s, margin-left .5s');
-  background-color: @body-bg;
+  background-color: #fff;
 
   &.pane-expanded {
     max-height: none;
@@ -58,8 +58,8 @@ pane {
 
 .pane-header {
   height: 36px;
-  background-color: #d5d5d5;
-  border-bottom: 1px solid @gray-200;
+  background-color: @gray-100;
+  border-bottom: 1px solid @gray-150;
   box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
   letter-spacing: 1px;
   font-size: @font-size-small;
@@ -114,6 +114,7 @@ pane {
 
 .pane-header-btn {
   .btn();
+  border: none;
   background-color: transparent;
   text-decoration: none;
   color: @text-color;
@@ -122,10 +123,6 @@ pane {
   border-radius: @border-radius-small;
   line-height: 20px;
   font-size: @font-size-small;
-
-  .cyclops-icon use {
-    fill: @text-color;
-  }
 
   &.active,
   &:hover {

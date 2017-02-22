@@ -45,6 +45,8 @@ input[type="radio"],
 input[type="checkbox"] {
   margin: 4px 0 0;
   line-height: normal;
+  border: 1px solid @gray-150;
+  background-color: #fff;
 }
 
 input[type="file"] {
@@ -71,7 +73,7 @@ select[size] {
   color: @text-color;
   background-color: #fff;
   background-image: none;
-  border: 1px solid @gray-200;
+  border: 1px solid @gray-150;
   border-radius: @border-radius-base;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   vertical-align: bottom;
@@ -88,6 +90,11 @@ select[size] {
 
   &[disabled] {
     cursor: @cursor-disabled;
+  }
+
+  &:focus {
+    border-color: #89AED2;
+    box-shadow: 0 0 4px 1px rgba(137, 174, 210, 0.3);
   }
 
 }
@@ -315,7 +322,6 @@ fieldset[disabled] {
   }
 
   .form-submit {
-    border-top: 1px solid @border-color;
     margin-top: 30px;
     padding-top: 15px;
   }

@@ -126,7 +126,6 @@
 
     > li {
       border-bottom: 1px solid @nav-bottom-border;
-      letter-spacing: 2px;
       font-weight: @font-weight-bold;
       text-transform: uppercase;
       font-size: @font-size-regular - 1;
@@ -139,7 +138,13 @@
 
       &.active {
         > a {
-          background-color: @gray-100;
+          border-radius: 0;
+          box-shadow: 0 3px @brand-success;
+          color: @brand-success;
+          padding-bottom: 9px;
+          &:hover {
+            background: none;
+          }
         }
       }
     }
@@ -181,14 +186,10 @@
           height: 14px;
         }
 
-        &.active {
-          > a {
-          }
-        }
-
         > a {
           border-radius: @border-radius-small;
           padding: 6px 13px 6px 15px;
+          border: 1px solid transparent;
         }
       }
     }
@@ -201,7 +202,8 @@
 
     .dropdown-menu {
       width: auto;
-      border: 1px solid @border-color;
+      border: 1px solid @gray-150;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 
       > li {
 
@@ -265,14 +267,14 @@
             background-color: transparent;
 
             .cyclops-icon {
-              fill: @gray-500;
+              fill: @black;
             }
           }
 
           .cyclops-icon {
             width: 24px;
             height: 24px;
-            fill: @gray-400;
+            fill: @gray-200;
           }
         }
       }
@@ -340,7 +342,7 @@
 
 .navbar-static-top {
   z-index: @zindex-navbar;
-  border-width: 0 0 1px;
+  border: 0;
 
   @media (min-width: @grid-float-breakpoint) {
     border-radius: 0;
@@ -379,7 +381,6 @@
 
 // Brand name
 .navbar-brand {
-  border-right: 1px solid darken(@navbar-default-bg, 5%);
   float: left;
   overflow: hidden;
   padding: @navbar-padding-vertical 10px @navbar-padding-vertical 10px;
@@ -406,16 +407,12 @@
 
 // Product/Service Name after CenturyLink logo
 .navbar-service {
-  border-left: 1px solid lighten(@navbar-default-bg, 5%);
   float: left;
   padding: @navbar-padding-vertical (@navbar-padding-horizontal / 2);
   font-size: @font-size-large;
   line-height: @line-height-computed;
   text-decoration: none;
-
-  &:hover {
-    color: @navbar-default-brand-hover-color;
-  }
+  color: @gray-200;
 
   @media (min-width: @grid-float-breakpoint) {
     padding: @navbar-padding-vertical @navbar-padding-horizontal;
@@ -556,10 +553,8 @@
   }
 }
 
-.navbar-default {
-  background-color: @navbar-default-bg;
-}
 
+/////
 .navbar-inverse {
   background-color: @navbar-inverse-bg;
 
@@ -771,6 +766,12 @@
       }
     }
   }
+  border-bottom: 1px solid @gray-100;
+}
+/////
+.navbar-default {
+  background-color: @navbar-default-bg;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.12);
 }
 
 .navbar-account {
@@ -783,22 +784,12 @@
   }
 
   .cyclops-icon {
-    fill: @gray-500;
+    fill: @gray-200;
   }
 
   a:hover, button:hover {
     .cyclops-icon {
       fill: @gray-700;
-    }
-  }
-
-  @media (min-width: @grid-float-breakpoint) {
-    border-left: 1px solid darken(@navbar-default-bg, 5%);
-    border-right: 1px solid lighten(@navbar-default-bg, 5%);
-
-    > li {
-      border-left: 1px solid lighten(@navbar-default-bg, 5%);
-      border-right: 1px solid darken(@navbar-default-bg, 5%);
     }
   }
 }

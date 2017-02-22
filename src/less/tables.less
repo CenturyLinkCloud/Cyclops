@@ -26,15 +26,26 @@ table {
       }
     }
   }
+
   // Bottom align for column headings
   > thead > tr > th {
     vertical-align: bottom;
     background-color: @table-header-bg;
+    color: @gray-400;
+    border: 0;
   }
+   > tbody > tr {
+      background-color: #fff;
+      > td {  
+        border-bottom: 1px solid @gray-75;
+      }
+      &:hover{
+        background-color: @gray-25;
+      }
+   } 
   // Remove top border from thead by default
   > caption + thead,
-  > colgroup + thead,
-  > thead:first-child {
+  > colgroup + thead {
     > tr:first-child {
       > th,
       > td {
@@ -49,7 +60,7 @@ table {
 
   // Nesting
   .table {
-    background-color: @body-bg;
+    background-color: #fff;
   }
 }
 
