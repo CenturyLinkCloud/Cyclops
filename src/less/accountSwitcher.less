@@ -20,7 +20,7 @@
 account-switcher {
   display: block;
   height: 40px;
-  background-color: @account-switcher-bg;
+  background-color: @account-;
   z-index: @zindex-account-switcher;
   position: relative;
 
@@ -79,7 +79,7 @@ account-switcher {
     }
 
     .current {
-      color: @gray-200;
+      color: @account-switcher-text;
       font-weight: @font-weight-regular;
       display: inline-block;
       max-width: 200px;
@@ -126,9 +126,9 @@ account-switcher {
         input {
           width: 100%;
           font-size: 16px;
-          background: @switcher-bg;
+          background: @account-switcher-bg;
           border-color: @gray-400;
-          color: @gray-200;
+          color: @account-switcher-input-text;
 
         svg.cyclops-icon {
           fill: #b9b9b9;
@@ -199,25 +199,25 @@ account-switcher {
       -webkit-overflow-scrolling: touch;
 
       .loading-list-view-items {
-        background: @switcher-bg;
+        background: @account-switcher-bg;
         border-bottom-color: @account-switcher-border-color;
         color: @gray-200;
       }
 
       .list-view-item {
-        border-bottom-color: @black;
+        border-bottom-color: @account-switcher-border-color;
         transition: e('color .05s ease-in');
         cursor: pointer;
         color:      @gray-150;
-        background: @switcher-bg;
+        background: @account-switcher-bg;
 
         &.current {
-          background-color: @switcher-current-bg;
+          background-color: @account-switcher-active-bg;
           color: #fff;
         }
 
         &.active-item {
-          background-color: @switcher-current-bg;
+          background-color: @account-switcher-active-bg;
           color: #fff;
           background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
@@ -226,7 +226,7 @@ account-switcher {
           }
 
           &:hover {
-            background-color: @switcher-current-bg;
+            background-color: @account-switcher-active-bg;
             color: #fff;
           }
         }
