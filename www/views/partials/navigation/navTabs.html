@@ -1,4 +1,5 @@
 <section class="pl-section" id="navTabs">
+
   <h3><a href="#navTabs">Nav Tabs</a></h3>
   <p>Nav tabs are useful to display a tabbed set of distinct information related to the main context of the page (e.g. environment variables, logs, and connected services for an Appfog application), but not worth having individual pages. To use, add <code>.nav-tabs</code> to the <code>.nav</code> base class.</p>
   <div class="pl-example">
@@ -11,6 +12,31 @@
   &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
   &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+    </code>
+  </pre>
+
+  <h4>Nav Tabs (w/Overflow)</h4>
+  <p>
+    If you have more tabs than the user has available screen real estate, you
+    may add an overflow menu to the tab bar.
+  </p>
+  <div class="pl-example">
+		{{> navigation/examples/nav-tabs-overflow}}
+  </div>
+  <pre class="show-type">
+    <code class="html">
+&lt;ul role=&quot;navigation&quot; class=&quot;nav nav-tabs&quot; id=&quot;my-nav-tabs&quot; data-bind=&quot;widget: {name: 'overflowMenu', options: {linkTextAll: 'MENU'}}&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    </code>
+    <code class="javascript">
+&lt;script&gt;
+  $(function(){
+    ko.applyBindings({}, $('#my-nav-tabs')[0]);
+  })
+&lt;/script&gt;
     </code>
   </pre>
 </section>
