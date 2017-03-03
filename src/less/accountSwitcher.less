@@ -2,20 +2,18 @@
 // Action Toolbar
 // --------------------------------------------------
 
-.action-area {
-  background-color: @action-toolbar-bg;
-  background: @body-bg;
-  height: 40px;
-  line-height: 20px;
-  padding: 0 20px;
+.account-switcher-open {
   overflow: hidden;
-  .clearfix();
+  position: fixed;
+  left: 0;
+  right: 0;
+}
 
-  &.action-toolbar-confirm-shown {
-    .overflow-menu {
-      display: none;
-    }
+@media (min-width: @screen-xs-min) {
+  .account-switcher-open {
+    position: relative;
   }
+}
 
 account-switcher {
   display: block;
@@ -36,18 +34,15 @@ account-switcher {
       text-decoration: none;
     }
 
-      svg {
-        fill: #fff;
-      }
+    &:active,
+    &:focus {
+      outline: none;
     }
 
-    .dropdown-menu {
-      border: 0;
-      margin-top: 0;
-      border-radius: 0;
+    @media(min-width: @grid-float-breakpoint) {
+      padding-left: 10px;
     }
   }
-}
 
   .header {
     display: block;
@@ -62,8 +57,8 @@ account-switcher {
     position: relative;
     box-shadow: -1px 1px @black;
 
-  > li {
-    float: left;
+    .toggle-btn {
+      padding: 0;
 
       .cyclops-icon use {
         transition: e('fill .05s ease-in');
@@ -71,15 +66,14 @@ account-switcher {
       }
 
       &:hover {
-        background-color: @action-toolbar-hover-bg;
-        svg.cyclops-icon {
-          fill: @black;
+        .cyclops-icon use {
+          fill: #fff;
         }
       }
     }
 
     .current {
-      color: @account-switcher-text;
+      color: @gray-200;
       font-weight: @font-weight-regular;
       display: inline-block;
       max-width: 200px;
@@ -90,12 +84,8 @@ account-switcher {
       margin-right: 5px;
       transition: e('color .05s ease-in');
 
-      &.active,		
-      &:active {		
-        background-color: @action-toolbar-active-bg;
-        svg.cyclops-icon {		
-          fill: @black;
-        }
+      &:hover {
+        color: #fff;
       }
     }
   }
@@ -128,65 +118,46 @@ account-switcher {
           font-size: 16px;
           background: @account-switcher-bg;
           border-color: @gray-400;
-          color: @account-switcher-input-text;
+          color: @gray-200;
 
-        svg.cyclops-icon {
-          fill: #b9b9b9;
+          &::-ms-clear {
+            display: none;
+          }
         }
       }
     }
-  }
-}
 
-.new-list-view-header {
-  border-top: none;
-  clear: both;
-  background-color: transparent;
-  border-bottom: 2px solid @account-switcher-border-color;
-}
+    .new-list-view-header {
+      border-top: none;
+      clear: both;
+      background-color: transparent;
+      border-bottom: 2px solid @account-switcher-border-color;
 
-.action-toolbar-right {
-  float: right;
-}
-
-.action-toolbar-confirm {
-  clear: both;
-  background-color: @action-toolbar-dropdown-bg;
-  color: #fff;
-  height: 40px;
-  margin-right: -20px;
-  padding-right: 20px;
-  margin-left: -20px;
-  padding-left: 20px;
-
-  svg {
-    fill: #fff;
-  }
-
-  .message {
-    display: none;
-    padding-right: 10px;
-    line-height: 40px;
-    word-break: break-all;
-    word-wrap: normal;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .buttons {
-    button {
-      height: 40px;
-      border: none;
-      padding-right: 20px;
-      padding-left: 20px;
-      background: none;
-
-      &:active,
-      &:focus,
-      &:hover {
-        outline: none;
+      h3 {
+        color: @account-switcher-header-text;
       }
+    }
+
+    .col-alias {
+      width: 105px;
+    }
+
+    .col-dc {
+      width: 150px;
+      display: none;
+    }
+
+    .col-active-item {
+      width: 29px;
+      padding: 0 0 0 15px;
+
+      svg {
+        margin-bottom: 2px;
+        opacity: 0;
+        transition: e('opacity .05s ease-in');
+        fill: #fff;
+      }
+    }
 
     .scroll-area {
       box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.15);
@@ -205,7 +176,7 @@ account-switcher {
       }
 
       .list-view-item {
-        border-bottom-color: @account-switcher-border-color;
+        border-bottom-color: @black;
         transition: e('color .05s ease-in');
         cursor: pointer;
         color:      @gray-150;
@@ -219,10 +190,9 @@ account-switcher {
         &.active-item {
           background-color: @account-switcher-active-bg;
           color: #fff;
-          background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
-          svg {
-            fill: #fff;
+          .col-active-item svg {
+            opacity: 1;
           }
 
           &:hover {
@@ -230,47 +200,59 @@ account-switcher {
             color: #fff;
           }
         }
-      }
-    }
-  }
 
-  @media (min-width: @screen-sm-min) {
-    .buttons {
-      float: right;
-    }
-
-    .message {
-      display: block;
-    }
-  }
-
-  &.action-toolbar-confirm-primary {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    button {
-      &.yes {
-        background-color: @btn-primary-bg;
-
-        &:hover {
-          background-color: darken(@btn-primary-bg, @btn-hover-darken-percentage);
-        }
-      }
-    }
-  }
-
-  &.action-toolbar-confirm-danger {
-    button {
-      &.yes {
-        background-color: @btn-danger-bg;
-
-        &:hover {
-          background-color: darken(@btn-danger-bg, @btn-hover-darken-percentage);
+        .marker {
+          display: inline-block;
+          margin-right: 5px;
+          color: darken(@account-switcher-text, 15%);
         }
       }
     }
   }
 }
+
+@media (min-width: @screen-sm-min) {
+  account-switcher {
+    .take-over {
+      form.search {
+        float: right;
+
+        .search-input {
+          width: auto;
+
+          input {
+            width: auto;
+          }
+        }
+      }
+
+      .scroll-area {
+        top: 100px;
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-xs-min) {
+  account-switcher .header .current {
+    max-width: none;
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  account-switcher {
+    .header .current {
+      max-width: 700px;
+    }
+
+    .take-over .col-dc {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  account-switcher .header .current {
+    max-width: 924px;
+  }
 }
