@@ -1,0 +1,21 @@
+<ul id="nav-tabs-overflow-example" class="nav nav-tabs" data-bind="widget: {name: 'overflowMenu', options: {linkTextAll: 'MENU'}}">
+	<li><a href="#">Link</a></li>
+	<li class="active"><a href="#">Active</a></li>
+	<li><a href="#">Link</a></li>
+	<li class="disabled"><a href="#">Disabled</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+	<li><a href="#">Link</a></li>
+</ul>
+
+{{#contentFor "scripts"}}
+	<script>
+		$(function(){
+			ko.applyBindings({}, $('#nav-tabs-overflow-example')[0]);
+		})
+	</script>
+{{/contentFor}}
