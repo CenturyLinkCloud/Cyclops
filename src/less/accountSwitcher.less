@@ -1,7 +1,6 @@
-// Variables
-@ease: cubic-bezier(0.77, 0, 0.175, 1);
-@duration: 0.4s;
-
+//
+// Action Toolbar
+// --------------------------------------------------
 
 .account-switcher-open {
   overflow: hidden;
@@ -63,7 +62,7 @@ account-switcher {
 
       .cyclops-icon use {
         transition: e('fill .05s ease-in');
-        fill: @gray-300;
+        fill: @gray-200;
       }
 
       &:hover {
@@ -117,7 +116,7 @@ account-switcher {
         input {
           width: 100%;
           font-size: 16px;
-          background: @switcher-bg;
+          background: @account-switcher-bg;
           border-color: @gray-400;
           color: @gray-200;
 
@@ -171,25 +170,25 @@ account-switcher {
       -webkit-overflow-scrolling: touch;
 
       .loading-list-view-items {
-        background: @switcher-bg;
+        background: @account-switcher-bg;
         border-bottom-color: @account-switcher-border-color;
-        color: @gray-300;
+        color: @gray-200;
       }
 
       .list-view-item {
-        border-bottom-color: @gray-700;
+        border-bottom-color: @black;
         transition: e('color .05s ease-in');
         cursor: pointer;
         color:      @gray-150;
-        background: @switcher-bg;
+        background: @account-switcher-bg;
 
         &.current {
-          background-color: @switcher-current-bg;
+          background-color: @account-switcher-active-bg;
           color: #fff;
         }
 
         &.active-item {
-          background-color: @switcher-current-bg;
+          background-color: @account-switcher-active-bg;
           color: #fff;
 
           .col-active-item svg {
@@ -197,7 +196,7 @@ account-switcher {
           }
 
           &:hover {
-            background-color: @switcher-current-bg;
+            background-color: @account-switcher-active-bg;
             color: #fff;
           }
         }
