@@ -1,16 +1,19 @@
+# TODO: Support min values being the first step (i.e. when not 0, first step should be the min value)...
+
 class SliderViewModel
   constructor: (options) ->
     # Defaults
     options = options || {}
     @minDefault = 1
     @maxDefault = 128
-    @step = 1
+    @stepDefault = 1
 
     # Properties
     @hasjQueryUi = libraries.jqueryUi
     @value = ko.asObservable if options.value? then options.value else @minDefault
     @min = ko.asObservable if options.min? then options.min else @getMinFromValidationRule()
     @max = ko.asObservable if options.max? then options.max else @getMaxFromValidationRule()
+    @step = ko.asObservable if options.step? then options.step else @stepDefault
     @disabled = ko.asObservable if options.disabled? then options.disabled else false
     # everything above here is needed if the simple textbox implementation aka jquery ui is not
     # loaded everything below is only needed if we are going to actually make a slider
@@ -36,13 +39,17 @@ class SliderViewModel
 
     # Computed Properties
     @numberofTotalSteps = ko.pureComputed =>
-      @maxBound() - @minBound()
+      console.log("@numberofTotalSteps():", "#{@maxBound()} / #{@step()} = #{@maxBound() / @step()}")
+      @maxBound() / @step()
+      # PREVIOUSLY: @maxBound() - @minBound()
 
     @boundedSingleStepPercentage = ko.pureComputed =>
+      console.log("@boundedSingleStepPercentage():", "100 / #{@numberofTotalSteps()} = #{100 / @numberofTotalSteps()}")
       100 / @numberofTotalSteps()
 
     @currentValuePercentage = ko.pureComputed =>
-      (@value() - @min()) * 100 / (@max() - @min())
+      console.log("@currentValuePercentage():", "#{@boundedSingleStepPercentage()} * #{@value()} = #{@boundedSingleStepPercentage() * (@value() / @step())}")
+      @boundedSingleStepPercentage() * (@value() / @step())
 
     @validTrackLeftMargin = ko.pureComputed =>
       "#{Math.abs(@minBound() - @min()) * @boundedSingleStepPercentage()}%"
@@ -64,12 +71,12 @@ class SliderViewModel
         classes.push 'has-min-bound'
       if @disabled()
         classes.push 'disabled'
-      return classes.join ' '
+      classes.join ' '
 
     @isCommitedValueOutSideRange = ko.pureComputed =>
       if @value.isTrackableObservable
         return @value.committedValue() > @max() or @value.committedValue() < @min()
-      return false
+      false
 
     @outOfRangeMessage = ko.pureComputed =>
       if @value.isTrackableObservable && @isCommitedValueOutSideRange()
@@ -115,7 +122,12 @@ class SliderViewModel
     @convertToNumber maxValue, @maxDefault
 
   getValuePercentage: (newValue) =>
-    (newValue - @min()) * 100 / (@max() - @min())
+    # TODO: Perhaps make currentValuePercentage use this function by passing the value in... Invert basically.
+    console.log("@getValuePercentage(#{newValue}):", 100 / (@max() / @step()) * (newValue / @step()))
+    # (newValue - @min()) * 100 / (@max() - @min())
+    # # (newValue - @min()) * 100 / @step()
+    # 100 / (@max() / @step()) * (newValue / @step())
+    @currentValuePercentage()
 
   convertToNumber: (value, defaultValue) =>
     result = defaultValue
@@ -127,18 +139,23 @@ class SliderViewModel
 
   getOutOfRangeValueLeftPosition: =>
     "#{(@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound())}%"
+    # "#{(@value.committedValue() - @minBound()) * 100 / @step()}%"
 
   getCommitedValueStyles: =>
+    console.log("@getCommitedValueStyles:", (@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound()))
     leftPosition = (@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound())
+    # leftPosition = (@value.committedValue() - @minBound()) * 100 / @step()
     if leftPosition > 100
       return { display: 'none' }
     else
       return { display: 'block', left: "#{leftPosition}%" }
 
   getTickMarginPercentage: (index) =>
+    console.log("getTickMarginPercentage(#{index()}): #{(index() + 1) * @boundedSingleStepPercentage()}%")
     "#{(index() + 1) * @boundedSingleStepPercentage()}%"
 
   getFillRightValue: =>
+    console.log("@getFillRightValue():", "#{100 - @currentValuePercentage()}%")
     "#{100 - @currentValuePercentage()}%"
 
   # Events
@@ -165,16 +182,16 @@ class SliderViewModel
     fill = $(ui.helper).siblings('.slider-value-fill')
     stepWidth = track.width() / @numberofTotalSteps()
     fill.css right: validTrack.width() - (ui.position.left)
-    @possibleValue Math.abs(Math.round(ui.position.left / stepWidth) + @min())
+    console.log("Possible Value?", "Math.abs(Math.round(#{ui.position.left} / #{stepWidth})) = #{Math.abs(Math.round(ui.position.left / stepWidth)) * @step()}")
+    @possibleValue (Math.abs(Math.round(ui.position.left / stepWidth)) * @step())
     return
 
   trackClick: (data, event) =>
-    if @disabled()
-      return
+    return if @disabled()
     element = $(event.target)
     if !element.is('.slider-handle2')
       track = element.parents('.slider-track')
       stepWidth = track.width() / @numberofTotalSteps()
-      @possibleValue Math.abs(Math.round(event.offsetX / stepWidth) + @min())
+      @possibleValue (Math.abs(Math.round(event.offsetX / stepWidth)) * @step())
       @value @possibleValue()
     return
