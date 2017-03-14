@@ -1,5 +1,3 @@
-# TODO: Support min values being the first step (i.e. when not 0, first step should be the min value)...
-
 class SliderViewModel
   constructor: (options) ->
     # Defaults
@@ -39,17 +37,13 @@ class SliderViewModel
 
     # Computed Properties
     @numberofTotalSteps = ko.pureComputed =>
-      console.log("@numberofTotalSteps():", "#{@maxBound()} / #{@step()} = #{@maxBound() / @step()}")
-      @maxBound() / @step()
-      # PREVIOUSLY: @maxBound() - @minBound()
+      (@maxBound() - @minBound()) / @step()
 
     @boundedSingleStepPercentage = ko.pureComputed =>
-      console.log("@boundedSingleStepPercentage():", "100 / #{@numberofTotalSteps()} = #{100 / @numberofTotalSteps()}")
       100 / @numberofTotalSteps()
 
     @currentValuePercentage = ko.pureComputed =>
-      console.log("@currentValuePercentage():", "#{@boundedSingleStepPercentage()} * #{@value()} = #{@boundedSingleStepPercentage() * (@value() / @step())}")
-      @boundedSingleStepPercentage() * (@value() / @step())
+      @boundedSingleStepPercentage() * ((@value() - @min()) / @step())
 
     @validTrackLeftMargin = ko.pureComputed =>
       "#{Math.abs(@minBound() - @min()) * @boundedSingleStepPercentage()}%"
@@ -61,7 +55,7 @@ class SliderViewModel
       return if @numberofTotalSteps() > 32 then false else @shouldShowTicks()
 
     @fillRightValue = ko.pureComputed =>
-      "#{100 - @getValuePercentage(@value())}%"
+      "#{100 - @currentValuePercentage()}%"
 
     @mainClasses = ko.pureComputed =>
       classes = []
@@ -121,14 +115,6 @@ class SliderViewModel
       return maxValue
     @convertToNumber maxValue, @maxDefault
 
-  getValuePercentage: (newValue) =>
-    # TODO: Perhaps make currentValuePercentage use this function by passing the value in... Invert basically.
-    console.log("@getValuePercentage(#{newValue}):", 100 / (@max() / @step()) * (newValue / @step()))
-    # (newValue - @min()) * 100 / (@max() - @min())
-    # # (newValue - @min()) * 100 / @step()
-    # 100 / (@max() / @step()) * (newValue / @step())
-    @currentValuePercentage()
-
   convertToNumber: (value, defaultValue) =>
     result = defaultValue
     if typeof value == 'string'
@@ -139,23 +125,18 @@ class SliderViewModel
 
   getOutOfRangeValueLeftPosition: =>
     "#{(@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound())}%"
-    # "#{(@value.committedValue() - @minBound()) * 100 / @step()}%"
 
   getCommitedValueStyles: =>
-    console.log("@getCommitedValueStyles:", (@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound()))
     leftPosition = (@value.committedValue() - @minBound()) * 100 / (@maxBound() - @minBound())
-    # leftPosition = (@value.committedValue() - @minBound()) * 100 / @step()
     if leftPosition > 100
       return { display: 'none' }
     else
       return { display: 'block', left: "#{leftPosition}%" }
 
   getTickMarginPercentage: (index) =>
-    console.log("getTickMarginPercentage(#{index()}): #{(index() + 1) * @boundedSingleStepPercentage()}%")
     "#{(index() + 1) * @boundedSingleStepPercentage()}%"
 
   getFillRightValue: =>
-    console.log("@getFillRightValue():", "#{100 - @currentValuePercentage()}%")
     "#{100 - @currentValuePercentage()}%"
 
   # Events
@@ -182,8 +163,7 @@ class SliderViewModel
     fill = $(ui.helper).siblings('.slider-value-fill')
     stepWidth = track.width() / @numberofTotalSteps()
     fill.css right: validTrack.width() - (ui.position.left)
-    console.log("Possible Value?", "Math.abs(Math.round(#{ui.position.left} / #{stepWidth})) = #{Math.abs(Math.round(ui.position.left / stepWidth)) * @step()}")
-    @possibleValue (Math.abs(Math.round(ui.position.left / stepWidth)) * @step())
+    @possibleValue (Math.abs(Math.round(ui.position.left / stepWidth)) * @step()) + @min()
     return
 
   trackClick: (data, event) =>
@@ -192,6 +172,6 @@ class SliderViewModel
     if !element.is('.slider-handle2')
       track = element.parents('.slider-track')
       stepWidth = track.width() / @numberofTotalSteps()
-      @possibleValue (Math.abs(Math.round(event.offsetX / stepWidth)) * @step())
+      @possibleValue (Math.abs(Math.round(event.offsetX / stepWidth)) * @step()) + @min()
       @value @possibleValue()
     return

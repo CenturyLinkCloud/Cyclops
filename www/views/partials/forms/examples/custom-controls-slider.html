@@ -1,25 +1,30 @@
 <form id="formSlider" class="form-horizontal" data-bind="validationOptions: { insertMessages: false, allowHtmlMessages: true, errorsAsTitle: false }">
 	<div class="form-group">
-		<label class="col-sm-3 control-label" for="customSlider">slider</label>
+		<label class="col-sm-3 control-label" for="customSlider">cpu</label>
 		<div class="col-sm-9">
-			<slider id="customSlider" params="value: 16, min: 4, max: 32, step: 4"></slider>
 			<slider id="customSlider" params="value: 6, min: 1, max: 16"></slider>
-			<!-- <slider params="value: 4, min: 1, max: 128"></slider>
-			<slider params="value: 50, min: 1, max: 1024"></slider> -->
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="customSlider">memory</label>
+		<div class="col-sm-9">
+			<slider id="customSlider" params="value: 32, min: 4, max: 128, step: 4"></slider>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="customSlider">disk</label>
+		<div class="col-sm-9">
+			<slider id="customSlider" params="value: 256, min: 128, max: 1024, step: 128"></slider>
 		</div>
 	</div>
 </form>
 
-
 {{#contentFor "scripts"}}
-<script>
-$(function(){
-
-	/* Start Sliders */
-  ko.applyBindings({}, $("#formSlider")[0]);
-  /* End Sliders */
-
-})
-</script>
-
+	<script>
+		$(function() {
+			/* Start Sliders */
+  		ko.applyBindings({}, $("#formSlider")[0]);
+  		/* End Sliders */
+		});
+	</script>
 {{/contentFor}}
