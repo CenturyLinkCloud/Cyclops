@@ -54,7 +54,7 @@
         a,
         button {
           background: transparent;
-            svg.cyclops-icon {		
+            svg.cyclops-icon {
               fill: @gray-200;
             }
         }
@@ -86,14 +86,14 @@
       outline:none;
 
 
-      &:active {		
+      &:active {
         background-color: @action-toolbar-active-bg;
-        svg.cyclops-icon {		
+        svg.cyclops-icon {
           fill: @black;
         }
       }
 
-      &:enabled { 
+      &:enabled {
         &:hover {
          background-color: @action-toolbar-hover-bg;
          svg.cyclops-icon {
@@ -102,6 +102,7 @@
         }
       }
 
+      &.disabled,
       &:disabled {
         color: #b9b9b9;
         cursor: @cursor-disabled;
