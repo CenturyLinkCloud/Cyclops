@@ -4,13 +4,14 @@ class SliderViewModel
     options = options || {}
     @minDefault = 1
     @maxDefault = 128
-    @step = 1
+    @stepDefault = 1
 
     # Properties
     @hasjQueryUi = libraries.jqueryUi
     @value = ko.asObservable if options.value? then options.value else @minDefault
     @min = ko.asObservable if options.min? then options.min else @getMinFromValidationRule()
     @max = ko.asObservable if options.max? then options.max else @getMaxFromValidationRule()
+    @step = ko.asObservable if options.step? then options.step else @stepDefault
     @disabled = ko.asObservable if options.disabled? then options.disabled else false
     # everything above here is needed if the simple textbox implementation aka jquery ui is not
     # loaded everything below is only needed if we are going to actually make a slider
@@ -36,13 +37,13 @@ class SliderViewModel
 
     # Computed Properties
     @numberofTotalSteps = ko.pureComputed =>
-      @maxBound() - @minBound()
+      (@maxBound() - @minBound()) / @step()
 
     @boundedSingleStepPercentage = ko.pureComputed =>
       100 / @numberofTotalSteps()
 
     @currentValuePercentage = ko.pureComputed =>
-      (@value() - @min()) * 100 / (@max() - @min())
+      @boundedSingleStepPercentage() * ((@value() - @min()) / @step())
 
     @validTrackLeftMargin = ko.pureComputed =>
       "#{Math.abs(@minBound() - @min()) * @boundedSingleStepPercentage()}%"
@@ -54,7 +55,7 @@ class SliderViewModel
       return if @numberofTotalSteps() > 32 then false else @shouldShowTicks()
 
     @fillRightValue = ko.pureComputed =>
-      "#{100 - @getValuePercentage(@value())}%"
+      "#{100 - @currentValuePercentage()}%"
 
     @mainClasses = ko.pureComputed =>
       classes = []
@@ -64,12 +65,12 @@ class SliderViewModel
         classes.push 'has-min-bound'
       if @disabled()
         classes.push 'disabled'
-      return classes.join ' '
+      classes.join ' '
 
     @isCommitedValueOutSideRange = ko.pureComputed =>
       if @value.isTrackableObservable
         return @value.committedValue() > @max() or @value.committedValue() < @min()
-      return false
+      false
 
     @outOfRangeMessage = ko.pureComputed =>
       if @value.isTrackableObservable && @isCommitedValueOutSideRange()
@@ -113,9 +114,6 @@ class SliderViewModel
     if ko.isObservable(maxValue)
       return maxValue
     @convertToNumber maxValue, @maxDefault
-
-  getValuePercentage: (newValue) =>
-    (newValue - @min()) * 100 / (@max() - @min())
 
   convertToNumber: (value, defaultValue) =>
     result = defaultValue
@@ -165,16 +163,15 @@ class SliderViewModel
     fill = $(ui.helper).siblings('.slider-value-fill')
     stepWidth = track.width() / @numberofTotalSteps()
     fill.css right: validTrack.width() - (ui.position.left)
-    @possibleValue Math.abs(Math.round(ui.position.left / stepWidth) + @min())
+    @possibleValue (Math.abs(Math.round(ui.position.left / stepWidth)) * @step()) + @min()
     return
 
   trackClick: (data, event) =>
-    if @disabled()
-      return
+    return if @disabled()
     element = $(event.target)
     if !element.is('.slider-handle2')
       track = element.parents('.slider-track')
       stepWidth = track.width() / @numberofTotalSteps()
-      @possibleValue Math.abs(Math.round(event.offsetX / stepWidth) + @min())
+      @possibleValue (Math.abs(Math.round(event.offsetX / stepWidth)) * @step()) + @min()
       @value @possibleValue()
     return

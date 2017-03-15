@@ -790,9 +790,9 @@
   </p>
   <pre>
     <code class="html">
-&lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;    &lt;!-- CPU --&gt;
-&lt;slider params=&quot;value: 4, min: 1, max: 128&quot;&gt;&lt;/slider&gt;   &lt;!-- Memory --&gt;
-&lt;slider params=&quot;value: 50, min: 1, max: 1024&quot;&gt;&lt;/slider&gt; &lt;!-- Disk --&gt;
+&lt;slider params=&quot;value: 6, min: 1, max: 16&quot;&gt;&lt;/slider&gt;                   &lt;!-- CPU --&gt;
+&lt;slider params=&quot;value: 32, min: 4, max: 128, step: 4&quot;&gt;&lt;/slider&gt;        &lt;!-- Memory --&gt;
+&lt;slider params=&quot;value: 256, min: 128, max: 1024, step: 128&quot;&gt;&lt;/slider&gt;  &lt;!-- Disk --&gt;
     </code>
   </pre>
 
@@ -849,6 +849,12 @@
         <td>true</td>
         <td>show ticks above the slider, Ignored if there is more than 32 steps</td>
       </tr>
+      <tr>
+        <td>step</td>
+        <td>number | Observable number</td>
+        <td>1</td>
+        <td>The step size of the selectable value.</td>
+      </tr>
     </tbody>
   </table>
   <h4>Examples</h4>
@@ -863,7 +869,7 @@
   <h3><code>toggle</code></h3>
   <pre>
     <code class="html">
-  &lt;toggle params=&quot;value: value, disabled: disabled, affirmativeText: 'yes', negativeText: 'no'&quot;&gt;&lt;/toggle&gt;
+&lt;toggle params=&quot;value: value, disabled: disabled, affirmativeText: 'yes', negativeText: 'no'&quot;&gt;&lt;/toggle&gt;
     </code>
   </pre>
   <h4>params</h4>
