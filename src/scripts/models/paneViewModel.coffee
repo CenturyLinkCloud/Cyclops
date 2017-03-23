@@ -144,5 +144,3 @@ class PaneViewModel
     # Mobile View
     @togglePane = () ->
       $(element).toggleClass 'pane-expanded'
-
-    $(element).affix()

@@ -1,14 +1,18 @@
 pane {
-  position: static;
-  max-height: 36px;
-  overflow: hidden;
+  position: relative;
   display: block;
   transition: e('max-height .5s, margin-left .5s');
   background-color: #fff;
 
+  .pane-content {
+    max-height: 36px;
+    overflow: hidden;
+  }
+
   &.pane-expanded {
-    max-height: none;
-    overflow-y: auto;
+    .pane-content {
+      max-height: none;
+    }
 
     .pane-actions {
       display: block;
@@ -24,34 +28,18 @@ pane {
       display: block;
     }
   }
+
   @media (min-width: @screen-sm-min) {
-    max-height: none;
     width: @pane-width;
-    position: fixed;
-    height: auto;
-    top: 91px;
-    bottom: 0;
     background-color: #f2f2f2;
     box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
-    overflow: auto;
 
-    ~ main {
-      margin-left: @pane-width;
-
-      .container {
-        width: 100%;
-      }
-    }
-  }
-  @media (min-width: @screen-md-min) {
-    ~ main .container {
-      width: @container-md - @pane-width;
-      margin-left: 0;
-    }
-  }
-  @media (min-width: @screen-lg-min) {
-    ~ main .container {
-      width: @container-lg - @pane-width;
+    .pane-content {
+      max-height: none;
+      position: sticky;
+      top: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   }
 }
@@ -137,6 +125,7 @@ pane {
 
 .pane-toggle {
   float: right;
+
   @media (min-width: @screen-sm-min) {
     display: none;
   }
@@ -144,6 +133,7 @@ pane {
 
 .pane-actions {
   display: none;
+
   @media (min-width: @screen-sm-min) {
     display: block;
   }
