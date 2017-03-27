@@ -11,6 +11,8 @@ main-nav {
   background: @main-nav-bg;
   color: @main-nav-text;
   flex-shrink: 0;
+  box-shadow: 7px 0 7px -7px rgba(0,0,0,.2); //right shadow
+  border-right: 1px solid @gray-100;
 
   a {
     display: inline-block;
@@ -29,15 +31,14 @@ main-nav {
 }
 
 .main-nav-menu {
-  height: 100vh;
+  max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   position: sticky;
   top: 0;
   z-index: @zindex-main-nav + 1;
   background: @main-nav-bg;
-  box-shadow: 7px 0 7px -7px rgba(0,0,0,.2); //right shadow
-  border-right: 1px solid @gray-100;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
   .cyclops-icon {
     width: 20px;
