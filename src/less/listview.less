@@ -87,6 +87,10 @@
 
       &:hover {
         background-color: @gray-50;
+
+        .new-list-view-actions {
+          opacity: 1;
+        }
       }
 
       // colored list view item backgrounds
@@ -115,11 +119,12 @@
         opacity: 0;
         transition: e('opacity .1s linear');
       }
-
-      &:hover .new-list-view-actions {
-        opacity: 1;
-      }
     }
+
+    .list-view-item:hover {
+      background-color: inherit;
+    }
+
     .list-view-link-item:hover {
       background: @gray-50;
     }
