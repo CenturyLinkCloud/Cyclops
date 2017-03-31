@@ -98,7 +98,9 @@ gulp.task 'script-concat', ->
       coffee({ bare: true })
       addSrc.prepend './build/before.js'
       appendStream afterFile
+      addSrc.prepend './node_modules/globalnavbar/dist/*'   
       addSrc.prepend './src/scripts/vendor/polyfill.js'
+      addSrc.prepend './src/scripts/globalnavigation/navmenu.js'
       sourcemaps.init()
       concat('cyclops.js')
       sourcemaps.write './'

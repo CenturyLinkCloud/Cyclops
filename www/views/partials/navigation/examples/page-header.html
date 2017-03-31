@@ -12,6 +12,13 @@
 				<img src="/img/logo-centurylink-light.png" alt="CenturyLink" />
 			</a>
 			<a class="navbar-service" href="/">Control Portal</a>
+			<a id="navbar-services-menu" class="navbar-services-menu" href="javascript:void(0);" onclick="toggleMenu()">
+				<span class="navbar-services-menu__title">Service</span>
+				<div class="navbar-services-menu__detail">
+					<span class="navbar-services-menu__current_service">Public Cloud</span>
+					<svg class="navbar-services-menu__select-icon cyclops-icon"><use xlink:href='#icon-caret-down'></svg>
+				</div>
+			</a>
 		</div>
 
 <!-- Support and sign out links -->
@@ -40,3 +47,7 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
+<div id="services-menu-container" class="hidden">
+	<div id="services-menu"></div>
+</div>
+<div id="services-menu-fade" class="hidden"></div>
