@@ -86,20 +86,19 @@
       outline:none;
 
 
-      &:active {
-        background-color: @action-toolbar-active-bg;
-        svg.cyclops-icon {
-          fill: @black;
-        }
-      }
-
-      &:not(.disabled):not(:disabled)
-       {
+      &:not(.disabled):not(:disabled) {
         &:hover {
          background-color: @action-toolbar-hover-bg;
          svg.cyclops-icon {
            fill: @black;
          }
+        }
+      }
+
+      &:active, &.active {
+        background-color: @action-toolbar-active-bg;
+        svg.cyclops-icon {
+          fill: @black;
         }
       }
 
