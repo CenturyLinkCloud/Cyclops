@@ -360,32 +360,3 @@
     fill: @color;
   }
 }
-
-
-.button-outline-variant(@color, @color-hover: #fff) {
-  color: @color;
-  background-image: none;
-  background-color: transparent;
-  border-color: @color;
-
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-color: @gray-75;
-    border-color: @color;
-
-  }
-
-  &.disabled,
-  &:disabled {
-    &:focus,
-    &.focus {
-      color: @color;
-      background-color: transparent;
-    }
-    &:hover {
-      color: @color;
-      background-color: transparent;
-    }
-  }
-}
