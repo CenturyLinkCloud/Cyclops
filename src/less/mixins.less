@@ -335,6 +335,14 @@
     background-color: @active-background;
   }
 
+  &.disabled,
+  &:disabled {
+    &:hover {
+      background-color: @background;
+      border-color: @border;
+    }
+  }
+
   &.btn-icon {
     background-color: transparent;
     border-color: transparent;
