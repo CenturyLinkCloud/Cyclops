@@ -21,7 +21,6 @@
     "coffee-script": "^1.10.0",
     "express": "^4.13.4",
     "express-hbs": "^0.8.4",
-    "globalnavbar": "file:///Users/ignacio/Repositories/GlobalNavBar",
     "node": "0.0.0"
   },
   "devDependencies": {
