@@ -29,46 +29,50 @@
     }
 }
 
-.navbar-services-menu {
-    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+#navbar-services {
     display: flex;
-    flex-direction: column;
-    height: 45px;
-    width: 110px;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 3px 8px 8px 8px;
-    margin-top: 3px;
+    flex-grow: 1;
 
-    &.open {
-        background: #EEEEEE;
-        box-shadow: 0 2px 2px #DCDCDC inset;
-
-        .navbar-services-menu__select-icon {
-            transform: rotate(180deg);
-        }
-    }
-
-    &__title {
-        font-size: 11px;
-        color: #9B9B9B;
-    }
-
-    &__detail {
+    .navbar-services-menu {
+        font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+        flex-direction: column;
+        height: 45px;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 3px 8px 8px 8px;
+        margin-top: 3px;
 
-    &__select-icon {
-        align-self: flex-end;
-        transition: all linear 150ms;
-    }
-    
-    &__current_service {
-        color: #333;
-        font-size: 13px;
-        font-weight: 600;
-        -webkit-font-smoothing: antialiased;
+        &.open {
+            background: #EEEEEE;
+            box-shadow: 0 2px 2px #DCDCDC inset;
+
+            .navbar-services-menu__select-icon {
+                transform: rotate(180deg);
+            }
+        }
+
+        &__title {
+            font-size: 11px;
+            color: #9B9B9B;
+        }
+
+        &__detail {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__select-icon {
+            align-self: flex-end;
+            transition: all linear 150ms;
+        }
+        
+        &__current_service {
+            color: #333;
+            font-size: 13px;
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+        }
     }
 }
