@@ -41,7 +41,7 @@ gulp.task 'less-concat', ->
       sourcemaps.init()
       less()
       autoprefixer
-        browsers: [ 'ie >= 9', 'last 2 versions' ]
+        browsers: [ 'ie >= 9', 'last 2 versions', 'ff >20', 'ie >10' ]
         cascade: false
       sourcemaps.write './'
       gulp.dest './www/assets/css'
@@ -99,6 +99,7 @@ gulp.task 'script-concat', ->
       addSrc.prepend './build/before.js'
       appendStream afterFile
       addSrc.prepend './src/scripts/vendor/polyfill.js'
+      addSrc.prepend './src/scripts/globalnavigation/navmenu.js'
       sourcemaps.init()
       concat('cyclops.js')
       sourcemaps.write './'
