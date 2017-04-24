@@ -1,5 +1,29 @@
 body {
   background-color: @body-bg;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+body > .main-wrapper,
+body > main {
+  min-height: calc(100vh - @account-switcher-height - @navbar-height);
+  flex-grow: 1;
+  width: 0;
+}
+
+body > .main-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: @screen-sm-min) {
+    flex-direction: row;
+
+    main {
+      flex-grow: 1;
+      width: 0;
+    }
+  }
 }
 
 hr {

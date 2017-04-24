@@ -1,6 +1,5 @@
 <script type="text/html" id="cyclops.mainNav">
   <div class="main-nav-menu">
-    <button class="scroll-up btn btn-link hide" data-bind="click: scrollUpHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-up'></svg></button>
     <!-- ko empty: menus -->
     <!-- ko if: hasErrored -->
     <div class="main-nav-error" title="unable to fetch">
@@ -18,7 +17,6 @@
     <ol class="main-nav-menu-items" data-bind="foreach: menus">
       <li data-bind="css: {'open': isFlyoutOpen, 'selected': isSelected}, template: templateName, title: name"></li>
     </ol>
-    <button class="scroll-down btn btn-link" data-bind="click: scrollDownHandler"><svg class="cyclops-icon"><use xlink:href='#icon-chevron-down'></svg></button>
   </div>
   <!-- ko template:{name: 'cyclops.mainNav.menuItem.flyout', foreach: menus} -->
   <!-- /ko -->

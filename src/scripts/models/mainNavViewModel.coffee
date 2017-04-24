@@ -64,8 +64,6 @@ class MainNavMenuItem
     ko.computed () =>
       @flyoutItems @rawFlayoutItems().map (f) -> new MainNavFlyoutItem(f)
 
-
-
     # Items can either have and location to navigate to or items but not both
     if ko.unwrap(options.href)? and ko.unwrap(options.items)?
       throw "The Menu Item with name '#{@name()}' has defined both a href and
@@ -85,77 +83,21 @@ class MainNavViewModel
       error: false
     }, options
 
-    # make main-nav sticky
     $mainNav = $(element)
-    $window = $(window)
-    $accountSwitcher = $('account-switcher')
-    $navbar = $('brand-bar, nav.navbar')
-
-    calculateMainNavPosition = () =>
-      originalTopPosition = 0
-      originalTopPosition += 40 if $accountSwitcher.length > 0
-      originalTopPosition += 51 if $navbar.length > 0
-      newTopPosition = originalTopPosition - $window.scrollTop()
-      if newTopPosition < 0
-        newTopPosition = 0
-      $mainNav.css('top': newTopPosition)
-    calculateMainNavPosition()
-    $window.on 'scroll', calculateMainNavPosition
-    $window.on 'resize', calculateMainNavPosition
-
-    # Set up Scrolling of many menu Items
-    @updateMainMenuScrollIcons = () ->
-      $items =  $mainNav.find '.main-nav-menu-items'
-      $up = $mainNav.find('.scroll-up')
-      $down = $mainNav.find('.scroll-down')
-
-      if $items.scrollTop() + $items.innerHeight() >= $items[0].scrollHeight
-        if $down.is ':visible'
-          $down.stop().fadeOut()
-      else
-        if $down.is ':hidden'
-          $down.stop().fadeIn()
-
-      if $items.scrollTop() == 0
-        $mainNav.find('.scroll-up').fadeOut()
-      else
-        $mainNav.find('.scroll-up').fadeIn()
-
-
-    $mainNav.find(".main-nav-menu-items").on 'scroll', @updateMainMenuScrollIcons
-    $window.on 'resize', @updateMainMenuScrollIcons
-
-
-
-    @scrollDownHandler = (data, event) ->
-      $items = $mainNav.find('.main-nav-menu-items')
-      $items.scrollTop $items.scrollTop() + 26
-
-    @scrollUpHandler = (data, event) ->
-      $items = $mainNav.find('.main-nav-menu-items')
-      $items.scrollTop($items.scrollTop() - 26)
 
     # states
     @isLoading = ko.asObservable(options.loading)
     @hasErrored = ko.asObservable(options.error)
 
-
-
     # create menus
     @rawMenus = ko.asObservable(options.menus)
     renderTimeout = null
     @menus = ko.pureComputed () =>
-      result = @rawMenus().reduce (menus, menu) =>
+      @rawMenus().reduce (menus, menu) =>
         if menu.href? or (menu.items and ko.unwrap(menu.items).length > 0)
           menus.push new MainNavMenuItem(menu)
-        return menus
+        menus
       , []
-      # we are using a timeout here for performance reason so that its not called
-      # 100s of times becuase of the recreation of the entire array.
-      if renderTimeout
-        window.clearTimeout renderTimeout
-      renderTimeout = window.setTimeout @updateMainMenuScrollIcons, 500
-      return result
 
     # selected item
     @SelectedItemId = ko.asObservable(options.selectedItemId)
@@ -197,6 +139,5 @@ class MainNavViewModel
       closeTimer = window.setTimeout () =>
         @menus().forEach (m) -> m.isFlyoutOpen false
       , 1000
-
 
     $mainNav.addClass 'loaded'
