@@ -54,20 +54,3 @@
 	<div id="services-menu"></div>
 </div>
 <div id="services-menu-fade" class="hidden"></div>
-<script>
-  function checkDOMChange() { 
-    // check for any new element being inserted here,
-    // or a particular node being modified 
-    navbarServicesMenuCurrentService = document.getElementById('navbar-services-menu__current_service');
-    if (!navbarServicesMenuCurrentService) {
-      // call the function again after 100 milliseconds 
-      setTimeout( checkDOMChange, 100 ); 
-    } else {
-      window.setCurrentService('CAM');
-    }
-  }
-
-  window.onload = function() {
-	  checkDOMChange();
-	};
-</script>
