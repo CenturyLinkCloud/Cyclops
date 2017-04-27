@@ -34,6 +34,18 @@
     height: @navbar-height;
     display: flex;
     flex-grow: 1;
+    position: relative;
+    padding-left: 11px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      top: 15px;
+      bottom: 15px;
+      left: 0px;
+      background-color: @gray-75;
+    }
 
     .navbar-services-menu {
         display: flex;
