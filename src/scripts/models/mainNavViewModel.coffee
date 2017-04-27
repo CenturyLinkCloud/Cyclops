@@ -94,7 +94,7 @@ class MainNavViewModel
     calculateMainNavPosition = () =>
       originalTopPosition = 0
       originalTopPosition += 40 if $accountSwitcher.length > 0
-      originalTopPosition += 51 if $navbar.length > 0
+      originalTopPosition += 65 if $navbar.length > 0
       newTopPosition = originalTopPosition - $window.scrollTop()
       if newTopPosition < 0
         newTopPosition = 0
