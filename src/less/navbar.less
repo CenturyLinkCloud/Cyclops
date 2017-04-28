@@ -302,6 +302,7 @@
 
           .cyclops-icon {
             fill: @text-color;
+            
           }
         }
 
@@ -571,12 +572,24 @@
   }
 
   .cyclops-icon {
+    transition: all linear 150ms;
     fill: @gray-200;
   }
 
   a:hover, button:hover {
     .cyclops-icon {
       fill: @black;
+    }
+  }
+
+  li {
+    &.open {      
+        .cyclops-icon:not(.support){
+            transform: rotate(180deg);
+            use {
+              fill: @black;
+            }
+        }
     }
   }
 }
