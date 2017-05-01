@@ -7,7 +7,7 @@
 
     #services-menu {
         position: absolute;
-        z-index: 1000;
+        z-index: @zindex-services-menu;
         width: 100%;
         top: 0;
     }
@@ -21,7 +21,7 @@
     height:100%;
     top:0px;
     left:0px;
-    z-index:900;
+    z-index: @zindex-services-menu - 1;
 
     &.hidden {
         display: none;

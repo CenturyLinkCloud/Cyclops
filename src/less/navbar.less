@@ -302,7 +302,7 @@
 
           .cyclops-icon {
             fill: @text-color;
-            
+
           }
         }
 
@@ -497,8 +497,8 @@
       float: left;
 
       > a {
-        padding-top: @navbar-padding-vertical;
-        padding-bottom: @navbar-padding-vertical;
+        padding-top: 22px;
+        padding-bottom: 22px;
       }
     }
   }
@@ -564,6 +564,7 @@
 
 .navbar-account {
   margin-top: 0;
+  height: @navbar-height;
 
   .support {
     width: 20px;
@@ -583,13 +584,15 @@
   }
 
   li {
-    &.open {      
-        .cyclops-icon:not(.support){
-            transform: rotate(180deg);
-            use {
-              fill: @black;
-            }
+    &.open {
+      .cyclops-icon:not(.support) {
+        transform: rotate(180deg);
+      }
+      .cyclops-icon {
+        use {
+          fill: @black;
         }
+      }
     }
   }
 }
