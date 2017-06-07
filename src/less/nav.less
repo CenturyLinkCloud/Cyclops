@@ -41,15 +41,6 @@
     }
   }
 
-  // Open dropdowns
-  .open > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: @gray-75;
-    }
-  }
-
   // Prevent IE8 from misplacing imgs
   //
   // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
@@ -244,4 +235,26 @@
   }
 }
 
+}
+
+global-menu-container {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 101px;
+  height: 100%;
+
+  .dt-gnm-menu-root {
+    height: 100%;
+    z-index: 102;
+    background: transparent;
+  }
+
+  .dt-gnm-menu-panel {
+    flex-shrink: 0;
+  }
+
+  .dt-gnm-menu-background {
+    position: static;
+  }
 }
