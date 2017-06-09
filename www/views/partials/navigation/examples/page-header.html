@@ -16,7 +16,8 @@
 			<div id="navbar-services">
 				<global-services-menu-button
 					data-services="CAM MH MS CLC DCC"
-					data-current-service="CAM">
+					data-current-service="CAM"
+					onclick="checkVisibility()">
 				</global-services-menu-button>
 			</div>
 		</div>
@@ -44,5 +45,19 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
-<global-menu-container></global-menu-container>
+<global-menu-container class="hidden"></global-menu-container>
+
+<script>
+	function checkVisibility() {
+		var globalServicesMenu = document.querySelector('global-services-menu-button');
+		var globalMenuContainer = document.querySelector('global-menu-container');
+
+		if (globalServicesMenu.classList.contains("open"))
+		{
+			globalMenuContainer.classList.add("hidden");
+		} else {
+			globalMenuContainer.classList.remove("hidden");
+		}
+	}
+</script>
 
