@@ -52,6 +52,15 @@
 		var globalServicesMenu = document.querySelector('global-services-menu-button');
 		var globalMenuContainer = document.querySelector('global-menu-container');
 
+		var body = document.body,
+			html = document.documentElement;
+
+		var height = Math.max( body.scrollHeight, body.offsetHeight,
+							html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+		console.log(height);
+		globalMenuContainer.style.height = height + 'px';
+
 		if (globalServicesMenu.classList.contains("open"))
 		{
 			globalMenuContainer.classList.add("hidden");
