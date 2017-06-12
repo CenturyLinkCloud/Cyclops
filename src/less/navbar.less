@@ -13,6 +13,8 @@
   margin-bottom: @navbar-margin-bottom;
   border: 1px solid transparent;
 
+  -webkit-font-smoothing: antialiased;
+
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
 
@@ -89,6 +91,7 @@
 .navbar-local {
 
   margin-bottom: 20px;
+  min-height: 41px;
 
   .navbar-toggle {
     float: left;
@@ -300,6 +303,7 @@
 
           .cyclops-icon {
             fill: @text-color;
+
           }
         }
 
@@ -392,8 +396,9 @@
 
   > img {
     display: block;
-    max-width: 119px;
-    max-height: 20px;
+    max-width: 144px;
+    max-height: 30px;
+    width: 100%;
   }
 
   @media(min-width: @grid-float-breakpoint) {
@@ -410,9 +415,9 @@
   float: left;
   padding: @navbar-padding-vertical (@navbar-padding-horizontal / 2);
   font-size: @font-size-large;
-  line-height: @line-height-computed;
+  line-height: 30px;
   text-decoration: none;
-  color: @gray-200;
+  color: @gray-400;
 
   @media (min-width: @grid-float-breakpoint) {
     padding: @navbar-padding-vertical @navbar-padding-horizontal;
@@ -493,8 +498,8 @@
       float: left;
 
       > a {
-        padding-top: @navbar-padding-vertical;
-        padding-bottom: @navbar-padding-vertical;
+        padding-top: 22px;
+        padding-bottom: 22px;
       }
     }
   }
@@ -505,7 +510,7 @@
 // Vertically center a button within a navbar (when *not* in a form).
 
 .navbar-btn {
-  .navbar-vertical-align(34);
+  .navbar-vertical-align(48);
 
   &.btn-sm {
     .navbar-vertical-align(28);
@@ -559,7 +564,10 @@
 }
 
 .navbar-account {
+  align-items: center;
+  display: flex;
   margin-top: 0;
+  height: @navbar-height;
 
   .support {
     width: 20px;
@@ -568,12 +576,26 @@
   }
 
   .cyclops-icon {
+    transition: all linear 150ms;
     fill: @gray-200;
   }
 
   a:hover, button:hover {
     .cyclops-icon {
       fill: @black;
+    }
+  }
+
+  li {
+    &.open {
+      .cyclops-icon:not(.support) {
+        transform: rotate(180deg);
+      }
+      .cyclops-icon {
+        use {
+          fill: @black;
+        }
+      }
     }
   }
 }
