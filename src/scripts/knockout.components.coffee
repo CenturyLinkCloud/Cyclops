@@ -33,27 +33,10 @@ ko.components.register 'show-password', {
   }
 }
 
-ko.components.register 'account-switcher', {
-  viewModel: AccountSwitcherViewModel,
-  template: {
-      element: "cyclops.accountSwitcher"
-  }
-}
-
 ko.components.register 'date-time-picker', {
   viewModel: DateTimePickerViewModel,
   template: {
       element: "cyclops.dateTimePicker"
-  }
-}
-
-ko.components.register 'main-nav', {
-  viewModel: {
-    createViewModel: (params, componentInfo) ->
-      return new MainNavViewModel(params, componentInfo.element)
-  },
-  template: {
-      element: "cyclops.mainNav"
   }
 }
 
