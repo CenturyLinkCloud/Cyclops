@@ -153,8 +153,8 @@ class MainNavViewModel
       # we are using a timeout here for performance reason so that its not called
       # 100s of times becuase of the recreation of the entire array.
       if renderTimeout
-        window.clearTimeout renderTimeout
-      renderTimeout = window.setTimeout @updateMainMenuScrollIcons, 500
+        clearTimeout renderTimeout
+      renderTimeout = setTimeout @updateMainMenuScrollIcons, 500
       return result
 
     # selected item
@@ -192,9 +192,9 @@ class MainNavViewModel
     closeTimer = undefined
     $mainNav.hover () =>
       if closeTimer
-        window.clearTimeout closeTimer
+        clearTimeout closeTimer
     , () =>
-      closeTimer = window.setTimeout () =>
+      closeTimer = setTimeout () =>
         @menus().forEach (m) -> m.isFlyoutOpen false
       , 1000
 

@@ -16,7 +16,7 @@ ko.bindingHandlers.validationMsg =
     # because validation can be called multiple times for each change we want to prevent
     # the animation from starting and stopping or replaying.
     if $element.data('debounce')
-      window.clearTimeout $(element).data('debounce')
+      clearTimeout $(element).data('debounce')
     isModified = obsv.isModified and obsv.isModified()
     isValid = obsv.isValid and obsv.isValid()
     error = null
@@ -31,7 +31,7 @@ ko.bindingHandlers.validationMsg =
       ko.bindingHandlers.text.update element, ->
         error
     if isCurrentlyVisible and !isVisible
-      $element.data 'debounce', window.setTimeout((->
+      $element.data 'debounce', setTimeout((->
         $element.stop().animate {
           opacity: 'hide'
           height: 'hide'
@@ -41,7 +41,7 @@ ko.bindingHandlers.validationMsg =
         return
       ), 30)
     else if !isCurrentlyVisible and isVisible
-      $element.data 'debounce', window.setTimeout((->
+      $element.data 'debounce', setTimeout((->
         $element.stop().animate {
           opacity: 'show'
           height: 'show'

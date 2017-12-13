@@ -10,8 +10,8 @@ adjustoverflowMenu = ->
 
 # only wire this up if we have one...
 $(window).resize ->
-  window.clearTimeout resizeTimeout
-  resizeTimeout = window.setTimeout((->
+  clearTimeout resizeTimeout
+  resizeTimeout = setTimeout((->
     adjustoverflowMenu()
     return
   ), 200)

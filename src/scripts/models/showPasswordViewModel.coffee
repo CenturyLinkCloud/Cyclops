@@ -49,11 +49,11 @@ class ShowPasswordViewModel
 
     @mouseOver = () =>
       if @timer
-        window.clearTimeout @timer
+        clearTimeout @timer
 
     @mouseExit = () =>
       if @showPassword() && !@loading()
-        @timer = window.setTimeout () =>
+        @timer = setTimeout () =>
           @showPassword false
           @errored false
           @loading false

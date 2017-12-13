@@ -57,9 +57,9 @@ $.fn.actionToolbarConfirm = (options) ->
     # wire up closing of the confirmation if they hover out too long.
     $confirm.hover ->
         if timeoutTracker
-            window.clearTimeout timeoutTracker
+            clearTimeout timeoutTracker
     , ->
-        timeoutTracker = window.setTimeout reset, options.timeout
+        timeoutTracker = setTimeout reset, options.timeout
 
     # register all the click handlers from the original button
     events = $._data($action[0], "events")
