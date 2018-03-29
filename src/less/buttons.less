@@ -296,6 +296,15 @@ fieldset.disabled {
     border-color: transparent;
     background: none;
   }
+
+  &:disabled,
+  &.disabled {
+    &:hover {
+      box-shadow: none;
+      border-color: transparent;
+      background: none;
+    }
+  }
 }
 
 // Block button
