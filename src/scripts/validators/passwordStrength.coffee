@@ -3,12 +3,12 @@ if libraries.knockoutValidation
     validator: (val, options) ->
       options = $.extend({
         requiredStrength: 3
-        dissallowedCharacters: []
+        disallowedCharacters: []
       }, options)
       if !val
         return true
       strength = helpers.calculatePasswordStrength(val)
-      badCharacters = helpers.containsAny(val, options.dissallowedCharacters)
+      badCharacters = helpers.containsAny(val, (options.dissallowedCharacters || options.disallowedCharacters))
       if badCharacters.length > 0
         many = badCharacters.length > 1
         @message = 'The character' + (if many then 's' else '') + ' \'' + badCharacters.join('\', \'') + '\' ' + (if many then 'are' else 'is') + ' not allowed.'
