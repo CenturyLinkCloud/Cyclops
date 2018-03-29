@@ -362,6 +362,15 @@
         fill: @active-background;
       }
     }
+
+    &.disabled,
+    &:disabled {
+      &:hover {
+        .cyclops-icon {
+          fill: @background;
+        }
+      }
+    }
   }
 
   .cyclops-icon {
