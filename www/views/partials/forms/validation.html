@@ -242,7 +242,7 @@ self.submit = function() {
     <code class="javascript">
 self.password = ko.observable().extend({
     required: { params: true, message: "A password is required." },
-    passwordStrength: { requiredStrength: 4, dissallowedCharacters: "[}" }
+    passwordStrength: { requiredStrength: 4, disallowedCharacters: "[}" }
 });
 self.errors = ko.validation.group([self.password])
 self.submit = function() {
