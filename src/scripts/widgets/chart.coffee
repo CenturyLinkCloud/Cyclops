@@ -15,13 +15,14 @@ if libraries.chartist
       getErrorMessageHtml: () -> return 'Unable to fetch data.'
       chartOptions: {
         fullWidth: true,
-        chartPadding: {
-          right: 20
-        },
         lineSmooth: false
       }
       responsiveOptions: {}
     }, options
+
+    if options.type == 'Line' or options.type == 'Bar'
+      unless options.chartOptions.chartPadding
+        options.chartOptions.chartPadding = { right: 20 }
 
     if(options.type == 'Donut')
       options.type = 'Pie'
