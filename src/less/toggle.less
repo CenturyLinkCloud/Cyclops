@@ -5,21 +5,6 @@
   height: 34px;
   user-select: none;
 
-  &.disabled {
-    cursor: not-allowed;
-
-    label {
-      cursor: not-allowed;
-    }
-
-    .handle,
-    .text .affirmative,
-    .text .negative {
-      color: #bababa;
-      background-color: #eee;
-    }
-  }
-
   input {
     display: none;
   }
@@ -56,7 +41,6 @@
     transition: background 0.3s ease-in, border 0.3s ease-in;
   }
 
-
   .affirmative,
   .negative {
     float: left;
@@ -71,7 +55,6 @@
     left: 34px;
   }
 
-
   .handle {
     display: block;
     width: 35px;
@@ -83,5 +66,28 @@
     border-radius: @border-radius-small;
     border: 1px solid @gray-200;
     transition: all 0.3s ease-in 0s;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    label {
+      cursor: not-allowed;
+    }
+
+    .handle,
+    .text .affirmative,
+    .text .negative {
+      color: #bababa;
+      background-color: #eee;
+    }
+
+    input + .bug-fix {
+      .text {
+        color: #bababa;
+        background-color: #eee;
+        border-color: #999;
+      }
+    }
   }
 }
