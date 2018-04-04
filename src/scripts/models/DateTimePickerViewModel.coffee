@@ -84,7 +84,7 @@ class DateTimePickerViewModel
       # make sure we set the UTC Offset back to what the user selected
       @sourceDateTime().utcOffset @zoneValue(), true
       @sourceDateTime().date newMoment.date()
-      @sourceDateTime().month newMoment.utc().month()
+      @sourceDateTime().month newMoment.month()
       @sourceDateTime().year newMoment.year()
       @sourceDateTime.notifySubscribers()
       return
