@@ -4,10 +4,10 @@
 .card {
   position: relative;
   margin-bottom: @line-height-computed;
-  background-color: #fff;
+  background-color: #FFF;
   border: 1px solid @border-color;
   border-radius: @border-radius-base;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 2px 0 fade(#000, 8);
 
   > .alert {
     border: none;
@@ -70,7 +70,7 @@
   bottom: 0;
   left: 0;
   padding: 15px 15px;
-  background-color: rgba(0,0,0, .8);
+  background-color: fade(#000, 80);
   border-radius: @border-radius-base;
 
   .card-title {
@@ -82,8 +82,8 @@
 //
 .card-success {
   .card-inverse();
-  background-color: #27B875;
-  border-color: #27B875;
+  background-color: @brand-success;
+  border-color: @brand-success;
 }
 
 .card-info {
@@ -112,7 +112,7 @@
   }
 
   &:hover {
-    background-color: #fff;
+    background-color: #FFF;
     border-color: @gray-400;
 
     .cyclops-icon {
@@ -126,7 +126,7 @@
   text-align: center;
   border-width: 2px;
   border-style: dashed;
-  background-color: #fff;
+  background-color: #FFF;
 
   .cyclops-icon {
     fill: @gray-200;
@@ -145,19 +145,19 @@
 //
 .card-inverse {
   .card-header {
-    border-bottom: 0.075rem solid rgba(255,255,255,.2);
+    border-bottom: 0.075rem solid fade(#FFF, 20);
   }
 
   .card-header,
   .card-footer,
   .card-title,
   .card-subtitle {
-    color: #fff;
+    color: #FFF;
   }
 
   .card-link,
   .card-text {
-    color: rgba(255,255,255,.75);
+    color: fade(#FFF, 75);
   }
 }
 

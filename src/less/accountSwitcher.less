@@ -29,7 +29,7 @@ account-switcher {
     padding-left: 0;
 
     &:hover {
-      color: #fff;
+      color: #FFF;
       outline: none;
       text-decoration: none;
     }
@@ -67,7 +67,7 @@ account-switcher {
 
       &:hover {
         .cyclops-icon use {
-          fill: #fff;
+          fill: #FFF;
         }
       }
     }
@@ -85,7 +85,7 @@ account-switcher {
       transition: e('color .05s ease-in');
 
       &:hover {
-        color: #fff;
+        color: #FFF;
       }
     }
   }
@@ -155,12 +155,12 @@ account-switcher {
         margin-bottom: 2px;
         opacity: 0;
         transition: e('opacity .05s ease-in');
-        fill: #fff;
+        fill: #FFF;
       }
     }
 
     .scroll-area {
-      box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: inset 0 2px 5px 0 fade(#000, 15);
       position: absolute;
       top: 130px;
       bottom: 20px;
@@ -184,12 +184,12 @@ account-switcher {
 
         &.current {
           background-color: @account-switcher-active-bg;
-          color: #fff;
+          color: #FFF;
         }
 
         &.active-item {
           background-color: @account-switcher-active-bg;
-          color: #fff;
+          color: #FFF;
 
           .col-active-item svg {
             opacity: 1;
@@ -197,7 +197,7 @@ account-switcher {
 
           &:hover {
             background-color: @account-switcher-active-bg;
-            color: #fff;
+            color: #FFF;
           }
         }
 

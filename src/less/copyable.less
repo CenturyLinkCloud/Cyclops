@@ -5,12 +5,12 @@ input.copyable {
   border-bottom-right-radius: 0;
 
   + button {
-    background-color: rgb(250, 250, 250);
+    background-color: @gray-25;
     border: 1px solid @gray-200;
     border-left-width: 0;
     border-top-right-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
-    color: rgb(175, 175, 175);
+    color: #AFAFAF;
     font-size: smaller;
     font-weight: bold;
     height: @input-height-base;
@@ -20,24 +20,24 @@ input.copyable {
     transition: background-color 0.25s, color 0.25s;
 
     svg {
-      fill: rgb(175, 175, 175);
+      fill: #AFAFAF;
       transition: fill 0.25s;
     }
 
     &:hover {
-      background-color: rgb(240, 240, 240);
-      color: rgb(125, 125, 125);
+      background-color: #F0F0F0;
+      color: #7D7D7D;
       cursor: pointer;
 
       svg {
-        fill: rgb(125, 125, 125);
+        fill: #7D7D7D;
       }
     }
 
     &:active {
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1),
-        inset 1px 0 1px rgba(0, 0, 0, 0.05),
-        inset -1px 0 1px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 1px 1px fade(#000, 10),
+        inset 1px 0 1px fade(#000, 5),
+        inset -1px 0 1px fade(#000, 5);
 
       svg {
         margin-top: 0.5px;

@@ -55,17 +55,17 @@
 .picker {
   height: 160px;
   border: solid 1px @gray-100;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 4px;
   overflow: auto;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 2px 0 fade(#000, 8);
 
   .empty,
   .loading {
     font-size: @font-size-large;
     text-align: center;
     margin-top: 70px;
-    color: #ccc;
+    color: #D0D4D9;
   }
 
   ol {
@@ -117,7 +117,7 @@
 
     &:hover {
       .content {
-        background-color: #fff;
+        background-color: #FFF;
       }
     }
   }

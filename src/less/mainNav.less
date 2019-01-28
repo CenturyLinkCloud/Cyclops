@@ -44,7 +44,7 @@ main-nav {
   position: relative;
   z-index: @zindex-main-nav + 1;
   background: @main-nav-bg;
-  box-shadow: 7px 0 7px -7px rgba(0,0,0,.2); //right shadow
+  box-shadow: 7px 0 7px -7px fade(#000, 20); //right shadow
   border-right: 1px solid @gray-100;
 
   .cyclops-icon {
@@ -109,14 +109,14 @@ main-nav {
   }
 
   .scroll-up {
-    background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 20%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to top, fade(#FFF, 0) 0%, fade(#FFF, 50) 20%, fade(#FFF, 100) 100%);
     border-bottom: 0px;
     top: 0;
   }
 
   .scroll-down {
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 20%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, fade(#FFF, 0) 0%, fade(#FFF, 50) 20%, fade(#FFF, 100) 100%);
     border-top: 0px;
   }
 }
@@ -199,7 +199,7 @@ main-nav {
   border-right: 1px solid @gray-100;
   margin-left: -1 * @main-nav-flyout-width;
   transition: margin-left .5s;
-  box-shadow: 7px 0 7px -7px rgba(0,0,0,.2);
+  box-shadow: 7px 0 7px -7px fade(#000, 20);
   overflow-y: auto;
 
   &.open {
