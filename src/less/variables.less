@@ -96,7 +96,6 @@
 @gray-175:                    #ACB0B5;
 @gray-200:                    #8E9399;
 @gray-400:                    #72767A;
-@black:                       #242526;
 @gray-500:                    #242526;
 @gray-1000:                   #000;
 
@@ -118,7 +117,7 @@
 //== Typography
 // -------------------------
 
-@text-color:                  @black;
+@text-color:                  @gray-500;
 @text-color-light:            @gray-400;
 @text-color-lighter:          @gray-200;
 @text-color-error:            @brand-danger;
@@ -152,7 +151,7 @@
 @font-size-h5:                ceil((@font-size-regular * 0.9)); // ~13px
 @font-size-h6:                ceil((@font-size-regular * 0.85)); // ~12px
 
-@heading-text-color:          @black;
+@heading-text-color:          @gray-500;
 @headings-small-color:        @gray-200;
 @headings-line-height:        1.2em;
 
@@ -181,7 +180,7 @@
 
 // Buttons
 //-------------------------
-@btn-default-color:           @black;
+@btn-default-color:           @gray-500;
 @btn-default-bg:              #FFF;
 @btn-default-border:          @gray-150;
 
@@ -197,10 +196,10 @@
 @btn-warning-color:           @btn-default-color;
 @btn-warning-bg:              @brand-warning;
 
-@btn-inverse-color:           @black;
+@btn-inverse-color:           @gray-500;
 @btn-inverse-bg:              @gray-100;
 
-@btn-outline-color:           @black;
+@btn-outline-color:           @gray-500;
 @btn-outline-border:          @gray-150;
 @btn-outline-bg:              #FFF;
 
@@ -240,9 +239,9 @@
 
 //== Account Switcher
 //
-@account-switcher-header-bg:          @black;
+@account-switcher-header-bg:          @gray-500;
 @account-switcher-text:               @gray-200;
-@account-switcher-border-color:       @black;
+@account-switcher-border-color:       @gray-500;
 @account-switcher-bg:                 @gray-500;
 @account-switcher-active-bg:          @gray-1000;
 @account-switcher-input-text:         @gray-200;
@@ -252,9 +251,9 @@
 @action-toolbar-bg:                   @gray-75;
 @action-toolbar-hover-bg:             @gray-100;
 @action-toolbar-active-bg:            @gray-150;
-@action-toolbar-dropdown-bg:          @black;
-@action-toolbar-dropdown-hover-bg:    @black;
-@action-toolbar-dropdown-active-bg:   @black;
+@action-toolbar-dropdown-bg:          @gray-500;
+@action-toolbar-dropdown-hover-bg:    @gray-500;
+@action-toolbar-dropdown-active-bg:   @gray-500;
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -298,9 +297,9 @@
 @main-nav-hover-bg:           @gray-50;
 @main-nav-active-bg:          @gray-75;
 @main-nav-icon-color:         @gray-400;
-@main-nav-link-text:          @black;
-@main-nav-link-text-hover:    @black;
-@main-nav-link-text-active:   @black;
+@main-nav-link-text:          @gray-500;
+@main-nav-link-text-hover:    @gray-500;
+@main-nav-link-text-active:   @gray-500;
 @main-nav-icon-color:         @gray-200;
 @main-nav-selected-highlight: inset 3px 0 0 @brand-primary;
 @main-nav-flyout-bg:          @primary-body-bg;
@@ -330,11 +329,11 @@
 @navbar-default-border:       darken(@navbar-default-bg, 6.5%);
 // Navbar links
 @navbar-default-link-color:           @link-color;
-@navbar-default-link-hover-color:     @black;
+@navbar-default-link-hover-color:     @gray-500;
 @navbar-default-link-hover-bg:        transparent;
 @navbar-default-link-active-color:    #5E6165;
 @navbar-default-link-active-bg:       darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color:  #D0D4D9;
+@navbar-default-link-disabled-color:  @gray-150;
 @navbar-default-link-disabled-bg:     transparent;
 // Navbar brand label
 @navbar-default-brand-color:          @navbar-default-link-color;
@@ -355,7 +354,7 @@
 @pagination-border-color:     @gray-150;
 @pagination-hover-color:      @text-color;
 @pagination-hover-bg:         #FFF;
-@pagination-hover-border:     #D0D4D9;
+@pagination-hover-border:     @gray-150;
 @pagination-active-color:     @text-color;
 @pagination-active-bg:        @gray-100;
 @pagination-active-border:    @gray-100;
@@ -399,7 +398,7 @@
 //
 @tooltip-max-width:           200px;
 @tooltip-color:               #FFF;
-@tooltip-bg:                  @black;
+@tooltip-bg:                  @gray-500;
 @tooltip-opacity:             0.9;
 @tooltip-arrow-width:         5px;
 @tooltip-arrow-color:         @tooltip-bg;
@@ -410,9 +409,15 @@
 @tree-list-status-danger-bg:  @brand-danger;
 
 @new-list-view-header-bg: 	  @gray-75;
-@list-view-item-bg: 		  @primary-body-bg;
+@list-view-item-bg: 		      @primary-body-bg;
 //== Process
 //
 @process-step-bg:							@gray-100;
-@process-step-done-bg:         @gray-400;
+@process-step-done-bg:        @gray-400;
 @process-step-active-bg:			@brand-secondary;
+
+//== Backwards compatibility
+//
+@primary-brand-green:         @brand-primary;
+@bright-green:                @brand-secondary;
+@black:                       @gray-500;
