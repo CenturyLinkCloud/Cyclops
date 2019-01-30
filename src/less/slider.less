@@ -20,9 +20,9 @@ slider {
 }
 
 .slider-track {
-  background-color: #D7D7D7;
-  background-image: linear-gradient(to bottom, #D7D7D7, fade(#D7D7D7,50));
-  border: solid 1px #BBB;
+  background-color: @gray-75;
+  background-image: linear-gradient(to bottom, @gray-75, fade(@gray-75,50));
+  border: solid 1px @gray-175;
   border-radius: @border-radius-small;
   margin-right: 10px;
 
@@ -87,7 +87,7 @@ slider {
 
     .slider-out-of-range-marker {
       height: 20px;
-      border-left: solid 1px #BBB;
+      border-left: solid 1px @gray-175;
       border-color: fade(#000, 25);
     }
 
@@ -123,7 +123,7 @@ slider {
     .tooltip-inner {
       background-color: #FFF;
       color: #5E6165;
-      border: solid 1px #BEBEBE;
+      border: solid 1px @gray-175;
       border-radius: @border-radius-small;
     }
   }
@@ -133,7 +133,7 @@ slider {
   }
 
   .border {
-    fill: #BBB;
+    fill: @gray-175;
   }
 }
 
@@ -150,7 +150,7 @@ slider {
 
 .has-min-bound {
   .slider-min-bound-label {
-    color: #BEBEBE;
+    color: @gray-175;
   }
 
   .slider-value-fill {
@@ -160,7 +160,7 @@ slider {
 
 .has-max-bound {
   .slider-max-bound-label {
-    color: #BEBEBE;
+    color: @gray-175;
   }
 }
 
