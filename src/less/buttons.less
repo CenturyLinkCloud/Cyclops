@@ -80,6 +80,22 @@ fieldset.disabled {
   }
 }
 
+.btn-success {
+  .button-variant(@btn-success-color, @btn-success-bg, @btn-success-bg);
+
+  &:hover {
+    background: #16d981;
+    box-shadow: 0 1px 2px fade(#000, 15);
+    border: 1px solid fade(#000, 30);
+  }
+
+  &:active {
+    background: #00c965;
+    border: 1px solid fade(#000, 15);
+    box-shadow: inset 0 1px 2px fade(#000, 10);
+  }
+}
+
 .btn-warning {
   .button-variant(@btn-warning-color, @btn-warning-bg, @btn-warning-bg);
 
