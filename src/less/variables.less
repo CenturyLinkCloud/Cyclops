@@ -239,11 +239,11 @@
 
 //== Account Switcher
 //
-@account-switcher-header-bg:          @gray-500;
+@account-switcher-header-bg:          #000;
 @account-switcher-text:               @gray-200;
-@account-switcher-border-color:       @gray-500;
-@account-switcher-bg:                 @gray-500;
-@account-switcher-active-bg:          @gray-1000;
+@account-switcher-border-color:       #000;
+@account-switcher-bg:                 #000;
+@account-switcher-active-bg:          @gray-500;
 @account-switcher-input-text:         @gray-200;
 @account-switcher-header-text:        @gray-400;
 //== Action Toolbar
@@ -251,9 +251,9 @@
 @action-toolbar-bg:                   @gray-75;
 @action-toolbar-hover-bg:             @gray-100;
 @action-toolbar-active-bg:            @gray-150;
-@action-toolbar-dropdown-bg:          @gray-500;
-@action-toolbar-dropdown-hover-bg:    @gray-500;
-@action-toolbar-dropdown-active-bg:   @gray-500;
+@action-toolbar-dropdown-bg:          #000;
+@action-toolbar-dropdown-hover-bg:    #000;
+@action-toolbar-dropdown-active-bg:   #000;
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -343,6 +343,30 @@
 @navbar-default-toggle-hover-bg:      @gray-100;
 @navbar-default-toggle-icon-bar-bg:   @gray-200;
 @navbar-default-toggle-border-color:  @gray-200;
+//=== Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-text:                 @gray-500;
+@navbar-inverse-bg:                   #000;
+@navbar-inverse-border:               #000;
+// Inverted navbar links
+@navbar-inverse-link-color:           #FFF;
+@navbar-inverse-link-hover-color:     @brand-secondary;
+@navbar-inverse-link-hover-bg:        transparent;
+@navbar-inverse-link-active-color:    @brand-secondary; //mix(@brand-primary, #FFF, 50%); //@navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-hover-color: #12995f;
+@navbar-inverse-link-active-bg:       #000;
+@navbar-inverse-link-disabled-color:  @gray-400;
+@navbar-inverse-link-disabled-bg:     transparent;
+// Inverted navbar brand label
+@navbar-inverse-brand-color:          #fff;
+@navbar-inverse-brand-hover-color:    @gray-100;
+@navbar-inverse-brand-hover-bg:       transparent;
+// Inverted navbar toggle
+@navbar-inverse-toggle-bg:            transparent;
+@navbar-inverse-toggle-hover-bg:      @gray-400;
+@navbar-inverse-toggle-color:         #FFF;
+@navbar-inverse-toggle-icon-bar-bg:   #000;
+@navbar-inverse-toggle-border-color:  transparent;
 //== Pagination
 //
 //## Define pagination colors and padding.
