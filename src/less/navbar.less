@@ -690,9 +690,65 @@
     }
   }
 
-  .navbar-local .navbar-toggle {
-    &.open {
+  .dt-gnm-menu-button {
+    background-color: transparent;
+    color: #FFF;
 
+    &:hover:not(.open) {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
+
+    &.open {
+      background-color: @gray-400;
+      svg path {
+        fill: #FFF;
+      }
+    }
+
+    .dt-gnm-menu-button {
+      &__title {
+        color: #FFF;
+      }
+
+      &__current_option {
+        color: #FFF;
+      }
+    }
+  }
+
+  global-menu-support {
+
+    .dt-gnm-menu-support-button.open {
+      .menu-button-support-icon-question path,
+      .menu-button-support-icon-arrow path {
+        fill: #FFF;
+      }
+    }
+
+    .items-list {
+      background-color: #000;
+      border-color: @gray-200;
+      box-shadow: none;
+
+      li {
+        &.divider {
+          color: @gray-200;
+        }
+
+        &.arrow {
+          border-bottom-color: @gray-200;
+          span {
+            border-bottom-color: #000;
+          }
+        }
+
+        a {
+          color: #FFF;
+          &:hover {
+            background-color: @gray-400;
+          }
+        }
+      }
     }
   }
 
