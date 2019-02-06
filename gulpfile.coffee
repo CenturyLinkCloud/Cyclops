@@ -55,7 +55,7 @@ gulp.task 'less-concat', ->
   concatenated
 
 gulp.task 'less-min', ->
-  return gulp.src './src/less/cyclops.less'
+  return gulp.src [ './src/less/cyclops.less', './src/less/site/site.less' ]
     .pipe sourcemaps.init()
     .pipe less()
     .pipe autoprefixer
