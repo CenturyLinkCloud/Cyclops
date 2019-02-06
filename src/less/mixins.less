@@ -253,7 +253,7 @@
 //
 // Dividers (basically an hr) within dropdowns and nav lists
 
-.nav-divider(@color: #e5e5e5) {
+.nav-divider(@color: @gray-75) {
   height: 1px;
   margin: ((@line-height-computed / 2) - 1) 0;
   overflow: hidden;
@@ -271,12 +271,12 @@
 
 .button-variant-default(@color, @background, @border) {
   @active-background: @gray-75;
-  @active-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+  @active-box-shadow: inset 0 1px 1px 0 fade(#000, 7);
 
   color: @color;
   background-color: @background;
   border-color: @border;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px 0 fade(#000, 4);
 
   &:active,
   &.active,
@@ -315,7 +315,7 @@
 
     &:hover {
       .cyclops-icon {
-        fill: @black;
+        fill: @gray-500;
       }
     }
   }

@@ -48,7 +48,7 @@
       border: 0;
       margin-top: 0;
       border-radius: 0;
-      background: #eee;
+      background: @gray-75;
 
       > li {
         a,
@@ -90,7 +90,7 @@
         &:hover {
          background-color: @action-toolbar-hover-bg;
          svg.cyclops-icon {
-           fill: @black;
+           fill: @gray-500;
          }
         }
       }
@@ -98,17 +98,17 @@
       &:active, &.active {
         background-color: @action-toolbar-active-bg;
         svg.cyclops-icon {
-          fill: @black;
+          fill: @gray-500;
         }
       }
 
       &.disabled,
       &:disabled {
-        color: #b9b9b9;
+        color: #B9B9B9;
         cursor: @cursor-disabled;
 
         svg.cyclops-icon {
-          fill: #b9b9b9;
+          fill: #B9B9B9;
         }
       }
     }
@@ -127,7 +127,7 @@
 .action-toolbar-confirm {
   clear: both;
   background-color: @action-toolbar-dropdown-bg;
-  color: #fff;
+  color: #FFF;
   height: 40px;
   margin-right: -20px;
   padding-right: 20px;
@@ -135,7 +135,7 @@
   padding-left: 20px;
 
   svg {
-    fill: #fff;
+    fill: #FFF;
   }
 
   .message {
@@ -179,11 +179,11 @@
         }
 
         &:hover {
-          color: #fff;
+          color: #FFF;
           background-color: darken(@action-toolbar-dropdown-bg, 10%);
 
           svg {
-            fill: #fff;
+            fill: #FFF;
           }
         }
       }

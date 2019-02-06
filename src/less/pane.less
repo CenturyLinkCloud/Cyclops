@@ -4,7 +4,7 @@ pane {
   overflow: hidden;
   display: block;
   transition: e('max-height .5s, margin-left .5s');
-  background-color: #fff;
+  background-color: #FFF;
 
   &.pane-expanded {
     max-height: none;
@@ -31,8 +31,8 @@ pane {
     height: auto;
     top: 105px;
     bottom: 0;
-    background-color: #f2f2f2;
-    box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+    background-color: @gray-75;
+    box-shadow: inset -5px 0 3px 0 fade(#000, 5);
     overflow: auto;
 
     ~ main {
@@ -60,16 +60,16 @@ pane {
   height: 36px;
   background-color: @gray-100;
   border-bottom: 1px solid @gray-150;
-  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+  box-shadow: inset -5px 0 3px 0 fade(#000, 5);
   letter-spacing: 1px;
   font-size: @font-size-small;
 
   .search {
-    background-color: #fff;
+    background-color: #FFF;
     width: 225px;
     height: 25px;
     position: absolute;
-    margin- top: 5px;
+    margin-top: 5px;
     margin-left: 10px;
     transition: e('margin-top .2s');
     line-height: 26px;
@@ -108,7 +108,7 @@ pane {
   font-size: @font-size-small;
   color: @text-color-lighter;
   line-height: 26px;
-  box-shadow: inset -5px 0 3px 0 rgba(0,0,0,0.05);
+  box-shadow: inset -5px 0 3px 0 fade(#000, 5);
   border-bottom: 1px solid @border-color;
 }
 
@@ -126,7 +126,7 @@ pane {
 
   &.active,
   &:hover {
-    background-color: rgba(255,255,255,.70);
+    background-color: fade(#FFF, 70);
     border: none;
     color: @text-color;
   }

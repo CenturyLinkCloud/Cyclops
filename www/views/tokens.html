@@ -6,6 +6,83 @@
   <p>Design tokens help us maintain consistent and scalable UI pattern library development. They are essentially name-value pairs that describe visual design attributes of our UI patterns. We've exposed them (as opposed to leaving them buried in our source files) so that designers and developers may easily reference defined design attributes.
 </section>
 
+<section class="pl-section" id="backgroundColor">
+  <h3>Cyclops main colors</h3>
+
+  <p>Most Cyclops colors are derived from this palette. </p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>token</th>
+      <th class="token-value">value/example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>@brand-primary</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #0047BB;" title="#0047BB, rgb(0,71,187)"></div>
+        <code>
+          #0047BB<br />
+          rgb(0,71,187)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>@brand-secondary</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #48D597;" title="#48D597, rgb(72,213,151)"></div>
+        <code>
+          #48D597<br />
+          rgb(72,213,151)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>@brand-success</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #48D597;" title="#48D597, rgb(72,213,151)"></div>
+        <code>
+          #48D597<br />
+          rgb(72,213,151)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>@brand-info</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #4288F3;" title="#4288F3, rgb(66,136,243)"></div>
+        <code>
+          #4288F3<br />
+          rgb(66,136,243)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>@brand-warning</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #FDB630;" title="#FDB630, rgb(253,182,48)"></div>
+        <code>
+          #FDB630<br />
+          rgb(253,182,48)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>@brand-danger</code></td>
+      <td>
+        <div class="token-color-box token-color-box--bg" style="background-color: #E43B34;" title="#E43B34, rgb(228,59,52)"></div>
+        <code>
+          #E43B34<br />
+          rgb(228,59,52)
+        </code>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
 <section class="pl-section" id="font">
   <h3>Font</h3>
   <p>Use these font weights to change how thin or heavy the weight is for our font.</p>
@@ -22,7 +99,18 @@
         <td><code>@font-family</code></td>
         <td>
           <div class="token-example-font">The quick brown fox</div>
-          <code>"Open Sans", Helvetica, Arial, Sans-Serif;</code>
+          <code>"Open Sans",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            "Roboto",
+            "Oxygen",
+            "Ubuntu",
+            "Cantarell",
+            "Fira Sans",
+            "Droid Sans",
+            "Helvetica Neue",
+            Sans-Serif;</code>
         </td>
 
       </tr>
@@ -147,24 +235,26 @@
       <td><code>@text-color</code></td>
       <td>
         <div class="token-example-font">The quick brown fox</div>
-        <code>#666</code>
+        <code>#242526<br />
+          rgb(36,37,38)
+        </code>
       </td>
     </tr>
       <tr>
         <td><code>@text-color-light</code></td>
         <td>
-          <div class="token-example-font" style="color: #848484;">The quick brown fox</div>
-          <code>#848484<br />
-            rgb(132,132,132)
+          <div class="token-example-font" style="color: #72767A;">The quick brown fox</div>
+          <code>#72767A<br />
+            rgb(114,118,122)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@text-color-lighter</code></td>
         <td>
-          <div class="token-example-font" style="color: #a3a3a3;">The quick brown fox</div>
-          <code>#a3a3a3<br />
-            rgb(163,163,163)
+          <div class="token-example-font" style="color: #8E9399;">The quick brown fox</div>
+          <code>#8E9399<br />
+            rgb(142,147,153)
           </code>
         </td>
       </tr>
@@ -172,7 +262,7 @@
         <td><code>@text-color-error</code></td>
         <td>
           <div class="token-example-font text-danger">The quick brown fox</div>
-          <code>#e43b34<br />
+          <code>#E43B34<br />
             rgb(228,59,52)
           </code>
         </td>
@@ -180,89 +270,89 @@
       <tr>
         <td><code>@account-switcher-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #c1c1c1">The quick brown fox</div>
-          <code>#c1c1c1<br />
-            rgb(193,193,193)
+          <div class="token-example-font" style="color: #8E9399">The quick brown fox</div>
+          <code>#8E9399<br />
+            rgb(142,147,153)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@account-switcher-input-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #c1c1c1">The quick brown fox</div>
-          <code>#c1c1c1<br />
-            rgb(193,193,193)
+          <div class="token-example-font" style="color: #8E9399">The quick brown fox</div>
+          <code>#8E9399<br />
+            rgb(142,147,153)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@account-switcher-header-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #848484">The quick brown fox</div>
-          <code>#848484<br />
-            rgb(132,132,132)
+          <div class="token-example-font" style="color: #72767A">The quick brown fox</div>
+          <code>#72767A<br />
+            rgb(114,118,122)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-link-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #c1c1c1">The quick brown fox</div>
-          <code>#c1c1c1<br />
-            rgb(193,193,193)
+          <div class="token-example-font" style="color: #242526">The quick brown fox</div>
+          <code>#242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-link-text-hover</code></td>
         <td>
-          <div class="token-example-font" style="color: #e0e0e0">The quick brown fox</div>
-          <code>#e0e0e0<br />
-            rgb(224,224,224)
+          <div class="token-example-font" style="color: #242526">The quick brown fox</div>
+          <code>#242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-link-text-active</code></td>
         <td>
-          <div class="token-example-font" style="color: #fff">The quick brown fox</div>
-          <code>#fff<br />
-            rgb(255,255,255)
+          <div class="token-example-font" style="color: #242526">The quick brown fox</div>
+          <code>#242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-success-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #3cac30;">The quick brown fox</div>
-          <code>#3cac30<br />
-            rgb(60,172,48)
+          <div class="token-example-font" style="color: #27B875;">The quick brown fox</div>
+          <code>#27B875<br />
+            rgb(39,184,117)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-info-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #317495;">The quick brown fox</div>
-          <code>#317495<br />
-            rgb(49,116,149)
+          <div class="token-example-font" style="color: #005BED;">The quick brown fox</div>
+          <code>#005BED<br />
+            rgb(0,91,237)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-warning-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #f5a934;">The quick brown fox</div>
-          <code>#f5a934<br />
-            rgb(245,169,52)
+          <div class="token-example-font" style="color: #FDB630;">The quick brown fox</div>
+          <code>#FDB630<br />
+            rgb(253,182,48)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-danger-text</code></td>
         <td>
-          <div class="token-example-font" style="color: #e43b34;">The quick brown fox</div>
-          <code>#e43b34<br />
+          <div class="token-example-font" style="color: #E43B34;">The quick brown fox</div>
+          <code>#E43B34<br />
             rgb(228,59,52)
           </code>
         </td>
@@ -270,9 +360,9 @@
       <tr>
         <td><code>@alert-text</code></td>
         <td>
-          <div class="token-example-font">The quick brown fox</div>
-          <code>#666<br />
-            rgb(102,102,102)
+          <div class="token-example-font" style="color: #242526;">The quick brown fox</div>
+          <code>#242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
@@ -282,6 +372,26 @@
 
 <section class="pl-section" id="lineHeight">
   <h3>Line Height</h3>
+  <p>Use these tokens for setting line height values.</p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>token</th>
+      <th class="token-value">value/example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>@line-height-base</code></td>
+      <td>Relative to font size: <code>1.428571429 times font size.</code></td>
+    </tr>
+    <tr>
+      <td><code>@line-height-computed</code></td>
+      <td><code>20px</code></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 
 <section class="pl-section" id="backgroundColor">
@@ -300,10 +410,10 @@
       <tr>
         <td><code>@body-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f2f2f2;" title="#f2f2f2, rgb(224,224,224)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#F8F9F9;" title="#F8F9F9, rgb(248,249,249)"></div>
           <code>
-            #e0e0e0<br />
-            rgb(224,224,224)
+            #F8F9F9<br />
+            rgb(248,249,249)
           </code>
         </td>
       </tr>
@@ -320,29 +430,29 @@
       <tr>
         <td><code>@state-success-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#dff0d8;" title="#dff0d8, rgb(223,240,216)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#DAF5E9;" title="#DAF5E9, rgb(218,245,233)"></div>
           <code>
-            #dff0d8<br />
-            rgb(223,240,216)
+            #DAF5E9<br />
+            rgb(218,245,233)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-info-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#d9edf7;" title="#d9edf7, rgb(217,237,247)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#E6F0FF;" title="#E6F0FF, rgb(230,240,255)"></div>
           <code>
-            #d9edf7<br />
-            rgb(217,237,247)
+            #E6F0FF<br />
+            rgb(230,240,255)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-warning-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#fcf8e3;" title="#fcf8e3, rgb(252,248,227)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FCF8E3;" title="#FCF8E3, rgb(252,248,227)"></div>
           <code>
-            #fcf8e3<br />
+            #FCF8E3<br />
             rgb(252,248,227)
           </code>
         </td>
@@ -350,9 +460,9 @@
       <tr>
         <td><code>@state-danger-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f2dede;" title="#f2dede, rgb(242,222,222)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#F2DEDE;" title="#F2DEDE, rgb(242,222,222)"></div>
           <code>
-            #f2dede<br />
+            #F2DEDE<br />
             rgb(242,222,222)
           </code>
         </td>
@@ -360,119 +470,119 @@
       <tr>
         <td><code>@action-toolbar-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e0e0e0;" title="#e0e0e0, rgb(224,224,224)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#EDF0F2;" title="#EDF0F2, rgb(237,240,242)"></div>
           <code>
-            #e0e0e0<br />
-            rgb(224,224,224)
+            #EDF0F2<br />
+            rgb(237,240,242)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@action-toolbar-hover-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#515151;" title="#515151, rgb(81,81,81)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#DEE1E5;" title="#DEE1E5, rgb(222,225,229)"></div>
           <code>
-            #515151<br />
-            rgb(81,81,81)
+            #DEE1E5<br />
+            rgb(222,225,229)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@action-toolbar-active-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#3d3d3d;" title="#3d3d3d, rgb(61,61,61)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#D0D4D9;" title="#D0D4D9, rgb(208,212,217)"></div>
           <code>
-            #3d3d3d<br />
-            rgb(61,61,61)
+            #D0D4D9<br />
+            rgb(208,212,217)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@action-toolbar-dropdown-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#3d3d3d;" title="#3d3d3d, rgb(61,61,61)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#242526;" title="#242526, rgb(36,37,38)"></div>
           <code>
-            #3d3d3d<br />
-            rgb(61,61,61)
+            #242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@action-toolbar-dropdown-hover-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#282828;" title="#282828, rgb(40,40,40)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#242526;" title="#242526, rgb(36,37,38)"></div>
           <code>
-            #282828<br />
-            rgb(40,40,40)
+            #242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@action-toolbar-dropdown-active-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#141414;" title="#141414, rgb(20,20,20)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#242526;" title="#242526, rgb(36,37,38)"></div>
           <code>
-            #141414<br />
-            rgb(20,20,20)
+            #242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@account-switcher-header-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#3d3d3d;" title="#3d3d3d, rgb(61,61,61)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#242526;" title="#242526, rgb(36,37,38)"></div>
           <code>
-            #3d3d3d<br />
-            rgb(61,61,61)
+            #242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@account-switcher-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#282828;" title="#282828, rgb(40,40,40)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#242526;" title="#242526, rgb(36,37,38)"></div>
           <code>
-            #282828<br />
-            rgb(40,40,40)
+            #242526<br />
+            rgb(36,37,38)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@account-switcher-active-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#141414;" title="#141414, rgb(20,20,20)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#000;" title="#000, rgb(0,0,0)"></div>
           <code>
-            #141414<br />
-            rgb(20,20,20)
+            #000<br />
+            rgb(0,0,0)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@alert-success-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#dff0d8;" title="#dff0d8, rgb(223,240,216)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#DAF5E9;" title="#DAF5E9, rgb(218,245,233)"></div>
           <code>
-            #dff0d8<br />
-            rgb(223,240,216)
+            #DAF5E9<br />
+            rgb(218,245,233)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@alert-info-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#d9edf7;" title="#d9edf7, rgb(217,237,247)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#E6F0FF;" title="#E6F0FF, rgb(230,240,255)"></div>
           <code>
-            #d9edf7<br />
-            rgb(217,237,247)
+            #E6F0FF<br />
+            rgb(230,240,255)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@alert-warning-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#fcf8e3;" title="#fcf8e3, rgb(252,248,227)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FCF8E3;" title="#FCF8E3, rgb(252,248,227)"></div>
           <code>
-            #fcf8e3<br />
+            #FCF8E3<br />
             rgb(252,248,227)
           </code>
         </td>
@@ -480,9 +590,9 @@
       <tr>
         <td><code>@alert-danger-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f2dede;" title="#f2dede, rgb(20,20,20)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#F2DEDE;" title="#F2DEDE, rgb(242,222,222)"></div>
           <code>
-            #f2dede<br />
+            #F2DEDE<br />
             rgb(242,222,222)
           </code>
         </td>
@@ -490,7 +600,7 @@
       <tr>
         <td><code>@alert-instruction-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#fff;" title="#fff, rgb(20,20,20)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#fff;" title="#fff, rgb(255,255,255)"></div>
           <code>
             #fff<br />
             rgb(255,255,255)
@@ -500,35 +610,65 @@
       <tr>
         <td><code>@main-nav-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#282828;" title="#282828, rgb(40,40,40)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FFF;" title="#FFF, rgb(255,255,255)"></div>
           <code>
-            #282828<br />
-            rgb(40,40,40)
+            #FFF<br />
+            rgb(255,255,255)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-hover-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#202020;" title="#202020, rgb(32,32,32)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#F8F9F9;" title="#F8F9F9, rgb(248,249,249)"></div>
           <code>
-            #202020<br />
-            rgb(40,40,40)
+            #F8F9F9<br />
+            rgb(248,249,249)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-active-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#141414;" title="#141414, rgb(20,20,20)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#EDF0F2;" title="#EDF0F2, rgb(237,240,242)"></div>
           <code>
-            #141414<br />
-            rgb(20,20,20)
+            #EDF0F2<br />
+            rgb(237,240,242)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@main-nav-flyout-bg</code></td>
+        <td>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FFF;" title="#FFF, rgb(255,255,255)"></div>
+          <code>
+            #FFF<br />
+            rgb(255,255,255)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@main-nav-flyout-hover-bg</code></td>
+        <td>
+          <div class="token-color-box token-color-box--bg" style="background-color:#F8F9F9;" title="#F8F9F9, rgb(248,249,249)"></div>
+          <code>
+            #F8F9F9<br />
+            rgb(248,249,249)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@main-nav-flyout-active-bg</code></td>
+        <td>
+          <div class="token-color-box token-color-box--bg" style="background-color:#EDF0F2;" title="#EDF0F2, rgb(237,240,242)"></div>
+          <code>
+            #EDF0F2<br />
+            rgb(237,240,242)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@navbar-inverse-bg</code></td>
         <td>
           <div class="token-color-box token-color-box--bg" style="background-color:#282828;" title="#282828, rgb(40,40,40)"></div>
           <code>
@@ -538,152 +678,152 @@
         </td>
       </tr>
       <tr>
-        <td><code>@main-nav-flyout-hover-bg</code></td>
-        <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#202020;" title="#202020, rgb(32,32,32)"></div>
-          <code>
-            #202020<br />
-            rgb(40,40,40)
-          </code>
-        </td>
-      </tr>
-      <tr>
-        <td><code>@main-nav-flyout-active-bg</code></td>
-        <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#141414;" title="#141414, rgb(20,20,20)"></div>
-          <code>
-            #141414<br />
-            rgb(20,20,20)
-          </code>
-        </td>
-      </tr>
-      <tr>
         <td><code>@progress-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e0e0e0;" title="#e0e0e0, rgb(224, 224, 224)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#DEE1E5;" title="#DEE1E5, rgb(222,225,229)"></div>
           <code>
-            #e0e0e0<br />
-            rgb(224, 224, 224)
+            #DEE1E5<br />
+            rgb(222,225,229)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@progress-bar-success-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#3cac30;" title="#3cac30, rgb(60, 172, 48)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#48D597;" title="#48D597, rgb(72,213,151)"></div>
           <code>
-            #3cac30<br />
-            rgb(60, 172, 48)
+            #48D597<br />
+            rgb(72,213,151)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@progress-bar-info-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#43c1e6;" title="#43c1e6, rgb(67,193,230)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#4288F3;" title="#4288F3, rgb(66,136,243)"></div>
           <code>
-            #43c1e6<br />
-            rgb(20,20,20)
+            #4288F3<br />
+            rgb(66,136,243)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@progress-bar-warning-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f5a934;" title="#f5a934, rgb(245,169,52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FDB630;" title="#FDB630, rgb(253,182,48)"></div>
           <code>
-            #f5a934<br />
-            rgb(20,20,20)
+            #FDB630<br />
+            rgb(253,182,48)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@progress-bar-danger-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e43b34;" title="#e43b34, rgb(228, 59, 52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#E43B34;" title="#E43B34, rgb(228,59,52)"></div>
           <code>
-            #e43b34<br />
-            rgb(228, 59, 52)
+            #E43B34<br />
+            rgb(228,59,52)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tag-default-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#a3a3a3;" title="#a3a3a3, rgb(163, 163, 163)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#8E9399;" title="#8E9399, rgb(142,147,153)"></div>
           <code>
-            #a3a3a3<br />
-            rgb(163, 163, 163)
+            #8E9399<br />
+            rgb(142,147,153)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tag-primary-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#3cac30;" title="#3cac30, rgb(60, 172, 48)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#0047BB;" title="#48D597, rgb(0,71,187)"></div>
           <code>
-            #3cac30<br />
-            rgb(60, 172, 48)
+            #0047BB<br />
+            rgb(0,71,187)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@tag-success-bg</code></td>
+        <td>
+          <div class="token-color-box token-color-box--bg" style="background-color:#48D597;" title="#48D597, rgb(72,213,151)"></div>
+          <code>
+            #48D597<br />
+            rgb(72,213,151)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tag-info-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#43c1e6;" title="#43c1e6, rgb(67,193,230)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#4288F3;" title="#4288F3, rgb(66,136,243)"></div>
           <code>
-            #43c1e6<br />
-            rgb(20,20,20)
+            #4288F3<br />
+            rgb(66,136,243)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tag-warning-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f5a934;" title="#f5a934, rgb(245,169,52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FDB630;" title="#FDB630, rgb(253,182,48)"></div>
           <code>
-            #f5a934<br />
-            rgb(20,20,20)
+            #FDB630<br />
+            rgb(253,182,48)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tag-danger-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e43b34;" title="#e43b34, rgb(228, 59, 52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#E43B34;" title="#E43B34, rgb(228,59,52)"></div>
           <code>
-            #e43b34<br />
-            rgb(228, 59, 52)
+            #E43B34<br />
+            rgb(228,59,52)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tree-list-status-default-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e0e0e0;" title="#e0e0e0, rgb(224,224,224)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#DEE1E5;" title="#DEE1E5, rgb(222,225,229)"></div>
           <code>
-            #e0e0e0<br />
-            rgb(224,224,224)
+            #DEE1E5<br />
+            rgb(222,225,229)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tree-list-status-warning-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#f5a934;" title="#f5a934, rgb(245,169,52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#FDB630;" title="#FDB630, rgb(253,182,48)"></div>
           <code>
-            #f5a934<br />
-            rgb(20,20,20)
+            #FDB630<br />
+            rgb(253,182,48)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@tree-list-status-danger-bg</code></td>
         <td>
-          <div class="token-color-box token-color-box--bg" style="background-color:#e43b34;" title="#e43b34, rgb(228, 59, 52)"></div>
+          <div class="token-color-box token-color-box--bg" style="background-color:#E43B34;" title="#E43B34, rgb(228,59,52)"></div>
           <code>
-            #e43b34<br />
-            rgb(228, 59, 52)
+            #E43B34<br />
+            rgb(228,59,52)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@navbar-inverse-border</code></td>
+        <td>
+          <div class="token-color-box token-color-box--border" style="border-color:#141414;" title="#141414, rgb(20,20,20)"></div>
+          <code>
+            #141414<br />
+            rgb(20,20,20)
           </code>
         </td>
       </tr>
@@ -758,59 +898,69 @@
       <tr>
         <td><code>@border-color</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#e0e0e0;" title="#e0e0e0, rgb(224,224,224)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#DEE1E5;" title="#DEE1E5, rgb(222,225,229)"></div>
           <code>
-            #e0e0e0<br />
-            rgb(224,224,224)
+            #DEE1E5<br />
+            rgb(222,225,229)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@border-color-dark</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#c1c1c1;" title="#c1c1c1, rgb(193,193,193)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#8E9399;" title="#8E9399, rgb(142,147,153)"></div>
           <code>
-            #c1c1c1<br />
-            rgb(193,193,193)
+            #8E9399<br />
+            rgb(142,147,153)
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td><code>@navbar-inverse-border</code></td>
+        <td>
+          <div class="token-color-box token-color-box--border" style="border-color:#141414;" title="#141414, rgb(20,20,20)"></div>
+          <code>
+            #141414<br />
+            rgb(20,20,20)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-success-border</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#d6e9c6;" title="#d6e9c6, rgb(214,233,198)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#C6F0D6;" title="#C6F0D6, rgb(198,240,214)"></div>
           <code>
-            #d6e9c6<br />
-            rgb(214,233,198)
+            #C6F0D6<br />
+            rgb(198,240,214)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-info-border</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#afe4ee;" title="#afe4ee, rgb(175,228,238)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#B3DEFF;" title="#B3DEFF, rgb(179,222,255)"></div>
           <code>
-            #afe4ee<br />
-            rgb(193,193,193)
+            #B3DEFF<br />
+            rgb(179,222,255)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-warning-border</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#f7e1b5;" title="#f7e1b5, rgb(247,225,181)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#F5D9A5;" title="#F5D9A5, rgb(245,217,165)"></div>
           <code>
-            #f7e1b5<br />
-            rgb(193,193,193)
+            #F5D9A5<br />
+            rgb(245,217,165)
           </code>
         </td>
       </tr>
       <tr>
         <td><code>@state-danger-border</code></td>
         <td>
-          <div class="token-color-box token-color-box--border" style="border-color:#ebccd1;" title="#ebccd1, rgb(193,193,193)"></div>
+          <div class="token-color-box token-color-box--border" style="border-color:#EBCCD1;" title="#EBCCD1, rgb(235,204,209)"></div>
           <code>
-            #ebccd1<br />
+            #EBCCD1<br />
             rgb(235,204,209)
           </code>
         </td>

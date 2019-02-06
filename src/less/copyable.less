@@ -5,42 +5,51 @@ input.copyable {
   border-bottom-right-radius: 0;
 
   + button {
-    background-color: rgb(250, 250, 250);
-    border: 1px solid @gray-200;
+    background-color: #FFF;
+    border: 1px solid @gray-150;
     border-left-width: 0;
     border-top-right-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
-    color: rgb(175, 175, 175);
     font-size: smaller;
     font-weight: bold;
     height: @input-height-base;
     line-height: 100%;
     padding: 0 10px;
     text-transform: uppercase;
-    transition: background-color 0.25s, color 0.25s;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 
     svg {
-      fill: rgb(175, 175, 175);
-      transition: fill 0.25s;
+      transition: fill 0.15s ease-in-out;
     }
 
     &:hover {
-      background-color: rgb(240, 240, 240);
-      color: rgb(125, 125, 125);
       cursor: pointer;
-
+      box-shadow: 0 1px 2px fade(#000, 10);
+      color: @gray-400;
       svg {
-        fill: rgb(125, 125, 125);
+        fill: @gray-400;
       }
     }
 
     &:active {
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1),
-        inset 1px 0 1px rgba(0, 0, 0, 0.05),
-        inset -1px 0 1px rgba(0, 0, 0, 0.05);
-
+      border: 1px solid fade(#000, 15);
+      border-left-width: 0;
+      background: @gray-75;
+      box-shadow: inset 0 1px 2px fade(#000, 8);
+      color: @gray-400;
       svg {
-        margin-top: 0.5px;
+        fill: @gray-400;
+      }
+    }
+
+    &[disabled],
+    &.disabled {
+      opacity: 0.65;
+      cursor: @cursor-disabled;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: none;
       }
     }
   }

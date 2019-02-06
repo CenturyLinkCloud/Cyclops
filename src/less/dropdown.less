@@ -9,7 +9,7 @@ div.dropdown {
   &.open {
     .btn {
       background-color: @gray-75;
-      box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+      box-shadow: inset 0 1px 1px 0 fade(#000, 7);
     }
     .dropdown-menu {
       display: block;
@@ -29,11 +29,11 @@ div.dropdown {
     list-style: none;
     font-size: @font-size-regular;
     text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-    background-color: #fff;
+    background-color: #FFF;
     border: 1px solid @gray-150;
     border-radius: @border-radius-small;
     background-clip: padding-box;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px fade(#000, 8);
 
     &.dropdown-menu-right {
       left: auto; // Reset the default from `.dropdown-menu`

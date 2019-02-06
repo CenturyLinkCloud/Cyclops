@@ -1,0 +1,36 @@
+{{!< ../layouts/starter-page-inverse.html}}
+
+<style>
+
+  @media (min-width: 992px) {
+    .navbar-local--persistent {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+</style>
+
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Hello, world!</h1>
+        <p class="lead">This is a basic starter page for your service's user interface.</p>
+      </div>
+    </div>
+  </div>
+  <div class="primary">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          {{> starter-pages/list-view }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    {{> components/examples/activity-history }}
+  </div>
+</main>

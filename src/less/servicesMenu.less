@@ -57,19 +57,19 @@
         border: 1px solid transparent;
 
         &:not(.open):hover {
-          background: #fff;
-          border: 1px solid #e0e0e0;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+          background: #FFF;
+          border: 1px solid @gray-100;
+          box-shadow: 0 1px 2px fade(#000, 7);
         }
 
         &.open {
             background: @gray-75;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 1px 2px fade(#000, 10);
 
             .navbar-services-menu__select-icon {
                 transform: rotate(180deg);
                 use {
-                  fill: @black;
+                  fill: @gray-500;
                 }
             }
         }
@@ -101,7 +101,7 @@
         }
 
         &__current_service {
-            color: @black;
+            color: @gray-500;
             font-size: 16px;
             font-weight: 600;
         }

@@ -12,9 +12,9 @@
   input:checked + .bug-fix {
     .text {
       margin-left: 0;
-      background-color: @brand-success;
-      border: 1px solid @brand-success;
-      color: #fff;
+      background-color: @brand-primary;
+      border: 1px solid @brand-primary;
+      color: #FFF;
     }
 
     .handle {
@@ -36,7 +36,7 @@
     padding-top: 5px;
     background-color: @gray-200;
     border: 1px solid @gray-200;
-    color: #fff;
+    color: #FFF;
     border-radius: @border-radius-base;
     transition: background 0.3s ease-in, border 0.3s ease-in;
   }
@@ -58,7 +58,7 @@
   .handle {
     display: block;
     width: 35px;
-    background: #fff;
+    background: #FFF;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -78,15 +78,15 @@
     .handle,
     .text .affirmative,
     .text .negative {
-      color: #bababa;
-      background-color: #eee;
+      color: @gray-175;
+      background-color: @gray-75;
     }
 
     input + .bug-fix {
       .text {
-        color: #bababa;
-        background-color: #eee;
-        border-color: #999;
+        color: @gray-175;
+        background-color: @gray-75;
+        border-color: @gray-200;
       }
     }
   }
