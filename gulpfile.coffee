@@ -242,7 +242,7 @@ gulp.task 'compile', ['cleanDist', 'less-min', 'script-minify'], ->
         else
           console.log "failed to render #{file.path}"
     .pipe replace /\/css\/cyclops\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/cyclops.min.css"
-    .pipe replace /\/css\/site\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/site.css"
+    .pipe replace /\/css\/site\.css/i, "https://assets.ctl.io/cyclops/#{pkg.version}/css/site.min.css"
     .pipe replace /\/scripts\/cyclops\.js/i, "https://assets.ctl.io/cyclops/#{pkg.version}/scripts/cyclops.min.js"
     .pipe replace /\/img\/favicon\//gi, "https://assets.ctl.io/cyclops/#{pkg.version}/img/favicon/"
     .pipe gulp.dest "./dist/#{pkg.version}/"
@@ -319,7 +319,7 @@ gulp.task 'travis-compile', ['less-concat', 'script-concat'], ->
         else
           console.log "failed to render #{file.path}"
     .pipe replace /\/css\/cyclops\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/cyclops.css"
-    .pipe replace /\/css\/site\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/site.css"
+    .pipe replace /\/css\/site\.css/i, "https://cyclops-dev.uswest.appfog.ctl.io/css/site.min.css"
     .pipe replace /\/scripts\/cyclops\.js/i, "https://cyclops-dev.uswest.appfog.ctl.io/scripts/cyclops.js"
     .pipe replace /\/img\/favicon\//gi, "https://assets.ctl.io/cyclops/#{pkg.version}/img/favicon/"
     .pipe gulp.dest "./devDist/"
