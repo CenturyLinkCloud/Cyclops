@@ -573,6 +573,10 @@
     }
   }
 
+  #navbar-services:before {
+    background-color: @gray-400;
+  }
+
   .navbar-service {
     border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
     color: @navbar-inverse-brand-color;
@@ -583,35 +587,6 @@
     }
   }
 
-  .navbar-account {
-
-    a:hover,
-    button:hover {
-      .cyclops-icon {
-        fill: #fff;
-      }
-    }
-
-
-    li.open .cyclops-icon use {
-      fill: #fff;
-    }
-
-    @media (min-width: @grid-float-breakpoint) {
-      border-left: 1px solid darken(@navbar-inverse-bg, 5%);
-      border-right: 1px solid lighten(@navbar-inverse-bg, 5%);
-
-      > li {
-        border-left: 1px solid lighten(@navbar-inverse-bg, 5%);
-        border-right: 1px solid darken(@navbar-inverse-bg, 5%);
-      }
-    }
-  }
-
-  .dropdown-menu {
-    background-color: @navbar-inverse-bg;
-  }
-
   svg {
     fill: @navbar-inverse-link-color;
   }
@@ -620,7 +595,6 @@
     color: @navbar-inverse-text;
   }
 
-  .dropdown-menu,
   .navbar-nav {
     > li > button,
     > li > a {
@@ -657,22 +631,6 @@
     }
   }
 
-  .dropdown-menu {
-
-    border: 1px solid darken(@navbar-inverse-bg, 5%);
-
-    li {
-      &:hover {
-        background-color: @navbar-inverse-link-hover-bg;
-      }
-    }
-
-    // Dividers (basically an hr) within the dropdown
-    .divider {
-      .nav-divider(darken(@navbar-inverse-bg, 5%));
-    }
-  }
-
   // Darken the responsive nav toggle
   .navbar-toggle {
     border-color: @navbar-inverse-toggle-border-color;
@@ -694,12 +652,7 @@
     background-color: transparent;
     color: #FFF;
 
-    &:hover:not(.open) {
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(255, 255, 255, 0.4);
-    }
-
     &.open {
-      background-color: @gray-400;
       svg path {
         fill: #FFF;
       }
@@ -712,42 +665,6 @@
 
       &__current_option {
         color: #FFF;
-      }
-    }
-  }
-
-  global-menu-support {
-
-    .dt-gnm-menu-support-button.open {
-      .menu-button-support-icon-question path,
-      .menu-button-support-icon-arrow path {
-        fill: #FFF;
-      }
-    }
-
-    .items-list {
-      background-color: #000;
-      border-color: @gray-200;
-      box-shadow: none;
-
-      li {
-        &.divider {
-          color: @gray-200;
-        }
-
-        &.arrow {
-          border-bottom-color: @gray-200;
-          span {
-            border-bottom-color: #000;
-          }
-        }
-
-        a {
-          color: #FFF;
-          &:hover {
-            background-color: @gray-400;
-          }
-        }
       }
     }
   }
@@ -837,6 +754,58 @@
     }
   }
 
+  .navbar-account {
+
+    > li > button,
+    > li > a {
+      color: #fff;
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: transparent;
+
+        svg {
+          fill: @gray-200;
+        }
+      }
+    }
+
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: transparent;
+      }
+    }
+
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @gray-400;
+        background-color: transparent;
+      }
+    }
+
+    a:hover,
+    button:hover {
+      .cyclops-icon {
+        fill: #fff;
+      }
+    }
+
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        color: #fff;
+      }
+    }
+  }
+
   .navbar-link {
     color: @navbar-inverse-link-color;
 
@@ -885,6 +854,14 @@
   .cyclops-icon {
     transition: all linear 150ms;
     fill: @gray-200;
+  }
+
+  & > li > button,
+  & > li > a {
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
   }
 
   a:hover, button:hover {
