@@ -4,11 +4,12 @@ $.fn.inlineConfirm = (options) ->
     yesHtml: "YES"
     noHtml: "NO"
     timeout: 3000
+    classes: ""
   }, options
 
   $(this).each (idx, btn) ->
     $btn = $(btn)
-    $container = $("<div class='inline-confirm'>" +
+    $container = $("<div class='inline-confirm #{options.classes}'>" +
                       "<div class='viewport'>" +
                         "<div class='confirmation-container'>" +
                           "<span class='message'>Are you sure?</span>" +
