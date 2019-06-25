@@ -637,15 +637,21 @@
     color: @navbar-inverse-toggle-color;
     background-color: @navbar-inverse-toggle-bg;
 
-    &:hover,
-    &:focus,
-    &.open {
-      background-color: @navbar-inverse-toggle-hover-bg;
-    }
-
     .icon-bar {
       background-color: @navbar-inverse-toggle-icon-bar-bg;
     }
+
+    &:hover,
+    &:focus,
+    &.open {
+      border-color: @navbar-inverse-toggle-hover-border-color;
+      color: @navbar-inverse-toggle-hover-color;
+
+      .icon-bar {
+        background-color: @navbar-inverse-toggle-hover-icon-bar-bg;
+      }
+    }
+
   }
 
   .dt-gnm-menu-button {
